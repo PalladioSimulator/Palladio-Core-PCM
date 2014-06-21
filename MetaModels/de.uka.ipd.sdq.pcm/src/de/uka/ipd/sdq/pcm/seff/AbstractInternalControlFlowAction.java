@@ -24,12 +24,14 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
- * <em>Resource Demand Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action <em>
+ * Resource Demand Action</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
  * <em>Infrastructure Call Action</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action <em>
  * Resource Call Action</em>}</li>
  * </ul>
  * </p>
@@ -49,7 +51,7 @@ public interface AbstractInternalControlFlowAction extends AbstractAction {
     /**
      * Returns the value of the '<em><b>Resource Demand Action</b></em>' containment reference list.
      * The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand}. It is
+     * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand} . It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
      * <em>Action Parametric Resource Demand</em>}'. <!-- begin-user-doc -->

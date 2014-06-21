@@ -45,7 +45,7 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * 
      * @generated
      */
-    public AcquireActionItemProvider(AdapterFactory adapterFactory) {
+    public AcquireActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,15 +56,15 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addPassiveresource_AcquireActionPropertyDescriptor(object);
-            addTimeoutPropertyDescriptor(object);
-            addTimeoutValuePropertyDescriptor(object);
+            this.addPassiveresource_AcquireActionPropertyDescriptor(object);
+            this.addTimeoutPropertyDescriptor(object);
+            this.addTimeoutValuePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,12 +73,11 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * 
      * @generated
      */
-    protected void addPassiveresource_AcquireActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AcquireAction_passiveresource_AcquireAction_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addPassiveresource_AcquireActionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AcquireAction_passiveresource_AcquireAction_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_AcquireAction_passiveresource_AcquireAction_feature", "_UI_AcquireAction_type"),
                 SeffPackage.Literals.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION, true, false, true, null, null,
                 null));
@@ -90,12 +89,11 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * 
      * @generated
      */
-    protected void addTimeoutPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AcquireAction_timeout_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AcquireAction_timeout_feature",
+    protected void addTimeoutPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AcquireAction_timeout_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AcquireAction_timeout_feature",
                         "_UI_AcquireAction_type"), SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT, true, false, false,
                 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
     }
@@ -106,12 +104,11 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * 
      * @generated
      */
-    protected void addTimeoutValuePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AcquireAction_timeoutValue_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AcquireAction_timeoutValue_feature",
+    protected void addTimeoutValuePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AcquireAction_timeoutValue_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AcquireAction_timeoutValue_feature",
                         "_UI_AcquireAction_type"), SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT_VALUE, true, false,
                 false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
@@ -122,8 +119,8 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/AcquireAction"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/AcquireAction"));
     }
 
     /**
@@ -133,10 +130,10 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((AcquireAction) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_AcquireAction_type")
-                : getString("_UI_AcquireAction_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((AcquireAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_AcquireAction_type") : this
+                .getString("_UI_AcquireAction_type") + " " + label;
     }
 
     /**
@@ -147,13 +144,13 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(AcquireAction.class)) {
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT:
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT_VALUE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -166,7 +163,7 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

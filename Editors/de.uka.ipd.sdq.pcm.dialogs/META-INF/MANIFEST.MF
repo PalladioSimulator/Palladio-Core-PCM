@@ -15,7 +15,7 @@ Export-Package: de.uka.ipd.sdq.pcm.dialogs,
  de.uka.ipd.sdq.pcm.dialogs.usage,
  de.uka.ipd.sdq.pcm.dialogs.variablenames,
  de.uka.ipd.sdq.pcm.dialogs.variableusage
-Require-Bundle: de.uka.ipd.sdq.stoex;bundle-version="2.1.0",
+Require-Bundle: de.uka.ipd.sdq.stoex;bundle-version="2.2.0",
  de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
  org.eclipse.ui,
  de.uka.ipd.sdq.pcm;bundle-version="3.6.0",

@@ -176,11 +176,12 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * @generated
      */
     public static ReliabilityPackage init() {
-        if (isInited)
+        if (isInited) {
             return (ReliabilityPackage) EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI);
+        }
 
         // Obtain or create and register package
-        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
                 : new ReliabilityPackageImpl());
 
@@ -192,58 +193,61 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
@@ -293,6 +297,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theReliabilityPackage, new EValidator.Descriptor() {
+            @Override
             public EValidator getEValidator() {
                 return ReliabilityValidator.INSTANCE;
             }
@@ -311,8 +316,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getFailureOccurrenceDescription() {
-        return failureOccurrenceDescriptionEClass;
+        return this.failureOccurrenceDescriptionEClass;
     }
 
     /**
@@ -320,8 +326,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EAttribute getFailureOccurrenceDescription_FailureProbability() {
-        return (EAttribute) failureOccurrenceDescriptionEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) this.failureOccurrenceDescriptionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -329,8 +336,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getHardwareInducedFailureType() {
-        return hardwareInducedFailureTypeEClass;
+        return this.hardwareInducedFailureTypeEClass;
     }
 
     /**
@@ -338,8 +346,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType() {
-        return (EReference) hardwareInducedFailureTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.hardwareInducedFailureTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -347,8 +356,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getSoftwareInducedFailureType() {
-        return softwareInducedFailureTypeEClass;
+        return this.softwareInducedFailureTypeEClass;
     }
 
     /**
@@ -356,8 +366,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType() {
-        return (EReference) softwareInducedFailureTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.softwareInducedFailureTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -365,8 +376,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getInternalFailureOccurrenceDescription() {
-        return internalFailureOccurrenceDescriptionEClass;
+        return this.internalFailureOccurrenceDescriptionEClass;
     }
 
     /**
@@ -374,8 +386,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getInternalFailureOccurrenceDescription_InternalAction__InternalFailureOccurrenceDescription() {
-        return (EReference) internalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.internalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -383,8 +396,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
-        return (EReference) internalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.internalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -392,8 +406,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getNetworkInducedFailureType() {
-        return networkInducedFailureTypeEClass;
+        return this.networkInducedFailureTypeEClass;
     }
 
     /**
@@ -401,8 +416,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType() {
-        return (EReference) networkInducedFailureTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.networkInducedFailureTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -410,8 +426,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getExternalFailureOccurrenceDescription() {
-        return externalFailureOccurrenceDescriptionEClass;
+        return this.externalFailureOccurrenceDescriptionEClass;
     }
 
     /**
@@ -419,8 +436,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription() {
-        return (EReference) externalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.externalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -428,8 +446,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription() {
-        return (EReference) externalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.externalFailureOccurrenceDescriptionEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -437,8 +456,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getResourceTimeoutFailureType() {
-        return resourceTimeoutFailureTypeEClass;
+        return this.resourceTimeoutFailureTypeEClass;
     }
 
     /**
@@ -446,8 +466,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType() {
-        return (EReference) resourceTimeoutFailureTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.resourceTimeoutFailureTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -455,8 +476,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EClass getFailureType() {
-        return failureTypeEClass;
+        return this.failureTypeEClass;
     }
 
     /**
@@ -464,8 +486,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public EReference getFailureType_Repository__FailureType() {
-        return (EReference) failureTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.failureTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -473,8 +496,9 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * 
      * @generated
      */
+    @Override
     public ReliabilityFactory getReliabilityFactory() {
-        return (ReliabilityFactory) getEFactoryInstance();
+        return (ReliabilityFactory) this.getEFactoryInstance();
     }
 
     /**
@@ -491,44 +515,46 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * @generated
      */
     public void createPackageContents() {
-        if (isCreated)
+        if (this.isCreated) {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        failureOccurrenceDescriptionEClass = createEClass(FAILURE_OCCURRENCE_DESCRIPTION);
-        createEAttribute(failureOccurrenceDescriptionEClass, FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY);
+        this.failureOccurrenceDescriptionEClass = this.createEClass(FAILURE_OCCURRENCE_DESCRIPTION);
+        this.createEAttribute(this.failureOccurrenceDescriptionEClass,
+                FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY);
 
-        hardwareInducedFailureTypeEClass = createEClass(HARDWARE_INDUCED_FAILURE_TYPE);
-        createEReference(hardwareInducedFailureTypeEClass,
+        this.hardwareInducedFailureTypeEClass = this.createEClass(HARDWARE_INDUCED_FAILURE_TYPE);
+        this.createEReference(this.hardwareInducedFailureTypeEClass,
                 HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE);
 
-        softwareInducedFailureTypeEClass = createEClass(SOFTWARE_INDUCED_FAILURE_TYPE);
-        createEReference(softwareInducedFailureTypeEClass,
+        this.softwareInducedFailureTypeEClass = this.createEClass(SOFTWARE_INDUCED_FAILURE_TYPE);
+        this.createEReference(this.softwareInducedFailureTypeEClass,
                 SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE);
 
-        internalFailureOccurrenceDescriptionEClass = createEClass(INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
-        createEReference(internalFailureOccurrenceDescriptionEClass,
+        this.internalFailureOccurrenceDescriptionEClass = this.createEClass(INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
+        this.createEReference(this.internalFailureOccurrenceDescriptionEClass,
                 INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
-        createEReference(internalFailureOccurrenceDescriptionEClass,
+        this.createEReference(this.internalFailureOccurrenceDescriptionEClass,
                 INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
 
-        networkInducedFailureTypeEClass = createEClass(NETWORK_INDUCED_FAILURE_TYPE);
-        createEReference(networkInducedFailureTypeEClass,
+        this.networkInducedFailureTypeEClass = this.createEClass(NETWORK_INDUCED_FAILURE_TYPE);
+        this.createEReference(this.networkInducedFailureTypeEClass,
                 NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE);
 
-        externalFailureOccurrenceDescriptionEClass = createEClass(EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
-        createEReference(externalFailureOccurrenceDescriptionEClass,
+        this.externalFailureOccurrenceDescriptionEClass = this.createEClass(EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
+        this.createEReference(this.externalFailureOccurrenceDescriptionEClass,
                 EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
-        createEReference(externalFailureOccurrenceDescriptionEClass,
+        this.createEReference(this.externalFailureOccurrenceDescriptionEClass,
                 EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
 
-        resourceTimeoutFailureTypeEClass = createEClass(RESOURCE_TIMEOUT_FAILURE_TYPE);
-        createEReference(resourceTimeoutFailureTypeEClass,
+        this.resourceTimeoutFailureTypeEClass = this.createEClass(RESOURCE_TIMEOUT_FAILURE_TYPE);
+        this.createEReference(this.resourceTimeoutFailureTypeEClass,
                 RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE);
 
-        failureTypeEClass = createEClass(FAILURE_TYPE);
-        createEReference(failureTypeEClass, FAILURE_TYPE__REPOSITORY_FAILURE_TYPE);
+        this.failureTypeEClass = this.createEClass(FAILURE_TYPE);
+        this.createEReference(this.failureTypeEClass, FAILURE_TYPE__REPOSITORY_FAILURE_TYPE);
     }
 
     /**
@@ -545,167 +571,171 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * @generated
      */
     public void initializePackageContents() {
-        if (isInitialized)
+        if (this.isInitialized) {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
-        setName(eNAME);
-        setNsPrefix(eNS_PREFIX);
-        setNsURI(eNS_URI);
+        this.setName(eNAME);
+        this.setNsPrefix(eNS_PREFIX);
+        this.setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        ResourcetypePackage theResourcetypePackage = (ResourcetypePackage) EPackage.Registry.INSTANCE
+        final ResourcetypePackage theResourcetypePackage = (ResourcetypePackage) EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI);
-        SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
-        QosReliabilityPackage theQosReliabilityPackage = (QosReliabilityPackage) EPackage.Registry.INSTANCE
+        final SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+        final QosReliabilityPackage theQosReliabilityPackage = (QosReliabilityPackage) EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI);
-        RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI);
-        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
+                .getEPackage(EntityPackage.eNS_URI);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        hardwareInducedFailureTypeEClass.getESuperTypes().add(this.getFailureType());
-        softwareInducedFailureTypeEClass.getESuperTypes().add(this.getFailureType());
-        internalFailureOccurrenceDescriptionEClass.getESuperTypes().add(this.getFailureOccurrenceDescription());
-        networkInducedFailureTypeEClass.getESuperTypes().add(this.getFailureType());
-        externalFailureOccurrenceDescriptionEClass.getESuperTypes().add(this.getFailureOccurrenceDescription());
-        resourceTimeoutFailureTypeEClass.getESuperTypes().add(this.getSoftwareInducedFailureType());
-        failureTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.hardwareInducedFailureTypeEClass.getESuperTypes().add(this.getFailureType());
+        this.softwareInducedFailureTypeEClass.getESuperTypes().add(this.getFailureType());
+        this.internalFailureOccurrenceDescriptionEClass.getESuperTypes().add(this.getFailureOccurrenceDescription());
+        this.networkInducedFailureTypeEClass.getESuperTypes().add(this.getFailureType());
+        this.externalFailureOccurrenceDescriptionEClass.getESuperTypes().add(this.getFailureOccurrenceDescription());
+        this.resourceTimeoutFailureTypeEClass.getESuperTypes().add(this.getSoftwareInducedFailureType());
+        this.failureTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
         // Initialize classes and features; add operations and parameters
-        initEClass(failureOccurrenceDescriptionEClass, FailureOccurrenceDescription.class,
+        this.initEClass(this.failureOccurrenceDescriptionEClass, FailureOccurrenceDescription.class,
                 "FailureOccurrenceDescription", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getFailureOccurrenceDescription_FailureProbability(), ecorePackage.getEDouble(),
+        this.initEAttribute(this.getFailureOccurrenceDescription_FailureProbability(), this.ecorePackage.getEDouble(),
                 "failureProbability", null, 1, 1, FailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        EOperation op = addEOperation(failureOccurrenceDescriptionEClass, ecorePackage.getEBoolean(),
+        EOperation op = this.addEOperation(this.failureOccurrenceDescriptionEClass, this.ecorePackage.getEBoolean(),
                 "EnsureValidFailureProbabilityRange", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(hardwareInducedFailureTypeEClass, HardwareInducedFailureType.class, "HardwareInducedFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType(),
+        this.initEClass(this.hardwareInducedFailureTypeEClass, HardwareInducedFailureType.class,
+                "HardwareInducedFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType(),
                 theResourcetypePackage.getProcessingResourceType(),
                 theResourcetypePackage.getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType(),
                 "processingResourceType__HardwareInducedFailureType", null, 1, 1, HardwareInducedFailureType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(hardwareInducedFailureTypeEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.hardwareInducedFailureTypeEClass, this.ecorePackage.getEBoolean(),
                 "HardwareInducedFailureTypeHasProcessingResourceType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(softwareInducedFailureTypeEClass, SoftwareInducedFailureType.class, "SoftwareInducedFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType(),
+        this.initEClass(this.softwareInducedFailureTypeEClass, SoftwareInducedFailureType.class,
+                "SoftwareInducedFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(
+                this.getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType(),
                 this.getInternalFailureOccurrenceDescription(),
                 this.getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription(),
                 "internalFailureOccurrenceDescriptions__SoftwareInducedFailureType", null, 0, -1,
                 SoftwareInducedFailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(internalFailureOccurrenceDescriptionEClass, InternalFailureOccurrenceDescription.class,
+        this.initEClass(this.internalFailureOccurrenceDescriptionEClass, InternalFailureOccurrenceDescription.class,
                 "InternalFailureOccurrenceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getInternalFailureOccurrenceDescription_InternalAction__InternalFailureOccurrenceDescription(),
+        this.initEReference(
+                this.getInternalFailureOccurrenceDescription_InternalAction__InternalFailureOccurrenceDescription(),
                 theSeffPackage.getInternalAction(),
                 theSeffPackage.getInternalAction_InternalFailureOccurrenceDescriptions__InternalAction(),
                 "internalAction__InternalFailureOccurrenceDescription", null, 1, 1,
                 InternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(
-                getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription(),
+        this.initEReference(
+                this.getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription(),
                 this.getSoftwareInducedFailureType(),
                 this.getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType(),
                 "softwareInducedFailureType__InternalFailureOccurrenceDescription", null, 1, 1,
                 InternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(internalFailureOccurrenceDescriptionEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.internalFailureOccurrenceDescriptionEClass, this.ecorePackage.getEBoolean(),
                 "NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(networkInducedFailureTypeEClass, NetworkInducedFailureType.class, "NetworkInducedFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType(),
-                theResourcetypePackage.getCommunicationLinkResourceType(),
-                theResourcetypePackage
+        this.initEClass(this.networkInducedFailureTypeEClass, NetworkInducedFailureType.class,
+                "NetworkInducedFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this
+                .getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType(),
+                theResourcetypePackage.getCommunicationLinkResourceType(), theResourcetypePackage
                         .getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType(),
                 "communicationLinkResourceType__NetworkInducedFailureType", null, 1, 1,
                 NetworkInducedFailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(networkInducedFailureTypeEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.networkInducedFailureTypeEClass, this.ecorePackage.getEBoolean(),
                 "NetworkInducedFailureTypeHasCommunicationLinkResourceType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(externalFailureOccurrenceDescriptionEClass, ExternalFailureOccurrenceDescription.class,
+        this.initEClass(this.externalFailureOccurrenceDescriptionEClass, ExternalFailureOccurrenceDescription.class,
                 "ExternalFailureOccurrenceDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(),
+        this.initEReference(
+                this.getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(),
                 theQosReliabilityPackage.getSpecifiedReliabilityAnnotation(),
                 theQosReliabilityPackage
                         .getSpecifiedReliabilityAnnotation_ExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation(),
                 "specifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription", null, 1, 1,
                 ExternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription(),
+        this.initEReference(
+                this.getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription(),
                 this.getFailureType(), null, "failureType__ExternalFailureOccurrenceDescription", null, 1, 1,
                 ExternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(externalFailureOccurrenceDescriptionEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.externalFailureOccurrenceDescriptionEClass, this.ecorePackage.getEBoolean(),
                 "NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(resourceTimeoutFailureTypeEClass, ResourceTimeoutFailureType.class, "ResourceTimeoutFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType(),
+        this.initEClass(this.resourceTimeoutFailureTypeEClass, ResourceTimeoutFailureType.class,
+                "ResourceTimeoutFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType(),
                 theRepositoryPackage.getPassiveResource(),
                 theRepositoryPackage.getPassiveResource_ResourceTimeoutFailureType__PassiveResource(),
                 "passiveResource__ResourceTimeoutFailureType", null, 1, 1, ResourceTimeoutFailureType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(failureTypeEClass, FailureType.class, "FailureType", IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.failureTypeEClass, FailureType.class, "FailureType", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getFailureType_Repository__FailureType(), theRepositoryPackage.getRepository(),
+        this.initEReference(this.getFailureType_Repository__FailureType(), theRepositoryPackage.getRepository(),
                 theRepositoryPackage.getRepository_FailureTypes__Repository(), "repository__FailureType", null, 1, 1,
                 FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

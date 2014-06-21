@@ -39,12 +39,12 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      */
     public static ParameterFactory init() {
         try {
-            ParameterFactory theParameterFactory = (ParameterFactory) EPackage.Registry.INSTANCE
+            final ParameterFactory theParameterFactory = (ParameterFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ParameterPackage.eNS_URI);
             if (theParameterFactory != null) {
                 return theParameterFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ParameterFactoryImpl();
@@ -65,14 +65,14 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case ParameterPackage.VARIABLE_USAGE:
-            return (EObject) createVariableUsage();
+            return this.createVariableUsage();
         case ParameterPackage.VARIABLE_CHARACTERISATION:
-            return (EObject) createVariableCharacterisation();
+            return this.createVariableCharacterisation();
         case ParameterPackage.CHARACTERISED_VARIABLE:
-            return (EObject) createCharacterisedVariable();
+            return this.createCharacterisedVariable();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -84,10 +84,10 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * @generated
      */
     @Override
-    public Object createFromString(EDataType eDataType, String initialValue) {
+    public Object createFromString(final EDataType eDataType, final String initialValue) {
         switch (eDataType.getClassifierID()) {
         case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
-            return createVariableCharacterisationTypeFromString(eDataType, initialValue);
+            return this.createVariableCharacterisationTypeFromString(eDataType, initialValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -99,10 +99,10 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * @generated
      */
     @Override
-    public String convertToString(EDataType eDataType, Object instanceValue) {
+    public String convertToString(final EDataType eDataType, final Object instanceValue) {
         switch (eDataType.getClassifierID()) {
         case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
-            return convertVariableCharacterisationTypeToString(eDataType, instanceValue);
+            return this.convertVariableCharacterisationTypeToString(eDataType, instanceValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -113,8 +113,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * 
      * @generated
      */
+    @Override
     public VariableCharacterisation createVariableCharacterisation() {
-        VariableCharacterisationImpl variableCharacterisation = new VariableCharacterisationImpl();
+        final VariableCharacterisationImpl variableCharacterisation = new VariableCharacterisationImpl();
         return variableCharacterisation;
     }
 
@@ -123,8 +124,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * 
      * @generated
      */
+    @Override
     public CharacterisedVariable createCharacterisedVariable() {
-        CharacterisedVariableImpl characterisedVariable = new CharacterisedVariableImpl();
+        final CharacterisedVariableImpl characterisedVariable = new CharacterisedVariableImpl();
         return characterisedVariable;
     }
 
@@ -133,8 +135,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * 
      * @generated
      */
+    @Override
     public VariableUsage createVariableUsage() {
-        VariableUsageImpl variableUsage = new VariableUsageImpl();
+        final VariableUsageImpl variableUsage = new VariableUsageImpl();
         return variableUsage;
     }
 
@@ -143,12 +146,13 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * 
      * @generated
      */
-    public VariableCharacterisationType createVariableCharacterisationTypeFromString(EDataType eDataType,
-            String initialValue) {
-        VariableCharacterisationType result = VariableCharacterisationType.get(initialValue);
-        if (result == null)
+    public VariableCharacterisationType createVariableCharacterisationTypeFromString(final EDataType eDataType,
+            final String initialValue) {
+        final VariableCharacterisationType result = VariableCharacterisationType.get(initialValue);
+        if (result == null) {
             throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
                     + eDataType.getName() + "'");
+        }
         return result;
     }
 
@@ -157,7 +161,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * 
      * @generated
      */
-    public String convertVariableCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
+    public String convertVariableCharacterisationTypeToString(final EDataType eDataType, final Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -166,8 +170,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * 
      * @generated
      */
+    @Override
     public ParameterPackage getParameterPackage() {
-        return (ParameterPackage) getEPackage();
+        return (ParameterPackage) this.getEPackage();
     }
 
     /**

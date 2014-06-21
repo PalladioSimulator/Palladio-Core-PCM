@@ -11,7 +11,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Branch</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Branch</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A Branch splits the user flow with a XOR-semantic: one of the included

@@ -12,8 +12,8 @@ import de.uka.ipd.sdq.pcm.PcmPackage;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Dummy Class</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Dummy Class</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * </p>
  * 

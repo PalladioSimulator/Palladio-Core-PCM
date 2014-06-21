@@ -31,15 +31,15 @@ public interface InfrastructureRequiredRole extends RequiredRole {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Required Interface Infrastructure Required Role</b></em>'
+     * Returns the value of the ' <em><b>Required Interface Infrastructure Required Role</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Required Interface Infrastructure Required Role</em>' reference
+     * If the meaning of the ' <em>Required Interface Infrastructure Required Role</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Required Interface Infrastructure Required Role</em>'
+     * @return the value of the ' <em>Required Interface Infrastructure Required Role</em>'
      *         reference.
      * @see #setRequiredInterface__InfrastructureRequiredRole(InfrastructureInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole()
@@ -55,7 +55,7 @@ public interface InfrastructureRequiredRole extends RequiredRole {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Required Interface Infrastructure Required Role</em>'
+     *            the new value of the ' <em>Required Interface Infrastructure Required Role</em>'
      *            reference.
      * @see #getRequiredInterface__InfrastructureRequiredRole()
      * @generated

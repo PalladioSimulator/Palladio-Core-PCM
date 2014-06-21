@@ -45,8 +45,9 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl#getComponentParameterUsage_ImplementationComponentType
  * <em>Component Parameter Usage Implementation Component Type</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl#getComponentType
- * <em>Component Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl#getComponentType <em>
+ * Component Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -73,7 +74,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
     protected EList<CompleteComponentType> parentCompleteComponentTypes;
 
     /**
-     * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType()
+     * The cached value of the ' {@link #getComponentParameterUsage_ImplementationComponentType()
      * <em>Component Parameter Usage Implementation Component Type</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -127,13 +128,14 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
+    @Override
     public EList<CompleteComponentType> getParentCompleteComponentTypes() {
-        if (parentCompleteComponentTypes == null) {
-            parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(
+        if (this.parentCompleteComponentTypes == null) {
+            this.parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(
                     CompleteComponentType.class, this,
                     RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
         }
-        return parentCompleteComponentTypes;
+        return this.parentCompleteComponentTypes;
     }
 
     /**
@@ -141,14 +143,15 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
+    @Override
     public EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
-        if (componentParameterUsage_ImplementationComponentType == null) {
-            componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<VariableUsage>(
+        if (this.componentParameterUsage_ImplementationComponentType == null) {
+            this.componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<VariableUsage>(
                     VariableUsage.class,
                     this,
                     RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
         }
-        return componentParameterUsage_ImplementationComponentType;
+        return this.componentParameterUsage_ImplementationComponentType;
     }
 
     /**
@@ -156,8 +159,9 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
+    @Override
     public ComponentType getComponentType() {
-        return componentType;
+        return this.componentType;
     }
 
     /**
@@ -165,12 +169,15 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
-    public void setComponentType(ComponentType newComponentType) {
-        ComponentType oldComponentType = componentType;
-        componentType = newComponentType == null ? COMPONENT_TYPE_EDEFAULT : newComponentType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, oldComponentType, componentType));
+    @Override
+    public void setComponentType(final ComponentType newComponentType) {
+        final ComponentType oldComponentType = this.componentType;
+        this.componentType = newComponentType == null ? COMPONENT_TYPE_EDEFAULT : newComponentType;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, oldComponentType,
+                    this.componentType));
+        }
     }
 
     /**
@@ -232,15 +239,16 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
-    public boolean RequiredInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean RequiredInterfacesHaveToConformToCompleteType(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -318,15 +326,16 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
-    public boolean providedInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean providedInterfacesHaveToConformToCompleteType(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -384,15 +393,16 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
-    public boolean ProvidedInterfaceHaveToConformToComponentType(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean ProvidedInterfaceHaveToConformToComponentType(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -465,15 +475,16 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
-    public boolean ProvideSameOrMoreInterfacesAsCompleteComponentType(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean ProvideSameOrMoreInterfacesAsCompleteComponentType(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -543,15 +554,16 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * 
      * @generated
      */
-    public boolean RequireSameOrFewerInterfacesAsCompleteComponentType(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean RequireSameOrFewerInterfacesAsCompleteComponentType(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -580,11 +592,12 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            return ((InternalEList<?>) getComponentParameterUsage_ImplementationComponentType()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) this.getComponentParameterUsage_ImplementationComponentType()).basicRemove(
+                    otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -595,14 +608,14 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
-            return getParentCompleteComponentTypes();
+            return this.getParentCompleteComponentTypes();
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            return getComponentParameterUsage_ImplementationComponentType();
+            return this.getComponentParameterUsage_ImplementationComponentType();
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
-            return getComponentType();
+            return this.getComponentType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -614,19 +627,19 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
-            getParentCompleteComponentTypes().clear();
-            getParentCompleteComponentTypes().addAll((Collection<? extends CompleteComponentType>) newValue);
+            this.getParentCompleteComponentTypes().clear();
+            this.getParentCompleteComponentTypes().addAll((Collection<? extends CompleteComponentType>) newValue);
             return;
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            getComponentParameterUsage_ImplementationComponentType().clear();
-            getComponentParameterUsage_ImplementationComponentType().addAll(
+            this.getComponentParameterUsage_ImplementationComponentType().clear();
+            this.getComponentParameterUsage_ImplementationComponentType().addAll(
                     (Collection<? extends VariableUsage>) newValue);
             return;
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
-            setComponentType((ComponentType) newValue);
+            this.setComponentType((ComponentType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -638,16 +651,16 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
-            getParentCompleteComponentTypes().clear();
+            this.getParentCompleteComponentTypes().clear();
             return;
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            getComponentParameterUsage_ImplementationComponentType().clear();
+            this.getComponentParameterUsage_ImplementationComponentType().clear();
             return;
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
-            setComponentType(COMPONENT_TYPE_EDEFAULT);
+            this.setComponentType(COMPONENT_TYPE_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -659,15 +672,15 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
-            return parentCompleteComponentTypes != null && !parentCompleteComponentTypes.isEmpty();
+            return this.parentCompleteComponentTypes != null && !this.parentCompleteComponentTypes.isEmpty();
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            return componentParameterUsage_ImplementationComponentType != null
-                    && !componentParameterUsage_ImplementationComponentType.isEmpty();
+            return this.componentParameterUsage_ImplementationComponentType != null
+                    && !this.componentParameterUsage_ImplementationComponentType.isEmpty();
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
-            return componentType != COMPONENT_TYPE_EDEFAULT;
+            return this.componentType != COMPONENT_TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -679,12 +692,13 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (componentType: ");
-        result.append(componentType);
+        result.append(this.componentType);
         result.append(')');
         return result.toString();
     }

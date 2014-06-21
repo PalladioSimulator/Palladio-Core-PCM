@@ -29,7 +29,7 @@ public class UsagemodelResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public UsagemodelResourceImpl(URI uri) {
+    public UsagemodelResourceImpl(final URI uri) {
         super(uri);
     }
 

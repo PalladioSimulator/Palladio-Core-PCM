@@ -44,7 +44,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * 
      * @generated
      */
-    public SourceDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
+    public SourceDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,15 +55,15 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addInnerSourceRole__SourceRolePropertyDescriptor(object);
-            addOuterSourceRole__SourceRolePropertyDescriptor(object);
-            addAssemblyContext__SourceDelegationConnectorPropertyDescriptor(object);
+            this.addInnerSourceRole__SourceRolePropertyDescriptor(object);
+            this.addOuterSourceRole__SourceRolePropertyDescriptor(object);
+            this.addAssemblyContext__SourceDelegationConnectorPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,12 +72,11 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * 
      * @generated
      */
-    protected void addInnerSourceRole__SourceRolePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_SourceDelegationConnector_innerSourceRole__SourceRole_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addInnerSourceRole__SourceRolePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_SourceDelegationConnector_innerSourceRole__SourceRole_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_SourceDelegationConnector_innerSourceRole__SourceRole_feature",
                         "_UI_SourceDelegationConnector_type"),
                 CompositionPackage.Literals.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE, true, false,
@@ -90,12 +89,11 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * 
      * @generated
      */
-    protected void addOuterSourceRole__SourceRolePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_SourceDelegationConnector_outerSourceRole__SourceRole_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addOuterSourceRole__SourceRolePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_SourceDelegationConnector_outerSourceRole__SourceRole_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_SourceDelegationConnector_outerSourceRole__SourceRole_feature",
                         "_UI_SourceDelegationConnector_type"),
                 CompositionPackage.Literals.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE, true, false,
@@ -108,12 +106,11 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * 
      * @generated
      */
-    protected void addAssemblyContext__SourceDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_SourceDelegationConnector_assemblyContext__SourceDelegationConnector_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addAssemblyContext__SourceDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_SourceDelegationConnector_assemblyContext__SourceDelegationConnector_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
                         "_UI_SourceDelegationConnector_assemblyContext__SourceDelegationConnector_feature",
                         "_UI_SourceDelegationConnector_type"),
                 CompositionPackage.Literals.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR,
@@ -126,8 +123,8 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SourceDelegationConnector"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/SourceDelegationConnector"));
     }
 
     /**
@@ -137,10 +134,10 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((SourceDelegationConnector) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_SourceDelegationConnector_type")
-                : getString("_UI_SourceDelegationConnector_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((SourceDelegationConnector) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_SourceDelegationConnector_type") : this
+                .getString("_UI_SourceDelegationConnector_type") + " " + label;
     }
 
     /**
@@ -151,8 +148,8 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -163,7 +160,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

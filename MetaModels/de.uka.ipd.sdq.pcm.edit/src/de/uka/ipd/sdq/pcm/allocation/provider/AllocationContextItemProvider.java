@@ -43,7 +43,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * 
      * @generated
      */
-    public AllocationContextItemProvider(AdapterFactory adapterFactory) {
+    public AllocationContextItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,15 +54,15 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addResourceContainer_AllocationContextPropertyDescriptor(object);
-            addAssemblyContext_AllocationContextPropertyDescriptor(object);
-            addEventChannel__AllocationContextPropertyDescriptor(object);
+            this.addResourceContainer_AllocationContextPropertyDescriptor(object);
+            this.addAssemblyContext_AllocationContextPropertyDescriptor(object);
+            this.addEventChannel__AllocationContextPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -71,12 +71,11 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * 
      * @generated
      */
-    protected void addResourceContainer_AllocationContextPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AllocationContext_resourceContainer_AllocationContext_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addResourceContainer_AllocationContextPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AllocationContext_resourceContainer_AllocationContext_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_AllocationContext_resourceContainer_AllocationContext_feature",
                         "_UI_AllocationContext_type"),
                 AllocationPackage.Literals.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT, true, false,
@@ -89,17 +88,15 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * 
      * @generated
      */
-    protected void addAssemblyContext_AllocationContextPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_AllocationContext_assemblyContext_AllocationContext_feature"),
-                        getString("_UI_PropertyDescriptor_description",
+    protected void addAssemblyContext_AllocationContextPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AllocationContext_assemblyContext_AllocationContext_feature"), this
+                        .getString("_UI_PropertyDescriptor_description",
                                 "_UI_AllocationContext_assemblyContext_AllocationContext_feature",
                                 "_UI_AllocationContext_type"),
-                        AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, true,
-                        false, true, null, null, null));
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, true, false, true,
+                null, null, null));
     }
 
     /**
@@ -108,12 +105,11 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * 
      * @generated
      */
-    protected void addEventChannel__AllocationContextPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AllocationContext_eventChannel__AllocationContext_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addEventChannel__AllocationContextPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AllocationContext_eventChannel__AllocationContext_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_AllocationContext_eventChannel__AllocationContext_feature", "_UI_AllocationContext_type"),
                 AllocationPackage.Literals.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT, true, false, true,
                 null, null, null));
@@ -125,8 +121,8 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/AllocationContext"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/AllocationContext"));
     }
 
     /**
@@ -136,10 +132,10 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((AllocationContext) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_AllocationContext_type")
-                : getString("_UI_AllocationContext_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((AllocationContext) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_AllocationContext_type") : this
+                .getString("_UI_AllocationContext_type") + " " + label;
     }
 
     /**
@@ -150,8 +146,8 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -162,7 +158,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

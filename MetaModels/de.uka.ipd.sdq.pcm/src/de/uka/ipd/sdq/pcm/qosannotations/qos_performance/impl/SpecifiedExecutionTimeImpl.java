@@ -40,7 +40,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getSpecification_SpecifiedExecutionTime()
+     * The cached value of the ' {@link #getSpecification_SpecifiedExecutionTime()
      * <em>Specification Specified Execution Time</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      * 
@@ -74,8 +74,9 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * 
      * @generated
      */
+    @Override
     public PCMRandomVariable getSpecification_SpecifiedExecutionTime() {
-        return specification_SpecifiedExecutionTime;
+        return this.specification_SpecifiedExecutionTime;
     }
 
     /**
@@ -84,17 +85,18 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * @generated
      */
     public NotificationChain basicSetSpecification_SpecifiedExecutionTime(
-            PCMRandomVariable newSpecification_SpecifiedExecutionTime, NotificationChain msgs) {
-        PCMRandomVariable oldSpecification_SpecifiedExecutionTime = specification_SpecifiedExecutionTime;
-        specification_SpecifiedExecutionTime = newSpecification_SpecifiedExecutionTime;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+            final PCMRandomVariable newSpecification_SpecifiedExecutionTime, NotificationChain msgs) {
+        final PCMRandomVariable oldSpecification_SpecifiedExecutionTime = this.specification_SpecifiedExecutionTime;
+        this.specification_SpecifiedExecutionTime = newSpecification_SpecifiedExecutionTime;
+        if (this.eNotificationRequired()) {
+            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
                     oldSpecification_SpecifiedExecutionTime, newSpecification_SpecifiedExecutionTime);
-            if (msgs == null)
+            if (msgs == null) {
                 msgs = notification;
-            else
+            } else {
                 msgs.add(notification);
+            }
         }
         return msgs;
     }
@@ -104,24 +106,29 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * 
      * @generated
      */
-    public void setSpecification_SpecifiedExecutionTime(PCMRandomVariable newSpecification_SpecifiedExecutionTime) {
-        if (newSpecification_SpecifiedExecutionTime != specification_SpecifiedExecutionTime) {
+    @Override
+    public void setSpecification_SpecifiedExecutionTime(final PCMRandomVariable newSpecification_SpecifiedExecutionTime) {
+        if (newSpecification_SpecifiedExecutionTime != this.specification_SpecifiedExecutionTime) {
             NotificationChain msgs = null;
-            if (specification_SpecifiedExecutionTime != null)
-                msgs = ((InternalEObject) specification_SpecifiedExecutionTime).eInverseRemove(this,
+            if (this.specification_SpecifiedExecutionTime != null) {
+                msgs = ((InternalEObject) this.specification_SpecifiedExecutionTime).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            if (newSpecification_SpecifiedExecutionTime != null)
+            }
+            if (newSpecification_SpecifiedExecutionTime != null) {
                 msgs = ((InternalEObject) newSpecification_SpecifiedExecutionTime).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            msgs = basicSetSpecification_SpecifiedExecutionTime(newSpecification_SpecifiedExecutionTime, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetSpecification_SpecifiedExecutionTime(newSpecification_SpecifiedExecutionTime, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
                     newSpecification_SpecifiedExecutionTime, newSpecification_SpecifiedExecutionTime));
+        }
     }
 
     /**
@@ -130,17 +137,18 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
-            if (specification_SpecifiedExecutionTime != null)
-                msgs = ((InternalEObject) specification_SpecifiedExecutionTime)
+            if (this.specification_SpecifiedExecutionTime != null) {
+                msgs = ((InternalEObject) this.specification_SpecifiedExecutionTime)
                         .eInverseRemove(
                                 this,
                                 EOPPOSITE_FEATURE_BASE
                                         - QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
                                 null, msgs);
-            return basicSetSpecification_SpecifiedExecutionTime((PCMRandomVariable) otherEnd, msgs);
+            }
+            return this.basicSetSpecification_SpecifiedExecutionTime((PCMRandomVariable) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -151,10 +159,11 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
-            return basicSetSpecification_SpecifiedExecutionTime(null, msgs);
+            return this.basicSetSpecification_SpecifiedExecutionTime(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -165,10 +174,10 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
-            return getSpecification_SpecifiedExecutionTime();
+            return this.getSpecification_SpecifiedExecutionTime();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -179,10 +188,10 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
-            setSpecification_SpecifiedExecutionTime((PCMRandomVariable) newValue);
+            this.setSpecification_SpecifiedExecutionTime((PCMRandomVariable) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -194,10 +203,10 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
-            setSpecification_SpecifiedExecutionTime((PCMRandomVariable) null);
+            this.setSpecification_SpecifiedExecutionTime((PCMRandomVariable) null);
             return;
         }
         super.eUnset(featureID);
@@ -209,10 +218,10 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
-            return specification_SpecifiedExecutionTime != null;
+            return this.specification_SpecifiedExecutionTime != null;
         }
         return super.eIsSet(featureID);
     }

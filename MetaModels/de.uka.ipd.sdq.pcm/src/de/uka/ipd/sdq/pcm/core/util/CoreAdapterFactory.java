@@ -56,7 +56,7 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -74,18 +74,18 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
      */
     protected CoreSwitch<Adapter> modelSwitch = new CoreSwitch<Adapter>() {
         @Override
-        public Adapter casePCMRandomVariable(PCMRandomVariable object) {
-            return createPCMRandomVariableAdapter();
+        public Adapter casePCMRandomVariable(final PCMRandomVariable object) {
+            return CoreAdapterFactory.this.createPCMRandomVariableAdapter();
         }
 
         @Override
-        public Adapter caseRandomVariable(RandomVariable object) {
-            return createRandomVariableAdapter();
+        public Adapter caseRandomVariable(final RandomVariable object) {
+            return CoreAdapterFactory.this.createRandomVariableAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return CoreAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -98,8 +98,8 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -118,7 +118,7 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.stoex.RandomVariable
      * <em>Random Variable</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->

@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Named Element</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Named Element</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> The NamedElement meta class is inherited by all PCM classes whose
@@ -18,7 +18,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName <em>Entity Name</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName <em> Entity Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -53,7 +53,7 @@ public interface NamedElement extends EStereotypableObject {
     String getEntityName();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName
      * <em>Entity Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

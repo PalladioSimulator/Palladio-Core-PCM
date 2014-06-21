@@ -232,12 +232,14 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * @generated
      */
     public static UsagemodelPackage init() {
-        if (isInited)
+        if (isInited) {
             return (UsagemodelPackage) EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI);
+        }
 
         // Obtain or create and register package
-        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
-                .get(eNS_URI) : new UsagemodelPackageImpl());
+        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+                .get(eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+                : new UsagemodelPackageImpl());
 
         isInited = true;
 
@@ -247,58 +249,61 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
@@ -348,6 +353,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theUsagemodelPackage, new EValidator.Descriptor() {
+            @Override
             public EValidator getEValidator() {
                 return UsagemodelValidator.INSTANCE;
             }
@@ -366,8 +372,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getWorkload() {
-        return workloadEClass;
+        return this.workloadEClass;
     }
 
     /**
@@ -375,8 +382,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getWorkload_UsageScenario_Workload() {
-        return (EReference) workloadEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.workloadEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -384,8 +392,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getUsageScenario() {
-        return usageScenarioEClass;
+        return this.usageScenarioEClass;
     }
 
     /**
@@ -393,8 +402,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUsageScenario_UsageModel_UsageScenario() {
-        return (EReference) usageScenarioEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.usageScenarioEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -402,8 +412,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUsageScenario_ScenarioBehaviour_UsageScenario() {
-        return (EReference) usageScenarioEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.usageScenarioEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -411,8 +422,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUsageScenario_Workload_UsageScenario() {
-        return (EReference) usageScenarioEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.usageScenarioEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -420,8 +432,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getUserData() {
-        return userDataEClass;
+        return this.userDataEClass;
     }
 
     /**
@@ -429,8 +442,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUserData_AssemblyContext_userData() {
-        return (EReference) userDataEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.userDataEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -438,8 +452,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUserData_UsageModel_UserData() {
-        return (EReference) userDataEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.userDataEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -447,8 +462,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUserData_UserDataParameterUsages_UserData() {
-        return (EReference) userDataEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.userDataEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -456,8 +472,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getUsageModel() {
-        return usageModelEClass;
+        return this.usageModelEClass;
     }
 
     /**
@@ -465,8 +482,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUsageModel_UsageScenario_UsageModel() {
-        return (EReference) usageModelEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.usageModelEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -474,8 +492,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getUsageModel_UserData_UsageModel() {
-        return (EReference) usageModelEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.usageModelEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -483,8 +502,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getEntryLevelSystemCall() {
-        return entryLevelSystemCallEClass;
+        return this.entryLevelSystemCallEClass;
     }
 
     /**
@@ -492,8 +512,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall() {
-        return (EReference) entryLevelSystemCallEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.entryLevelSystemCallEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -501,8 +522,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall() {
-        return (EReference) entryLevelSystemCallEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.entryLevelSystemCallEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -510,8 +532,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall() {
-        return (EReference) entryLevelSystemCallEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.entryLevelSystemCallEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -519,8 +542,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall() {
-        return (EReference) entryLevelSystemCallEClass.getEStructuralFeatures().get(4);
+        return (EReference) this.entryLevelSystemCallEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -528,8 +552,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EAttribute getEntryLevelSystemCall_Priority() {
-        return (EAttribute) entryLevelSystemCallEClass.getEStructuralFeatures().get(3);
+        return (EAttribute) this.entryLevelSystemCallEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -537,8 +562,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getAbstractUserAction() {
-        return abstractUserActionEClass;
+        return this.abstractUserActionEClass;
     }
 
     /**
@@ -546,8 +572,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getAbstractUserAction_Successor() {
-        return (EReference) abstractUserActionEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.abstractUserActionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -555,8 +582,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getAbstractUserAction_Predecessor() {
-        return (EReference) abstractUserActionEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.abstractUserActionEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -564,8 +592,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getAbstractUserAction_ScenarioBehaviour_AbstractUserAction() {
-        return (EReference) abstractUserActionEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.abstractUserActionEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -573,8 +602,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getScenarioBehaviour() {
-        return scenarioBehaviourEClass;
+        return this.scenarioBehaviourEClass;
     }
 
     /**
@@ -582,8 +612,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getScenarioBehaviour_UsageScenario_SenarioBehaviour() {
-        return (EReference) scenarioBehaviourEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.scenarioBehaviourEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -591,8 +622,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getScenarioBehaviour_BranchTransition_ScenarioBehaviour() {
-        return (EReference) scenarioBehaviourEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.scenarioBehaviourEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -600,8 +632,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getScenarioBehaviour_Loop_ScenarioBehaviour() {
-        return (EReference) scenarioBehaviourEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.scenarioBehaviourEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -609,8 +642,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getScenarioBehaviour_Actions_ScenarioBehaviour() {
-        return (EReference) scenarioBehaviourEClass.getEStructuralFeatures().get(3);
+        return (EReference) this.scenarioBehaviourEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -618,8 +652,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getBranchTransition() {
-        return branchTransitionEClass;
+        return this.branchTransitionEClass;
     }
 
     /**
@@ -627,8 +662,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EAttribute getBranchTransition_BranchProbability() {
-        return (EAttribute) branchTransitionEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) this.branchTransitionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -636,8 +672,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getBranchTransition_Branch_BranchTransition() {
-        return (EReference) branchTransitionEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.branchTransitionEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -645,8 +682,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getBranchTransition_BranchedBehaviour_BranchTransition() {
-        return (EReference) branchTransitionEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.branchTransitionEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -654,8 +692,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getBranch() {
-        return branchEClass;
+        return this.branchEClass;
     }
 
     /**
@@ -663,8 +702,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getBranch_BranchTransitions_Branch() {
-        return (EReference) branchEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.branchEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -672,8 +712,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getLoop() {
-        return loopEClass;
+        return this.loopEClass;
     }
 
     /**
@@ -681,8 +722,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getLoop_LoopIteration_Loop() {
-        return (EReference) loopEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.loopEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -690,8 +732,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getLoop_BodyBehaviour_Loop() {
-        return (EReference) loopEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.loopEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -699,8 +742,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getStop() {
-        return stopEClass;
+        return this.stopEClass;
     }
 
     /**
@@ -708,8 +752,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getStart() {
-        return startEClass;
+        return this.startEClass;
     }
 
     /**
@@ -717,8 +762,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getOpenWorkload() {
-        return openWorkloadEClass;
+        return this.openWorkloadEClass;
     }
 
     /**
@@ -726,8 +772,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getOpenWorkload_InterArrivalTime_OpenWorkload() {
-        return (EReference) openWorkloadEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.openWorkloadEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -735,8 +782,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getDelay() {
-        return delayEClass;
+        return this.delayEClass;
     }
 
     /**
@@ -744,8 +792,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getDelay_TimeSpecification_Delay() {
-        return (EReference) delayEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.delayEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -753,8 +802,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EClass getClosedWorkload() {
-        return closedWorkloadEClass;
+        return this.closedWorkloadEClass;
     }
 
     /**
@@ -762,8 +812,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EAttribute getClosedWorkload_Population() {
-        return (EAttribute) closedWorkloadEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) this.closedWorkloadEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -771,8 +822,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public EReference getClosedWorkload_ThinkTime_ClosedWorkload() {
-        return (EReference) closedWorkloadEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.closedWorkloadEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -780,8 +832,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * 
      * @generated
      */
+    @Override
     public UsagemodelFactory getUsagemodelFactory() {
-        return (UsagemodelFactory) getEFactoryInstance();
+        return (UsagemodelFactory) this.getEFactoryInstance();
     }
 
     /**
@@ -798,74 +851,77 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * @generated
      */
     public void createPackageContents() {
-        if (isCreated)
+        if (this.isCreated) {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        workloadEClass = createEClass(WORKLOAD);
-        createEReference(workloadEClass, WORKLOAD__USAGE_SCENARIO_WORKLOAD);
+        this.workloadEClass = this.createEClass(WORKLOAD);
+        this.createEReference(this.workloadEClass, WORKLOAD__USAGE_SCENARIO_WORKLOAD);
 
-        usageScenarioEClass = createEClass(USAGE_SCENARIO);
-        createEReference(usageScenarioEClass, USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO);
-        createEReference(usageScenarioEClass, USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO);
-        createEReference(usageScenarioEClass, USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO);
+        this.usageScenarioEClass = this.createEClass(USAGE_SCENARIO);
+        this.createEReference(this.usageScenarioEClass, USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO);
+        this.createEReference(this.usageScenarioEClass, USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO);
+        this.createEReference(this.usageScenarioEClass, USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO);
 
-        userDataEClass = createEClass(USER_DATA);
-        createEReference(userDataEClass, USER_DATA__ASSEMBLY_CONTEXT_USER_DATA);
-        createEReference(userDataEClass, USER_DATA__USAGE_MODEL_USER_DATA);
-        createEReference(userDataEClass, USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA);
+        this.userDataEClass = this.createEClass(USER_DATA);
+        this.createEReference(this.userDataEClass, USER_DATA__ASSEMBLY_CONTEXT_USER_DATA);
+        this.createEReference(this.userDataEClass, USER_DATA__USAGE_MODEL_USER_DATA);
+        this.createEReference(this.userDataEClass, USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA);
 
-        usageModelEClass = createEClass(USAGE_MODEL);
-        createEReference(usageModelEClass, USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL);
-        createEReference(usageModelEClass, USAGE_MODEL__USER_DATA_USAGE_MODEL);
+        this.usageModelEClass = this.createEClass(USAGE_MODEL);
+        this.createEReference(this.usageModelEClass, USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL);
+        this.createEReference(this.usageModelEClass, USAGE_MODEL__USER_DATA_USAGE_MODEL);
 
-        entryLevelSystemCallEClass = createEClass(ENTRY_LEVEL_SYSTEM_CALL);
-        createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL);
-        createEReference(entryLevelSystemCallEClass,
+        this.entryLevelSystemCallEClass = this.createEClass(ENTRY_LEVEL_SYSTEM_CALL);
+        this.createEReference(this.entryLevelSystemCallEClass,
+                ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL);
+        this.createEReference(this.entryLevelSystemCallEClass,
                 ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL);
-        createEReference(entryLevelSystemCallEClass,
+        this.createEReference(this.entryLevelSystemCallEClass,
                 ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
-        createEAttribute(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PRIORITY);
-        createEReference(entryLevelSystemCallEClass,
+        this.createEAttribute(this.entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PRIORITY);
+        this.createEReference(this.entryLevelSystemCallEClass,
                 ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
 
-        abstractUserActionEClass = createEClass(ABSTRACT_USER_ACTION);
-        createEReference(abstractUserActionEClass, ABSTRACT_USER_ACTION__SUCCESSOR);
-        createEReference(abstractUserActionEClass, ABSTRACT_USER_ACTION__PREDECESSOR);
-        createEReference(abstractUserActionEClass, ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION);
+        this.abstractUserActionEClass = this.createEClass(ABSTRACT_USER_ACTION);
+        this.createEReference(this.abstractUserActionEClass, ABSTRACT_USER_ACTION__SUCCESSOR);
+        this.createEReference(this.abstractUserActionEClass, ABSTRACT_USER_ACTION__PREDECESSOR);
+        this.createEReference(this.abstractUserActionEClass,
+                ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION);
 
-        scenarioBehaviourEClass = createEClass(SCENARIO_BEHAVIOUR);
-        createEReference(scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR);
-        createEReference(scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR);
-        createEReference(scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR);
-        createEReference(scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR);
+        this.scenarioBehaviourEClass = this.createEClass(SCENARIO_BEHAVIOUR);
+        this.createEReference(this.scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR);
+        this.createEReference(this.scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR);
+        this.createEReference(this.scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR);
+        this.createEReference(this.scenarioBehaviourEClass, SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR);
 
-        branchTransitionEClass = createEClass(BRANCH_TRANSITION);
-        createEAttribute(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_PROBABILITY);
-        createEReference(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION);
-        createEReference(branchTransitionEClass, BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION);
+        this.branchTransitionEClass = this.createEClass(BRANCH_TRANSITION);
+        this.createEAttribute(this.branchTransitionEClass, BRANCH_TRANSITION__BRANCH_PROBABILITY);
+        this.createEReference(this.branchTransitionEClass, BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION);
+        this.createEReference(this.branchTransitionEClass, BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION);
 
-        branchEClass = createEClass(BRANCH);
-        createEReference(branchEClass, BRANCH__BRANCH_TRANSITIONS_BRANCH);
+        this.branchEClass = this.createEClass(BRANCH);
+        this.createEReference(this.branchEClass, BRANCH__BRANCH_TRANSITIONS_BRANCH);
 
-        loopEClass = createEClass(LOOP);
-        createEReference(loopEClass, LOOP__LOOP_ITERATION_LOOP);
-        createEReference(loopEClass, LOOP__BODY_BEHAVIOUR_LOOP);
+        this.loopEClass = this.createEClass(LOOP);
+        this.createEReference(this.loopEClass, LOOP__LOOP_ITERATION_LOOP);
+        this.createEReference(this.loopEClass, LOOP__BODY_BEHAVIOUR_LOOP);
 
-        stopEClass = createEClass(STOP);
+        this.stopEClass = this.createEClass(STOP);
 
-        startEClass = createEClass(START);
+        this.startEClass = this.createEClass(START);
 
-        openWorkloadEClass = createEClass(OPEN_WORKLOAD);
-        createEReference(openWorkloadEClass, OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD);
+        this.openWorkloadEClass = this.createEClass(OPEN_WORKLOAD);
+        this.createEReference(this.openWorkloadEClass, OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD);
 
-        delayEClass = createEClass(DELAY);
-        createEReference(delayEClass, DELAY__TIME_SPECIFICATION_DELAY);
+        this.delayEClass = this.createEClass(DELAY);
+        this.createEReference(this.delayEClass, DELAY__TIME_SPECIFICATION_DELAY);
 
-        closedWorkloadEClass = createEClass(CLOSED_WORKLOAD);
-        createEAttribute(closedWorkloadEClass, CLOSED_WORKLOAD__POPULATION);
-        createEReference(closedWorkloadEClass, CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD);
+        this.closedWorkloadEClass = this.createEClass(CLOSED_WORKLOAD);
+        this.createEAttribute(this.closedWorkloadEClass, CLOSED_WORKLOAD__POPULATION);
+        this.createEReference(this.closedWorkloadEClass, CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD);
     }
 
     /**
@@ -882,312 +938,323 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * @generated
      */
     public void initializePackageContents() {
-        if (isInitialized)
+        if (this.isInitialized) {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
-        setName(eNAME);
-        setNsPrefix(eNS_PREFIX);
-        setNsURI(eNS_URI);
+        this.setName(eNAME);
+        this.setNsPrefix(eNS_PREFIX);
+        this.setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
-        CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
+        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
+                .getEPackage(EntityPackage.eNS_URI);
+        final CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI);
-        ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
+        final ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI);
-        RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI);
-        CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+        final CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        usageScenarioEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        entryLevelSystemCallEClass.getESuperTypes().add(this.getAbstractUserAction());
-        abstractUserActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        scenarioBehaviourEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        branchEClass.getESuperTypes().add(this.getAbstractUserAction());
-        loopEClass.getESuperTypes().add(this.getAbstractUserAction());
-        stopEClass.getESuperTypes().add(this.getAbstractUserAction());
-        startEClass.getESuperTypes().add(this.getAbstractUserAction());
-        openWorkloadEClass.getESuperTypes().add(this.getWorkload());
-        delayEClass.getESuperTypes().add(this.getAbstractUserAction());
-        closedWorkloadEClass.getESuperTypes().add(this.getWorkload());
+        this.usageScenarioEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.entryLevelSystemCallEClass.getESuperTypes().add(this.getAbstractUserAction());
+        this.abstractUserActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.scenarioBehaviourEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.branchEClass.getESuperTypes().add(this.getAbstractUserAction());
+        this.loopEClass.getESuperTypes().add(this.getAbstractUserAction());
+        this.stopEClass.getESuperTypes().add(this.getAbstractUserAction());
+        this.startEClass.getESuperTypes().add(this.getAbstractUserAction());
+        this.openWorkloadEClass.getESuperTypes().add(this.getWorkload());
+        this.delayEClass.getESuperTypes().add(this.getAbstractUserAction());
+        this.closedWorkloadEClass.getESuperTypes().add(this.getWorkload());
 
         // Initialize classes and features; add operations and parameters
-        initEClass(workloadEClass, Workload.class, "Workload", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getWorkload_UsageScenario_Workload(), this.getUsageScenario(),
+        this.initEClass(this.workloadEClass, Workload.class, "Workload", IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getWorkload_UsageScenario_Workload(), this.getUsageScenario(),
                 this.getUsageScenario_Workload_UsageScenario(), "usageScenario_Workload", null, 1, 1, Workload.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(usageScenarioEClass, UsageScenario.class, "UsageScenario", !IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.usageScenarioEClass, UsageScenario.class, "UsageScenario", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getUsageScenario_UsageModel_UsageScenario(), this.getUsageModel(),
+        this.initEReference(this.getUsageScenario_UsageModel_UsageScenario(), this.getUsageModel(),
                 this.getUsageModel_UsageScenario_UsageModel(), "usageModel_UsageScenario", null, 1, 1,
                 UsageScenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getUsageScenario_ScenarioBehaviour_UsageScenario(), this.getScenarioBehaviour(),
+        this.initEReference(this.getUsageScenario_ScenarioBehaviour_UsageScenario(), this.getScenarioBehaviour(),
                 this.getScenarioBehaviour_UsageScenario_SenarioBehaviour(), "scenarioBehaviour_UsageScenario", null, 1,
                 1, UsageScenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getUsageScenario_Workload_UsageScenario(), this.getWorkload(),
+        this.initEReference(this.getUsageScenario_Workload_UsageScenario(), this.getWorkload(),
                 this.getWorkload_UsageScenario_Workload(), "workload_UsageScenario", null, 1, 1, UsageScenario.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(userDataEClass, UserData.class, "UserData", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getUserData_AssemblyContext_userData(), theCompositionPackage.getAssemblyContext(), null,
-                "assemblyContext_userData", null, 1, 1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getUserData_UsageModel_UserData(), this.getUsageModel(),
+        this.initEClass(this.userDataEClass, UserData.class, "UserData", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getUserData_AssemblyContext_userData(), theCompositionPackage.getAssemblyContext(),
+                null, "assemblyContext_userData", null, 1, 1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getUserData_UsageModel_UserData(), this.getUsageModel(),
                 this.getUsageModel_UserData_UsageModel(), "usageModel_UserData", null, 1, 1, UserData.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getUserData_UserDataParameterUsages_UserData(), theParameterPackage.getVariableUsage(),
-                theParameterPackage.getVariableUsage_UserData_VariableUsage(), "userDataParameterUsages_UserData",
-                null, 0, -1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getUserData_UserDataParameterUsages_UserData(),
+                theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_UserData_VariableUsage(),
+                "userDataParameterUsages_UserData", null, 0, -1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(usageModelEClass, UsageModel.class, "UsageModel", !IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.usageModelEClass, UsageModel.class, "UsageModel", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getUsageModel_UsageScenario_UsageModel(), this.getUsageScenario(),
+        this.initEReference(this.getUsageModel_UsageScenario_UsageModel(), this.getUsageScenario(),
                 this.getUsageScenario_UsageModel_UsageScenario(), "usageScenario_UsageModel", null, 0, -1,
                 UsageModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getUsageModel_UserData_UsageModel(), this.getUserData(), this.getUserData_UsageModel_UserData(),
-                "userData_UsageModel", null, 0, -1, UsageModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getUsageModel_UserData_UsageModel(), this.getUserData(),
+                this.getUserData_UsageModel_UserData(), "userData_UsageModel", null, 0, -1, UsageModel.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(entryLevelSystemCallEClass, EntryLevelSystemCall.class, "EntryLevelSystemCall", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(),
+        this.initEClass(this.entryLevelSystemCallEClass, EntryLevelSystemCall.class, "EntryLevelSystemCall",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1,
                 EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall(),
+        this.initEReference(this.getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall(),
                 theRepositoryPackage.getOperationSignature(), null, "operationSignature__EntryLevelSystemCall", null,
                 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(),
+        this.initEReference(this.getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_EntryLevelSystemCall_OutputParameterUsage(),
                 "outputParameterUsages_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
-        initEAttribute(getEntryLevelSystemCall_Priority(), ecorePackage.getEInt(), "priority", null, 1, 1,
-                EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+        this.initEAttribute(this.getEntryLevelSystemCall_Priority(), this.ecorePackage.getEInt(), "priority", null, 1,
+                1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(),
+        this.initEReference(this.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_EntryLevelSystemCall_InputParameterUsage(),
                 "inputParameterUsages_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        EOperation op = addEOperation(entryLevelSystemCallEClass, ecorePackage.getEBoolean(),
+        EOperation op = this.addEOperation(this.entryLevelSystemCallEClass, this.ecorePackage.getEBoolean(),
                 "EntryLevelSystemCallMustReferenceProvidedRoleOfASystem", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(entryLevelSystemCallEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.entryLevelSystemCallEClass, this.ecorePackage.getEBoolean(),
                 "EntryLevelSystemCallSignatureMustMatchItsProvidedRole", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(abstractUserActionEClass, AbstractUserAction.class, "AbstractUserAction", IS_ABSTRACT,
+        this.initEClass(this.abstractUserActionEClass, AbstractUserAction.class, "AbstractUserAction", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getAbstractUserAction_Successor(), this.getAbstractUserAction(),
+        this.initEReference(this.getAbstractUserAction_Successor(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_Predecessor(), "successor", null, 0, 1, AbstractUserAction.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAbstractUserAction_Predecessor(), this.getAbstractUserAction(),
+        this.initEReference(this.getAbstractUserAction_Predecessor(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_Successor(), "predecessor", null, 0, 1, AbstractUserAction.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAbstractUserAction_ScenarioBehaviour_AbstractUserAction(), this.getScenarioBehaviour(),
-                this.getScenarioBehaviour_Actions_ScenarioBehaviour(), "scenarioBehaviour_AbstractUserAction", null, 1,
-                1, AbstractUserAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getAbstractUserAction_ScenarioBehaviour_AbstractUserAction(),
+                this.getScenarioBehaviour(), this.getScenarioBehaviour_Actions_ScenarioBehaviour(),
+                "scenarioBehaviour_AbstractUserAction", null, 1, 1, AbstractUserAction.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(scenarioBehaviourEClass, ScenarioBehaviour.class, "ScenarioBehaviour", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getScenarioBehaviour_UsageScenario_SenarioBehaviour(), this.getUsageScenario(),
+        this.initEClass(this.scenarioBehaviourEClass, ScenarioBehaviour.class, "ScenarioBehaviour", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getScenarioBehaviour_UsageScenario_SenarioBehaviour(), this.getUsageScenario(),
                 this.getUsageScenario_ScenarioBehaviour_UsageScenario(), "usageScenario_SenarioBehaviour", null, 0, 1,
                 ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getScenarioBehaviour_BranchTransition_ScenarioBehaviour(), this.getBranchTransition(),
+        this.initEReference(this.getScenarioBehaviour_BranchTransition_ScenarioBehaviour(), this.getBranchTransition(),
                 this.getBranchTransition_BranchedBehaviour_BranchTransition(), "branchTransition_ScenarioBehaviour",
                 null, 0, 1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getScenarioBehaviour_Loop_ScenarioBehaviour(), this.getLoop(),
+        this.initEReference(this.getScenarioBehaviour_Loop_ScenarioBehaviour(), this.getLoop(),
                 this.getLoop_BodyBehaviour_Loop(), "loop_ScenarioBehaviour", null, 0, 1, ScenarioBehaviour.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getScenarioBehaviour_Actions_ScenarioBehaviour(), this.getAbstractUserAction(),
+        this.initEReference(this.getScenarioBehaviour_Actions_ScenarioBehaviour(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_ScenarioBehaviour_AbstractUserAction(), "actions_ScenarioBehaviour", null,
                 0, -1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(scenarioBehaviourEClass, ecorePackage.getEBoolean(), "Exactlyonestart", 0, 1, IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        op = this.addEOperation(this.scenarioBehaviourEClass, this.ecorePackage.getEBoolean(), "Exactlyonestart", 0, 1,
+                IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(scenarioBehaviourEClass, ecorePackage.getEBoolean(), "Exactlyonestop", 0, 1, IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        op = this.addEOperation(this.scenarioBehaviourEClass, this.ecorePackage.getEBoolean(), "Exactlyonestop", 0, 1,
+                IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(scenarioBehaviourEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.scenarioBehaviourEClass, this.ecorePackage.getEBoolean(),
                 "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(branchTransitionEClass, BranchTransition.class, "BranchTransition", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null,
-                1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getBranchTransition_Branch_BranchTransition(), this.getBranch(),
+        this.initEClass(this.branchTransitionEClass, BranchTransition.class, "BranchTransition", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEAttribute(this.getBranchTransition_BranchProbability(), this.ecorePackage.getEDouble(),
+                "branchProbability", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getBranchTransition_Branch_BranchTransition(), this.getBranch(),
                 this.getBranch_BranchTransitions_Branch(), "branch_BranchTransition", null, 1, 1,
                 BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getBranchTransition_BranchedBehaviour_BranchTransition(), this.getScenarioBehaviour(),
+        this.initEReference(this.getBranchTransition_BranchedBehaviour_BranchTransition(), this.getScenarioBehaviour(),
                 this.getScenarioBehaviour_BranchTransition_ScenarioBehaviour(), "branchedBehaviour_BranchTransition",
                 null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getBranch_BranchTransitions_Branch(), this.getBranchTransition(),
+        this.initEClass(this.branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getBranch_BranchTransitions_Branch(), this.getBranchTransition(),
                 this.getBranchTransition_Branch_BranchTransition(), "branchTransitions_Branch", null, 0, -1,
                 Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(branchEClass, ecorePackage.getEBoolean(), "AllBranchProbabilitiesMustSumUpTo1", 0, 1,
-                IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        op = this.addEOperation(this.branchEClass, this.ecorePackage.getEBoolean(),
+                "AllBranchProbabilitiesMustSumUpTo1", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(loopEClass, Loop.class, "Loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getLoop_LoopIteration_Loop(), theCorePackage.getPCMRandomVariable(),
+        this.initEClass(this.loopEClass, Loop.class, "Loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getLoop_LoopIteration_Loop(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_Loop_LoopIteration(), "loopIteration_Loop", null, 1, 1, Loop.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getLoop_BodyBehaviour_Loop(), this.getScenarioBehaviour(),
+        this.initEReference(this.getLoop_BodyBehaviour_Loop(), this.getScenarioBehaviour(),
                 this.getScenarioBehaviour_Loop_ScenarioBehaviour(), "bodyBehaviour_Loop", null, 1, 1, Loop.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(stopEClass, Stop.class, "Stop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.stopEClass, Stop.class, "Stop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        op = addEOperation(stopEClass, ecorePackage.getEBoolean(), "StopHasNoSuccessor", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        op = this.addEOperation(this.stopEClass, this.ecorePackage.getEBoolean(), "StopHasNoSuccessor", 0, 1,
+                IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-        op = addEOperation(startEClass, ecorePackage.getEBoolean(), "StartHasNoPredecessor", 0, 1, IS_UNIQUE,
-                IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
-        g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
-        g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-        initEClass(openWorkloadEClass, OpenWorkload.class, "OpenWorkload", !IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getOpenWorkload_InterArrivalTime_OpenWorkload(), theCorePackage.getPCMRandomVariable(),
+
+        op = this.addEOperation(this.startEClass, this.ecorePackage.getEBoolean(), "StartHasNoPredecessor", 0, 1,
+                IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g1.getETypeArguments().add(g2);
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g1.getETypeArguments().add(g2);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+        this.initEClass(this.openWorkloadEClass, OpenWorkload.class, "OpenWorkload", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getOpenWorkload_InterArrivalTime_OpenWorkload(),
+                theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_OpenWorkload_PCMRandomVariable(), "interArrivalTime_OpenWorkload",
                 null, 1, 1, OpenWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(openWorkloadEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.openWorkloadEClass, this.ecorePackage.getEBoolean(),
                 "InterArrivalTimeInOpenWorkloadNeedsToBeSpecified", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(delayEClass, Delay.class, "Delay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getDelay_TimeSpecification_Delay(), theCorePackage.getPCMRandomVariable(),
+        this.initEClass(this.delayEClass, Delay.class, "Delay", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getDelay_TimeSpecification_Delay(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_Delay_TimeSpecification(), "timeSpecification_Delay", null, 1, 1,
                 Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEAttribute(getClosedWorkload_Population(), ecorePackage.getEInt(), "population", null, 1, 1,
+        this.initEAttribute(this.getClosedWorkload_Population(), this.ecorePackage.getEInt(), "population", null, 1, 1,
                 ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        initEReference(getClosedWorkload_ThinkTime_ClosedWorkload(), theCorePackage.getPCMRandomVariable(),
+        this.initEReference(this.getClosedWorkload_ThinkTime_ClosedWorkload(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_ClosedWorkload_PCMRandomVariable(), "thinkTime_ClosedWorkload",
                 null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(closedWorkloadEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.closedWorkloadEClass, this.ecorePackage.getEBoolean(),
                 "PopulationInClosedWorkloadNeedsToBeSpecified", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(closedWorkloadEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.closedWorkloadEClass, this.ecorePackage.getEBoolean(),
                 "ThinkTimeInClosedWorkloadNeedsToBeSpecified", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
     }
 
 } // UsagemodelPackageImpl

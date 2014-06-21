@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Variable Usage</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Variable Usage</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> Variable usages are used to characterise variables like input and output
@@ -33,30 +33,38 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
- * <em>Variable Characterisation Variable Usage</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User Data
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage <em>
+ * Variable Characterisation Variable Usage</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User Data
  * Variable Usage</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction__VariableUsage <em>Call
- * Action Variable Usage</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction__VariableUsage <em>Call Action
+ * Variable Usage</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage <em>
  * Synchronisation Point Variable Usage</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage <em>Call
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage <em>Call
  * Return Action Variable Usage</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage <em>Set
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage <em>Set
  * Variable Action Variable Usage</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
  * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage <em>
- * Assembly Context Variable Usage</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage <em>Assembly
+ * Context Variable Usage</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_InputParameterUsage
  * <em>Entry Level System Call Input Parameter Usage</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage
  * <em>Entry Level System Call Output Parameter Usage</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference__VariableUsage <em>Named
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference__VariableUsage <em>Named
  * Reference Variable Usage</em>}</li>
  * </ul>
  * </p>
@@ -75,7 +83,7 @@ public interface VariableUsage extends EStereotypableObject {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Variable Characterisation Variable Usage</b></em>'
+     * Returns the value of the ' <em><b>Variable Characterisation Variable Usage</b></em>'
      * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation}. It is bidirectional and its
      * opposite is '
@@ -87,7 +95,7 @@ public interface VariableUsage extends EStereotypableObject {
      * characterisations of the same variable if more than one type of information is available.
      * <!-- end-model-doc -->
      * 
-     * @return the value of the '<em>Variable Characterisation Variable Usage</em>' containment
+     * @return the value of the ' <em>Variable Characterisation Variable Usage</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_VariableCharacterisation_VariableUsage()
      * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
@@ -130,7 +138,7 @@ public interface VariableUsage extends EStereotypableObject {
     void setUserData_VariableUsage(UserData value);
 
     /**
-     * Returns the value of the '<em><b>Synchronisation Point Variable Usage</b></em>' container
+     * Returns the value of the ' <em><b>Synchronisation Point Variable Usage</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint
      * <em>Output Parameter Usage Synchronisation Point</em>}'. <!-- begin-user-doc -->
@@ -156,7 +164,7 @@ public interface VariableUsage extends EStereotypableObject {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Synchronisation Point Variable Usage</em>' container
+     *            the new value of the ' <em>Synchronisation Point Variable Usage</em>' container
      *            reference.
      * @see #getSynchronisationPoint_VariableUsage()
      * @generated
@@ -197,7 +205,7 @@ public interface VariableUsage extends EStereotypableObject {
     void setCallAction__VariableUsage(CallAction value);
 
     /**
-     * Returns the value of the '<em><b>Call Return Action Variable Usage</b></em>' container
+     * Returns the value of the ' <em><b>Call Return Action Variable Usage</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.CallReturnAction#getReturnVariableUsage__CallReturnAction
      * <em>Return Variable Usage Call Return Action</em>}'. <!-- begin-user-doc -->
@@ -223,7 +231,7 @@ public interface VariableUsage extends EStereotypableObject {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Call Return Action Variable Usage</em>' container
+     *            the new value of the ' <em>Call Return Action Variable Usage</em>' container
      *            reference.
      * @see #getCallReturnAction__VariableUsage()
      * @generated
@@ -231,7 +239,7 @@ public interface VariableUsage extends EStereotypableObject {
     void setCallReturnAction__VariableUsage(CallReturnAction value);
 
     /**
-     * Returns the value of the '<em><b>Set Variable Action Variable Usage</b></em>' container
+     * Returns the value of the ' <em><b>Set Variable Action Variable Usage</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction
      * <em>Local Variable Usages Set Variable Action</em>}'. <!-- begin-user-doc -->
@@ -257,7 +265,7 @@ public interface VariableUsage extends EStereotypableObject {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Set Variable Action Variable Usage</em>' container
+     *            the new value of the ' <em>Set Variable Action Variable Usage</em>' container
      *            reference.
      * @see #getSetVariableAction_VariableUsage()
      * @generated
@@ -265,7 +273,7 @@ public interface VariableUsage extends EStereotypableObject {
     void setSetVariableAction_VariableUsage(SetVariableAction value);
 
     /**
-     * Returns the value of the '<em><b>Assembly Context Variable Usage</b></em>' container
+     * Returns the value of the '<em><b>Assembly Context Variable Usage</b></em> ' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext
      * <em>Config Parameter Usages Assembly Context</em>}'. <!-- begin-user-doc -->
@@ -291,7 +299,7 @@ public interface VariableUsage extends EStereotypableObject {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Assembly Context Variable Usage</em>' container
+     *            the new value of the '<em>Assembly Context Variable Usage</em> ' container
      *            reference.
      * @see #getAssemblyContext__VariableUsage()
      * @generated
@@ -299,17 +307,17 @@ public interface VariableUsage extends EStereotypableObject {
     void setAssemblyContext__VariableUsage(AssemblyContext value);
 
     /**
-     * Returns the value of the '<em><b>Entry Level System Call Input Parameter Usage</b></em>'
+     * Returns the value of the ' <em><b>Entry Level System Call Input Parameter Usage</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall
      * <em>Input Parameter Usages Entry Level System Call</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Entry Level System Call Input Parameter Usage</em>' container
+     * If the meaning of the ' <em>Entry Level System Call Input Parameter Usage</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Entry Level System Call Input Parameter Usage</em>' container
+     * @return the value of the ' <em>Entry Level System Call Input Parameter Usage</em>' container
      *         reference.
      * @see #setEntryLevelSystemCall_InputParameterUsage(EntryLevelSystemCall)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_EntryLevelSystemCall_InputParameterUsage()
@@ -326,7 +334,7 @@ public interface VariableUsage extends EStereotypableObject {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Entry Level System Call Input Parameter Usage</em>'
+     *            the new value of the ' <em>Entry Level System Call Input Parameter Usage</em>'
      *            container reference.
      * @see #getEntryLevelSystemCall_InputParameterUsage()
      * @generated
@@ -334,17 +342,17 @@ public interface VariableUsage extends EStereotypableObject {
     void setEntryLevelSystemCall_InputParameterUsage(EntryLevelSystemCall value);
 
     /**
-     * Returns the value of the '<em><b>Entry Level System Call Output Parameter Usage</b></em>'
+     * Returns the value of the ' <em><b>Entry Level System Call Output Parameter Usage</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall
      * <em>Output Parameter Usages Entry Level System Call</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Entry Level System Call Output Parameter Usage</em>' container
+     * If the meaning of the ' <em>Entry Level System Call Output Parameter Usage</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Entry Level System Call Output Parameter Usage</em>' container
+     * @return the value of the ' <em>Entry Level System Call Output Parameter Usage</em>' container
      *         reference.
      * @see #setEntryLevelSystemCall_OutputParameterUsage(EntryLevelSystemCall)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_EntryLevelSystemCall_OutputParameterUsage()
@@ -362,7 +370,7 @@ public interface VariableUsage extends EStereotypableObject {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Entry Level System Call Output Parameter Usage</em>'
+     *            the new value of the ' <em>Entry Level System Call Output Parameter Usage</em>'
      *            container reference.
      * @see #getEntryLevelSystemCall_OutputParameterUsage()
      * @generated
@@ -374,11 +382,11 @@ public interface VariableUsage extends EStereotypableObject {
      * <em><b>Specified Output Parameter Abstraction expected External Outputs Variable Usage</b></em>
      * ' container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction
-     * <em>Expected External Outputs Specified Output Parameter Abstraction</em>}'. <!--
+     * <em>Expected External Outputs Specified Output Parameter Abstraction</em>} '. <!--
      * begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>'
+     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em> '
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
@@ -398,7 +406,7 @@ public interface VariableUsage extends EStereotypableObject {
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
-     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'
+     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>} '
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

@@ -91,8 +91,9 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      * 
      * @generated
      */
+    @Override
     public double getFailureProbability() {
-        return failureProbability;
+        return this.failureProbability;
     }
 
     /**
@@ -100,13 +101,15 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      * 
      * @generated
      */
-    public void setFailureProbability(double newFailureProbability) {
-        double oldFailureProbability = failureProbability;
-        failureProbability = newFailureProbability;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    @Override
+    public void setFailureProbability(final double newFailureProbability) {
+        final double oldFailureProbability = this.failureProbability;
+        this.failureProbability = newFailureProbability;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY, oldFailureProbability,
-                    failureProbability));
+                    this.failureProbability));
+        }
     }
 
     /**
@@ -140,14 +143,16 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      * 
      * @generated
      */
-    public boolean EnsureValidFailureProbabilityRange(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean EnsureValidFailureProbabilityRange(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(ReliabilityPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION);
             try {
                 ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -175,10 +180,10 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            return getFailureProbability();
+            return this.getFailureProbability();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -189,10 +194,10 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            setFailureProbability((Double) newValue);
+            this.setFailureProbability((Double) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -204,10 +209,10 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            setFailureProbability(FAILURE_PROBABILITY_EDEFAULT);
+            this.setFailureProbability(FAILURE_PROBABILITY_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -219,10 +224,10 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            return failureProbability != FAILURE_PROBABILITY_EDEFAULT;
+            return this.failureProbability != FAILURE_PROBABILITY_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -234,12 +239,13 @@ public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObj
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (failureProbability: ");
-        result.append(failureProbability);
+        result.append(this.failureProbability);
         result.append(')');
         return result.toString();
     }

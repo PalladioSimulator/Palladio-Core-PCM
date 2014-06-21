@@ -16,13 +16,14 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.SinkRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Sink Role</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Sink Role</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl#getEventGroup__SinkRole <em>Event
- * Group Sink Role</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl#getEventGroup__SinkRole <em>Event Group
+ * Sink Role</em>}</li>
  * </ul>
  * </p>
  * 
@@ -70,18 +71,20 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      * 
      * @generated
      */
+    @Override
     public EventGroup getEventGroup__SinkRole() {
-        if (eventGroup__SinkRole != null && ((EObject) eventGroup__SinkRole).eIsProxy()) {
-            InternalEObject oldEventGroup__SinkRole = (InternalEObject) eventGroup__SinkRole;
-            eventGroup__SinkRole = (EventGroup) eResolveProxy(oldEventGroup__SinkRole);
-            if (eventGroup__SinkRole != oldEventGroup__SinkRole) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.eventGroup__SinkRole != null && ((EObject) this.eventGroup__SinkRole).eIsProxy()) {
+            final InternalEObject oldEventGroup__SinkRole = (InternalEObject) this.eventGroup__SinkRole;
+            this.eventGroup__SinkRole = (EventGroup) this.eResolveProxy(oldEventGroup__SinkRole);
+            if (this.eventGroup__SinkRole != oldEventGroup__SinkRole) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE, oldEventGroup__SinkRole,
-                            eventGroup__SinkRole));
+                            this.eventGroup__SinkRole));
+                }
             }
         }
-        return eventGroup__SinkRole;
+        return this.eventGroup__SinkRole;
     }
 
     /**
@@ -90,20 +93,7 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      * @generated
      */
     public EventGroup basicGetEventGroup__SinkRole() {
-        return eventGroup__SinkRole;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setEventGroup__SinkRole(EventGroup newEventGroup__SinkRole) {
-        EventGroup oldEventGroup__SinkRole = eventGroup__SinkRole;
-        eventGroup__SinkRole = newEventGroup__SinkRole;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE,
-                    oldEventGroup__SinkRole, eventGroup__SinkRole));
+        return this.eventGroup__SinkRole;
     }
 
     /**
@@ -112,12 +102,29 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setEventGroup__SinkRole(final EventGroup newEventGroup__SinkRole) {
+        final EventGroup oldEventGroup__SinkRole = this.eventGroup__SinkRole;
+        this.eventGroup__SinkRole = newEventGroup__SinkRole;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE, oldEventGroup__SinkRole,
+                    this.eventGroup__SinkRole));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
-            if (resolve)
-                return getEventGroup__SinkRole();
-            return basicGetEventGroup__SinkRole();
+            if (resolve) {
+                return this.getEventGroup__SinkRole();
+            }
+            return this.basicGetEventGroup__SinkRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -128,10 +135,10 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
-            setEventGroup__SinkRole((EventGroup) newValue);
+            this.setEventGroup__SinkRole((EventGroup) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -143,10 +150,10 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
-            setEventGroup__SinkRole((EventGroup) null);
+            this.setEventGroup__SinkRole((EventGroup) null);
             return;
         }
         super.eUnset(featureID);
@@ -158,10 +165,10 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
-            return eventGroup__SinkRole != null;
+            return this.eventGroup__SinkRole != null;
         }
         return super.eIsSet(featureID);
     }

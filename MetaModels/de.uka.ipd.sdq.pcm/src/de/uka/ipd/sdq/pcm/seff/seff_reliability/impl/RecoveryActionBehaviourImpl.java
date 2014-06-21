@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -84,7 +83,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     protected EList<AbstractAction> steps_Behaviour;
 
     /**
-     * The cached value of the '{@link #getFailureHandlingAlternatives__RecoveryActionBehaviour()
+     * The cached value of the ' {@link #getFailureHandlingAlternatives__RecoveryActionBehaviour()
      * <em>Failure Handling Alternatives Recovery Action Behaviour</em>}' reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -118,10 +117,12 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour() {
-        if (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR)
+        if (this.eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR) {
             return null;
-        return (AbstractLoopAction) eInternalContainer();
+        }
+        return (AbstractLoopAction) this.eInternalContainer();
     }
 
     /**
@@ -130,8 +131,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
-            AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newAbstractLoopAction_ResourceDemandingBehaviour,
+            final AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newAbstractLoopAction_ResourceDemandingBehaviour,
                 SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
                 msgs);
         return msgs;
@@ -142,28 +143,34 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public void setAbstractLoopAction_ResourceDemandingBehaviour(
-            AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
-        if (newAbstractLoopAction_ResourceDemandingBehaviour != eInternalContainer()
-                || (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newAbstractLoopAction_ResourceDemandingBehaviour))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            final AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
+        if (newAbstractLoopAction_ResourceDemandingBehaviour != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, newAbstractLoopAction_ResourceDemandingBehaviour)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newAbstractLoopAction_ResourceDemandingBehaviour != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newAbstractLoopAction_ResourceDemandingBehaviour != null) {
                 msgs = ((InternalEObject) newAbstractLoopAction_ResourceDemandingBehaviour).eInverseAdd(this,
                         SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, AbstractLoopAction.class, msgs);
-            msgs = basicSetAbstractLoopAction_ResourceDemandingBehaviour(
+            }
+            msgs = this.basicSetAbstractLoopAction_ResourceDemandingBehaviour(
                     newAbstractLoopAction_ResourceDemandingBehaviour, msgs);
-            if (msgs != null)
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
                     newAbstractLoopAction_ResourceDemandingBehaviour, newAbstractLoopAction_ResourceDemandingBehaviour));
+        }
     }
 
     /**
@@ -171,10 +178,12 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
-        if (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR)
+        if (this.eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR) {
             return null;
-        return (AbstractBranchTransition) eInternalContainer();
+        }
+        return (AbstractBranchTransition) this.eInternalContainer();
     }
 
     /**
@@ -183,11 +192,13 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
-            AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer(
-                (InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour,
-                SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
-                msgs);
+            final AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour,
+            NotificationChain msgs) {
+        msgs = this
+                .eBasicSetContainer(
+                        (InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour,
+                        SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                        msgs);
         return msgs;
     }
 
@@ -196,30 +207,36 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public void setAbstractBranchTransition_ResourceDemandingBehaviour(
-            AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
-        if (newAbstractBranchTransition_ResourceDemandingBehaviour != eInternalContainer()
-                || (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newAbstractBranchTransition_ResourceDemandingBehaviour))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            final AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
+        if (newAbstractBranchTransition_ResourceDemandingBehaviour != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, newAbstractBranchTransition_ResourceDemandingBehaviour)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newAbstractBranchTransition_ResourceDemandingBehaviour != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newAbstractBranchTransition_ResourceDemandingBehaviour != null) {
                 msgs = ((InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour).eInverseAdd(this,
                         SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                         AbstractBranchTransition.class, msgs);
-            msgs = basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
+            }
+            msgs = this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
                     newAbstractBranchTransition_ResourceDemandingBehaviour, msgs);
-            if (msgs != null)
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
                     newAbstractBranchTransition_ResourceDemandingBehaviour,
                     newAbstractBranchTransition_ResourceDemandingBehaviour));
+        }
     }
 
     /**
@@ -227,13 +244,14 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public EList<AbstractAction> getSteps_Behaviour() {
-        if (steps_Behaviour == null) {
-            steps_Behaviour = new EObjectContainmentWithInverseEList<AbstractAction>(AbstractAction.class, this,
+        if (this.steps_Behaviour == null) {
+            this.steps_Behaviour = new EObjectContainmentWithInverseEList<AbstractAction>(AbstractAction.class, this,
                     SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR,
                     SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION);
         }
-        return steps_Behaviour;
+        return this.steps_Behaviour;
     }
 
     /**
@@ -241,14 +259,15 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public EList<RecoveryActionBehaviour> getFailureHandlingAlternatives__RecoveryActionBehaviour() {
-        if (failureHandlingAlternatives__RecoveryActionBehaviour == null) {
-            failureHandlingAlternatives__RecoveryActionBehaviour = new EObjectResolvingEList<RecoveryActionBehaviour>(
+        if (this.failureHandlingAlternatives__RecoveryActionBehaviour == null) {
+            this.failureHandlingAlternatives__RecoveryActionBehaviour = new EObjectResolvingEList<RecoveryActionBehaviour>(
                     RecoveryActionBehaviour.class,
                     this,
                     SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR);
         }
-        return failureHandlingAlternatives__RecoveryActionBehaviour;
+        return this.failureHandlingAlternatives__RecoveryActionBehaviour;
     }
 
     /**
@@ -256,10 +275,12 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public RecoveryAction getRecoveryAction__RecoveryActionBehaviour() {
-        if (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR)
+        if (this.eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR) {
             return null;
-        return (RecoveryAction) eInternalContainer();
+        }
+        return (RecoveryAction) this.eInternalContainer();
     }
 
     /**
@@ -268,8 +289,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     public NotificationChain basicSetRecoveryAction__RecoveryActionBehaviour(
-            RecoveryAction newRecoveryAction__RecoveryActionBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newRecoveryAction__RecoveryActionBehaviour,
+            final RecoveryAction newRecoveryAction__RecoveryActionBehaviour, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newRecoveryAction__RecoveryActionBehaviour,
                 SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR, msgs);
         return msgs;
     }
@@ -279,25 +300,33 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
-    public void setRecoveryAction__RecoveryActionBehaviour(RecoveryAction newRecoveryAction__RecoveryActionBehaviour) {
-        if (newRecoveryAction__RecoveryActionBehaviour != eInternalContainer()
-                || (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR && newRecoveryAction__RecoveryActionBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newRecoveryAction__RecoveryActionBehaviour))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setRecoveryAction__RecoveryActionBehaviour(
+            final RecoveryAction newRecoveryAction__RecoveryActionBehaviour) {
+        if (newRecoveryAction__RecoveryActionBehaviour != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR && newRecoveryAction__RecoveryActionBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, newRecoveryAction__RecoveryActionBehaviour)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newRecoveryAction__RecoveryActionBehaviour != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newRecoveryAction__RecoveryActionBehaviour != null) {
                 msgs = ((InternalEObject) newRecoveryAction__RecoveryActionBehaviour).eInverseAdd(this,
                         SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
                         RecoveryAction.class, msgs);
-            msgs = basicSetRecoveryAction__RecoveryActionBehaviour(newRecoveryAction__RecoveryActionBehaviour, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetRecoveryAction__RecoveryActionBehaviour(newRecoveryAction__RecoveryActionBehaviour,
+                    msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR,
                     newRecoveryAction__RecoveryActionBehaviour, newRecoveryAction__RecoveryActionBehaviour));
+        }
     }
 
     /**
@@ -328,14 +357,15 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
-    public boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean ExactlyOneStopAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
             try {
                 EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -379,14 +409,15 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
-    public boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean ExactlyOneStartAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
             try {
                 EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -433,15 +464,16 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
+    @Override
     public boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
             try {
                 EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -498,14 +530,16 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
-    public boolean RecoveryActionBehaviourHasOnlyOnePredecessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean RecoveryActionBehaviourHasOnlyOnePredecessor(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
             try {
                 RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -559,15 +593,16 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
-    public boolean RecoveryActionBehaviourIsNotSuccessorOfItself(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean RecoveryActionBehaviourIsNotSuccessorOfItself(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
             try {
                 RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -592,7 +627,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     /**
      * The cached OCL expression body for the '
      * {@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' operation.
+     * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>} ' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain,
@@ -608,7 +643,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     /**
      * The cached OCL invariant for the '
      * {@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' invariant
+     * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>} ' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain,
@@ -623,15 +658,16 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * 
      * @generated
      */
-    public boolean SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
             try {
                 SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -660,23 +696,27 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) otherEnd, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) otherEnd,
-                    msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
+                    (AbstractBranchTransition) otherEnd, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSteps_Behaviour()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getSteps_Behaviour()).basicAdd(otherEnd,
+                    msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetRecoveryAction__RecoveryActionBehaviour((RecoveryAction) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetRecoveryAction__RecoveryActionBehaviour((RecoveryAction) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -687,16 +727,17 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return basicSetAbstractLoopAction_ResourceDemandingBehaviour(null, msgs);
+            return this.basicSetAbstractLoopAction_ResourceDemandingBehaviour(null, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return basicSetAbstractBranchTransition_ResourceDemandingBehaviour(null, msgs);
+            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(null, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return ((InternalEList<?>) getSteps_Behaviour()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getSteps_Behaviour()).basicRemove(otherEnd, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
-            return basicSetRecoveryAction__RecoveryActionBehaviour(null, msgs);
+            return this.basicSetRecoveryAction__RecoveryActionBehaviour(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -707,17 +748,17 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-                    AbstractLoopAction.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, AbstractLoopAction.class, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                     AbstractBranchTransition.class, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
                     RecoveryAction.class, msgs);
         }
@@ -730,18 +771,18 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractLoopAction_ResourceDemandingBehaviour();
+            return this.getAbstractLoopAction_ResourceDemandingBehaviour();
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractBranchTransition_ResourceDemandingBehaviour();
+            return this.getAbstractBranchTransition_ResourceDemandingBehaviour();
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return getSteps_Behaviour();
+            return this.getSteps_Behaviour();
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
-            return getFailureHandlingAlternatives__RecoveryActionBehaviour();
+            return this.getFailureHandlingAlternatives__RecoveryActionBehaviour();
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
-            return getRecoveryAction__RecoveryActionBehaviour();
+            return this.getRecoveryAction__RecoveryActionBehaviour();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -753,25 +794,25 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) newValue);
+            this.setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) newValue);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) newValue);
+            this.setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) newValue);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
-            getSteps_Behaviour().clear();
-            getSteps_Behaviour().addAll((Collection<? extends AbstractAction>) newValue);
+            this.getSteps_Behaviour().clear();
+            this.getSteps_Behaviour().addAll((Collection<? extends AbstractAction>) newValue);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
-            getFailureHandlingAlternatives__RecoveryActionBehaviour().clear();
-            getFailureHandlingAlternatives__RecoveryActionBehaviour().addAll(
+            this.getFailureHandlingAlternatives__RecoveryActionBehaviour().clear();
+            this.getFailureHandlingAlternatives__RecoveryActionBehaviour().addAll(
                     (Collection<? extends RecoveryActionBehaviour>) newValue);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
-            setRecoveryAction__RecoveryActionBehaviour((RecoveryAction) newValue);
+            this.setRecoveryAction__RecoveryActionBehaviour((RecoveryAction) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -783,22 +824,22 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) null);
+            this.setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) null);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) null);
+            this.setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) null);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
-            getSteps_Behaviour().clear();
+            this.getSteps_Behaviour().clear();
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
-            getFailureHandlingAlternatives__RecoveryActionBehaviour().clear();
+            this.getFailureHandlingAlternatives__RecoveryActionBehaviour().clear();
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
-            setRecoveryAction__RecoveryActionBehaviour((RecoveryAction) null);
+            this.setRecoveryAction__RecoveryActionBehaviour((RecoveryAction) null);
             return;
         }
         super.eUnset(featureID);
@@ -810,19 +851,19 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractLoopAction_ResourceDemandingBehaviour() != null;
+            return this.getAbstractLoopAction_ResourceDemandingBehaviour() != null;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractBranchTransition_ResourceDemandingBehaviour() != null;
+            return this.getAbstractBranchTransition_ResourceDemandingBehaviour() != null;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return steps_Behaviour != null && !steps_Behaviour.isEmpty();
+            return this.steps_Behaviour != null && !this.steps_Behaviour.isEmpty();
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
-            return failureHandlingAlternatives__RecoveryActionBehaviour != null
-                    && !failureHandlingAlternatives__RecoveryActionBehaviour.isEmpty();
+            return this.failureHandlingAlternatives__RecoveryActionBehaviour != null
+                    && !this.failureHandlingAlternatives__RecoveryActionBehaviour.isEmpty();
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
-            return getRecoveryAction__RecoveryActionBehaviour() != null;
+            return this.getRecoveryAction__RecoveryActionBehaviour() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -833,7 +874,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
         if (baseClass == ResourceDemandingBehaviour.class) {
             switch (derivedFeatureID) {
             case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -855,7 +896,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
         if (baseClass == ResourceDemandingBehaviour.class) {
             switch (baseFeatureID) {
             case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:

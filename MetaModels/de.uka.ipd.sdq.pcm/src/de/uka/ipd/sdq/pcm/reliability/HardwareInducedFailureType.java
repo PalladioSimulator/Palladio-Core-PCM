@@ -52,12 +52,12 @@ public interface HardwareInducedFailureType extends FailureType {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
      * <em>Hardware Induced Failure Type Processing Resource Type</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Processing Resource Type Hardware Induced Failure Type</em>'
+     * If the meaning of the ' <em>Processing Resource Type Hardware Induced Failure Type</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Processing Resource Type Hardware Induced Failure Type</em>'
+     * @return the value of the ' <em>Processing Resource Type Hardware Induced Failure Type</em>'
      *         reference.
      * @see #setProcessingResourceType__HardwareInducedFailureType(ProcessingResourceType)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType()
@@ -76,7 +76,7 @@ public interface HardwareInducedFailureType extends FailureType {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Processing Resource Type Hardware Induced Failure Type</em>' reference.
+     *            <em>Processing Resource Type Hardware Induced Failure Type</em> ' reference.
      * @see #getProcessingResourceType__HardwareInducedFailureType()
      * @generated
      */

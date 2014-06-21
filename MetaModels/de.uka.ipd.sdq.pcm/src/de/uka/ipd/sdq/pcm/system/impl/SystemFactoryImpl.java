@@ -34,12 +34,12 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
      */
     public static SystemFactory init() {
         try {
-            SystemFactory theSystemFactory = (SystemFactory) EPackage.Registry.INSTANCE
+            final SystemFactory theSystemFactory = (SystemFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SystemPackage.eNS_URI);
             if (theSystemFactory != null) {
                 return theSystemFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SystemFactoryImpl();
@@ -60,10 +60,10 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case SystemPackage.SYSTEM:
-            return (EObject) createSystem();
+            return this.createSystem();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -74,8 +74,9 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
      * 
      * @generated
      */
+    @Override
     public de.uka.ipd.sdq.pcm.system.System createSystem() {
-        SystemImpl system = new SystemImpl();
+        final SystemImpl system = new SystemImpl();
         return system;
     }
 
@@ -84,8 +85,9 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
      * 
      * @generated
      */
+    @Override
     public SystemPackage getSystemPackage() {
-        return (SystemPackage) getEPackage();
+        return (SystemPackage) this.getEPackage();
     }
 
     /**

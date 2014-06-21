@@ -38,8 +38,8 @@ public class SeffPerformanceResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new SeffPerformanceResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new SeffPerformanceResourceImpl(uri);
         return result;
     }
 

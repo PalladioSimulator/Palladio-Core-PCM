@@ -39,12 +39,12 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      */
     public static EntityFactory init() {
         try {
-            EntityFactory theEntityFactory = (EntityFactory) EPackage.Registry.INSTANCE
+            final EntityFactory theEntityFactory = (EntityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(EntityPackage.eNS_URI);
             if (theEntityFactory != null) {
                 return theEntityFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new EntityFactoryImpl();
@@ -65,18 +65,18 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case EntityPackage.RESOURCE_PROVIDED_ROLE:
-            return (EObject) createResourceProvidedRole();
+            return this.createResourceProvidedRole();
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return (EObject) createResourceInterfaceRequiringEntity();
+            return this.createResourceInterfaceRequiringEntity();
         case EntityPackage.RESOURCE_REQUIRED_ROLE:
-            return (EObject) createResourceRequiredRole();
+            return this.createResourceRequiredRole();
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return (EObject) createResourceInterfaceProvidingEntity();
+            return this.createResourceInterfaceProvidingEntity();
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY:
-            return (EObject) createResourceInterfaceProvidingRequiringEntity();
+            return this.createResourceInterfaceProvidingRequiringEntity();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -87,8 +87,9 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * 
      * @generated
      */
+    @Override
     public ResourceProvidedRole createResourceProvidedRole() {
-        ResourceProvidedRoleImpl resourceProvidedRole = new ResourceProvidedRoleImpl();
+        final ResourceProvidedRoleImpl resourceProvidedRole = new ResourceProvidedRoleImpl();
         return resourceProvidedRole;
     }
 
@@ -97,8 +98,9 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * 
      * @generated
      */
+    @Override
     public ResourceInterfaceRequiringEntity createResourceInterfaceRequiringEntity() {
-        ResourceInterfaceRequiringEntityImpl resourceInterfaceRequiringEntity = new ResourceInterfaceRequiringEntityImpl();
+        final ResourceInterfaceRequiringEntityImpl resourceInterfaceRequiringEntity = new ResourceInterfaceRequiringEntityImpl();
         return resourceInterfaceRequiringEntity;
     }
 
@@ -107,8 +109,9 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * 
      * @generated
      */
+    @Override
     public ResourceRequiredRole createResourceRequiredRole() {
-        ResourceRequiredRoleImpl resourceRequiredRole = new ResourceRequiredRoleImpl();
+        final ResourceRequiredRoleImpl resourceRequiredRole = new ResourceRequiredRoleImpl();
         return resourceRequiredRole;
     }
 
@@ -117,8 +120,9 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * 
      * @generated
      */
+    @Override
     public ResourceInterfaceProvidingEntity createResourceInterfaceProvidingEntity() {
-        ResourceInterfaceProvidingEntityImpl resourceInterfaceProvidingEntity = new ResourceInterfaceProvidingEntityImpl();
+        final ResourceInterfaceProvidingEntityImpl resourceInterfaceProvidingEntity = new ResourceInterfaceProvidingEntityImpl();
         return resourceInterfaceProvidingEntity;
     }
 
@@ -127,8 +131,9 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * 
      * @generated
      */
+    @Override
     public ResourceInterfaceProvidingRequiringEntity createResourceInterfaceProvidingRequiringEntity() {
-        ResourceInterfaceProvidingRequiringEntityImpl resourceInterfaceProvidingRequiringEntity = new ResourceInterfaceProvidingRequiringEntityImpl();
+        final ResourceInterfaceProvidingRequiringEntityImpl resourceInterfaceProvidingRequiringEntity = new ResourceInterfaceProvidingRequiringEntityImpl();
         return resourceInterfaceProvidingRequiringEntity;
     }
 
@@ -137,8 +142,9 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * 
      * @generated
      */
+    @Override
     public EntityPackage getEntityPackage() {
-        return (EntityPackage) getEPackage();
+        return (EntityPackage) this.getEPackage();
     }
 
     /**

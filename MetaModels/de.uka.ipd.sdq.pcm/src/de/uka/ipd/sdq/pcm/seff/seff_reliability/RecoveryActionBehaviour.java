@@ -59,12 +59,12 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour}. <!-- begin-user-doc
      * -->
      * <p>
-     * If the meaning of the '<em>Failure Handling Alternatives Recovery Action Behaviour</em>'
+     * If the meaning of the ' <em>Failure Handling Alternatives Recovery Action Behaviour</em>'
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Failure Handling Alternatives Recovery Action Behaviour</em>'
+     * @return the value of the ' <em>Failure Handling Alternatives Recovery Action Behaviour</em>'
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()
      * @model ordered="false"
@@ -73,17 +73,17 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
     EList<RecoveryActionBehaviour> getFailureHandlingAlternatives__RecoveryActionBehaviour();
 
     /**
-     * Returns the value of the '<em><b>Recovery Action Recovery Action Behaviour</b></em>'
+     * Returns the value of the ' <em><b>Recovery Action Recovery Action Behaviour</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
      * <em>Recovery Action Behaviours Recovery Action</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Recovery Action Recovery Action Behaviour</em>' container
+     * If the meaning of the '<em>Recovery Action Recovery Action Behaviour</em> ' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Recovery Action Recovery Action Behaviour</em>' container
+     * @return the value of the ' <em>Recovery Action Recovery Action Behaviour</em>' container
      *         reference.
      * @see #setRecoveryAction__RecoveryActionBehaviour(RecoveryAction)
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour()
@@ -101,7 +101,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Recovery Action Recovery Action Behaviour</em>'
+     *            the new value of the ' <em>Recovery Action Recovery Action Behaviour</em>'
      *            container reference.
      * @see #getRecoveryAction__RecoveryActionBehaviour()
      * @generated

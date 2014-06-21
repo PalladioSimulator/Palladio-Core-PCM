@@ -46,7 +46,7 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * 
      * @generated
      */
-    public ProbabilisticBranchTransitionItemProvider(AdapterFactory adapterFactory) {
+    public ProbabilisticBranchTransitionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -57,13 +57,13 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addBranchProbabilityPropertyDescriptor(object);
+            this.addBranchProbabilityPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,12 +72,11 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * 
      * @generated
      */
-    protected void addBranchProbabilityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ProbabilisticBranchTransition_branchProbability_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addBranchProbabilityPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ProbabilisticBranchTransition_branchProbability_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_ProbabilisticBranchTransition_branchProbability_feature",
                         "_UI_ProbabilisticBranchTransition_type"),
                 SeffPackage.Literals.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY, true, false, false,
@@ -90,8 +89,9 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProbabilisticBranchTransition"));
+    public Object getImage(final Object object) {
+        return this
+                .overlayImage(object, this.getResourceLocator().getImage("full/obj16/ProbabilisticBranchTransition"));
     }
 
     /**
@@ -101,10 +101,10 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ProbabilisticBranchTransition) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ProbabilisticBranchTransition_type")
-                : getString("_UI_ProbabilisticBranchTransition_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ProbabilisticBranchTransition) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ProbabilisticBranchTransition_type") : this
+                .getString("_UI_ProbabilisticBranchTransition_type") + " " + label;
     }
 
     /**
@@ -115,12 +115,12 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(ProbabilisticBranchTransition.class)) {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -133,7 +133,7 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

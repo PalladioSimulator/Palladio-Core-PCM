@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Usage Scenario</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Usage Scenario</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> UsageScenarios are concurrently executed behaviours of users within one
@@ -19,12 +19,15 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario <em>Usage
- * Model Usage Scenario</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario <em>
- * Scenario Behaviour Usage Scenario</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>Workload
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario <em>Usage Model
  * Usage Scenario</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario <em>
+ * Scenario Behaviour Usage Scenario</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>Workload Usage
+ * Scenario</em>}</li>
  * </ul>
  * </p>
  * 
@@ -41,7 +44,7 @@ public interface UsageScenario extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Scenario Behaviour Usage Scenario</b></em>' containment
+     * Returns the value of the ' <em><b>Scenario Behaviour Usage Scenario</b></em>' containment
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
      * <em>Usage Scenario Senario Behaviour</em>}'. <!-- begin-user-doc -->
@@ -68,7 +71,7 @@ public interface UsageScenario extends Entity {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Scenario Behaviour Usage Scenario</em>' containment
+     *            the new value of the ' <em>Scenario Behaviour Usage Scenario</em>' containment
      *            reference.
      * @see #getScenarioBehaviour_UsageScenario()
      * @generated

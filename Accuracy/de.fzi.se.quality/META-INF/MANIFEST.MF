@@ -26,9 +26,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  de.uka.ipd.sdq.identifier;bundle-version="2.1.0";visibility:=reexport,
  de.uka.ipd.sdq.pcm;bundle-version="3.6.0";visibility:=reexport,
- de.uka.ipd.sdq.probfunction;bundle-version="2.0.0";visibility:=reexport,
- de.uka.ipd.sdq.stoex;bundle-version="2.1.0";visibility:=reexport,
- de.uka.ipd.sdq.units;bundle-version="2.0.0";visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;bundle-version="2.1.0";visibility:=reexport,
+ de.uka.ipd.sdq.stoex;bundle-version="2.2.0";visibility:=reexport,
+ de.uka.ipd.sdq.units;bundle-version="2.1.0";visibility:=reexport,
  org.eclipse.uml2.types;bundle-version="1.0.0";visibility:=reexport
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy

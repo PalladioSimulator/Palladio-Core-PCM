@@ -35,12 +35,12 @@ public interface OperationProvidedRole extends ProvidedRole {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Provided Interface Operation Provided Role</b></em>'
+     * Returns the value of the ' <em><b>Provided Interface Operation Provided Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This
      * property represents the corresponding interface that is provided by this role. <!--
      * end-model-doc -->
      * 
-     * @return the value of the '<em>Provided Interface Operation Provided Role</em>' reference.
+     * @return the value of the ' <em>Provided Interface Operation Provided Role</em>' reference.
      * @see #setProvidedInterface__OperationProvidedRole(OperationInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationProvidedRole_ProvidedInterface__OperationProvidedRole()
      * @model required="true" ordered="false"
@@ -55,7 +55,7 @@ public interface OperationProvidedRole extends ProvidedRole {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Provided Interface Operation Provided Role</em>'
+     *            the new value of the ' <em>Provided Interface Operation Provided Role</em>'
      *            reference.
      * @see #getProvidedInterface__OperationProvidedRole()
      * @generated

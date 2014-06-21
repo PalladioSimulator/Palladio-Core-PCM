@@ -50,7 +50,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * 
      * @generated
      */
-    public ResourceDemandingBehaviourItemProvider(AdapterFactory adapterFactory) {
+    public ResourceDemandingBehaviourItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -61,12 +61,12 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -79,12 +79,12 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
+            this.childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -93,7 +93,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -106,8 +106,8 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceDemandingBehaviour"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ResourceDemandingBehaviour"));
     }
 
     /**
@@ -117,10 +117,10 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ResourceDemandingBehaviour) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ResourceDemandingBehaviour_type")
-                : getString("_UI_ResourceDemandingBehaviour_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ResourceDemandingBehaviour) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceDemandingBehaviour_type") : this
+                .getString("_UI_ResourceDemandingBehaviour_type") + " " + label;
     }
 
     /**
@@ -131,12 +131,12 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(ResourceDemandingBehaviour.class)) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -149,62 +149,62 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createStopAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createBranchAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createStartAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createReleaseAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createLoopAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createForkAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createExternalCallAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createAcquireAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createCollectionIteratorAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createSetVariableAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createInternalCallAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createEmitEventAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffFactory.eINSTANCE.createInternalAction()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                 SeffReliabilityFactory.eINSTANCE.createRecoveryAction()));
     }
@@ -217,7 +217,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

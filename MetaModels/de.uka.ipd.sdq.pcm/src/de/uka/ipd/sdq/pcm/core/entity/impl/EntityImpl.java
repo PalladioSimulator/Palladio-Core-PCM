@@ -15,12 +15,12 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Entity</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Entity</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl#getEntityName <em>Entity Name</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl#getEntityName <em> Entity Name</em>}</li>
  * </ul>
  * </p>
  * 
@@ -78,21 +78,9 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      * 
      * @generated
      */
+    @Override
     public String getEntityName() {
-        return entityName;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setEntityName(String newEntityName) {
-        String oldEntityName = entityName;
-        entityName = newEntityName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.ENTITY__ENTITY_NAME, oldEntityName,
-                    entityName));
+        return this.entityName;
     }
 
     /**
@@ -101,10 +89,25 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setEntityName(final String newEntityName) {
+        final String oldEntityName = this.entityName;
+        this.entityName = newEntityName;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.ENTITY__ENTITY_NAME,
+                    oldEntityName, this.entityName));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case EntityPackage.ENTITY__ENTITY_NAME:
-            return getEntityName();
+            return this.getEntityName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -115,10 +118,10 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case EntityPackage.ENTITY__ENTITY_NAME:
-            setEntityName((String) newValue);
+            this.setEntityName((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -130,10 +133,10 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case EntityPackage.ENTITY__ENTITY_NAME:
-            setEntityName(ENTITY_NAME_EDEFAULT);
+            this.setEntityName(ENTITY_NAME_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -145,10 +148,11 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case EntityPackage.ENTITY__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? entityName != null : !ENTITY_NAME_EDEFAULT.equals(entityName);
+            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
+                    .equals(this.entityName);
         }
         return super.eIsSet(featureID);
     }
@@ -159,7 +163,7 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
         if (baseClass == NamedElement.class) {
             switch (derivedFeatureID) {
             case EntityPackage.ENTITY__ENTITY_NAME:
@@ -177,7 +181,7 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
         if (baseClass == NamedElement.class) {
             switch (baseFeatureID) {
             case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
@@ -196,12 +200,13 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (entityName: ");
-        result.append(entityName);
+        result.append(this.entityName);
         result.append(')');
         return result.toString();
     }

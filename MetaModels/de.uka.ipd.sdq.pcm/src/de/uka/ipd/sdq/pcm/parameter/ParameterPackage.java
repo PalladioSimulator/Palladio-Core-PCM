@@ -101,7 +101,7 @@ public interface ParameterPackage extends EPackage {
     int CHARACTERISED_VARIABLE = 2;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
      * <em>Variable Usage</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
@@ -111,8 +111,8 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE = 0;
 
     /**
-     * The feature id for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Variable Characterisation Variable Usage</b></em>'
+     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
@@ -138,7 +138,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE = 2;
 
     /**
-     * The feature id for the '<em><b>Synchronisation Point Variable Usage</b></em>' container
+     * The feature id for the ' <em><b>Synchronisation Point Variable Usage</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -147,7 +147,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE = 3;
 
     /**
-     * The feature id for the '<em><b>Call Return Action Variable Usage</b></em>' container
+     * The feature id for the '<em><b>Call Return Action Variable Usage</b></em> ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -156,7 +156,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE = 4;
 
     /**
-     * The feature id for the '<em><b>Set Variable Action Variable Usage</b></em>' container
+     * The feature id for the ' <em><b>Set Variable Action Variable Usage</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -184,7 +184,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE = 7;
 
     /**
-     * The feature id for the '<em><b>Entry Level System Call Input Parameter Usage</b></em>'
+     * The feature id for the ' <em><b>Entry Level System Call Input Parameter Usage</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -193,7 +193,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE = 8;
 
     /**
-     * The feature id for the '<em><b>Entry Level System Call Output Parameter Usage</b></em>'
+     * The feature id for the ' <em><b>Entry Level System Call Output Parameter Usage</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -229,7 +229,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_CHARACTERISATION__TYPE = 0;
 
     /**
-     * The feature id for the '<em><b>Specification Variable Characterisation</b></em>' containment
+     * The feature id for the ' <em><b>Specification Variable Characterisation</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -238,7 +238,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION = 1;
 
     /**
-     * The feature id for the '<em><b>Variable Usage Variable Characterisation</b></em>' container
+     * The feature id for the ' <em><b>Variable Usage Variable Characterisation</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -247,7 +247,7 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION = 2;
 
     /**
-     * The number of structural features of the '<em>Variable Characterisation</em>' class. <!--
+     * The number of structural features of the ' <em>Variable Characterisation</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -256,8 +256,8 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_CHARACTERISATION_FEATURE_COUNT = 3;
 
     /**
-     * The feature id for the '<em><b>Id Variable</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The feature id for the '<em><b>Id Variable</b></em>' containment reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
@@ -274,7 +274,7 @@ public interface ParameterPackage extends EPackage {
     int CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE = StoexPackage.VARIABLE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Characterised Variable</em>' class. <!--
+     * The number of structural features of the '<em>Characterised Variable</em> ' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -283,7 +283,8 @@ public interface ParameterPackage extends EPackage {
     int CHARACTERISED_VARIABLE_FEATURE_COUNT = StoexPackage.VARIABLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
+     * The meta object id for the '
+     * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
      * <em>Variable Characterisation Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
@@ -344,8 +345,9 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableCharacterisation_VariableUsage_VariableCharacterisation();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable
-     * <em>Characterised Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable <em>Characterised Variable</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Characterised Variable</em>'.
      * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable
@@ -358,7 +360,7 @@ public interface ParameterPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType
      * <em>Characterisation Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the attribute '<em>Characterisation Type</em>'.
+     * @return the meta object for the attribute '<em>Characterisation Type</em> '.
      * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType()
      * @see #getCharacterisedVariable()
      * @generated
@@ -366,7 +368,7 @@ public interface ParameterPackage extends EPackage {
     EAttribute getCharacterisedVariable_CharacterisationType();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage
      * <em>Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Variable Usage</em>'.
@@ -394,7 +396,7 @@ public interface ParameterPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage
      * <em>User Data Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>User Data Variable Usage</em>'.
+     * @return the meta object for the container reference ' <em>User Data Variable Usage</em>'.
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -420,7 +422,7 @@ public interface ParameterPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction__VariableUsage
      * <em>Call Action Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Call Action Variable Usage</em>'.
+     * @return the meta object for the container reference ' <em>Call Action Variable Usage</em>'.
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction__VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -458,8 +460,8 @@ public interface ParameterPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
      * <em>Assembly Context Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Assembly Context Variable Usage</em>
-     *         '.
+     * @return the meta object for the container reference '
+     *         <em>Assembly Context Variable Usage</em>'.
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -497,7 +499,7 @@ public interface ParameterPackage extends EPackage {
     /**
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
-     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'.
+     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>} '.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for the container reference '
@@ -527,7 +529,7 @@ public interface ParameterPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
      * <em>Variable Characterisation Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for enum '<em>Variable Characterisation Type</em>'.
+     * @return the meta object for enum '<em>Variable Characterisation Type</em> '.
      * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
      * @generated
      */
@@ -575,8 +577,8 @@ public interface ParameterPackage extends EPackage {
         EAttribute VARIABLE_CHARACTERISATION__TYPE = eINSTANCE.getVariableCharacterisation_Type();
 
         /**
-         * The meta object literal for the '<em><b>Specification Variable Characterisation</b></em>'
-         * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Specification Variable Characterisation</b></em>
+         * ' containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -584,8 +586,9 @@ public interface ParameterPackage extends EPackage {
                 .getVariableCharacterisation_Specification_VariableCharacterisation();
 
         /**
-         * The meta object literal for the '<em><b>Variable Usage Variable Characterisation</b></em>
-         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '
+         * <em><b>Variable Usage Variable Characterisation</b></em>' container reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -604,7 +607,7 @@ public interface ParameterPackage extends EPackage {
         EClass CHARACTERISED_VARIABLE = eINSTANCE.getCharacterisedVariable();
 
         /**
-         * The meta object literal for the '<em><b>Characterisation Type</b></em>' attribute
+         * The meta object literal for the ' <em><b>Characterisation Type</b></em>' attribute
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -624,8 +627,9 @@ public interface ParameterPackage extends EPackage {
         EClass VARIABLE_USAGE = eINSTANCE.getVariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Variable Characterisation Variable Usage</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '
+         * <em><b>Variable Characterisation Variable Usage</b></em>' containment reference list
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -633,7 +637,7 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_VariableCharacterisation_VariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>User Data Variable Usage</b></em>' container
+         * The meta object literal for the ' <em><b>User Data Variable Usage</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -641,7 +645,7 @@ public interface ParameterPackage extends EPackage {
         EReference VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE = eINSTANCE.getVariableUsage_UserData_VariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Synchronisation Point Variable Usage</b></em>'
+         * The meta object literal for the ' <em><b>Synchronisation Point Variable Usage</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -650,7 +654,7 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_SynchronisationPoint_VariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Call Action Variable Usage</b></em>' container
+         * The meta object literal for the ' <em><b>Call Action Variable Usage</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -658,7 +662,7 @@ public interface ParameterPackage extends EPackage {
         EReference VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE = eINSTANCE.getVariableUsage_CallAction__VariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Call Return Action Variable Usage</b></em>'
+         * The meta object literal for the ' <em><b>Call Return Action Variable Usage</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -667,7 +671,7 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_CallReturnAction__VariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Set Variable Action Variable Usage</b></em>'
+         * The meta object literal for the ' <em><b>Set Variable Action Variable Usage</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -676,7 +680,7 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_SetVariableAction_VariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Assembly Context Variable Usage</b></em>'
+         * The meta object literal for the ' <em><b>Assembly Context Variable Usage</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -715,7 +719,7 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Named Reference Variable Usage</b></em>'
+         * The meta object literal for the ' <em><b>Named Reference Variable Usage</b></em>'
          * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

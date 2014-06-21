@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -198,38 +197,39 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         switch (classifierID) {
         case UsagemodelPackage.WORKLOAD:
-            return validateWorkload((Workload) value, diagnostics, context);
+            return this.validateWorkload((Workload) value, diagnostics, context);
         case UsagemodelPackage.USAGE_SCENARIO:
-            return validateUsageScenario((UsageScenario) value, diagnostics, context);
+            return this.validateUsageScenario((UsageScenario) value, diagnostics, context);
         case UsagemodelPackage.USER_DATA:
-            return validateUserData((UserData) value, diagnostics, context);
+            return this.validateUserData((UserData) value, diagnostics, context);
         case UsagemodelPackage.USAGE_MODEL:
-            return validateUsageModel((UsageModel) value, diagnostics, context);
+            return this.validateUsageModel((UsageModel) value, diagnostics, context);
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL:
-            return validateEntryLevelSystemCall((EntryLevelSystemCall) value, diagnostics, context);
+            return this.validateEntryLevelSystemCall((EntryLevelSystemCall) value, diagnostics, context);
         case UsagemodelPackage.ABSTRACT_USER_ACTION:
-            return validateAbstractUserAction((AbstractUserAction) value, diagnostics, context);
+            return this.validateAbstractUserAction((AbstractUserAction) value, diagnostics, context);
         case UsagemodelPackage.SCENARIO_BEHAVIOUR:
-            return validateScenarioBehaviour((ScenarioBehaviour) value, diagnostics, context);
+            return this.validateScenarioBehaviour((ScenarioBehaviour) value, diagnostics, context);
         case UsagemodelPackage.BRANCH_TRANSITION:
-            return validateBranchTransition((BranchTransition) value, diagnostics, context);
+            return this.validateBranchTransition((BranchTransition) value, diagnostics, context);
         case UsagemodelPackage.BRANCH:
-            return validateBranch((Branch) value, diagnostics, context);
+            return this.validateBranch((Branch) value, diagnostics, context);
         case UsagemodelPackage.LOOP:
-            return validateLoop((Loop) value, diagnostics, context);
+            return this.validateLoop((Loop) value, diagnostics, context);
         case UsagemodelPackage.STOP:
-            return validateStop((Stop) value, diagnostics, context);
+            return this.validateStop((Stop) value, diagnostics, context);
         case UsagemodelPackage.START:
-            return validateStart((Start) value, diagnostics, context);
+            return this.validateStart((Start) value, diagnostics, context);
         case UsagemodelPackage.OPEN_WORKLOAD:
-            return validateOpenWorkload((OpenWorkload) value, diagnostics, context);
+            return this.validateOpenWorkload((OpenWorkload) value, diagnostics, context);
         case UsagemodelPackage.DELAY:
-            return validateDelay((Delay) value, diagnostics, context);
+            return this.validateDelay((Delay) value, diagnostics, context);
         case UsagemodelPackage.CLOSED_WORKLOAD:
-            return validateClosedWorkload((ClosedWorkload) value, diagnostics, context);
+            return this.validateClosedWorkload((ClosedWorkload) value, diagnostics, context);
         default:
             return true;
         }
@@ -240,8 +240,9 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateWorkload(Workload workload, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) workload, diagnostics, context);
+    public boolean validateWorkload(final Workload workload, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(workload, diagnostics, context);
     }
 
     /**
@@ -249,9 +250,9 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateUsageScenario(UsageScenario usageScenario, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) usageScenario, diagnostics, context);
+    public boolean validateUsageScenario(final UsageScenario usageScenario, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(usageScenario, diagnostics, context);
     }
 
     /**
@@ -259,41 +260,51 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateScenarioBehaviour(ScenarioBehaviour scenarioBehaviour, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) scenarioBehaviour, diagnostics, context))
+    public boolean validateScenarioBehaviour(final ScenarioBehaviour scenarioBehaviour,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(scenarioBehaviour, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateScenarioBehaviour_Exactlyonestart(scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateScenarioBehaviour_Exactlyonestop(scenarioBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateScenarioBehaviour_EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(scenarioBehaviour, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateScenarioBehaviour_Exactlyonestart(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateScenarioBehaviour_Exactlyonestop(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateScenarioBehaviour_EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(
                     scenarioBehaviour, diagnostics, context);
+        }
         return result;
     }
 
     /**
-     * Validates the Exactlyonestart constraint of '<em>Scenario Behaviour</em>'. <!--
+     * Validates the Exactlyonestart constraint of '<em>Scenario Behaviour</em> '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    public boolean validateScenarioBehaviour_Exactlyonestart(ScenarioBehaviour scenarioBehaviour,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateScenarioBehaviour_Exactlyonestart(final ScenarioBehaviour scenarioBehaviour,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return scenarioBehaviour.Exactlyonestart(diagnostics, context);
     }
 
@@ -303,8 +314,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateScenarioBehaviour_Exactlyonestop(ScenarioBehaviour scenarioBehaviour,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateScenarioBehaviour_Exactlyonestop(final ScenarioBehaviour scenarioBehaviour,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return scenarioBehaviour.Exactlyonestop(diagnostics, context);
     }
 
@@ -315,7 +326,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateScenarioBehaviour_EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(
-            ScenarioBehaviour scenarioBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final ScenarioBehaviour scenarioBehaviour, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return scenarioBehaviour.EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(diagnostics, context);
     }
 
@@ -324,9 +336,9 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAbstractUserAction(AbstractUserAction abstractUserAction, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) abstractUserAction, diagnostics, context);
+    public boolean validateAbstractUserAction(final AbstractUserAction abstractUserAction,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(abstractUserAction, diagnostics, context);
     }
 
     /**
@@ -334,9 +346,9 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateBranchTransition(BranchTransition branchTransition, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) branchTransition, diagnostics, context);
+    public boolean validateBranchTransition(final BranchTransition branchTransition, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(branchTransition, diagnostics, context);
     }
 
     /**
@@ -344,35 +356,44 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateBranch(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) branch, diagnostics, context))
+    public boolean validateBranch(final Branch branch, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(branch, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) branch, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) branch, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) branch, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) branch, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) branch, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) branch, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) branch, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateBranch_AllBranchProbabilitiesMustSumUpTo1(branch, diagnostics, context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(branch, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(branch, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(branch, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(branch, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(branch, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(branch, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(branch, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateBranch_AllBranchProbabilitiesMustSumUpTo1(branch, diagnostics, context);
+        }
         return result;
     }
 
     /**
-     * Validates the AllBranchProbabilitiesMustSumUpTo1 constraint of '<em>Branch</em>'. <!--
+     * Validates the AllBranchProbabilitiesMustSumUpTo1 constraint of ' <em>Branch</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    public boolean validateBranch_AllBranchProbabilitiesMustSumUpTo1(Branch branch, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    public boolean validateBranch_AllBranchProbabilitiesMustSumUpTo1(final Branch branch,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return branch.AllBranchProbabilitiesMustSumUpTo1(diagnostics, context);
     }
 
@@ -381,8 +402,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateLoop(Loop loop, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) loop, diagnostics, context);
+    public boolean validateLoop(final Loop loop, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(loop, diagnostics, context);
     }
 
     /**
@@ -390,8 +411,9 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateUsageModel(UsageModel usageModel, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) usageModel, diagnostics, context);
+    public boolean validateUsageModel(final UsageModel usageModel, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(usageModel, diagnostics, context);
     }
 
     /**
@@ -399,24 +421,32 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateStop(Stop stop, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) stop, diagnostics, context))
+    public boolean validateStop(final Stop stop, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(stop, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) stop, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) stop, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) stop, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) stop, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) stop, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) stop, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) stop, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateStop_StopHasNoSuccessor(stop, diagnostics, context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(stop, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(stop, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(stop, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(stop, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(stop, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(stop, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(stop, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateStop_StopHasNoSuccessor(stop, diagnostics, context);
+        }
         return result;
     }
 
@@ -426,7 +456,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateStop_StopHasNoSuccessor(Stop stop, DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateStop_StopHasNoSuccessor(final Stop stop, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return stop.StopHasNoSuccessor(diagnostics, context);
     }
 
@@ -435,24 +466,32 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateStart(Start start, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) start, diagnostics, context))
+    public boolean validateStart(final Start start, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(start, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) start, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) start, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) start, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) start, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) start, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) start, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) start, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateStart_StartHasNoPredecessor(start, diagnostics, context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(start, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(start, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(start, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(start, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(start, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(start, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(start, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateStart_StartHasNoPredecessor(start, diagnostics, context);
+        }
         return result;
     }
 
@@ -462,8 +501,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateStart_StartHasNoPredecessor(Start start, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    public boolean validateStart_StartHasNoPredecessor(final Start start, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return start.StartHasNoPredecessor(diagnostics, context);
     }
 
@@ -472,26 +511,34 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateOpenWorkload(OpenWorkload openWorkload, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) openWorkload, diagnostics, context))
+    public boolean validateOpenWorkload(final OpenWorkload openWorkload, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(openWorkload, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) openWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) openWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) openWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) openWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) openWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) openWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) openWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateOpenWorkload_InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(openWorkload, diagnostics,
-                    context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(openWorkload, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(openWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(openWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(openWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(openWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(openWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(openWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateOpenWorkload_InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(openWorkload,
+                    diagnostics, context);
+        }
         return result;
     }
 
@@ -501,8 +548,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateOpenWorkload_InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(OpenWorkload openWorkload,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateOpenWorkload_InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(
+            final OpenWorkload openWorkload, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return openWorkload.InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(diagnostics, context);
     }
 
@@ -511,29 +558,38 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateEntryLevelSystemCall(EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) entryLevelSystemCall, diagnostics, context))
+    public boolean validateEntryLevelSystemCall(final EntryLevelSystemCall entryLevelSystemCall,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(entryLevelSystemCall, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateEntryLevelSystemCall_EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(entryLevelSystemCall, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(entryLevelSystemCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(entryLevelSystemCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(entryLevelSystemCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(entryLevelSystemCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(entryLevelSystemCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(entryLevelSystemCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateEntryLevelSystemCall_EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(
                     entryLevelSystemCall, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateEntryLevelSystemCall_EntryLevelSystemCallSignatureMustMatchItsProvidedRole(
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateEntryLevelSystemCall_EntryLevelSystemCallSignatureMustMatchItsProvidedRole(
                     entryLevelSystemCall, diagnostics, context);
+        }
         return result;
     }
 
@@ -544,7 +600,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateEntryLevelSystemCall_EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(
-            EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final EntryLevelSystemCall entryLevelSystemCall, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return entryLevelSystemCall.EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(diagnostics, context);
     }
 
@@ -555,7 +612,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateEntryLevelSystemCall_EntryLevelSystemCallSignatureMustMatchItsProvidedRole(
-            EntryLevelSystemCall entryLevelSystemCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final EntryLevelSystemCall entryLevelSystemCall, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return entryLevelSystemCall.EntryLevelSystemCallSignatureMustMatchItsProvidedRole(diagnostics, context);
     }
 
@@ -564,29 +622,38 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateClosedWorkload(ClosedWorkload closedWorkload, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) closedWorkload, diagnostics, context))
+    public boolean validateClosedWorkload(final ClosedWorkload closedWorkload, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(closedWorkload, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) closedWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) closedWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) closedWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) closedWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) closedWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) closedWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) closedWorkload, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateClosedWorkload_PopulationInClosedWorkloadNeedsToBeSpecified(closedWorkload, diagnostics,
-                    context);
-        if (result || diagnostics != null)
-            result &= validateClosedWorkload_ThinkTimeInClosedWorkloadNeedsToBeSpecified(closedWorkload, diagnostics,
-                    context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(closedWorkload, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(closedWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(closedWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(closedWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(closedWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(closedWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(closedWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateClosedWorkload_PopulationInClosedWorkloadNeedsToBeSpecified(closedWorkload,
+                    diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateClosedWorkload_ThinkTimeInClosedWorkloadNeedsToBeSpecified(closedWorkload,
+                    diagnostics, context);
+        }
         return result;
     }
 
@@ -596,8 +663,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateClosedWorkload_PopulationInClosedWorkloadNeedsToBeSpecified(ClosedWorkload closedWorkload,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateClosedWorkload_PopulationInClosedWorkloadNeedsToBeSpecified(
+            final ClosedWorkload closedWorkload, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return closedWorkload.PopulationInClosedWorkloadNeedsToBeSpecified(diagnostics, context);
     }
 
@@ -607,8 +674,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateClosedWorkload_ThinkTimeInClosedWorkloadNeedsToBeSpecified(ClosedWorkload closedWorkload,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateClosedWorkload_ThinkTimeInClosedWorkloadNeedsToBeSpecified(
+            final ClosedWorkload closedWorkload, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return closedWorkload.ThinkTimeInClosedWorkloadNeedsToBeSpecified(diagnostics, context);
     }
 
@@ -621,7 +688,8 @@ public class UsagemodelValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to this validator.
+        // Specialize this to return a resource locator for messages specific to
+        // this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }
@@ -631,8 +699,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateDelay(Delay delay, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) delay, diagnostics, context);
+    public boolean validateDelay(final Delay delay, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(delay, diagnostics, context);
     }
 
     /**
@@ -640,8 +708,9 @@ public class UsagemodelValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateUserData(UserData userData, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) userData, diagnostics, context);
+    public boolean validateUserData(final UserData userData, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(userData, diagnostics, context);
     }
 
 } // UsagemodelValidator

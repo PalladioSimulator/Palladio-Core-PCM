@@ -65,7 +65,7 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -83,63 +83,63 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
      */
     protected SubsystemSwitch<Adapter> modelSwitch = new SubsystemSwitch<Adapter>() {
         @Override
-        public Adapter caseSubSystem(SubSystem object) {
-            return createSubSystemAdapter();
+        public Adapter caseSubSystem(final SubSystem object) {
+            return SubsystemAdapterFactory.this.createSubSystemAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return SubsystemAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return SubsystemAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return SubsystemAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(ComposedStructure object) {
-            return createComposedStructureAdapter();
+        public Adapter caseComposedStructure(final ComposedStructure object) {
+            return SubsystemAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
-            return createInterfaceProvidingEntityAdapter();
+        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object) {
+            return SubsystemAdapterFactory.this.createInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
-            return createResourceInterfaceRequiringEntityAdapter();
+        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object) {
+            return SubsystemAdapterFactory.this.createResourceInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
-            return createInterfaceRequiringEntityAdapter();
+        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object) {
+            return SubsystemAdapterFactory.this.createInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
-            return createInterfaceProvidingRequiringEntityAdapter();
+        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object) {
+            return SubsystemAdapterFactory.this.createInterfaceProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
-            return createComposedProvidingRequiringEntityAdapter();
+        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object) {
+            return SubsystemAdapterFactory.this.createComposedProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseRepositoryComponent(RepositoryComponent object) {
-            return createRepositoryComponentAdapter();
+        public Adapter caseRepositoryComponent(final RepositoryComponent object) {
+            return SubsystemAdapterFactory.this.createRepositoryComponentAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return SubsystemAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -152,12 +152,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.subsystem.SubSystem
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.subsystem.SubSystem
      * <em>Sub System</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -171,7 +171,7 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -200,7 +200,7 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

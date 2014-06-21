@@ -47,7 +47,7 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * 
      * @generated
      */
-    public ResourceSignatureItemProvider(AdapterFactory adapterFactory) {
+    public ResourceSignatureItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -58,13 +58,13 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addResourceServiceIdPropertyDescriptor(object);
+            this.addResourceServiceIdPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,12 +73,11 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * 
      * @generated
      */
-    protected void addResourceServiceIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ResourceSignature_resourceServiceId_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_ResourceSignature_resourceServiceId_feature",
+    protected void addResourceServiceIdPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ResourceSignature_resourceServiceId_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_ResourceSignature_resourceServiceId_feature",
                         "_UI_ResourceSignature_type"),
                 ResourcetypePackage.Literals.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID, true, false, false,
                 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
@@ -94,12 +93,12 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE);
+            this.childrenFeatures.add(ResourcetypePackage.Literals.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -108,7 +107,7 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -121,8 +120,8 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceSignature"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ResourceSignature"));
     }
 
     /**
@@ -132,10 +131,10 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ResourceSignature) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ResourceSignature_type")
-                : getString("_UI_ResourceSignature_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ResourceSignature) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceSignature_type") : this
+                .getString("_UI_ResourceSignature_type") + " " + label;
     }
 
     /**
@@ -146,15 +145,15 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(ResourceSignature.class)) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -167,10 +166,10 @@ public class ResourceSignatureItemProvider extends EntityItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ResourcetypePackage.Literals.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE,
                 RepositoryFactory.eINSTANCE.createParameter()));
     }

@@ -56,7 +56,7 @@ public class SeffPerformanceAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -74,28 +74,28 @@ public class SeffPerformanceAdapterFactory extends AdapterFactoryImpl {
      */
     protected SeffPerformanceSwitch<Adapter> modelSwitch = new SeffPerformanceSwitch<Adapter>() {
         @Override
-        public Adapter caseInfrastructureCall(InfrastructureCall object) {
-            return createInfrastructureCallAdapter();
+        public Adapter caseInfrastructureCall(final InfrastructureCall object) {
+            return SeffPerformanceAdapterFactory.this.createInfrastructureCallAdapter();
         }
 
         @Override
-        public Adapter caseResourceCall(ResourceCall object) {
-            return createResourceCallAdapter();
+        public Adapter caseResourceCall(final ResourceCall object) {
+            return SeffPerformanceAdapterFactory.this.createResourceCallAdapter();
         }
 
         @Override
-        public Adapter caseParametricResourceDemand(ParametricResourceDemand object) {
-            return createParametricResourceDemandAdapter();
+        public Adapter caseParametricResourceDemand(final ParametricResourceDemand object) {
+            return SeffPerformanceAdapterFactory.this.createParametricResourceDemandAdapter();
         }
 
         @Override
-        public Adapter caseCallAction(CallAction object) {
-            return createCallActionAdapter();
+        public Adapter caseCallAction(final CallAction object) {
+            return SeffPerformanceAdapterFactory.this.createCallActionAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return SeffPerformanceAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -108,8 +108,8 @@ public class SeffPerformanceAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -158,7 +158,7 @@ public class SeffPerformanceAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.CallAction
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.seff.CallAction
      * <em>Call Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->

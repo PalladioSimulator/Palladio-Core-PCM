@@ -48,7 +48,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * 
      * @generated
      */
-    public ImplementationComponentTypeItemProvider(AdapterFactory adapterFactory) {
+    public ImplementationComponentTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -59,14 +59,14 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addParentCompleteComponentTypesPropertyDescriptor(object);
-            addComponentTypePropertyDescriptor(object);
+            this.addParentCompleteComponentTypesPropertyDescriptor(object);
+            this.addComponentTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,12 +75,11 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * 
      * @generated
      */
-    protected void addParentCompleteComponentTypesPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ImplementationComponentType_parentCompleteComponentTypes_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addParentCompleteComponentTypesPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ImplementationComponentType_parentCompleteComponentTypes_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_ImplementationComponentType_parentCompleteComponentTypes_feature",
                         "_UI_ImplementationComponentType_type"),
                 RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES, true, false,
@@ -93,17 +92,14 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * 
      * @generated
      */
-    protected void addComponentTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ImplementationComponentType_componentType_feature"),
-                        getString("_UI_PropertyDescriptor_description",
-                                "_UI_ImplementationComponentType_componentType_feature",
-                                "_UI_ImplementationComponentType_type"),
-                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+    protected void addComponentTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ImplementationComponentType_componentType_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_ImplementationComponentType_componentType_feature",
+                        "_UI_ImplementationComponentType_type"),
+                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -116,13 +112,13 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -131,7 +127,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -145,10 +141,10 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ImplementationComponentType) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ImplementationComponentType_type")
-                : getString("_UI_ImplementationComponentType_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ImplementationComponentType) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ImplementationComponentType_type") : this
+                .getString("_UI_ImplementationComponentType_type") + " " + label;
     }
 
     /**
@@ -159,15 +155,15 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(ImplementationComponentType.class)) {
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -180,13 +176,14 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
-                .add(createChildParameter(
-                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
-                        ParameterFactory.eINSTANCE.createVariableUsage()));
+                .add(this
+                        .createChildParameter(
+                                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+                                ParameterFactory.eINSTANCE.createVariableUsage()));
     }
 
 }

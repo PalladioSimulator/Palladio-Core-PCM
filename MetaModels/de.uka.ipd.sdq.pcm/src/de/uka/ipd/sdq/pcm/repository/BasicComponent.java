@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Basic Component</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Basic Component</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> This entity represents a black-box component implementation. Basic
@@ -28,8 +28,9 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
  * <em>Service Effect Specifications Basic Component</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>
- * Passive Resource Basic Component</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive
+ * Resource Basic Component</em>}</li>
  * </ul>
  * </p>
  * 
@@ -46,7 +47,7 @@ public interface BasicComponent extends ImplementationComponentType {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>'
+     * Returns the value of the ' <em><b>Service Effect Specifications Basic Component</b></em>'
      * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification}. It is bidirectional and its
      * opposite is '
@@ -55,8 +56,8 @@ public interface BasicComponent extends ImplementationComponentType {
      * end-user-doc --> <!-- begin-model-doc --> This property contains the service effect
      * specification for services provided by this basic component. <!-- end-model-doc -->
      * 
-     * @return the value of the '<em>Service Effect Specifications Basic Component</em>' containment
-     *         reference list.
+     * @return the value of the ' <em>Service Effect Specifications Basic Component</em>'
+     *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ServiceEffectSpecifications__BasicComponent()
      * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
      * @model opposite="basicComponent_ServiceEffectSpecification" containment="true"
@@ -66,10 +67,10 @@ public interface BasicComponent extends ImplementationComponentType {
     EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent();
 
     /**
-     * Returns the value of the '<em><b>Passive Resource Basic Component</b></em>' containment
+     * Returns the value of the ' <em><b>Passive Resource Basic Component</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}. It is bidirectional and its opposite
-     * is '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+     * is ' {@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
      * <em>Basic Component Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the passive resources, e.g., semaphores,
      * that are owned by this basic component. <!-- end-model-doc -->

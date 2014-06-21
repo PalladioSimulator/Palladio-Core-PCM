@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Composed Structure</b></em>
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Composed Structure</b></em>
  * '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> TODO/FIXME: The distinction between ComposedStructure and
@@ -56,7 +56,7 @@ public interface ComposedStructure extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
+     * Returns the value of the ' <em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}. It is bidirectional and its
      * opposite is '
@@ -79,20 +79,21 @@ public interface ComposedStructure extends Entity {
 
     /**
      * Returns the value of the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
+     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em> ' containment
      * reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector}. It is
+     * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} . It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * <em>Parent Structure Resource Required Delegation Connector</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Resource Required Delegation Connectors Composed Structure</em>'
+     * If the meaning of the ' <em>Resource Required Delegation Connectors Composed Structure</em>'
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>
-     *         ' containment reference list.
+     * @return the value of the '
+     *         <em>Resource Required Delegation Connectors Composed Structure</em> ' containment
+     *         reference list.
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
      * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * @model opposite="parentStructure_ResourceRequiredDelegationConnector" containment="true"
@@ -102,7 +103,7 @@ public interface ComposedStructure extends Entity {
     EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure();
 
     /**
-     * Returns the value of the '<em><b>Event Channel Composed Structure</b></em>' containment
+     * Returns the value of the ' <em><b>Event Channel Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel}. It is bidirectional and its
      * opposite is '
@@ -127,7 +128,7 @@ public interface ComposedStructure extends Entity {
      * Returns the value of the '<em><b>Connectors Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.composition.Connector}. It is bidirectional and its opposite
-     * is '{@link de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector
+     * is ' {@link de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector
      * <em>Parent Structure Connector</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Connectors Composed Structure</em>' containment reference list

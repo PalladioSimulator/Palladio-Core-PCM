@@ -47,7 +47,7 @@ public class ProtocolItemProvider extends ItemProviderAdapter implements IEditin
      * 
      * @generated
      */
-    public ProtocolItemProvider(AdapterFactory adapterFactory) {
+    public ProtocolItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -58,13 +58,13 @@ public class ProtocolItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addProtocolTypeIDPropertyDescriptor(object);
+            this.addProtocolTypeIDPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,12 +73,11 @@ public class ProtocolItemProvider extends ItemProviderAdapter implements IEditin
      * 
      * @generated
      */
-    protected void addProtocolTypeIDPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Protocol_protocolTypeID_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_Protocol_protocolTypeID_feature",
+    protected void addProtocolTypeIDPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Protocol_protocolTypeID_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_Protocol_protocolTypeID_feature",
                         "_UI_Protocol_type"), ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -90,10 +89,10 @@ public class ProtocolItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((Protocol) object).getProtocolTypeID();
-        return label == null || label.length() == 0 ? getString("_UI_Protocol_type") : getString("_UI_Protocol_type")
-                + " " + label;
+    public String getText(final Object object) {
+        final String label = ((Protocol) object).getProtocolTypeID();
+        return label == null || label.length() == 0 ? this.getString("_UI_Protocol_type") : this
+                .getString("_UI_Protocol_type") + " " + label;
     }
 
     /**
@@ -104,12 +103,12 @@ public class ProtocolItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(Protocol.class)) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -122,7 +121,7 @@ public class ProtocolItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -134,7 +133,7 @@ public class ProtocolItemProvider extends ItemProviderAdapter implements IEditin
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

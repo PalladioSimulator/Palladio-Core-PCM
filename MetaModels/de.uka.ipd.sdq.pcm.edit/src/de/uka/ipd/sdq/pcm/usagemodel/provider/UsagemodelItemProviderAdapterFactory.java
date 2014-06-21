@@ -88,11 +88,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * @generated
      */
     public UsagemodelItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -112,11 +112,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createUsageScenarioAdapter() {
-        if (usageScenarioItemProvider == null) {
-            usageScenarioItemProvider = new UsageScenarioItemProvider(this);
+        if (this.usageScenarioItemProvider == null) {
+            this.usageScenarioItemProvider = new UsageScenarioItemProvider(this);
         }
 
-        return usageScenarioItemProvider;
+        return this.usageScenarioItemProvider;
     }
 
     /**
@@ -136,11 +136,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createUserDataAdapter() {
-        if (userDataItemProvider == null) {
-            userDataItemProvider = new UserDataItemProvider(this);
+        if (this.userDataItemProvider == null) {
+            this.userDataItemProvider = new UserDataItemProvider(this);
         }
 
-        return userDataItemProvider;
+        return this.userDataItemProvider;
     }
 
     /**
@@ -160,11 +160,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createUsageModelAdapter() {
-        if (usageModelItemProvider == null) {
-            usageModelItemProvider = new UsageModelItemProvider(this);
+        if (this.usageModelItemProvider == null) {
+            this.usageModelItemProvider = new UsageModelItemProvider(this);
         }
 
-        return usageModelItemProvider;
+        return this.usageModelItemProvider;
     }
 
     /**
@@ -184,11 +184,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createEntryLevelSystemCallAdapter() {
-        if (entryLevelSystemCallItemProvider == null) {
-            entryLevelSystemCallItemProvider = new EntryLevelSystemCallItemProvider(this);
+        if (this.entryLevelSystemCallItemProvider == null) {
+            this.entryLevelSystemCallItemProvider = new EntryLevelSystemCallItemProvider(this);
         }
 
-        return entryLevelSystemCallItemProvider;
+        return this.entryLevelSystemCallItemProvider;
     }
 
     /**
@@ -208,11 +208,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createScenarioBehaviourAdapter() {
-        if (scenarioBehaviourItemProvider == null) {
-            scenarioBehaviourItemProvider = new ScenarioBehaviourItemProvider(this);
+        if (this.scenarioBehaviourItemProvider == null) {
+            this.scenarioBehaviourItemProvider = new ScenarioBehaviourItemProvider(this);
         }
 
-        return scenarioBehaviourItemProvider;
+        return this.scenarioBehaviourItemProvider;
     }
 
     /**
@@ -232,11 +232,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createBranchTransitionAdapter() {
-        if (branchTransitionItemProvider == null) {
-            branchTransitionItemProvider = new BranchTransitionItemProvider(this);
+        if (this.branchTransitionItemProvider == null) {
+            this.branchTransitionItemProvider = new BranchTransitionItemProvider(this);
         }
 
-        return branchTransitionItemProvider;
+        return this.branchTransitionItemProvider;
     }
 
     /**
@@ -255,11 +255,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createBranchAdapter() {
-        if (branchItemProvider == null) {
-            branchItemProvider = new BranchItemProvider(this);
+        if (this.branchItemProvider == null) {
+            this.branchItemProvider = new BranchItemProvider(this);
         }
 
-        return branchItemProvider;
+        return this.branchItemProvider;
     }
 
     /**
@@ -278,11 +278,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createLoopAdapter() {
-        if (loopItemProvider == null) {
-            loopItemProvider = new LoopItemProvider(this);
+        if (this.loopItemProvider == null) {
+            this.loopItemProvider = new LoopItemProvider(this);
         }
 
-        return loopItemProvider;
+        return this.loopItemProvider;
     }
 
     /**
@@ -301,11 +301,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createStopAdapter() {
-        if (stopItemProvider == null) {
-            stopItemProvider = new StopItemProvider(this);
+        if (this.stopItemProvider == null) {
+            this.stopItemProvider = new StopItemProvider(this);
         }
 
-        return stopItemProvider;
+        return this.stopItemProvider;
     }
 
     /**
@@ -324,11 +324,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createStartAdapter() {
-        if (startItemProvider == null) {
-            startItemProvider = new StartItemProvider(this);
+        if (this.startItemProvider == null) {
+            this.startItemProvider = new StartItemProvider(this);
         }
 
-        return startItemProvider;
+        return this.startItemProvider;
     }
 
     /**
@@ -348,11 +348,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createOpenWorkloadAdapter() {
-        if (openWorkloadItemProvider == null) {
-            openWorkloadItemProvider = new OpenWorkloadItemProvider(this);
+        if (this.openWorkloadItemProvider == null) {
+            this.openWorkloadItemProvider = new OpenWorkloadItemProvider(this);
         }
 
-        return openWorkloadItemProvider;
+        return this.openWorkloadItemProvider;
     }
 
     /**
@@ -371,11 +371,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createDelayAdapter() {
-        if (delayItemProvider == null) {
-            delayItemProvider = new DelayItemProvider(this);
+        if (this.delayItemProvider == null) {
+            this.delayItemProvider = new DelayItemProvider(this);
         }
 
-        return delayItemProvider;
+        return this.delayItemProvider;
     }
 
     /**
@@ -395,11 +395,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      */
     @Override
     public Adapter createClosedWorkloadAdapter() {
-        if (closedWorkloadItemProvider == null) {
-            closedWorkloadItemProvider = new ClosedWorkloadItemProvider(this);
+        if (this.closedWorkloadItemProvider == null) {
+            this.closedWorkloadItemProvider = new ClosedWorkloadItemProvider(this);
         }
 
-        return closedWorkloadItemProvider;
+        return this.closedWorkloadItemProvider;
     }
 
     /**
@@ -408,8 +408,9 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -418,7 +419,8 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -428,8 +430,8 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -439,7 +441,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -449,9 +451,9 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -466,7 +468,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -474,8 +476,9 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -483,8 +486,9 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -492,8 +496,9 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -501,8 +506,9 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -511,11 +517,12 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -525,33 +532,47 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (usageScenarioItemProvider != null)
-            usageScenarioItemProvider.dispose();
-        if (userDataItemProvider != null)
-            userDataItemProvider.dispose();
-        if (usageModelItemProvider != null)
-            usageModelItemProvider.dispose();
-        if (entryLevelSystemCallItemProvider != null)
-            entryLevelSystemCallItemProvider.dispose();
-        if (scenarioBehaviourItemProvider != null)
-            scenarioBehaviourItemProvider.dispose();
-        if (branchTransitionItemProvider != null)
-            branchTransitionItemProvider.dispose();
-        if (branchItemProvider != null)
-            branchItemProvider.dispose();
-        if (loopItemProvider != null)
-            loopItemProvider.dispose();
-        if (stopItemProvider != null)
-            stopItemProvider.dispose();
-        if (startItemProvider != null)
-            startItemProvider.dispose();
-        if (openWorkloadItemProvider != null)
-            openWorkloadItemProvider.dispose();
-        if (delayItemProvider != null)
-            delayItemProvider.dispose();
-        if (closedWorkloadItemProvider != null)
-            closedWorkloadItemProvider.dispose();
+        if (this.usageScenarioItemProvider != null) {
+            this.usageScenarioItemProvider.dispose();
+        }
+        if (this.userDataItemProvider != null) {
+            this.userDataItemProvider.dispose();
+        }
+        if (this.usageModelItemProvider != null) {
+            this.usageModelItemProvider.dispose();
+        }
+        if (this.entryLevelSystemCallItemProvider != null) {
+            this.entryLevelSystemCallItemProvider.dispose();
+        }
+        if (this.scenarioBehaviourItemProvider != null) {
+            this.scenarioBehaviourItemProvider.dispose();
+        }
+        if (this.branchTransitionItemProvider != null) {
+            this.branchTransitionItemProvider.dispose();
+        }
+        if (this.branchItemProvider != null) {
+            this.branchItemProvider.dispose();
+        }
+        if (this.loopItemProvider != null) {
+            this.loopItemProvider.dispose();
+        }
+        if (this.stopItemProvider != null) {
+            this.stopItemProvider.dispose();
+        }
+        if (this.startItemProvider != null) {
+            this.startItemProvider.dispose();
+        }
+        if (this.openWorkloadItemProvider != null) {
+            this.openWorkloadItemProvider.dispose();
+        }
+        if (this.delayItemProvider != null) {
+            this.delayItemProvider.dispose();
+        }
+        if (this.closedWorkloadItemProvider != null) {
+            this.closedWorkloadItemProvider.dispose();
+        }
     }
 
 }

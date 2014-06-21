@@ -41,7 +41,7 @@ public class ForkedBehaviourItemProvider extends ResourceDemandingBehaviourItemP
      * 
      * @generated
      */
-    public ForkedBehaviourItemProvider(AdapterFactory adapterFactory) {
+    public ForkedBehaviourItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -52,12 +52,12 @@ public class ForkedBehaviourItemProvider extends ResourceDemandingBehaviourItemP
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -66,8 +66,8 @@ public class ForkedBehaviourItemProvider extends ResourceDemandingBehaviourItemP
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ForkedBehaviour"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ForkedBehaviour"));
     }
 
     /**
@@ -77,10 +77,10 @@ public class ForkedBehaviourItemProvider extends ResourceDemandingBehaviourItemP
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ForkedBehaviour) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ForkedBehaviour_type")
-                : getString("_UI_ForkedBehaviour_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ForkedBehaviour) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ForkedBehaviour_type") : this
+                .getString("_UI_ForkedBehaviour_type") + " " + label;
     }
 
     /**
@@ -91,8 +91,8 @@ public class ForkedBehaviourItemProvider extends ResourceDemandingBehaviourItemP
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -103,7 +103,7 @@ public class ForkedBehaviourItemProvider extends ResourceDemandingBehaviourItemP
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

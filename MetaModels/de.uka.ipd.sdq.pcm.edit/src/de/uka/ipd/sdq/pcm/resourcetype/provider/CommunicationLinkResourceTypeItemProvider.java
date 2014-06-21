@@ -44,7 +44,7 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * 
      * @generated
      */
-    public CommunicationLinkResourceTypeItemProvider(AdapterFactory adapterFactory) {
+    public CommunicationLinkResourceTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,13 +55,13 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addNetworkInducedFailureType__CommunicationLinkResourceTypePropertyDescriptor(object);
+            this.addNetworkInducedFailureType__CommunicationLinkResourceTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -70,13 +70,13 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * 
      * @generated
      */
-    protected void addNetworkInducedFailureType__CommunicationLinkResourceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_CommunicationLinkResourceType_networkInducedFailureType__CommunicationLinkResourceType_feature"),
-                        getString(
+    protected void addNetworkInducedFailureType__CommunicationLinkResourceTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_CommunicationLinkResourceType_networkInducedFailureType__CommunicationLinkResourceType_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_CommunicationLinkResourceType_networkInducedFailureType__CommunicationLinkResourceType_feature",
                                 "_UI_CommunicationLinkResourceType_type"),
@@ -90,8 +90,9 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/CommunicationLinkResourceType"));
+    public Object getImage(final Object object) {
+        return this
+                .overlayImage(object, this.getResourceLocator().getImage("full/obj16/CommunicationLinkResourceType"));
     }
 
     /**
@@ -104,10 +105,10 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * @generated not
      */
     @Override
-    public String getText(Object object) {
+    public String getText(final Object object) {
         return ((CommunicationLinkResourceType) object).getEntityName() + " [ID: "
                 + ((CommunicationLinkResourceType) object).getId() + "]" + " <"
-                + getString("_UI_CommunicationLinkResourceType_type") + ">";
+                + this.getString("_UI_CommunicationLinkResourceType_type") + ">";
     }
 
     /**
@@ -118,8 +119,8 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -130,7 +131,7 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

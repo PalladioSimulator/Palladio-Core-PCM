@@ -29,7 +29,7 @@ public class QosannotationsResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public QosannotationsResourceImpl(URI uri) {
+    public QosannotationsResourceImpl(final URI uri) {
         super(uri);
     }
 

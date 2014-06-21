@@ -51,19 +51,20 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
 
     /**
      * Returns the value of the '
-     * <em><b>Linking Resource Communication Link Resource Specification</b></em>' container
+     * <em><b>Linking Resource Communication Link Resource Specification</b></em> ' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getCommunicationLinkResourceSpecifications_LinkingResource
      * <em>Communication Link Resource Specifications Linking Resource</em>}'. <!-- begin-user-doc
      * -->
      * <p>
-     * If the meaning of the '<em>Linking Resource Communication Link Resource Specification</em>'
+     * If the meaning of the ' <em>Linking Resource Communication Link Resource Specification</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Linking Resource Communication Link Resource Specification</em>
-     *         ' container reference.
+     * @return the value of the '
+     *         <em>Linking Resource Communication Link Resource Specification</em> ' container
+     *         reference.
      * @see #setLinkingResource_CommunicationLinkResourceSpecification(LinkingResource)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification()
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getCommunicationLinkResourceSpecifications_LinkingResource
@@ -81,7 +82,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Linking Resource Communication Link Resource Specification</em>' container
+     *            <em>Linking Resource Communication Link Resource Specification</em> ' container
      *            reference.
      * @see #getLinkingResource_CommunicationLinkResourceSpecification()
      * @generated
@@ -116,17 +117,17 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
 
     /**
      * Returns the value of the '
-     * <em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>'
+     * <em><b>Communication Link Resource Type Communication Link Resource Specification</b></em> '
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Communication Link Resource Type Communication Link Resource Specification</em>'
+     * <em>Communication Link Resource Type Communication Link Resource Specification</em> '
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Communication Link Resource Type Communication Link Resource Specification</em>'
+     *         <em>Communication Link Resource Type Communication Link Resource Specification</em> '
      *         reference.
      * @see #setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(CommunicationLinkResourceType)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification()
@@ -138,7 +139,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification
-     * <em>Communication Link Resource Type Communication Link Resource Specification</em>}'
+     * <em>Communication Link Resource Type Communication Link Resource Specification</em>} '
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
@@ -151,13 +152,13 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
     void setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(CommunicationLinkResourceType value);
 
     /**
-     * Returns the value of the '<em><b>Latency Communication Link Resource Specification</b></em>'
+     * Returns the value of the ' <em><b>Latency Communication Link Resource Specification</b></em>'
      * containment reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
-     * <em>Communication Link Resource Specification latency PCM Random Variable</em>}'. <!--
+     * <em>Communication Link Resource Specification latency PCM Random Variable</em>} '. <!--
      * begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Latency Communication Link Resource Specification</em>'
+     * If the meaning of the ' <em>Latency Communication Link Resource Specification</em>'
      * containment reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc --> <!-- begin-model-doc --> Specifies the latency of this linking resource
@@ -166,12 +167,12 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * added twice to the duration, once for the call and once for the response. <!-- end-model-doc
      * -->
      * 
-     * @return the value of the '<em>Latency Communication Link Resource Specification</em>'
+     * @return the value of the ' <em>Latency Communication Link Resource Specification</em>'
      *         containment reference.
      * @see #setLatency_CommunicationLinkResourceSpecification(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification()
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
-     * @model opposite="communicationLinkResourceSpecification_latency_PCMRandomVariable"
+     * @model opposite= "communicationLinkResourceSpecification_latency_PCMRandomVariable"
      *        containment="true" required="true" ordered="false"
      * @generated
      */
@@ -184,7 +185,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Latency Communication Link Resource Specification</em>'
+     *            the new value of the ' <em>Latency Communication Link Resource Specification</em>'
      *            containment reference.
      * @see #getLatency_CommunicationLinkResourceSpecification()
      * @generated
@@ -196,21 +197,21 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * <em><b>Throughput Communication Link Resource Specification</b></em>' containment reference.
      * It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
-     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}'. <!--
+     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>} '. <!--
      * begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Throughput Communication Link Resource Specification</em>'
+     * If the meaning of the ' <em>Throughput Communication Link Resource Specification</em>'
      * containment reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc --> <!-- begin-model-doc --> Specifies the maximum throughput of this
      * linking resource in byte per simulated time unit. <!-- end-model-doc -->
      * 
-     * @return the value of the '<em>Throughput Communication Link Resource Specification</em>'
+     * @return the value of the ' <em>Throughput Communication Link Resource Specification</em>'
      *         containment reference.
      * @see #setThroughput_CommunicationLinkResourceSpecification(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification()
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
-     * @model opposite="communicationLinkResourceSpecifcation_throughput_PCMRandomVariable"
+     * @model opposite= "communicationLinkResourceSpecifcation_throughput_PCMRandomVariable"
      *        containment="true" required="true" ordered="false"
      * @generated
      */

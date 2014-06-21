@@ -45,7 +45,7 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * 
      * @generated
      */
-    public UsageScenarioItemProvider(AdapterFactory adapterFactory) {
+    public UsageScenarioItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,12 +56,12 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -74,13 +74,13 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(UsagemodelPackage.Literals.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO);
-            childrenFeatures.add(UsagemodelPackage.Literals.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO);
+            this.childrenFeatures.add(UsagemodelPackage.Literals.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO);
+            this.childrenFeatures.add(UsagemodelPackage.Literals.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -89,7 +89,7 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -102,8 +102,8 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/UsageScenario"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/UsageScenario"));
     }
 
     /**
@@ -113,10 +113,10 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((UsageScenario) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_UsageScenario_type")
-                : getString("_UI_UsageScenario_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((UsageScenario) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_UsageScenario_type") : this
+                .getString("_UI_UsageScenario_type") + " " + label;
     }
 
     /**
@@ -127,13 +127,13 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(UsageScenario.class)) {
         case UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO:
         case UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -146,18 +146,18 @@ public class UsageScenarioItemProvider extends EntityItemProvider implements IEd
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 UsagemodelPackage.Literals.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO,
                 UsagemodelFactory.eINSTANCE.createScenarioBehaviour()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 UsagemodelPackage.Literals.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO,
                 UsagemodelFactory.eINSTANCE.createOpenWorkload()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 UsagemodelPackage.Literals.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO,
                 UsagemodelFactory.eINSTANCE.createClosedWorkload()));
     }

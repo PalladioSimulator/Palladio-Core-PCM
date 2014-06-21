@@ -155,7 +155,7 @@ public enum VariableCharacterisationType implements Enumerator {
             NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, TYPE, };
 
     /**
-     * A public read-only list of all the '<em><b>Variable Characterisation Type</b></em>'
+     * A public read-only list of all the ' <em><b>Variable Characterisation Type</b></em>'
      * enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -169,9 +169,8 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
-    public static VariableCharacterisationType get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            VariableCharacterisationType result = VALUES_ARRAY[i];
+    public static VariableCharacterisationType get(final String literal) {
+        for (final VariableCharacterisationType result : VALUES_ARRAY) {
             if (result.toString().equals(literal)) {
                 return result;
             }
@@ -185,9 +184,8 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
-    public static VariableCharacterisationType getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            VariableCharacterisationType result = VALUES_ARRAY[i];
+    public static VariableCharacterisationType getByName(final String name) {
+        for (final VariableCharacterisationType result : VALUES_ARRAY) {
             if (result.getName().equals(name)) {
                 return result;
             }
@@ -201,7 +199,7 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
-    public static VariableCharacterisationType get(int value) {
+    public static VariableCharacterisationType get(final int value) {
         switch (value) {
         case STRUCTURE_VALUE:
             return STRUCTURE;
@@ -243,7 +241,7 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
-    private VariableCharacterisationType(int value, String name, String literal) {
+    private VariableCharacterisationType(final int value, final String name, final String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
@@ -254,8 +252,9 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     /**
@@ -263,8 +262,9 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
@@ -272,8 +272,9 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getLiteral() {
-        return literal;
+        return this.literal;
     }
 
     /**
@@ -284,7 +285,7 @@ public enum VariableCharacterisationType implements Enumerator {
      */
     @Override
     public String toString() {
-        return literal;
+        return this.literal;
     }
 
 } // VariableCharacterisationType

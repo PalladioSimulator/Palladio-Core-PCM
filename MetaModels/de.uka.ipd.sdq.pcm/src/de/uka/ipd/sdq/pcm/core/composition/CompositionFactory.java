@@ -66,10 +66,10 @@ public interface CompositionFactory extends EFactory {
     AssemblyConnector createAssemblyConnector();
 
     /**
-     * Returns a new object of class '<em>Resource Required Delegation Connector</em>'. <!--
+     * Returns a new object of class ' <em>Resource Required Delegation Connector</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Resource Required Delegation Connector</em>'.
+     * @return a new object of class ' <em>Resource Required Delegation Connector</em>'.
      * @generated
      */
     ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector();
@@ -111,37 +111,37 @@ public interface CompositionFactory extends EFactory {
     SinkDelegationConnector createSinkDelegationConnector();
 
     /**
-     * Returns a new object of class '<em>Assembly Infrastructure Connector</em>'. <!--
+     * Returns a new object of class '<em>Assembly Infrastructure Connector</em> '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Assembly Infrastructure Connector</em>'.
+     * @return a new object of class '<em>Assembly Infrastructure Connector</em> '.
      * @generated
      */
     AssemblyInfrastructureConnector createAssemblyInfrastructureConnector();
 
     /**
-     * Returns a new object of class '<em>Required Infrastructure Delegation Connector</em>'. <!--
+     * Returns a new object of class ' <em>Required Infrastructure Delegation Connector</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Required Infrastructure Delegation Connector</em>'.
+     * @return a new object of class ' <em>Required Infrastructure Delegation Connector</em>'.
      * @generated
      */
     RequiredInfrastructureDelegationConnector createRequiredInfrastructureDelegationConnector();
 
     /**
-     * Returns a new object of class '<em>Provided Infrastructure Delegation Connector</em>'. <!--
+     * Returns a new object of class ' <em>Provided Infrastructure Delegation Connector</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Provided Infrastructure Delegation Connector</em>'.
+     * @return a new object of class ' <em>Provided Infrastructure Delegation Connector</em>'.
      * @generated
      */
     ProvidedInfrastructureDelegationConnector createProvidedInfrastructureDelegationConnector();
 
     /**
-     * Returns a new object of class '<em>Required Resource Delegation Connector</em>'. <!--
+     * Returns a new object of class ' <em>Required Resource Delegation Connector</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Required Resource Delegation Connector</em>'.
+     * @return a new object of class ' <em>Required Resource Delegation Connector</em>'.
      * @generated
      */
     RequiredResourceDelegationConnector createRequiredResourceDelegationConnector();

@@ -40,8 +40,8 @@ public class SubsystemResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new SubsystemResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new SubsystemResourceImpl(uri);
         return result;
     }
 

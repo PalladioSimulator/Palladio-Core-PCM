@@ -38,10 +38,10 @@ public interface QosPerformanceFactory extends EFactory {
     SystemSpecifiedExecutionTime createSystemSpecifiedExecutionTime();
 
     /**
-     * Returns a new object of class '<em>Component Specified Execution Time</em>'. <!--
+     * Returns a new object of class ' <em>Component Specified Execution Time</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Component Specified Execution Time</em>'.
+     * @return a new object of class ' <em>Component Specified Execution Time</em>'.
      * @generated
      */
     ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime();

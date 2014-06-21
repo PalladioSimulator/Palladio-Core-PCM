@@ -52,12 +52,12 @@ public interface RecoveryBlockAlternativeBehaviour extends FailureHandlingEntity
      * <em><b>Next Alternative Recovery Block Alternative Behaviour</b></em>' reference. <!--
      * begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Next Alternative Recovery Block Alternative Behaviour</em>'
+     * If the meaning of the ' <em>Next Alternative Recovery Block Alternative Behaviour</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Next Alternative Recovery Block Alternative Behaviour</em>'
+     * @return the value of the ' <em>Next Alternative Recovery Block Alternative Behaviour</em>'
      *         reference.
      * @see #setNextAlternative_RecoveryBlockAlternativeBehaviour(RecoveryBlockAlternativeBehaviour)
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryBlockAlternativeBehaviour_NextAlternative_RecoveryBlockAlternativeBehaviour()
@@ -74,7 +74,7 @@ public interface RecoveryBlockAlternativeBehaviour extends FailureHandlingEntity
      * 
      * @param value
      *            the new value of the '
-     *            <em>Next Alternative Recovery Block Alternative Behaviour</em>' reference.
+     *            <em>Next Alternative Recovery Block Alternative Behaviour</em> ' reference.
      * @see #getNextAlternative_RecoveryBlockAlternativeBehaviour()
      * @generated
      */
@@ -82,19 +82,20 @@ public interface RecoveryBlockAlternativeBehaviour extends FailureHandlingEntity
 
     /**
      * Returns the value of the '
-     * <em><b>Recovery Block Action Recovery Block Alternative Behaviour</b></em>' container
+     * <em><b>Recovery Block Action Recovery Block Alternative Behaviour</b></em> ' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction#getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction
      * <em>Recovery Block Alternative Behaviours Recovery Block Action</em>}'. <!-- begin-user-doc
      * -->
      * <p>
-     * If the meaning of the '<em>Recovery Block Action Recovery Block Alternative Behaviour</em>'
+     * If the meaning of the ' <em>Recovery Block Action Recovery Block Alternative Behaviour</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Recovery Block Action Recovery Block Alternative Behaviour</em>
-     *         ' container reference.
+     * @return the value of the '
+     *         <em>Recovery Block Action Recovery Block Alternative Behaviour</em> ' container
+     *         reference.
      * @see #setRecoveryBlockAction_RecoveryBlockAlternativeBehaviour(RecoveryBlockAction)
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryBlockAlternativeBehaviour_RecoveryBlockAction_RecoveryBlockAlternativeBehaviour()
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAction#getRecoveryBlockAlternativeBehaviours_RecoveryBlockAction
@@ -112,7 +113,7 @@ public interface RecoveryBlockAlternativeBehaviour extends FailureHandlingEntity
      * 
      * @param value
      *            the new value of the '
-     *            <em>Recovery Block Action Recovery Block Alternative Behaviour</em>' container
+     *            <em>Recovery Block Action Recovery Block Alternative Behaviour</em> ' container
      *            reference.
      * @see #getRecoveryBlockAction_RecoveryBlockAlternativeBehaviour()
      * @generated

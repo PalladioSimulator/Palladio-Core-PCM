@@ -27,17 +27,20 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>User Data</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>User Data</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getAssemblyContext_userData <em>
- * Assembly Context user Data</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getUsageModel_UserData <em>Usage Model
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getAssemblyContext_userData <em>Assembly
+ * Context user Data</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getUsageModel_UserData <em>Usage Model
  * User Data</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getUserDataParameterUsages_UserData
- * <em>User Data Parameter Usages User Data</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl#getUserDataParameterUsages_UserData <em>
+ * User Data Parameter Usages User Data</em>}</li>
  * </ul>
  * </p>
  * 
@@ -97,10 +100,12 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * 
      * @generated
      */
+    @Override
     public UsageModel getUsageModel_UserData() {
-        if (eContainerFeatureID() != UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA)
+        if (this.eContainerFeatureID() != UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA) {
             return null;
-        return (UsageModel) eInternalContainer();
+        }
+        return (UsageModel) this.eInternalContainer();
     }
 
     /**
@@ -108,8 +113,8 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * 
      * @generated
      */
-    public NotificationChain basicSetUsageModel_UserData(UsageModel newUsageModel_UserData, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newUsageModel_UserData,
+    public NotificationChain basicSetUsageModel_UserData(final UsageModel newUsageModel_UserData, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newUsageModel_UserData,
                 UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA, msgs);
         return msgs;
     }
@@ -119,23 +124,29 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * 
      * @generated
      */
-    public void setUsageModel_UserData(UsageModel newUsageModel_UserData) {
-        if (newUsageModel_UserData != eInternalContainer()
-                || (eContainerFeatureID() != UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA && newUsageModel_UserData != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newUsageModel_UserData))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setUsageModel_UserData(final UsageModel newUsageModel_UserData) {
+        if (newUsageModel_UserData != this.eInternalContainer()
+                || (this.eContainerFeatureID() != UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA && newUsageModel_UserData != null)) {
+            if (EcoreUtil.isAncestor(this, newUsageModel_UserData)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newUsageModel_UserData != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newUsageModel_UserData != null) {
                 msgs = ((InternalEObject) newUsageModel_UserData).eInverseAdd(this,
                         UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL, UsageModel.class, msgs);
-            msgs = basicSetUsageModel_UserData(newUsageModel_UserData, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetUsageModel_UserData(newUsageModel_UserData, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA,
-                    newUsageModel_UserData, newUsageModel_UserData));
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA, newUsageModel_UserData, newUsageModel_UserData));
+        }
     }
 
     /**
@@ -143,18 +154,20 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * 
      * @generated
      */
+    @Override
     public AssemblyContext getAssemblyContext_userData() {
-        if (assemblyContext_userData != null && ((EObject) assemblyContext_userData).eIsProxy()) {
-            InternalEObject oldAssemblyContext_userData = (InternalEObject) assemblyContext_userData;
-            assemblyContext_userData = (AssemblyContext) eResolveProxy(oldAssemblyContext_userData);
-            if (assemblyContext_userData != oldAssemblyContext_userData) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.assemblyContext_userData != null && ((EObject) this.assemblyContext_userData).eIsProxy()) {
+            final InternalEObject oldAssemblyContext_userData = (InternalEObject) this.assemblyContext_userData;
+            this.assemblyContext_userData = (AssemblyContext) this.eResolveProxy(oldAssemblyContext_userData);
+            if (this.assemblyContext_userData != oldAssemblyContext_userData) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA, oldAssemblyContext_userData,
-                            assemblyContext_userData));
+                            this.assemblyContext_userData));
+                }
             }
         }
-        return assemblyContext_userData;
+        return this.assemblyContext_userData;
     }
 
     /**
@@ -163,7 +176,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_userData() {
-        return assemblyContext_userData;
+        return this.assemblyContext_userData;
     }
 
     /**
@@ -171,13 +184,15 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * 
      * @generated
      */
-    public void setAssemblyContext_userData(AssemblyContext newAssemblyContext_userData) {
-        AssemblyContext oldAssemblyContext_userData = assemblyContext_userData;
-        assemblyContext_userData = newAssemblyContext_userData;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    @Override
+    public void setAssemblyContext_userData(final AssemblyContext newAssemblyContext_userData) {
+        final AssemblyContext oldAssemblyContext_userData = this.assemblyContext_userData;
+        this.assemblyContext_userData = newAssemblyContext_userData;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA, oldAssemblyContext_userData,
-                    assemblyContext_userData));
+                    this.assemblyContext_userData));
+        }
     }
 
     /**
@@ -185,13 +200,14 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * 
      * @generated
      */
+    @Override
     public EList<VariableUsage> getUserDataParameterUsages_UserData() {
-        if (userDataParameterUsages_UserData == null) {
-            userDataParameterUsages_UserData = new EObjectContainmentWithInverseEList<VariableUsage>(
+        if (this.userDataParameterUsages_UserData == null) {
+            this.userDataParameterUsages_UserData = new EObjectContainmentWithInverseEList<VariableUsage>(
                     VariableUsage.class, this, UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA,
                     ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE);
         }
-        return userDataParameterUsages_UserData;
+        return this.userDataParameterUsages_UserData;
     }
 
     /**
@@ -201,14 +217,15 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetUsageModel_UserData((UsageModel) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetUsageModel_UserData((UsageModel) otherEnd, msgs);
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getUserDataParameterUsages_UserData())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUserDataParameterUsages_UserData())
                     .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -220,12 +237,13 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-            return basicSetUsageModel_UserData(null, msgs);
+            return this.basicSetUsageModel_UserData(null, msgs);
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-            return ((InternalEList<?>) getUserDataParameterUsages_UserData()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getUserDataParameterUsages_UserData()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -236,10 +254,10 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-            return eInternalContainer().eInverseRemove(this, UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL,
+            return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL,
                     UsageModel.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -251,16 +269,17 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
-            if (resolve)
-                return getAssemblyContext_userData();
-            return basicGetAssemblyContext_userData();
+            if (resolve) {
+                return this.getAssemblyContext_userData();
+            }
+            return this.basicGetAssemblyContext_userData();
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-            return getUsageModel_UserData();
+            return this.getUsageModel_UserData();
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-            return getUserDataParameterUsages_UserData();
+            return this.getUserDataParameterUsages_UserData();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -272,17 +291,17 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
-            setAssemblyContext_userData((AssemblyContext) newValue);
+            this.setAssemblyContext_userData((AssemblyContext) newValue);
             return;
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-            setUsageModel_UserData((UsageModel) newValue);
+            this.setUsageModel_UserData((UsageModel) newValue);
             return;
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-            getUserDataParameterUsages_UserData().clear();
-            getUserDataParameterUsages_UserData().addAll((Collection<? extends VariableUsage>) newValue);
+            this.getUserDataParameterUsages_UserData().clear();
+            this.getUserDataParameterUsages_UserData().addAll((Collection<? extends VariableUsage>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -294,16 +313,16 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
-            setAssemblyContext_userData((AssemblyContext) null);
+            this.setAssemblyContext_userData((AssemblyContext) null);
             return;
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-            setUsageModel_UserData((UsageModel) null);
+            this.setUsageModel_UserData((UsageModel) null);
             return;
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-            getUserDataParameterUsages_UserData().clear();
+            this.getUserDataParameterUsages_UserData().clear();
             return;
         }
         super.eUnset(featureID);
@@ -315,14 +334,14 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
-            return assemblyContext_userData != null;
+            return this.assemblyContext_userData != null;
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
-            return getUsageModel_UserData() != null;
+            return this.getUsageModel_UserData() != null;
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-            return userDataParameterUsages_UserData != null && !userDataParameterUsages_UserData.isEmpty();
+            return this.userDataParameterUsages_UserData != null && !this.userDataParameterUsages_UserData.isEmpty();
         }
         return super.eIsSet(featureID);
     }

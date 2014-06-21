@@ -34,12 +34,12 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
      */
     public static SeffReliabilityFactory init() {
         try {
-            SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory) EPackage.Registry.INSTANCE
+            final SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SeffReliabilityPackage.eNS_URI);
             if (theSeffReliabilityFactory != null) {
                 return theSeffReliabilityFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffReliabilityFactoryImpl();
@@ -60,12 +60,12 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR:
-            return (EObject) createRecoveryActionBehaviour();
+            return this.createRecoveryActionBehaviour();
         case SeffReliabilityPackage.RECOVERY_ACTION:
-            return (EObject) createRecoveryAction();
+            return this.createRecoveryAction();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -76,8 +76,9 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
      * 
      * @generated
      */
+    @Override
     public RecoveryActionBehaviour createRecoveryActionBehaviour() {
-        RecoveryActionBehaviourImpl recoveryActionBehaviour = new RecoveryActionBehaviourImpl();
+        final RecoveryActionBehaviourImpl recoveryActionBehaviour = new RecoveryActionBehaviourImpl();
         return recoveryActionBehaviour;
     }
 
@@ -86,8 +87,9 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
      * 
      * @generated
      */
+    @Override
     public RecoveryAction createRecoveryAction() {
-        RecoveryActionImpl recoveryAction = new RecoveryActionImpl();
+        final RecoveryActionImpl recoveryAction = new RecoveryActionImpl();
         return recoveryAction;
     }
 
@@ -96,8 +98,9 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
      * 
      * @generated
      */
+    @Override
     public SeffReliabilityPackage getSeffReliabilityPackage() {
-        return (SeffReliabilityPackage) getEPackage();
+        return (SeffReliabilityPackage) this.getEPackage();
     }
 
     /**

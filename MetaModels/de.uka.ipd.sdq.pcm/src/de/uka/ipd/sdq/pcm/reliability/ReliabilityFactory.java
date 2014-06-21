@@ -39,10 +39,10 @@ public interface ReliabilityFactory extends EFactory {
     HardwareInducedFailureType createHardwareInducedFailureType();
 
     /**
-     * Returns a new object of class '<em>External Failure Occurrence Description</em>'. <!--
+     * Returns a new object of class ' <em>External Failure Occurrence Description</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>External Failure Occurrence Description</em>'.
+     * @return a new object of class ' <em>External Failure Occurrence Description</em>'.
      * @generated
      */
     ExternalFailureOccurrenceDescription createExternalFailureOccurrenceDescription();
@@ -66,10 +66,10 @@ public interface ReliabilityFactory extends EFactory {
     NetworkInducedFailureType createNetworkInducedFailureType();
 
     /**
-     * Returns a new object of class '<em>Internal Failure Occurrence Description</em>'. <!--
+     * Returns a new object of class ' <em>Internal Failure Occurrence Description</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Internal Failure Occurrence Description</em>'.
+     * @return a new object of class ' <em>Internal Failure Occurrence Description</em>'.
      * @generated
      */
     InternalFailureOccurrenceDescription createInternalFailureOccurrenceDescription();

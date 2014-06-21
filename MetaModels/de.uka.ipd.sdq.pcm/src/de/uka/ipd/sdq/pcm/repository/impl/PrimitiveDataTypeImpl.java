@@ -77,21 +77,9 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * 
      * @generated
      */
+    @Override
     public PrimitiveTypeEnum getType() {
-        return type;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setType(PrimitiveTypeEnum newType) {
-        PrimitiveTypeEnum oldType = type;
-        type = newType == null ? TYPE_EDEFAULT : newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE, oldType,
-                    type));
+        return this.type;
     }
 
     /**
@@ -100,10 +88,25 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setType(final PrimitiveTypeEnum newType) {
+        final PrimitiveTypeEnum oldType = this.type;
+        this.type = newType == null ? TYPE_EDEFAULT : newType;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE,
+                    oldType, this.type));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            return getType();
+            return this.getType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -114,10 +117,10 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            setType((PrimitiveTypeEnum) newValue);
+            this.setType((PrimitiveTypeEnum) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -129,10 +132,10 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            setType(TYPE_EDEFAULT);
+            this.setType(TYPE_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -144,10 +147,10 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            return type != TYPE_EDEFAULT;
+            return this.type != TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -159,12 +162,13 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (type: ");
-        result.append(type);
+        result.append(this.type);
         result.append(')');
         return result.toString();
     }

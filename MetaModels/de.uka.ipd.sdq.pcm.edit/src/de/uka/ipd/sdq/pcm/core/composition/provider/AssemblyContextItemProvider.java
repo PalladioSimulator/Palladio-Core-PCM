@@ -47,7 +47,7 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * 
      * @generated
      */
-    public AssemblyContextItemProvider(AdapterFactory adapterFactory) {
+    public AssemblyContextItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -58,13 +58,13 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addEncapsulatedComponent__AssemblyContextPropertyDescriptor(object);
+            this.addEncapsulatedComponent__AssemblyContextPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,12 +73,11 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * 
      * @generated
      */
-    protected void addEncapsulatedComponent__AssemblyContextPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AssemblyContext_encapsulatedComponent__AssemblyContext_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addEncapsulatedComponent__AssemblyContextPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AssemblyContext_encapsulatedComponent__AssemblyContext_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_AssemblyContext_encapsulatedComponent__AssemblyContext_feature",
                         "_UI_AssemblyContext_type"),
                 CompositionPackage.Literals.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT, true, false,
@@ -95,13 +94,13 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -110,7 +109,7 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -123,8 +122,8 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblyContext"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/AssemblyContext"));
     }
 
     /**
@@ -134,10 +133,10 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((AssemblyContext) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_AssemblyContext_type")
-                : getString("_UI_AssemblyContext_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((AssemblyContext) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_AssemblyContext_type") : this
+                .getString("_UI_AssemblyContext_type") + " " + label;
     }
 
     /**
@@ -148,12 +147,12 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(AssemblyContext.class)) {
         case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -166,10 +165,10 @@ public class AssemblyContextItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT,
                 ParameterFactory.eINSTANCE.createVariableUsage()));
     }

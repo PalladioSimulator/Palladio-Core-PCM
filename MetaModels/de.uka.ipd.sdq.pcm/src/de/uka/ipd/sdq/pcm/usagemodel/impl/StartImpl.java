@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Start</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Start</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * </p>
@@ -83,14 +83,15 @@ public class StartImpl extends AbstractUserActionImpl implements Start {
      * 
      * @generated
      */
-    public boolean StartHasNoPredecessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean StartHasNoPredecessor(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (START_HAS_NO_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.START);
             try {
                 START_HAS_NO_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(START_HAS_NO_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

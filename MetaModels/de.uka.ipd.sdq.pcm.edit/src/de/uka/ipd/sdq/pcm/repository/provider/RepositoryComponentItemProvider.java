@@ -42,7 +42,7 @@ public class RepositoryComponentItemProvider extends InterfaceProvidingRequiring
      * 
      * @generated
      */
-    public RepositoryComponentItemProvider(AdapterFactory adapterFactory) {
+    public RepositoryComponentItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -53,12 +53,12 @@ public class RepositoryComponentItemProvider extends InterfaceProvidingRequiring
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -68,10 +68,10 @@ public class RepositoryComponentItemProvider extends InterfaceProvidingRequiring
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((RepositoryComponent) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_RepositoryComponent_type")
-                : getString("_UI_RepositoryComponent_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((RepositoryComponent) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_RepositoryComponent_type") : this
+                .getString("_UI_RepositoryComponent_type") + " " + label;
     }
 
     /**
@@ -82,8 +82,8 @@ public class RepositoryComponentItemProvider extends InterfaceProvidingRequiring
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -94,7 +94,7 @@ public class RepositoryComponentItemProvider extends InterfaceProvidingRequiring
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

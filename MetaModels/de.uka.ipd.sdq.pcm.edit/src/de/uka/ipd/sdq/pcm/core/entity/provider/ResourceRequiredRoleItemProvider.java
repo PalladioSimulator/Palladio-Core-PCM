@@ -44,7 +44,7 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * 
      * @generated
      */
-    public ResourceRequiredRoleItemProvider(AdapterFactory adapterFactory) {
+    public ResourceRequiredRoleItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,13 +55,13 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addRequiredResourceInterface__ResourceRequiredRolePropertyDescriptor(object);
+            this.addRequiredResourceInterface__ResourceRequiredRolePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -70,12 +70,11 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * 
      * @generated
      */
-    protected void addRequiredResourceInterface__ResourceRequiredRolePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ResourceRequiredRole_requiredResourceInterface__ResourceRequiredRole_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addRequiredResourceInterface__ResourceRequiredRolePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ResourceRequiredRole_requiredResourceInterface__ResourceRequiredRole_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
                         "_UI_ResourceRequiredRole_requiredResourceInterface__ResourceRequiredRole_feature",
                         "_UI_ResourceRequiredRole_type"),
                 EntityPackage.Literals.RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE,
@@ -88,8 +87,8 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRequiredRole"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ResourceRequiredRole"));
     }
 
     /**
@@ -99,10 +98,10 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ResourceRequiredRole) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ResourceRequiredRole_type")
-                : getString("_UI_ResourceRequiredRole_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ResourceRequiredRole) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceRequiredRole_type") : this
+                .getString("_UI_ResourceRequiredRole_type") + " " + label;
     }
 
     /**
@@ -113,8 +112,8 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -125,7 +124,7 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

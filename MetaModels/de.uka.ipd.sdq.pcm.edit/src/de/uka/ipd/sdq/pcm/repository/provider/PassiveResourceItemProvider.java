@@ -46,7 +46,7 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * 
      * @generated
      */
-    public PassiveResourceItemProvider(AdapterFactory adapterFactory) {
+    public PassiveResourceItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -57,13 +57,13 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addResourceTimeoutFailureType__PassiveResourcePropertyDescriptor(object);
+            this.addResourceTimeoutFailureType__PassiveResourcePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,14 +72,13 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * 
      * @generated
      */
-    protected void addResourceTimeoutFailureType__PassiveResourcePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_PassiveResource_resourceTimeoutFailureType__PassiveResource_feature"),
-                getString("_UI_PropertyDescriptor_description",
-                        "_UI_PassiveResource_resourceTimeoutFailureType__PassiveResource_feature",
-                        "_UI_PassiveResource_type"),
+    protected void addResourceTimeoutFailureType__PassiveResourcePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_PassiveResource_resourceTimeoutFailureType__PassiveResource_feature"), this
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_PassiveResource_resourceTimeoutFailureType__PassiveResource_feature",
+                                "_UI_PassiveResource_type"),
                 RepositoryPackage.Literals.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE, true,
                 false, true, null, null, null));
     }
@@ -94,12 +93,12 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(RepositoryPackage.Literals.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE);
+            this.childrenFeatures.add(RepositoryPackage.Literals.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -108,7 +107,7 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -121,8 +120,8 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/PassiveResource"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/PassiveResource"));
     }
 
     /**
@@ -132,10 +131,10 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((PassiveResource) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_PassiveResource_type")
-                : getString("_UI_PassiveResource_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((PassiveResource) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_PassiveResource_type") : this
+                .getString("_UI_PassiveResource_type") + " " + label;
     }
 
     /**
@@ -146,12 +145,12 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(PassiveResource.class)) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -164,10 +163,10 @@ public class PassiveResourceItemProvider extends EntityItemProvider implements I
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 RepositoryPackage.Literals.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE,
                 CoreFactory.eINSTANCE.createPCMRandomVariable()));
     }

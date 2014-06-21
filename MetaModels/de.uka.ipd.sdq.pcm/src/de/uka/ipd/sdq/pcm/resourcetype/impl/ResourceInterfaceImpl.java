@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -25,8 +24,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Resource Interface</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Resource Interface</b></em> '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -50,7 +49,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getResourceSignatures__ResourceInterface()
+     * The cached value of the ' {@link #getResourceSignatures__ResourceInterface()
      * <em>Resource Signatures Resource Interface</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -84,10 +83,12 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * 
      * @generated
      */
+    @Override
     public ResourceRepository getResourceRepository__ResourceInterface() {
-        if (eContainerFeatureID() != ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE)
+        if (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE) {
             return null;
-        return (ResourceRepository) eInternalContainer();
+        }
+        return (ResourceRepository) this.eInternalContainer();
     }
 
     /**
@@ -96,8 +97,8 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * @generated
      */
     public NotificationChain basicSetResourceRepository__ResourceInterface(
-            ResourceRepository newResourceRepository__ResourceInterface, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newResourceRepository__ResourceInterface,
+            final ResourceRepository newResourceRepository__ResourceInterface, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newResourceRepository__ResourceInterface,
                 ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE, msgs);
         return msgs;
     }
@@ -107,25 +108,32 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * 
      * @generated
      */
-    public void setResourceRepository__ResourceInterface(ResourceRepository newResourceRepository__ResourceInterface) {
-        if (newResourceRepository__ResourceInterface != eInternalContainer()
-                || (eContainerFeatureID() != ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE && newResourceRepository__ResourceInterface != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newResourceRepository__ResourceInterface))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setResourceRepository__ResourceInterface(
+            final ResourceRepository newResourceRepository__ResourceInterface) {
+        if (newResourceRepository__ResourceInterface != this.eInternalContainer()
+                || (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE && newResourceRepository__ResourceInterface != null)) {
+            if (EcoreUtil.isAncestor(this, newResourceRepository__ResourceInterface)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newResourceRepository__ResourceInterface != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newResourceRepository__ResourceInterface != null) {
                 msgs = ((InternalEObject) newResourceRepository__ResourceInterface).eInverseAdd(this,
                         ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
                         ResourceRepository.class, msgs);
-            msgs = basicSetResourceRepository__ResourceInterface(newResourceRepository__ResourceInterface, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetResourceRepository__ResourceInterface(newResourceRepository__ResourceInterface, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE,
                     newResourceRepository__ResourceInterface, newResourceRepository__ResourceInterface));
+        }
     }
 
     /**
@@ -133,14 +141,15 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * 
      * @generated
      */
+    @Override
     public EList<ResourceSignature> getResourceSignatures__ResourceInterface() {
-        if (resourceSignatures__ResourceInterface == null) {
-            resourceSignatures__ResourceInterface = new EObjectContainmentWithInverseEList<ResourceSignature>(
+        if (this.resourceSignatures__ResourceInterface == null) {
+            this.resourceSignatures__ResourceInterface = new EObjectContainmentWithInverseEList<ResourceSignature>(
                     ResourceSignature.class, this,
                     ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE,
                     ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE);
         }
-        return resourceSignatures__ResourceInterface;
+        return this.resourceSignatures__ResourceInterface;
     }
 
     /**
@@ -150,14 +159,15 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetResourceRepository__ResourceInterface((ResourceRepository) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetResourceRepository__ResourceInterface((ResourceRepository) otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceSignatures__ResourceInterface())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceSignatures__ResourceInterface())
                     .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -169,12 +179,13 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
-            return basicSetResourceRepository__ResourceInterface(null, msgs);
+            return this.basicSetResourceRepository__ResourceInterface(null, msgs);
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
-            return ((InternalEList<?>) getResourceSignatures__ResourceInterface()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getResourceSignatures__ResourceInterface()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -185,10 +196,10 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
                     ResourceRepository.class, msgs);
         }
@@ -201,12 +212,12 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
-            return getResourceRepository__ResourceInterface();
+            return this.getResourceRepository__ResourceInterface();
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
-            return getResourceSignatures__ResourceInterface();
+            return this.getResourceSignatures__ResourceInterface();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -218,14 +229,14 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
-            setResourceRepository__ResourceInterface((ResourceRepository) newValue);
+            this.setResourceRepository__ResourceInterface((ResourceRepository) newValue);
             return;
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
-            getResourceSignatures__ResourceInterface().clear();
-            getResourceSignatures__ResourceInterface().addAll((Collection<? extends ResourceSignature>) newValue);
+            this.getResourceSignatures__ResourceInterface().clear();
+            this.getResourceSignatures__ResourceInterface().addAll((Collection<? extends ResourceSignature>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -237,13 +248,13 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
-            setResourceRepository__ResourceInterface((ResourceRepository) null);
+            this.setResourceRepository__ResourceInterface((ResourceRepository) null);
             return;
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
-            getResourceSignatures__ResourceInterface().clear();
+            this.getResourceSignatures__ResourceInterface().clear();
             return;
         }
         super.eUnset(featureID);
@@ -255,12 +266,13 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
-            return getResourceRepository__ResourceInterface() != null;
+            return this.getResourceRepository__ResourceInterface() != null;
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
-            return resourceSignatures__ResourceInterface != null && !resourceSignatures__ResourceInterface.isEmpty();
+            return this.resourceSignatures__ResourceInterface != null
+                    && !this.resourceSignatures__ResourceInterface.isEmpty();
         }
         return super.eIsSet(featureID);
     }

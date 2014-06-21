@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor <em>Successor</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor <em> Successor</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
@@ -42,7 +42,7 @@ public interface AbstractUserAction extends Entity {
 
     /**
      * Returns the value of the '<em><b>Successor</b></em>' reference. It is bidirectional and its
-     * opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor
+     * opposite is ' {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor
      * <em>Predecessor</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Successor</em>' reference isn't clear, there really should be more
@@ -60,7 +60,7 @@ public interface AbstractUserAction extends Entity {
     AbstractUserAction getSuccessor();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor
      * <em>Successor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
@@ -72,7 +72,7 @@ public interface AbstractUserAction extends Entity {
 
     /**
      * Returns the value of the '<em><b>Predecessor</b></em>' reference. It is bidirectional and its
-     * opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor
+     * opposite is ' {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor
      * <em>Successor</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Predecessor</em>' reference isn't clear, there really should be
@@ -102,7 +102,7 @@ public interface AbstractUserAction extends Entity {
     void setPredecessor(AbstractUserAction value);
 
     /**
-     * Returns the value of the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * Returns the value of the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
      * <em>Actions Scenario Behaviour</em>}'. <!-- begin-user-doc -->
@@ -112,7 +112,7 @@ public interface AbstractUserAction extends Entity {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Scenario Behaviour Abstract User Action</em>' container
+     * @return the value of the ' <em>Scenario Behaviour Abstract User Action</em>' container
      *         reference.
      * @see #setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_ScenarioBehaviour_AbstractUserAction()
@@ -129,7 +129,7 @@ public interface AbstractUserAction extends Entity {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Scenario Behaviour Abstract User Action</em>' container
+     *            the new value of the ' <em>Scenario Behaviour Abstract User Action</em>' container
      *            reference.
      * @see #getScenarioBehaviour_AbstractUserAction()
      * @generated

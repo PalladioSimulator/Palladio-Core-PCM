@@ -27,7 +27,7 @@ public class SeffPerformanceResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public SeffPerformanceResourceImpl(URI uri) {
+    public SeffPerformanceResourceImpl(final URI uri) {
         super(uri);
     }
 

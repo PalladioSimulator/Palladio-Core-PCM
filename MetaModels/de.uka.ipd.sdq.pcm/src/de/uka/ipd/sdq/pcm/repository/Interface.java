@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Interface</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Interface</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> This entity models the interface as a set of signatures representing
@@ -37,11 +37,13 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface <em>Parent
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface <em>Parent
  * Interfaces Interface</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols
  * Interface</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required
  * Characterisations</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface <em>Repository
  * Interface</em>}</li>

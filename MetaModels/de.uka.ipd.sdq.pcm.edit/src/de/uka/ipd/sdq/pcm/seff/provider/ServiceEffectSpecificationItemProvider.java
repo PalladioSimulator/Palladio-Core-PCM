@@ -48,7 +48,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * 
      * @generated
      */
-    public ServiceEffectSpecificationItemProvider(AdapterFactory adapterFactory) {
+    public ServiceEffectSpecificationItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -59,14 +59,14 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addSeffTypeIDPropertyDescriptor(object);
-            addDescribedService__SEFFPropertyDescriptor(object);
+            this.addSeffTypeIDPropertyDescriptor(object);
+            this.addDescribedService__SEFFPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,12 +75,11 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * 
      * @generated
      */
-    protected void addSeffTypeIDPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ServiceEffectSpecification_seffTypeID_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_seffTypeID_feature",
+    protected void addSeffTypeIDPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ServiceEffectSpecification_seffTypeID_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_seffTypeID_feature",
                         "_UI_ServiceEffectSpecification_type"),
                 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -92,12 +91,11 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * 
      * @generated
      */
-    protected void addDescribedService__SEFFPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_ServiceEffectSpecification_describedService__SEFF_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addDescribedService__SEFFPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ServiceEffectSpecification_describedService__SEFF_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_ServiceEffectSpecification_describedService__SEFF_feature",
                         "_UI_ServiceEffectSpecification_type"),
                 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, true, false, true, null,
@@ -111,10 +109,10 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ServiceEffectSpecification) object).getSeffTypeID();
-        return label == null || label.length() == 0 ? getString("_UI_ServiceEffectSpecification_type")
-                : getString("_UI_ServiceEffectSpecification_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ServiceEffectSpecification) object).getSeffTypeID();
+        return label == null || label.length() == 0 ? this.getString("_UI_ServiceEffectSpecification_type") : this
+                .getString("_UI_ServiceEffectSpecification_type") + " " + label;
     }
 
     /**
@@ -125,12 +123,12 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(ServiceEffectSpecification.class)) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -143,7 +141,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -155,7 +153,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

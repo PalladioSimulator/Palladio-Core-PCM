@@ -46,7 +46,7 @@ public class AbstractBranchTransitionItemProvider extends EntityItemProvider imp
      * 
      * @generated
      */
-    public AbstractBranchTransitionItemProvider(AdapterFactory adapterFactory) {
+    public AbstractBranchTransitionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -57,12 +57,12 @@ public class AbstractBranchTransitionItemProvider extends EntityItemProvider imp
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,12 +75,13 @@ public class AbstractBranchTransitionItemProvider extends EntityItemProvider imp
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
+            this.childrenFeatures
+                    .add(SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -89,7 +90,7 @@ public class AbstractBranchTransitionItemProvider extends EntityItemProvider imp
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -103,10 +104,10 @@ public class AbstractBranchTransitionItemProvider extends EntityItemProvider imp
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((AbstractBranchTransition) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_AbstractBranchTransition_type")
-                : getString("_UI_AbstractBranchTransition_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((AbstractBranchTransition) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_AbstractBranchTransition_type") : this
+                .getString("_UI_AbstractBranchTransition_type") + " " + label;
     }
 
     /**
@@ -117,12 +118,12 @@ public class AbstractBranchTransitionItemProvider extends EntityItemProvider imp
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(AbstractBranchTransition.class)) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -135,26 +136,26 @@ public class AbstractBranchTransitionItemProvider extends EntityItemProvider imp
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                 SeffFactory.eINSTANCE.createResourceDemandingInternalBehaviour()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                 SeffFactory.eINSTANCE.createForkedBehaviour()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                 SeffReliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
     }

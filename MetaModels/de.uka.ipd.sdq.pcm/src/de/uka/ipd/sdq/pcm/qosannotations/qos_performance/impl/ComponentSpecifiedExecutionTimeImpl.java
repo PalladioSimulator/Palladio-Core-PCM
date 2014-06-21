@@ -39,7 +39,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getAssemblyContext_ComponentSpecifiedExecutionTime()
+     * The cached value of the ' {@link #getAssemblyContext_ComponentSpecifiedExecutionTime()
      * <em>Assembly Context Component Specified Execution Time</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      * 
@@ -73,22 +73,25 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * 
      * @generated
      */
+    @Override
     public AssemblyContext getAssemblyContext_ComponentSpecifiedExecutionTime() {
-        if (assemblyContext_ComponentSpecifiedExecutionTime != null
-                && ((EObject) assemblyContext_ComponentSpecifiedExecutionTime).eIsProxy()) {
-            InternalEObject oldAssemblyContext_ComponentSpecifiedExecutionTime = (InternalEObject) assemblyContext_ComponentSpecifiedExecutionTime;
-            assemblyContext_ComponentSpecifiedExecutionTime = (AssemblyContext) eResolveProxy(oldAssemblyContext_ComponentSpecifiedExecutionTime);
-            if (assemblyContext_ComponentSpecifiedExecutionTime != oldAssemblyContext_ComponentSpecifiedExecutionTime) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(
+        if (this.assemblyContext_ComponentSpecifiedExecutionTime != null
+                && ((EObject) this.assemblyContext_ComponentSpecifiedExecutionTime).eIsProxy()) {
+            final InternalEObject oldAssemblyContext_ComponentSpecifiedExecutionTime = (InternalEObject) this.assemblyContext_ComponentSpecifiedExecutionTime;
+            this.assemblyContext_ComponentSpecifiedExecutionTime = (AssemblyContext) this
+                    .eResolveProxy(oldAssemblyContext_ComponentSpecifiedExecutionTime);
+            if (this.assemblyContext_ComponentSpecifiedExecutionTime != oldAssemblyContext_ComponentSpecifiedExecutionTime) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
                             oldAssemblyContext_ComponentSpecifiedExecutionTime,
-                            assemblyContext_ComponentSpecifiedExecutionTime));
+                            this.assemblyContext_ComponentSpecifiedExecutionTime));
+                }
             }
         }
-        return assemblyContext_ComponentSpecifiedExecutionTime;
+        return this.assemblyContext_ComponentSpecifiedExecutionTime;
     }
 
     /**
@@ -97,24 +100,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ComponentSpecifiedExecutionTime() {
-        return assemblyContext_ComponentSpecifiedExecutionTime;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setAssemblyContext_ComponentSpecifiedExecutionTime(
-            AssemblyContext newAssemblyContext_ComponentSpecifiedExecutionTime) {
-        AssemblyContext oldAssemblyContext_ComponentSpecifiedExecutionTime = assemblyContext_ComponentSpecifiedExecutionTime;
-        assemblyContext_ComponentSpecifiedExecutionTime = newAssemblyContext_ComponentSpecifiedExecutionTime;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
-                    oldAssemblyContext_ComponentSpecifiedExecutionTime, assemblyContext_ComponentSpecifiedExecutionTime));
+        return this.assemblyContext_ComponentSpecifiedExecutionTime;
     }
 
     /**
@@ -123,12 +109,33 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setAssemblyContext_ComponentSpecifiedExecutionTime(
+            final AssemblyContext newAssemblyContext_ComponentSpecifiedExecutionTime) {
+        final AssemblyContext oldAssemblyContext_ComponentSpecifiedExecutionTime = this.assemblyContext_ComponentSpecifiedExecutionTime;
+        this.assemblyContext_ComponentSpecifiedExecutionTime = newAssemblyContext_ComponentSpecifiedExecutionTime;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(
+                    this,
+                    Notification.SET,
+                    QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
+                    oldAssemblyContext_ComponentSpecifiedExecutionTime,
+                    this.assemblyContext_ComponentSpecifiedExecutionTime));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
-            if (resolve)
-                return getAssemblyContext_ComponentSpecifiedExecutionTime();
-            return basicGetAssemblyContext_ComponentSpecifiedExecutionTime();
+            if (resolve) {
+                return this.getAssemblyContext_ComponentSpecifiedExecutionTime();
+            }
+            return this.basicGetAssemblyContext_ComponentSpecifiedExecutionTime();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -139,10 +146,10 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
-            setAssemblyContext_ComponentSpecifiedExecutionTime((AssemblyContext) newValue);
+            this.setAssemblyContext_ComponentSpecifiedExecutionTime((AssemblyContext) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -154,10 +161,10 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
-            setAssemblyContext_ComponentSpecifiedExecutionTime((AssemblyContext) null);
+            this.setAssemblyContext_ComponentSpecifiedExecutionTime((AssemblyContext) null);
             return;
         }
         super.eUnset(featureID);
@@ -169,10 +176,10 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
-            return assemblyContext_ComponentSpecifiedExecutionTime != null;
+            return this.assemblyContext_ComponentSpecifiedExecutionTime != null;
         }
         return super.eIsSet(featureID);
     }

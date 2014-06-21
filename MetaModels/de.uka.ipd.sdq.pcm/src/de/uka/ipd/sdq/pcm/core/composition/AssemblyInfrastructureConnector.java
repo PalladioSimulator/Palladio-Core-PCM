@@ -43,15 +43,15 @@ public interface AssemblyInfrastructureConnector extends Connector {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Provided Role Assembly Infrastructure Connector</b></em>'
+     * Returns the value of the ' <em><b>Provided Role Assembly Infrastructure Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Provided Role Assembly Infrastructure Connector</em>' reference
+     * If the meaning of the ' <em>Provided Role Assembly Infrastructure Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Provided Role Assembly Infrastructure Connector</em>'
+     * @return the value of the ' <em>Provided Role Assembly Infrastructure Connector</em>'
      *         reference.
      * @see #setProvidedRole__AssemblyInfrastructureConnector(InfrastructureProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector()
@@ -67,7 +67,7 @@ public interface AssemblyInfrastructureConnector extends Connector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Provided Role Assembly Infrastructure Connector</em>'
+     *            the new value of the ' <em>Provided Role Assembly Infrastructure Connector</em>'
      *            reference.
      * @see #getProvidedRole__AssemblyInfrastructureConnector()
      * @generated
@@ -75,15 +75,15 @@ public interface AssemblyInfrastructureConnector extends Connector {
     void setProvidedRole__AssemblyInfrastructureConnector(InfrastructureProvidedRole value);
 
     /**
-     * Returns the value of the '<em><b>Required Role Assembly Infrastructure Connector</b></em>'
+     * Returns the value of the ' <em><b>Required Role Assembly Infrastructure Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Required Role Assembly Infrastructure Connector</em>' reference
+     * If the meaning of the ' <em>Required Role Assembly Infrastructure Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Required Role Assembly Infrastructure Connector</em>'
+     * @return the value of the ' <em>Required Role Assembly Infrastructure Connector</em>'
      *         reference.
      * @see #setRequiredRole__AssemblyInfrastructureConnector(InfrastructureRequiredRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector()
@@ -99,7 +99,7 @@ public interface AssemblyInfrastructureConnector extends Connector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Required Role Assembly Infrastructure Connector</em>'
+     *            the new value of the ' <em>Required Role Assembly Infrastructure Connector</em>'
      *            reference.
      * @see #getRequiredRole__AssemblyInfrastructureConnector()
      * @generated
@@ -108,16 +108,16 @@ public interface AssemblyInfrastructureConnector extends Connector {
 
     /**
      * Returns the value of the '
-     * <em><b>Providing Assembly Context Assembly Infrastructure Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * <em><b>Providing Assembly Context Assembly Infrastructure Connector</b></em> ' reference.
+     * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Providing Assembly Context Assembly Infrastructure Connector</em>'
-     * reference isn't clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Providing Assembly Context Assembly Infrastructure Connector</em>
+     * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Providing Assembly Context Assembly Infrastructure Connector</em>' reference.
+     *         <em>Providing Assembly Context Assembly Infrastructure Connector</em> ' reference.
      * @see #setProvidingAssemblyContext__AssemblyInfrastructureConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector()
      * @model required="true" ordered="false"
@@ -133,7 +133,7 @@ public interface AssemblyInfrastructureConnector extends Connector {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Providing Assembly Context Assembly Infrastructure Connector</em>' reference.
+     *            <em>Providing Assembly Context Assembly Infrastructure Connector</em> ' reference.
      * @see #getProvidingAssemblyContext__AssemblyInfrastructureConnector()
      * @generated
      */
@@ -141,16 +141,16 @@ public interface AssemblyInfrastructureConnector extends Connector {
 
     /**
      * Returns the value of the '
-     * <em><b>Requiring Assembly Context Assembly Infrastructure Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * <em><b>Requiring Assembly Context Assembly Infrastructure Connector</b></em> ' reference.
+     * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Requiring Assembly Context Assembly Infrastructure Connector</em>'
-     * reference isn't clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Requiring Assembly Context Assembly Infrastructure Connector</em>
+     * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Requiring Assembly Context Assembly Infrastructure Connector</em>' reference.
+     *         <em>Requiring Assembly Context Assembly Infrastructure Connector</em> ' reference.
      * @see #setRequiringAssemblyContext__AssemblyInfrastructureConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector()
      * @model ordered="false"
@@ -166,7 +166,7 @@ public interface AssemblyInfrastructureConnector extends Connector {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Requiring Assembly Context Assembly Infrastructure Connector</em>' reference.
+     *            <em>Requiring Assembly Context Assembly Infrastructure Connector</em> ' reference.
      * @see #getRequiringAssemblyContext__AssemblyInfrastructureConnector()
      * @generated
      */

@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -118,12 +117,13 @@ public class AllocationValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         switch (classifierID) {
         case AllocationPackage.ALLOCATION_CONTEXT:
-            return validateAllocationContext((AllocationContext) value, diagnostics, context);
+            return this.validateAllocationContext((AllocationContext) value, diagnostics, context);
         case AllocationPackage.ALLOCATION:
-            return validateAllocation((Allocation) value, diagnostics, context);
+            return this.validateAllocation((Allocation) value, diagnostics, context);
         default:
             return true;
         }
@@ -134,26 +134,34 @@ public class AllocationValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAllocationContext(AllocationContext allocationContext, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) allocationContext, diagnostics, context))
+    public boolean validateAllocationContext(final AllocationContext allocationContext,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(allocationContext, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) allocationContext, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) allocationContext, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) allocationContext, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) allocationContext, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) allocationContext, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) allocationContext, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) allocationContext, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateAllocationContext_OneAssemblyContextOrOneEventChannelShouldBeReferred(allocationContext,
-                    diagnostics, context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(allocationContext, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(allocationContext, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(allocationContext, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(allocationContext, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(allocationContext, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(allocationContext, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(allocationContext, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateAllocationContext_OneAssemblyContextOrOneEventChannelShouldBeReferred(
+                    allocationContext, diagnostics, context);
+        }
         return result;
     }
 
@@ -164,7 +172,8 @@ public class AllocationValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAllocationContext_OneAssemblyContextOrOneEventChannelShouldBeReferred(
-            AllocationContext allocationContext, DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final AllocationContext allocationContext, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return allocationContext.OneAssemblyContextOrOneEventChannelShouldBeReferred(diagnostics, context);
     }
 
@@ -173,28 +182,38 @@ public class AllocationValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAllocation(Allocation allocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) allocation, diagnostics, context))
+    public boolean validateAllocation(final Allocation allocation, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(allocation, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) allocation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) allocation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) allocation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) allocation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) allocation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) allocation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) allocation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(allocation,
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(allocation, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(allocation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(allocation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(allocation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(allocation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(allocation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(allocation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(allocation,
                     diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateAllocation_CommunicatingServersHaveToBeConnectedByLinkingResource(allocation,
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateAllocation_CommunicatingServersHaveToBeConnectedByLinkingResource(allocation,
                     diagnostics, context);
+        }
         return result;
     }
 
@@ -204,8 +223,8 @@ public class AllocationValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(Allocation allocation,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(
+            final Allocation allocation, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return allocation.EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(diagnostics, context);
     }
 
@@ -215,8 +234,8 @@ public class AllocationValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAllocation_CommunicatingServersHaveToBeConnectedByLinkingResource(Allocation allocation,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateAllocation_CommunicatingServersHaveToBeConnectedByLinkingResource(
+            final Allocation allocation, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return allocation.CommunicatingServersHaveToBeConnectedByLinkingResource(diagnostics, context);
     }
 
@@ -229,7 +248,8 @@ public class AllocationValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to this validator.
+        // Specialize this to return a resource locator for messages specific to
+        // this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }

@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * component type. The specification of the internal structure depends on the way the component is
  * realised. In general, components can either be implemented from the scratch or composed out of
  * other components. In the first case, the implemented behaviour of each provided service needs to
- * be specified with a service effect specification (SEFF) to describe the componentâ€™s abstract
+ * be specified with a service effect specification (SEFF) to describe the component’s abstract
  * internal structure. We refer to such components as basic components, since they form the basic
  * building blocks of a software architecture. On the other hand, developers can use existing
  * components to assemble new, composite components.
@@ -40,8 +40,9 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType
  * <em>Component Parameter Usage Implementation Component Type</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentType <em>
- * Component Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentType <em>Component
+ * Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -58,7 +59,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Parent Complete Component Types</b></em>' reference list.
+     * Returns the value of the '<em><b>Parent Complete Component Types</b></em> ' reference list.
      * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
      * <!-- begin-user-doc -->
      * <p>
@@ -83,7 +84,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * to be initialized using the assembly context to parametrize the component. <!-- end-model-doc
      * -->
      * 
-     * @return the value of the '<em>Component Parameter Usage Implementation Component Type</em>'
+     * @return the value of the ' <em>Component Parameter Usage Implementation Component Type</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType()
      * @model containment="true" ordered="false"

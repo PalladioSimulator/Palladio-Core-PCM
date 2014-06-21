@@ -40,17 +40,18 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
 
     /**
      * Returns the value of the '
-     * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
+     * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em> ' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>' reference isn't
+     * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em> ' reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>' reference.
+     *         <em>Inner Provided Role Provided Infrastructure Delegation Connector</em> '
+     *         reference.
      * @see #setInnerProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -61,12 +62,12 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
-     * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>}' reference. <!--
+     * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>} ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
      *            the new value of the '
-     *            <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>'
+     *            <em>Inner Provided Role Provided Infrastructure Delegation Connector</em> '
      *            reference.
      * @see #getInnerProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @generated
@@ -75,17 +76,18 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
 
     /**
      * Returns the value of the '
-     * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
+     * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em> ' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>' reference isn't
+     * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em> ' reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>' reference.
+     *         <em>Outer Provided Role Provided Infrastructure Delegation Connector</em> '
+     *         reference.
      * @see #setOuterProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -96,12 +98,12 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector
-     * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>}' reference. <!--
+     * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>} ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
      *            the new value of the '
-     *            <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>'
+     *            <em>Outer Provided Role Provided Infrastructure Delegation Connector</em> '
      *            reference.
      * @see #getOuterProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @generated
@@ -110,16 +112,17 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
 
     /**
      * Returns the value of the '
-     * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference.
+     * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em> ' reference.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Assembly Context Provided Infrastructure Delegation Connector</em>
-     * ' reference isn't clear, there really should be more of a description here...
+     * If the meaning of the '
+     * <em>Assembly Context Provided Infrastructure Delegation Connector</em> ' reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Assembly Context Provided Infrastructure Delegation Connector</em>' reference.
+     *         <em>Assembly Context Provided Infrastructure Delegation Connector</em> ' reference.
      * @see #setAssemblyContext__ProvidedInfrastructureDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -135,7 +138,8 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * 
      * @param value
      *            the new value of the '
-     *            <em>Assembly Context Provided Infrastructure Delegation Connector</em>' reference.
+     *            <em>Assembly Context Provided Infrastructure Delegation Connector</em> '
+     *            reference.
      * @see #getAssemblyContext__ProvidedInfrastructureDelegationConnector()
      * @generated
      */

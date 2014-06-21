@@ -75,7 +75,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -93,113 +93,115 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      */
     protected CompositionSwitch<Adapter> modelSwitch = new CompositionSwitch<Adapter>() {
         @Override
-        public Adapter caseDelegationConnector(DelegationConnector object) {
-            return createDelegationConnectorAdapter();
+        public Adapter caseDelegationConnector(final DelegationConnector object) {
+            return CompositionAdapterFactory.this.createDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseConnector(Connector object) {
-            return createConnectorAdapter();
+        public Adapter caseConnector(final Connector object) {
+            return CompositionAdapterFactory.this.createConnectorAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(ComposedStructure object) {
-            return createComposedStructureAdapter();
+        public Adapter caseComposedStructure(final ComposedStructure object) {
+            return CompositionAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseResourceRequiredDelegationConnector(ResourceRequiredDelegationConnector object) {
-            return createResourceRequiredDelegationConnectorAdapter();
+        public Adapter caseResourceRequiredDelegationConnector(final ResourceRequiredDelegationConnector object) {
+            return CompositionAdapterFactory.this.createResourceRequiredDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseEventChannel(EventChannel object) {
-            return createEventChannelAdapter();
+        public Adapter caseEventChannel(final EventChannel object) {
+            return CompositionAdapterFactory.this.createEventChannelAdapter();
         }
 
         @Override
-        public Adapter caseEventChannelSourceConnector(EventChannelSourceConnector object) {
-            return createEventChannelSourceConnectorAdapter();
+        public Adapter caseEventChannelSourceConnector(final EventChannelSourceConnector object) {
+            return CompositionAdapterFactory.this.createEventChannelSourceConnectorAdapter();
         }
 
         @Override
-        public Adapter caseEventChannelSinkConnector(EventChannelSinkConnector object) {
-            return createEventChannelSinkConnectorAdapter();
+        public Adapter caseEventChannelSinkConnector(final EventChannelSinkConnector object) {
+            return CompositionAdapterFactory.this.createEventChannelSinkConnectorAdapter();
         }
 
         @Override
-        public Adapter caseProvidedDelegationConnector(ProvidedDelegationConnector object) {
-            return createProvidedDelegationConnectorAdapter();
+        public Adapter caseProvidedDelegationConnector(final ProvidedDelegationConnector object) {
+            return CompositionAdapterFactory.this.createProvidedDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredDelegationConnector(RequiredDelegationConnector object) {
-            return createRequiredDelegationConnectorAdapter();
+        public Adapter caseRequiredDelegationConnector(final RequiredDelegationConnector object) {
+            return CompositionAdapterFactory.this.createRequiredDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyConnector(AssemblyConnector object) {
-            return createAssemblyConnectorAdapter();
+        public Adapter caseAssemblyConnector(final AssemblyConnector object) {
+            return CompositionAdapterFactory.this.createAssemblyConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyEventConnector(AssemblyEventConnector object) {
-            return createAssemblyEventConnectorAdapter();
+        public Adapter caseAssemblyEventConnector(final AssemblyEventConnector object) {
+            return CompositionAdapterFactory.this.createAssemblyEventConnectorAdapter();
         }
 
         @Override
-        public Adapter caseSourceDelegationConnector(SourceDelegationConnector object) {
-            return createSourceDelegationConnectorAdapter();
+        public Adapter caseSourceDelegationConnector(final SourceDelegationConnector object) {
+            return CompositionAdapterFactory.this.createSourceDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseSinkDelegationConnector(SinkDelegationConnector object) {
-            return createSinkDelegationConnectorAdapter();
+        public Adapter caseSinkDelegationConnector(final SinkDelegationConnector object) {
+            return CompositionAdapterFactory.this.createSinkDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyInfrastructureConnector(AssemblyInfrastructureConnector object) {
-            return createAssemblyInfrastructureConnectorAdapter();
+        public Adapter caseAssemblyInfrastructureConnector(final AssemblyInfrastructureConnector object) {
+            return CompositionAdapterFactory.this.createAssemblyInfrastructureConnectorAdapter();
         }
 
         @Override
-        public Adapter caseProvidedInfrastructureDelegationConnector(ProvidedInfrastructureDelegationConnector object) {
-            return createProvidedInfrastructureDelegationConnectorAdapter();
+        public Adapter caseProvidedInfrastructureDelegationConnector(
+                final ProvidedInfrastructureDelegationConnector object) {
+            return CompositionAdapterFactory.this.createProvidedInfrastructureDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredInfrastructureDelegationConnector(RequiredInfrastructureDelegationConnector object) {
-            return createRequiredInfrastructureDelegationConnectorAdapter();
+        public Adapter caseRequiredInfrastructureDelegationConnector(
+                final RequiredInfrastructureDelegationConnector object) {
+            return CompositionAdapterFactory.this.createRequiredInfrastructureDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredResourceDelegationConnector(RequiredResourceDelegationConnector object) {
-            return createRequiredResourceDelegationConnectorAdapter();
+        public Adapter caseRequiredResourceDelegationConnector(final RequiredResourceDelegationConnector object) {
+            return CompositionAdapterFactory.this.createRequiredResourceDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyContext(AssemblyContext object) {
-            return createAssemblyContextAdapter();
+        public Adapter caseAssemblyContext(final AssemblyContext object) {
+            return CompositionAdapterFactory.this.createAssemblyContextAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return CompositionAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return CompositionAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return CompositionAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return CompositionAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -212,8 +214,8 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -457,7 +459,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -486,7 +488,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -501,7 +503,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.composition.Connector <em>Connector</em>}'. <!--
+     * {@link de.uka.ipd.sdq.pcm.core.composition.Connector <em>Connector</em>} '. <!--
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->

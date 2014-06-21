@@ -43,7 +43,7 @@ public class AbstractUserActionItemProvider extends EntityItemProvider implement
      * 
      * @generated
      */
-    public AbstractUserActionItemProvider(AdapterFactory adapterFactory) {
+    public AbstractUserActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,14 +54,14 @@ public class AbstractUserActionItemProvider extends EntityItemProvider implement
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addSuccessorPropertyDescriptor(object);
-            addPredecessorPropertyDescriptor(object);
+            this.addSuccessorPropertyDescriptor(object);
+            this.addPredecessorPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -70,12 +70,11 @@ public class AbstractUserActionItemProvider extends EntityItemProvider implement
      * 
      * @generated
      */
-    protected void addSuccessorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AbstractUserAction_successor_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AbstractUserAction_successor_feature",
+    protected void addSuccessorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AbstractUserAction_successor_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AbstractUserAction_successor_feature",
                         "_UI_AbstractUserAction_type"), UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__SUCCESSOR,
                 true, false, true, null, null, null));
     }
@@ -86,12 +85,11 @@ public class AbstractUserActionItemProvider extends EntityItemProvider implement
      * 
      * @generated
      */
-    protected void addPredecessorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AbstractUserAction_predecessor_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AbstractUserAction_predecessor_feature",
+    protected void addPredecessorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AbstractUserAction_predecessor_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AbstractUserAction_predecessor_feature",
                         "_UI_AbstractUserAction_type"), UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__PREDECESSOR,
                 true, false, true, null, null, null));
     }
@@ -103,10 +101,10 @@ public class AbstractUserActionItemProvider extends EntityItemProvider implement
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((AbstractUserAction) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_AbstractUserAction_type")
-                : getString("_UI_AbstractUserAction_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((AbstractUserAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_AbstractUserAction_type") : this
+                .getString("_UI_AbstractUserAction_type") + " " + label;
     }
 
     /**
@@ -117,8 +115,8 @@ public class AbstractUserActionItemProvider extends EntityItemProvider implement
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -129,7 +127,7 @@ public class AbstractUserActionItemProvider extends EntityItemProvider implement
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

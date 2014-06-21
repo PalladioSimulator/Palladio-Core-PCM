@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Start Action</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Start Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
@@ -86,14 +86,16 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
      * 
      * @generated
      */
-    public boolean StartActionPredecessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean StartActionPredecessorMustNotBeDefined(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.START_ACTION);
             try {
                 START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

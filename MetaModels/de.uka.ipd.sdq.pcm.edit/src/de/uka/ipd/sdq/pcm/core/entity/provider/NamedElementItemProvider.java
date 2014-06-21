@@ -47,7 +47,7 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
      * 
      * @generated
      */
-    public NamedElementItemProvider(AdapterFactory adapterFactory) {
+    public NamedElementItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -58,13 +58,13 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addEntityNamePropertyDescriptor(object);
+            this.addEntityNamePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,12 +73,11 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
      * 
      * @generated
      */
-    protected void addEntityNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_NamedElement_entityName_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature",
+    protected void addEntityNamePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_NamedElement_entityName_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature",
                         "_UI_NamedElement_type"), EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME, true, false,
                 false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -90,10 +89,10 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((NamedElement) object).getEntityName();
-        return label == null || label.length() == 0 ? getString("_UI_NamedElement_type")
-                : getString("_UI_NamedElement_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((NamedElement) object).getEntityName();
+        return label == null || label.length() == 0 ? this.getString("_UI_NamedElement_type") : this
+                .getString("_UI_NamedElement_type") + " " + label;
     }
 
     /**
@@ -104,12 +103,12 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(NamedElement.class)) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -122,7 +121,7 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -134,7 +133,7 @@ public class NamedElementItemProvider extends ItemProviderAdapter implements IEd
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

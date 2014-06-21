@@ -97,8 +97,8 @@ public class RepositorySwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(EObject theEObject) {
-        return doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(final EObject theEObject) {
+        return this.doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
@@ -108,12 +108,12 @@ public class RepositorySwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(EClass theEClass, EObject theEObject) {
+    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return doSwitch(theEClass.getClassifierID(), theEObject);
+            return this.doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
+            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -124,547 +124,718 @@ public class RepositorySwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(int classifierID, EObject theEObject) {
+    protected T doSwitch(final int classifierID, final EObject theEObject) {
         switch (classifierID) {
         case RepositoryPackage.PASSIVE_RESOURCE: {
-            PassiveResource passiveResource = (PassiveResource) theEObject;
-            T result = casePassiveResource(passiveResource);
-            if (result == null)
-                result = caseEntity(passiveResource);
-            if (result == null)
-                result = caseIdentifier(passiveResource);
-            if (result == null)
-                result = caseNamedElement(passiveResource);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final PassiveResource passiveResource = (PassiveResource) theEObject;
+            T result = this.casePassiveResource(passiveResource);
+            if (result == null) {
+                result = this.caseEntity(passiveResource);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(passiveResource);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(passiveResource);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.BASIC_COMPONENT: {
-            BasicComponent basicComponent = (BasicComponent) theEObject;
-            T result = caseBasicComponent(basicComponent);
-            if (result == null)
-                result = caseImplementationComponentType(basicComponent);
-            if (result == null)
-                result = caseRepositoryComponent(basicComponent);
-            if (result == null)
-                result = caseInterfaceProvidingRequiringEntity(basicComponent);
-            if (result == null)
-                result = caseInterfaceProvidingEntity(basicComponent);
-            if (result == null)
-                result = caseInterfaceRequiringEntity(basicComponent);
-            if (result == null)
-                result = caseResourceInterfaceRequiringEntity(basicComponent);
-            if (result == null)
-                result = caseEntity(basicComponent);
-            if (result == null)
-                result = caseIdentifier(basicComponent);
-            if (result == null)
-                result = caseNamedElement(basicComponent);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final BasicComponent basicComponent = (BasicComponent) theEObject;
+            T result = this.caseBasicComponent(basicComponent);
+            if (result == null) {
+                result = this.caseImplementationComponentType(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseRepositoryComponent(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingRequiringEntity(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingEntity(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceRequiringEntity(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseResourceInterfaceRequiringEntity(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseEntity(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(basicComponent);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(basicComponent);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE: {
-            ImplementationComponentType implementationComponentType = (ImplementationComponentType) theEObject;
-            T result = caseImplementationComponentType(implementationComponentType);
-            if (result == null)
-                result = caseRepositoryComponent(implementationComponentType);
-            if (result == null)
-                result = caseInterfaceProvidingRequiringEntity(implementationComponentType);
-            if (result == null)
-                result = caseInterfaceProvidingEntity(implementationComponentType);
-            if (result == null)
-                result = caseInterfaceRequiringEntity(implementationComponentType);
-            if (result == null)
-                result = caseResourceInterfaceRequiringEntity(implementationComponentType);
-            if (result == null)
-                result = caseEntity(implementationComponentType);
-            if (result == null)
-                result = caseIdentifier(implementationComponentType);
-            if (result == null)
-                result = caseNamedElement(implementationComponentType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ImplementationComponentType implementationComponentType = (ImplementationComponentType) theEObject;
+            T result = this.caseImplementationComponentType(implementationComponentType);
+            if (result == null) {
+                result = this.caseRepositoryComponent(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingRequiringEntity(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingEntity(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceRequiringEntity(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.caseResourceInterfaceRequiringEntity(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.caseEntity(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(implementationComponentType);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.REPOSITORY_COMPONENT: {
-            RepositoryComponent repositoryComponent = (RepositoryComponent) theEObject;
-            T result = caseRepositoryComponent(repositoryComponent);
-            if (result == null)
-                result = caseInterfaceProvidingRequiringEntity(repositoryComponent);
-            if (result == null)
-                result = caseInterfaceProvidingEntity(repositoryComponent);
-            if (result == null)
-                result = caseInterfaceRequiringEntity(repositoryComponent);
-            if (result == null)
-                result = caseResourceInterfaceRequiringEntity(repositoryComponent);
-            if (result == null)
-                result = caseEntity(repositoryComponent);
-            if (result == null)
-                result = caseIdentifier(repositoryComponent);
-            if (result == null)
-                result = caseNamedElement(repositoryComponent);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final RepositoryComponent repositoryComponent = (RepositoryComponent) theEObject;
+            T result = this.caseRepositoryComponent(repositoryComponent);
+            if (result == null) {
+                result = this.caseInterfaceProvidingRequiringEntity(repositoryComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingEntity(repositoryComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceRequiringEntity(repositoryComponent);
+            }
+            if (result == null) {
+                result = this.caseResourceInterfaceRequiringEntity(repositoryComponent);
+            }
+            if (result == null) {
+                result = this.caseEntity(repositoryComponent);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(repositoryComponent);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(repositoryComponent);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.PROVIDED_ROLE: {
-            ProvidedRole providedRole = (ProvidedRole) theEObject;
-            T result = caseProvidedRole(providedRole);
-            if (result == null)
-                result = caseRole(providedRole);
-            if (result == null)
-                result = caseEntity(providedRole);
-            if (result == null)
-                result = caseIdentifier(providedRole);
-            if (result == null)
-                result = caseNamedElement(providedRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ProvidedRole providedRole = (ProvidedRole) theEObject;
+            T result = this.caseProvidedRole(providedRole);
+            if (result == null) {
+                result = this.caseRole(providedRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(providedRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(providedRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(providedRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.PARAMETER: {
-            Parameter parameter = (Parameter) theEObject;
-            T result = caseParameter(parameter);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final Parameter parameter = (Parameter) theEObject;
+            T result = this.caseParameter(parameter);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.DATA_TYPE: {
-            DataType dataType = (DataType) theEObject;
-            T result = caseDataType(dataType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final DataType dataType = (DataType) theEObject;
+            T result = this.caseDataType(dataType);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.REPOSITORY: {
-            Repository repository = (Repository) theEObject;
-            T result = caseRepository(repository);
-            if (result == null)
-                result = caseEntity(repository);
-            if (result == null)
-                result = caseIdentifier(repository);
-            if (result == null)
-                result = caseNamedElement(repository);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final Repository repository = (Repository) theEObject;
+            T result = this.caseRepository(repository);
+            if (result == null) {
+                result = this.caseEntity(repository);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(repository);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(repository);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.INTERFACE: {
-            Interface interface_ = (Interface) theEObject;
-            T result = caseInterface(interface_);
-            if (result == null)
-                result = caseEntity(interface_);
-            if (result == null)
-                result = caseIdentifier(interface_);
-            if (result == null)
-                result = caseNamedElement(interface_);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final Interface interface_ = (Interface) theEObject;
+            T result = this.caseInterface(interface_);
+            if (result == null) {
+                result = this.caseEntity(interface_);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(interface_);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(interface_);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.REQUIRED_CHARACTERISATION: {
-            RequiredCharacterisation requiredCharacterisation = (RequiredCharacterisation) theEObject;
-            T result = caseRequiredCharacterisation(requiredCharacterisation);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final RequiredCharacterisation requiredCharacterisation = (RequiredCharacterisation) theEObject;
+            T result = this.caseRequiredCharacterisation(requiredCharacterisation);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.EVENT_GROUP: {
-            EventGroup eventGroup = (EventGroup) theEObject;
-            T result = caseEventGroup(eventGroup);
-            if (result == null)
-                result = caseInterface(eventGroup);
-            if (result == null)
-                result = caseEntity(eventGroup);
-            if (result == null)
-                result = caseIdentifier(eventGroup);
-            if (result == null)
-                result = caseNamedElement(eventGroup);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final EventGroup eventGroup = (EventGroup) theEObject;
+            T result = this.caseEventGroup(eventGroup);
+            if (result == null) {
+                result = this.caseInterface(eventGroup);
+            }
+            if (result == null) {
+                result = this.caseEntity(eventGroup);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(eventGroup);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(eventGroup);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.EVENT_TYPE: {
-            EventType eventType = (EventType) theEObject;
-            T result = caseEventType(eventType);
-            if (result == null)
-                result = caseSignature(eventType);
-            if (result == null)
-                result = caseEntity(eventType);
-            if (result == null)
-                result = caseIdentifier(eventType);
-            if (result == null)
-                result = caseNamedElement(eventType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final EventType eventType = (EventType) theEObject;
+            T result = this.caseEventType(eventType);
+            if (result == null) {
+                result = this.caseSignature(eventType);
+            }
+            if (result == null) {
+                result = this.caseEntity(eventType);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(eventType);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(eventType);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.SIGNATURE: {
-            Signature signature = (Signature) theEObject;
-            T result = caseSignature(signature);
-            if (result == null)
-                result = caseEntity(signature);
-            if (result == null)
-                result = caseIdentifier(signature);
-            if (result == null)
-                result = caseNamedElement(signature);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final Signature signature = (Signature) theEObject;
+            T result = this.caseSignature(signature);
+            if (result == null) {
+                result = this.caseEntity(signature);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(signature);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(signature);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.EXCEPTION_TYPE: {
-            ExceptionType exceptionType = (ExceptionType) theEObject;
-            T result = caseExceptionType(exceptionType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ExceptionType exceptionType = (ExceptionType) theEObject;
+            T result = this.caseExceptionType(exceptionType);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE: {
-            InfrastructureSignature infrastructureSignature = (InfrastructureSignature) theEObject;
-            T result = caseInfrastructureSignature(infrastructureSignature);
-            if (result == null)
-                result = caseSignature(infrastructureSignature);
-            if (result == null)
-                result = caseEntity(infrastructureSignature);
-            if (result == null)
-                result = caseIdentifier(infrastructureSignature);
-            if (result == null)
-                result = caseNamedElement(infrastructureSignature);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final InfrastructureSignature infrastructureSignature = (InfrastructureSignature) theEObject;
+            T result = this.caseInfrastructureSignature(infrastructureSignature);
+            if (result == null) {
+                result = this.caseSignature(infrastructureSignature);
+            }
+            if (result == null) {
+                result = this.caseEntity(infrastructureSignature);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(infrastructureSignature);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(infrastructureSignature);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE: {
-            InfrastructureInterface infrastructureInterface = (InfrastructureInterface) theEObject;
-            T result = caseInfrastructureInterface(infrastructureInterface);
-            if (result == null)
-                result = caseInterface(infrastructureInterface);
-            if (result == null)
-                result = caseEntity(infrastructureInterface);
-            if (result == null)
-                result = caseIdentifier(infrastructureInterface);
-            if (result == null)
-                result = caseNamedElement(infrastructureInterface);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final InfrastructureInterface infrastructureInterface = (InfrastructureInterface) theEObject;
+            T result = this.caseInfrastructureInterface(infrastructureInterface);
+            if (result == null) {
+                result = this.caseInterface(infrastructureInterface);
+            }
+            if (result == null) {
+                result = this.caseEntity(infrastructureInterface);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(infrastructureInterface);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(infrastructureInterface);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE: {
-            InfrastructureRequiredRole infrastructureRequiredRole = (InfrastructureRequiredRole) theEObject;
-            T result = caseInfrastructureRequiredRole(infrastructureRequiredRole);
-            if (result == null)
-                result = caseRequiredRole(infrastructureRequiredRole);
-            if (result == null)
-                result = caseRole(infrastructureRequiredRole);
-            if (result == null)
-                result = caseEntity(infrastructureRequiredRole);
-            if (result == null)
-                result = caseIdentifier(infrastructureRequiredRole);
-            if (result == null)
-                result = caseNamedElement(infrastructureRequiredRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final InfrastructureRequiredRole infrastructureRequiredRole = (InfrastructureRequiredRole) theEObject;
+            T result = this.caseInfrastructureRequiredRole(infrastructureRequiredRole);
+            if (result == null) {
+                result = this.caseRequiredRole(infrastructureRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseRole(infrastructureRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(infrastructureRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(infrastructureRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(infrastructureRequiredRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.REQUIRED_ROLE: {
-            RequiredRole requiredRole = (RequiredRole) theEObject;
-            T result = caseRequiredRole(requiredRole);
-            if (result == null)
-                result = caseRole(requiredRole);
-            if (result == null)
-                result = caseEntity(requiredRole);
-            if (result == null)
-                result = caseIdentifier(requiredRole);
-            if (result == null)
-                result = caseNamedElement(requiredRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final RequiredRole requiredRole = (RequiredRole) theEObject;
+            T result = this.caseRequiredRole(requiredRole);
+            if (result == null) {
+                result = this.caseRole(requiredRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(requiredRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(requiredRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(requiredRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.OPERATION_SIGNATURE: {
-            OperationSignature operationSignature = (OperationSignature) theEObject;
-            T result = caseOperationSignature(operationSignature);
-            if (result == null)
-                result = caseSignature(operationSignature);
-            if (result == null)
-                result = caseEntity(operationSignature);
-            if (result == null)
-                result = caseIdentifier(operationSignature);
-            if (result == null)
-                result = caseNamedElement(operationSignature);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final OperationSignature operationSignature = (OperationSignature) theEObject;
+            T result = this.caseOperationSignature(operationSignature);
+            if (result == null) {
+                result = this.caseSignature(operationSignature);
+            }
+            if (result == null) {
+                result = this.caseEntity(operationSignature);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(operationSignature);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(operationSignature);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.OPERATION_INTERFACE: {
-            OperationInterface operationInterface = (OperationInterface) theEObject;
-            T result = caseOperationInterface(operationInterface);
-            if (result == null)
-                result = caseInterface(operationInterface);
-            if (result == null)
-                result = caseEntity(operationInterface);
-            if (result == null)
-                result = caseIdentifier(operationInterface);
-            if (result == null)
-                result = caseNamedElement(operationInterface);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final OperationInterface operationInterface = (OperationInterface) theEObject;
+            T result = this.caseOperationInterface(operationInterface);
+            if (result == null) {
+                result = this.caseInterface(operationInterface);
+            }
+            if (result == null) {
+                result = this.caseEntity(operationInterface);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(operationInterface);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(operationInterface);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.OPERATION_REQUIRED_ROLE: {
-            OperationRequiredRole operationRequiredRole = (OperationRequiredRole) theEObject;
-            T result = caseOperationRequiredRole(operationRequiredRole);
-            if (result == null)
-                result = caseRequiredRole(operationRequiredRole);
-            if (result == null)
-                result = caseRole(operationRequiredRole);
-            if (result == null)
-                result = caseEntity(operationRequiredRole);
-            if (result == null)
-                result = caseIdentifier(operationRequiredRole);
-            if (result == null)
-                result = caseNamedElement(operationRequiredRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final OperationRequiredRole operationRequiredRole = (OperationRequiredRole) theEObject;
+            T result = this.caseOperationRequiredRole(operationRequiredRole);
+            if (result == null) {
+                result = this.caseRequiredRole(operationRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseRole(operationRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(operationRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(operationRequiredRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(operationRequiredRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.SOURCE_ROLE: {
-            SourceRole sourceRole = (SourceRole) theEObject;
-            T result = caseSourceRole(sourceRole);
-            if (result == null)
-                result = caseRequiredRole(sourceRole);
-            if (result == null)
-                result = caseRole(sourceRole);
-            if (result == null)
-                result = caseEntity(sourceRole);
-            if (result == null)
-                result = caseIdentifier(sourceRole);
-            if (result == null)
-                result = caseNamedElement(sourceRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final SourceRole sourceRole = (SourceRole) theEObject;
+            T result = this.caseSourceRole(sourceRole);
+            if (result == null) {
+                result = this.caseRequiredRole(sourceRole);
+            }
+            if (result == null) {
+                result = this.caseRole(sourceRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(sourceRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(sourceRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(sourceRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.SINK_ROLE: {
-            SinkRole sinkRole = (SinkRole) theEObject;
-            T result = caseSinkRole(sinkRole);
-            if (result == null)
-                result = caseProvidedRole(sinkRole);
-            if (result == null)
-                result = caseRole(sinkRole);
-            if (result == null)
-                result = caseEntity(sinkRole);
-            if (result == null)
-                result = caseIdentifier(sinkRole);
-            if (result == null)
-                result = caseNamedElement(sinkRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final SinkRole sinkRole = (SinkRole) theEObject;
+            T result = this.caseSinkRole(sinkRole);
+            if (result == null) {
+                result = this.caseProvidedRole(sinkRole);
+            }
+            if (result == null) {
+                result = this.caseRole(sinkRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(sinkRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(sinkRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(sinkRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.OPERATION_PROVIDED_ROLE: {
-            OperationProvidedRole operationProvidedRole = (OperationProvidedRole) theEObject;
-            T result = caseOperationProvidedRole(operationProvidedRole);
-            if (result == null)
-                result = caseProvidedRole(operationProvidedRole);
-            if (result == null)
-                result = caseRole(operationProvidedRole);
-            if (result == null)
-                result = caseEntity(operationProvidedRole);
-            if (result == null)
-                result = caseIdentifier(operationProvidedRole);
-            if (result == null)
-                result = caseNamedElement(operationProvidedRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final OperationProvidedRole operationProvidedRole = (OperationProvidedRole) theEObject;
+            T result = this.caseOperationProvidedRole(operationProvidedRole);
+            if (result == null) {
+                result = this.caseProvidedRole(operationProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseRole(operationProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(operationProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(operationProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(operationProvidedRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE: {
-            InfrastructureProvidedRole infrastructureProvidedRole = (InfrastructureProvidedRole) theEObject;
-            T result = caseInfrastructureProvidedRole(infrastructureProvidedRole);
-            if (result == null)
-                result = caseProvidedRole(infrastructureProvidedRole);
-            if (result == null)
-                result = caseRole(infrastructureProvidedRole);
-            if (result == null)
-                result = caseEntity(infrastructureProvidedRole);
-            if (result == null)
-                result = caseIdentifier(infrastructureProvidedRole);
-            if (result == null)
-                result = caseNamedElement(infrastructureProvidedRole);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final InfrastructureProvidedRole infrastructureProvidedRole = (InfrastructureProvidedRole) theEObject;
+            T result = this.caseInfrastructureProvidedRole(infrastructureProvidedRole);
+            if (result == null) {
+                result = this.caseProvidedRole(infrastructureProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseRole(infrastructureProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseEntity(infrastructureProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(infrastructureProvidedRole);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(infrastructureProvidedRole);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE: {
-            CompleteComponentType completeComponentType = (CompleteComponentType) theEObject;
-            T result = caseCompleteComponentType(completeComponentType);
-            if (result == null)
-                result = caseRepositoryComponent(completeComponentType);
-            if (result == null)
-                result = caseInterfaceProvidingRequiringEntity(completeComponentType);
-            if (result == null)
-                result = caseInterfaceProvidingEntity(completeComponentType);
-            if (result == null)
-                result = caseInterfaceRequiringEntity(completeComponentType);
-            if (result == null)
-                result = caseResourceInterfaceRequiringEntity(completeComponentType);
-            if (result == null)
-                result = caseEntity(completeComponentType);
-            if (result == null)
-                result = caseIdentifier(completeComponentType);
-            if (result == null)
-                result = caseNamedElement(completeComponentType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final CompleteComponentType completeComponentType = (CompleteComponentType) theEObject;
+            T result = this.caseCompleteComponentType(completeComponentType);
+            if (result == null) {
+                result = this.caseRepositoryComponent(completeComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingRequiringEntity(completeComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingEntity(completeComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceRequiringEntity(completeComponentType);
+            }
+            if (result == null) {
+                result = this.caseResourceInterfaceRequiringEntity(completeComponentType);
+            }
+            if (result == null) {
+                result = this.caseEntity(completeComponentType);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(completeComponentType);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(completeComponentType);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.PROVIDES_COMPONENT_TYPE: {
-            ProvidesComponentType providesComponentType = (ProvidesComponentType) theEObject;
-            T result = caseProvidesComponentType(providesComponentType);
-            if (result == null)
-                result = caseRepositoryComponent(providesComponentType);
-            if (result == null)
-                result = caseInterfaceProvidingRequiringEntity(providesComponentType);
-            if (result == null)
-                result = caseInterfaceProvidingEntity(providesComponentType);
-            if (result == null)
-                result = caseInterfaceRequiringEntity(providesComponentType);
-            if (result == null)
-                result = caseResourceInterfaceRequiringEntity(providesComponentType);
-            if (result == null)
-                result = caseEntity(providesComponentType);
-            if (result == null)
-                result = caseIdentifier(providesComponentType);
-            if (result == null)
-                result = caseNamedElement(providesComponentType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ProvidesComponentType providesComponentType = (ProvidesComponentType) theEObject;
+            T result = this.caseProvidesComponentType(providesComponentType);
+            if (result == null) {
+                result = this.caseRepositoryComponent(providesComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingRequiringEntity(providesComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingEntity(providesComponentType);
+            }
+            if (result == null) {
+                result = this.caseInterfaceRequiringEntity(providesComponentType);
+            }
+            if (result == null) {
+                result = this.caseResourceInterfaceRequiringEntity(providesComponentType);
+            }
+            if (result == null) {
+                result = this.caseEntity(providesComponentType);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(providesComponentType);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(providesComponentType);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.COMPOSITE_COMPONENT: {
-            CompositeComponent compositeComponent = (CompositeComponent) theEObject;
-            T result = caseCompositeComponent(compositeComponent);
-            if (result == null)
-                result = caseComposedProvidingRequiringEntity(compositeComponent);
-            if (result == null)
-                result = caseImplementationComponentType(compositeComponent);
-            if (result == null)
-                result = caseComposedStructure(compositeComponent);
-            if (result == null)
-                result = caseRepositoryComponent(compositeComponent);
-            if (result == null)
-                result = caseInterfaceProvidingRequiringEntity(compositeComponent);
-            if (result == null)
-                result = caseInterfaceProvidingEntity(compositeComponent);
-            if (result == null)
-                result = caseInterfaceRequiringEntity(compositeComponent);
-            if (result == null)
-                result = caseIdentifier(compositeComponent);
-            if (result == null)
-                result = caseNamedElement(compositeComponent);
-            if (result == null)
-                result = caseResourceInterfaceRequiringEntity(compositeComponent);
-            if (result == null)
-                result = caseEntity(compositeComponent);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final CompositeComponent compositeComponent = (CompositeComponent) theEObject;
+            T result = this.caseCompositeComponent(compositeComponent);
+            if (result == null) {
+                result = this.caseComposedProvidingRequiringEntity(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseImplementationComponentType(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseComposedStructure(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseRepositoryComponent(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingRequiringEntity(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceProvidingEntity(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseInterfaceRequiringEntity(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseResourceInterfaceRequiringEntity(compositeComponent);
+            }
+            if (result == null) {
+                result = this.caseEntity(compositeComponent);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.PRIMITIVE_DATA_TYPE: {
-            PrimitiveDataType primitiveDataType = (PrimitiveDataType) theEObject;
-            T result = casePrimitiveDataType(primitiveDataType);
-            if (result == null)
-                result = caseDataType(primitiveDataType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final PrimitiveDataType primitiveDataType = (PrimitiveDataType) theEObject;
+            T result = this.casePrimitiveDataType(primitiveDataType);
+            if (result == null) {
+                result = this.caseDataType(primitiveDataType);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.COLLECTION_DATA_TYPE: {
-            CollectionDataType collectionDataType = (CollectionDataType) theEObject;
-            T result = caseCollectionDataType(collectionDataType);
-            if (result == null)
-                result = caseEntity(collectionDataType);
-            if (result == null)
-                result = caseDataType(collectionDataType);
-            if (result == null)
-                result = caseIdentifier(collectionDataType);
-            if (result == null)
-                result = caseNamedElement(collectionDataType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final CollectionDataType collectionDataType = (CollectionDataType) theEObject;
+            T result = this.caseCollectionDataType(collectionDataType);
+            if (result == null) {
+                result = this.caseEntity(collectionDataType);
+            }
+            if (result == null) {
+                result = this.caseDataType(collectionDataType);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(collectionDataType);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(collectionDataType);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.COMPOSITE_DATA_TYPE: {
-            CompositeDataType compositeDataType = (CompositeDataType) theEObject;
-            T result = caseCompositeDataType(compositeDataType);
-            if (result == null)
-                result = caseEntity(compositeDataType);
-            if (result == null)
-                result = caseDataType(compositeDataType);
-            if (result == null)
-                result = caseIdentifier(compositeDataType);
-            if (result == null)
-                result = caseNamedElement(compositeDataType);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final CompositeDataType compositeDataType = (CompositeDataType) theEObject;
+            T result = this.caseCompositeDataType(compositeDataType);
+            if (result == null) {
+                result = this.caseEntity(compositeDataType);
+            }
+            if (result == null) {
+                result = this.caseDataType(compositeDataType);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(compositeDataType);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(compositeDataType);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.INNER_DECLARATION: {
-            InnerDeclaration innerDeclaration = (InnerDeclaration) theEObject;
-            T result = caseInnerDeclaration(innerDeclaration);
-            if (result == null)
-                result = caseNamedElement(innerDeclaration);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final InnerDeclaration innerDeclaration = (InnerDeclaration) theEObject;
+            T result = this.caseInnerDeclaration(innerDeclaration);
+            if (result == null) {
+                result = this.caseNamedElement(innerDeclaration);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case RepositoryPackage.ROLE: {
-            Role role = (Role) theEObject;
-            T result = caseRole(role);
-            if (result == null)
-                result = caseEntity(role);
-            if (result == null)
-                result = caseIdentifier(role);
-            if (result == null)
-                result = caseNamedElement(role);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final Role role = (Role) theEObject;
+            T result = this.caseRole(role);
+            if (result == null) {
+                result = this.caseEntity(role);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(role);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(role);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         default:
-            return defaultCase(theEObject);
+            return this.defaultCase(theEObject);
         }
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Passive Resource</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Passive Resource</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePassiveResource(PassiveResource object) {
+    public T casePassiveResource(final PassiveResource object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Basic Component</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Basic Component</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Basic Component</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Basic Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBasicComponent(BasicComponent object) {
+    public T caseBasicComponent(final BasicComponent object) {
         return null;
     }
 
@@ -680,97 +851,97 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseImplementationComponentType(ImplementationComponentType object) {
+    public T caseImplementationComponentType(final ImplementationComponentType object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Component</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Component</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRepositoryComponent(RepositoryComponent object) {
+    public T caseRepositoryComponent(final RepositoryComponent object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Required Role</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Required Role</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Required Role</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Required Role</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRequiredRole(RequiredRole object) {
+    public T caseRequiredRole(final RequiredRole object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Role</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Role</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Role</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Role</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRole(Role object) {
+    public T caseRole(final Role object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Interface</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Interface</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Interface</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInterface(Interface object) {
+    public T caseInterface(final Interface object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Repository</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Repository</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Repository</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRepository(Repository object) {
+    public T caseRepository(final Repository object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Data Type</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Data Type</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDataType(DataType object) {
+    public T caseDataType(final DataType object) {
         return null;
     }
 
@@ -786,84 +957,84 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRequiredCharacterisation(RequiredCharacterisation object) {
+    public T caseRequiredCharacterisation(final RequiredCharacterisation object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Parameter</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Parameter</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseParameter(Parameter object) {
+    public T caseParameter(final Parameter object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Operation Signature</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Operation Signature</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Operation Signature</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Operation Signature</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOperationSignature(OperationSignature object) {
+    public T caseOperationSignature(final OperationSignature object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Signature</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Signature</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Signature</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Signature</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSignature(Signature object) {
+    public T caseSignature(final Signature object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Exception Type</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Exception Type</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Exception Type</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Exception Type</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseExceptionType(ExceptionType object) {
+    public T caseExceptionType(final ExceptionType object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Operation Interface</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Operation Interface</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Operation Interface</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Operation Interface</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOperationInterface(OperationInterface object) {
+    public T caseOperationInterface(final OperationInterface object) {
         return null;
     }
 
@@ -879,7 +1050,7 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInfrastructureSignature(InfrastructureSignature object) {
+    public T caseInfrastructureSignature(final InfrastructureSignature object) {
         return null;
     }
 
@@ -895,37 +1066,37 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInfrastructureRequiredRole(InfrastructureRequiredRole object) {
+    public T caseInfrastructureRequiredRole(final InfrastructureRequiredRole object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Event Type</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Event Type</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Event Type</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Event Type</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEventType(EventType object) {
+    public T caseEventType(final EventType object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Event Group</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Event Group</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Event Group</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Event Group</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEventGroup(EventGroup object) {
+    public T caseEventGroup(final EventGroup object) {
         return null;
     }
 
@@ -941,7 +1112,7 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCompleteComponentType(CompleteComponentType object) {
+    public T caseCompleteComponentType(final CompleteComponentType object) {
         return null;
     }
 
@@ -957,7 +1128,7 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseProvidesComponentType(ProvidesComponentType object) {
+    public T caseProvidesComponentType(final ProvidesComponentType object) {
         return null;
     }
 
@@ -973,22 +1144,22 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOperationRequiredRole(OperationRequiredRole object) {
+    public T caseOperationRequiredRole(final OperationRequiredRole object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Source Role</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Source Role</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Source Role</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Source Role</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSourceRole(SourceRole object) {
+    public T caseSourceRole(final SourceRole object) {
         return null;
     }
 
@@ -1004,7 +1175,7 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInfrastructureProvidedRole(InfrastructureProvidedRole object) {
+    public T caseInfrastructureProvidedRole(final InfrastructureProvidedRole object) {
         return null;
     }
 
@@ -1020,54 +1191,54 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOperationProvidedRole(OperationProvidedRole object) {
+    public T caseOperationProvidedRole(final OperationProvidedRole object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Composite Component</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Composite Component</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Composite Component</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Composite Component</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCompositeComponent(CompositeComponent object) {
+    public T caseCompositeComponent(final CompositeComponent object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Sink Role</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Sink Role</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Sink Role</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Sink Role</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSinkRole(SinkRole object) {
+    public T caseSinkRole(final SinkRole object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Primitive Data Type</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Primitive Data Type</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Primitive Data Type</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Primitive Data Type</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T casePrimitiveDataType(PrimitiveDataType object) {
+    public T casePrimitiveDataType(final PrimitiveDataType object) {
         return null;
     }
 
@@ -1083,38 +1254,39 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCollectionDataType(CollectionDataType object) {
+    public T caseCollectionDataType(final CollectionDataType object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Composite Data Type</em>
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Composite Data Type</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Composite Data Type</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseCompositeDataType(final CompositeDataType object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of ' <em>Inner Declaration</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Composite Data Type</em>
+     * @return the result of interpreting the object as an instance of ' <em>Inner Declaration</em>
      *         '.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCompositeDataType(CompositeDataType object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
-     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseInnerDeclaration(InnerDeclaration object) {
+    public T caseInnerDeclaration(final InnerDeclaration object) {
         return null;
     }
 
@@ -1130,67 +1302,67 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInfrastructureInterface(InfrastructureInterface object) {
+    public T caseInfrastructureInterface(final InfrastructureInterface object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Provided Role</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Provided Role</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Provided Role</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Provided Role</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseProvidedRole(ProvidedRole object) {
+    public T caseProvidedRole(final ProvidedRole object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Identifier</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Identifier</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIdentifier(Identifier object) {
+    public T caseIdentifier(final Identifier object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Named Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNamedElement(NamedElement object) {
+    public T caseNamedElement(final NamedElement object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Entity</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Entity</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEntity(Entity object) {
+    public T caseEntity(final Entity object) {
         return null;
     }
 
@@ -1206,7 +1378,7 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+    public T caseInterfaceProvidingEntity(final InterfaceProvidingEntity object) {
         return null;
     }
 
@@ -1222,7 +1394,7 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+    public T caseInterfaceRequiringEntity(final InterfaceRequiringEntity object) {
         return null;
     }
 
@@ -1238,7 +1410,7 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+    public T caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object) {
         return null;
     }
 
@@ -1254,23 +1426,23 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+    public T caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>
+     * Returns the result of interpreting the object as an instance of ' <em>Composed Structure</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>
+     * @return the result of interpreting the object as an instance of ' <em>Composed Structure</em>
      *         '.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseComposedStructure(ComposedStructure object) {
+    public T caseComposedStructure(final ComposedStructure object) {
         return null;
     }
 
@@ -1286,22 +1458,22 @@ public class RepositorySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+    public T caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>EObject</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch, but this is the last case anyway. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(EObject object) {
+    public T defaultCase(final EObject object) {
         return null;
     }
 

@@ -88,11 +88,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * @generated
      */
     public CompositionItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -113,11 +113,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createProvidedDelegationConnectorAdapter() {
-        if (providedDelegationConnectorItemProvider == null) {
-            providedDelegationConnectorItemProvider = new ProvidedDelegationConnectorItemProvider(this);
+        if (this.providedDelegationConnectorItemProvider == null) {
+            this.providedDelegationConnectorItemProvider = new ProvidedDelegationConnectorItemProvider(this);
         }
 
-        return providedDelegationConnectorItemProvider;
+        return this.providedDelegationConnectorItemProvider;
     }
 
     /**
@@ -137,11 +137,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createAssemblyConnectorAdapter() {
-        if (assemblyConnectorItemProvider == null) {
-            assemblyConnectorItemProvider = new AssemblyConnectorItemProvider(this);
+        if (this.assemblyConnectorItemProvider == null) {
+            this.assemblyConnectorItemProvider = new AssemblyConnectorItemProvider(this);
         }
 
-        return assemblyConnectorItemProvider;
+        return this.assemblyConnectorItemProvider;
     }
 
     /**
@@ -162,11 +162,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createRequiredDelegationConnectorAdapter() {
-        if (requiredDelegationConnectorItemProvider == null) {
-            requiredDelegationConnectorItemProvider = new RequiredDelegationConnectorItemProvider(this);
+        if (this.requiredDelegationConnectorItemProvider == null) {
+            this.requiredDelegationConnectorItemProvider = new RequiredDelegationConnectorItemProvider(this);
         }
 
-        return requiredDelegationConnectorItemProvider;
+        return this.requiredDelegationConnectorItemProvider;
     }
 
     /**
@@ -187,11 +187,12 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createResourceRequiredDelegationConnectorAdapter() {
-        if (resourceRequiredDelegationConnectorItemProvider == null) {
-            resourceRequiredDelegationConnectorItemProvider = new ResourceRequiredDelegationConnectorItemProvider(this);
+        if (this.resourceRequiredDelegationConnectorItemProvider == null) {
+            this.resourceRequiredDelegationConnectorItemProvider = new ResourceRequiredDelegationConnectorItemProvider(
+                    this);
         }
 
-        return resourceRequiredDelegationConnectorItemProvider;
+        return this.resourceRequiredDelegationConnectorItemProvider;
     }
 
     /**
@@ -211,11 +212,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createEventChannelAdapter() {
-        if (eventChannelItemProvider == null) {
-            eventChannelItemProvider = new EventChannelItemProvider(this);
+        if (this.eventChannelItemProvider == null) {
+            this.eventChannelItemProvider = new EventChannelItemProvider(this);
         }
 
-        return eventChannelItemProvider;
+        return this.eventChannelItemProvider;
     }
 
     /**
@@ -236,11 +237,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createAssemblyEventConnectorAdapter() {
-        if (assemblyEventConnectorItemProvider == null) {
-            assemblyEventConnectorItemProvider = new AssemblyEventConnectorItemProvider(this);
+        if (this.assemblyEventConnectorItemProvider == null) {
+            this.assemblyEventConnectorItemProvider = new AssemblyEventConnectorItemProvider(this);
         }
 
-        return assemblyEventConnectorItemProvider;
+        return this.assemblyEventConnectorItemProvider;
     }
 
     /**
@@ -261,11 +262,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createSinkDelegationConnectorAdapter() {
-        if (sinkDelegationConnectorItemProvider == null) {
-            sinkDelegationConnectorItemProvider = new SinkDelegationConnectorItemProvider(this);
+        if (this.sinkDelegationConnectorItemProvider == null) {
+            this.sinkDelegationConnectorItemProvider = new SinkDelegationConnectorItemProvider(this);
         }
 
-        return sinkDelegationConnectorItemProvider;
+        return this.sinkDelegationConnectorItemProvider;
     }
 
     /**
@@ -286,11 +287,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createAssemblyInfrastructureConnectorAdapter() {
-        if (assemblyInfrastructureConnectorItemProvider == null) {
-            assemblyInfrastructureConnectorItemProvider = new AssemblyInfrastructureConnectorItemProvider(this);
+        if (this.assemblyInfrastructureConnectorItemProvider == null) {
+            this.assemblyInfrastructureConnectorItemProvider = new AssemblyInfrastructureConnectorItemProvider(this);
         }
 
-        return assemblyInfrastructureConnectorItemProvider;
+        return this.assemblyInfrastructureConnectorItemProvider;
     }
 
     /**
@@ -311,12 +312,12 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createRequiredInfrastructureDelegationConnectorAdapter() {
-        if (requiredInfrastructureDelegationConnectorItemProvider == null) {
-            requiredInfrastructureDelegationConnectorItemProvider = new RequiredInfrastructureDelegationConnectorItemProvider(
+        if (this.requiredInfrastructureDelegationConnectorItemProvider == null) {
+            this.requiredInfrastructureDelegationConnectorItemProvider = new RequiredInfrastructureDelegationConnectorItemProvider(
                     this);
         }
 
-        return requiredInfrastructureDelegationConnectorItemProvider;
+        return this.requiredInfrastructureDelegationConnectorItemProvider;
     }
 
     /**
@@ -337,12 +338,12 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createProvidedInfrastructureDelegationConnectorAdapter() {
-        if (providedInfrastructureDelegationConnectorItemProvider == null) {
-            providedInfrastructureDelegationConnectorItemProvider = new ProvidedInfrastructureDelegationConnectorItemProvider(
+        if (this.providedInfrastructureDelegationConnectorItemProvider == null) {
+            this.providedInfrastructureDelegationConnectorItemProvider = new ProvidedInfrastructureDelegationConnectorItemProvider(
                     this);
         }
 
-        return providedInfrastructureDelegationConnectorItemProvider;
+        return this.providedInfrastructureDelegationConnectorItemProvider;
     }
 
     /**
@@ -363,11 +364,12 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createRequiredResourceDelegationConnectorAdapter() {
-        if (requiredResourceDelegationConnectorItemProvider == null) {
-            requiredResourceDelegationConnectorItemProvider = new RequiredResourceDelegationConnectorItemProvider(this);
+        if (this.requiredResourceDelegationConnectorItemProvider == null) {
+            this.requiredResourceDelegationConnectorItemProvider = new RequiredResourceDelegationConnectorItemProvider(
+                    this);
         }
 
-        return requiredResourceDelegationConnectorItemProvider;
+        return this.requiredResourceDelegationConnectorItemProvider;
     }
 
     /**
@@ -388,11 +390,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createEventChannelSinkConnectorAdapter() {
-        if (eventChannelSinkConnectorItemProvider == null) {
-            eventChannelSinkConnectorItemProvider = new EventChannelSinkConnectorItemProvider(this);
+        if (this.eventChannelSinkConnectorItemProvider == null) {
+            this.eventChannelSinkConnectorItemProvider = new EventChannelSinkConnectorItemProvider(this);
         }
 
-        return eventChannelSinkConnectorItemProvider;
+        return this.eventChannelSinkConnectorItemProvider;
     }
 
     /**
@@ -413,11 +415,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createEventChannelSourceConnectorAdapter() {
-        if (eventChannelSourceConnectorItemProvider == null) {
-            eventChannelSourceConnectorItemProvider = new EventChannelSourceConnectorItemProvider(this);
+        if (this.eventChannelSourceConnectorItemProvider == null) {
+            this.eventChannelSourceConnectorItemProvider = new EventChannelSourceConnectorItemProvider(this);
         }
 
-        return eventChannelSourceConnectorItemProvider;
+        return this.eventChannelSourceConnectorItemProvider;
     }
 
     /**
@@ -438,11 +440,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createSourceDelegationConnectorAdapter() {
-        if (sourceDelegationConnectorItemProvider == null) {
-            sourceDelegationConnectorItemProvider = new SourceDelegationConnectorItemProvider(this);
+        if (this.sourceDelegationConnectorItemProvider == null) {
+            this.sourceDelegationConnectorItemProvider = new SourceDelegationConnectorItemProvider(this);
         }
 
-        return sourceDelegationConnectorItemProvider;
+        return this.sourceDelegationConnectorItemProvider;
     }
 
     /**
@@ -462,11 +464,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      */
     @Override
     public Adapter createAssemblyContextAdapter() {
-        if (assemblyContextItemProvider == null) {
-            assemblyContextItemProvider = new AssemblyContextItemProvider(this);
+        if (this.assemblyContextItemProvider == null) {
+            this.assemblyContextItemProvider = new AssemblyContextItemProvider(this);
         }
 
-        return assemblyContextItemProvider;
+        return this.assemblyContextItemProvider;
     }
 
     /**
@@ -475,8 +477,9 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -485,7 +488,8 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -495,8 +499,8 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -506,7 +510,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -516,9 +520,9 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -533,7 +537,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -541,8 +545,9 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -550,8 +555,9 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -559,8 +565,9 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -568,8 +575,9 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -578,11 +586,12 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -592,37 +601,53 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (resourceRequiredDelegationConnectorItemProvider != null)
-            resourceRequiredDelegationConnectorItemProvider.dispose();
-        if (eventChannelItemProvider != null)
-            eventChannelItemProvider.dispose();
-        if (eventChannelSourceConnectorItemProvider != null)
-            eventChannelSourceConnectorItemProvider.dispose();
-        if (eventChannelSinkConnectorItemProvider != null)
-            eventChannelSinkConnectorItemProvider.dispose();
-        if (providedDelegationConnectorItemProvider != null)
-            providedDelegationConnectorItemProvider.dispose();
-        if (requiredDelegationConnectorItemProvider != null)
-            requiredDelegationConnectorItemProvider.dispose();
-        if (assemblyConnectorItemProvider != null)
-            assemblyConnectorItemProvider.dispose();
-        if (assemblyEventConnectorItemProvider != null)
-            assemblyEventConnectorItemProvider.dispose();
-        if (sourceDelegationConnectorItemProvider != null)
-            sourceDelegationConnectorItemProvider.dispose();
-        if (sinkDelegationConnectorItemProvider != null)
-            sinkDelegationConnectorItemProvider.dispose();
-        if (assemblyInfrastructureConnectorItemProvider != null)
-            assemblyInfrastructureConnectorItemProvider.dispose();
-        if (providedInfrastructureDelegationConnectorItemProvider != null)
-            providedInfrastructureDelegationConnectorItemProvider.dispose();
-        if (requiredInfrastructureDelegationConnectorItemProvider != null)
-            requiredInfrastructureDelegationConnectorItemProvider.dispose();
-        if (requiredResourceDelegationConnectorItemProvider != null)
-            requiredResourceDelegationConnectorItemProvider.dispose();
-        if (assemblyContextItemProvider != null)
-            assemblyContextItemProvider.dispose();
+        if (this.resourceRequiredDelegationConnectorItemProvider != null) {
+            this.resourceRequiredDelegationConnectorItemProvider.dispose();
+        }
+        if (this.eventChannelItemProvider != null) {
+            this.eventChannelItemProvider.dispose();
+        }
+        if (this.eventChannelSourceConnectorItemProvider != null) {
+            this.eventChannelSourceConnectorItemProvider.dispose();
+        }
+        if (this.eventChannelSinkConnectorItemProvider != null) {
+            this.eventChannelSinkConnectorItemProvider.dispose();
+        }
+        if (this.providedDelegationConnectorItemProvider != null) {
+            this.providedDelegationConnectorItemProvider.dispose();
+        }
+        if (this.requiredDelegationConnectorItemProvider != null) {
+            this.requiredDelegationConnectorItemProvider.dispose();
+        }
+        if (this.assemblyConnectorItemProvider != null) {
+            this.assemblyConnectorItemProvider.dispose();
+        }
+        if (this.assemblyEventConnectorItemProvider != null) {
+            this.assemblyEventConnectorItemProvider.dispose();
+        }
+        if (this.sourceDelegationConnectorItemProvider != null) {
+            this.sourceDelegationConnectorItemProvider.dispose();
+        }
+        if (this.sinkDelegationConnectorItemProvider != null) {
+            this.sinkDelegationConnectorItemProvider.dispose();
+        }
+        if (this.assemblyInfrastructureConnectorItemProvider != null) {
+            this.assemblyInfrastructureConnectorItemProvider.dispose();
+        }
+        if (this.providedInfrastructureDelegationConnectorItemProvider != null) {
+            this.providedInfrastructureDelegationConnectorItemProvider.dispose();
+        }
+        if (this.requiredInfrastructureDelegationConnectorItemProvider != null) {
+            this.requiredInfrastructureDelegationConnectorItemProvider.dispose();
+        }
+        if (this.requiredResourceDelegationConnectorItemProvider != null) {
+            this.requiredResourceDelegationConnectorItemProvider.dispose();
+        }
+        if (this.assemblyContextItemProvider != null) {
+            this.assemblyContextItemProvider.dispose();
+        }
     }
 
 }

@@ -88,11 +88,11 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * @generated
      */
     public SystemItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -111,11 +111,11 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      */
     @Override
     public Adapter createSystemAdapter() {
-        if (systemItemProvider == null) {
-            systemItemProvider = new SystemItemProvider(this);
+        if (this.systemItemProvider == null) {
+            this.systemItemProvider = new SystemItemProvider(this);
         }
 
-        return systemItemProvider;
+        return this.systemItemProvider;
     }
 
     /**
@@ -124,8 +124,9 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -134,7 +135,8 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -144,8 +146,8 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -155,7 +157,7 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -165,9 +167,9 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -182,7 +184,7 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -190,8 +192,9 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -199,8 +202,9 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -208,8 +212,9 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -217,8 +222,9 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -227,11 +233,12 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -241,9 +248,11 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (systemItemProvider != null)
-            systemItemProvider.dispose();
+        if (this.systemItemProvider != null) {
+            this.systemItemProvider.dispose();
+        }
     }
 
 }

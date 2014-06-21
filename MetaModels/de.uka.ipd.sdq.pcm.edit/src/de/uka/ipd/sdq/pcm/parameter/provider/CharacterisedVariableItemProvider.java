@@ -49,7 +49,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * 
      * @generated
      */
-    public CharacterisedVariableItemProvider(AdapterFactory adapterFactory) {
+    public CharacterisedVariableItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -60,13 +60,13 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addCharacterisationTypePropertyDescriptor(object);
+            this.addCharacterisationTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,13 +75,12 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * 
      * @generated
      */
-    protected void addCharacterisationTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_CharacterisedVariable_characterisationType_feature"),
-                getString("_UI_PropertyDescriptor_description",
-                        "_UI_CharacterisedVariable_characterisationType_feature", "_UI_CharacterisedVariable_type"),
+    protected void addCharacterisationTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_CharacterisedVariable_characterisationType_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_CharacterisedVariable_characterisationType_feature",
+                        "_UI_CharacterisedVariable_type"),
                 ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -92,8 +91,8 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/CharacterisedVariable"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/CharacterisedVariable"));
     }
 
     /**
@@ -103,11 +102,11 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        VariableCharacterisationType labelValue = ((CharacterisedVariable) object).getCharacterisationType();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? getString("_UI_CharacterisedVariable_type")
-                : getString("_UI_CharacterisedVariable_type") + " " + label;
+    public String getText(final Object object) {
+        final VariableCharacterisationType labelValue = ((CharacterisedVariable) object).getCharacterisationType();
+        final String label = labelValue == null ? null : labelValue.toString();
+        return label == null || label.length() == 0 ? this.getString("_UI_CharacterisedVariable_type") : this
+                .getString("_UI_CharacterisedVariable_type") + " " + label;
     }
 
     /**
@@ -118,12 +117,12 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(CharacterisedVariable.class)) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -136,7 +135,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -148,7 +147,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

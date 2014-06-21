@@ -37,7 +37,7 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * 
      * @generated
      */
-    public ResourceRequiredRoleItemProvider(AdapterFactory adapterFactory) {
+    public ResourceRequiredRoleItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -47,8 +47,8 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRequiredRole"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ResourceRequiredRole"));
     }
 
     /**
@@ -59,8 +59,8 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -71,7 +71,7 @@ public class ResourceRequiredRoleItemProvider extends RoleItemProvider implement
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

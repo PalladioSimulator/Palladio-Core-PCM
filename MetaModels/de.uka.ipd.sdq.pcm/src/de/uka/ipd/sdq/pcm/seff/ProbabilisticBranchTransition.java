@@ -28,7 +28,8 @@ package de.uka.ipd.sdq.pcm.seff;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition#getBranchProbability <em>Branch
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition#getBranchProbability <em>Branch
  * Probability</em>}</li>
  * </ul>
  * </p>

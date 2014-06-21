@@ -62,7 +62,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -80,48 +80,48 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      */
     protected ResourceenvironmentSwitch<Adapter> modelSwitch = new ResourceenvironmentSwitch<Adapter>() {
         @Override
-        public Adapter caseResourceEnvironment(ResourceEnvironment object) {
-            return createResourceEnvironmentAdapter();
+        public Adapter caseResourceEnvironment(final ResourceEnvironment object) {
+            return ResourceenvironmentAdapterFactory.this.createResourceEnvironmentAdapter();
         }
 
         @Override
-        public Adapter caseLinkingResource(LinkingResource object) {
-            return createLinkingResourceAdapter();
+        public Adapter caseLinkingResource(final LinkingResource object) {
+            return ResourceenvironmentAdapterFactory.this.createLinkingResourceAdapter();
         }
 
         @Override
-        public Adapter caseResourceContainer(ResourceContainer object) {
-            return createResourceContainerAdapter();
+        public Adapter caseResourceContainer(final ResourceContainer object) {
+            return ResourceenvironmentAdapterFactory.this.createResourceContainerAdapter();
         }
 
         @Override
-        public Adapter caseProcessingResourceSpecification(ProcessingResourceSpecification object) {
-            return createProcessingResourceSpecificationAdapter();
+        public Adapter caseProcessingResourceSpecification(final ProcessingResourceSpecification object) {
+            return ResourceenvironmentAdapterFactory.this.createProcessingResourceSpecificationAdapter();
         }
 
         @Override
-        public Adapter caseCommunicationLinkResourceSpecification(CommunicationLinkResourceSpecification object) {
-            return createCommunicationLinkResourceSpecificationAdapter();
+        public Adapter caseCommunicationLinkResourceSpecification(final CommunicationLinkResourceSpecification object) {
+            return ResourceenvironmentAdapterFactory.this.createCommunicationLinkResourceSpecificationAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return ResourceenvironmentAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return ResourceenvironmentAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return ResourceenvironmentAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return ResourceenvironmentAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -134,8 +134,8 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -229,7 +229,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -243,7 +243,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

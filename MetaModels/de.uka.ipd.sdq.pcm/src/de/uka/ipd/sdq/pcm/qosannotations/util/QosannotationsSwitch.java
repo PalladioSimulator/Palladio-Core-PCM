@@ -61,8 +61,8 @@ public class QosannotationsSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(EObject theEObject) {
-        return doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(final EObject theEObject) {
+        return this.doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
@@ -72,12 +72,12 @@ public class QosannotationsSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(EClass theEClass, EObject theEObject) {
+    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return doSwitch(theEClass.getClassifierID(), theEObject);
+            return this.doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
+            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -88,37 +88,43 @@ public class QosannotationsSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(int classifierID, EObject theEObject) {
+    protected T doSwitch(final int classifierID, final EObject theEObject) {
         switch (classifierID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION: {
-            SpecifiedQoSAnnotation specifiedQoSAnnotation = (SpecifiedQoSAnnotation) theEObject;
-            T result = caseSpecifiedQoSAnnotation(specifiedQoSAnnotation);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final SpecifiedQoSAnnotation specifiedQoSAnnotation = (SpecifiedQoSAnnotation) theEObject;
+            T result = this.caseSpecifiedQoSAnnotation(specifiedQoSAnnotation);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case QosannotationsPackage.QO_SANNOTATIONS: {
-            QoSAnnotations qoSAnnotations = (QoSAnnotations) theEObject;
-            T result = caseQoSAnnotations(qoSAnnotations);
-            if (result == null)
-                result = caseEntity(qoSAnnotations);
-            if (result == null)
-                result = caseIdentifier(qoSAnnotations);
-            if (result == null)
-                result = caseNamedElement(qoSAnnotations);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final QoSAnnotations qoSAnnotations = (QoSAnnotations) theEObject;
+            T result = this.caseQoSAnnotations(qoSAnnotations);
+            if (result == null) {
+                result = this.caseEntity(qoSAnnotations);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(qoSAnnotations);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(qoSAnnotations);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION: {
-            SpecifiedOutputParameterAbstraction specifiedOutputParameterAbstraction = (SpecifiedOutputParameterAbstraction) theEObject;
-            T result = caseSpecifiedOutputParameterAbstraction(specifiedOutputParameterAbstraction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final SpecifiedOutputParameterAbstraction specifiedOutputParameterAbstraction = (SpecifiedOutputParameterAbstraction) theEObject;
+            T result = this.caseSpecifiedOutputParameterAbstraction(specifiedOutputParameterAbstraction);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         default:
-            return defaultCase(theEObject);
+            return this.defaultCase(theEObject);
         }
     }
 
@@ -134,22 +140,22 @@ public class QosannotationsSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSpecifiedQoSAnnotation(SpecifiedQoSAnnotation object) {
+    public T caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Qo SAnnotations</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Qo SAnnotations</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Qo SAnnotations</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Qo SAnnotations</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseQoSAnnotations(QoSAnnotations object) {
+    public T caseQoSAnnotations(final QoSAnnotations object) {
         return null;
     }
 
@@ -165,67 +171,67 @@ public class QosannotationsSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSpecifiedOutputParameterAbstraction(SpecifiedOutputParameterAbstraction object) {
+    public T caseSpecifiedOutputParameterAbstraction(final SpecifiedOutputParameterAbstraction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Identifier</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Identifier</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIdentifier(Identifier object) {
+    public T caseIdentifier(final Identifier object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+     * Returns the result of interpreting the object as an instance of ' <em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Named Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNamedElement(NamedElement object) {
+    public T caseNamedElement(final NamedElement object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Entity</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>Entity</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEntity(Entity object) {
+    public T caseEntity(final Entity object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>EObject</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch, but this is the last case anyway. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(EObject object) {
+    public T defaultCase(final EObject object) {
         return null;
     }
 

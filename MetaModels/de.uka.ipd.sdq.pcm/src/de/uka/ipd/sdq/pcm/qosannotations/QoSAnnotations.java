@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Qo SAnnotations</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Qo SAnnotations</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> QoSAnnotations allow software architects and performance analysts to
@@ -36,8 +36,9 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations
  * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>System
- * Qo SAnnotations</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>System Qo
+ * SAnnotations</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations
  * <em>Specified Qo SAnnotations Qo SAnnotations</em>}</li>
@@ -60,17 +61,17 @@ public interface QoSAnnotations extends Entity {
      * Returns the value of the '
      * <em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment
      * reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction}. It is
+     * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction} . It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
      * <em>Qos Annotations Specified Output Parameter Abstraction</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
+     * If the meaning of the ' <em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
+     * @return the value of the ' <em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations()
      * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
@@ -114,19 +115,19 @@ public interface QoSAnnotations extends Entity {
     void setSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System value);
 
     /**
-     * Returns the value of the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>'
+     * Returns the value of the ' <em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>'
      * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation}. It is bidirectional and its
      * opposite is '
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
      * <em>Qos Annotations Specified Qo SAnnotation</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment
+     * If the meaning of the '<em>Specified Qo SAnnotations Qo SAnnotations</em> ' containment
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment
+     * @return the value of the ' <em>Specified Qo SAnnotations Qo SAnnotations</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations()
      * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation

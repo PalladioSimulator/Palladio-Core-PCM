@@ -49,7 +49,7 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * 
      * @generated
      */
-    public RepositoryItemProvider(AdapterFactory adapterFactory) {
+    public RepositoryItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -60,13 +60,13 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addRepositoryDescriptionPropertyDescriptor(object);
+            this.addRepositoryDescriptionPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,12 +75,11 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * 
      * @generated
      */
-    protected void addRepositoryDescriptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Repository_repositoryDescription_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_Repository_repositoryDescription_feature",
+    protected void addRepositoryDescriptionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Repository_repositoryDescription_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_Repository_repositoryDescription_feature",
                         "_UI_Repository_type"), RepositoryPackage.Literals.REPOSITORY__REPOSITORY_DESCRIPTION, true,
                 false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -95,15 +94,15 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY);
-            childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY);
-            childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY);
-            childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY);
+            this.childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY);
+            this.childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY);
+            this.childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY);
+            this.childrenFeatures.add(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -112,7 +111,7 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -125,8 +124,8 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Repository"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/Repository"));
     }
 
     /**
@@ -136,10 +135,10 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((Repository) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_Repository_type")
-                : getString("_UI_Repository_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((Repository) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_Repository_type") : this
+                .getString("_UI_Repository_type") + " " + label;
     }
 
     /**
@@ -150,18 +149,18 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(Repository.class)) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -174,52 +173,56 @@ public class RepositoryItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createBasicComponent()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createCompleteComponentType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createProvidesComponentType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createCompositeComponent()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__COMPONENTS_REPOSITORY,
                 SubsystemFactory.eINSTANCE.createSubSystem()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createEventGroup()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createInfrastructureInterface()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__INTERFACES_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createOperationInterface()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(
+                RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
                 ReliabilityFactory.eINSTANCE.createHardwareInducedFailureType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(
+                RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
                 ReliabilityFactory.eINSTANCE.createSoftwareInducedFailureType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(
+                RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
                 ReliabilityFactory.eINSTANCE.createNetworkInducedFailureType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(
+                RepositoryPackage.Literals.REPOSITORY__FAILURE_TYPES_REPOSITORY,
                 ReliabilityFactory.eINSTANCE.createResourceTimeoutFailureType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createPrimitiveDataType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createCollectionDataType()));
 
-        newChildDescriptors.add(createChildParameter(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY,
+        newChildDescriptors.add(this.createChildParameter(RepositoryPackage.Literals.REPOSITORY__DATA_TYPES_REPOSITORY,
                 RepositoryFactory.eINSTANCE.createCompositeDataType()));
     }
 

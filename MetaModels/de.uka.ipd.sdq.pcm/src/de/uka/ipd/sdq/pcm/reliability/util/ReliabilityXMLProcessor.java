@@ -45,12 +45,12 @@ public class ReliabilityXMLProcessor extends XMLProcessor {
      */
     @Override
     protected Map<String, Resource.Factory> getRegistrations() {
-        if (registrations == null) {
+        if (this.registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION, new ReliabilityResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION, new ReliabilityResourceFactoryImpl());
+            this.registrations.put(XML_EXTENSION, new ReliabilityResourceFactoryImpl());
+            this.registrations.put(STAR_EXTENSION, new ReliabilityResourceFactoryImpl());
         }
-        return registrations;
+        return this.registrations;
     }
 
 } // ReliabilityXMLProcessor

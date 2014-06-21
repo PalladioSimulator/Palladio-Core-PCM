@@ -20,10 +20,12 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>
- * MTTR</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>
- * MTTF</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR
+ * </em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF
+ * </em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer
  * <em>Required By Container</em>}</li>
@@ -177,15 +179,15 @@ public interface ProcessingResourceSpecification extends Identifier {
     void setSchedulingPolicy(SchedulingPolicy value);
 
     /**
-     * Returns the value of the '<em><b>Active Resource Type Active Resource Specification</b></em>'
-     * reference. <!-- begin-user-doc -->
+     * Returns the value of the ' <em><b>Active Resource Type Active Resource Specification</b></em>
+     * ' reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Active Resource Type Active Resource Specification</em>' reference
-     * isn't clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Active Resource Type Active Resource Specification</em>'
+     * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Active Resource Type Active Resource Specification</em>'
+     * @return the value of the ' <em>Active Resource Type Active Resource Specification</em>'
      *         reference.
      * @see #setActiveResourceType_ActiveResourceSpecification(ProcessingResourceType)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification()
@@ -201,31 +203,31 @@ public interface ProcessingResourceSpecification extends Identifier {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Active Resource Type Active Resource Specification</em>'
-     *            reference.
+     *            the new value of the ' <em>Active Resource Type Active Resource Specification</em>
+     *            ' reference.
      * @see #getActiveResourceType_ActiveResourceSpecification()
      * @generated
      */
     void setActiveResourceType_ActiveResourceSpecification(ProcessingResourceType value);
 
     /**
-     * Returns the value of the '<em><b>Processing Rate Processing Resource Specification</b></em>'
+     * Returns the value of the ' <em><b>Processing Rate Processing Resource Specification</b></em>'
      * containment reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable
-     * <em>Processing Resource Specification processing Rate PCM Random Variable</em>}'. <!--
+     * <em>Processing Resource Specification processing Rate PCM Random Variable</em>} '. <!--
      * begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Processing Rate Processing Resource Specification</em>'
+     * If the meaning of the ' <em>Processing Rate Processing Resource Specification</em>'
      * containment reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Processing Rate Processing Resource Specification</em>'
+     * @return the value of the ' <em>Processing Rate Processing Resource Specification</em>'
      *         containment reference.
      * @see #setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification()
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable
-     * @model opposite="processingResourceSpecification_processingRate_PCMRandomVariable"
+     * @model opposite= "processingResourceSpecification_processingRate_PCMRandomVariable"
      *        containment="true" required="true" ordered="false"
      * @generated
      */
@@ -238,7 +240,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Processing Rate Processing Resource Specification</em>'
+     *            the new value of the ' <em>Processing Rate Processing Resource Specification</em>'
      *            containment reference.
      * @see #getProcessingRate_ProcessingResourceSpecification()
      * @generated
@@ -285,12 +287,12 @@ public interface ProcessingResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer
      * <em>Active Resource Specifications Resource Container</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Resource Container Processing Resource Specification</em>'
+     * If the meaning of the ' <em>Resource Container Processing Resource Specification</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Resource Container Processing Resource Specification</em>'
+     * @return the value of the ' <em>Resource Container Processing Resource Specification</em>'
      *         container reference.
      * @see #setResourceContainer_ProcessingResourceSpecification(ResourceContainer)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification()

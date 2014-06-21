@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -94,8 +93,8 @@ public class SystemValidator extends EObjectValidator {
      */
     public SystemValidator() {
         super();
-        compositionValidator = CompositionValidator.INSTANCE;
-        entityValidator = EntityValidator.INSTANCE;
+        this.compositionValidator = CompositionValidator.INSTANCE;
+        this.entityValidator = EntityValidator.INSTANCE;
     }
 
     /**
@@ -115,10 +114,11 @@ public class SystemValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         switch (classifierID) {
         case SystemPackage.SYSTEM:
-            return validateSystem((de.uka.ipd.sdq.pcm.system.System) value, diagnostics, context);
+            return this.validateSystem((de.uka.ipd.sdq.pcm.system.System) value, diagnostics, context);
         default:
             return true;
         }
@@ -129,45 +129,57 @@ public class SystemValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSystem(de.uka.ipd.sdq.pcm.system.System system, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) system, diagnostics, context))
+    public boolean validateSystem(final de.uka.ipd.sdq.pcm.system.System system, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(system, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(system, diagnostics,
-                    context);
-        if (result || diagnostics != null)
-            result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(
-                    system, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(system,
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(system, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(system,
                     diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateSystem_SystemMustHaveAtLeastOneProvidedRole(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.compositionValidator
+                    .validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(system, diagnostics,
+                            context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(system,
+                    diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateSystem_SystemMustHaveAtLeastOneProvidedRole(system, diagnostics, context);
+        }
         return result;
     }
 
     /**
-     * Validates the SystemMustHaveAtLeastOneProvidedRole constraint of '<em>System</em>'. <!--
+     * Validates the SystemMustHaveAtLeastOneProvidedRole constraint of ' <em>System</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    public boolean validateSystem_SystemMustHaveAtLeastOneProvidedRole(de.uka.ipd.sdq.pcm.system.System system,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateSystem_SystemMustHaveAtLeastOneProvidedRole(final de.uka.ipd.sdq.pcm.system.System system,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return system.SystemMustHaveAtLeastOneProvidedRole(diagnostics, context);
     }
 
@@ -180,7 +192,8 @@ public class SystemValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to this validator.
+        // Specialize this to return a resource locator for messages specific to
+        // this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }

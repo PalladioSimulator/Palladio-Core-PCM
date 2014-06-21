@@ -55,9 +55,11 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getFailureTypes_FailureHandlingEntity
  * <em>Failure Types Failure Handling Entity</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getCalledService_ExternalService
- * <em>Called Service External Service</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getRole_ExternalService <em>Role
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getCalledService_ExternalService <em>
+ * Called Service External Service</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getRole_ExternalService <em>Role
  * External Service</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getRetryCount <em>Retry Count
  * </em>}</li>
@@ -86,7 +88,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     protected EList<VariableUsage> inputVariableUsages__CallAction;
 
     /**
-     * The cached value of the '{@link #getReturnVariableUsage__CallReturnAction()
+     * The cached value of the ' {@link #getReturnVariableUsage__CallReturnAction()
      * <em>Return Variable Usage Call Return Action</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -172,13 +174,14 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
+    @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
-        if (inputVariableUsages__CallAction == null) {
-            inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
+        if (this.inputVariableUsages__CallAction == null) {
+            this.inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
                     VariableUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
                     ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE);
         }
-        return inputVariableUsages__CallAction;
+        return this.inputVariableUsages__CallAction;
     }
 
     /**
@@ -186,14 +189,15 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
+    @Override
     public EList<VariableUsage> getReturnVariableUsage__CallReturnAction() {
-        if (returnVariableUsage__CallReturnAction == null) {
-            returnVariableUsage__CallReturnAction = new EObjectContainmentWithInverseEList<VariableUsage>(
+        if (this.returnVariableUsage__CallReturnAction == null) {
+            this.returnVariableUsage__CallReturnAction = new EObjectContainmentWithInverseEList<VariableUsage>(
                     VariableUsage.class, this,
                     SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION,
                     ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE);
         }
-        return returnVariableUsage__CallReturnAction;
+        return this.returnVariableUsage__CallReturnAction;
     }
 
     /**
@@ -201,12 +205,13 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
+    @Override
     public EList<FailureType> getFailureTypes_FailureHandlingEntity() {
-        if (failureTypes_FailureHandlingEntity == null) {
-            failureTypes_FailureHandlingEntity = new EObjectResolvingEList<FailureType>(FailureType.class, this,
+        if (this.failureTypes_FailureHandlingEntity == null) {
+            this.failureTypes_FailureHandlingEntity = new EObjectResolvingEList<FailureType>(FailureType.class, this,
                     SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY);
         }
-        return failureTypes_FailureHandlingEntity;
+        return this.failureTypes_FailureHandlingEntity;
     }
 
     /**
@@ -214,18 +219,21 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
+    @Override
     public OperationSignature getCalledService_ExternalService() {
-        if (calledService_ExternalService != null && ((EObject) calledService_ExternalService).eIsProxy()) {
-            InternalEObject oldCalledService_ExternalService = (InternalEObject) calledService_ExternalService;
-            calledService_ExternalService = (OperationSignature) eResolveProxy(oldCalledService_ExternalService);
-            if (calledService_ExternalService != oldCalledService_ExternalService) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.calledService_ExternalService != null && ((EObject) this.calledService_ExternalService).eIsProxy()) {
+            final InternalEObject oldCalledService_ExternalService = (InternalEObject) this.calledService_ExternalService;
+            this.calledService_ExternalService = (OperationSignature) this
+                    .eResolveProxy(oldCalledService_ExternalService);
+            if (this.calledService_ExternalService != oldCalledService_ExternalService) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE,
-                            oldCalledService_ExternalService, calledService_ExternalService));
+                            oldCalledService_ExternalService, this.calledService_ExternalService));
+                }
             }
         }
-        return calledService_ExternalService;
+        return this.calledService_ExternalService;
     }
 
     /**
@@ -234,7 +242,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     public OperationSignature basicGetCalledService_ExternalService() {
-        return calledService_ExternalService;
+        return this.calledService_ExternalService;
     }
 
     /**
@@ -242,13 +250,15 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
-    public void setCalledService_ExternalService(OperationSignature newCalledService_ExternalService) {
-        OperationSignature oldCalledService_ExternalService = calledService_ExternalService;
-        calledService_ExternalService = newCalledService_ExternalService;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    @Override
+    public void setCalledService_ExternalService(final OperationSignature newCalledService_ExternalService) {
+        final OperationSignature oldCalledService_ExternalService = this.calledService_ExternalService;
+        this.calledService_ExternalService = newCalledService_ExternalService;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE,
-                    oldCalledService_ExternalService, calledService_ExternalService));
+                    oldCalledService_ExternalService, this.calledService_ExternalService));
+        }
     }
 
     /**
@@ -256,18 +266,20 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
+    @Override
     public OperationRequiredRole getRole_ExternalService() {
-        if (role_ExternalService != null && ((EObject) role_ExternalService).eIsProxy()) {
-            InternalEObject oldRole_ExternalService = (InternalEObject) role_ExternalService;
-            role_ExternalService = (OperationRequiredRole) eResolveProxy(oldRole_ExternalService);
-            if (role_ExternalService != oldRole_ExternalService) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.role_ExternalService != null && ((EObject) this.role_ExternalService).eIsProxy()) {
+            final InternalEObject oldRole_ExternalService = (InternalEObject) this.role_ExternalService;
+            this.role_ExternalService = (OperationRequiredRole) this.eResolveProxy(oldRole_ExternalService);
+            if (this.role_ExternalService != oldRole_ExternalService) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE, oldRole_ExternalService,
-                            role_ExternalService));
+                            this.role_ExternalService));
+                }
             }
         }
-        return role_ExternalService;
+        return this.role_ExternalService;
     }
 
     /**
@@ -276,7 +288,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     public OperationRequiredRole basicGetRole_ExternalService() {
-        return role_ExternalService;
+        return this.role_ExternalService;
     }
 
     /**
@@ -284,13 +296,15 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
-    public void setRole_ExternalService(OperationRequiredRole newRole_ExternalService) {
-        OperationRequiredRole oldRole_ExternalService = role_ExternalService;
-        role_ExternalService = newRole_ExternalService;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    @Override
+    public void setRole_ExternalService(final OperationRequiredRole newRole_ExternalService) {
+        final OperationRequiredRole oldRole_ExternalService = this.role_ExternalService;
+        this.role_ExternalService = newRole_ExternalService;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE, oldRole_ExternalService,
-                    role_ExternalService));
+                    this.role_ExternalService));
+        }
     }
 
     /**
@@ -298,8 +312,9 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
+    @Override
     public int getRetryCount() {
-        return retryCount;
+        return this.retryCount;
     }
 
     /**
@@ -307,12 +322,14 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
-    public void setRetryCount(int newRetryCount) {
-        int oldRetryCount = retryCount;
-        retryCount = newRetryCount;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT,
-                    oldRetryCount, retryCount));
+    @Override
+    public void setRetryCount(final int newRetryCount) {
+        final int oldRetryCount = this.retryCount;
+        this.retryCount = newRetryCount;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT,
+                    oldRetryCount, this.retryCount));
+        }
     }
 
     /**
@@ -343,14 +360,15 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
-    public boolean SignatureBelongsToRole(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean SignatureBelongsToRole(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.EXTERNAL_CALL_ACTION);
             try {
                 SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -397,15 +415,16 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * 
      * @generated
      */
-    public boolean OperationRequiredRoleMustBeReferencedByContainer(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    @Override
+    public boolean OperationRequiredRoleMustBeReferencedByContainer(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.EXTERNAL_CALL_ACTION);
             try {
                 OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -431,13 +450,14 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getInputVariableUsages__CallAction()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInputVariableUsages__CallAction())
+                    .basicAdd(otherEnd, msgs);
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getReturnVariableUsage__CallReturnAction())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getReturnVariableUsage__CallReturnAction())
                     .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -449,12 +469,13 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return ((InternalEList<?>) getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return ((InternalEList<?>) getReturnVariableUsage__CallReturnAction()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getReturnVariableUsage__CallReturnAction()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -465,24 +486,26 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return getInputVariableUsages__CallAction();
+            return this.getInputVariableUsages__CallAction();
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return getReturnVariableUsage__CallReturnAction();
+            return this.getReturnVariableUsage__CallReturnAction();
         case SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            return getFailureTypes_FailureHandlingEntity();
+            return this.getFailureTypes_FailureHandlingEntity();
         case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
-            if (resolve)
-                return getCalledService_ExternalService();
-            return basicGetCalledService_ExternalService();
+            if (resolve) {
+                return this.getCalledService_ExternalService();
+            }
+            return this.basicGetCalledService_ExternalService();
         case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
-            if (resolve)
-                return getRole_ExternalService();
-            return basicGetRole_ExternalService();
+            if (resolve) {
+                return this.getRole_ExternalService();
+            }
+            return this.basicGetRole_ExternalService();
         case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
-            return getRetryCount();
+            return this.getRetryCount();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -494,28 +517,28 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            getInputVariableUsages__CallAction().clear();
-            getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
+            this.getInputVariableUsages__CallAction().clear();
+            this.getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            getReturnVariableUsage__CallReturnAction().clear();
-            getReturnVariableUsage__CallReturnAction().addAll((Collection<? extends VariableUsage>) newValue);
+            this.getReturnVariableUsage__CallReturnAction().clear();
+            this.getReturnVariableUsage__CallReturnAction().addAll((Collection<? extends VariableUsage>) newValue);
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            getFailureTypes_FailureHandlingEntity().clear();
-            getFailureTypes_FailureHandlingEntity().addAll((Collection<? extends FailureType>) newValue);
+            this.getFailureTypes_FailureHandlingEntity().clear();
+            this.getFailureTypes_FailureHandlingEntity().addAll((Collection<? extends FailureType>) newValue);
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
-            setCalledService_ExternalService((OperationSignature) newValue);
+            this.setCalledService_ExternalService((OperationSignature) newValue);
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
-            setRole_ExternalService((OperationRequiredRole) newValue);
+            this.setRole_ExternalService((OperationRequiredRole) newValue);
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
-            setRetryCount((Integer) newValue);
+            this.setRetryCount((Integer) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -527,25 +550,25 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            getInputVariableUsages__CallAction().clear();
+            this.getInputVariableUsages__CallAction().clear();
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            getReturnVariableUsage__CallReturnAction().clear();
+            this.getReturnVariableUsage__CallReturnAction().clear();
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            getFailureTypes_FailureHandlingEntity().clear();
+            this.getFailureTypes_FailureHandlingEntity().clear();
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
-            setCalledService_ExternalService((OperationSignature) null);
+            this.setCalledService_ExternalService((OperationSignature) null);
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
-            setRole_ExternalService((OperationRequiredRole) null);
+            this.setRole_ExternalService((OperationRequiredRole) null);
             return;
         case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
-            setRetryCount(RETRY_COUNT_EDEFAULT);
+            this.setRetryCount(RETRY_COUNT_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -557,20 +580,22 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return inputVariableUsages__CallAction != null && !inputVariableUsages__CallAction.isEmpty();
+            return this.inputVariableUsages__CallAction != null && !this.inputVariableUsages__CallAction.isEmpty();
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return returnVariableUsage__CallReturnAction != null && !returnVariableUsage__CallReturnAction.isEmpty();
+            return this.returnVariableUsage__CallReturnAction != null
+                    && !this.returnVariableUsage__CallReturnAction.isEmpty();
         case SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            return failureTypes_FailureHandlingEntity != null && !failureTypes_FailureHandlingEntity.isEmpty();
+            return this.failureTypes_FailureHandlingEntity != null
+                    && !this.failureTypes_FailureHandlingEntity.isEmpty();
         case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
-            return calledService_ExternalService != null;
+            return this.calledService_ExternalService != null;
         case SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE:
-            return role_ExternalService != null;
+            return this.role_ExternalService != null;
         case SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT:
-            return retryCount != RETRY_COUNT_EDEFAULT;
+            return this.retryCount != RETRY_COUNT_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -581,7 +606,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
         if (baseClass == CallAction.class) {
             switch (derivedFeatureID) {
             case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
@@ -615,7 +640,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
         if (baseClass == CallAction.class) {
             switch (baseFeatureID) {
             case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
@@ -650,12 +675,13 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (retryCount: ");
-        result.append(retryCount);
+        result.append(this.retryCount);
         result.append(')');
         return result.toString();
     }

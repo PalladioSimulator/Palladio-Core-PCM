@@ -44,8 +44,8 @@ public interface ResourceEnvironment extends NamedElement {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Linking Resources Resource Environment</b></em>' containment
-     * reference list. The list contents are of type
+     * Returns the value of the ' <em><b>Linking Resources Resource Environment</b></em>'
+     * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource}. It is bidirectional and its
      * opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getResourceEnvironment_LinkingResource
@@ -56,7 +56,7 @@ public interface ResourceEnvironment extends NamedElement {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Linking Resources Resource Environment</em>' containment
+     * @return the value of the '<em>Linking Resources Resource Environment</em> ' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_LinkingResources__ResourceEnvironment()
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getResourceEnvironment_LinkingResource
@@ -66,7 +66,7 @@ public interface ResourceEnvironment extends NamedElement {
     EList<LinkingResource> getLinkingResources__ResourceEnvironment();
 
     /**
-     * Returns the value of the '<em><b>Resource Container Resource Environment</b></em>'
+     * Returns the value of the ' <em><b>Resource Container Resource Environment</b></em>'
      * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer}. It is bidirectional and its
      * opposite is '
@@ -78,7 +78,7 @@ public interface ResourceEnvironment extends NamedElement {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Resource Container Resource Environment</em>' containment
+     * @return the value of the ' <em>Resource Container Resource Environment</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_ResourceContainer_ResourceEnvironment()
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getResourceEnvironment_ResourceContainer

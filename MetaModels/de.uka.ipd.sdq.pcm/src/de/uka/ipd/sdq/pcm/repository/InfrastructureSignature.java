@@ -36,7 +36,7 @@ public interface InfrastructureSignature extends Signature {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Parameters Infrastructure Signature</b></em>' containment
+     * Returns the value of the ' <em><b>Parameters Infrastructure Signature</b></em>' containment
      * reference list. The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Parameter}
      * . It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getInfrastructureSignature__Parameter
@@ -57,17 +57,17 @@ public interface InfrastructureSignature extends Signature {
     EList<Parameter> getParameters__InfrastructureSignature();
 
     /**
-     * Returns the value of the '<em><b>Infrastructure Interface Infrastructure Signature</b></em>'
+     * Returns the value of the ' <em><b>Infrastructure Interface Infrastructure Signature</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
      * <em>Infrastructure Signatures Infrastructure Interface</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Infrastructure Interface Infrastructure Signature</em>' container
+     * If the meaning of the ' <em>Infrastructure Interface Infrastructure Signature</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Infrastructure Interface Infrastructure Signature</em>'
+     * @return the value of the ' <em>Infrastructure Interface Infrastructure Signature</em>'
      *         container reference.
      * @see #setInfrastructureInterface__InfrastructureSignature(InfrastructureInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature()
@@ -85,7 +85,7 @@ public interface InfrastructureSignature extends Signature {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Infrastructure Interface Infrastructure Signature</em>'
+     *            the new value of the ' <em>Infrastructure Interface Infrastructure Signature</em>'
      *            container reference.
      * @see #getInfrastructureInterface__InfrastructureSignature()
      * @generated

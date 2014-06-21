@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>User Data</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>User Data</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> UserData characterises data used in specific assembly contexts in the
@@ -28,12 +28,14 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly
- * Context user Data</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model User
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly Context
+ * user Data</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em> Usage Model User
  * Data</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>User
- * Data Parameter Usages User Data</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>User Data
+ * Parameter Usages User Data</em>}</li>
  * </ul>
  * </p>
  * 
@@ -71,7 +73,7 @@ public interface UserData extends EStereotypableObject {
     UsageModel getUsageModel_UserData();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
      * <em>Usage Model User Data</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
@@ -113,7 +115,7 @@ public interface UserData extends EStereotypableObject {
     void setAssemblyContext_userData(AssemblyContext value);
 
     /**
-     * Returns the value of the '<em><b>User Data Parameter Usages User Data</b></em>' containment
+     * Returns the value of the ' <em><b>User Data Parameter Usages User Data</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage

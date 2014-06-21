@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Loop</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Loop</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A Loop models a repeated sequence of actions in the user flow. It
@@ -58,7 +58,7 @@ public interface Loop extends AbstractUserAction {
     PCMRandomVariable getLoopIteration_Loop();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop
      * <em>Loop Iteration Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
@@ -90,7 +90,7 @@ public interface Loop extends AbstractUserAction {
     ScenarioBehaviour getBodyBehaviour_Loop();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 

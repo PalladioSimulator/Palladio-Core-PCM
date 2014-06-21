@@ -46,7 +46,7 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * 
      * @generated
      */
-    public AllocationItemProvider(AdapterFactory adapterFactory) {
+    public AllocationItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -57,14 +57,14 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addTargetResourceEnvironment_AllocationPropertyDescriptor(object);
-            addSystem_AllocationPropertyDescriptor(object);
+            this.addTargetResourceEnvironment_AllocationPropertyDescriptor(object);
+            this.addSystem_AllocationPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,12 +73,11 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * 
      * @generated
      */
-    protected void addTargetResourceEnvironment_AllocationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Allocation_targetResourceEnvironment_Allocation_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addTargetResourceEnvironment_AllocationPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Allocation_targetResourceEnvironment_Allocation_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_Allocation_targetResourceEnvironment_Allocation_feature", "_UI_Allocation_type"),
                 AllocationPackage.Literals.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION, true, false, true, null,
                 null, null));
@@ -90,12 +89,11 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * 
      * @generated
      */
-    protected void addSystem_AllocationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Allocation_system_Allocation_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_Allocation_system_Allocation_feature",
+    protected void addSystem_AllocationPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Allocation_system_Allocation_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_Allocation_system_Allocation_feature",
                         "_UI_Allocation_type"), AllocationPackage.Literals.ALLOCATION__SYSTEM_ALLOCATION, true, false,
                 true, null, null, null));
     }
@@ -110,12 +108,12 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION);
+            this.childrenFeatures.add(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -124,7 +122,7 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -137,8 +135,8 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Allocation"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/Allocation"));
     }
 
     /**
@@ -148,10 +146,10 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((Allocation) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_Allocation_type")
-                : getString("_UI_Allocation_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((Allocation) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_Allocation_type") : this
+                .getString("_UI_Allocation_type") + " " + label;
     }
 
     /**
@@ -162,12 +160,12 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(Allocation.class)) {
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -180,10 +178,10 @@ public class AllocationItemProvider extends EntityItemProvider implements IEditi
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION,
                 AllocationFactory.eINSTANCE.createAllocationContext()));
     }

@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Delay</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Delay</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A Delay represents a timing delay as a RandomVariable between two user
@@ -59,7 +59,8 @@ public interface Delay extends AbstractUserAction {
     PCMRandomVariable getTimeSpecification_Delay();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay
      * <em>Time Specification Delay</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 

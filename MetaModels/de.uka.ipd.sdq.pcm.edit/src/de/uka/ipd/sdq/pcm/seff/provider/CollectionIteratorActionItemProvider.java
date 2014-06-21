@@ -43,7 +43,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * 
      * @generated
      */
-    public CollectionIteratorActionItemProvider(AdapterFactory adapterFactory) {
+    public CollectionIteratorActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,13 +54,13 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addParameter_CollectionIteratorActionPropertyDescriptor(object);
+            this.addParameter_CollectionIteratorActionPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -69,14 +69,13 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * 
      * @generated
      */
-    protected void addParameter_CollectionIteratorActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_CollectionIteratorAction_parameter_CollectionIteratorAction_feature"),
-                getString("_UI_PropertyDescriptor_description",
-                        "_UI_CollectionIteratorAction_parameter_CollectionIteratorAction_feature",
-                        "_UI_CollectionIteratorAction_type"),
+    protected void addParameter_CollectionIteratorActionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_CollectionIteratorAction_parameter_CollectionIteratorAction_feature"), this
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_CollectionIteratorAction_parameter_CollectionIteratorAction_feature",
+                                "_UI_CollectionIteratorAction_type"),
                 SeffPackage.Literals.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION, true, false,
                 true, null, null, null));
     }
@@ -87,8 +86,8 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/CollectionIteratorAction"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/CollectionIteratorAction"));
     }
 
     /**
@@ -98,10 +97,10 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((CollectionIteratorAction) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_CollectionIteratorAction_type")
-                : getString("_UI_CollectionIteratorAction_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((CollectionIteratorAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_CollectionIteratorAction_type") : this
+                .getString("_UI_CollectionIteratorAction_type") + " " + label;
     }
 
     /**
@@ -112,8 +111,8 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -124,7 +123,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

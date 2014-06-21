@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -38,19 +37,23 @@ import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Interface</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Interface</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getParentInterfaces__Interface <em>
- * Parent Interfaces Interface</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>Protocols
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getParentInterfaces__Interface <em>Parent
+ * Interfaces Interface</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>Protocols
  * Interface</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRequiredCharacterisations <em>
- * Required Characterisations</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRepository__Interface <em>
- * Repository Interface</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRequiredCharacterisations <em>Required
+ * Characterisations</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getRepository__Interface <em>Repository
+ * Interface</em>}</li>
  * </ul>
  * </p>
  * 
@@ -120,12 +123,13 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * 
      * @generated
      */
+    @Override
     public EList<Interface> getParentInterfaces__Interface() {
-        if (parentInterfaces__Interface == null) {
-            parentInterfaces__Interface = new EObjectResolvingEList<Interface>(Interface.class, this,
+        if (this.parentInterfaces__Interface == null) {
+            this.parentInterfaces__Interface = new EObjectResolvingEList<Interface>(Interface.class, this,
                     RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE);
         }
-        return parentInterfaces__Interface;
+        return this.parentInterfaces__Interface;
     }
 
     /**
@@ -133,12 +137,13 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * 
      * @generated
      */
+    @Override
     public EList<Protocol> getProtocols__Interface() {
-        if (protocols__Interface == null) {
-            protocols__Interface = new EObjectContainmentEList<Protocol>(Protocol.class, this,
+        if (this.protocols__Interface == null) {
+            this.protocols__Interface = new EObjectContainmentEList<Protocol>(Protocol.class, this,
                     RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE);
         }
-        return protocols__Interface;
+        return this.protocols__Interface;
     }
 
     /**
@@ -146,13 +151,14 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * 
      * @generated
      */
+    @Override
     public EList<RequiredCharacterisation> getRequiredCharacterisations() {
-        if (requiredCharacterisations == null) {
-            requiredCharacterisations = new EObjectContainmentWithInverseEList<RequiredCharacterisation>(
+        if (this.requiredCharacterisations == null) {
+            this.requiredCharacterisations = new EObjectContainmentWithInverseEList<RequiredCharacterisation>(
                     RequiredCharacterisation.class, this, RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS,
                     RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION);
         }
-        return requiredCharacterisations;
+        return this.requiredCharacterisations;
     }
 
     /**
@@ -160,10 +166,12 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * 
      * @generated
      */
+    @Override
     public Repository getRepository__Interface() {
-        if (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE)
+        if (this.eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) {
             return null;
-        return (Repository) eInternalContainer();
+        }
+        return (Repository) this.eInternalContainer();
     }
 
     /**
@@ -171,8 +179,9 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * 
      * @generated
      */
-    public NotificationChain basicSetRepository__Interface(Repository newRepository__Interface, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newRepository__Interface,
+    public NotificationChain basicSetRepository__Interface(final Repository newRepository__Interface,
+            NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newRepository__Interface,
                 RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE, msgs);
         return msgs;
     }
@@ -182,23 +191,30 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * 
      * @generated
      */
-    public void setRepository__Interface(Repository newRepository__Interface) {
-        if (newRepository__Interface != eInternalContainer()
-                || (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository__Interface != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newRepository__Interface))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setRepository__Interface(final Repository newRepository__Interface) {
+        if (newRepository__Interface != this.eInternalContainer()
+                || (this.eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository__Interface != null)) {
+            if (EcoreUtil.isAncestor(this, newRepository__Interface)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newRepository__Interface != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newRepository__Interface != null) {
                 msgs = ((InternalEObject) newRepository__Interface).eInverseAdd(this,
                         RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, Repository.class, msgs);
-            msgs = basicSetRepository__Interface(newRepository__Interface, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetRepository__Interface(newRepository__Interface, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE,
-                    newRepository__Interface, newRepository__Interface));
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE, newRepository__Interface,
+                    newRepository__Interface));
+        }
     }
 
     /**
@@ -231,14 +247,15 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * 
      * @generated
      */
-    public boolean NoProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean NoProtocolTypeIDUsedTwice(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.INTERFACE);
             try {
                 NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -261,15 +278,16 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getRequiredCharacterisations()).basicAdd(
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getRequiredCharacterisations()).basicAdd(
                     otherEnd, msgs);
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetRepository__Interface((Repository) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetRepository__Interface((Repository) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -280,14 +298,15 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
-            return ((InternalEList<?>) getProtocols__Interface()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getProtocols__Interface()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            return ((InternalEList<?>) getRequiredCharacterisations()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getRequiredCharacterisations()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-            return basicSetRepository__Interface(null, msgs);
+            return this.basicSetRepository__Interface(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -298,10 +317,10 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-            return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY,
+            return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY,
                     Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -313,16 +332,16 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
-            return getParentInterfaces__Interface();
+            return this.getParentInterfaces__Interface();
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
-            return getProtocols__Interface();
+            return this.getProtocols__Interface();
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            return getRequiredCharacterisations();
+            return this.getRequiredCharacterisations();
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-            return getRepository__Interface();
+            return this.getRepository__Interface();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -334,22 +353,22 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
-            getParentInterfaces__Interface().clear();
-            getParentInterfaces__Interface().addAll((Collection<? extends Interface>) newValue);
+            this.getParentInterfaces__Interface().clear();
+            this.getParentInterfaces__Interface().addAll((Collection<? extends Interface>) newValue);
             return;
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
-            getProtocols__Interface().clear();
-            getProtocols__Interface().addAll((Collection<? extends Protocol>) newValue);
+            this.getProtocols__Interface().clear();
+            this.getProtocols__Interface().addAll((Collection<? extends Protocol>) newValue);
             return;
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            getRequiredCharacterisations().clear();
-            getRequiredCharacterisations().addAll((Collection<? extends RequiredCharacterisation>) newValue);
+            this.getRequiredCharacterisations().clear();
+            this.getRequiredCharacterisations().addAll((Collection<? extends RequiredCharacterisation>) newValue);
             return;
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-            setRepository__Interface((Repository) newValue);
+            this.setRepository__Interface((Repository) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -361,19 +380,19 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
-            getParentInterfaces__Interface().clear();
+            this.getParentInterfaces__Interface().clear();
             return;
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
-            getProtocols__Interface().clear();
+            this.getProtocols__Interface().clear();
             return;
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            getRequiredCharacterisations().clear();
+            this.getRequiredCharacterisations().clear();
             return;
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-            setRepository__Interface((Repository) null);
+            this.setRepository__Interface((Repository) null);
             return;
         }
         super.eUnset(featureID);
@@ -385,16 +404,16 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
-            return parentInterfaces__Interface != null && !parentInterfaces__Interface.isEmpty();
+            return this.parentInterfaces__Interface != null && !this.parentInterfaces__Interface.isEmpty();
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
-            return protocols__Interface != null && !protocols__Interface.isEmpty();
+            return this.protocols__Interface != null && !this.protocols__Interface.isEmpty();
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            return requiredCharacterisations != null && !requiredCharacterisations.isEmpty();
+            return this.requiredCharacterisations != null && !this.requiredCharacterisations.isEmpty();
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
-            return getRepository__Interface() != null;
+            return this.getRepository__Interface() != null;
         }
         return super.eIsSet(featureID);
     }

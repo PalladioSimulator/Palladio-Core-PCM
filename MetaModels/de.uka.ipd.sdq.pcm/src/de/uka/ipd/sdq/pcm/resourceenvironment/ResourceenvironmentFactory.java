@@ -58,19 +58,19 @@ public interface ResourceenvironmentFactory extends EFactory {
     ResourceContainer createResourceContainer();
 
     /**
-     * Returns a new object of class '<em>Processing Resource Specification</em>'. <!--
+     * Returns a new object of class '<em>Processing Resource Specification</em> '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Processing Resource Specification</em>'.
+     * @return a new object of class '<em>Processing Resource Specification</em> '.
      * @generated
      */
     ProcessingResourceSpecification createProcessingResourceSpecification();
 
     /**
-     * Returns a new object of class '<em>Communication Link Resource Specification</em>'. <!--
+     * Returns a new object of class ' <em>Communication Link Resource Specification</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Communication Link Resource Specification</em>'.
+     * @return a new object of class ' <em>Communication Link Resource Specification</em>'.
      * @generated
      */
     CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification();

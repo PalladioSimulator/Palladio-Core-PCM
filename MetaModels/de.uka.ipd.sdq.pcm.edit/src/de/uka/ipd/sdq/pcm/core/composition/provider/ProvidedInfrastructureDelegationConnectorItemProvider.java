@@ -44,7 +44,7 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * 
      * @generated
      */
-    public ProvidedInfrastructureDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
+    public ProvidedInfrastructureDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,15 +55,15 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addInnerProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(object);
-            addOuterProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(object);
-            addAssemblyContext__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(object);
+            this.addInnerProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(object);
+            this.addOuterProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(object);
+            this.addAssemblyContext__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,13 +72,13 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * 
      * @generated
      */
-    protected void addInnerProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ProvidedInfrastructureDelegationConnector_innerProvidedRole__ProvidedInfrastructureDelegationConnector_feature"),
-                        getString(
+    protected void addInnerProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_ProvidedInfrastructureDelegationConnector_innerProvidedRole__ProvidedInfrastructureDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_ProvidedInfrastructureDelegationConnector_innerProvidedRole__ProvidedInfrastructureDelegationConnector_feature",
                                 "_UI_ProvidedInfrastructureDelegationConnector_type"),
@@ -92,13 +92,13 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * 
      * @generated
      */
-    protected void addOuterProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ProvidedInfrastructureDelegationConnector_outerProvidedRole__ProvidedInfrastructureDelegationConnector_feature"),
-                        getString(
+    protected void addOuterProvidedRole__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_ProvidedInfrastructureDelegationConnector_outerProvidedRole__ProvidedInfrastructureDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_ProvidedInfrastructureDelegationConnector_outerProvidedRole__ProvidedInfrastructureDelegationConnector_feature",
                                 "_UI_ProvidedInfrastructureDelegationConnector_type"),
@@ -112,13 +112,13 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * 
      * @generated
      */
-    protected void addAssemblyContext__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ProvidedInfrastructureDelegationConnector_assemblyContext__ProvidedInfrastructureDelegationConnector_feature"),
-                        getString(
+    protected void addAssemblyContext__ProvidedInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_ProvidedInfrastructureDelegationConnector_assemblyContext__ProvidedInfrastructureDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_ProvidedInfrastructureDelegationConnector_assemblyContext__ProvidedInfrastructureDelegationConnector_feature",
                                 "_UI_ProvidedInfrastructureDelegationConnector_type"),
@@ -133,9 +133,9 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object,
-                getResourceLocator().getImage("full/obj16/ProvidedInfrastructureDelegationConnector"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object,
+                this.getResourceLocator().getImage("full/obj16/ProvidedInfrastructureDelegationConnector"));
     }
 
     /**
@@ -145,10 +145,11 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ProvidedInfrastructureDelegationConnector) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ProvidedInfrastructureDelegationConnector_type")
-                : getString("_UI_ProvidedInfrastructureDelegationConnector_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ProvidedInfrastructureDelegationConnector) object).getId();
+        return label == null || label.length() == 0 ? this
+                .getString("_UI_ProvidedInfrastructureDelegationConnector_type") : this
+                .getString("_UI_ProvidedInfrastructureDelegationConnector_type") + " " + label;
     }
 
     /**
@@ -159,8 +160,8 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -171,7 +172,7 @@ public class ProvidedInfrastructureDelegationConnectorItemProvider extends Deleg
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

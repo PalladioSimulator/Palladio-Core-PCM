@@ -50,7 +50,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getResourceInterfaces__ResourceRepository()
+     * The cached value of the ' {@link #getResourceInterfaces__ResourceRepository()
      * <em>Resource Interfaces Resource Repository</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -61,7 +61,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
     protected EList<ResourceInterface> resourceInterfaces__ResourceRepository;
 
     /**
-     * The cached value of the '{@link #getSchedulingPolicies__ResourceRepository()
+     * The cached value of the ' {@link #getSchedulingPolicies__ResourceRepository()
      * <em>Scheduling Policies Resource Repository</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -72,7 +72,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
     protected EList<SchedulingPolicy> schedulingPolicies__ResourceRepository;
 
     /**
-     * The cached value of the '{@link #getAvailableResourceTypes_ResourceRepository()
+     * The cached value of the ' {@link #getAvailableResourceTypes_ResourceRepository()
      * <em>Available Resource Types Resource Repository</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -106,14 +106,15 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      * 
      * @generated
      */
+    @Override
     public EList<ResourceInterface> getResourceInterfaces__ResourceRepository() {
-        if (resourceInterfaces__ResourceRepository == null) {
-            resourceInterfaces__ResourceRepository = new EObjectContainmentWithInverseEList<ResourceInterface>(
+        if (this.resourceInterfaces__ResourceRepository == null) {
+            this.resourceInterfaces__ResourceRepository = new EObjectContainmentWithInverseEList<ResourceInterface>(
                     ResourceInterface.class, this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
                     ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE);
         }
-        return resourceInterfaces__ResourceRepository;
+        return this.resourceInterfaces__ResourceRepository;
     }
 
     /**
@@ -121,14 +122,15 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      * 
      * @generated
      */
+    @Override
     public EList<SchedulingPolicy> getSchedulingPolicies__ResourceRepository() {
-        if (schedulingPolicies__ResourceRepository == null) {
-            schedulingPolicies__ResourceRepository = new EObjectContainmentWithInverseEList<SchedulingPolicy>(
+        if (this.schedulingPolicies__ResourceRepository == null) {
+            this.schedulingPolicies__ResourceRepository = new EObjectContainmentWithInverseEList<SchedulingPolicy>(
                     SchedulingPolicy.class, this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
                     ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
         }
-        return schedulingPolicies__ResourceRepository;
+        return this.schedulingPolicies__ResourceRepository;
     }
 
     /**
@@ -136,14 +138,15 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      * 
      * @generated
      */
+    @Override
     public EList<ResourceType> getAvailableResourceTypes_ResourceRepository() {
-        if (availableResourceTypes_ResourceRepository == null) {
-            availableResourceTypes_ResourceRepository = new EObjectContainmentWithInverseEList<ResourceType>(
+        if (this.availableResourceTypes_ResourceRepository == null) {
+            this.availableResourceTypes_ResourceRepository = new EObjectContainmentWithInverseEList<ResourceType>(
                     ResourceType.class, this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
                     ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE);
         }
-        return availableResourceTypes_ResourceRepository;
+        return this.availableResourceTypes_ResourceRepository;
     }
 
     /**
@@ -153,17 +156,18 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceInterfaces__ResourceRepository())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getResourceInterfaces__ResourceRepository()).basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSchedulingPolicies__ResourceRepository())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getSchedulingPolicies__ResourceRepository()).basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getAvailableResourceTypes_ResourceRepository())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getAvailableResourceTypes_ResourceRepository()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -174,14 +178,15 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-            return ((InternalEList<?>) getResourceInterfaces__ResourceRepository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getResourceInterfaces__ResourceRepository()).basicRemove(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-            return ((InternalEList<?>) getSchedulingPolicies__ResourceRepository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getSchedulingPolicies__ResourceRepository()).basicRemove(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            return ((InternalEList<?>) getAvailableResourceTypes_ResourceRepository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getAvailableResourceTypes_ResourceRepository()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -192,14 +197,14 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-            return getResourceInterfaces__ResourceRepository();
+            return this.getResourceInterfaces__ResourceRepository();
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-            return getSchedulingPolicies__ResourceRepository();
+            return this.getSchedulingPolicies__ResourceRepository();
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            return getAvailableResourceTypes_ResourceRepository();
+            return this.getAvailableResourceTypes_ResourceRepository();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -211,19 +216,19 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-            getResourceInterfaces__ResourceRepository().clear();
-            getResourceInterfaces__ResourceRepository().addAll((Collection<? extends ResourceInterface>) newValue);
+            this.getResourceInterfaces__ResourceRepository().clear();
+            this.getResourceInterfaces__ResourceRepository().addAll((Collection<? extends ResourceInterface>) newValue);
             return;
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-            getSchedulingPolicies__ResourceRepository().clear();
-            getSchedulingPolicies__ResourceRepository().addAll((Collection<? extends SchedulingPolicy>) newValue);
+            this.getSchedulingPolicies__ResourceRepository().clear();
+            this.getSchedulingPolicies__ResourceRepository().addAll((Collection<? extends SchedulingPolicy>) newValue);
             return;
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            getAvailableResourceTypes_ResourceRepository().clear();
-            getAvailableResourceTypes_ResourceRepository().addAll((Collection<? extends ResourceType>) newValue);
+            this.getAvailableResourceTypes_ResourceRepository().clear();
+            this.getAvailableResourceTypes_ResourceRepository().addAll((Collection<? extends ResourceType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -235,16 +240,16 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-            getResourceInterfaces__ResourceRepository().clear();
+            this.getResourceInterfaces__ResourceRepository().clear();
             return;
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-            getSchedulingPolicies__ResourceRepository().clear();
+            this.getSchedulingPolicies__ResourceRepository().clear();
             return;
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            getAvailableResourceTypes_ResourceRepository().clear();
+            this.getAvailableResourceTypes_ResourceRepository().clear();
             return;
         }
         super.eUnset(featureID);
@@ -256,15 +261,17 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-            return resourceInterfaces__ResourceRepository != null && !resourceInterfaces__ResourceRepository.isEmpty();
+            return this.resourceInterfaces__ResourceRepository != null
+                    && !this.resourceInterfaces__ResourceRepository.isEmpty();
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-            return schedulingPolicies__ResourceRepository != null && !schedulingPolicies__ResourceRepository.isEmpty();
+            return this.schedulingPolicies__ResourceRepository != null
+                    && !this.schedulingPolicies__ResourceRepository.isEmpty();
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            return availableResourceTypes_ResourceRepository != null
-                    && !availableResourceTypes_ResourceRepository.isEmpty();
+            return this.availableResourceTypes_ResourceRepository != null
+                    && !this.availableResourceTypes_ResourceRepository.isEmpty();
         }
         return super.eIsSet(featureID);
     }

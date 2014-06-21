@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Scenario Behaviour</b></em>
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Scenario Behaviour</b></em>
  * '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> A ScenarioBehaviour specifies possible sequences of executing services
@@ -37,14 +37,18 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour <em>
  * Usage Scenario Senario Behaviour</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
- * <em>Branch Transition Scenario Behaviour</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour <em>Loop
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour <em>
+ * Branch Transition Scenario Behaviour</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour <em>Loop
  * Scenario Behaviour</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour <em>
- * Actions Scenario Behaviour</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour <em>Actions
+ * Scenario Behaviour</em>}</li>
  * </ul>
  * </p>
  * 
@@ -121,7 +125,7 @@ public interface ScenarioBehaviour extends Entity {
             Map<Object, Object> context);
 
     /**
-     * Returns the value of the '<em><b>Branch Transition Scenario Behaviour</b></em>' container
+     * Returns the value of the ' <em><b>Branch Transition Scenario Behaviour</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
      * <em>Branched Behaviour Branch Transition</em>}'. <!-- begin-user-doc -->
@@ -147,7 +151,7 @@ public interface ScenarioBehaviour extends Entity {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Branch Transition Scenario Behaviour</em>' container
+     *            the new value of the ' <em>Branch Transition Scenario Behaviour</em>' container
      *            reference.
      * @see #getBranchTransition_ScenarioBehaviour()
      * @generated
@@ -188,7 +192,7 @@ public interface ScenarioBehaviour extends Entity {
     void setLoop_ScenarioBehaviour(Loop value);
 
     /**
-     * Returns the value of the '<em><b>Usage Scenario Senario Behaviour</b></em>' container
+     * Returns the value of the ' <em><b>Usage Scenario Senario Behaviour</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
      * <em>Scenario Behaviour Usage Scenario</em>}'. <!-- begin-user-doc -->
@@ -214,7 +218,7 @@ public interface ScenarioBehaviour extends Entity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Usage Scenario Senario Behaviour</em>' container
+     *            the new value of the ' <em>Usage Scenario Senario Behaviour</em>' container
      *            reference.
      * @see #getUsageScenario_SenarioBehaviour()
      * @generated

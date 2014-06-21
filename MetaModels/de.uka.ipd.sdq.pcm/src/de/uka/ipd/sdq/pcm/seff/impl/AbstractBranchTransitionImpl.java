@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -79,10 +78,12 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * 
      * @generated
      */
+    @Override
     public BranchAction getBranchAction_AbstractBranchTransition() {
-        if (eContainerFeatureID() != SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION)
+        if (this.eContainerFeatureID() != SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION) {
             return null;
-        return (BranchAction) eInternalContainer();
+        }
+        return (BranchAction) this.eInternalContainer();
     }
 
     /**
@@ -91,8 +92,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     public NotificationChain basicSetBranchAction_AbstractBranchTransition(
-            BranchAction newBranchAction_AbstractBranchTransition, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newBranchAction_AbstractBranchTransition,
+            final BranchAction newBranchAction_AbstractBranchTransition, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newBranchAction_AbstractBranchTransition,
                 SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION, msgs);
         return msgs;
     }
@@ -102,24 +103,30 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * 
      * @generated
      */
-    public void setBranchAction_AbstractBranchTransition(BranchAction newBranchAction_AbstractBranchTransition) {
-        if (newBranchAction_AbstractBranchTransition != eInternalContainer()
-                || (eContainerFeatureID() != SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION && newBranchAction_AbstractBranchTransition != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newBranchAction_AbstractBranchTransition))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setBranchAction_AbstractBranchTransition(final BranchAction newBranchAction_AbstractBranchTransition) {
+        if (newBranchAction_AbstractBranchTransition != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION && newBranchAction_AbstractBranchTransition != null)) {
+            if (EcoreUtil.isAncestor(this, newBranchAction_AbstractBranchTransition)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newBranchAction_AbstractBranchTransition != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newBranchAction_AbstractBranchTransition != null) {
                 msgs = ((InternalEObject) newBranchAction_AbstractBranchTransition).eInverseAdd(this,
                         SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH, BranchAction.class, msgs);
-            msgs = basicSetBranchAction_AbstractBranchTransition(newBranchAction_AbstractBranchTransition, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetBranchAction_AbstractBranchTransition(newBranchAction_AbstractBranchTransition, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION,
                     newBranchAction_AbstractBranchTransition, newBranchAction_AbstractBranchTransition));
+        }
     }
 
     /**
@@ -127,8 +134,9 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * 
      * @generated
      */
+    @Override
     public ResourceDemandingBehaviour getBranchBehaviour_BranchTransition() {
-        return branchBehaviour_BranchTransition;
+        return this.branchBehaviour_BranchTransition;
     }
 
     /**
@@ -137,17 +145,18 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     public NotificationChain basicSetBranchBehaviour_BranchTransition(
-            ResourceDemandingBehaviour newBranchBehaviour_BranchTransition, NotificationChain msgs) {
-        ResourceDemandingBehaviour oldBranchBehaviour_BranchTransition = branchBehaviour_BranchTransition;
-        branchBehaviour_BranchTransition = newBranchBehaviour_BranchTransition;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+            final ResourceDemandingBehaviour newBranchBehaviour_BranchTransition, NotificationChain msgs) {
+        final ResourceDemandingBehaviour oldBranchBehaviour_BranchTransition = this.branchBehaviour_BranchTransition;
+        this.branchBehaviour_BranchTransition = newBranchBehaviour_BranchTransition;
+        if (this.eNotificationRequired()) {
+            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                     oldBranchBehaviour_BranchTransition, newBranchBehaviour_BranchTransition);
-            if (msgs == null)
+            if (msgs == null) {
                 msgs = notification;
-            else
+            } else {
                 msgs.add(notification);
+            }
         }
         return msgs;
     }
@@ -157,28 +166,33 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * 
      * @generated
      */
-    public void setBranchBehaviour_BranchTransition(ResourceDemandingBehaviour newBranchBehaviour_BranchTransition) {
-        if (newBranchBehaviour_BranchTransition != branchBehaviour_BranchTransition) {
+    @Override
+    public void setBranchBehaviour_BranchTransition(final ResourceDemandingBehaviour newBranchBehaviour_BranchTransition) {
+        if (newBranchBehaviour_BranchTransition != this.branchBehaviour_BranchTransition) {
             NotificationChain msgs = null;
-            if (branchBehaviour_BranchTransition != null)
-                msgs = ((InternalEObject) branchBehaviour_BranchTransition)
+            if (this.branchBehaviour_BranchTransition != null) {
+                msgs = ((InternalEObject) this.branchBehaviour_BranchTransition)
                         .eInverseRemove(
                                 this,
                                 SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
                                 ResourceDemandingBehaviour.class, msgs);
-            if (newBranchBehaviour_BranchTransition != null)
+            }
+            if (newBranchBehaviour_BranchTransition != null) {
                 msgs = ((InternalEObject) newBranchBehaviour_BranchTransition)
                         .eInverseAdd(
                                 this,
                                 SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
                                 ResourceDemandingBehaviour.class, msgs);
-            msgs = basicSetBranchBehaviour_BranchTransition(newBranchBehaviour_BranchTransition, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetBranchBehaviour_BranchTransition(newBranchBehaviour_BranchTransition, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                     newBranchBehaviour_BranchTransition, newBranchBehaviour_BranchTransition));
+        }
     }
 
     /**
@@ -187,17 +201,21 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetBranchAction_AbstractBranchTransition((BranchAction) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetBranchAction_AbstractBranchTransition((BranchAction) otherEnd, msgs);
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
-            if (branchBehaviour_BranchTransition != null)
-                msgs = ((InternalEObject) branchBehaviour_BranchTransition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION, null, msgs);
-            return basicSetBranchBehaviour_BranchTransition((ResourceDemandingBehaviour) otherEnd, msgs);
+            if (this.branchBehaviour_BranchTransition != null) {
+                msgs = ((InternalEObject) this.branchBehaviour_BranchTransition).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION, null,
+                        msgs);
+            }
+            return this.basicSetBranchBehaviour_BranchTransition((ResourceDemandingBehaviour) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -208,12 +226,13 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
-            return basicSetBranchAction_AbstractBranchTransition(null, msgs);
+            return this.basicSetBranchAction_AbstractBranchTransition(null, msgs);
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
-            return basicSetBranchBehaviour_BranchTransition(null, msgs);
+            return this.basicSetBranchBehaviour_BranchTransition(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -224,10 +243,10 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
-            return eInternalContainer().eInverseRemove(this, SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH,
+            return this.eInternalContainer().eInverseRemove(this, SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH,
                     BranchAction.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -239,12 +258,12 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
-            return getBranchAction_AbstractBranchTransition();
+            return this.getBranchAction_AbstractBranchTransition();
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
-            return getBranchBehaviour_BranchTransition();
+            return this.getBranchBehaviour_BranchTransition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -255,13 +274,13 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
-            setBranchAction_AbstractBranchTransition((BranchAction) newValue);
+            this.setBranchAction_AbstractBranchTransition((BranchAction) newValue);
             return;
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
-            setBranchBehaviour_BranchTransition((ResourceDemandingBehaviour) newValue);
+            this.setBranchBehaviour_BranchTransition((ResourceDemandingBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -273,13 +292,13 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
-            setBranchAction_AbstractBranchTransition((BranchAction) null);
+            this.setBranchAction_AbstractBranchTransition((BranchAction) null);
             return;
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
-            setBranchBehaviour_BranchTransition((ResourceDemandingBehaviour) null);
+            this.setBranchBehaviour_BranchTransition((ResourceDemandingBehaviour) null);
             return;
         }
         super.eUnset(featureID);
@@ -291,12 +310,12 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
-            return getBranchAction_AbstractBranchTransition() != null;
+            return this.getBranchAction_AbstractBranchTransition() != null;
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
-            return branchBehaviour_BranchTransition != null;
+            return this.branchBehaviour_BranchTransition != null;
         }
         return super.eIsSet(featureID);
     }

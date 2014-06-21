@@ -44,7 +44,7 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
      * 
      * @generated
      */
-    public InternalFailureOccurrenceDescriptionItemProvider(AdapterFactory adapterFactory) {
+    public InternalFailureOccurrenceDescriptionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,13 +55,13 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addSoftwareInducedFailureType__InternalFailureOccurrenceDescriptionPropertyDescriptor(object);
+            this.addSoftwareInducedFailureType__InternalFailureOccurrenceDescriptionPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -70,13 +70,14 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
      * 
      * @generated
      */
-    protected void addSoftwareInducedFailureType__InternalFailureOccurrenceDescriptionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_InternalFailureOccurrenceDescription_softwareInducedFailureType__InternalFailureOccurrenceDescription_feature"),
-                        getString(
+    protected void addSoftwareInducedFailureType__InternalFailureOccurrenceDescriptionPropertyDescriptor(
+            final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_InternalFailureOccurrenceDescription_softwareInducedFailureType__InternalFailureOccurrenceDescription_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_InternalFailureOccurrenceDescription_softwareInducedFailureType__InternalFailureOccurrenceDescription_feature",
                                 "_UI_InternalFailureOccurrenceDescription_type"),
@@ -91,8 +92,9 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalFailureOccurrenceDescription"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object,
+                this.getResourceLocator().getImage("full/obj16/InternalFailureOccurrenceDescription"));
     }
 
     /**
@@ -102,9 +104,9 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        InternalFailureOccurrenceDescription internalFailureOccurrenceDescription = (InternalFailureOccurrenceDescription) object;
-        return getString("_UI_InternalFailureOccurrenceDescription_type") + " "
+    public String getText(final Object object) {
+        final InternalFailureOccurrenceDescription internalFailureOccurrenceDescription = (InternalFailureOccurrenceDescription) object;
+        return this.getString("_UI_InternalFailureOccurrenceDescription_type") + " "
                 + internalFailureOccurrenceDescription.getFailureProbability();
     }
 
@@ -116,8 +118,8 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -128,7 +130,7 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

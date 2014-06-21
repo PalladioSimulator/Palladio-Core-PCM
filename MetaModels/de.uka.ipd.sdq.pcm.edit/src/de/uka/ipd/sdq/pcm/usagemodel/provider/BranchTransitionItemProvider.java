@@ -49,7 +49,7 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * 
      * @generated
      */
-    public BranchTransitionItemProvider(AdapterFactory adapterFactory) {
+    public BranchTransitionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -60,13 +60,13 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addBranchProbabilityPropertyDescriptor(object);
+            this.addBranchProbabilityPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,12 +75,11 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * 
      * @generated
      */
-    protected void addBranchProbabilityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_BranchTransition_branchProbability_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_BranchTransition_branchProbability_feature",
+    protected void addBranchProbabilityPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_BranchTransition_branchProbability_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_BranchTransition_branchProbability_feature",
                         "_UI_BranchTransition_type"), UsagemodelPackage.Literals.BRANCH_TRANSITION__BRANCH_PROBABILITY,
                 true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
@@ -95,12 +94,13 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(UsagemodelPackage.Literals.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION);
+            this.childrenFeatures
+                    .add(UsagemodelPackage.Literals.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -109,7 +109,7 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -122,8 +122,8 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/BranchTransition"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/BranchTransition"));
     }
 
     /**
@@ -133,9 +133,9 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        BranchTransition branchTransition = (BranchTransition) object;
-        return getString("_UI_BranchTransition_type") + " " + branchTransition.getBranchProbability();
+    public String getText(final Object object) {
+        final BranchTransition branchTransition = (BranchTransition) object;
+        return this.getString("_UI_BranchTransition_type") + " " + branchTransition.getBranchProbability();
     }
 
     /**
@@ -146,15 +146,15 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(BranchTransition.class)) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -167,10 +167,10 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 UsagemodelPackage.Literals.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION,
                 UsagemodelFactory.eINSTANCE.createScenarioBehaviour()));
     }
@@ -183,7 +183,7 @@ public class BranchTransitionItemProvider extends ItemProviderAdapter implements
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

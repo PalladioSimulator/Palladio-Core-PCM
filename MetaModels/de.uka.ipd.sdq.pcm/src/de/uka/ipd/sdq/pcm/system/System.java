@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>System</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>System</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A System is the out-most entity of a PCM's assembly of components. It

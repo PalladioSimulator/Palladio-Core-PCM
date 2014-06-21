@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Closed Workload</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Closed Workload</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> ClosedWorkload specifies directly the (constant) user population and a
@@ -24,9 +24,10 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation <em>Population</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think
- * Time Closed Workload</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation <em> Population</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think Time
+ * Closed Workload</em>}</li>
  * </ul>
  * </p>
  * 
@@ -59,7 +60,7 @@ public interface ClosedWorkload extends Workload {
     int getPopulation();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation
      * <em>Population</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

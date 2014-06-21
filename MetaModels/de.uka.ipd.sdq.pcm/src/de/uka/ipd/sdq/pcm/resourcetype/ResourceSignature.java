@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Resource Signature</b></em>
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Resource Signature</b></em>
  * '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> TODO: This structure still has to be finalized by Henning. There is no
@@ -20,9 +20,11 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature <em>
  * Parameter Resource Signature</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getResourceServiceId <em>Resource
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getResourceServiceId <em>Resource
  * Service Id</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
@@ -92,7 +94,7 @@ public interface ResourceSignature extends Entity {
     void setResourceServiceId(int value);
 
     /**
-     * Returns the value of the '<em><b>Resource Interface Resource Signature</b></em>' container
+     * Returns the value of the ' <em><b>Resource Interface Resource Signature</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getResourceSignatures__ResourceInterface
      * <em>Resource Signatures Resource Interface</em>}'. <!-- begin-user-doc -->
@@ -120,7 +122,7 @@ public interface ResourceSignature extends Entity {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Resource Interface Resource Signature</em>' container
+     *            the new value of the ' <em>Resource Interface Resource Signature</em>' container
      *            reference.
      * @see #getResourceInterface__ResourceSignature()
      * @generated

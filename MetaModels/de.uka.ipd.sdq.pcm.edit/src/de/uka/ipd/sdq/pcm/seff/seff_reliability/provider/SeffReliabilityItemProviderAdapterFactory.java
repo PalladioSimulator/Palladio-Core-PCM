@@ -86,11 +86,11 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * @generated
      */
     public SeffReliabilityItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -111,11 +111,11 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      */
     @Override
     public Adapter createRecoveryActionBehaviourAdapter() {
-        if (recoveryActionBehaviourItemProvider == null) {
-            recoveryActionBehaviourItemProvider = new RecoveryActionBehaviourItemProvider(this);
+        if (this.recoveryActionBehaviourItemProvider == null) {
+            this.recoveryActionBehaviourItemProvider = new RecoveryActionBehaviourItemProvider(this);
         }
 
-        return recoveryActionBehaviourItemProvider;
+        return this.recoveryActionBehaviourItemProvider;
     }
 
     /**
@@ -135,11 +135,11 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      */
     @Override
     public Adapter createRecoveryActionAdapter() {
-        if (recoveryActionItemProvider == null) {
-            recoveryActionItemProvider = new RecoveryActionItemProvider(this);
+        if (this.recoveryActionItemProvider == null) {
+            this.recoveryActionItemProvider = new RecoveryActionItemProvider(this);
         }
 
-        return recoveryActionItemProvider;
+        return this.recoveryActionItemProvider;
     }
 
     /**
@@ -148,8 +148,9 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -158,7 +159,8 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -168,8 +170,8 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -179,7 +181,7 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -189,9 +191,9 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -206,7 +208,7 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -214,8 +216,9 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -223,8 +226,9 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -232,8 +236,9 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -241,8 +246,9 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -251,11 +257,12 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -265,11 +272,14 @@ public class SeffReliabilityItemProviderAdapterFactory extends SeffReliabilityAd
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (recoveryActionBehaviourItemProvider != null)
-            recoveryActionBehaviourItemProvider.dispose();
-        if (recoveryActionItemProvider != null)
-            recoveryActionItemProvider.dispose();
+        if (this.recoveryActionBehaviourItemProvider != null) {
+            this.recoveryActionBehaviourItemProvider.dispose();
+        }
+        if (this.recoveryActionItemProvider != null) {
+            this.recoveryActionItemProvider.dispose();
+        }
     }
 
 }

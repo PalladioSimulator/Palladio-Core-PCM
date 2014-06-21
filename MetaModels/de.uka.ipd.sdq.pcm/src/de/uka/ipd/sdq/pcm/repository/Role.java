@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.repository;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Role</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Role</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> This entity represents an abstraction of an interface role. <!--

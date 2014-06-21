@@ -45,7 +45,7 @@ public class PrimitiveDataTypeItemProvider extends DataTypeItemProvider implemen
      * 
      * @generated
      */
-    public PrimitiveDataTypeItemProvider(AdapterFactory adapterFactory) {
+    public PrimitiveDataTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,13 +56,13 @@ public class PrimitiveDataTypeItemProvider extends DataTypeItemProvider implemen
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addTypePropertyDescriptor(object);
+            this.addTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -71,12 +71,11 @@ public class PrimitiveDataTypeItemProvider extends DataTypeItemProvider implemen
      * 
      * @generated
      */
-    protected void addTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_PrimitiveDataType_type_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveDataType_type_feature",
+    protected void addTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_PrimitiveDataType_type_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_PrimitiveDataType_type_feature",
                         "_UI_PrimitiveDataType_type"), RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE, true,
                 false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -87,8 +86,8 @@ public class PrimitiveDataTypeItemProvider extends DataTypeItemProvider implemen
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveDataType"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/PrimitiveDataType"));
     }
 
     /**
@@ -98,11 +97,11 @@ public class PrimitiveDataTypeItemProvider extends DataTypeItemProvider implemen
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        PrimitiveTypeEnum labelValue = ((PrimitiveDataType) object).getType();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? getString("_UI_PrimitiveDataType_type")
-                : getString("_UI_PrimitiveDataType_type") + " " + label;
+    public String getText(final Object object) {
+        final PrimitiveTypeEnum labelValue = ((PrimitiveDataType) object).getType();
+        final String label = labelValue == null ? null : labelValue.toString();
+        return label == null || label.length() == 0 ? this.getString("_UI_PrimitiveDataType_type") : this
+                .getString("_UI_PrimitiveDataType_type") + " " + label;
     }
 
     /**
@@ -113,12 +112,12 @@ public class PrimitiveDataTypeItemProvider extends DataTypeItemProvider implemen
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(PrimitiveDataType.class)) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -131,7 +130,7 @@ public class PrimitiveDataTypeItemProvider extends DataTypeItemProvider implemen
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

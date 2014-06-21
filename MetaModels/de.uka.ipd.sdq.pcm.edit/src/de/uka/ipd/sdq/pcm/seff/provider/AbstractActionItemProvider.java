@@ -43,7 +43,7 @@ public class AbstractActionItemProvider extends EntityItemProvider implements IE
      * 
      * @generated
      */
-    public AbstractActionItemProvider(AdapterFactory adapterFactory) {
+    public AbstractActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,14 +54,14 @@ public class AbstractActionItemProvider extends EntityItemProvider implements IE
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addPredecessor_AbstractActionPropertyDescriptor(object);
-            addSuccessor_AbstractActionPropertyDescriptor(object);
+            this.addPredecessor_AbstractActionPropertyDescriptor(object);
+            this.addSuccessor_AbstractActionPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -70,16 +70,13 @@ public class AbstractActionItemProvider extends EntityItemProvider implements IE
      * 
      * @generated
      */
-    protected void addPredecessor_AbstractActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_AbstractAction_predecessor_AbstractAction_feature"),
-                        getString("_UI_PropertyDescriptor_description",
-                                "_UI_AbstractAction_predecessor_AbstractAction_feature", "_UI_AbstractAction_type"),
-                        SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, true, false, true, null,
-                        null, null));
+    protected void addPredecessor_AbstractActionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AbstractAction_predecessor_AbstractAction_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AbstractAction_predecessor_AbstractAction_feature",
+                        "_UI_AbstractAction_type"), SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
+                true, false, true, null, null, null));
     }
 
     /**
@@ -88,12 +85,11 @@ public class AbstractActionItemProvider extends EntityItemProvider implements IE
      * 
      * @generated
      */
-    protected void addSuccessor_AbstractActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AbstractAction_successor_AbstractAction_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AbstractAction_successor_AbstractAction_feature",
+    protected void addSuccessor_AbstractActionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AbstractAction_successor_AbstractAction_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AbstractAction_successor_AbstractAction_feature",
                         "_UI_AbstractAction_type"), SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
                 true, false, true, null, null, null));
     }
@@ -105,10 +101,10 @@ public class AbstractActionItemProvider extends EntityItemProvider implements IE
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((AbstractAction) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_AbstractAction_type")
-                : getString("_UI_AbstractAction_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((AbstractAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_AbstractAction_type") : this
+                .getString("_UI_AbstractAction_type") + " " + label;
     }
 
     /**
@@ -119,8 +115,8 @@ public class AbstractActionItemProvider extends EntityItemProvider implements IE
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -131,7 +127,7 @@ public class AbstractActionItemProvider extends EntityItemProvider implements IE
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

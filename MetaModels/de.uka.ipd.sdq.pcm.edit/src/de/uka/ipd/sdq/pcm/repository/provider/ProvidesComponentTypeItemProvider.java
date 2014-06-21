@@ -42,7 +42,7 @@ public class ProvidesComponentTypeItemProvider extends RepositoryComponentItemPr
      * 
      * @generated
      */
-    public ProvidesComponentTypeItemProvider(AdapterFactory adapterFactory) {
+    public ProvidesComponentTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -53,12 +53,12 @@ public class ProvidesComponentTypeItemProvider extends RepositoryComponentItemPr
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -67,8 +67,8 @@ public class ProvidesComponentTypeItemProvider extends RepositoryComponentItemPr
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProvidesComponentType"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ProvidesComponentType"));
     }
 
     /**
@@ -78,10 +78,10 @@ public class ProvidesComponentTypeItemProvider extends RepositoryComponentItemPr
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ProvidesComponentType) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ProvidesComponentType_type")
-                : getString("_UI_ProvidesComponentType_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ProvidesComponentType) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ProvidesComponentType_type") : this
+                .getString("_UI_ProvidesComponentType_type") + " " + label;
     }
 
     /**
@@ -92,8 +92,8 @@ public class ProvidesComponentTypeItemProvider extends RepositoryComponentItemPr
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -104,7 +104,7 @@ public class ProvidesComponentTypeItemProvider extends RepositoryComponentItemPr
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

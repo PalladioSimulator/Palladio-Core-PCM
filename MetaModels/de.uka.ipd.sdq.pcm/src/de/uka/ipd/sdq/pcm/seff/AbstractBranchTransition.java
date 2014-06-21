@@ -21,8 +21,9 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
  * <em>Branch Action Abstract Branch Transition</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
- * <em>Branch Behaviour Branch Transition</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition <em>
+ * Branch Behaviour Branch Transition</em>}</li>
  * </ul>
  * </p>
  * 
@@ -39,8 +40,8 @@ public interface AbstractBranchTransition extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Branch Action Abstract Branch Transition</b></em>' container
-     * reference. It is bidirectional and its opposite is '
+     * Returns the value of the ' <em><b>Branch Action Abstract Branch Transition</b></em>'
+     * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.BranchAction#getBranches_Branch <em>Branches Branch</em>}'.
      * <!-- begin-user-doc -->
      * <p>
@@ -49,7 +50,7 @@ public interface AbstractBranchTransition extends Entity {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Branch Action Abstract Branch Transition</em>' container
+     * @return the value of the ' <em>Branch Action Abstract Branch Transition</em>' container
      *         reference.
      * @see #setBranchAction_AbstractBranchTransition(BranchAction)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractBranchTransition_BranchAction_AbstractBranchTransition()
@@ -66,15 +67,15 @@ public interface AbstractBranchTransition extends Entity {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Branch Action Abstract Branch Transition</em>' container
-     *            reference.
+     *            the new value of the ' <em>Branch Action Abstract Branch Transition</em>'
+     *            container reference.
      * @see #getBranchAction_AbstractBranchTransition()
      * @generated
      */
     void setBranchAction_AbstractBranchTransition(BranchAction value);
 
     /**
-     * Returns the value of the '<em><b>Branch Behaviour Branch Transition</b></em>' containment
+     * Returns the value of the ' <em><b>Branch Behaviour Branch Transition</b></em>' containment
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
      * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}'. <!-- begin-user-doc -->
@@ -101,7 +102,7 @@ public interface AbstractBranchTransition extends Entity {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Branch Behaviour Branch Transition</em>' containment
+     *            the new value of the ' <em>Branch Behaviour Branch Transition</em>' containment
      *            reference.
      * @see #getBranchBehaviour_BranchTransition()
      * @generated

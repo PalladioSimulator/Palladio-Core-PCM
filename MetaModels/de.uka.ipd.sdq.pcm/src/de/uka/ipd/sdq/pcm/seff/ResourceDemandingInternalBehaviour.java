@@ -37,18 +37,19 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
 
     /**
      * Returns the value of the '
-     * <em><b>Resource Demanding SEFF Resource Demanding Internal Behaviour</b></em>' container
+     * <em><b>Resource Demanding SEFF Resource Demanding Internal Behaviour</b></em> ' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours
      * <em>Resource Demanding Internal Behaviours</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>
-     * ' container reference isn't clear, there really should be more of a description here...
+     * If the meaning of the '
+     * <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em> ' container reference
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container
+     *         <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em> ' container
      *         reference.
      * @see #setResourceDemandingSEFF_ResourceDemandingInternalBehaviour(ResourceDemandingSEFF)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingInternalBehaviour_ResourceDemandingSEFF_ResourceDemandingInternalBehaviour()
@@ -67,7 +68,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * 
      * @param value
      *            the new value of the '
-     *            <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container
+     *            <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em> ' container
      *            reference.
      * @see #getResourceDemandingSEFF_ResourceDemandingInternalBehaviour()
      * @generated

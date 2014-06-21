@@ -38,8 +38,8 @@ public class SeffReliabilityResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new SeffReliabilityResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new SeffReliabilityResourceImpl(uri);
         return result;
     }
 

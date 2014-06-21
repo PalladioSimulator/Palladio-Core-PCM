@@ -29,10 +29,10 @@ public interface QosReliabilityFactory extends EFactory {
             .init();
 
     /**
-     * Returns a new object of class '<em>Specified Reliability Annotation</em>'. <!--
+     * Returns a new object of class '<em>Specified Reliability Annotation</em> '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Specified Reliability Annotation</em>'.
+     * @return a new object of class '<em>Specified Reliability Annotation</em> '.
      * @generated
      */
     SpecifiedReliabilityAnnotation createSpecifiedReliabilityAnnotation();

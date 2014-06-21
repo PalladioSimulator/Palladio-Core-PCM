@@ -44,7 +44,7 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * 
      * @generated
      */
-    public LoopActionItemProvider(AdapterFactory adapterFactory) {
+    public LoopActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,12 +55,12 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,12 +73,12 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(SeffPackage.Literals.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION);
+            this.childrenFeatures.add(SeffPackage.Literals.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -87,7 +87,7 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -100,8 +100,8 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/LoopAction"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/LoopAction"));
     }
 
     /**
@@ -111,10 +111,10 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((LoopAction) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_LoopAction_type")
-                : getString("_UI_LoopAction_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((LoopAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_LoopAction_type") : this
+                .getString("_UI_LoopAction_type") + " " + label;
     }
 
     /**
@@ -125,12 +125,12 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(LoopAction.class)) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -143,10 +143,11 @@ public class LoopActionItemProvider extends AbstractLoopActionItemProvider imple
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(SeffPackage.Literals.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION,
+        newChildDescriptors.add(this.createChildParameter(
+                SeffPackage.Literals.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION,
                 CoreFactory.eINSTANCE.createPCMRandomVariable()));
     }
 

@@ -66,7 +66,7 @@ public interface RepositoryPackage extends EPackage {
     RepositoryPackage eINSTANCE = de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl.init();
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl
      * <em>Passive Resource</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl
@@ -112,7 +112,7 @@ public interface RepositoryPackage extends EPackage {
     int PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Resource Timeout Failure Type Passive Resource</b></em>'
+     * The feature id for the ' <em><b>Resource Timeout Failure Type Passive Resource</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -159,7 +159,7 @@ public interface RepositoryPackage extends EPackage {
     int REPOSITORY_COMPONENT__ENTITY_NAME = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -169,7 +169,7 @@ public interface RepositoryPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -178,7 +178,7 @@ public interface RepositoryPackage extends EPackage {
     int REPOSITORY_COMPONENT__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -234,7 +234,7 @@ public interface RepositoryPackage extends EPackage {
     int IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME = REPOSITORY_COMPONENT__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -244,7 +244,7 @@ public interface RepositoryPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -253,7 +253,7 @@ public interface RepositoryPackage extends EPackage {
     int IMPLEMENTATION_COMPONENT_TYPE__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = REPOSITORY_COMPONENT__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -299,8 +299,8 @@ public interface RepositoryPackage extends EPackage {
     int IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE = REPOSITORY_COMPONENT_FEATURE_COUNT + 2;
 
     /**
-     * The number of structural features of the '<em>Implementation Component Type</em>' class. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The number of structural features of the ' <em>Implementation Component Type</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
@@ -308,7 +308,7 @@ public interface RepositoryPackage extends EPackage {
     int IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT = REPOSITORY_COMPONENT_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl
      * <em>Basic Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl
@@ -336,7 +336,7 @@ public interface RepositoryPackage extends EPackage {
     int BASIC_COMPONENT__ENTITY_NAME = IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -346,7 +346,7 @@ public interface RepositoryPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -355,7 +355,7 @@ public interface RepositoryPackage extends EPackage {
     int BASIC_COMPONENT__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -401,7 +401,7 @@ public interface RepositoryPackage extends EPackage {
     int BASIC_COMPONENT__COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE;
 
     /**
-     * The feature id for the '<em><b>Service Effect Specifications Basic Component</b></em>'
+     * The feature id for the ' <em><b>Service Effect Specifications Basic Component</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -428,8 +428,8 @@ public interface RepositoryPackage extends EPackage {
     int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}
-     * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
+     * <em>Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
      * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
@@ -465,7 +465,7 @@ public interface RepositoryPackage extends EPackage {
     int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
      * <em>Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
@@ -475,7 +475,7 @@ public interface RepositoryPackage extends EPackage {
     int REQUIRED_ROLE = 17;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
      * <em>Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
@@ -485,7 +485,7 @@ public interface RepositoryPackage extends EPackage {
     int INTERFACE = 8;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl
      * <em>Repository</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl
@@ -495,7 +495,7 @@ public interface RepositoryPackage extends EPackage {
     int REPOSITORY = 7;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl
      * <em>Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl
@@ -516,7 +516,7 @@ public interface RepositoryPackage extends EPackage {
     int REQUIRED_CHARACTERISATION = 9;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl
      * <em>Parameter</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl
@@ -526,7 +526,7 @@ public interface RepositoryPackage extends EPackage {
     int PARAMETER = 5;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl
      * <em>Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl
@@ -536,7 +536,8 @@ public interface RepositoryPackage extends EPackage {
     int SIGNATURE = 12;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.OperationSignatureImpl
+     * The meta object id for the '
+     * {@link de.uka.ipd.sdq.pcm.repository.impl.OperationSignatureImpl
      * <em>Operation Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.OperationSignatureImpl
@@ -546,7 +547,7 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_SIGNATURE = 18;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
      * <em>Exception Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
@@ -556,7 +557,8 @@ public interface RepositoryPackage extends EPackage {
     int EXCEPTION_TYPE = 13;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.OperationInterfaceImpl
+     * The meta object id for the '
+     * {@link de.uka.ipd.sdq.pcm.repository.impl.OperationInterfaceImpl
      * <em>Operation Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.OperationInterfaceImpl
@@ -577,7 +579,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_SIGNATURE = 14;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.EventTypeImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.EventTypeImpl
      * <em>Event Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.EventTypeImpl
@@ -587,7 +589,7 @@ public interface RepositoryPackage extends EPackage {
     int EVENT_TYPE = 11;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.EventGroupImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.EventGroupImpl
      * <em>Event Group</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.EventGroupImpl
@@ -630,7 +632,7 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_REQUIRED_ROLE = 20;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SourceRoleImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.SourceRoleImpl
      * <em>Source Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.SourceRoleImpl
@@ -640,7 +642,7 @@ public interface RepositoryPackage extends EPackage {
     int SOURCE_ROLE = 21;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
      * <em>Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
@@ -697,7 +699,7 @@ public interface RepositoryPackage extends EPackage {
     int PROVIDED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.ComponentType
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.ComponentType
      * <em>Component Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.ComponentType
@@ -718,7 +720,8 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_REQUIRED_ROLE = 16;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl
+     * The meta object id for the '
+     * {@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl
      * <em>Composite Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl
@@ -728,7 +731,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_COMPONENT = 27;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl
      * <em>Sink Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl
@@ -749,7 +752,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_PROVIDED_ROLE = 24;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl
      * <em>Primitive Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl
@@ -759,7 +762,8 @@ public interface RepositoryPackage extends EPackage {
     int PRIMITIVE_DATA_TYPE = 28;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl
+     * The meta object id for the '
+     * {@link de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl
      * <em>Collection Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl
@@ -769,7 +773,7 @@ public interface RepositoryPackage extends EPackage {
     int COLLECTION_DATA_TYPE = 29;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl
      * <em>Composite Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl
@@ -779,7 +783,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_DATA_TYPE = 30;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl
      * <em>Inner Declaration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl
@@ -809,7 +813,7 @@ public interface RepositoryPackage extends EPackage {
     int PARAMETER__DATA_TYPE_PARAMETER = 0;
 
     /**
-     * The feature id for the '<em><b>Infrastructure Signature Parameter</b></em>' container
+     * The feature id for the ' <em><b>Infrastructure Signature Parameter</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1043,7 +1047,7 @@ public interface RepositoryPackage extends EPackage {
     int REQUIRED_CHARACTERISATION__PARAMETER = 1;
 
     /**
-     * The feature id for the '<em><b>Interface Required Characterisation</b></em>' container
+     * The feature id for the ' <em><b>Interface Required Characterisation</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1052,7 +1056,7 @@ public interface RepositoryPackage extends EPackage {
     int REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION = 2;
 
     /**
-     * The number of structural features of the '<em>Required Characterisation</em>' class. <!--
+     * The number of structural features of the ' <em>Required Characterisation</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1304,7 +1308,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_SIGNATURE__FAILURE_TYPE = SIGNATURE__FAILURE_TYPE;
 
     /**
-     * The feature id for the '<em><b>Parameters Infrastructure Signature</b></em>' containment
+     * The feature id for the ' <em><b>Parameters Infrastructure Signature</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1313,7 +1317,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE = SIGNATURE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Infrastructure Interface Infrastructure Signature</b></em>'
+     * The feature id for the ' <em><b>Infrastructure Interface Infrastructure Signature</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1322,7 +1326,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE = SIGNATURE_FEATURE_COUNT + 1;
 
     /**
-     * The number of structural features of the '<em>Infrastructure Signature</em>' class. <!--
+     * The number of structural features of the ' <em>Infrastructure Signature</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1385,7 +1389,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_INTERFACE__REPOSITORY_INTERFACE = INTERFACE__REPOSITORY_INTERFACE;
 
     /**
-     * The feature id for the '<em><b>Infrastructure Signatures Infrastructure Interface</b></em>'
+     * The feature id for the ' <em><b>Infrastructure Signatures Infrastructure Interface</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1394,7 +1398,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE = INTERFACE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Infrastructure Interface</em>' class. <!--
+     * The number of structural features of the ' <em>Infrastructure Interface</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1466,7 +1470,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE = REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE;
 
     /**
-     * The feature id for the '<em><b>Required Interface Infrastructure Required Role</b></em>'
+     * The feature id for the ' <em><b>Required Interface Infrastructure Required Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1475,7 +1479,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE = REQUIRED_ROLE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Infrastructure Required Role</em>' class. <!--
+     * The number of structural features of the ' <em>Infrastructure Required Role</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1655,7 +1659,7 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE = REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE;
 
     /**
-     * The feature id for the '<em><b>Required Interface Operation Required Role</b></em>'
+     * The feature id for the ' <em><b>Required Interface Operation Required Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1664,7 +1668,7 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE = REQUIRED_ROLE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Operation Required Role</em>' class. <!--
+     * The number of structural features of the ' <em>Operation Required Role</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1790,7 +1794,7 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE = PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE;
 
     /**
-     * The feature id for the '<em><b>Provided Interface Operation Provided Role</b></em>'
+     * The feature id for the ' <em><b>Provided Interface Operation Provided Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1799,7 +1803,7 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE = PROVIDED_ROLE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Operation Provided Role</em>' class. <!--
+     * The number of structural features of the ' <em>Operation Provided Role</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1835,7 +1839,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE = PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE;
 
     /**
-     * The feature id for the '<em><b>Provided Interface Infrastructure Provided Role</b></em>'
+     * The feature id for the ' <em><b>Provided Interface Infrastructure Provided Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1844,7 +1848,7 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE = PROVIDED_ROLE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Infrastructure Provided Role</em>' class. <!--
+     * The number of structural features of the ' <em>Infrastructure Provided Role</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1871,7 +1875,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPLETE_COMPONENT_TYPE__ENTITY_NAME = REPOSITORY_COMPONENT__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1881,7 +1885,7 @@ public interface RepositoryPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1890,7 +1894,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPLETE_COMPONENT_TYPE__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = REPOSITORY_COMPONENT__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1917,7 +1921,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES = REPOSITORY_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Complete Component Type</em>' class. <!--
+     * The number of structural features of the ' <em>Complete Component Type</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1944,7 +1948,7 @@ public interface RepositoryPackage extends EPackage {
     int PROVIDES_COMPONENT_TYPE__ENTITY_NAME = REPOSITORY_COMPONENT__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1954,7 +1958,7 @@ public interface RepositoryPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1963,7 +1967,7 @@ public interface RepositoryPackage extends EPackage {
     int PROVIDES_COMPONENT_TYPE__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = REPOSITORY_COMPONENT__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1981,7 +1985,7 @@ public interface RepositoryPackage extends EPackage {
     int PROVIDES_COMPONENT_TYPE__REPOSITORY_REPOSITORY_COMPONENT = REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT;
 
     /**
-     * The number of structural features of the '<em>Provides Component Type</em>' class. <!--
+     * The number of structural features of the ' <em>Provides Component Type</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2008,7 +2012,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_COMPONENT__ENTITY_NAME = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
+     * The feature id for the ' <em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2018,7 +2022,7 @@ public interface RepositoryPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
+     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2045,7 +2049,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_COMPONENT__CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2055,7 +2059,7 @@ public interface RepositoryPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2064,7 +2068,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_COMPONENT__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2227,7 +2231,7 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Inner Declaration Composite Data Type</b></em>' containment
+     * The feature id for the ' <em><b>Inner Declaration Composite Data Type</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2263,7 +2267,7 @@ public interface RepositoryPackage extends EPackage {
     int INNER_DECLARATION__DATATYPE_INNER_DECLARATION = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Composite Data Type Inner Declaration</b></em>' container
+     * The feature id for the ' <em><b>Composite Data Type Inner Declaration</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -2281,7 +2285,7 @@ public interface RepositoryPackage extends EPackage {
     int INNER_DECLARATION_FEATURE_COUNT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.ParameterModifier
      * <em>Parameter Modifier</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.ParameterModifier
@@ -2291,7 +2295,7 @@ public interface RepositoryPackage extends EPackage {
     int PARAMETER_MODIFIER = 33;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
      * <em>Primitive Type Enum</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
@@ -2301,7 +2305,7 @@ public interface RepositoryPackage extends EPackage {
     int PRIMITIVE_TYPE_ENUM = 35;
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.PassiveResource
      * <em>Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Passive Resource</em>'.
@@ -2315,7 +2319,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource
      * <em>Capacity Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference '<em>Capacity Passive Resource</em>'.
+     * @return the meta object for the containment reference ' <em>Capacity Passive Resource</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource()
      * @see #getPassiveResource()
      * @generated
@@ -2350,7 +2354,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getPassiveResource_ResourceTimeoutFailureType__PassiveResource();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.BasicComponent
      * <em>Basic Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Basic Component</em>'.
@@ -2391,7 +2395,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
      * <em>Implementation Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class '<em>Implementation Component Type</em>'.
+     * @return the meta object for class '<em>Implementation Component Type</em> '.
      * @see de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
      * @generated
      */
@@ -2402,7 +2406,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes
      * <em>Parent Complete Component Types</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference list '<em>Parent Complete Component Types</em>'.
+     * @return the meta object for the reference list ' <em>Parent Complete Component Types</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes()
      * @see #getImplementationComponentType()
      * @generated
@@ -2416,7 +2420,7 @@ public interface RepositoryPackage extends EPackage {
      * <!-- end-user-doc -->
      * 
      * @return the meta object for the containment reference list '
-     *         <em>Component Parameter Usage Implementation Component Type</em>'.
+     *         <em>Component Parameter Usage Implementation Component Type</em> '.
      * @see de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType()
      * @see #getImplementationComponentType()
      * @generated
@@ -2436,7 +2440,7 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getImplementationComponentType_ComponentType();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent
      * <em>Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Component</em>'.
@@ -2450,8 +2454,8 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
      * <em>Repository Repository Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Repository Repository Component</em>
-     *         '.
+     * @return the meta object for the container reference '
+     *         <em>Repository Repository Component</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent()
      * @see #getRepositoryComponent()
      * @generated
@@ -2459,8 +2463,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getRepositoryComponent_Repository__RepositoryComponent();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole
-     * <em>Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.RequiredRole
+     * <em>Required Role</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Required Role</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.RequiredRole
@@ -2473,7 +2477,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
      * <em>Requiring Entity Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Requiring Entity Required Role</em>
+     * @return the meta object for the container reference ' <em>Requiring Entity Required Role</em>
      *         '.
      * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole()
      * @see #getRequiredRole()
@@ -2482,8 +2486,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getRequiredRole_RequiringEntity_RequiredRole();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Role <em>Role</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.Role <em>Role</em>}
+     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Role</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Role
@@ -2492,7 +2496,7 @@ public interface RepositoryPackage extends EPackage {
     EClass getRole();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Interface
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.Interface
      * <em>Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Interface</em>'.
@@ -2506,7 +2510,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface
      * <em>Parent Interfaces Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference list '<em>Parent Interfaces Interface</em>'.
+     * @return the meta object for the reference list ' <em>Parent Interfaces Interface</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface()
      * @see #getInterface()
      * @generated
@@ -2518,7 +2522,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface
      * <em>Protocols Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Protocols Interface</em>'.
+     * @return the meta object for the containment reference list ' <em>Protocols Interface</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface()
      * @see #getInterface()
      * @generated
@@ -2543,7 +2547,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface
      * <em>Repository Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Repository Interface</em>'.
+     * @return the meta object for the container reference ' <em>Repository Interface</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface()
      * @see #getInterface()
      * @generated
@@ -2551,7 +2555,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getInterface_Repository__Interface();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Repository
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.Repository
      * <em>Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Repository</em>'.
@@ -2565,7 +2569,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryDescription
      * <em>Repository Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the attribute '<em>Repository Description</em>'.
+     * @return the meta object for the attribute ' <em>Repository Description</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryDescription()
      * @see #getRepository()
      * @generated
@@ -2577,7 +2581,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository
      * <em>Components Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Components Repository</em>'.
+     * @return the meta object for the containment reference list ' <em>Components Repository</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository()
      * @see #getRepository()
      * @generated
@@ -2589,8 +2593,8 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Repository#getFailureTypes__Repository
      * <em>Failure Types Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Failure Types Repository</em>
-     *         '.
+     * @return the meta object for the containment reference list '
+     *         <em>Failure Types Repository</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Repository#getFailureTypes__Repository()
      * @see #getRepository()
      * @generated
@@ -2602,7 +2606,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Repository#getDataTypes__Repository
      * <em>Data Types Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Data Types Repository</em>'.
+     * @return the meta object for the containment reference list ' <em>Data Types Repository</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Repository#getDataTypes__Repository()
      * @see #getRepository()
      * @generated
@@ -2614,7 +2618,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository
      * <em>Interfaces Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Interfaces Repository</em>'.
+     * @return the meta object for the containment reference list ' <em>Interfaces Repository</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository()
      * @see #getRepository()
      * @generated
@@ -2622,7 +2626,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getRepository_Interfaces__Repository();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.DataType
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.DataType
      * <em>Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Data Type</em>'.
@@ -2636,7 +2640,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.DataType#getRepository__DataType
      * <em>Repository Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Repository Data Type</em>'.
+     * @return the meta object for the container reference ' <em>Repository Data Type</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.DataType#getRepository__DataType()
      * @see #getDataType()
      * @generated
@@ -2692,7 +2696,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getRequiredCharacterisation_Interface_RequiredCharacterisation();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Parameter
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.Parameter
      * <em>Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Parameter</em>'.
@@ -2730,7 +2734,8 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getOperationSignature__Parameter
      * <em>Operation Signature Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Operation Signature Parameter</em>'.
+     * @return the meta object for the container reference ' <em>Operation Signature Parameter</em>
+     *         '.
      * @see de.uka.ipd.sdq.pcm.repository.Parameter#getOperationSignature__Parameter()
      * @see #getParameter()
      * @generated
@@ -2754,7 +2759,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter
      * <em>Resource Signature Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Resource Signature Parameter</em>'.
+     * @return the meta object for the container reference ' <em>Resource Signature Parameter</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter()
      * @see #getParameter()
      * @generated
@@ -2762,7 +2767,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getParameter_ResourceSignature__Parameter();
 
     /**
-     * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.repository.ComponentType
+     * Returns the meta object for enum ' {@link de.uka.ipd.sdq.pcm.repository.ComponentType
      * <em>Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for enum '<em>Component Type</em>'.
@@ -2789,7 +2794,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getEventType__Parameter
      * <em>Event Type Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Event Type Parameter</em>'.
+     * @return the meta object for the container reference ' <em>Event Type Parameter</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Parameter#getEventType__Parameter()
      * @see #getParameter()
      * @generated
@@ -2797,7 +2802,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getParameter_EventType__Parameter();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.OperationSignature
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.OperationSignature
      * <em>Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Operation Signature</em>'.
@@ -2811,7 +2816,8 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getInterface__OperationSignature
      * <em>Interface Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Interface Operation Signature</em>'.
+     * @return the meta object for the container reference ' <em>Interface Operation Signature</em>
+     *         '.
      * @see de.uka.ipd.sdq.pcm.repository.OperationSignature#getInterface__OperationSignature()
      * @see #getOperationSignature()
      * @generated
@@ -2823,7 +2829,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getReturnType__OperationSignature
      * <em>Return Type Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference '<em>Return Type Operation Signature</em>'.
+     * @return the meta object for the reference ' <em>Return Type Operation Signature</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.OperationSignature#getReturnType__OperationSignature()
      * @see #getOperationSignature()
      * @generated
@@ -2844,7 +2850,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationSignature_Parameters__OperationSignature();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Signature
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.Signature
      * <em>Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Signature</em>'.
@@ -2858,7 +2864,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.Signature#getExceptions__Signature
      * <em>Exceptions Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Exceptions Signature</em>'.
+     * @return the meta object for the containment reference list ' <em>Exceptions Signature</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.Signature#getExceptions__Signature()
      * @see #getSignature()
      * @generated
@@ -2878,7 +2884,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getSignature_FailureType();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.ExceptionType
      * <em>Exception Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Exception Type</em>'.
@@ -2912,7 +2918,7 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getExceptionType_ExceptionMessage();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.OperationInterface
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.OperationInterface
      * <em>Operation Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Operation Interface</em>'.
@@ -2977,7 +2983,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
      * <em>Infrastructure Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class '<em>Infrastructure Required Role</em>'.
+     * @return the meta object for class '<em>Infrastructure Required Role</em> '.
      * @see de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
      * @generated
      */
@@ -2998,7 +3004,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.EventType
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.EventType
      * <em>Event Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Event Type</em>'.
@@ -3012,7 +3018,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType
      * <em>Event Group Event Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Event Group Event Type</em>'.
+     * @return the meta object for the container reference ' <em>Event Group Event Type</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType()
      * @see #getEventType()
      * @generated
@@ -3024,7 +3030,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.EventType#getParameter__EventType
      * <em>Parameter Event Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference '<em>Parameter Event Type</em>'.
+     * @return the meta object for the containment reference ' <em>Parameter Event Type</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.EventType#getParameter__EventType()
      * @see #getEventType()
      * @generated
@@ -3032,7 +3038,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getEventType_Parameter__EventType();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.EventGroup
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.EventGroup
      * <em>Event Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Event Group</em>'.
@@ -3046,7 +3052,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.EventGroup#getEventTypes__EventGroup
      * <em>Event Types Event Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Event Types Event Group</em>
+     * @return the meta object for the containment reference list ' <em>Event Types Event Group</em>
      *         '.
      * @see de.uka.ipd.sdq.pcm.repository.EventGroup#getEventTypes__EventGroup()
      * @see #getEventGroup()
@@ -3070,7 +3076,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType#getParentProvidesComponentTypes
      * <em>Parent Provides Component Types</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference list '<em>Parent Provides Component Types</em>'.
+     * @return the meta object for the reference list ' <em>Parent Provides Component Types</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.CompleteComponentType#getParentProvidesComponentTypes()
      * @see #getCompleteComponentType()
      * @generated
@@ -3114,7 +3120,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationRequiredRole_RequiredInterface__OperationRequiredRole();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.SourceRole
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.SourceRole
      * <em>Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Source Role</em>'.
@@ -3128,7 +3134,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.SourceRole#getEventGroup__SourceRole
      * <em>Event Group Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference '<em>Event Group Source Role</em>'.
+     * @return the meta object for the reference ' <em>Event Group Source Role</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.SourceRole#getEventGroup__SourceRole()
      * @see #getSourceRole()
      * @generated
@@ -3140,7 +3146,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
      * <em>Infrastructure Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class '<em>Infrastructure Provided Role</em>'.
+     * @return the meta object for class '<em>Infrastructure Provided Role</em> '.
      * @see de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
      * @generated
      */
@@ -3186,7 +3192,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationProvidedRole_ProvidedInterface__OperationProvidedRole();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent
      * <em>Composite Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Composite Component</em>'.
@@ -3196,7 +3202,7 @@ public interface RepositoryPackage extends EPackage {
     EClass getCompositeComponent();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.SinkRole
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.SinkRole
      * <em>Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Sink Role</em>'.
@@ -3210,7 +3216,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.SinkRole#getEventGroup__SinkRole
      * <em>Event Group Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference '<em>Event Group Sink Role</em>'.
+     * @return the meta object for the reference '<em>Event Group Sink Role</em> '.
      * @see de.uka.ipd.sdq.pcm.repository.SinkRole#getEventGroup__SinkRole()
      * @see #getSinkRole()
      * @generated
@@ -3218,7 +3224,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getSinkRole_EventGroup__SinkRole();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
      * <em>Primitive Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Primitive Data Type</em>'.
@@ -3240,7 +3246,7 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getPrimitiveDataType_Type();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.CollectionDataType
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType
      * <em>Collection Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Collection Data Type</em>'.
@@ -3254,7 +3260,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerType_CollectionDataType
      * <em>Inner Type Collection Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference '<em>Inner Type Collection Data Type</em>'.
+     * @return the meta object for the reference ' <em>Inner Type Collection Data Type</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerType_CollectionDataType()
      * @see #getCollectionDataType()
      * @generated
@@ -3262,7 +3268,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getCollectionDataType_InnerType_CollectionDataType();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType
      * <em>Composite Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Composite Data Type</em>'.
@@ -3276,7 +3282,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType
      * <em>Parent Type Composite Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference list '<em>Parent Type Composite Data Type</em>'.
+     * @return the meta object for the reference list ' <em>Parent Type Composite Data Type</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType()
      * @see #getCompositeDataType()
      * @generated
@@ -3298,7 +3304,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getCompositeDataType_InnerDeclaration_CompositeDataType();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration
      * <em>Inner Declaration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Inner Declaration</em>'.
@@ -3312,7 +3318,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration
      * <em>Datatype Inner Declaration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference '<em>Datatype Inner Declaration</em>'.
+     * @return the meta object for the reference ' <em>Datatype Inner Declaration</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration()
      * @see #getInnerDeclaration()
      * @generated
@@ -3359,8 +3365,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole
-     * <em>Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole
+     * <em>Provided Role</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Provided Role</em>'.
      * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole
@@ -3373,7 +3379,7 @@ public interface RepositoryPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
      * <em>Providing Entity Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Providing Entity Provided Role</em>
+     * @return the meta object for the container reference ' <em>Providing Entity Provided Role</em>
      *         '.
      * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole()
      * @see #getProvidedRole()
@@ -3382,7 +3388,7 @@ public interface RepositoryPackage extends EPackage {
     EReference getProvidedRole_ProvidingEntity_ProvidedRole();
 
     /**
-     * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier
+     * Returns the meta object for enum ' {@link de.uka.ipd.sdq.pcm.repository.ParameterModifier
      * <em>Parameter Modifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for enum '<em>Parameter Modifier</em>'.
@@ -3392,7 +3398,7 @@ public interface RepositoryPackage extends EPackage {
     EEnum getParameterModifier();
 
     /**
-     * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
+     * Returns the meta object for enum ' {@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
      * <em>Primitive Type Enum</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for enum '<em>Primitive Type Enum</em>'.
@@ -3435,7 +3441,7 @@ public interface RepositoryPackage extends EPackage {
         EClass PASSIVE_RESOURCE = eINSTANCE.getPassiveResource();
 
         /**
-         * The meta object literal for the '<em><b>Capacity Passive Resource</b></em>' containment
+         * The meta object literal for the ' <em><b>Capacity Passive Resource</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3444,7 +3450,7 @@ public interface RepositoryPackage extends EPackage {
                 .getPassiveResource_Capacity_PassiveResource();
 
         /**
-         * The meta object literal for the '<em><b>Basic Component Passive Resource</b></em>'
+         * The meta object literal for the ' <em><b>Basic Component Passive Resource</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3484,7 +3490,7 @@ public interface RepositoryPackage extends EPackage {
                 .getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
         /**
-         * The meta object literal for the '<em><b>Passive Resource Basic Component</b></em>'
+         * The meta object literal for the ' <em><b>Passive Resource Basic Component</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3505,7 +3511,7 @@ public interface RepositoryPackage extends EPackage {
         EClass IMPLEMENTATION_COMPONENT_TYPE = eINSTANCE.getImplementationComponentType();
 
         /**
-         * The meta object literal for the '<em><b>Parent Complete Component Types</b></em>'
+         * The meta object literal for the ' <em><b>Parent Complete Component Types</b></em>'
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3515,7 +3521,7 @@ public interface RepositoryPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Component Parameter Usage Implementation Component Type</b></em>' containment
+         * <em><b>Component Parameter Usage Implementation Component Type</b></em> ' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3544,7 +3550,7 @@ public interface RepositoryPackage extends EPackage {
         EClass REPOSITORY_COMPONENT = eINSTANCE.getRepositoryComponent();
 
         /**
-         * The meta object literal for the '<em><b>Repository Repository Component</b></em>'
+         * The meta object literal for the ' <em><b>Repository Repository Component</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3564,7 +3570,7 @@ public interface RepositoryPackage extends EPackage {
         EClass REQUIRED_ROLE = eINSTANCE.getRequiredRole();
 
         /**
-         * The meta object literal for the '<em><b>Requiring Entity Required Role</b></em>'
+         * The meta object literal for the ' <em><b>Requiring Entity Required Role</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3573,7 +3579,7 @@ public interface RepositoryPackage extends EPackage {
                 .getRequiredRole_RequiringEntity_RequiredRole();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
          * <em>Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
@@ -3583,8 +3589,9 @@ public interface RepositoryPackage extends EPackage {
         EClass ROLE = eINSTANCE.getRole();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
-         * <em>Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '
+         * {@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
          * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
@@ -3593,7 +3600,7 @@ public interface RepositoryPackage extends EPackage {
         EClass INTERFACE = eINSTANCE.getInterface();
 
         /**
-         * The meta object literal for the '<em><b>Parent Interfaces Interface</b></em>' reference
+         * The meta object literal for the ' <em><b>Parent Interfaces Interface</b></em>' reference
          * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3609,7 +3616,7 @@ public interface RepositoryPackage extends EPackage {
         EReference INTERFACE__PROTOCOLS_INTERFACE = eINSTANCE.getInterface_Protocols__Interface();
 
         /**
-         * The meta object literal for the '<em><b>Repository Interface</b></em>' container
+         * The meta object literal for the '<em><b>Repository Interface</b></em> ' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3617,7 +3624,7 @@ public interface RepositoryPackage extends EPackage {
         EReference INTERFACE__REPOSITORY_INTERFACE = eINSTANCE.getInterface_Repository__Interface();
 
         /**
-         * The meta object literal for the '<em><b>Required Characterisations</b></em>' containment
+         * The meta object literal for the ' <em><b>Required Characterisations</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3636,7 +3643,7 @@ public interface RepositoryPackage extends EPackage {
         EClass REPOSITORY = eINSTANCE.getRepository();
 
         /**
-         * The meta object literal for the '<em><b>Repository Description</b></em>' attribute
+         * The meta object literal for the ' <em><b>Repository Description</b></em>' attribute
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3644,7 +3651,7 @@ public interface RepositoryPackage extends EPackage {
         EAttribute REPOSITORY__REPOSITORY_DESCRIPTION = eINSTANCE.getRepository_RepositoryDescription();
 
         /**
-         * The meta object literal for the '<em><b>Components Repository</b></em>' containment
+         * The meta object literal for the ' <em><b>Components Repository</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3652,7 +3659,7 @@ public interface RepositoryPackage extends EPackage {
         EReference REPOSITORY__COMPONENTS_REPOSITORY = eINSTANCE.getRepository_Components__Repository();
 
         /**
-         * The meta object literal for the '<em><b>Failure Types Repository</b></em>' containment
+         * The meta object literal for the ' <em><b>Failure Types Repository</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3660,7 +3667,7 @@ public interface RepositoryPackage extends EPackage {
         EReference REPOSITORY__FAILURE_TYPES_REPOSITORY = eINSTANCE.getRepository_FailureTypes__Repository();
 
         /**
-         * The meta object literal for the '<em><b>Data Types Repository</b></em>' containment
+         * The meta object literal for the ' <em><b>Data Types Repository</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3668,7 +3675,7 @@ public interface RepositoryPackage extends EPackage {
         EReference REPOSITORY__DATA_TYPES_REPOSITORY = eINSTANCE.getRepository_DataTypes__Repository();
 
         /**
-         * The meta object literal for the '<em><b>Interfaces Repository</b></em>' containment
+         * The meta object literal for the ' <em><b>Interfaces Repository</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3676,7 +3683,7 @@ public interface RepositoryPackage extends EPackage {
         EReference REPOSITORY__INTERFACES_REPOSITORY = eINSTANCE.getRepository_Interfaces__Repository();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl
          * <em>Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl
@@ -3686,7 +3693,7 @@ public interface RepositoryPackage extends EPackage {
         EClass DATA_TYPE = eINSTANCE.getDataType();
 
         /**
-         * The meta object literal for the '<em><b>Repository Data Type</b></em>' container
+         * The meta object literal for the '<em><b>Repository Data Type</b></em> ' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3721,7 +3728,7 @@ public interface RepositoryPackage extends EPackage {
         EReference REQUIRED_CHARACTERISATION__PARAMETER = eINSTANCE.getRequiredCharacterisation_Parameter();
 
         /**
-         * The meta object literal for the '<em><b>Interface Required Characterisation</b></em>'
+         * The meta object literal for the ' <em><b>Interface Required Characterisation</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3730,8 +3737,9 @@ public interface RepositoryPackage extends EPackage {
                 .getRequiredCharacterisation_Interface_RequiredCharacterisation();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl
-         * <em>Parameter</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '
+         * {@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl <em>Parameter</em>}' class. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl
          * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameter()
@@ -3756,8 +3764,8 @@ public interface RepositoryPackage extends EPackage {
         EAttribute PARAMETER__MODIFIER_PARAMETER = eINSTANCE.getParameter_Modifier__Parameter();
 
         /**
-         * The meta object literal for the '<em><b>Operation Signature Parameter</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Operation Signature Parameter</b></em>'
+         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -3772,7 +3780,7 @@ public interface RepositoryPackage extends EPackage {
         EReference PARAMETER__DATA_TYPE_PARAMETER = eINSTANCE.getParameter_DataType__Parameter();
 
         /**
-         * The meta object literal for the '<em><b>Resource Signature Parameter</b></em>' container
+         * The meta object literal for the ' <em><b>Resource Signature Parameter</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3780,7 +3788,7 @@ public interface RepositoryPackage extends EPackage {
         EReference PARAMETER__RESOURCE_SIGNATURE_PARAMETER = eINSTANCE.getParameter_ResourceSignature__Parameter();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.ComponentType
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.repository.ComponentType
          * <em>Component Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.ComponentType
@@ -3790,7 +3798,7 @@ public interface RepositoryPackage extends EPackage {
         EEnum COMPONENT_TYPE = eINSTANCE.getComponentType();
 
         /**
-         * The meta object literal for the '<em><b>Infrastructure Signature Parameter</b></em>'
+         * The meta object literal for the ' <em><b>Infrastructure Signature Parameter</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3799,7 +3807,7 @@ public interface RepositoryPackage extends EPackage {
                 .getParameter_InfrastructureSignature__Parameter();
 
         /**
-         * The meta object literal for the '<em><b>Event Type Parameter</b></em>' container
+         * The meta object literal for the '<em><b>Event Type Parameter</b></em> ' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3818,8 +3826,8 @@ public interface RepositoryPackage extends EPackage {
         EClass OPERATION_SIGNATURE = eINSTANCE.getOperationSignature();
 
         /**
-         * The meta object literal for the '<em><b>Interface Operation Signature</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Interface Operation Signature</b></em>'
+         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -3827,7 +3835,7 @@ public interface RepositoryPackage extends EPackage {
                 .getOperationSignature_Interface__OperationSignature();
 
         /**
-         * The meta object literal for the '<em><b>Return Type Operation Signature</b></em>'
+         * The meta object literal for the ' <em><b>Return Type Operation Signature</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3836,7 +3844,7 @@ public interface RepositoryPackage extends EPackage {
                 .getOperationSignature_ReturnType__OperationSignature();
 
         /**
-         * The meta object literal for the '<em><b>Parameters Operation Signature</b></em>'
+         * The meta object literal for the ' <em><b>Parameters Operation Signature</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3845,8 +3853,9 @@ public interface RepositoryPackage extends EPackage {
                 .getOperationSignature_Parameters__OperationSignature();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl
-         * <em>Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '
+         * {@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl
          * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getSignature()
@@ -3855,7 +3864,7 @@ public interface RepositoryPackage extends EPackage {
         EClass SIGNATURE = eINSTANCE.getSignature();
 
         /**
-         * The meta object literal for the '<em><b>Exceptions Signature</b></em>' containment
+         * The meta object literal for the '<em><b>Exceptions Signature</b></em> ' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3909,7 +3918,7 @@ public interface RepositoryPackage extends EPackage {
         EClass OPERATION_INTERFACE = eINSTANCE.getOperationInterface();
 
         /**
-         * The meta object literal for the '<em><b>Signatures Operation Interface</b></em>'
+         * The meta object literal for the ' <em><b>Signatures Operation Interface</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3929,7 +3938,7 @@ public interface RepositoryPackage extends EPackage {
         EClass INFRASTRUCTURE_SIGNATURE = eINSTANCE.getInfrastructureSignature();
 
         /**
-         * The meta object literal for the '<em><b>Parameters Infrastructure Signature</b></em>'
+         * The meta object literal for the ' <em><b>Parameters Infrastructure Signature</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3970,8 +3979,9 @@ public interface RepositoryPackage extends EPackage {
                 .getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.EventTypeImpl
-         * <em>Event Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '
+         * {@link de.uka.ipd.sdq.pcm.repository.impl.EventTypeImpl <em>Event Type</em>}' class. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.impl.EventTypeImpl
          * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getEventType()
@@ -3980,7 +3990,7 @@ public interface RepositoryPackage extends EPackage {
         EClass EVENT_TYPE = eINSTANCE.getEventType();
 
         /**
-         * The meta object literal for the '<em><b>Event Group Event Type</b></em>' container
+         * The meta object literal for the ' <em><b>Event Group Event Type</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -3988,7 +3998,7 @@ public interface RepositoryPackage extends EPackage {
         EReference EVENT_TYPE__EVENT_GROUP_EVENT_TYPE = eINSTANCE.getEventType_EventGroup__EventType();
 
         /**
-         * The meta object literal for the '<em><b>Parameter Event Type</b></em>' containment
+         * The meta object literal for the '<em><b>Parameter Event Type</b></em> ' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4007,7 +4017,7 @@ public interface RepositoryPackage extends EPackage {
         EClass EVENT_GROUP = eINSTANCE.getEventGroup();
 
         /**
-         * The meta object literal for the '<em><b>Event Types Event Group</b></em>' containment
+         * The meta object literal for the ' <em><b>Event Types Event Group</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4026,7 +4036,7 @@ public interface RepositoryPackage extends EPackage {
         EClass COMPLETE_COMPONENT_TYPE = eINSTANCE.getCompleteComponentType();
 
         /**
-         * The meta object literal for the '<em><b>Parent Provides Component Types</b></em>'
+         * The meta object literal for the ' <em><b>Parent Provides Component Types</b></em>'
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4078,7 +4088,7 @@ public interface RepositoryPackage extends EPackage {
         EClass SOURCE_ROLE = eINSTANCE.getSourceRole();
 
         /**
-         * The meta object literal for the '<em><b>Event Group Source Role</b></em>' reference
+         * The meta object literal for the ' <em><b>Event Group Source Role</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4140,7 +4150,7 @@ public interface RepositoryPackage extends EPackage {
         EClass COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl
          * <em>Sink Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.impl.SinkRoleImpl
@@ -4150,7 +4160,7 @@ public interface RepositoryPackage extends EPackage {
         EClass SINK_ROLE = eINSTANCE.getSinkRole();
 
         /**
-         * The meta object literal for the '<em><b>Event Group Sink Role</b></em>' reference
+         * The meta object literal for the ' <em><b>Event Group Sink Role</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4188,7 +4198,7 @@ public interface RepositoryPackage extends EPackage {
         EClass COLLECTION_DATA_TYPE = eINSTANCE.getCollectionDataType();
 
         /**
-         * The meta object literal for the '<em><b>Inner Type Collection Data Type</b></em>'
+         * The meta object literal for the ' <em><b>Inner Type Collection Data Type</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4208,7 +4218,7 @@ public interface RepositoryPackage extends EPackage {
         EClass COMPOSITE_DATA_TYPE = eINSTANCE.getCompositeDataType();
 
         /**
-         * The meta object literal for the '<em><b>Parent Type Composite Data Type</b></em>'
+         * The meta object literal for the ' <em><b>Parent Type Composite Data Type</b></em>'
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4217,7 +4227,7 @@ public interface RepositoryPackage extends EPackage {
                 .getCompositeDataType_ParentType_CompositeDataType();
 
         /**
-         * The meta object literal for the '<em><b>Inner Declaration Composite Data Type</b></em>'
+         * The meta object literal for the ' <em><b>Inner Declaration Composite Data Type</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4237,7 +4247,7 @@ public interface RepositoryPackage extends EPackage {
         EClass INNER_DECLARATION = eINSTANCE.getInnerDeclaration();
 
         /**
-         * The meta object literal for the '<em><b>Datatype Inner Declaration</b></em>' reference
+         * The meta object literal for the ' <em><b>Datatype Inner Declaration</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4246,7 +4256,7 @@ public interface RepositoryPackage extends EPackage {
                 .getInnerDeclaration_Datatype_InnerDeclaration();
 
         /**
-         * The meta object literal for the '<em><b>Composite Data Type Inner Declaration</b></em>'
+         * The meta object literal for the ' <em><b>Composite Data Type Inner Declaration</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4287,7 +4297,7 @@ public interface RepositoryPackage extends EPackage {
         EClass PROVIDED_ROLE = eINSTANCE.getProvidedRole();
 
         /**
-         * The meta object literal for the '<em><b>Providing Entity Provided Role</b></em>'
+         * The meta object literal for the ' <em><b>Providing Entity Provided Role</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -4296,7 +4306,7 @@ public interface RepositoryPackage extends EPackage {
                 .getProvidedRole_ProvidingEntity_ProvidedRole();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.repository.ParameterModifier
          * <em>Parameter Modifier</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.ParameterModifier
@@ -4306,7 +4316,7 @@ public interface RepositoryPackage extends EPackage {
         EEnum PARAMETER_MODIFIER = eINSTANCE.getParameterModifier();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
          * <em>Primitive Type Enum</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum

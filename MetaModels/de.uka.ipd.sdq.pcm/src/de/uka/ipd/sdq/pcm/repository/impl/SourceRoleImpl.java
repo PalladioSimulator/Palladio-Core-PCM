@@ -16,12 +16,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Source Role</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Source Role</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SourceRoleImpl#getEventGroup__SourceRole <em>Event
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.SourceRoleImpl#getEventGroup__SourceRole <em>Event
  * Group Source Role</em>}</li>
  * </ul>
  * </p>
@@ -70,18 +71,20 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      * 
      * @generated
      */
+    @Override
     public EventGroup getEventGroup__SourceRole() {
-        if (eventGroup__SourceRole != null && ((EObject) eventGroup__SourceRole).eIsProxy()) {
-            InternalEObject oldEventGroup__SourceRole = (InternalEObject) eventGroup__SourceRole;
-            eventGroup__SourceRole = (EventGroup) eResolveProxy(oldEventGroup__SourceRole);
-            if (eventGroup__SourceRole != oldEventGroup__SourceRole) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.eventGroup__SourceRole != null && ((EObject) this.eventGroup__SourceRole).eIsProxy()) {
+            final InternalEObject oldEventGroup__SourceRole = (InternalEObject) this.eventGroup__SourceRole;
+            this.eventGroup__SourceRole = (EventGroup) this.eResolveProxy(oldEventGroup__SourceRole);
+            if (this.eventGroup__SourceRole != oldEventGroup__SourceRole) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, oldEventGroup__SourceRole,
-                            eventGroup__SourceRole));
+                            this.eventGroup__SourceRole));
+                }
             }
         }
-        return eventGroup__SourceRole;
+        return this.eventGroup__SourceRole;
     }
 
     /**
@@ -90,21 +93,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      * @generated
      */
     public EventGroup basicGetEventGroup__SourceRole() {
-        return eventGroup__SourceRole;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setEventGroup__SourceRole(EventGroup newEventGroup__SourceRole) {
-        EventGroup oldEventGroup__SourceRole = eventGroup__SourceRole;
-        eventGroup__SourceRole = newEventGroup__SourceRole;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, oldEventGroup__SourceRole,
-                    eventGroup__SourceRole));
+        return this.eventGroup__SourceRole;
     }
 
     /**
@@ -113,12 +102,29 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setEventGroup__SourceRole(final EventGroup newEventGroup__SourceRole) {
+        final EventGroup oldEventGroup__SourceRole = this.eventGroup__SourceRole;
+        this.eventGroup__SourceRole = newEventGroup__SourceRole;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, oldEventGroup__SourceRole,
+                    this.eventGroup__SourceRole));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
-            if (resolve)
-                return getEventGroup__SourceRole();
-            return basicGetEventGroup__SourceRole();
+            if (resolve) {
+                return this.getEventGroup__SourceRole();
+            }
+            return this.basicGetEventGroup__SourceRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -129,10 +135,10 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
-            setEventGroup__SourceRole((EventGroup) newValue);
+            this.setEventGroup__SourceRole((EventGroup) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -144,10 +150,10 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
-            setEventGroup__SourceRole((EventGroup) null);
+            this.setEventGroup__SourceRole((EventGroup) null);
             return;
         }
         super.eUnset(featureID);
@@ -159,10 +165,10 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
-            return eventGroup__SourceRole != null;
+            return this.eventGroup__SourceRole != null;
         }
         return super.eIsSet(featureID);
     }

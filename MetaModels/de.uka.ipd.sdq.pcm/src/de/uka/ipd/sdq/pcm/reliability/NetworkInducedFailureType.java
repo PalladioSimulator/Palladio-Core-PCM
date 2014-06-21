@@ -46,19 +46,20 @@ public interface NetworkInducedFailureType extends FailureType {
 
     /**
      * Returns the value of the '
-     * <em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference. It
+     * <em><b>Communication Link Resource Type Network Induced Failure Type</b></em> ' reference. It
      * is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType
      * <em>Network Induced Failure Type Communication Link Resource Type</em>}'. <!-- begin-user-doc
      * -->
      * <p>
-     * If the meaning of the '<em>Communication Link Resource Type Network Induced Failure Type</em>
-     * ' reference isn't clear, there really should be more of a description here...
+     * If the meaning of the '
+     * <em>Communication Link Resource Type Network Induced Failure Type</em> ' reference isn't
+     * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Communication Link Resource Type Network Induced Failure Type</em>' reference.
+     *         <em>Communication Link Resource Type Network Induced Failure Type</em> ' reference.
      * @see #setCommunicationLinkResourceType__NetworkInducedFailureType(CommunicationLinkResourceType)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType()
      * @see de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType
@@ -76,7 +77,8 @@ public interface NetworkInducedFailureType extends FailureType {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Communication Link Resource Type Network Induced Failure Type</em>' reference.
+     *            <em>Communication Link Resource Type Network Induced Failure Type</em> '
+     *            reference.
      * @see #getCommunicationLinkResourceType__NetworkInducedFailureType()
      * @generated
      */

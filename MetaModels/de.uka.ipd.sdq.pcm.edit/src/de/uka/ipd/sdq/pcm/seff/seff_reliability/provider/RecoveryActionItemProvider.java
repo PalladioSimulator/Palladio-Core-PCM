@@ -48,7 +48,7 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * 
      * @generated
      */
-    public RecoveryActionItemProvider(AdapterFactory adapterFactory) {
+    public RecoveryActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -59,13 +59,13 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addPrimaryBehaviour__RecoveryActionPropertyDescriptor(object);
+            this.addPrimaryBehaviour__RecoveryActionPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -74,12 +74,11 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * 
      * @generated
      */
-    protected void addPrimaryBehaviour__RecoveryActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addPrimaryBehaviour__RecoveryActionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature", "_UI_RecoveryAction_type"),
                 SeffReliabilityPackage.Literals.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION, true, false, true,
                 null, null, null));
@@ -95,13 +94,13 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -110,7 +109,7 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -123,8 +122,8 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/RecoveryAction"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/RecoveryAction"));
     }
 
     /**
@@ -134,10 +133,10 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((RecoveryAction) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_RecoveryAction_type")
-                : getString("_UI_RecoveryAction_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((RecoveryAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_RecoveryAction_type") : this
+                .getString("_UI_RecoveryAction_type") + " " + label;
     }
 
     /**
@@ -148,12 +147,12 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(RecoveryAction.class)) {
         case SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -166,10 +165,10 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
                 SeffReliabilityFactory.eINSTANCE.createRecoveryActionBehaviour()));
     }

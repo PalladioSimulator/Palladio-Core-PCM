@@ -26,17 +26,20 @@ import de.uka.ipd.sdq.pcm.seff.EmitEventAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Emit Event Action</b></em>
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Emit Event Action</b></em>
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl#getInputVariableUsages__CallAction
- * <em>Input Variable Usages Call Action</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl#getEventType__EmitEventAction <em>
- * Event Type Emit Event Action</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl#getSourceRole__EmitEventAction <em>
- * Source Role Emit Event Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl#getInputVariableUsages__CallAction <em>
+ * Input Variable Usages Call Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl#getEventType__EmitEventAction <em>Event
+ * Type Emit Event Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.impl.EmitEventActionImpl#getSourceRole__EmitEventAction <em>Source
+ * Role Emit Event Action</em>}</li>
  * </ul>
  * </p>
  * 
@@ -107,13 +110,14 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * 
      * @generated
      */
+    @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
-        if (inputVariableUsages__CallAction == null) {
-            inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
+        if (this.inputVariableUsages__CallAction == null) {
+            this.inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
                     VariableUsage.class, this, SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
                     ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE);
         }
-        return inputVariableUsages__CallAction;
+        return this.inputVariableUsages__CallAction;
     }
 
     /**
@@ -121,18 +125,20 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * 
      * @generated
      */
+    @Override
     public EventType getEventType__EmitEventAction() {
-        if (eventType__EmitEventAction != null && ((EObject) eventType__EmitEventAction).eIsProxy()) {
-            InternalEObject oldEventType__EmitEventAction = (InternalEObject) eventType__EmitEventAction;
-            eventType__EmitEventAction = (EventType) eResolveProxy(oldEventType__EmitEventAction);
-            if (eventType__EmitEventAction != oldEventType__EmitEventAction) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.eventType__EmitEventAction != null && ((EObject) this.eventType__EmitEventAction).eIsProxy()) {
+            final InternalEObject oldEventType__EmitEventAction = (InternalEObject) this.eventType__EmitEventAction;
+            this.eventType__EmitEventAction = (EventType) this.eResolveProxy(oldEventType__EmitEventAction);
+            if (this.eventType__EmitEventAction != oldEventType__EmitEventAction) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, oldEventType__EmitEventAction,
-                            eventType__EmitEventAction));
+                            this.eventType__EmitEventAction));
+                }
             }
         }
-        return eventType__EmitEventAction;
+        return this.eventType__EmitEventAction;
     }
 
     /**
@@ -141,7 +147,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     public EventType basicGetEventType__EmitEventAction() {
-        return eventType__EmitEventAction;
+        return this.eventType__EmitEventAction;
     }
 
     /**
@@ -149,13 +155,15 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * 
      * @generated
      */
-    public void setEventType__EmitEventAction(EventType newEventType__EmitEventAction) {
-        EventType oldEventType__EmitEventAction = eventType__EmitEventAction;
-        eventType__EmitEventAction = newEventType__EmitEventAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    @Override
+    public void setEventType__EmitEventAction(final EventType newEventType__EmitEventAction) {
+        final EventType oldEventType__EmitEventAction = this.eventType__EmitEventAction;
+        this.eventType__EmitEventAction = newEventType__EmitEventAction;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, oldEventType__EmitEventAction,
-                    eventType__EmitEventAction));
+                    this.eventType__EmitEventAction));
+        }
     }
 
     /**
@@ -163,18 +171,20 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * 
      * @generated
      */
+    @Override
     public SourceRole getSourceRole__EmitEventAction() {
-        if (sourceRole__EmitEventAction != null && ((EObject) sourceRole__EmitEventAction).eIsProxy()) {
-            InternalEObject oldSourceRole__EmitEventAction = (InternalEObject) sourceRole__EmitEventAction;
-            sourceRole__EmitEventAction = (SourceRole) eResolveProxy(oldSourceRole__EmitEventAction);
-            if (sourceRole__EmitEventAction != oldSourceRole__EmitEventAction) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.sourceRole__EmitEventAction != null && ((EObject) this.sourceRole__EmitEventAction).eIsProxy()) {
+            final InternalEObject oldSourceRole__EmitEventAction = (InternalEObject) this.sourceRole__EmitEventAction;
+            this.sourceRole__EmitEventAction = (SourceRole) this.eResolveProxy(oldSourceRole__EmitEventAction);
+            if (this.sourceRole__EmitEventAction != oldSourceRole__EmitEventAction) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION,
-                            oldSourceRole__EmitEventAction, sourceRole__EmitEventAction));
+                            oldSourceRole__EmitEventAction, this.sourceRole__EmitEventAction));
+                }
             }
         }
-        return sourceRole__EmitEventAction;
+        return this.sourceRole__EmitEventAction;
     }
 
     /**
@@ -183,7 +193,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     public SourceRole basicGetSourceRole__EmitEventAction() {
-        return sourceRole__EmitEventAction;
+        return this.sourceRole__EmitEventAction;
     }
 
     /**
@@ -191,13 +201,15 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * 
      * @generated
      */
-    public void setSourceRole__EmitEventAction(SourceRole newSourceRole__EmitEventAction) {
-        SourceRole oldSourceRole__EmitEventAction = sourceRole__EmitEventAction;
-        sourceRole__EmitEventAction = newSourceRole__EmitEventAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    @Override
+    public void setSourceRole__EmitEventAction(final SourceRole newSourceRole__EmitEventAction) {
+        final SourceRole oldSourceRole__EmitEventAction = this.sourceRole__EmitEventAction;
+        this.sourceRole__EmitEventAction = newSourceRole__EmitEventAction;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION, oldSourceRole__EmitEventAction,
-                    sourceRole__EmitEventAction));
+                    this.sourceRole__EmitEventAction));
+        }
     }
 
     /**
@@ -207,11 +219,12 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getInputVariableUsages__CallAction()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInputVariableUsages__CallAction())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -222,10 +235,11 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return ((InternalEList<?>) getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -236,18 +250,20 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return getInputVariableUsages__CallAction();
+            return this.getInputVariableUsages__CallAction();
         case SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION:
-            if (resolve)
-                return getEventType__EmitEventAction();
-            return basicGetEventType__EmitEventAction();
+            if (resolve) {
+                return this.getEventType__EmitEventAction();
+            }
+            return this.basicGetEventType__EmitEventAction();
         case SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION:
-            if (resolve)
-                return getSourceRole__EmitEventAction();
-            return basicGetSourceRole__EmitEventAction();
+            if (resolve) {
+                return this.getSourceRole__EmitEventAction();
+            }
+            return this.basicGetSourceRole__EmitEventAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -259,17 +275,17 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            getInputVariableUsages__CallAction().clear();
-            getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
+            this.getInputVariableUsages__CallAction().clear();
+            this.getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
             return;
         case SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION:
-            setEventType__EmitEventAction((EventType) newValue);
+            this.setEventType__EmitEventAction((EventType) newValue);
             return;
         case SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION:
-            setSourceRole__EmitEventAction((SourceRole) newValue);
+            this.setSourceRole__EmitEventAction((SourceRole) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -281,16 +297,16 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            getInputVariableUsages__CallAction().clear();
+            this.getInputVariableUsages__CallAction().clear();
             return;
         case SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION:
-            setEventType__EmitEventAction((EventType) null);
+            this.setEventType__EmitEventAction((EventType) null);
             return;
         case SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION:
-            setSourceRole__EmitEventAction((SourceRole) null);
+            this.setSourceRole__EmitEventAction((SourceRole) null);
             return;
         }
         super.eUnset(featureID);
@@ -302,14 +318,14 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return inputVariableUsages__CallAction != null && !inputVariableUsages__CallAction.isEmpty();
+            return this.inputVariableUsages__CallAction != null && !this.inputVariableUsages__CallAction.isEmpty();
         case SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION:
-            return eventType__EmitEventAction != null;
+            return this.eventType__EmitEventAction != null;
         case SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION:
-            return sourceRole__EmitEventAction != null;
+            return this.sourceRole__EmitEventAction != null;
         }
         return super.eIsSet(featureID);
     }
@@ -320,7 +336,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
         if (baseClass == CallAction.class) {
             switch (derivedFeatureID) {
             case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
@@ -338,7 +354,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
         if (baseClass == CallAction.class) {
             switch (baseFeatureID) {
             case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:

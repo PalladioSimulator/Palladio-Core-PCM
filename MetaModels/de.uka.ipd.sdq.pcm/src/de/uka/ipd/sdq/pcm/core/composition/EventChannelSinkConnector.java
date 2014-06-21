@@ -43,7 +43,7 @@ public interface EventChannelSinkConnector extends Connector {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Sink Role Event Channel Sink Connector</b></em>' reference.
+     * Returns the value of the ' <em><b>Sink Role Event Channel Sink Connector</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Sink Role Event Channel Sink Connector</em>' reference isn't
@@ -51,7 +51,7 @@ public interface EventChannelSinkConnector extends Connector {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Sink Role Event Channel Sink Connector</em>' reference.
+     * @return the value of the '<em>Sink Role Event Channel Sink Connector</em> ' reference.
      * @see #setSinkRole__EventChannelSinkConnector(SinkRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector()
      * @model required="true" ordered="false"
@@ -66,25 +66,25 @@ public interface EventChannelSinkConnector extends Connector {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Sink Role Event Channel Sink Connector</em>' reference.
+     *            the new value of the ' <em>Sink Role Event Channel Sink Connector</em>' reference.
      * @see #getSinkRole__EventChannelSinkConnector()
      * @generated
      */
     void setSinkRole__EventChannelSinkConnector(SinkRole value);
 
     /**
-     * Returns the value of the '<em><b>Filter Condition Event Channel Sink Connector</b></em>'
+     * Returns the value of the ' <em><b>Filter Condition Event Channel Sink Connector</b></em>'
      * containment reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
      * <em>Event Channel Sink Connector Filter Condition</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Filter Condition Event Channel Sink Connector</em>' containment
+     * If the meaning of the ' <em>Filter Condition Event Channel Sink Connector</em>' containment
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Filter Condition Event Channel Sink Connector</em>' containment
-     *         reference.
+     * @return the value of the ' <em>Filter Condition Event Channel Sink Connector</em>'
+     *         containment reference.
      * @see #setFilterCondition__EventChannelSinkConnector(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector()
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
@@ -101,7 +101,7 @@ public interface EventChannelSinkConnector extends Connector {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Filter Condition Event Channel Sink Connector</em>'
+     *            the new value of the ' <em>Filter Condition Event Channel Sink Connector</em>'
      *            containment reference.
      * @see #getFilterCondition__EventChannelSinkConnector()
      * @generated
@@ -109,15 +109,15 @@ public interface EventChannelSinkConnector extends Connector {
     void setFilterCondition__EventChannelSinkConnector(PCMRandomVariable value);
 
     /**
-     * Returns the value of the '<em><b>Assembly Context Event Channel Sink Connector</b></em>'
+     * Returns the value of the ' <em><b>Assembly Context Event Channel Sink Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Assembly Context Event Channel Sink Connector</em>' reference
+     * If the meaning of the ' <em>Assembly Context Event Channel Sink Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Assembly Context Event Channel Sink Connector</em>' reference.
+     * @return the value of the ' <em>Assembly Context Event Channel Sink Connector</em>' reference.
      * @see #setAssemblyContext__EventChannelSinkConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector()
      * @model required="true" ordered="false"
@@ -132,7 +132,7 @@ public interface EventChannelSinkConnector extends Connector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Assembly Context Event Channel Sink Connector</em>'
+     *            the new value of the ' <em>Assembly Context Event Channel Sink Connector</em>'
      *            reference.
      * @see #getAssemblyContext__EventChannelSinkConnector()
      * @generated
@@ -140,17 +140,17 @@ public interface EventChannelSinkConnector extends Connector {
     void setAssemblyContext__EventChannelSinkConnector(AssemblyContext value);
 
     /**
-     * Returns the value of the '<em><b>Event Channel Event Channel Sink Connector</b></em>'
+     * Returns the value of the ' <em><b>Event Channel Event Channel Sink Connector</b></em>'
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
      * <em>Event Channel Sink Connector Event Channel</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Event Channel Event Channel Sink Connector</em>' reference isn't
+     * If the meaning of the ' <em>Event Channel Event Channel Sink Connector</em>' reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Event Channel Event Channel Sink Connector</em>' reference.
+     * @return the value of the ' <em>Event Channel Event Channel Sink Connector</em>' reference.
      * @see #setEventChannel__EventChannelSinkConnector(EventChannel)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector()
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
@@ -166,7 +166,7 @@ public interface EventChannelSinkConnector extends Connector {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Event Channel Event Channel Sink Connector</em>'
+     *            the new value of the ' <em>Event Channel Event Channel Sink Connector</em>'
      *            reference.
      * @see #getEventChannel__EventChannelSinkConnector()
      * @generated

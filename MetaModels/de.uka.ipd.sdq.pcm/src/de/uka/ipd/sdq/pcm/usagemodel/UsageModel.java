@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Usage Model</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Usage Model</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> The UsageModel specifies the whole user interaction with a system from a
@@ -21,8 +21,9 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel <em>Usage
- * Scenario Usage Model</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel <em>Usage Scenario
+ * Usage Model</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel <em>User Data Usage
  * Model</em>}</li>
  * </ul>

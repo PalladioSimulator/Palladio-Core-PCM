@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.seff;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Loop Action</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Loop Action</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> Models the repeated execution of its inner ResourceDemandingBehaviour

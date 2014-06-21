@@ -91,7 +91,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_PROVIDED_ROLE = 0;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl
      * <em>Named Element</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl
@@ -130,7 +130,7 @@ public interface EntityPackage extends EPackage {
      * --> <!-- end-user-doc -->
      * 
      * @return the meta object for the container reference '
-     *         <em>Resource Interface Providing Entity Resource Provided Role</em>'.
+     *         <em>Resource Interface Providing Entity Resource Provided Role</em> '.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole()
      * @see #getResourceProvidedRole()
      * @generated
@@ -152,7 +152,7 @@ public interface EntityPackage extends EPackage {
     EReference getResourceProvidedRole_ProvidedResourceInterface__ResourceProvidedRole();
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
      * <em>Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
@@ -208,7 +208,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container
+     * <em><b>Resource Interface Providing Entity Resource Provided Role</b></em> ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -217,7 +217,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Provided Resource Interface Resource Provided Role</b></em>'
+     * The feature id for the ' <em><b>Provided Resource Interface Resource Provided Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -226,7 +226,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The number of structural features of the '<em>Resource Provided Role</em>' class. <!--
+     * The number of structural features of the '<em>Resource Provided Role</em> ' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -310,7 +310,7 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -319,7 +319,7 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Interface Providing Entity</em>' class. <!--
+     * The number of structural features of the ' <em>Interface Providing Entity</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -346,7 +346,7 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME = INTERFACE_PROVIDING_ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -356,7 +356,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -365,7 +365,7 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -374,7 +374,7 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The number of structural features of the '<em>Interface Providing Requiring Entity</em>'
+     * The number of structural features of the ' <em>Interface Providing Requiring Entity</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -402,7 +402,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -411,7 +411,7 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -420,7 +420,7 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The number of structural features of the '<em>Interface Requiring Entity</em>' class. <!--
+     * The number of structural features of the ' <em>Interface Requiring Entity</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -448,7 +448,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -457,7 +457,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Resource Interface Requiring Entity</em>'
+     * The number of structural features of the ' <em>Resource Interface Requiring Entity</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -484,7 +484,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_REQUIRED_ROLE__ENTITY_NAME = RepositoryPackage.ROLE__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Required Resource Interface Resource Required Role</b></em>'
+     * The feature id for the ' <em><b>Required Resource Interface Resource Required Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -494,7 +494,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Interface Requiring Entity Resource Required Role</b></em>' container
+     * <em><b>Resource Interface Requiring Entity Resource Required Role</b></em> ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -503,7 +503,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The number of structural features of the '<em>Resource Required Role</em>' class. <!--
+     * The number of structural features of the '<em>Resource Required Role</em> ' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -555,7 +555,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
+     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -564,7 +564,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Resource Interface Providing Entity</em>'
+     * The number of structural features of the ' <em>Resource Interface Providing Entity</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -591,7 +591,7 @@ public interface EntityPackage extends EPackage {
     int COMPOSED_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME = CompositionPackage.COMPOSED_STRUCTURE__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
+     * The feature id for the ' <em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -601,7 +601,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
+     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -628,7 +628,7 @@ public interface EntityPackage extends EPackage {
     int COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -638,7 +638,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -647,7 +647,7 @@ public interface EntityPackage extends EPackage {
     int COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -656,7 +656,7 @@ public interface EntityPackage extends EPackage {
     int COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 2;
 
     /**
-     * The number of structural features of the '<em>Composed Providing Requiring Entity</em>'
+     * The number of structural features of the ' <em>Composed Providing Requiring Entity</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -702,7 +702,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -712,7 +712,7 @@ public interface EntityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
+     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -731,7 +731,7 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.core.entity.NamedElement
      * <em>Named Element</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Named Element</em>'.
@@ -758,7 +758,7 @@ public interface EntityPackage extends EPackage {
      * <em>Resource Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
-     * @return the meta object for class '<em>Resource Interface Providing Requiring Entity</em>'.
+     * @return the meta object for class ' <em>Resource Interface Providing Requiring Entity</em>'.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity
      * @generated
      */
@@ -795,7 +795,7 @@ public interface EntityPackage extends EPackage {
      * <em>Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      * 
-     * @return the meta object for class '<em>Interface Providing Requiring Entity</em>'.
+     * @return the meta object for class ' <em>Interface Providing Requiring Entity</em>'.
      * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
      * @generated
      */
@@ -831,7 +831,7 @@ public interface EntityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
      * <em>Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class '<em>Resource Interface Requiring Entity</em>'.
+     * @return the meta object for class ' <em>Resource Interface Requiring Entity</em>'.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
      * @generated
      */
@@ -844,7 +844,7 @@ public interface EntityPackage extends EPackage {
      * --> <!-- end-user-doc -->
      * 
      * @return the meta object for the containment reference list '
-     *         <em>Resource Required Roles Resource Interface Requiring Entity</em>'.
+     *         <em>Resource Required Roles Resource Interface Requiring Entity</em> '.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity#getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * @see #getResourceInterfaceRequiringEntity()
      * @generated
@@ -883,7 +883,7 @@ public interface EntityPackage extends EPackage {
      * --> <!-- end-user-doc -->
      * 
      * @return the meta object for the container reference '
-     *         <em>Resource Interface Requiring Entity Resource Required Role</em>'.
+     *         <em>Resource Interface Requiring Entity Resource Required Role</em> '.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole#getResourceInterfaceRequiringEntity__ResourceRequiredRole()
      * @see #getResourceRequiredRole()
      * @generated
@@ -895,7 +895,7 @@ public interface EntityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
      * <em>Composed Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class '<em>Composed Providing Requiring Entity</em>'.
+     * @return the meta object for class ' <em>Composed Providing Requiring Entity</em>'.
      * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
      * @generated
      */
@@ -906,7 +906,7 @@ public interface EntityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity
      * <em>Resource Interface Providing Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class '<em>Resource Interface Providing Entity</em>'.
+     * @return the meta object for class ' <em>Resource Interface Providing Entity</em>'.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity
      * @generated
      */
@@ -919,7 +919,7 @@ public interface EntityPackage extends EPackage {
      * --> <!-- end-user-doc -->
      * 
      * @return the meta object for the containment reference list '
-     *         <em>Resource Provided Roles Resource Interface Providing Entity</em>'.
+     *         <em>Resource Provided Roles Resource Interface Providing Entity</em> '.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @see #getResourceInterfaceProvidingEntity()
      * @generated
@@ -927,7 +927,7 @@ public interface EntityPackage extends EPackage {
     EReference getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Entity</em>'.
@@ -971,7 +971,7 @@ public interface EntityPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container
+         * <em><b>Resource Interface Providing Entity Resource Provided Role</b></em> ' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1090,7 +1090,7 @@ public interface EntityPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+         * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1121,7 +1121,7 @@ public interface EntityPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Resource Interface Requiring Entity Resource Required Role</b></em>' container
+         * <em><b>Resource Interface Requiring Entity Resource Required Role</b></em> ' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1155,7 +1155,7 @@ public interface EntityPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
+         * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1164,7 +1164,7 @@ public interface EntityPackage extends EPackage {
                 .getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl
          * <em>Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl

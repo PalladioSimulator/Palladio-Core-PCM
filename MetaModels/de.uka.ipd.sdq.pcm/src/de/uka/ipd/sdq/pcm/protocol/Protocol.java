@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.protocol;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Protocol</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Protocol</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A protocol is a set of calling sequences and can be optionally added to
@@ -34,7 +34,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID <em>Protocol Type ID</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID <em> Protocol Type ID</em>}</li>
  * </ul>
  * </p>
  * 
@@ -66,7 +66,7 @@ public interface Protocol extends EStereotypableObject {
     String getProtocolTypeID();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID
      * <em>Protocol Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

@@ -49,7 +49,7 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * 
      * @generated
      */
-    public SystemItemProvider(AdapterFactory adapterFactory) {
+    public SystemItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -60,12 +60,12 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -78,23 +78,24 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE);
-            childrenFeatures
+            this.childrenFeatures
+                    .add(CompositionPackage.Literals.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE);
+            this.childrenFeatures
                     .add(CompositionPackage.Literals.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
-            childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE);
-            childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE);
-            childrenFeatures
+            this.childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE);
+            this.childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE);
+            this.childrenFeatures
                     .add(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
-            childrenFeatures
+            this.childrenFeatures
                     .add(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY);
-            childrenFeatures
+            this.childrenFeatures
                     .add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
-            childrenFeatures.add(SystemPackage.Literals.SYSTEM__QOS_ANNOTATIONS_SYSTEM);
+            this.childrenFeatures.add(SystemPackage.Literals.SYSTEM__QOS_ANNOTATIONS_SYSTEM);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -103,7 +104,7 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -116,8 +117,8 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/System"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/System"));
     }
 
     /**
@@ -127,10 +128,10 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((de.uka.ipd.sdq.pcm.system.System) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_System_type") : getString("_UI_System_type") + " "
-                + label;
+    public String getText(final Object object) {
+        final String label = ((de.uka.ipd.sdq.pcm.system.System) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_System_type") : this
+                .getString("_UI_System_type") + " " + label;
     }
 
     /**
@@ -141,8 +142,8 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(de.uka.ipd.sdq.pcm.system.System.class)) {
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
@@ -153,7 +154,7 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
         case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
         case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -166,100 +167,102 @@ public class SystemItemProvider extends EntityItemProvider implements IEditingDo
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createAssemblyContext()));
 
         newChildDescriptors
-                .add(createChildParameter(
-                        CompositionPackage.Literals.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
-                        CompositionFactory.eINSTANCE.createResourceRequiredDelegationConnector()));
+                .add(this
+                        .createChildParameter(
+                                CompositionPackage.Literals.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
+                                CompositionFactory.eINSTANCE.createResourceRequiredDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createEventChannel()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createEventChannelSourceConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createEventChannelSinkConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createProvidedDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createRequiredDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createAssemblyConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createAssemblyEventConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createSourceDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createSinkDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createAssemblyInfrastructureConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createProvidedInfrastructureDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createRequiredInfrastructureDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
                 CompositionFactory.eINSTANCE.createRequiredResourceDelegationConnector()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
                 RepositoryFactory.eINSTANCE.createSinkRole()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
                 RepositoryFactory.eINSTANCE.createOperationProvidedRole()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
                 RepositoryFactory.eINSTANCE.createInfrastructureProvidedRole()));
 
         newChildDescriptors
-                .add(createChildParameter(
-                        EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
-                        EntityFactory.eINSTANCE.createResourceRequiredRole()));
+                .add(this
+                        .createChildParameter(
+                                EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
+                                EntityFactory.eINSTANCE.createResourceRequiredRole()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
                 RepositoryFactory.eINSTANCE.createInfrastructureRequiredRole()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
                 RepositoryFactory.eINSTANCE.createOperationRequiredRole()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
                 RepositoryFactory.eINSTANCE.createSourceRole()));
 
-        newChildDescriptors.add(createChildParameter(SystemPackage.Literals.SYSTEM__QOS_ANNOTATIONS_SYSTEM,
+        newChildDescriptors.add(this.createChildParameter(SystemPackage.Literals.SYSTEM__QOS_ANNOTATIONS_SYSTEM,
                 QosannotationsFactory.eINSTANCE.createQoSAnnotations()));
     }
 

@@ -88,11 +88,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * @generated
      */
     public ResourcetypeItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -112,11 +112,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      */
     @Override
     public Adapter createResourceSignatureAdapter() {
-        if (resourceSignatureItemProvider == null) {
-            resourceSignatureItemProvider = new ResourceSignatureItemProvider(this);
+        if (this.resourceSignatureItemProvider == null) {
+            this.resourceSignatureItemProvider = new ResourceSignatureItemProvider(this);
         }
 
-        return resourceSignatureItemProvider;
+        return this.resourceSignatureItemProvider;
     }
 
     /**
@@ -136,11 +136,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      */
     @Override
     public Adapter createResourceRepositoryAdapter() {
-        if (resourceRepositoryItemProvider == null) {
-            resourceRepositoryItemProvider = new ResourceRepositoryItemProvider(this);
+        if (this.resourceRepositoryItemProvider == null) {
+            this.resourceRepositoryItemProvider = new ResourceRepositoryItemProvider(this);
         }
 
-        return resourceRepositoryItemProvider;
+        return this.resourceRepositoryItemProvider;
     }
 
     /**
@@ -160,11 +160,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      */
     @Override
     public Adapter createSchedulingPolicyAdapter() {
-        if (schedulingPolicyItemProvider == null) {
-            schedulingPolicyItemProvider = new SchedulingPolicyItemProvider(this);
+        if (this.schedulingPolicyItemProvider == null) {
+            this.schedulingPolicyItemProvider = new SchedulingPolicyItemProvider(this);
         }
 
-        return schedulingPolicyItemProvider;
+        return this.schedulingPolicyItemProvider;
     }
 
     /**
@@ -185,11 +185,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      */
     @Override
     public Adapter createCommunicationLinkResourceTypeAdapter() {
-        if (communicationLinkResourceTypeItemProvider == null) {
-            communicationLinkResourceTypeItemProvider = new CommunicationLinkResourceTypeItemProvider(this);
+        if (this.communicationLinkResourceTypeItemProvider == null) {
+            this.communicationLinkResourceTypeItemProvider = new CommunicationLinkResourceTypeItemProvider(this);
         }
 
-        return communicationLinkResourceTypeItemProvider;
+        return this.communicationLinkResourceTypeItemProvider;
     }
 
     /**
@@ -209,11 +209,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      */
     @Override
     public Adapter createResourceInterfaceAdapter() {
-        if (resourceInterfaceItemProvider == null) {
-            resourceInterfaceItemProvider = new ResourceInterfaceItemProvider(this);
+        if (this.resourceInterfaceItemProvider == null) {
+            this.resourceInterfaceItemProvider = new ResourceInterfaceItemProvider(this);
         }
 
-        return resourceInterfaceItemProvider;
+        return this.resourceInterfaceItemProvider;
     }
 
     /**
@@ -233,11 +233,11 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      */
     @Override
     public Adapter createProcessingResourceTypeAdapter() {
-        if (processingResourceTypeItemProvider == null) {
-            processingResourceTypeItemProvider = new ProcessingResourceTypeItemProvider(this);
+        if (this.processingResourceTypeItemProvider == null) {
+            this.processingResourceTypeItemProvider = new ProcessingResourceTypeItemProvider(this);
         }
 
-        return processingResourceTypeItemProvider;
+        return this.processingResourceTypeItemProvider;
     }
 
     /**
@@ -246,8 +246,9 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -256,7 +257,8 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -266,8 +268,8 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -277,7 +279,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -287,9 +289,9 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -304,7 +306,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -312,8 +314,9 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -321,8 +324,9 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -330,8 +334,9 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -339,8 +344,9 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -349,11 +355,12 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -363,19 +370,26 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (resourceSignatureItemProvider != null)
-            resourceSignatureItemProvider.dispose();
-        if (processingResourceTypeItemProvider != null)
-            processingResourceTypeItemProvider.dispose();
-        if (resourceRepositoryItemProvider != null)
-            resourceRepositoryItemProvider.dispose();
-        if (schedulingPolicyItemProvider != null)
-            schedulingPolicyItemProvider.dispose();
-        if (communicationLinkResourceTypeItemProvider != null)
-            communicationLinkResourceTypeItemProvider.dispose();
-        if (resourceInterfaceItemProvider != null)
-            resourceInterfaceItemProvider.dispose();
+        if (this.resourceSignatureItemProvider != null) {
+            this.resourceSignatureItemProvider.dispose();
+        }
+        if (this.processingResourceTypeItemProvider != null) {
+            this.processingResourceTypeItemProvider.dispose();
+        }
+        if (this.resourceRepositoryItemProvider != null) {
+            this.resourceRepositoryItemProvider.dispose();
+        }
+        if (this.schedulingPolicyItemProvider != null) {
+            this.schedulingPolicyItemProvider.dispose();
+        }
+        if (this.communicationLinkResourceTypeItemProvider != null) {
+            this.communicationLinkResourceTypeItemProvider.dispose();
+        }
+        if (this.resourceInterfaceItemProvider != null) {
+            this.resourceInterfaceItemProvider.dispose();
+        }
     }
 
 }

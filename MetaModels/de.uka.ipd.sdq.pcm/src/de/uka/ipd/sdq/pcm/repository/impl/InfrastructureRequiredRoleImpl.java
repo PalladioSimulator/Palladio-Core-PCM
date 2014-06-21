@@ -38,7 +38,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getRequiredInterface__InfrastructureRequiredRole()
+     * The cached value of the ' {@link #getRequiredInterface__InfrastructureRequiredRole()
      * <em>Required Interface Infrastructure Required Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
@@ -72,22 +72,25 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * 
      * @generated
      */
+    @Override
     public InfrastructureInterface getRequiredInterface__InfrastructureRequiredRole() {
-        if (requiredInterface__InfrastructureRequiredRole != null
-                && ((EObject) requiredInterface__InfrastructureRequiredRole).eIsProxy()) {
-            InternalEObject oldRequiredInterface__InfrastructureRequiredRole = (InternalEObject) requiredInterface__InfrastructureRequiredRole;
-            requiredInterface__InfrastructureRequiredRole = (InfrastructureInterface) eResolveProxy(oldRequiredInterface__InfrastructureRequiredRole);
-            if (requiredInterface__InfrastructureRequiredRole != oldRequiredInterface__InfrastructureRequiredRole) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(
+        if (this.requiredInterface__InfrastructureRequiredRole != null
+                && ((EObject) this.requiredInterface__InfrastructureRequiredRole).eIsProxy()) {
+            final InternalEObject oldRequiredInterface__InfrastructureRequiredRole = (InternalEObject) this.requiredInterface__InfrastructureRequiredRole;
+            this.requiredInterface__InfrastructureRequiredRole = (InfrastructureInterface) this
+                    .eResolveProxy(oldRequiredInterface__InfrastructureRequiredRole);
+            if (this.requiredInterface__InfrastructureRequiredRole != oldRequiredInterface__InfrastructureRequiredRole) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
                             oldRequiredInterface__InfrastructureRequiredRole,
-                            requiredInterface__InfrastructureRequiredRole));
+                            this.requiredInterface__InfrastructureRequiredRole));
+                }
             }
         }
-        return requiredInterface__InfrastructureRequiredRole;
+        return this.requiredInterface__InfrastructureRequiredRole;
     }
 
     /**
@@ -96,22 +99,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * @generated
      */
     public InfrastructureInterface basicGetRequiredInterface__InfrastructureRequiredRole() {
-        return requiredInterface__InfrastructureRequiredRole;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setRequiredInterface__InfrastructureRequiredRole(
-            InfrastructureInterface newRequiredInterface__InfrastructureRequiredRole) {
-        InfrastructureInterface oldRequiredInterface__InfrastructureRequiredRole = requiredInterface__InfrastructureRequiredRole;
-        requiredInterface__InfrastructureRequiredRole = newRequiredInterface__InfrastructureRequiredRole;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
-                    oldRequiredInterface__InfrastructureRequiredRole, requiredInterface__InfrastructureRequiredRole));
+        return this.requiredInterface__InfrastructureRequiredRole;
     }
 
     /**
@@ -120,12 +108,31 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setRequiredInterface__InfrastructureRequiredRole(
+            final InfrastructureInterface newRequiredInterface__InfrastructureRequiredRole) {
+        final InfrastructureInterface oldRequiredInterface__InfrastructureRequiredRole = this.requiredInterface__InfrastructureRequiredRole;
+        this.requiredInterface__InfrastructureRequiredRole = newRequiredInterface__InfrastructureRequiredRole;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
+                    oldRequiredInterface__InfrastructureRequiredRole,
+                    this.requiredInterface__InfrastructureRequiredRole));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
-            if (resolve)
-                return getRequiredInterface__InfrastructureRequiredRole();
-            return basicGetRequiredInterface__InfrastructureRequiredRole();
+            if (resolve) {
+                return this.getRequiredInterface__InfrastructureRequiredRole();
+            }
+            return this.basicGetRequiredInterface__InfrastructureRequiredRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -136,10 +143,10 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
-            setRequiredInterface__InfrastructureRequiredRole((InfrastructureInterface) newValue);
+            this.setRequiredInterface__InfrastructureRequiredRole((InfrastructureInterface) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -151,10 +158,10 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
-            setRequiredInterface__InfrastructureRequiredRole((InfrastructureInterface) null);
+            this.setRequiredInterface__InfrastructureRequiredRole((InfrastructureInterface) null);
             return;
         }
         super.eUnset(featureID);
@@ -166,10 +173,10 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
-            return requiredInterface__InfrastructureRequiredRole != null;
+            return this.requiredInterface__InfrastructureRequiredRole != null;
         }
         return super.eIsSet(featureID);
     }

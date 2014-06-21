@@ -73,12 +73,13 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      * 
      * @generated
      */
+    @Override
     public EList<FailureType> getFailureTypes_FailureHandlingEntity() {
-        if (failureTypes_FailureHandlingEntity == null) {
-            failureTypes_FailureHandlingEntity = new EObjectResolvingEList<FailureType>(FailureType.class, this,
+        if (this.failureTypes_FailureHandlingEntity == null) {
+            this.failureTypes_FailureHandlingEntity = new EObjectResolvingEList<FailureType>(FailureType.class, this,
                     SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY);
         }
-        return failureTypes_FailureHandlingEntity;
+        return this.failureTypes_FailureHandlingEntity;
     }
 
     /**
@@ -87,10 +88,10 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            return getFailureTypes_FailureHandlingEntity();
+            return this.getFailureTypes_FailureHandlingEntity();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -102,11 +103,11 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            getFailureTypes_FailureHandlingEntity().clear();
-            getFailureTypes_FailureHandlingEntity().addAll((Collection<? extends FailureType>) newValue);
+            this.getFailureTypes_FailureHandlingEntity().clear();
+            this.getFailureTypes_FailureHandlingEntity().addAll((Collection<? extends FailureType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -118,10 +119,10 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            getFailureTypes_FailureHandlingEntity().clear();
+            this.getFailureTypes_FailureHandlingEntity().clear();
             return;
         }
         super.eUnset(featureID);
@@ -133,10 +134,11 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            return failureTypes_FailureHandlingEntity != null && !failureTypes_FailureHandlingEntity.isEmpty();
+            return this.failureTypes_FailureHandlingEntity != null
+                    && !this.failureTypes_FailureHandlingEntity.isEmpty();
         }
         return super.eIsSet(featureID);
     }

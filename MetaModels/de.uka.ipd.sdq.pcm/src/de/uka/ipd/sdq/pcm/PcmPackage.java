@@ -61,7 +61,7 @@ public interface PcmPackage extends EPackage {
     PcmPackage eINSTANCE = de.uka.ipd.sdq.pcm.impl.PcmPackageImpl.init();
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.impl.DummyClassImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.impl.DummyClassImpl
      * <em>Dummy Class</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.impl.DummyClassImpl
@@ -112,7 +112,7 @@ public interface PcmPackage extends EPackage {
      */
     interface Literals {
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.impl.DummyClassImpl
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.impl.DummyClassImpl
          * <em>Dummy Class</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.impl.DummyClassImpl

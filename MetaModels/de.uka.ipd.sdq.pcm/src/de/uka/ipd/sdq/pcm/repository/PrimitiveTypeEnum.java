@@ -220,9 +220,8 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
-    public static PrimitiveTypeEnum get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            PrimitiveTypeEnum result = VALUES_ARRAY[i];
+    public static PrimitiveTypeEnum get(final String literal) {
+        for (final PrimitiveTypeEnum result : VALUES_ARRAY) {
             if (result.toString().equals(literal)) {
                 return result;
             }
@@ -236,9 +235,8 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
-    public static PrimitiveTypeEnum getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            PrimitiveTypeEnum result = VALUES_ARRAY[i];
+    public static PrimitiveTypeEnum getByName(final String name) {
+        for (final PrimitiveTypeEnum result : VALUES_ARRAY) {
             if (result.getName().equals(name)) {
                 return result;
             }
@@ -252,7 +250,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
-    public static PrimitiveTypeEnum get(int value) {
+    public static PrimitiveTypeEnum get(final int value) {
         switch (value) {
         case INT_VALUE:
             return INT;
@@ -298,7 +296,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
-    private PrimitiveTypeEnum(int value, String name, String literal) {
+    private PrimitiveTypeEnum(final int value, final String name, final String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
@@ -309,8 +307,9 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     /**
@@ -318,8 +317,9 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
@@ -327,8 +327,9 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getLiteral() {
-        return literal;
+        return this.literal;
     }
 
     /**
@@ -339,7 +340,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      */
     @Override
     public String toString() {
-        return literal;
+        return this.literal;
     }
 
 } // PrimitiveTypeEnum

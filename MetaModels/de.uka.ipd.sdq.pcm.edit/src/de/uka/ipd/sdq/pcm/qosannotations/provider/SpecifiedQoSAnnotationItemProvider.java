@@ -45,7 +45,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * 
      * @generated
      */
-    public SpecifiedQoSAnnotationItemProvider(AdapterFactory adapterFactory) {
+    public SpecifiedQoSAnnotationItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,14 +56,14 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addSignature_SpecifiedQoSAnnationPropertyDescriptor(object);
-            addRole_SpecifiedQoSAnnotationPropertyDescriptor(object);
+            this.addSignature_SpecifiedQoSAnnationPropertyDescriptor(object);
+            this.addRole_SpecifiedQoSAnnotationPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,12 +72,11 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * 
      * @generated
      */
-    protected void addSignature_SpecifiedQoSAnnationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_SpecifiedQoSAnnotation_signature_SpecifiedQoSAnnation_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addSignature_SpecifiedQoSAnnationPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_SpecifiedQoSAnnotation_signature_SpecifiedQoSAnnation_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_SpecifiedQoSAnnotation_signature_SpecifiedQoSAnnation_feature",
                         "_UI_SpecifiedQoSAnnotation_type"),
                 QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION, true, false,
@@ -90,12 +89,11 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * 
      * @generated
      */
-    protected void addRole_SpecifiedQoSAnnotationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_SpecifiedQoSAnnotation_role_SpecifiedQoSAnnotation_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addRole_SpecifiedQoSAnnotationPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_SpecifiedQoSAnnotation_role_SpecifiedQoSAnnotation_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_SpecifiedQoSAnnotation_role_SpecifiedQoSAnnotation_feature",
                         "_UI_SpecifiedQoSAnnotation_type"),
                 QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION, true, false,
@@ -109,8 +107,8 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_SpecifiedQoSAnnotation_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_SpecifiedQoSAnnotation_type");
     }
 
     /**
@@ -121,8 +119,8 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -133,7 +131,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -145,7 +143,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

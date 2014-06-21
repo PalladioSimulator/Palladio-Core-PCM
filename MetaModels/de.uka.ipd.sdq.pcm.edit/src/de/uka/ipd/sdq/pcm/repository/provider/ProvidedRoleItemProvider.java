@@ -40,7 +40,7 @@ public class ProvidedRoleItemProvider extends RoleItemProvider implements IEditi
      * 
      * @generated
      */
-    public ProvidedRoleItemProvider(AdapterFactory adapterFactory) {
+    public ProvidedRoleItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -51,12 +51,12 @@ public class ProvidedRoleItemProvider extends RoleItemProvider implements IEditi
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -66,10 +66,10 @@ public class ProvidedRoleItemProvider extends RoleItemProvider implements IEditi
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ProvidedRole) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ProvidedRole_type")
-                : getString("_UI_ProvidedRole_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ProvidedRole) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ProvidedRole_type") : this
+                .getString("_UI_ProvidedRole_type") + " " + label;
     }
 
     /**
@@ -80,8 +80,8 @@ public class ProvidedRoleItemProvider extends RoleItemProvider implements IEditi
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -92,7 +92,7 @@ public class ProvidedRoleItemProvider extends RoleItemProvider implements IEditi
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

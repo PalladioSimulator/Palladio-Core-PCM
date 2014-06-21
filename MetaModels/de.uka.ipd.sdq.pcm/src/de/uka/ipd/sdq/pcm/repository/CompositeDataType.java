@@ -10,8 +10,8 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Composite Data Type</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Composite Data Type</b></em> '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> This entity represents a complex data type containing other data types.
  * This construct is common in higher programming languages as record, struct, or class. <!--
@@ -20,10 +20,12 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType <em>
- * Parent Type Composite Data Type</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
- * <em>Inner Declaration Composite Data Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType <em>Parent
+ * Type Composite Data Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType <em>
+ * Inner Declaration Composite Data Type</em>}</li>
  * </ul>
  * </p>
  * 
@@ -40,7 +42,7 @@ public interface CompositeDataType extends Entity, DataType {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Parent Type Composite Data Type</b></em>' reference list.
+     * Returns the value of the '<em><b>Parent Type Composite Data Type</b></em> ' reference list.
      * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType}. <!--
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the parent type in the inheritance hierarchy. Null if there is no parent. <!-- end-model-doc
@@ -54,7 +56,7 @@ public interface CompositeDataType extends Entity, DataType {
     EList<CompositeDataType> getParentType_CompositeDataType();
 
     /**
-     * Returns the value of the '<em><b>Inner Declaration Composite Data Type</b></em>' containment
+     * Returns the value of the ' <em><b>Inner Declaration Composite Data Type</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration}. It is bidirectional and its opposite
      * is '

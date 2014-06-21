@@ -45,12 +45,12 @@ public class CoreXMLProcessor extends XMLProcessor {
      */
     @Override
     protected Map<String, Resource.Factory> getRegistrations() {
-        if (registrations == null) {
+        if (this.registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION, new CoreResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION, new CoreResourceFactoryImpl());
+            this.registrations.put(XML_EXTENSION, new CoreResourceFactoryImpl());
+            this.registrations.put(STAR_EXTENSION, new CoreResourceFactoryImpl());
         }
-        return registrations;
+        return this.registrations;
     }
 
 } // CoreXMLProcessor

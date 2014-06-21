@@ -93,7 +93,7 @@ public interface QosReliabilityPackage extends EPackage {
     int SPECIFIED_RELIABILITY_ANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
+     * The feature id for the ' <em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -103,7 +103,7 @@ public interface QosReliabilityPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>External Failure Occurrence Descriptions Specified Reliability Annotation</b></em>'
+     * <em><b>External Failure Occurrence Descriptions Specified Reliability Annotation</b></em> '
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -112,7 +112,7 @@ public interface QosReliabilityPackage extends EPackage {
     int SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Specified Reliability Annotation</em>' class.
+     * The number of structural features of the ' <em>Specified Reliability Annotation</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -125,7 +125,7 @@ public interface QosReliabilityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
      * <em>Specified Reliability Annotation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class '<em>Specified Reliability Annotation</em>'.
+     * @return the meta object for class ' <em>Specified Reliability Annotation</em>'.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
      * @generated
      */
@@ -134,11 +134,11 @@ public interface QosReliabilityPackage extends EPackage {
     /**
      * Returns the meta object for the containment reference list '
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation
-     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}'. <!--
+     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>} '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for the containment reference list '
-     *         <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>'.
+     *         <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em> '.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
      * @see #getSpecifiedReliabilityAnnotation()
      * @generated

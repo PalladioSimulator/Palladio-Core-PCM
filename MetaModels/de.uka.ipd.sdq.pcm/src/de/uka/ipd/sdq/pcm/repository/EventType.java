@@ -6,7 +6,7 @@
 package de.uka.ipd.sdq.pcm.repository;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Event Type</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Event Type</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> The EventType represents a single class of events that can be emited by

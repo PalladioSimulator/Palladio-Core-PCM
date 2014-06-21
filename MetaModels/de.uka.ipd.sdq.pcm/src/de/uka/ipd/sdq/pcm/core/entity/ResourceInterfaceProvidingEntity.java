@@ -34,7 +34,7 @@ public interface ResourceInterfaceProvidingEntity extends Entity {
 
     /**
      * Returns the value of the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
+     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.entity.ResourceProvidedRole}. It is bidirectional and its
      * opposite is '
@@ -42,13 +42,13 @@ public interface ResourceInterfaceProvidingEntity extends Entity {
      * <em>Resource Interface Providing Entity Resource Provided Role</em>}'. <!-- begin-user-doc
      * -->
      * <p>
-     * If the meaning of the '<em>Resource Provided Roles Resource Interface Providing Entity</em>'
+     * If the meaning of the ' <em>Resource Provided Roles Resource Interface Providing Entity</em>'
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Resource Provided Roles Resource Interface Providing Entity</em>' containment
+     *         <em>Resource Provided Roles Resource Interface Providing Entity</em> ' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole

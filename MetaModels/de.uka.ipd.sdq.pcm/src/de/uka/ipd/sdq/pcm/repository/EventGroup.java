@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.repository;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Event Group</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Event Group</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> An EventGroup combines a set of EventTypes that are supported by a Sink
@@ -18,8 +18,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.EventGroup#getEventTypes__EventGroup <em>Event Types
- * Event Group</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.EventGroup#getEventTypes__EventGroup <em>Event Types Event
+ * Group</em>}</li>
  * </ul>
  * </p>
  * 

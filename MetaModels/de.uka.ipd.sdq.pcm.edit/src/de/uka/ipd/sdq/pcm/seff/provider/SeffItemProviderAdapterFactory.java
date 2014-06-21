@@ -88,11 +88,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * @generated
      */
     public SeffItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -111,11 +111,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createStopActionAdapter() {
-        if (stopActionItemProvider == null) {
-            stopActionItemProvider = new StopActionItemProvider(this);
+        if (this.stopActionItemProvider == null) {
+            this.stopActionItemProvider = new StopActionItemProvider(this);
         }
 
-        return stopActionItemProvider;
+        return this.stopActionItemProvider;
     }
 
     /**
@@ -135,11 +135,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createResourceDemandingBehaviourAdapter() {
-        if (resourceDemandingBehaviourItemProvider == null) {
-            resourceDemandingBehaviourItemProvider = new ResourceDemandingBehaviourItemProvider(this);
+        if (this.resourceDemandingBehaviourItemProvider == null) {
+            this.resourceDemandingBehaviourItemProvider = new ResourceDemandingBehaviourItemProvider(this);
         }
 
-        return resourceDemandingBehaviourItemProvider;
+        return this.resourceDemandingBehaviourItemProvider;
     }
 
     /**
@@ -158,11 +158,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createBranchActionAdapter() {
-        if (branchActionItemProvider == null) {
-            branchActionItemProvider = new BranchActionItemProvider(this);
+        if (this.branchActionItemProvider == null) {
+            this.branchActionItemProvider = new BranchActionItemProvider(this);
         }
 
-        return branchActionItemProvider;
+        return this.branchActionItemProvider;
     }
 
     /**
@@ -181,11 +181,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createStartActionAdapter() {
-        if (startActionItemProvider == null) {
-            startActionItemProvider = new StartActionItemProvider(this);
+        if (this.startActionItemProvider == null) {
+            this.startActionItemProvider = new StartActionItemProvider(this);
         }
 
-        return startActionItemProvider;
+        return this.startActionItemProvider;
     }
 
     /**
@@ -205,11 +205,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createResourceDemandingSEFFAdapter() {
-        if (resourceDemandingSEFFItemProvider == null) {
-            resourceDemandingSEFFItemProvider = new ResourceDemandingSEFFItemProvider(this);
+        if (this.resourceDemandingSEFFItemProvider == null) {
+            this.resourceDemandingSEFFItemProvider = new ResourceDemandingSEFFItemProvider(this);
         }
 
-        return resourceDemandingSEFFItemProvider;
+        return this.resourceDemandingSEFFItemProvider;
     }
 
     /**
@@ -230,11 +230,12 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createResourceDemandingInternalBehaviourAdapter() {
-        if (resourceDemandingInternalBehaviourItemProvider == null) {
-            resourceDemandingInternalBehaviourItemProvider = new ResourceDemandingInternalBehaviourItemProvider(this);
+        if (this.resourceDemandingInternalBehaviourItemProvider == null) {
+            this.resourceDemandingInternalBehaviourItemProvider = new ResourceDemandingInternalBehaviourItemProvider(
+                    this);
         }
 
-        return resourceDemandingInternalBehaviourItemProvider;
+        return this.resourceDemandingInternalBehaviourItemProvider;
     }
 
     /**
@@ -254,11 +255,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createReleaseActionAdapter() {
-        if (releaseActionItemProvider == null) {
-            releaseActionItemProvider = new ReleaseActionItemProvider(this);
+        if (this.releaseActionItemProvider == null) {
+            this.releaseActionItemProvider = new ReleaseActionItemProvider(this);
         }
 
-        return releaseActionItemProvider;
+        return this.releaseActionItemProvider;
     }
 
     /**
@@ -277,11 +278,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createLoopActionAdapter() {
-        if (loopActionItemProvider == null) {
-            loopActionItemProvider = new LoopActionItemProvider(this);
+        if (this.loopActionItemProvider == null) {
+            this.loopActionItemProvider = new LoopActionItemProvider(this);
         }
 
-        return loopActionItemProvider;
+        return this.loopActionItemProvider;
     }
 
     /**
@@ -301,11 +302,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createInternalActionAdapter() {
-        if (internalActionItemProvider == null) {
-            internalActionItemProvider = new InternalActionItemProvider(this);
+        if (this.internalActionItemProvider == null) {
+            this.internalActionItemProvider = new InternalActionItemProvider(this);
         }
 
-        return internalActionItemProvider;
+        return this.internalActionItemProvider;
     }
 
     /**
@@ -324,11 +325,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createForkActionAdapter() {
-        if (forkActionItemProvider == null) {
-            forkActionItemProvider = new ForkActionItemProvider(this);
+        if (this.forkActionItemProvider == null) {
+            this.forkActionItemProvider = new ForkActionItemProvider(this);
         }
 
-        return forkActionItemProvider;
+        return this.forkActionItemProvider;
     }
 
     /**
@@ -348,11 +349,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createForkedBehaviourAdapter() {
-        if (forkedBehaviourItemProvider == null) {
-            forkedBehaviourItemProvider = new ForkedBehaviourItemProvider(this);
+        if (this.forkedBehaviourItemProvider == null) {
+            this.forkedBehaviourItemProvider = new ForkedBehaviourItemProvider(this);
         }
 
-        return forkedBehaviourItemProvider;
+        return this.forkedBehaviourItemProvider;
     }
 
     /**
@@ -372,11 +373,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createSynchronisationPointAdapter() {
-        if (synchronisationPointItemProvider == null) {
-            synchronisationPointItemProvider = new SynchronisationPointItemProvider(this);
+        if (this.synchronisationPointItemProvider == null) {
+            this.synchronisationPointItemProvider = new SynchronisationPointItemProvider(this);
         }
 
-        return synchronisationPointItemProvider;
+        return this.synchronisationPointItemProvider;
     }
 
     /**
@@ -396,11 +397,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createExternalCallActionAdapter() {
-        if (externalCallActionItemProvider == null) {
-            externalCallActionItemProvider = new ExternalCallActionItemProvider(this);
+        if (this.externalCallActionItemProvider == null) {
+            this.externalCallActionItemProvider = new ExternalCallActionItemProvider(this);
         }
 
-        return externalCallActionItemProvider;
+        return this.externalCallActionItemProvider;
     }
 
     /**
@@ -420,11 +421,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createCallReturnActionAdapter() {
-        if (callReturnActionItemProvider == null) {
-            callReturnActionItemProvider = new CallReturnActionItemProvider(this);
+        if (this.callReturnActionItemProvider == null) {
+            this.callReturnActionItemProvider = new CallReturnActionItemProvider(this);
         }
 
-        return callReturnActionItemProvider;
+        return this.callReturnActionItemProvider;
     }
 
     /**
@@ -444,11 +445,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createProbabilisticBranchTransitionAdapter() {
-        if (probabilisticBranchTransitionItemProvider == null) {
-            probabilisticBranchTransitionItemProvider = new ProbabilisticBranchTransitionItemProvider(this);
+        if (this.probabilisticBranchTransitionItemProvider == null) {
+            this.probabilisticBranchTransitionItemProvider = new ProbabilisticBranchTransitionItemProvider(this);
         }
 
-        return probabilisticBranchTransitionItemProvider;
+        return this.probabilisticBranchTransitionItemProvider;
     }
 
     /**
@@ -468,11 +469,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createAcquireActionAdapter() {
-        if (acquireActionItemProvider == null) {
-            acquireActionItemProvider = new AcquireActionItemProvider(this);
+        if (this.acquireActionItemProvider == null) {
+            this.acquireActionItemProvider = new AcquireActionItemProvider(this);
         }
 
-        return acquireActionItemProvider;
+        return this.acquireActionItemProvider;
     }
 
     /**
@@ -492,11 +493,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createCollectionIteratorActionAdapter() {
-        if (collectionIteratorActionItemProvider == null) {
-            collectionIteratorActionItemProvider = new CollectionIteratorActionItemProvider(this);
+        if (this.collectionIteratorActionItemProvider == null) {
+            this.collectionIteratorActionItemProvider = new CollectionIteratorActionItemProvider(this);
         }
 
-        return collectionIteratorActionItemProvider;
+        return this.collectionIteratorActionItemProvider;
     }
 
     /**
@@ -516,11 +517,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createGuardedBranchTransitionAdapter() {
-        if (guardedBranchTransitionItemProvider == null) {
-            guardedBranchTransitionItemProvider = new GuardedBranchTransitionItemProvider(this);
+        if (this.guardedBranchTransitionItemProvider == null) {
+            this.guardedBranchTransitionItemProvider = new GuardedBranchTransitionItemProvider(this);
         }
 
-        return guardedBranchTransitionItemProvider;
+        return this.guardedBranchTransitionItemProvider;
     }
 
     /**
@@ -540,11 +541,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createSetVariableActionAdapter() {
-        if (setVariableActionItemProvider == null) {
-            setVariableActionItemProvider = new SetVariableActionItemProvider(this);
+        if (this.setVariableActionItemProvider == null) {
+            this.setVariableActionItemProvider = new SetVariableActionItemProvider(this);
         }
 
-        return setVariableActionItemProvider;
+        return this.setVariableActionItemProvider;
     }
 
     /**
@@ -564,11 +565,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createInternalCallActionAdapter() {
-        if (internalCallActionItemProvider == null) {
-            internalCallActionItemProvider = new InternalCallActionItemProvider(this);
+        if (this.internalCallActionItemProvider == null) {
+            this.internalCallActionItemProvider = new InternalCallActionItemProvider(this);
         }
 
-        return internalCallActionItemProvider;
+        return this.internalCallActionItemProvider;
     }
 
     /**
@@ -588,11 +589,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      */
     @Override
     public Adapter createEmitEventActionAdapter() {
-        if (emitEventActionItemProvider == null) {
-            emitEventActionItemProvider = new EmitEventActionItemProvider(this);
+        if (this.emitEventActionItemProvider == null) {
+            this.emitEventActionItemProvider = new EmitEventActionItemProvider(this);
         }
 
-        return emitEventActionItemProvider;
+        return this.emitEventActionItemProvider;
     }
 
     /**
@@ -601,8 +602,9 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -611,7 +613,8 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -621,8 +624,8 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -632,7 +635,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -642,9 +645,9 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -659,7 +662,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -667,8 +670,9 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -676,8 +680,9 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -685,8 +690,9 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -694,8 +700,9 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -704,11 +711,12 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -718,49 +726,71 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (stopActionItemProvider != null)
-            stopActionItemProvider.dispose();
-        if (resourceDemandingBehaviourItemProvider != null)
-            resourceDemandingBehaviourItemProvider.dispose();
-        if (branchActionItemProvider != null)
-            branchActionItemProvider.dispose();
-        if (startActionItemProvider != null)
-            startActionItemProvider.dispose();
-        if (resourceDemandingSEFFItemProvider != null)
-            resourceDemandingSEFFItemProvider.dispose();
-        if (resourceDemandingInternalBehaviourItemProvider != null)
-            resourceDemandingInternalBehaviourItemProvider.dispose();
-        if (releaseActionItemProvider != null)
-            releaseActionItemProvider.dispose();
-        if (loopActionItemProvider != null)
-            loopActionItemProvider.dispose();
-        if (forkActionItemProvider != null)
-            forkActionItemProvider.dispose();
-        if (forkedBehaviourItemProvider != null)
-            forkedBehaviourItemProvider.dispose();
-        if (synchronisationPointItemProvider != null)
-            synchronisationPointItemProvider.dispose();
-        if (externalCallActionItemProvider != null)
-            externalCallActionItemProvider.dispose();
-        if (callReturnActionItemProvider != null)
-            callReturnActionItemProvider.dispose();
-        if (probabilisticBranchTransitionItemProvider != null)
-            probabilisticBranchTransitionItemProvider.dispose();
-        if (acquireActionItemProvider != null)
-            acquireActionItemProvider.dispose();
-        if (collectionIteratorActionItemProvider != null)
-            collectionIteratorActionItemProvider.dispose();
-        if (guardedBranchTransitionItemProvider != null)
-            guardedBranchTransitionItemProvider.dispose();
-        if (setVariableActionItemProvider != null)
-            setVariableActionItemProvider.dispose();
-        if (internalCallActionItemProvider != null)
-            internalCallActionItemProvider.dispose();
-        if (emitEventActionItemProvider != null)
-            emitEventActionItemProvider.dispose();
-        if (internalActionItemProvider != null)
-            internalActionItemProvider.dispose();
+        if (this.stopActionItemProvider != null) {
+            this.stopActionItemProvider.dispose();
+        }
+        if (this.resourceDemandingBehaviourItemProvider != null) {
+            this.resourceDemandingBehaviourItemProvider.dispose();
+        }
+        if (this.branchActionItemProvider != null) {
+            this.branchActionItemProvider.dispose();
+        }
+        if (this.startActionItemProvider != null) {
+            this.startActionItemProvider.dispose();
+        }
+        if (this.resourceDemandingSEFFItemProvider != null) {
+            this.resourceDemandingSEFFItemProvider.dispose();
+        }
+        if (this.resourceDemandingInternalBehaviourItemProvider != null) {
+            this.resourceDemandingInternalBehaviourItemProvider.dispose();
+        }
+        if (this.releaseActionItemProvider != null) {
+            this.releaseActionItemProvider.dispose();
+        }
+        if (this.loopActionItemProvider != null) {
+            this.loopActionItemProvider.dispose();
+        }
+        if (this.forkActionItemProvider != null) {
+            this.forkActionItemProvider.dispose();
+        }
+        if (this.forkedBehaviourItemProvider != null) {
+            this.forkedBehaviourItemProvider.dispose();
+        }
+        if (this.synchronisationPointItemProvider != null) {
+            this.synchronisationPointItemProvider.dispose();
+        }
+        if (this.externalCallActionItemProvider != null) {
+            this.externalCallActionItemProvider.dispose();
+        }
+        if (this.callReturnActionItemProvider != null) {
+            this.callReturnActionItemProvider.dispose();
+        }
+        if (this.probabilisticBranchTransitionItemProvider != null) {
+            this.probabilisticBranchTransitionItemProvider.dispose();
+        }
+        if (this.acquireActionItemProvider != null) {
+            this.acquireActionItemProvider.dispose();
+        }
+        if (this.collectionIteratorActionItemProvider != null) {
+            this.collectionIteratorActionItemProvider.dispose();
+        }
+        if (this.guardedBranchTransitionItemProvider != null) {
+            this.guardedBranchTransitionItemProvider.dispose();
+        }
+        if (this.setVariableActionItemProvider != null) {
+            this.setVariableActionItemProvider.dispose();
+        }
+        if (this.internalCallActionItemProvider != null) {
+            this.internalCallActionItemProvider.dispose();
+        }
+        if (this.emitEventActionItemProvider != null) {
+            this.emitEventActionItemProvider.dispose();
+        }
+        if (this.internalActionItemProvider != null) {
+            this.internalActionItemProvider.dispose();
+        }
     }
 
 }

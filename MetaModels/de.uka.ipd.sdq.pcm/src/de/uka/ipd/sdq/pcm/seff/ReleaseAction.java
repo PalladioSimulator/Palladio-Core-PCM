@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.seff;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Release Action</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Release Action</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> The ReleaseAction increases the number of available item for the given
@@ -22,7 +22,8 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>Passive
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>Passive
  * Resource Release Action</em>}</li>
  * </ul>
  * </p>
@@ -40,7 +41,7 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Passive Resource Release Action</b></em>' reference. <!--
+     * Returns the value of the '<em><b>Passive Resource Release Action</b></em> ' reference. <!--
      * begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Passive Resource Release Action</em>' reference isn't clear, there
@@ -63,7 +64,7 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Passive Resource Release Action</em>' reference.
+     *            the new value of the '<em>Passive Resource Release Action</em> ' reference.
      * @see #getPassiveResource_ReleaseAction()
      * @generated
      */

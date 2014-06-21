@@ -56,7 +56,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -74,28 +74,28 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      */
     protected QosPerformanceSwitch<Adapter> modelSwitch = new QosPerformanceSwitch<Adapter>() {
         @Override
-        public Adapter caseSystemSpecifiedExecutionTime(SystemSpecifiedExecutionTime object) {
-            return createSystemSpecifiedExecutionTimeAdapter();
+        public Adapter caseSystemSpecifiedExecutionTime(final SystemSpecifiedExecutionTime object) {
+            return QosPerformanceAdapterFactory.this.createSystemSpecifiedExecutionTimeAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedExecutionTime(SpecifiedExecutionTime object) {
-            return createSpecifiedExecutionTimeAdapter();
+        public Adapter caseSpecifiedExecutionTime(final SpecifiedExecutionTime object) {
+            return QosPerformanceAdapterFactory.this.createSpecifiedExecutionTimeAdapter();
         }
 
         @Override
-        public Adapter caseComponentSpecifiedExecutionTime(ComponentSpecifiedExecutionTime object) {
-            return createComponentSpecifiedExecutionTimeAdapter();
+        public Adapter caseComponentSpecifiedExecutionTime(final ComponentSpecifiedExecutionTime object) {
+            return QosPerformanceAdapterFactory.this.createComponentSpecifiedExecutionTimeAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedQoSAnnotation(SpecifiedQoSAnnotation object) {
-            return createSpecifiedQoSAnnotationAdapter();
+        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
+            return QosPerformanceAdapterFactory.this.createSpecifiedQoSAnnotationAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return QosPerformanceAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -108,8 +108,8 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**

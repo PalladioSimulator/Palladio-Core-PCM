@@ -41,8 +41,9 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <ul>
  * <li>{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type ID
  * </em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>
- * Described Service SEFF</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>Described
+ * Service SEFF</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
  * <em>Basic Component Service Effect Specification</em>}</li>
@@ -121,17 +122,17 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
     void setDescribedService__SEFF(Signature value);
 
     /**
-     * Returns the value of the '<em><b>Basic Component Service Effect Specification</b></em>'
+     * Returns the value of the ' <em><b>Basic Component Service Effect Specification</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
      * <em>Service Effect Specifications Basic Component</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Basic Component Service Effect Specification</em>' container
+     * If the meaning of the ' <em>Basic Component Service Effect Specification</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Basic Component Service Effect Specification</em>' container
+     * @return the value of the ' <em>Basic Component Service Effect Specification</em>' container
      *         reference.
      * @see #setBasicComponent_ServiceEffectSpecification(BasicComponent)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification()
@@ -149,7 +150,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Basic Component Service Effect Specification</em>'
+     *            the new value of the ' <em>Basic Component Service Effect Specification</em>'
      *            container reference.
      * @see #getBasicComponent_ServiceEffectSpecification()
      * @generated

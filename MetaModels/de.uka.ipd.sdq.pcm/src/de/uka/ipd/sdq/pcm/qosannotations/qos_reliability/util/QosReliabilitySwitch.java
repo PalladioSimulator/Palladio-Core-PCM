@@ -55,8 +55,8 @@ public class QosReliabilitySwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(EObject theEObject) {
-        return doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(final EObject theEObject) {
+        return this.doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
@@ -66,12 +66,12 @@ public class QosReliabilitySwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(EClass theEClass, EObject theEObject) {
+    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return doSwitch(theEClass.getClassifierID(), theEObject);
+            return this.doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
+            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -82,19 +82,21 @@ public class QosReliabilitySwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(int classifierID, EObject theEObject) {
+    protected T doSwitch(final int classifierID, final EObject theEObject) {
         switch (classifierID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION: {
-            SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation = (SpecifiedReliabilityAnnotation) theEObject;
-            T result = caseSpecifiedReliabilityAnnotation(specifiedReliabilityAnnotation);
-            if (result == null)
-                result = caseSpecifiedQoSAnnotation(specifiedReliabilityAnnotation);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation = (SpecifiedReliabilityAnnotation) theEObject;
+            T result = this.caseSpecifiedReliabilityAnnotation(specifiedReliabilityAnnotation);
+            if (result == null) {
+                result = this.caseSpecifiedQoSAnnotation(specifiedReliabilityAnnotation);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         default:
-            return defaultCase(theEObject);
+            return this.defaultCase(theEObject);
         }
     }
 
@@ -110,7 +112,7 @@ public class QosReliabilitySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSpecifiedReliabilityAnnotation(SpecifiedReliabilityAnnotation object) {
+    public T caseSpecifiedReliabilityAnnotation(final SpecifiedReliabilityAnnotation object) {
         return null;
     }
 
@@ -126,22 +128,22 @@ public class QosReliabilitySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSpecifiedQoSAnnotation(SpecifiedQoSAnnotation object) {
+    public T caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!--
+     * Returns the result of interpreting the object as an instance of ' <em>EObject</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch, but this is the last case anyway. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+     * @return the result of interpreting the object as an instance of ' <em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(EObject object) {
+    public T defaultCase(final EObject object) {
         return null;
     }
 

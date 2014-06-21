@@ -40,8 +40,8 @@ public class ProtocolResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new ProtocolResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new ProtocolResourceImpl(uri);
         return result;
     }
 

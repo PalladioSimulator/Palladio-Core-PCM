@@ -44,7 +44,7 @@ public class ResourceTimeoutFailureTypeItemProvider extends SoftwareInducedFailu
      * 
      * @generated
      */
-    public ResourceTimeoutFailureTypeItemProvider(AdapterFactory adapterFactory) {
+    public ResourceTimeoutFailureTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,13 +55,13 @@ public class ResourceTimeoutFailureTypeItemProvider extends SoftwareInducedFailu
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addPassiveResource__ResourceTimeoutFailureTypePropertyDescriptor(object);
+            this.addPassiveResource__ResourceTimeoutFailureTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -70,13 +70,13 @@ public class ResourceTimeoutFailureTypeItemProvider extends SoftwareInducedFailu
      * 
      * @generated
      */
-    protected void addPassiveResource__ResourceTimeoutFailureTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ResourceTimeoutFailureType_passiveResource__ResourceTimeoutFailureType_feature"),
-                        getString("_UI_PropertyDescriptor_description",
+    protected void addPassiveResource__ResourceTimeoutFailureTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_ResourceTimeoutFailureType_passiveResource__ResourceTimeoutFailureType_feature"),
+                        this.getString("_UI_PropertyDescriptor_description",
                                 "_UI_ResourceTimeoutFailureType_passiveResource__ResourceTimeoutFailureType_feature",
                                 "_UI_ResourceTimeoutFailureType_type"),
                         ReliabilityPackage.Literals.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
@@ -89,8 +89,8 @@ public class ResourceTimeoutFailureTypeItemProvider extends SoftwareInducedFailu
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceTimeoutFailureType"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ResourceTimeoutFailureType"));
     }
 
     /**
@@ -100,10 +100,10 @@ public class ResourceTimeoutFailureTypeItemProvider extends SoftwareInducedFailu
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ResourceTimeoutFailureType) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_ResourceTimeoutFailureType_type")
-                : getString("_UI_ResourceTimeoutFailureType_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ResourceTimeoutFailureType) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceTimeoutFailureType_type") : this
+                .getString("_UI_ResourceTimeoutFailureType_type") + " " + label;
     }
 
     /**
@@ -114,8 +114,8 @@ public class ResourceTimeoutFailureTypeItemProvider extends SoftwareInducedFailu
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -126,7 +126,7 @@ public class ResourceTimeoutFailureTypeItemProvider extends SoftwareInducedFailu
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

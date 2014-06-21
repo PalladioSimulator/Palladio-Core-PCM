@@ -40,7 +40,7 @@ public class SystemSpecifiedExecutionTimeItemProvider extends SpecifiedExecution
      * 
      * @generated
      */
-    public SystemSpecifiedExecutionTimeItemProvider(AdapterFactory adapterFactory) {
+    public SystemSpecifiedExecutionTimeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -51,12 +51,12 @@ public class SystemSpecifiedExecutionTimeItemProvider extends SpecifiedExecution
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -65,8 +65,8 @@ public class SystemSpecifiedExecutionTimeItemProvider extends SpecifiedExecution
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemSpecifiedExecutionTime"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/SystemSpecifiedExecutionTime"));
     }
 
     /**
@@ -76,8 +76,8 @@ public class SystemSpecifiedExecutionTimeItemProvider extends SpecifiedExecution
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_SystemSpecifiedExecutionTime_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_SystemSpecifiedExecutionTime_type");
     }
 
     /**
@@ -88,8 +88,8 @@ public class SystemSpecifiedExecutionTimeItemProvider extends SpecifiedExecution
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -100,7 +100,7 @@ public class SystemSpecifiedExecutionTimeItemProvider extends SpecifiedExecution
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

@@ -91,7 +91,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int FAILURE_HANDLING_ENTITY__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Failure Types Failure Handling Entity</b></em>' reference
+     * The feature id for the ' <em><b>Failure Types Failure Handling Entity</b></em>' reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -100,7 +100,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Failure Handling Entity</em>' class. <!--
+     * The number of structural features of the ' <em>Failure Handling Entity</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -138,7 +138,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_BEHAVIOUR__ENTITY_NAME = FAILURE_HANDLING_ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Failure Types Failure Handling Entity</b></em>' reference
+     * The feature id for the ' <em><b>Failure Types Failure Handling Entity</b></em>' reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -147,7 +147,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_BEHAVIOUR__FAILURE_TYPES_FAILURE_HANDLING_ENTITY = FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
+     * The feature id for the ' <em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -185,7 +185,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container
+     * The feature id for the ' <em><b>Recovery Action Recovery Action Behaviour</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -194,7 +194,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 4;
 
     /**
-     * The number of structural features of the '<em>Recovery Action Behaviour</em>' class. <!--
+     * The number of structural features of the ' <em>Recovery Action Behaviour</em>' class. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -250,7 +250,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION__SUCCESSOR_ABSTRACT_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__SUCCESSOR_ABSTRACT_ACTION;
 
     /**
-     * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
+     * The feature id for the ' <em><b>Resource Demanding Behaviour Abstract Action</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -286,7 +286,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION__RESOURCE_CALL_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION;
 
     /**
-     * The feature id for the '<em><b>Primary Behaviour Recovery Action</b></em>' reference. <!--
+     * The feature id for the '<em><b>Primary Behaviour Recovery Action</b></em> ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -295,7 +295,7 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>'
+     * The feature id for the ' <em><b>Recovery Action Behaviours Recovery Action</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -330,7 +330,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * <!-- end-user-doc -->
      * 
      * @return the meta object for the reference list '
-     *         <em>Failure Handling Alternatives Recovery Action Behaviour</em>'.
+     *         <em>Failure Handling Alternatives Recovery Action Behaviour</em> '.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour()
      * @see #getRecoveryActionBehaviour()
      * @generated
@@ -367,7 +367,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
      * <em>Primary Behaviour Recovery Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference '<em>Primary Behaviour Recovery Action</em>'.
+     * @return the meta object for the reference ' <em>Primary Behaviour Recovery Action</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction()
      * @see #getRecoveryAction()
      * @generated
@@ -448,7 +448,7 @@ public interface SeffReliabilityPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list
+         * <em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em> ' reference list
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -478,7 +478,7 @@ public interface SeffReliabilityPackage extends EPackage {
         EClass RECOVERY_ACTION = eINSTANCE.getRecoveryAction();
 
         /**
-         * The meta object literal for the '<em><b>Primary Behaviour Recovery Action</b></em>'
+         * The meta object literal for the ' <em><b>Primary Behaviour Recovery Action</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -508,7 +508,7 @@ public interface SeffReliabilityPackage extends EPackage {
         EClass FAILURE_HANDLING_ENTITY = eINSTANCE.getFailureHandlingEntity();
 
         /**
-         * The meta object literal for the '<em><b>Failure Types Failure Handling Entity</b></em>'
+         * The meta object literal for the ' <em><b>Failure Types Failure Handling Entity</b></em>'
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

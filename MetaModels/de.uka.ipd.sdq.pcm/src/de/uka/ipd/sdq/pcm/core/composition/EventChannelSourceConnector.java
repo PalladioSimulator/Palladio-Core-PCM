@@ -39,7 +39,7 @@ public interface EventChannelSourceConnector extends Connector {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Source Role Event Channel Source Role</b></em>' reference.
+     * Returns the value of the ' <em><b>Source Role Event Channel Source Role</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Source Role Event Channel Source Role</em>' reference isn't clear,
@@ -62,22 +62,22 @@ public interface EventChannelSourceConnector extends Connector {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Source Role Event Channel Source Role</em>' reference.
+     *            the new value of the ' <em>Source Role Event Channel Source Role</em>' reference.
      * @see #getSourceRole__EventChannelSourceRole()
      * @generated
      */
     void setSourceRole__EventChannelSourceRole(SourceRole value);
 
     /**
-     * Returns the value of the '<em><b>Assembly Context Event Channel Source Connector</b></em>'
+     * Returns the value of the ' <em><b>Assembly Context Event Channel Source Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Assembly Context Event Channel Source Connector</em>' reference
+     * If the meaning of the ' <em>Assembly Context Event Channel Source Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Assembly Context Event Channel Source Connector</em>'
+     * @return the value of the ' <em>Assembly Context Event Channel Source Connector</em>'
      *         reference.
      * @see #setAssemblyContext__EventChannelSourceConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector()
@@ -93,7 +93,7 @@ public interface EventChannelSourceConnector extends Connector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Assembly Context Event Channel Source Connector</em>'
+     *            the new value of the ' <em>Assembly Context Event Channel Source Connector</em>'
      *            reference.
      * @see #getAssemblyContext__EventChannelSourceConnector()
      * @generated
@@ -101,17 +101,17 @@ public interface EventChannelSourceConnector extends Connector {
     void setAssemblyContext__EventChannelSourceConnector(AssemblyContext value);
 
     /**
-     * Returns the value of the '<em><b>Event Channel Event Channel Source Connector</b></em>'
+     * Returns the value of the ' <em><b>Event Channel Event Channel Source Connector</b></em>'
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
      * <em>Event Channel Source Connector Event Channel</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Event Channel Event Channel Source Connector</em>' reference isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Event Channel Event Channel Source Connector</em>' reference
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Event Channel Event Channel Source Connector</em>' reference.
+     * @return the value of the ' <em>Event Channel Event Channel Source Connector</em>' reference.
      * @see #setEventChannel__EventChannelSourceConnector(EventChannel)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector()
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
@@ -127,7 +127,7 @@ public interface EventChannelSourceConnector extends Connector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Event Channel Event Channel Source Connector</em>'
+     *            the new value of the ' <em>Event Channel Event Channel Source Connector</em>'
      *            reference.
      * @see #getEventChannel__EventChannelSourceConnector()
      * @generated

@@ -9,8 +9,8 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Failure Type</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Failure Type</b></em>'.
+ * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc -->
  * <p>
@@ -22,7 +22,8 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType <em>Repository
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType <em>Repository
  * Failure Type</em>}</li>
  * </ul>
  * </p>

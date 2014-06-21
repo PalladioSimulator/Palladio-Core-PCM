@@ -40,8 +40,8 @@ public class CoreResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new CoreResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new CoreResourceImpl(uri);
         return result;
     }
 

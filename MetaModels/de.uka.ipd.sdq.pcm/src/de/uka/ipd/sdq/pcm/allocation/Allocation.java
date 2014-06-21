@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Allocation</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Allocation</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> The allocation repository holding all available allocation contexts of a
@@ -23,12 +23,14 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation <em>
  * Target Resource Environment Allocation</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation <em>System Allocation
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation <em> System Allocation
  * </em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>
- * Allocation Contexts Allocation</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>Allocation
+ * Contexts Allocation</em>}</li>
  * </ul>
  * </p>
  * 
@@ -45,7 +47,7 @@ public interface Allocation extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Target Resource Environment Allocation</b></em>' reference.
+     * Returns the value of the ' <em><b>Target Resource Environment Allocation</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Target Resource Environment Allocation</em>' reference isn't
@@ -53,7 +55,7 @@ public interface Allocation extends Entity {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Target Resource Environment Allocation</em>' reference.
+     * @return the value of the '<em>Target Resource Environment Allocation</em> ' reference.
      * @see #setTargetResourceEnvironment_Allocation(ResourceEnvironment)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_TargetResourceEnvironment_Allocation()
      * @model ordered="false"
@@ -68,7 +70,7 @@ public interface Allocation extends Entity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Target Resource Environment Allocation</em>' reference.
+     *            the new value of the ' <em>Target Resource Environment Allocation</em>' reference.
      * @see #getTargetResourceEnvironment_Allocation()
      * @generated
      */
@@ -92,7 +94,7 @@ public interface Allocation extends Entity {
     de.uka.ipd.sdq.pcm.system.System getSystem_Allocation();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation
+     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation
      * <em>System Allocation</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
@@ -106,7 +108,7 @@ public interface Allocation extends Entity {
      * Returns the value of the '<em><b>Allocation Contexts Allocation</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext}. It is bidirectional and its opposite
-     * is '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
+     * is ' {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
      * <em>Allocation Allocation Context</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Allocation Contexts Allocation</em>' containment reference list

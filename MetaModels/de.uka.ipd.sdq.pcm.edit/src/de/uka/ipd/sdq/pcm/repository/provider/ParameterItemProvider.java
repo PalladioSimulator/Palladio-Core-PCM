@@ -47,7 +47,7 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * 
      * @generated
      */
-    public ParameterItemProvider(AdapterFactory adapterFactory) {
+    public ParameterItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -58,15 +58,15 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addDataType__ParameterPropertyDescriptor(object);
-            addParameterNamePropertyDescriptor(object);
-            addModifier__ParameterPropertyDescriptor(object);
+            this.addDataType__ParameterPropertyDescriptor(object);
+            this.addParameterNamePropertyDescriptor(object);
+            this.addModifier__ParameterPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,12 +75,11 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * 
      * @generated
      */
-    protected void addDataType__ParameterPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Parameter_dataType__Parameter_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_Parameter_dataType__Parameter_feature",
+    protected void addDataType__ParameterPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Parameter_dataType__Parameter_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_Parameter_dataType__Parameter_feature",
                         "_UI_Parameter_type"), RepositoryPackage.Literals.PARAMETER__DATA_TYPE_PARAMETER, true, false,
                 true, null, null, null));
     }
@@ -91,12 +90,11 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * 
      * @generated
      */
-    protected void addParameterNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Parameter_parameterName_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_Parameter_parameterName_feature",
+    protected void addParameterNamePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Parameter_parameterName_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_Parameter_parameterName_feature",
                         "_UI_Parameter_type"), RepositoryPackage.Literals.PARAMETER__PARAMETER_NAME, true, false,
                 false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -107,12 +105,11 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * 
      * @generated
      */
-    protected void addModifier__ParameterPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_Parameter_modifier__Parameter_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_Parameter_modifier__Parameter_feature",
+    protected void addModifier__ParameterPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Parameter_modifier__Parameter_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_Parameter_modifier__Parameter_feature",
                         "_UI_Parameter_type"), RepositoryPackage.Literals.PARAMETER__MODIFIER_PARAMETER, true, false,
                 false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -123,8 +120,8 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/Parameter"));
     }
 
     /**
@@ -134,10 +131,10 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((Parameter) object).getParameterName();
-        return label == null || label.length() == 0 ? getString("_UI_Parameter_type") : getString("_UI_Parameter_type")
-                + " " + label;
+    public String getText(final Object object) {
+        final String label = ((Parameter) object).getParameterName();
+        return label == null || label.length() == 0 ? this.getString("_UI_Parameter_type") : this
+                .getString("_UI_Parameter_type") + " " + label;
     }
 
     /**
@@ -148,13 +145,13 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(Parameter.class)) {
         case RepositoryPackage.PARAMETER__PARAMETER_NAME:
         case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -167,7 +164,7 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -179,7 +176,7 @@ public class ParameterItemProvider extends ItemProviderAdapter implements IEditi
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

@@ -88,11 +88,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * @generated
      */
     public RepositoryItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -112,11 +112,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createRepositoryAdapter() {
-        if (repositoryItemProvider == null) {
-            repositoryItemProvider = new RepositoryItemProvider(this);
+        if (this.repositoryItemProvider == null) {
+            this.repositoryItemProvider = new RepositoryItemProvider(this);
         }
 
-        return repositoryItemProvider;
+        return this.repositoryItemProvider;
     }
 
     /**
@@ -136,11 +136,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createRequiredCharacterisationAdapter() {
-        if (requiredCharacterisationItemProvider == null) {
-            requiredCharacterisationItemProvider = new RequiredCharacterisationItemProvider(this);
+        if (this.requiredCharacterisationItemProvider == null) {
+            this.requiredCharacterisationItemProvider = new RequiredCharacterisationItemProvider(this);
         }
 
-        return requiredCharacterisationItemProvider;
+        return this.requiredCharacterisationItemProvider;
     }
 
     /**
@@ -160,11 +160,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createParameterAdapter() {
-        if (parameterItemProvider == null) {
-            parameterItemProvider = new ParameterItemProvider(this);
+        if (this.parameterItemProvider == null) {
+            this.parameterItemProvider = new ParameterItemProvider(this);
         }
 
-        return parameterItemProvider;
+        return this.parameterItemProvider;
     }
 
     /**
@@ -184,11 +184,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createOperationInterfaceAdapter() {
-        if (operationInterfaceItemProvider == null) {
-            operationInterfaceItemProvider = new OperationInterfaceItemProvider(this);
+        if (this.operationInterfaceItemProvider == null) {
+            this.operationInterfaceItemProvider = new OperationInterfaceItemProvider(this);
         }
 
-        return operationInterfaceItemProvider;
+        return this.operationInterfaceItemProvider;
     }
 
     /**
@@ -208,11 +208,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createOperationSignatureAdapter() {
-        if (operationSignatureItemProvider == null) {
-            operationSignatureItemProvider = new OperationSignatureItemProvider(this);
+        if (this.operationSignatureItemProvider == null) {
+            this.operationSignatureItemProvider = new OperationSignatureItemProvider(this);
         }
 
-        return operationSignatureItemProvider;
+        return this.operationSignatureItemProvider;
     }
 
     /**
@@ -232,11 +232,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createExceptionTypeAdapter() {
-        if (exceptionTypeItemProvider == null) {
-            exceptionTypeItemProvider = new ExceptionTypeItemProvider(this);
+        if (this.exceptionTypeItemProvider == null) {
+            this.exceptionTypeItemProvider = new ExceptionTypeItemProvider(this);
         }
 
-        return exceptionTypeItemProvider;
+        return this.exceptionTypeItemProvider;
     }
 
     /**
@@ -256,11 +256,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createOperationRequiredRoleAdapter() {
-        if (operationRequiredRoleItemProvider == null) {
-            operationRequiredRoleItemProvider = new OperationRequiredRoleItemProvider(this);
+        if (this.operationRequiredRoleItemProvider == null) {
+            this.operationRequiredRoleItemProvider = new OperationRequiredRoleItemProvider(this);
         }
 
-        return operationRequiredRoleItemProvider;
+        return this.operationRequiredRoleItemProvider;
     }
 
     /**
@@ -280,11 +280,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createSinkRoleAdapter() {
-        if (sinkRoleItemProvider == null) {
-            sinkRoleItemProvider = new SinkRoleItemProvider(this);
+        if (this.sinkRoleItemProvider == null) {
+            this.sinkRoleItemProvider = new SinkRoleItemProvider(this);
         }
 
-        return sinkRoleItemProvider;
+        return this.sinkRoleItemProvider;
     }
 
     /**
@@ -304,11 +304,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createEventGroupAdapter() {
-        if (eventGroupItemProvider == null) {
-            eventGroupItemProvider = new EventGroupItemProvider(this);
+        if (this.eventGroupItemProvider == null) {
+            this.eventGroupItemProvider = new EventGroupItemProvider(this);
         }
 
-        return eventGroupItemProvider;
+        return this.eventGroupItemProvider;
     }
 
     /**
@@ -328,11 +328,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createEventTypeAdapter() {
-        if (eventTypeItemProvider == null) {
-            eventTypeItemProvider = new EventTypeItemProvider(this);
+        if (this.eventTypeItemProvider == null) {
+            this.eventTypeItemProvider = new EventTypeItemProvider(this);
         }
 
-        return eventTypeItemProvider;
+        return this.eventTypeItemProvider;
     }
 
     /**
@@ -352,11 +352,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createSourceRoleAdapter() {
-        if (sourceRoleItemProvider == null) {
-            sourceRoleItemProvider = new SourceRoleItemProvider(this);
+        if (this.sourceRoleItemProvider == null) {
+            this.sourceRoleItemProvider = new SourceRoleItemProvider(this);
         }
 
-        return sourceRoleItemProvider;
+        return this.sourceRoleItemProvider;
     }
 
     /**
@@ -377,11 +377,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createInfrastructureProvidedRoleAdapter() {
-        if (infrastructureProvidedRoleItemProvider == null) {
-            infrastructureProvidedRoleItemProvider = new InfrastructureProvidedRoleItemProvider(this);
+        if (this.infrastructureProvidedRoleItemProvider == null) {
+            this.infrastructureProvidedRoleItemProvider = new InfrastructureProvidedRoleItemProvider(this);
         }
 
-        return infrastructureProvidedRoleItemProvider;
+        return this.infrastructureProvidedRoleItemProvider;
     }
 
     /**
@@ -401,11 +401,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createBasicComponentAdapter() {
-        if (basicComponentItemProvider == null) {
-            basicComponentItemProvider = new BasicComponentItemProvider(this);
+        if (this.basicComponentItemProvider == null) {
+            this.basicComponentItemProvider = new BasicComponentItemProvider(this);
         }
 
-        return basicComponentItemProvider;
+        return this.basicComponentItemProvider;
     }
 
     /**
@@ -425,11 +425,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createCompleteComponentTypeAdapter() {
-        if (completeComponentTypeItemProvider == null) {
-            completeComponentTypeItemProvider = new CompleteComponentTypeItemProvider(this);
+        if (this.completeComponentTypeItemProvider == null) {
+            this.completeComponentTypeItemProvider = new CompleteComponentTypeItemProvider(this);
         }
 
-        return completeComponentTypeItemProvider;
+        return this.completeComponentTypeItemProvider;
     }
 
     /**
@@ -449,11 +449,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createProvidesComponentTypeAdapter() {
-        if (providesComponentTypeItemProvider == null) {
-            providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
+        if (this.providesComponentTypeItemProvider == null) {
+            this.providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
         }
 
-        return providesComponentTypeItemProvider;
+        return this.providesComponentTypeItemProvider;
     }
 
     /**
@@ -473,11 +473,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createOperationProvidedRoleAdapter() {
-        if (operationProvidedRoleItemProvider == null) {
-            operationProvidedRoleItemProvider = new OperationProvidedRoleItemProvider(this);
+        if (this.operationProvidedRoleItemProvider == null) {
+            this.operationProvidedRoleItemProvider = new OperationProvidedRoleItemProvider(this);
         }
 
-        return operationProvidedRoleItemProvider;
+        return this.operationProvidedRoleItemProvider;
     }
 
     /**
@@ -497,11 +497,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createPassiveResourceAdapter() {
-        if (passiveResourceItemProvider == null) {
-            passiveResourceItemProvider = new PassiveResourceItemProvider(this);
+        if (this.passiveResourceItemProvider == null) {
+            this.passiveResourceItemProvider = new PassiveResourceItemProvider(this);
         }
 
-        return passiveResourceItemProvider;
+        return this.passiveResourceItemProvider;
     }
 
     /**
@@ -521,11 +521,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createCompositeDataTypeAdapter() {
-        if (compositeDataTypeItemProvider == null) {
-            compositeDataTypeItemProvider = new CompositeDataTypeItemProvider(this);
+        if (this.compositeDataTypeItemProvider == null) {
+            this.compositeDataTypeItemProvider = new CompositeDataTypeItemProvider(this);
         }
 
-        return compositeDataTypeItemProvider;
+        return this.compositeDataTypeItemProvider;
     }
 
     /**
@@ -545,11 +545,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createInnerDeclarationAdapter() {
-        if (innerDeclarationItemProvider == null) {
-            innerDeclarationItemProvider = new InnerDeclarationItemProvider(this);
+        if (this.innerDeclarationItemProvider == null) {
+            this.innerDeclarationItemProvider = new InnerDeclarationItemProvider(this);
         }
 
-        return innerDeclarationItemProvider;
+        return this.innerDeclarationItemProvider;
     }
 
     /**
@@ -569,11 +569,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createInfrastructureSignatureAdapter() {
-        if (infrastructureSignatureItemProvider == null) {
-            infrastructureSignatureItemProvider = new InfrastructureSignatureItemProvider(this);
+        if (this.infrastructureSignatureItemProvider == null) {
+            this.infrastructureSignatureItemProvider = new InfrastructureSignatureItemProvider(this);
         }
 
-        return infrastructureSignatureItemProvider;
+        return this.infrastructureSignatureItemProvider;
     }
 
     /**
@@ -594,11 +594,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createInfrastructureRequiredRoleAdapter() {
-        if (infrastructureRequiredRoleItemProvider == null) {
-            infrastructureRequiredRoleItemProvider = new InfrastructureRequiredRoleItemProvider(this);
+        if (this.infrastructureRequiredRoleItemProvider == null) {
+            this.infrastructureRequiredRoleItemProvider = new InfrastructureRequiredRoleItemProvider(this);
         }
 
-        return infrastructureRequiredRoleItemProvider;
+        return this.infrastructureRequiredRoleItemProvider;
     }
 
     /**
@@ -618,11 +618,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createInfrastructureInterfaceAdapter() {
-        if (infrastructureInterfaceItemProvider == null) {
-            infrastructureInterfaceItemProvider = new InfrastructureInterfaceItemProvider(this);
+        if (this.infrastructureInterfaceItemProvider == null) {
+            this.infrastructureInterfaceItemProvider = new InfrastructureInterfaceItemProvider(this);
         }
 
-        return infrastructureInterfaceItemProvider;
+        return this.infrastructureInterfaceItemProvider;
     }
 
     /**
@@ -642,11 +642,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createCompositeComponentAdapter() {
-        if (compositeComponentItemProvider == null) {
-            compositeComponentItemProvider = new CompositeComponentItemProvider(this);
+        if (this.compositeComponentItemProvider == null) {
+            this.compositeComponentItemProvider = new CompositeComponentItemProvider(this);
         }
 
-        return compositeComponentItemProvider;
+        return this.compositeComponentItemProvider;
     }
 
     /**
@@ -666,11 +666,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createPrimitiveDataTypeAdapter() {
-        if (primitiveDataTypeItemProvider == null) {
-            primitiveDataTypeItemProvider = new PrimitiveDataTypeItemProvider(this);
+        if (this.primitiveDataTypeItemProvider == null) {
+            this.primitiveDataTypeItemProvider = new PrimitiveDataTypeItemProvider(this);
         }
 
-        return primitiveDataTypeItemProvider;
+        return this.primitiveDataTypeItemProvider;
     }
 
     /**
@@ -690,11 +690,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createCollectionDataTypeAdapter() {
-        if (collectionDataTypeItemProvider == null) {
-            collectionDataTypeItemProvider = new CollectionDataTypeItemProvider(this);
+        if (this.collectionDataTypeItemProvider == null) {
+            this.collectionDataTypeItemProvider = new CollectionDataTypeItemProvider(this);
         }
 
-        return collectionDataTypeItemProvider;
+        return this.collectionDataTypeItemProvider;
     }
 
     /**
@@ -703,8 +703,9 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -713,7 +714,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -723,8 +725,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -734,7 +736,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -744,9 +746,9 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -761,7 +763,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -769,8 +771,9 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -778,8 +781,9 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -787,8 +791,9 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -796,8 +801,9 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -806,11 +812,12 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -820,57 +827,83 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (passiveResourceItemProvider != null)
-            passiveResourceItemProvider.dispose();
-        if (basicComponentItemProvider != null)
-            basicComponentItemProvider.dispose();
-        if (parameterItemProvider != null)
-            parameterItemProvider.dispose();
-        if (repositoryItemProvider != null)
-            repositoryItemProvider.dispose();
-        if (requiredCharacterisationItemProvider != null)
-            requiredCharacterisationItemProvider.dispose();
-        if (eventGroupItemProvider != null)
-            eventGroupItemProvider.dispose();
-        if (eventTypeItemProvider != null)
-            eventTypeItemProvider.dispose();
-        if (exceptionTypeItemProvider != null)
-            exceptionTypeItemProvider.dispose();
-        if (infrastructureSignatureItemProvider != null)
-            infrastructureSignatureItemProvider.dispose();
-        if (infrastructureInterfaceItemProvider != null)
-            infrastructureInterfaceItemProvider.dispose();
-        if (infrastructureRequiredRoleItemProvider != null)
-            infrastructureRequiredRoleItemProvider.dispose();
-        if (operationSignatureItemProvider != null)
-            operationSignatureItemProvider.dispose();
-        if (operationInterfaceItemProvider != null)
-            operationInterfaceItemProvider.dispose();
-        if (operationRequiredRoleItemProvider != null)
-            operationRequiredRoleItemProvider.dispose();
-        if (sourceRoleItemProvider != null)
-            sourceRoleItemProvider.dispose();
-        if (sinkRoleItemProvider != null)
-            sinkRoleItemProvider.dispose();
-        if (operationProvidedRoleItemProvider != null)
-            operationProvidedRoleItemProvider.dispose();
-        if (infrastructureProvidedRoleItemProvider != null)
-            infrastructureProvidedRoleItemProvider.dispose();
-        if (completeComponentTypeItemProvider != null)
-            completeComponentTypeItemProvider.dispose();
-        if (providesComponentTypeItemProvider != null)
-            providesComponentTypeItemProvider.dispose();
-        if (compositeComponentItemProvider != null)
-            compositeComponentItemProvider.dispose();
-        if (primitiveDataTypeItemProvider != null)
-            primitiveDataTypeItemProvider.dispose();
-        if (collectionDataTypeItemProvider != null)
-            collectionDataTypeItemProvider.dispose();
-        if (compositeDataTypeItemProvider != null)
-            compositeDataTypeItemProvider.dispose();
-        if (innerDeclarationItemProvider != null)
-            innerDeclarationItemProvider.dispose();
+        if (this.passiveResourceItemProvider != null) {
+            this.passiveResourceItemProvider.dispose();
+        }
+        if (this.basicComponentItemProvider != null) {
+            this.basicComponentItemProvider.dispose();
+        }
+        if (this.parameterItemProvider != null) {
+            this.parameterItemProvider.dispose();
+        }
+        if (this.repositoryItemProvider != null) {
+            this.repositoryItemProvider.dispose();
+        }
+        if (this.requiredCharacterisationItemProvider != null) {
+            this.requiredCharacterisationItemProvider.dispose();
+        }
+        if (this.eventGroupItemProvider != null) {
+            this.eventGroupItemProvider.dispose();
+        }
+        if (this.eventTypeItemProvider != null) {
+            this.eventTypeItemProvider.dispose();
+        }
+        if (this.exceptionTypeItemProvider != null) {
+            this.exceptionTypeItemProvider.dispose();
+        }
+        if (this.infrastructureSignatureItemProvider != null) {
+            this.infrastructureSignatureItemProvider.dispose();
+        }
+        if (this.infrastructureInterfaceItemProvider != null) {
+            this.infrastructureInterfaceItemProvider.dispose();
+        }
+        if (this.infrastructureRequiredRoleItemProvider != null) {
+            this.infrastructureRequiredRoleItemProvider.dispose();
+        }
+        if (this.operationSignatureItemProvider != null) {
+            this.operationSignatureItemProvider.dispose();
+        }
+        if (this.operationInterfaceItemProvider != null) {
+            this.operationInterfaceItemProvider.dispose();
+        }
+        if (this.operationRequiredRoleItemProvider != null) {
+            this.operationRequiredRoleItemProvider.dispose();
+        }
+        if (this.sourceRoleItemProvider != null) {
+            this.sourceRoleItemProvider.dispose();
+        }
+        if (this.sinkRoleItemProvider != null) {
+            this.sinkRoleItemProvider.dispose();
+        }
+        if (this.operationProvidedRoleItemProvider != null) {
+            this.operationProvidedRoleItemProvider.dispose();
+        }
+        if (this.infrastructureProvidedRoleItemProvider != null) {
+            this.infrastructureProvidedRoleItemProvider.dispose();
+        }
+        if (this.completeComponentTypeItemProvider != null) {
+            this.completeComponentTypeItemProvider.dispose();
+        }
+        if (this.providesComponentTypeItemProvider != null) {
+            this.providesComponentTypeItemProvider.dispose();
+        }
+        if (this.compositeComponentItemProvider != null) {
+            this.compositeComponentItemProvider.dispose();
+        }
+        if (this.primitiveDataTypeItemProvider != null) {
+            this.primitiveDataTypeItemProvider.dispose();
+        }
+        if (this.collectionDataTypeItemProvider != null) {
+            this.collectionDataTypeItemProvider.dispose();
+        }
+        if (this.compositeDataTypeItemProvider != null) {
+            this.compositeDataTypeItemProvider.dispose();
+        }
+        if (this.innerDeclarationItemProvider != null) {
+            this.innerDeclarationItemProvider.dispose();
+        }
     }
 
 }

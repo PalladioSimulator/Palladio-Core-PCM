@@ -41,7 +41,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      * 
      * @generated
      */
-    public DummyClassItemProvider(AdapterFactory adapterFactory) {
+    public DummyClassItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -52,12 +52,12 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -66,8 +66,8 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/DummyClass"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/DummyClass"));
     }
 
     /**
@@ -77,8 +77,8 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_DummyClass_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_DummyClass_type");
     }
 
     /**
@@ -89,8 +89,8 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -101,7 +101,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -113,7 +113,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

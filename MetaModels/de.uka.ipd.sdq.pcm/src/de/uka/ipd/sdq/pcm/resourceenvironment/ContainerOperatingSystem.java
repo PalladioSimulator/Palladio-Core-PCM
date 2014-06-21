@@ -211,7 +211,7 @@ public enum ContainerOperatingSystem implements Enumerator {
             LINUX26_CFS, LINUX26_O1, WINDOWS_XP, WINDOWS_7, WINDOWS_2003, ABSTRACT, };
 
     /**
-     * A public read-only list of all the '<em><b>Container Operating System</b></em>' enumerators.
+     * A public read-only list of all the ' <em><b>Container Operating System</b></em>' enumerators.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -225,9 +225,8 @@ public enum ContainerOperatingSystem implements Enumerator {
      * 
      * @generated
      */
-    public static ContainerOperatingSystem get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            ContainerOperatingSystem result = VALUES_ARRAY[i];
+    public static ContainerOperatingSystem get(final String literal) {
+        for (final ContainerOperatingSystem result : VALUES_ARRAY) {
             if (result.toString().equals(literal)) {
                 return result;
             }
@@ -241,9 +240,8 @@ public enum ContainerOperatingSystem implements Enumerator {
      * 
      * @generated
      */
-    public static ContainerOperatingSystem getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            ContainerOperatingSystem result = VALUES_ARRAY[i];
+    public static ContainerOperatingSystem getByName(final String name) {
+        for (final ContainerOperatingSystem result : VALUES_ARRAY) {
             if (result.getName().equals(name)) {
                 return result;
             }
@@ -257,7 +255,7 @@ public enum ContainerOperatingSystem implements Enumerator {
      * 
      * @generated
      */
-    public static ContainerOperatingSystem get(int value) {
+    public static ContainerOperatingSystem get(final int value) {
         switch (value) {
         case WINDOWS_VISTA_VALUE:
             return WINDOWS_VISTA;
@@ -303,7 +301,7 @@ public enum ContainerOperatingSystem implements Enumerator {
      * 
      * @generated
      */
-    private ContainerOperatingSystem(int value, String name, String literal) {
+    private ContainerOperatingSystem(final int value, final String name, final String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
@@ -314,8 +312,9 @@ public enum ContainerOperatingSystem implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     /**
@@ -323,8 +322,9 @@ public enum ContainerOperatingSystem implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
@@ -332,8 +332,9 @@ public enum ContainerOperatingSystem implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getLiteral() {
-        return literal;
+        return this.literal;
     }
 
     /**
@@ -344,7 +345,7 @@ public enum ContainerOperatingSystem implements Enumerator {
      */
     @Override
     public String toString() {
-        return literal;
+        return this.literal;
     }
 
 } // ContainerOperatingSystem

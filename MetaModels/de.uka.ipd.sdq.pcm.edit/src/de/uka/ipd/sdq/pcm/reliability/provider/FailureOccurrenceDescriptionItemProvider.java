@@ -49,7 +49,7 @@ public class FailureOccurrenceDescriptionItemProvider extends ItemProviderAdapte
      * 
      * @generated
      */
-    public FailureOccurrenceDescriptionItemProvider(AdapterFactory adapterFactory) {
+    public FailureOccurrenceDescriptionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -60,13 +60,13 @@ public class FailureOccurrenceDescriptionItemProvider extends ItemProviderAdapte
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addFailureProbabilityPropertyDescriptor(object);
+            this.addFailureProbabilityPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,12 +75,11 @@ public class FailureOccurrenceDescriptionItemProvider extends ItemProviderAdapte
      * 
      * @generated
      */
-    protected void addFailureProbabilityPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_FailureOccurrenceDescription_failureProbability_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addFailureProbabilityPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_FailureOccurrenceDescription_failureProbability_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_FailureOccurrenceDescription_failureProbability_feature",
                         "_UI_FailureOccurrenceDescription_type"),
                 ReliabilityPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY, true, false, false,
@@ -94,9 +93,9 @@ public class FailureOccurrenceDescriptionItemProvider extends ItemProviderAdapte
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        FailureOccurrenceDescription failureOccurrenceDescription = (FailureOccurrenceDescription) object;
-        return getString("_UI_FailureOccurrenceDescription_type") + " "
+    public String getText(final Object object) {
+        final FailureOccurrenceDescription failureOccurrenceDescription = (FailureOccurrenceDescription) object;
+        return this.getString("_UI_FailureOccurrenceDescription_type") + " "
                 + failureOccurrenceDescription.getFailureProbability();
     }
 
@@ -108,12 +107,12 @@ public class FailureOccurrenceDescriptionItemProvider extends ItemProviderAdapte
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(FailureOccurrenceDescription.class)) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         }
         super.notifyChanged(notification);
@@ -126,7 +125,7 @@ public class FailureOccurrenceDescriptionItemProvider extends ItemProviderAdapte
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -138,7 +137,7 @@ public class FailureOccurrenceDescriptionItemProvider extends ItemProviderAdapte
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

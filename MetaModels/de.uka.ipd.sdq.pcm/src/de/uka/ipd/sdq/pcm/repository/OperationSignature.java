@@ -11,8 +11,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Operation Signature</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Operation Signature</b></em> '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> An interface specific to operations and a operation specific association
  * to parameters and return values. <!-- end-model-doc -->
@@ -20,12 +20,15 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getInterface__OperationSignature <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getInterface__OperationSignature <em>
  * Interface Operation Signature</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getParameters__OperationSignature
- * <em>Parameters Operation Signature</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getReturnType__OperationSignature
- * <em>Return Type Operation Signature</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getParameters__OperationSignature <em>
+ * Parameters Operation Signature</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getReturnType__OperationSignature <em>
+ * Return Type Operation Signature</em>}</li>
  * </ul>
  * </p>
  * 
@@ -86,7 +89,7 @@ public interface OperationSignature extends Signature {
     boolean ParameterNamesHaveToBeUniqueForASignature(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * Returns the value of the '<em><b>Return Type Operation Signature</b></em>' reference. <!--
+     * Returns the value of the '<em><b>Return Type Operation Signature</b></em> ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the return type of the corresponding method. <!-- end-model-doc -->
      * 
@@ -105,7 +108,7 @@ public interface OperationSignature extends Signature {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Return Type Operation Signature</em>' reference.
+     *            the new value of the '<em>Return Type Operation Signature</em> ' reference.
      * @see #getReturnType__OperationSignature()
      * @generated
      */

@@ -68,8 +68,8 @@ public interface SystemPackage extends EPackage {
     SystemPackage eINSTANCE = de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl.init();
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl <em>System</em>}
-     * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl
+     * <em>System</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.system.impl.SystemImpl
      * @see de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl#getSystem()
@@ -96,7 +96,7 @@ public interface SystemPackage extends EPackage {
     int SYSTEM__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
+     * The feature id for the ' <em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -106,7 +106,7 @@ public interface SystemPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
+     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -133,7 +133,7 @@ public interface SystemPackage extends EPackage {
     int SYSTEM__CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -143,7 +143,7 @@ public interface SystemPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -152,7 +152,7 @@ public interface SystemPackage extends EPackage {
     int SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -179,8 +179,8 @@ public interface SystemPackage extends EPackage {
     int SYSTEM_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 8;
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.system.System <em>System</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.system.System <em>System</em>}
+     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>System</em>'.
      * @see de.uka.ipd.sdq.pcm.system.System
@@ -193,7 +193,8 @@ public interface SystemPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System
      * <em>Qos Annotations System</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list '<em>Qos Annotations System</em>'.
+     * @return the meta object for the containment reference list ' <em>Qos Annotations System</em>
+     *         '.
      * @see de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System()
      * @see #getSystem()
      * @generated
@@ -223,7 +224,7 @@ public interface SystemPackage extends EPackage {
      */
     interface Literals {
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl
+         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl
          * <em>System</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.system.impl.SystemImpl
@@ -233,7 +234,7 @@ public interface SystemPackage extends EPackage {
         EClass SYSTEM = eINSTANCE.getSystem();
 
         /**
-         * The meta object literal for the '<em><b>Qos Annotations System</b></em>' containment
+         * The meta object literal for the ' <em><b>Qos Annotations System</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

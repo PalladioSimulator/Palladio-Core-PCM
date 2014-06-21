@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.repository;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Component</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Component</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> Abstract superclass of all component types which can be part of a
@@ -17,8 +17,9 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
- * <em>Repository Repository Component</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent <em>
+ * Repository Repository Component</em>}</li>
  * </ul>
  * </p>
  * 
@@ -35,7 +36,7 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Repository Repository Component</b></em>' container
+     * Returns the value of the '<em><b>Repository Repository Component</b></em> ' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository
      * <em>Components Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
@@ -58,7 +59,7 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Repository Repository Component</em>' container
+     *            the new value of the '<em>Repository Repository Component</em> ' container
      *            reference.
      * @see #getRepository__RepositoryComponent()
      * @generated

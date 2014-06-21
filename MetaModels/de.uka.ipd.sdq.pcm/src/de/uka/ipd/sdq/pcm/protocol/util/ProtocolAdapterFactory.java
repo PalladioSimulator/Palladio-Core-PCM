@@ -55,7 +55,7 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -73,13 +73,13 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
      */
     protected ProtocolSwitch<Adapter> modelSwitch = new ProtocolSwitch<Adapter>() {
         @Override
-        public Adapter caseProtocol(Protocol object) {
-            return createProtocolAdapter();
+        public Adapter caseProtocol(final Protocol object) {
+            return ProtocolAdapterFactory.this.createProtocolAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return ProtocolAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -92,12 +92,12 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.protocol.Protocol
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.protocol.Protocol
      * <em>Protocol</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

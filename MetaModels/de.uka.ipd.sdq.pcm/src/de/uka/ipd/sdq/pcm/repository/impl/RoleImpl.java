@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.Role;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Role</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Role</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * </p>

@@ -29,7 +29,7 @@ public class SubsystemResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public SubsystemResourceImpl(URI uri) {
+    public SubsystemResourceImpl(final URI uri) {
         super(uri);
     }
 

@@ -43,12 +43,12 @@ public class ResourceenvironmentXMLProcessor extends XMLProcessor {
      */
     @Override
     protected Map<String, Resource.Factory> getRegistrations() {
-        if (registrations == null) {
+        if (this.registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION, new ResourceenvironmentResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION, new ResourceenvironmentResourceFactoryImpl());
+            this.registrations.put(XML_EXTENSION, new ResourceenvironmentResourceFactoryImpl());
+            this.registrations.put(STAR_EXTENSION, new ResourceenvironmentResourceFactoryImpl());
         }
-        return registrations;
+        return this.registrations;
     }
 
 } // ResourceenvironmentXMLProcessor

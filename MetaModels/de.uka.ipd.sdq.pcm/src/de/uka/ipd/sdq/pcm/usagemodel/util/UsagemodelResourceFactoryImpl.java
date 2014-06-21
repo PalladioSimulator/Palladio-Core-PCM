@@ -40,8 +40,8 @@ public class UsagemodelResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new UsagemodelResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new UsagemodelResourceImpl(uri);
         return result;
     }
 

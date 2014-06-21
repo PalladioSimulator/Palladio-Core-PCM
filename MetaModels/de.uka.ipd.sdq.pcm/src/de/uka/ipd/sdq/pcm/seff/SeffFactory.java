@@ -75,10 +75,10 @@ public interface SeffFactory extends EFactory {
     ResourceDemandingSEFF createResourceDemandingSEFF();
 
     /**
-     * Returns a new object of class '<em>Resource Demanding Internal Behaviour</em>'. <!--
+     * Returns a new object of class ' <em>Resource Demanding Internal Behaviour</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Resource Demanding Internal Behaviour</em>'.
+     * @return a new object of class ' <em>Resource Demanding Internal Behaviour</em>'.
      * @generated
      */
     ResourceDemandingInternalBehaviour createResourceDemandingInternalBehaviour();

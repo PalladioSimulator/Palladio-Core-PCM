@@ -15,18 +15,16 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnn
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>External Failure Occurrence Description</b></em>'. <!-- end-user-doc -->
  * 
- * <!-- begin-model-doc -->
- * Special&nbsp;case&nbsp;of&nbsp;a&nbsp;FailureOccurenceDescription&nbsp;specifying
- * &nbsp;the&nbsp;failure
- * &nbsp;potential&nbsp;of&nbsp;system-external&nbsp;calls.&nbsp;Can&nbsp;relate&nbsp;to any
- * FailureType. <!-- end-model-doc -->
+ * <!-- begin-model-doc --> Special&nbsp;case&nbsp;of&nbsp;a&nbsp;FailureOccurenceDescription
+ * &nbsp;specifying &nbsp;the&nbsp;failure&nbsp;potential&nbsp;of&nbsp;system-external
+ * &nbsp;calls.&nbsp;Can&nbsp;relate&nbsp;to any FailureType. <!-- end-model-doc -->
  * 
  * <p>
  * The following features are supported:
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
- * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}</li>
+ * <em>Specified Reliability Annotation External Failure Occurrence Description </em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription
  * <em>Failure Type External Failure Occurrence Description</em>}</li>
@@ -47,25 +45,25 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
 
     /**
      * Returns the value of the '
-     * <em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em>'
+     * <em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em> '
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation
-     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}'. <!--
+     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>} '. <!--
      * begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Specified Reliability Annotation External Failure Occurrence Description</em>' container
+     * <em>Specified Reliability Annotation External Failure Occurrence Description</em> ' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Specified Reliability Annotation External Failure Occurrence Description</em>'
+     *         <em>Specified Reliability Annotation External Failure Occurrence Description</em> '
      *         container reference.
      * @see #setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(SpecifiedReliabilityAnnotation)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation
-     * @model opposite="externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation"
+     * @model opposite= "externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation"
      *        required="true" transient="false" ordered="false"
      * @generated
      */
@@ -74,13 +72,13 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
-     * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}' container
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Specified Reliability Annotation External Failure Occurrence Description</em>} '
+     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
      *            the new value of the '
-     *            <em>Specified Reliability Annotation External Failure Occurrence Description</em>'
-     *            container reference.
+     *            <em>Specified Reliability Annotation External Failure Occurrence Description</em>
+     *            ' container reference.
      * @see #getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
      * @generated
      */
@@ -91,12 +89,12 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * <em><b>Failure Type External Failure Occurrence Description</b></em>' reference. <!--
      * begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Failure Type External Failure Occurrence Description</em>'
+     * If the meaning of the ' <em>Failure Type External Failure Occurrence Description</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Failure Type External Failure Occurrence Description</em>'
+     * @return the value of the ' <em>Failure Type External Failure Occurrence Description</em>'
      *         reference.
      * @see #setFailureType__ExternalFailureOccurrenceDescription(FailureType)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription()

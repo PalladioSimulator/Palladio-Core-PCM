@@ -41,7 +41,7 @@ public class DataTypeItemProvider extends ItemProviderAdapter implements IEditin
      * 
      * @generated
      */
-    public DataTypeItemProvider(AdapterFactory adapterFactory) {
+    public DataTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -52,12 +52,12 @@ public class DataTypeItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -67,8 +67,8 @@ public class DataTypeItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_DataType_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_DataType_type");
     }
 
     /**
@@ -79,8 +79,8 @@ public class DataTypeItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -91,7 +91,7 @@ public class DataTypeItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -103,7 +103,7 @@ public class DataTypeItemProvider extends ItemProviderAdapter implements IEditin
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

@@ -38,8 +38,9 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
  * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps
- * Behaviour</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps Behaviour
+ * </em>}</li>
  * </ul>
  * </p>
  * 
@@ -56,17 +57,17 @@ public interface ResourceDemandingBehaviour extends Identifier {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
+     * Returns the value of the ' <em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>' container
+     * If the meaning of the ' <em>Abstract Loop Action Resource Demanding Behaviour</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>'
+     * @return the value of the ' <em>Abstract Loop Action Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour()
@@ -83,7 +84,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>'
+     *            the new value of the ' <em>Abstract Loop Action Resource Demanding Behaviour</em>'
      *            container reference.
      * @see #getAbstractLoopAction_ResourceDemandingBehaviour()
      * @generated
@@ -97,12 +98,12 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
      * <em>Branch Behaviour Branch Transition</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
+     * If the meaning of the ' <em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
+     * @return the value of the ' <em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour()
@@ -120,7 +121,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Abstract Branch Transition Resource Demanding Behaviour</em>' container
+     *            <em>Abstract Branch Transition Resource Demanding Behaviour</em> ' container
      *            reference.
      * @see #getAbstractBranchTransition_ResourceDemandingBehaviour()
      * @generated

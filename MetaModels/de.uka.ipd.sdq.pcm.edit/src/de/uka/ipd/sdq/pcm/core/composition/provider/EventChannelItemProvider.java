@@ -43,7 +43,7 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * 
      * @generated
      */
-    public EventChannelItemProvider(AdapterFactory adapterFactory) {
+    public EventChannelItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,15 +54,15 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addEventGroup__EventChannelPropertyDescriptor(object);
-            addEventChannelSourceConnector__EventChannelPropertyDescriptor(object);
-            addEventChannelSinkConnector__EventChannelPropertyDescriptor(object);
+            this.addEventGroup__EventChannelPropertyDescriptor(object);
+            this.addEventChannelSourceConnector__EventChannelPropertyDescriptor(object);
+            this.addEventChannelSinkConnector__EventChannelPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -71,12 +71,11 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * 
      * @generated
      */
-    protected void addEventGroup__EventChannelPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_EventChannel_eventGroup__EventChannel_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_EventChannel_eventGroup__EventChannel_feature",
+    protected void addEventGroup__EventChannelPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_EventChannel_eventGroup__EventChannel_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_EventChannel_eventGroup__EventChannel_feature",
                         "_UI_EventChannel_type"), CompositionPackage.Literals.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL,
                 true, false, true, null, null, null));
     }
@@ -87,12 +86,11 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * 
      * @generated
      */
-    protected void addEventChannelSourceConnector__EventChannelPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_EventChannel_eventChannelSourceConnector__EventChannel_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addEventChannelSourceConnector__EventChannelPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_EventChannel_eventChannelSourceConnector__EventChannel_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_EventChannel_eventChannelSourceConnector__EventChannel_feature", "_UI_EventChannel_type"),
                 CompositionPackage.Literals.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL, true, false,
                 true, null, null, null));
@@ -104,12 +102,11 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * 
      * @generated
      */
-    protected void addEventChannelSinkConnector__EventChannelPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_EventChannel_eventChannelSinkConnector__EventChannel_feature"),
-                getString("_UI_PropertyDescriptor_description",
+    protected void addEventChannelSinkConnector__EventChannelPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_EventChannel_eventChannelSinkConnector__EventChannel_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_EventChannel_eventChannelSinkConnector__EventChannel_feature", "_UI_EventChannel_type"),
                 CompositionPackage.Literals.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL, true, false,
                 true, null, null, null));
@@ -121,8 +118,8 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/EventChannel"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/EventChannel"));
     }
 
     /**
@@ -132,10 +129,10 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((EventChannel) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_EventChannel_type")
-                : getString("_UI_EventChannel_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((EventChannel) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_EventChannel_type") : this
+                .getString("_UI_EventChannel_type") + " " + label;
     }
 
     /**
@@ -146,8 +143,8 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -158,7 +155,7 @@ public class EventChannelItemProvider extends EntityItemProvider implements IEdi
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

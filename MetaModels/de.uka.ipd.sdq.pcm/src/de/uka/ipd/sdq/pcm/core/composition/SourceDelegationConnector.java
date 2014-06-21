@@ -98,15 +98,15 @@ public interface SourceDelegationConnector extends DelegationConnector {
     void setOuterSourceRole__SourceRole(SourceRole value);
 
     /**
-     * Returns the value of the '<em><b>Assembly Context Source Delegation Connector</b></em>'
+     * Returns the value of the ' <em><b>Assembly Context Source Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Assembly Context Source Delegation Connector</em>' reference isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Assembly Context Source Delegation Connector</em>' reference
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Assembly Context Source Delegation Connector</em>' reference.
+     * @return the value of the ' <em>Assembly Context Source Delegation Connector</em>' reference.
      * @see #setAssemblyContext__SourceDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector()
      * @model required="true" ordered="false"
@@ -121,7 +121,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Assembly Context Source Delegation Connector</em>'
+     *            the new value of the ' <em>Assembly Context Source Delegation Connector</em>'
      *            reference.
      * @see #getAssemblyContext__SourceDelegationConnector()
      * @generated

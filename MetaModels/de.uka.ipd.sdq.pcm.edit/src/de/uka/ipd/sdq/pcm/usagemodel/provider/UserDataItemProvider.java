@@ -48,7 +48,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * 
      * @generated
      */
-    public UserDataItemProvider(AdapterFactory adapterFactory) {
+    public UserDataItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -59,13 +59,13 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addAssemblyContext_userDataPropertyDescriptor(object);
+            this.addAssemblyContext_userDataPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -74,12 +74,11 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * 
      * @generated
      */
-    protected void addAssemblyContext_userDataPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_UserData_assemblyContext_userData_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_UserData_assemblyContext_userData_feature",
+    protected void addAssemblyContext_userDataPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_UserData_assemblyContext_userData_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_UserData_assemblyContext_userData_feature",
                         "_UI_UserData_type"), UsagemodelPackage.Literals.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA, true,
                 false, true, null, null, null));
     }
@@ -94,12 +93,12 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA);
+            this.childrenFeatures.add(UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -108,7 +107,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -121,8 +120,8 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/UserData"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/UserData"));
     }
 
     /**
@@ -132,8 +131,8 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_UserData_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_UserData_type");
     }
 
     /**
@@ -144,12 +143,12 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(UserData.class)) {
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -162,10 +161,10 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA,
                 ParameterFactory.eINSTANCE.createVariableUsage()));
     }
@@ -178,7 +177,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

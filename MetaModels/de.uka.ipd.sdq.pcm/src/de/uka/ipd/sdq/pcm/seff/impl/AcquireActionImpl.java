@@ -27,14 +27,15 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Acquire Action</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Acquire Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl#getPassiveresource_AcquireAction <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl#getPassiveresource_AcquireAction <em>
  * Passiveresource Acquire Action</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl#isTimeout <em>Timeout</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl#isTimeout <em> Timeout</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.AcquireActionImpl#getTimeoutValue <em>Timeout Value</em>}
  * </li>
  * </ul>
@@ -125,18 +126,20 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * 
      * @generated
      */
+    @Override
     public PassiveResource getPassiveresource_AcquireAction() {
-        if (passiveresource_AcquireAction != null && ((EObject) passiveresource_AcquireAction).eIsProxy()) {
-            InternalEObject oldPassiveresource_AcquireAction = (InternalEObject) passiveresource_AcquireAction;
-            passiveresource_AcquireAction = (PassiveResource) eResolveProxy(oldPassiveresource_AcquireAction);
-            if (passiveresource_AcquireAction != oldPassiveresource_AcquireAction) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.passiveresource_AcquireAction != null && ((EObject) this.passiveresource_AcquireAction).eIsProxy()) {
+            final InternalEObject oldPassiveresource_AcquireAction = (InternalEObject) this.passiveresource_AcquireAction;
+            this.passiveresource_AcquireAction = (PassiveResource) this.eResolveProxy(oldPassiveresource_AcquireAction);
+            if (this.passiveresource_AcquireAction != oldPassiveresource_AcquireAction) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION,
-                            oldPassiveresource_AcquireAction, passiveresource_AcquireAction));
+                            oldPassiveresource_AcquireAction, this.passiveresource_AcquireAction));
+                }
             }
         }
-        return passiveresource_AcquireAction;
+        return this.passiveresource_AcquireAction;
     }
 
     /**
@@ -145,7 +148,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     public PassiveResource basicGetPassiveresource_AcquireAction() {
-        return passiveresource_AcquireAction;
+        return this.passiveresource_AcquireAction;
     }
 
     /**
@@ -153,13 +156,15 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * 
      * @generated
      */
-    public void setPassiveresource_AcquireAction(PassiveResource newPassiveresource_AcquireAction) {
-        PassiveResource oldPassiveresource_AcquireAction = passiveresource_AcquireAction;
-        passiveresource_AcquireAction = newPassiveresource_AcquireAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    @Override
+    public void setPassiveresource_AcquireAction(final PassiveResource newPassiveresource_AcquireAction) {
+        final PassiveResource oldPassiveresource_AcquireAction = this.passiveresource_AcquireAction;
+        this.passiveresource_AcquireAction = newPassiveresource_AcquireAction;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION, oldPassiveresource_AcquireAction,
-                    passiveresource_AcquireAction));
+                    this.passiveresource_AcquireAction));
+        }
     }
 
     /**
@@ -167,8 +172,9 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * 
      * @generated
      */
+    @Override
     public boolean isTimeout() {
-        return timeout;
+        return this.timeout;
     }
 
     /**
@@ -176,12 +182,14 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * 
      * @generated
      */
-    public void setTimeout(boolean newTimeout) {
-        boolean oldTimeout = timeout;
-        timeout = newTimeout;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.ACQUIRE_ACTION__TIMEOUT, oldTimeout,
-                    timeout));
+    @Override
+    public void setTimeout(final boolean newTimeout) {
+        final boolean oldTimeout = this.timeout;
+        this.timeout = newTimeout;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.ACQUIRE_ACTION__TIMEOUT, oldTimeout,
+                    this.timeout));
+        }
     }
 
     /**
@@ -189,8 +197,9 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * 
      * @generated
      */
+    @Override
     public double getTimeoutValue() {
-        return timeoutValue;
+        return this.timeoutValue;
     }
 
     /**
@@ -198,12 +207,14 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * 
      * @generated
      */
-    public void setTimeoutValue(double newTimeoutValue) {
-        double oldTimeoutValue = timeoutValue;
-        timeoutValue = newTimeoutValue;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.ACQUIRE_ACTION__TIMEOUT_VALUE,
-                    oldTimeoutValue, timeoutValue));
+    @Override
+    public void setTimeoutValue(final double newTimeoutValue) {
+        final double oldTimeoutValue = this.timeoutValue;
+        this.timeoutValue = newTimeoutValue;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.ACQUIRE_ACTION__TIMEOUT_VALUE,
+                    oldTimeoutValue, this.timeoutValue));
+        }
     }
 
     /**
@@ -237,14 +248,16 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * 
      * @generated
      */
-    public boolean TimeoutValueOfAcquireActionMustNotBeNegative(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean TimeoutValueOfAcquireActionMustNotBeNegative(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.ACQUIRE_ACTION);
             try {
                 TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -269,16 +282,17 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
-            if (resolve)
-                return getPassiveresource_AcquireAction();
-            return basicGetPassiveresource_AcquireAction();
+            if (resolve) {
+                return this.getPassiveresource_AcquireAction();
+            }
+            return this.basicGetPassiveresource_AcquireAction();
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT:
-            return isTimeout();
+            return this.isTimeout();
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT_VALUE:
-            return getTimeoutValue();
+            return this.getTimeoutValue();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -289,16 +303,16 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
-            setPassiveresource_AcquireAction((PassiveResource) newValue);
+            this.setPassiveresource_AcquireAction((PassiveResource) newValue);
             return;
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT:
-            setTimeout((Boolean) newValue);
+            this.setTimeout((Boolean) newValue);
             return;
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT_VALUE:
-            setTimeoutValue((Double) newValue);
+            this.setTimeoutValue((Double) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -310,16 +324,16 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
-            setPassiveresource_AcquireAction((PassiveResource) null);
+            this.setPassiveresource_AcquireAction((PassiveResource) null);
             return;
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT:
-            setTimeout(TIMEOUT_EDEFAULT);
+            this.setTimeout(TIMEOUT_EDEFAULT);
             return;
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT_VALUE:
-            setTimeoutValue(TIMEOUT_VALUE_EDEFAULT);
+            this.setTimeoutValue(TIMEOUT_VALUE_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -331,14 +345,14 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
-            return passiveresource_AcquireAction != null;
+            return this.passiveresource_AcquireAction != null;
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT:
-            return timeout != TIMEOUT_EDEFAULT;
+            return this.timeout != TIMEOUT_EDEFAULT;
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT_VALUE:
-            return timeoutValue != TIMEOUT_VALUE_EDEFAULT;
+            return this.timeoutValue != TIMEOUT_VALUE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -350,14 +364,15 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (timeout: ");
-        result.append(timeout);
+        result.append(this.timeout);
         result.append(", timeoutValue: ");
-        result.append(timeoutValue);
+        result.append(this.timeoutValue);
         result.append(')');
         return result.toString();
     }

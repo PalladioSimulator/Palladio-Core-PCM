@@ -14,14 +14,16 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Exception Type</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Exception Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl#getExceptionName <em>Exception
- * Name</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl#getExceptionMessage <em>Exception
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl#getExceptionName <em>Exception Name
+ * </em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl#getExceptionMessage <em>Exception
  * Message</em>}</li>
  * </ul>
  * </p>
@@ -100,43 +102,9 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
      * 
      * @generated
      */
+    @Override
     public String getExceptionName() {
-        return exceptionName;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setExceptionName(String newExceptionName) {
-        String oldExceptionName = exceptionName;
-        exceptionName = newExceptionName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME,
-                    oldExceptionName, exceptionName));
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public String getExceptionMessage() {
-        return exceptionMessage;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public void setExceptionMessage(String newExceptionMessage) {
-        String oldExceptionMessage = exceptionMessage;
-        exceptionMessage = newExceptionMessage;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE,
-                    oldExceptionMessage, exceptionMessage));
+        return this.exceptionName;
     }
 
     /**
@@ -145,12 +113,52 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setExceptionName(final String newExceptionName) {
+        final String oldExceptionName = this.exceptionName;
+        this.exceptionName = newExceptionName;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME, oldExceptionName, this.exceptionName));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public String getExceptionMessage() {
+        return this.exceptionMessage;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void setExceptionMessage(final String newExceptionMessage) {
+        final String oldExceptionMessage = this.exceptionMessage;
+        this.exceptionMessage = newExceptionMessage;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE, oldExceptionMessage, this.exceptionMessage));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
-            return getExceptionName();
+            return this.getExceptionName();
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE:
-            return getExceptionMessage();
+            return this.getExceptionMessage();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -161,13 +169,13 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
-            setExceptionName((String) newValue);
+            this.setExceptionName((String) newValue);
             return;
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE:
-            setExceptionMessage((String) newValue);
+            this.setExceptionMessage((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -179,13 +187,13 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
-            setExceptionName(EXCEPTION_NAME_EDEFAULT);
+            this.setExceptionName(EXCEPTION_NAME_EDEFAULT);
             return;
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE:
-            setExceptionMessage(EXCEPTION_MESSAGE_EDEFAULT);
+            this.setExceptionMessage(EXCEPTION_MESSAGE_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -197,14 +205,14 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
-            return EXCEPTION_NAME_EDEFAULT == null ? exceptionName != null : !EXCEPTION_NAME_EDEFAULT
-                    .equals(exceptionName);
+            return EXCEPTION_NAME_EDEFAULT == null ? this.exceptionName != null : !EXCEPTION_NAME_EDEFAULT
+                    .equals(this.exceptionName);
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE:
-            return EXCEPTION_MESSAGE_EDEFAULT == null ? exceptionMessage != null : !EXCEPTION_MESSAGE_EDEFAULT
-                    .equals(exceptionMessage);
+            return EXCEPTION_MESSAGE_EDEFAULT == null ? this.exceptionMessage != null : !EXCEPTION_MESSAGE_EDEFAULT
+                    .equals(this.exceptionMessage);
         }
         return super.eIsSet(featureID);
     }
@@ -216,14 +224,15 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (exceptionName: ");
-        result.append(exceptionName);
+        result.append(this.exceptionName);
         result.append(", exceptionMessage: ");
-        result.append(exceptionMessage);
+        result.append(this.exceptionMessage);
         result.append(')');
         return result.toString();
     }

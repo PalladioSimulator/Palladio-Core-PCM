@@ -43,7 +43,7 @@ public class ProcessingResourceTypeItemProvider extends ResourceTypeItemProvider
      * 
      * @generated
      */
-    public ProcessingResourceTypeItemProvider(AdapterFactory adapterFactory) {
+    public ProcessingResourceTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,13 +54,13 @@ public class ProcessingResourceTypeItemProvider extends ResourceTypeItemProvider
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addHardwareInducedFailureType__ProcessingResourceTypePropertyDescriptor(object);
+            this.addHardwareInducedFailureType__ProcessingResourceTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -69,13 +69,13 @@ public class ProcessingResourceTypeItemProvider extends ResourceTypeItemProvider
      * 
      * @generated
      */
-    protected void addHardwareInducedFailureType__ProcessingResourceTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ProcessingResourceType_hardwareInducedFailureType__ProcessingResourceType_feature"),
-                        getString(
+    protected void addHardwareInducedFailureType__ProcessingResourceTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_ProcessingResourceType_hardwareInducedFailureType__ProcessingResourceType_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_ProcessingResourceType_hardwareInducedFailureType__ProcessingResourceType_feature",
                                 "_UI_ProcessingResourceType_type"),
@@ -89,8 +89,8 @@ public class ProcessingResourceTypeItemProvider extends ResourceTypeItemProvider
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ProcessingResourceType"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ProcessingResourceType"));
     }
 
     /**
@@ -103,9 +103,9 @@ public class ProcessingResourceTypeItemProvider extends ResourceTypeItemProvider
      * @generated not
      */
     @Override
-    public String getText(Object object) {
+    public String getText(final Object object) {
         return ((ProcessingResourceType) object).getEntityName() + " [ID: " + ((ProcessingResourceType) object).getId()
-                + "]" + " <" + getString("_UI_ProcessingResourceType_type") + ">";
+                + "]" + " <" + this.getString("_UI_ProcessingResourceType_type") + ">";
     }
 
     /**
@@ -116,8 +116,8 @@ public class ProcessingResourceTypeItemProvider extends ResourceTypeItemProvider
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -128,7 +128,7 @@ public class ProcessingResourceTypeItemProvider extends ResourceTypeItemProvider
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

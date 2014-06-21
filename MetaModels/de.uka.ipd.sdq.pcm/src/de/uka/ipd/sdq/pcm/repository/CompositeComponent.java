@@ -8,8 +8,8 @@ package de.uka.ipd.sdq.pcm.repository;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Composite Component</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Composite Component</b></em> '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> Composite components are special implementation component types, which
  * are composed from inner components. Component developers compose inner components within

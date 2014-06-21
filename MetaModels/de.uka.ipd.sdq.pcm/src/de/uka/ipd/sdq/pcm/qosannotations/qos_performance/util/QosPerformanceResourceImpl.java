@@ -27,7 +27,7 @@ public class QosPerformanceResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public QosPerformanceResourceImpl(URI uri) {
+    public QosPerformanceResourceImpl(final URI uri) {
         super(uri);
     }
 

@@ -27,7 +27,7 @@ public class PcmResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public PcmResourceImpl(URI uri) {
+    public PcmResourceImpl(final URI uri) {
         super(uri);
     }
 

@@ -59,7 +59,7 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -77,33 +77,33 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
      */
     protected AllocationSwitch<Adapter> modelSwitch = new AllocationSwitch<Adapter>() {
         @Override
-        public Adapter caseAllocationContext(AllocationContext object) {
-            return createAllocationContextAdapter();
+        public Adapter caseAllocationContext(final AllocationContext object) {
+            return AllocationAdapterFactory.this.createAllocationContextAdapter();
         }
 
         @Override
-        public Adapter caseAllocation(Allocation object) {
-            return createAllocationAdapter();
+        public Adapter caseAllocation(final Allocation object) {
+            return AllocationAdapterFactory.this.createAllocationAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return AllocationAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return AllocationAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return AllocationAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return AllocationAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -116,13 +116,13 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext <em>Context</em>}'. <!--
+     * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext <em>Context</em>} '. <!--
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
@@ -150,7 +150,7 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -179,7 +179,7 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

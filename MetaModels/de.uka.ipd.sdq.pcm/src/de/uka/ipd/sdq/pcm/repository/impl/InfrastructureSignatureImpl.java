@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -49,7 +48,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParameters__InfrastructureSignature()
+     * The cached value of the ' {@link #getParameters__InfrastructureSignature()
      * <em>Parameters Infrastructure Signature</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -83,13 +82,15 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * 
      * @generated
      */
+    @Override
     public EList<Parameter> getParameters__InfrastructureSignature() {
-        if (parameters__InfrastructureSignature == null) {
-            parameters__InfrastructureSignature = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class,
-                    this, RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE,
+        if (this.parameters__InfrastructureSignature == null) {
+            this.parameters__InfrastructureSignature = new EObjectContainmentWithInverseEList<Parameter>(
+                    Parameter.class, this,
+                    RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE,
                     RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER);
         }
-        return parameters__InfrastructureSignature;
+        return this.parameters__InfrastructureSignature;
     }
 
     /**
@@ -97,10 +98,12 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * 
      * @generated
      */
+    @Override
     public InfrastructureInterface getInfrastructureInterface__InfrastructureSignature() {
-        if (eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE)
+        if (this.eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE) {
             return null;
-        return (InfrastructureInterface) eInternalContainer();
+        }
+        return (InfrastructureInterface) this.eInternalContainer();
     }
 
     /**
@@ -109,8 +112,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * @generated
      */
     public NotificationChain basicSetInfrastructureInterface__InfrastructureSignature(
-            InfrastructureInterface newInfrastructureInterface__InfrastructureSignature, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newInfrastructureInterface__InfrastructureSignature,
+            final InfrastructureInterface newInfrastructureInterface__InfrastructureSignature, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newInfrastructureInterface__InfrastructureSignature,
                 RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE, msgs);
         return msgs;
     }
@@ -120,28 +123,34 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * 
      * @generated
      */
+    @Override
     public void setInfrastructureInterface__InfrastructureSignature(
-            InfrastructureInterface newInfrastructureInterface__InfrastructureSignature) {
-        if (newInfrastructureInterface__InfrastructureSignature != eInternalContainer()
-                || (eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE && newInfrastructureInterface__InfrastructureSignature != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newInfrastructureInterface__InfrastructureSignature))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            final InfrastructureInterface newInfrastructureInterface__InfrastructureSignature) {
+        if (newInfrastructureInterface__InfrastructureSignature != this.eInternalContainer()
+                || (this.eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE && newInfrastructureInterface__InfrastructureSignature != null)) {
+            if (EcoreUtil.isAncestor(this, newInfrastructureInterface__InfrastructureSignature)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newInfrastructureInterface__InfrastructureSignature != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newInfrastructureInterface__InfrastructureSignature != null) {
                 msgs = ((InternalEObject) newInfrastructureInterface__InfrastructureSignature).eInverseAdd(this,
                         RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
                         InfrastructureInterface.class, msgs);
-            msgs = basicSetInfrastructureInterface__InfrastructureSignature(
+            }
+            msgs = this.basicSetInfrastructureInterface__InfrastructureSignature(
                     newInfrastructureInterface__InfrastructureSignature, msgs);
-            if (msgs != null)
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE,
                     newInfrastructureInterface__InfrastructureSignature,
                     newInfrastructureInterface__InfrastructureSignature));
+        }
     }
 
     /**
@@ -151,15 +160,17 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getParameters__InfrastructureSignature())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameters__InfrastructureSignature())
                     .basicAdd(otherEnd, msgs);
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetInfrastructureInterface__InfrastructureSignature((InfrastructureInterface) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetInfrastructureInterface__InfrastructureSignature((InfrastructureInterface) otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -170,12 +181,13 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
-            return ((InternalEList<?>) getParameters__InfrastructureSignature()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getParameters__InfrastructureSignature()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
-            return basicSetInfrastructureInterface__InfrastructureSignature(null, msgs);
+            return this.basicSetInfrastructureInterface__InfrastructureSignature(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -186,10 +198,10 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
                     InfrastructureInterface.class, msgs);
         }
@@ -202,12 +214,12 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
-            return getParameters__InfrastructureSignature();
+            return this.getParameters__InfrastructureSignature();
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
-            return getInfrastructureInterface__InfrastructureSignature();
+            return this.getInfrastructureInterface__InfrastructureSignature();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -219,14 +231,14 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
-            getParameters__InfrastructureSignature().clear();
-            getParameters__InfrastructureSignature().addAll((Collection<? extends Parameter>) newValue);
+            this.getParameters__InfrastructureSignature().clear();
+            this.getParameters__InfrastructureSignature().addAll((Collection<? extends Parameter>) newValue);
             return;
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
-            setInfrastructureInterface__InfrastructureSignature((InfrastructureInterface) newValue);
+            this.setInfrastructureInterface__InfrastructureSignature((InfrastructureInterface) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -238,13 +250,13 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
-            getParameters__InfrastructureSignature().clear();
+            this.getParameters__InfrastructureSignature().clear();
             return;
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
-            setInfrastructureInterface__InfrastructureSignature((InfrastructureInterface) null);
+            this.setInfrastructureInterface__InfrastructureSignature((InfrastructureInterface) null);
             return;
         }
         super.eUnset(featureID);
@@ -256,12 +268,13 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
-            return parameters__InfrastructureSignature != null && !parameters__InfrastructureSignature.isEmpty();
+            return this.parameters__InfrastructureSignature != null
+                    && !this.parameters__InfrastructureSignature.isEmpty();
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
-            return getInfrastructureInterface__InfrastructureSignature() != null;
+            return this.getInfrastructureInterface__InfrastructureSignature() != null;
         }
         return super.eIsSet(featureID);
     }

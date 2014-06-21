@@ -35,11 +35,12 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
      */
     public static CoreFactory init() {
         try {
-            CoreFactory theCoreFactory = (CoreFactory) EPackage.Registry.INSTANCE.getEFactory(CorePackage.eNS_URI);
+            final CoreFactory theCoreFactory = (CoreFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(CorePackage.eNS_URI);
             if (theCoreFactory != null) {
                 return theCoreFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new CoreFactoryImpl();
@@ -60,10 +61,10 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case CorePackage.PCM_RANDOM_VARIABLE:
-            return (EObject) createPCMRandomVariable();
+            return this.createPCMRandomVariable();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -74,8 +75,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
      * 
      * @generated
      */
+    @Override
     public PCMRandomVariable createPCMRandomVariable() {
-        PCMRandomVariableImpl pcmRandomVariable = new PCMRandomVariableImpl();
+        final PCMRandomVariableImpl pcmRandomVariable = new PCMRandomVariableImpl();
         return pcmRandomVariable;
     }
 
@@ -84,8 +86,9 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
      * 
      * @generated
      */
+    @Override
     public CorePackage getCorePackage() {
-        return (CorePackage) getEPackage();
+        return (CorePackage) this.getEPackage();
     }
 
     /**

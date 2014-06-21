@@ -44,7 +44,7 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * 
      * @generated
      */
-    public RequiredResourceDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
+    public RequiredResourceDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,15 +55,15 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addAssemblyContext__RequiredResourceDelegationConnectorPropertyDescriptor(object);
-            addInnerRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(object);
-            addOuterRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(object);
+            this.addAssemblyContext__RequiredResourceDelegationConnectorPropertyDescriptor(object);
+            this.addInnerRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(object);
+            this.addOuterRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,13 +72,13 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * 
      * @generated
      */
-    protected void addAssemblyContext__RequiredResourceDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_RequiredResourceDelegationConnector_assemblyContext__RequiredResourceDelegationConnector_feature"),
-                        getString(
+    protected void addAssemblyContext__RequiredResourceDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredResourceDelegationConnector_assemblyContext__RequiredResourceDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_RequiredResourceDelegationConnector_assemblyContext__RequiredResourceDelegationConnector_feature",
                                 "_UI_RequiredResourceDelegationConnector_type"),
@@ -92,13 +92,13 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * 
      * @generated
      */
-    protected void addInnerRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_RequiredResourceDelegationConnector_innerRequiredRole__RequiredResourceDelegationConnector_feature"),
-                        getString(
+    protected void addInnerRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredResourceDelegationConnector_innerRequiredRole__RequiredResourceDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_RequiredResourceDelegationConnector_innerRequiredRole__RequiredResourceDelegationConnector_feature",
                                 "_UI_RequiredResourceDelegationConnector_type"),
@@ -112,13 +112,13 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * 
      * @generated
      */
-    protected void addOuterRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_RequiredResourceDelegationConnector_outerRequiredRole__RequiredResourceDelegationConnector_feature"),
-                        getString(
+    protected void addOuterRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredResourceDelegationConnector_outerRequiredRole__RequiredResourceDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_RequiredResourceDelegationConnector_outerRequiredRole__RequiredResourceDelegationConnector_feature",
                                 "_UI_RequiredResourceDelegationConnector_type"),
@@ -133,8 +133,9 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/RequiredResourceDelegationConnector"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object,
+                this.getResourceLocator().getImage("full/obj16/RequiredResourceDelegationConnector"));
     }
 
     /**
@@ -144,10 +145,10 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((RequiredResourceDelegationConnector) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_RequiredResourceDelegationConnector_type")
-                : getString("_UI_RequiredResourceDelegationConnector_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((RequiredResourceDelegationConnector) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_RequiredResourceDelegationConnector_type")
+                : this.getString("_UI_RequiredResourceDelegationConnector_type") + " " + label;
     }
 
     /**
@@ -158,8 +159,8 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -170,7 +171,7 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -115,10 +114,12 @@ public class QosReliabilityValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         switch (classifierID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION:
-            return validateSpecifiedReliabilityAnnotation((SpecifiedReliabilityAnnotation) value, diagnostics, context);
+            return this.validateSpecifiedReliabilityAnnotation((SpecifiedReliabilityAnnotation) value, diagnostics,
+                    context);
         default:
             return true;
         }
@@ -130,33 +131,45 @@ public class QosReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateSpecifiedReliabilityAnnotation(
-            SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) specifiedReliabilityAnnotation, diagnostics, context))
+            final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(specifiedReliabilityAnnotation, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) specifiedReliabilityAnnotation, diagnostics,
-                context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateSpecifiedReliabilityAnnotation_SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
-                    specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateSpecifiedReliabilityAnnotation_SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(
-                    specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateSpecifiedReliabilityAnnotation_MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
-                    specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(specifiedReliabilityAnnotation, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this
+                    .validateSpecifiedReliabilityAnnotation_SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
+                            specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this
+                    .validateSpecifiedReliabilityAnnotation_SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(
+                            specifiedReliabilityAnnotation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this
+                    .validateSpecifiedReliabilityAnnotation_MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
+                            specifiedReliabilityAnnotation, diagnostics, context);
+        }
         return result;
     }
 
@@ -167,8 +180,8 @@ public class QosReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateSpecifiedReliabilityAnnotation_SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
-            SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+            final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return specifiedReliabilityAnnotation.SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
                 diagnostics, context);
     }
@@ -180,8 +193,8 @@ public class QosReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateSpecifiedReliabilityAnnotation_SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(
-            SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+            final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return specifiedReliabilityAnnotation.SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(diagnostics,
                 context);
     }
@@ -193,8 +206,8 @@ public class QosReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateSpecifiedReliabilityAnnotation_MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
-            SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+            final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return specifiedReliabilityAnnotation.MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
                 diagnostics, context);
     }
@@ -208,7 +221,8 @@ public class QosReliabilityValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to this validator.
+        // Specialize this to return a resource locator for messages specific to
+        // this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }

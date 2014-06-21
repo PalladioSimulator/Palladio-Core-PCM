@@ -29,7 +29,7 @@ public class SeffResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public SeffResourceImpl(URI uri) {
+    public SeffResourceImpl(final URI uri) {
         super(uri);
     }
 

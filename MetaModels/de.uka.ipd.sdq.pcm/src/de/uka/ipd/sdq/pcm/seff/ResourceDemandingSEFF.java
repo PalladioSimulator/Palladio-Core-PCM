@@ -27,8 +27,9 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours
- * <em>Resource Demanding Internal Behaviours</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours <em>
+ * Resource Demanding Internal Behaviours</em>}</li>
  * </ul>
  * </p>
  * 
@@ -45,8 +46,8 @@ public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecific
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Resource Demanding Internal Behaviours</b></em>' containment
-     * reference list. The list contents are of type
+     * Returns the value of the ' <em><b>Resource Demanding Internal Behaviours</b></em>'
+     * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour}. It is bidirectional and
      * its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
@@ -58,7 +59,7 @@ public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecific
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Resource Demanding Internal Behaviours</em>' containment
+     * @return the value of the '<em>Resource Demanding Internal Behaviours</em> ' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingSEFF_ResourceDemandingInternalBehaviours()
      * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour

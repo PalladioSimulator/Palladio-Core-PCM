@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -115,7 +114,7 @@ public class SeffReliabilityValidator extends EObjectValidator {
      */
     public SeffReliabilityValidator() {
         super();
-        seffValidator = SeffValidator.INSTANCE;
+        this.seffValidator = SeffValidator.INSTANCE;
     }
 
     /**
@@ -135,14 +134,15 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         switch (classifierID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR:
-            return validateRecoveryActionBehaviour((RecoveryActionBehaviour) value, diagnostics, context);
+            return this.validateRecoveryActionBehaviour((RecoveryActionBehaviour) value, diagnostics, context);
         case SeffReliabilityPackage.RECOVERY_ACTION:
-            return validateRecoveryAction((RecoveryAction) value, diagnostics, context);
+            return this.validateRecoveryAction((RecoveryAction) value, diagnostics, context);
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY:
-            return validateFailureHandlingEntity((FailureHandlingEntity) value, diagnostics, context);
+            return this.validateFailureHandlingEntity((FailureHandlingEntity) value, diagnostics, context);
         default:
             return true;
         }
@@ -153,42 +153,56 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRecoveryActionBehaviour(RecoveryActionBehaviour recoveryActionBehaviour,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) recoveryActionBehaviour, diagnostics, context))
+    public boolean validateRecoveryActionBehaviour(final RecoveryActionBehaviour recoveryActionBehaviour,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(recoveryActionBehaviour, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStopAction(recoveryActionBehaviour,
-                    diagnostics, context);
-        if (result || diagnostics != null)
-            result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStartAction(recoveryActionBehaviour,
-                    diagnostics, context);
-        if (result || diagnostics != null)
-            result &= seffValidator
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(recoveryActionBehaviour, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.seffValidator.validateResourceDemandingBehaviour_ExactlyOneStopAction(
+                    recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.seffValidator.validateResourceDemandingBehaviour_ExactlyOneStartAction(
+                    recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.seffValidator
                     .validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
                             recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateRecoveryActionBehaviour_RecoveryActionBehaviourHasOnlyOnePredecessor(
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateRecoveryActionBehaviour_RecoveryActionBehaviourHasOnlyOnePredecessor(
                     recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateRecoveryActionBehaviour_RecoveryActionBehaviourIsNotSuccessorOfItself(
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateRecoveryActionBehaviour_RecoveryActionBehaviourIsNotSuccessorOfItself(
                     recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateRecoveryActionBehaviour_SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(
-                    recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this
+                    .validateRecoveryActionBehaviour_SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(
+                            recoveryActionBehaviour, diagnostics, context);
+        }
         return result;
     }
 
@@ -199,7 +213,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateRecoveryActionBehaviour_RecoveryActionBehaviourHasOnlyOnePredecessor(
-            RecoveryActionBehaviour recoveryActionBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final RecoveryActionBehaviour recoveryActionBehaviour, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return recoveryActionBehaviour.RecoveryActionBehaviourHasOnlyOnePredecessor(diagnostics, context);
     }
 
@@ -210,7 +225,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateRecoveryActionBehaviour_RecoveryActionBehaviourIsNotSuccessorOfItself(
-            RecoveryActionBehaviour recoveryActionBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final RecoveryActionBehaviour recoveryActionBehaviour, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return recoveryActionBehaviour.RecoveryActionBehaviourIsNotSuccessorOfItself(diagnostics, context);
     }
 
@@ -221,7 +237,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateRecoveryActionBehaviour_SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(
-            RecoveryActionBehaviour recoveryActionBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final RecoveryActionBehaviour recoveryActionBehaviour, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return recoveryActionBehaviour.SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(diagnostics,
                 context);
     }
@@ -231,26 +248,34 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRecoveryAction(RecoveryAction recoveryAction, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) recoveryAction, diagnostics, context))
+    public boolean validateRecoveryAction(final RecoveryAction recoveryAction, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(recoveryAction, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) recoveryAction, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) recoveryAction, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) recoveryAction, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) recoveryAction, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) recoveryAction, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) recoveryAction, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) recoveryAction, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(recoveryAction, diagnostics,
-                    context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(recoveryAction, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(recoveryAction, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(recoveryAction, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(recoveryAction, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(recoveryAction, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(recoveryAction, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(recoveryAction, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(recoveryAction,
+                    diagnostics, context);
+        }
         return result;
     }
 
@@ -260,8 +285,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(RecoveryAction recoveryAction,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(
+            final RecoveryAction recoveryAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return recoveryAction.PrimaryBehaviourOfRecoveryActionMustBeSet(diagnostics, context);
     }
 
@@ -270,9 +295,9 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateFailureHandlingEntity(FailureHandlingEntity failureHandlingEntity,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) failureHandlingEntity, diagnostics, context);
+    public boolean validateFailureHandlingEntity(final FailureHandlingEntity failureHandlingEntity,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(failureHandlingEntity, diagnostics, context);
     }
 
     /**
@@ -284,7 +309,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to this validator.
+        // Specialize this to return a resource locator for messages specific to
+        // this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }

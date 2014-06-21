@@ -45,12 +45,12 @@ public class ParameterXMLProcessor extends XMLProcessor {
      */
     @Override
     protected Map<String, Resource.Factory> getRegistrations() {
-        if (registrations == null) {
+        if (this.registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION, new ParameterResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION, new ParameterResourceFactoryImpl());
+            this.registrations.put(XML_EXTENSION, new ParameterResourceFactoryImpl());
+            this.registrations.put(STAR_EXTENSION, new ParameterResourceFactoryImpl());
         }
-        return registrations;
+        return this.registrations;
     }
 
 } // ParameterXMLProcessor

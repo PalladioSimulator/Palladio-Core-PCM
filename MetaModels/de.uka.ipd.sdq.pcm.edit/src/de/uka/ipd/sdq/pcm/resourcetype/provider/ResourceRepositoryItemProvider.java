@@ -48,7 +48,7 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * 
      * @generated
      */
-    public ResourceRepositoryItemProvider(AdapterFactory adapterFactory) {
+    public ResourceRepositoryItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -59,12 +59,12 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -77,17 +77,17 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY);
-            childrenFeatures
+            this.childrenFeatures
                     .add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY);
-            childrenFeatures
+            this.childrenFeatures
                     .add(ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -96,7 +96,7 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -109,8 +109,8 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRepository"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ResourceRepository"));
     }
 
     /**
@@ -120,8 +120,8 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_ResourceRepository_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_ResourceRepository_type");
     }
 
     /**
@@ -132,14 +132,14 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(ResourceRepository.class)) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -152,22 +152,22 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ResourcetypePackage.Literals.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
                 ResourcetypeFactory.eINSTANCE.createResourceInterface()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ResourcetypePackage.Literals.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
                 ResourcetypeFactory.eINSTANCE.createSchedulingPolicy()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
                 ResourcetypeFactory.eINSTANCE.createProcessingResourceType()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
                 ResourcetypeFactory.eINSTANCE.createCommunicationLinkResourceType()));
     }
@@ -180,7 +180,7 @@ public class ResourceRepositoryItemProvider extends ItemProviderAdapter implemen
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

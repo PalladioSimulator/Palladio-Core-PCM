@@ -88,11 +88,11 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * @generated
      */
     public ReliabilityItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -113,11 +113,11 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      */
     @Override
     public Adapter createHardwareInducedFailureTypeAdapter() {
-        if (hardwareInducedFailureTypeItemProvider == null) {
-            hardwareInducedFailureTypeItemProvider = new HardwareInducedFailureTypeItemProvider(this);
+        if (this.hardwareInducedFailureTypeItemProvider == null) {
+            this.hardwareInducedFailureTypeItemProvider = new HardwareInducedFailureTypeItemProvider(this);
         }
 
-        return hardwareInducedFailureTypeItemProvider;
+        return this.hardwareInducedFailureTypeItemProvider;
     }
 
     /**
@@ -138,12 +138,12 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      */
     @Override
     public Adapter createExternalFailureOccurrenceDescriptionAdapter() {
-        if (externalFailureOccurrenceDescriptionItemProvider == null) {
-            externalFailureOccurrenceDescriptionItemProvider = new ExternalFailureOccurrenceDescriptionItemProvider(
+        if (this.externalFailureOccurrenceDescriptionItemProvider == null) {
+            this.externalFailureOccurrenceDescriptionItemProvider = new ExternalFailureOccurrenceDescriptionItemProvider(
                     this);
         }
 
-        return externalFailureOccurrenceDescriptionItemProvider;
+        return this.externalFailureOccurrenceDescriptionItemProvider;
     }
 
     /**
@@ -164,11 +164,11 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      */
     @Override
     public Adapter createResourceTimeoutFailureTypeAdapter() {
-        if (resourceTimeoutFailureTypeItemProvider == null) {
-            resourceTimeoutFailureTypeItemProvider = new ResourceTimeoutFailureTypeItemProvider(this);
+        if (this.resourceTimeoutFailureTypeItemProvider == null) {
+            this.resourceTimeoutFailureTypeItemProvider = new ResourceTimeoutFailureTypeItemProvider(this);
         }
 
-        return resourceTimeoutFailureTypeItemProvider;
+        return this.resourceTimeoutFailureTypeItemProvider;
     }
 
     /**
@@ -189,11 +189,11 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      */
     @Override
     public Adapter createNetworkInducedFailureTypeAdapter() {
-        if (networkInducedFailureTypeItemProvider == null) {
-            networkInducedFailureTypeItemProvider = new NetworkInducedFailureTypeItemProvider(this);
+        if (this.networkInducedFailureTypeItemProvider == null) {
+            this.networkInducedFailureTypeItemProvider = new NetworkInducedFailureTypeItemProvider(this);
         }
 
-        return networkInducedFailureTypeItemProvider;
+        return this.networkInducedFailureTypeItemProvider;
     }
 
     /**
@@ -214,12 +214,12 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      */
     @Override
     public Adapter createInternalFailureOccurrenceDescriptionAdapter() {
-        if (internalFailureOccurrenceDescriptionItemProvider == null) {
-            internalFailureOccurrenceDescriptionItemProvider = new InternalFailureOccurrenceDescriptionItemProvider(
+        if (this.internalFailureOccurrenceDescriptionItemProvider == null) {
+            this.internalFailureOccurrenceDescriptionItemProvider = new InternalFailureOccurrenceDescriptionItemProvider(
                     this);
         }
 
-        return internalFailureOccurrenceDescriptionItemProvider;
+        return this.internalFailureOccurrenceDescriptionItemProvider;
     }
 
     /**
@@ -240,11 +240,11 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      */
     @Override
     public Adapter createSoftwareInducedFailureTypeAdapter() {
-        if (softwareInducedFailureTypeItemProvider == null) {
-            softwareInducedFailureTypeItemProvider = new SoftwareInducedFailureTypeItemProvider(this);
+        if (this.softwareInducedFailureTypeItemProvider == null) {
+            this.softwareInducedFailureTypeItemProvider = new SoftwareInducedFailureTypeItemProvider(this);
         }
 
-        return softwareInducedFailureTypeItemProvider;
+        return this.softwareInducedFailureTypeItemProvider;
     }
 
     /**
@@ -253,8 +253,9 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -263,7 +264,8 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -273,8 +275,8 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -284,7 +286,7 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -294,9 +296,9 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -311,7 +313,7 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -319,8 +321,9 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -328,8 +331,9 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -337,8 +341,9 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -346,8 +351,9 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -356,11 +362,12 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -370,19 +377,26 @@ public class ReliabilityItemProviderAdapterFactory extends ReliabilityAdapterFac
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (hardwareInducedFailureTypeItemProvider != null)
-            hardwareInducedFailureTypeItemProvider.dispose();
-        if (softwareInducedFailureTypeItemProvider != null)
-            softwareInducedFailureTypeItemProvider.dispose();
-        if (internalFailureOccurrenceDescriptionItemProvider != null)
-            internalFailureOccurrenceDescriptionItemProvider.dispose();
-        if (networkInducedFailureTypeItemProvider != null)
-            networkInducedFailureTypeItemProvider.dispose();
-        if (externalFailureOccurrenceDescriptionItemProvider != null)
-            externalFailureOccurrenceDescriptionItemProvider.dispose();
-        if (resourceTimeoutFailureTypeItemProvider != null)
-            resourceTimeoutFailureTypeItemProvider.dispose();
+        if (this.hardwareInducedFailureTypeItemProvider != null) {
+            this.hardwareInducedFailureTypeItemProvider.dispose();
+        }
+        if (this.softwareInducedFailureTypeItemProvider != null) {
+            this.softwareInducedFailureTypeItemProvider.dispose();
+        }
+        if (this.internalFailureOccurrenceDescriptionItemProvider != null) {
+            this.internalFailureOccurrenceDescriptionItemProvider.dispose();
+        }
+        if (this.networkInducedFailureTypeItemProvider != null) {
+            this.networkInducedFailureTypeItemProvider.dispose();
+        }
+        if (this.externalFailureOccurrenceDescriptionItemProvider != null) {
+            this.externalFailureOccurrenceDescriptionItemProvider.dispose();
+        }
+        if (this.resourceTimeoutFailureTypeItemProvider != null) {
+            this.resourceTimeoutFailureTypeItemProvider.dispose();
+        }
     }
 
 }

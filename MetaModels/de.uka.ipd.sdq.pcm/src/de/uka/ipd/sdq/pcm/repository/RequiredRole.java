@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.repository;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Required Role</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Required Role</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> Required roles list the interfaces required by a component. <!--
@@ -17,8 +17,9 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>
- * Requiring Entity Required Role</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring
+ * Entity Required Role</em>}</li>
  * </ul>
  * </p>
  * 

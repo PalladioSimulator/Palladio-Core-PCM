@@ -43,12 +43,12 @@ public class AllocationXMLProcessor extends XMLProcessor {
      */
     @Override
     protected Map<String, Resource.Factory> getRegistrations() {
-        if (registrations == null) {
+        if (this.registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION, new AllocationResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION, new AllocationResourceFactoryImpl());
+            this.registrations.put(XML_EXTENSION, new AllocationResourceFactoryImpl());
+            this.registrations.put(STAR_EXTENSION, new AllocationResourceFactoryImpl());
         }
-        return registrations;
+        return this.registrations;
     }
 
 } // AllocationXMLProcessor

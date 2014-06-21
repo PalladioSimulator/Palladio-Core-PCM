@@ -9,8 +9,8 @@ import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Emit Event Action</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Emit Event Action</b></em>
+ * '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> EmitEventAction specifies when a component emits an event during its
  * processing. To enable the specification of the EventType characteristics, the EmitEventAction
@@ -22,9 +22,11 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getEventType__EmitEventAction <em>Event Type
- * Emit Event Action</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction <em>Source Role
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getEventType__EmitEventAction <em>Event Type Emit
+ * Event Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction <em>Source Role
  * Emit Event Action</em>}</li>
  * </ul>
  * </p>

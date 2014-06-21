@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -32,7 +31,8 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl#getRepository__DataType <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl#getRepository__DataType <em>
  * Repository Data Type</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl#getParentType_CompositeDataType
@@ -99,10 +99,12 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * 
      * @generated
      */
+    @Override
     public Repository getRepository__DataType() {
-        if (eContainerFeatureID() != RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE)
+        if (this.eContainerFeatureID() != RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE) {
             return null;
-        return (Repository) eInternalContainer();
+        }
+        return (Repository) this.eInternalContainer();
     }
 
     /**
@@ -110,8 +112,9 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * 
      * @generated
      */
-    public NotificationChain basicSetRepository__DataType(Repository newRepository__DataType, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newRepository__DataType,
+    public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
+            NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newRepository__DataType,
                 RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE, msgs);
         return msgs;
     }
@@ -121,37 +124,30 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * 
      * @generated
      */
-    public void setRepository__DataType(Repository newRepository__DataType) {
-        if (newRepository__DataType != eInternalContainer()
-                || (eContainerFeatureID() != RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newRepository__DataType))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setRepository__DataType(final Repository newRepository__DataType) {
+        if (newRepository__DataType != this.eInternalContainer()
+                || (this.eContainerFeatureID() != RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
+            if (EcoreUtil.isAncestor(this, newRepository__DataType)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newRepository__DataType != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newRepository__DataType != null) {
                 msgs = ((InternalEObject) newRepository__DataType).eInverseAdd(this,
                         RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY, Repository.class, msgs);
-            msgs = basicSetRepository__DataType(newRepository__DataType, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetRepository__DataType(newRepository__DataType, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE, newRepository__DataType,
                     newRepository__DataType));
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public EList<CompositeDataType> getParentType_CompositeDataType() {
-        if (parentType_CompositeDataType == null) {
-            parentType_CompositeDataType = new EObjectResolvingEList<CompositeDataType>(CompositeDataType.class, this,
-                    RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE);
         }
-        return parentType_CompositeDataType;
     }
 
     /**
@@ -159,14 +155,29 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * 
      * @generated
      */
+    @Override
+    public EList<CompositeDataType> getParentType_CompositeDataType() {
+        if (this.parentType_CompositeDataType == null) {
+            this.parentType_CompositeDataType = new EObjectResolvingEList<CompositeDataType>(CompositeDataType.class,
+                    this, RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE);
+        }
+        return this.parentType_CompositeDataType;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
     public EList<InnerDeclaration> getInnerDeclaration_CompositeDataType() {
-        if (innerDeclaration_CompositeDataType == null) {
-            innerDeclaration_CompositeDataType = new EObjectContainmentWithInverseEList<InnerDeclaration>(
+        if (this.innerDeclaration_CompositeDataType == null) {
+            this.innerDeclaration_CompositeDataType = new EObjectContainmentWithInverseEList<InnerDeclaration>(
                     InnerDeclaration.class, this,
                     RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE,
                     RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION);
         }
-        return innerDeclaration_CompositeDataType;
+        return this.innerDeclaration_CompositeDataType;
     }
 
     /**
@@ -176,14 +187,15 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetRepository__DataType((Repository) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetRepository__DataType((Repository) otherEnd, msgs);
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getInnerDeclaration_CompositeDataType())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInnerDeclaration_CompositeDataType())
                     .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -195,12 +207,13 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return basicSetRepository__DataType(null, msgs);
+            return this.basicSetRepository__DataType(null, msgs);
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
-            return ((InternalEList<?>) getInnerDeclaration_CompositeDataType()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getInnerDeclaration_CompositeDataType()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -211,10 +224,10 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
+            return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -226,14 +239,14 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return getRepository__DataType();
+            return this.getRepository__DataType();
         case RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE:
-            return getParentType_CompositeDataType();
+            return this.getParentType_CompositeDataType();
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
-            return getInnerDeclaration_CompositeDataType();
+            return this.getInnerDeclaration_CompositeDataType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -245,18 +258,18 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            setRepository__DataType((Repository) newValue);
+            this.setRepository__DataType((Repository) newValue);
             return;
         case RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE:
-            getParentType_CompositeDataType().clear();
-            getParentType_CompositeDataType().addAll((Collection<? extends CompositeDataType>) newValue);
+            this.getParentType_CompositeDataType().clear();
+            this.getParentType_CompositeDataType().addAll((Collection<? extends CompositeDataType>) newValue);
             return;
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
-            getInnerDeclaration_CompositeDataType().clear();
-            getInnerDeclaration_CompositeDataType().addAll((Collection<? extends InnerDeclaration>) newValue);
+            this.getInnerDeclaration_CompositeDataType().clear();
+            this.getInnerDeclaration_CompositeDataType().addAll((Collection<? extends InnerDeclaration>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -268,16 +281,16 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            setRepository__DataType((Repository) null);
+            this.setRepository__DataType((Repository) null);
             return;
         case RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE:
-            getParentType_CompositeDataType().clear();
+            this.getParentType_CompositeDataType().clear();
             return;
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
-            getInnerDeclaration_CompositeDataType().clear();
+            this.getInnerDeclaration_CompositeDataType().clear();
             return;
         }
         super.eUnset(featureID);
@@ -289,14 +302,15 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return getRepository__DataType() != null;
+            return this.getRepository__DataType() != null;
         case RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE:
-            return parentType_CompositeDataType != null && !parentType_CompositeDataType.isEmpty();
+            return this.parentType_CompositeDataType != null && !this.parentType_CompositeDataType.isEmpty();
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
-            return innerDeclaration_CompositeDataType != null && !innerDeclaration_CompositeDataType.isEmpty();
+            return this.innerDeclaration_CompositeDataType != null
+                    && !this.innerDeclaration_CompositeDataType.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -307,7 +321,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
         if (baseClass == DataType.class) {
             switch (derivedFeatureID) {
             case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
@@ -325,7 +339,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
         if (baseClass == DataType.class) {
             switch (baseFeatureID) {
             case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:

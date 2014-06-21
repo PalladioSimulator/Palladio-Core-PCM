@@ -11,8 +11,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Operation Interface</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Operation Interface</b></em> '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> The OperationInterface is a specific type of interface related to
  * operation calls. For this, it also refereferences a set of operation interfaces. Operations can
@@ -21,8 +21,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.OperationInterface#getSignatures__OperationInterface
- * <em>Signatures Operation Interface</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.OperationInterface#getSignatures__OperationInterface <em>
+ * Signatures Operation Interface</em>}</li>
  * </ul>
  * </p>
  * 

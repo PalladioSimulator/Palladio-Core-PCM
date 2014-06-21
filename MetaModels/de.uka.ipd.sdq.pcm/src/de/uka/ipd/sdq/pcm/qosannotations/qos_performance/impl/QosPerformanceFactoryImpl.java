@@ -34,12 +34,12 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
      */
     public static QosPerformanceFactory init() {
         try {
-            QosPerformanceFactory theQosPerformanceFactory = (QosPerformanceFactory) EPackage.Registry.INSTANCE
+            final QosPerformanceFactory theQosPerformanceFactory = (QosPerformanceFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosPerformancePackage.eNS_URI);
             if (theQosPerformanceFactory != null) {
                 return theQosPerformanceFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosPerformanceFactoryImpl();
@@ -60,12 +60,12 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME:
-            return (EObject) createSystemSpecifiedExecutionTime();
+            return this.createSystemSpecifiedExecutionTime();
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME:
-            return (EObject) createComponentSpecifiedExecutionTime();
+            return this.createComponentSpecifiedExecutionTime();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -76,8 +76,9 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
      * 
      * @generated
      */
+    @Override
     public SystemSpecifiedExecutionTime createSystemSpecifiedExecutionTime() {
-        SystemSpecifiedExecutionTimeImpl systemSpecifiedExecutionTime = new SystemSpecifiedExecutionTimeImpl();
+        final SystemSpecifiedExecutionTimeImpl systemSpecifiedExecutionTime = new SystemSpecifiedExecutionTimeImpl();
         return systemSpecifiedExecutionTime;
     }
 
@@ -86,8 +87,9 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
      * 
      * @generated
      */
+    @Override
     public ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime() {
-        ComponentSpecifiedExecutionTimeImpl componentSpecifiedExecutionTime = new ComponentSpecifiedExecutionTimeImpl();
+        final ComponentSpecifiedExecutionTimeImpl componentSpecifiedExecutionTime = new ComponentSpecifiedExecutionTimeImpl();
         return componentSpecifiedExecutionTime;
     }
 
@@ -96,8 +98,9 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
      * 
      * @generated
      */
+    @Override
     public QosPerformancePackage getQosPerformancePackage() {
-        return (QosPerformancePackage) getEPackage();
+        return (QosPerformancePackage) this.getEPackage();
     }
 
     /**

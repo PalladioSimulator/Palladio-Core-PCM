@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -99,14 +98,16 @@ public class QosPerformanceValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         switch (classifierID) {
         case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME:
-            return validateSystemSpecifiedExecutionTime((SystemSpecifiedExecutionTime) value, diagnostics, context);
+            return this
+                    .validateSystemSpecifiedExecutionTime((SystemSpecifiedExecutionTime) value, diagnostics, context);
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME:
-            return validateSpecifiedExecutionTime((SpecifiedExecutionTime) value, diagnostics, context);
+            return this.validateSpecifiedExecutionTime((SpecifiedExecutionTime) value, diagnostics, context);
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME:
-            return validateComponentSpecifiedExecutionTime((ComponentSpecifiedExecutionTime) value, diagnostics,
+            return this.validateComponentSpecifiedExecutionTime((ComponentSpecifiedExecutionTime) value, diagnostics,
                     context);
         default:
             return true;
@@ -118,27 +119,36 @@ public class QosPerformanceValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSystemSpecifiedExecutionTime(SystemSpecifiedExecutionTime systemSpecifiedExecutionTime,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) systemSpecifiedExecutionTime, diagnostics, context))
+    public boolean validateSystemSpecifiedExecutionTime(
+            final SystemSpecifiedExecutionTime systemSpecifiedExecutionTime, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(systemSpecifiedExecutionTime, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) systemSpecifiedExecutionTime, diagnostics,
-                context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateSystemSpecifiedExecutionTime_SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(
-                    systemSpecifiedExecutionTime, diagnostics, context);
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(systemSpecifiedExecutionTime, diagnostics, context);
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(systemSpecifiedExecutionTime, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(systemSpecifiedExecutionTime, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(systemSpecifiedExecutionTime, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(systemSpecifiedExecutionTime, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(systemSpecifiedExecutionTime, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(systemSpecifiedExecutionTime, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this
+                    .validateSystemSpecifiedExecutionTime_SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(
+                            systemSpecifiedExecutionTime, diagnostics, context);
+        }
         return result;
     }
 
@@ -149,8 +159,8 @@ public class QosPerformanceValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateSystemSpecifiedExecutionTime_SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(
-            SystemSpecifiedExecutionTime systemSpecifiedExecutionTime, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+            final SystemSpecifiedExecutionTime systemSpecifiedExecutionTime, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return systemSpecifiedExecutionTime.SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(diagnostics,
                 context);
     }
@@ -160,9 +170,9 @@ public class QosPerformanceValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSpecifiedExecutionTime(SpecifiedExecutionTime specifiedExecutionTime,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) specifiedExecutionTime, diagnostics, context);
+    public boolean validateSpecifiedExecutionTime(final SpecifiedExecutionTime specifiedExecutionTime,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(specifiedExecutionTime, diagnostics, context);
     }
 
     /**
@@ -171,9 +181,9 @@ public class QosPerformanceValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateComponentSpecifiedExecutionTime(
-            ComponentSpecifiedExecutionTime componentSpecifiedExecutionTime, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) componentSpecifiedExecutionTime, diagnostics, context);
+            final ComponentSpecifiedExecutionTime componentSpecifiedExecutionTime, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(componentSpecifiedExecutionTime, diagnostics, context);
     }
 
     /**
@@ -185,7 +195,8 @@ public class QosPerformanceValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to this validator.
+        // Specialize this to return a resource locator for messages specific to
+        // this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }

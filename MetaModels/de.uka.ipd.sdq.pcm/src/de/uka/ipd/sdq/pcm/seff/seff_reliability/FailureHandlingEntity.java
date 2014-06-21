@@ -43,7 +43,7 @@ public interface FailureHandlingEntity extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Failure Types Failure Handling Entity</b></em>' reference
+     * Returns the value of the ' <em><b>Failure Types Failure Handling Entity</b></em>' reference
      * list. The list contents are of type {@link de.uka.ipd.sdq.pcm.reliability.FailureType}. <!--
      * begin-user-doc -->
      * <p>

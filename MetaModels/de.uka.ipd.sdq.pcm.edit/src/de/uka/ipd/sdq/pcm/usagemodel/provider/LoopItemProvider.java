@@ -45,7 +45,7 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * 
      * @generated
      */
-    public LoopItemProvider(AdapterFactory adapterFactory) {
+    public LoopItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,12 +56,12 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -74,13 +74,13 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP);
-            childrenFeatures.add(UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP);
+            this.childrenFeatures.add(UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP);
+            this.childrenFeatures.add(UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -89,7 +89,7 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -102,8 +102,8 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Loop"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/Loop"));
     }
 
     /**
@@ -113,10 +113,10 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((Loop) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_Loop_type") : getString("_UI_Loop_type") + " "
-                + label;
+    public String getText(final Object object) {
+        final String label = ((Loop) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_Loop_type") : this.getString("_UI_Loop_type")
+                + " " + label;
     }
 
     /**
@@ -127,13 +127,13 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(Loop.class)) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -146,13 +146,13 @@ public class LoopItemProvider extends AbstractUserActionItemProvider implements 
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP,
+        newChildDescriptors.add(this.createChildParameter(UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP,
                 CoreFactory.eINSTANCE.createPCMRandomVariable()));
 
-        newChildDescriptors.add(createChildParameter(UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP,
+        newChildDescriptors.add(this.createChildParameter(UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP,
                 UsagemodelFactory.eINSTANCE.createScenarioBehaviour()));
     }
 

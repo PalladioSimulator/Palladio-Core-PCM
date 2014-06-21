@@ -39,10 +39,10 @@ public interface EntityFactory extends EFactory {
     ResourceProvidedRole createResourceProvidedRole();
 
     /**
-     * Returns a new object of class '<em>Resource Interface Requiring Entity</em>'. <!--
+     * Returns a new object of class ' <em>Resource Interface Requiring Entity</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Resource Interface Requiring Entity</em>'.
+     * @return a new object of class ' <em>Resource Interface Requiring Entity</em>'.
      * @generated
      */
     ResourceInterfaceRequiringEntity createResourceInterfaceRequiringEntity();
@@ -57,19 +57,19 @@ public interface EntityFactory extends EFactory {
     ResourceRequiredRole createResourceRequiredRole();
 
     /**
-     * Returns a new object of class '<em>Resource Interface Providing Entity</em>'. <!--
+     * Returns a new object of class ' <em>Resource Interface Providing Entity</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Resource Interface Providing Entity</em>'.
+     * @return a new object of class ' <em>Resource Interface Providing Entity</em>'.
      * @generated
      */
     ResourceInterfaceProvidingEntity createResourceInterfaceProvidingEntity();
 
     /**
-     * Returns a new object of class '<em>Resource Interface Providing Requiring Entity</em>'. <!--
+     * Returns a new object of class ' <em>Resource Interface Providing Requiring Entity</em>'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Resource Interface Providing Requiring Entity</em>'.
+     * @return a new object of class ' <em>Resource Interface Providing Requiring Entity</em>'.
      * @generated
      */
     ResourceInterfaceProvidingRequiringEntity createResourceInterfaceProvidingRequiringEntity();

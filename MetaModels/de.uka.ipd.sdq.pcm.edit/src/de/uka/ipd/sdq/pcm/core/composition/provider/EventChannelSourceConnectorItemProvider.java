@@ -44,7 +44,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * 
      * @generated
      */
-    public EventChannelSourceConnectorItemProvider(AdapterFactory adapterFactory) {
+    public EventChannelSourceConnectorItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,15 +55,15 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addSourceRole__EventChannelSourceRolePropertyDescriptor(object);
-            addAssemblyContext__EventChannelSourceConnectorPropertyDescriptor(object);
-            addEventChannel__EventChannelSourceConnectorPropertyDescriptor(object);
+            this.addSourceRole__EventChannelSourceRolePropertyDescriptor(object);
+            this.addAssemblyContext__EventChannelSourceConnectorPropertyDescriptor(object);
+            this.addEventChannel__EventChannelSourceConnectorPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,14 +72,13 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * 
      * @generated
      */
-    protected void addSourceRole__EventChannelSourceRolePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature"),
-                getString("_UI_PropertyDescriptor_description",
-                        "_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature",
-                        "_UI_EventChannelSourceConnector_type"),
+    protected void addSourceRole__EventChannelSourceRolePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature"), this
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature",
+                                "_UI_EventChannelSourceConnector_type"),
                 CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE,
                 true, false, true, null, null, null));
     }
@@ -90,13 +89,13 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * 
      * @generated
      */
-    protected void addAssemblyContext__EventChannelSourceConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature"),
-                        getString("_UI_PropertyDescriptor_description",
+    protected void addAssemblyContext__EventChannelSourceConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature"),
+                        this.getString("_UI_PropertyDescriptor_description",
                                 "_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature",
                                 "_UI_EventChannelSourceConnector_type"),
                         CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR,
@@ -109,13 +108,13 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * 
      * @generated
      */
-    protected void addEventChannel__EventChannelSourceConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature"),
-                        getString("_UI_PropertyDescriptor_description",
+    protected void addEventChannel__EventChannelSourceConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature"),
+                        this.getString("_UI_PropertyDescriptor_description",
                                 "_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature",
                                 "_UI_EventChannelSourceConnector_type"),
                         CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR,
@@ -128,8 +127,8 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/EventChannelSourceConnector"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/EventChannelSourceConnector"));
     }
 
     /**
@@ -139,10 +138,10 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((EventChannelSourceConnector) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_EventChannelSourceConnector_type")
-                : getString("_UI_EventChannelSourceConnector_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((EventChannelSourceConnector) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_EventChannelSourceConnector_type") : this
+                .getString("_UI_EventChannelSourceConnector_type") + " " + label;
     }
 
     /**
@@ -153,8 +152,8 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -165,7 +164,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

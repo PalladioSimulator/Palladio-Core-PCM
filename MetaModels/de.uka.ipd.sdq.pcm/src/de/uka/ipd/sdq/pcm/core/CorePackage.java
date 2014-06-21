@@ -66,7 +66,7 @@ public interface CorePackage extends EPackage {
     CorePackage eINSTANCE = de.uka.ipd.sdq.pcm.core.impl.CorePackageImpl.init();
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl
+     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl
      * <em>PCM Random Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.core.impl.PCMRandomVariableImpl
@@ -94,7 +94,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__EXPRESSION = StoexPackage.RANDOM_VARIABLE__EXPRESSION;
 
     /**
-     * The feature id for the '<em><b>Closed Workload PCM Random Variable</b></em>' container
+     * The feature id for the ' <em><b>Closed Workload PCM Random Variable</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -103,7 +103,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Passive Resource capacity PCM Random Variable</b></em>'
+     * The feature id for the ' <em><b>Passive Resource capacity PCM Random Variable</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -112,7 +112,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Variable Characterisation Specification</b></em>' container
+     * The feature id for the ' <em><b>Variable Characterisation Specification</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -121,7 +121,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '<em><b>Infrastructure Call PCM Random Variable</b></em>' container
+     * The feature id for the ' <em><b>Infrastructure Call PCM Random Variable</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -130,7 +130,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>Resource Call PCM Random Variable</b></em>' container
+     * The feature id for the '<em><b>Resource Call PCM Random Variable</b></em> ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -139,7 +139,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Parametric Resource Demand PCM Random Variable</b></em>'
+     * The feature id for the ' <em><b>Parametric Resource Demand PCM Random Variable</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -157,7 +157,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 6;
 
     /**
-     * The feature id for the '<em><b>Guarded Branch Transition PCM Random Variable</b></em>'
+     * The feature id for the ' <em><b>Guarded Branch Transition PCM Random Variable</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -166,7 +166,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 7;
 
     /**
-     * The feature id for the '<em><b>Specified Execution Time PCM Random Variable</b></em>'
+     * The feature id for the ' <em><b>Specified Execution Time PCM Random Variable</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -175,7 +175,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 8;
 
     /**
-     * The feature id for the '<em><b>Event Channel Sink Connector Filter Condition</b></em>'
+     * The feature id for the ' <em><b>Event Channel Sink Connector Filter Condition</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -184,7 +184,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 9;
 
     /**
-     * The feature id for the '<em><b>Assembly Event Connector Filter Condition</b></em>' container
+     * The feature id for the ' <em><b>Assembly Event Connector Filter Condition</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -202,7 +202,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 11;
 
     /**
-     * The feature id for the '<em><b>Open Workload PCM Random Variable</b></em>' container
+     * The feature id for the '<em><b>Open Workload PCM Random Variable</b></em> ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -221,7 +221,7 @@ public interface CorePackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em>'
+     * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em> '
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -231,7 +231,7 @@ public interface CorePackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em>'
+     * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em> '
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -241,7 +241,7 @@ public interface CorePackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em>'
+     * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em> '
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -259,7 +259,7 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 17;
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable
+     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable
      * <em>PCM Random Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>PCM Random Variable</em>'.
@@ -315,8 +315,8 @@ public interface CorePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable
      * <em>Loop Action PCM Random Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Loop Action PCM Random Variable</em>
-     *         '.
+     * @return the meta object for the container reference '
+     *         <em>Loop Action PCM Random Variable</em>'.
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -342,7 +342,7 @@ public interface CorePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoop_LoopIteration
      * <em>Loop Loop Iteration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Loop Loop Iteration</em>'.
+     * @return the meta object for the container reference ' <em>Loop Loop Iteration</em>'.
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoop_LoopIteration()
      * @see #getPCMRandomVariable()
      * @generated
@@ -449,7 +449,7 @@ public interface CorePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getDelay_TimeSpecification
      * <em>Delay Time Specification</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference '<em>Delay Time Specification</em>'.
+     * @return the meta object for the container reference ' <em>Delay Time Specification</em>'.
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getDelay_TimeSpecification()
      * @see #getPCMRandomVariable()
      * @generated
@@ -459,11 +459,11 @@ public interface CorePackage extends EPackage {
     /**
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
-     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}'. <!--
+     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>} '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for the container reference '
-     *         <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>'.
+     *         <em>Communication Link Resource Specifcation throughput PCM Random Variable</em> '.
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -473,11 +473,11 @@ public interface CorePackage extends EPackage {
     /**
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable
-     * <em>Processing Resource Specification processing Rate PCM Random Variable</em>}'. <!--
+     * <em>Processing Resource Specification processing Rate PCM Random Variable</em>} '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for the container reference '
-     *         <em>Processing Resource Specification processing Rate PCM Random Variable</em>'.
+     *         <em>Processing Resource Specification processing Rate PCM Random Variable</em> '.
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -487,11 +487,11 @@ public interface CorePackage extends EPackage {
     /**
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
-     * <em>Communication Link Resource Specification latency PCM Random Variable</em>}'. <!--
+     * <em>Communication Link Resource Specification latency PCM Random Variable</em>} '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for the container reference '
-     *         <em>Communication Link Resource Specification latency PCM Random Variable</em>'.
+     *         <em>Communication Link Resource Specification latency PCM Random Variable</em> '.
      * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -532,8 +532,8 @@ public interface CorePackage extends EPackage {
         EClass PCM_RANDOM_VARIABLE = eINSTANCE.getPCMRandomVariable();
 
         /**
-         * The meta object literal for the '<em><b>Variable Characterisation Specification</b></em>'
-         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Variable Characterisation Specification</b></em>
+         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -561,7 +561,7 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '<em><b>Loop Action PCM Random Variable</b></em>'
+         * The meta object literal for the ' <em><b>Loop Action PCM Random Variable</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -618,8 +618,8 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_EventChannelSinkConnector__FilterCondition();
 
         /**
-         * The meta object literal for the '<em><b>Infrastructure Call PCM Random Variable</b></em>'
-         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Infrastructure Call PCM Random Variable</b></em>
+         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -627,7 +627,7 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_InfrastructureCall__PCMRandomVariable();
 
         /**
-         * The meta object literal for the '<em><b>Resource Call PCM Random Variable</b></em>'
+         * The meta object literal for the ' <em><b>Resource Call PCM Random Variable</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -636,7 +636,7 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_ResourceCall__PCMRandomVariable();
 
         /**
-         * The meta object literal for the '<em><b>Open Workload PCM Random Variable</b></em>'
+         * The meta object literal for the ' <em><b>Open Workload PCM Random Variable</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -645,7 +645,7 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_OpenWorkload_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '<em><b>Closed Workload PCM Random Variable</b></em>'
+         * The meta object literal for the ' <em><b>Closed Workload PCM Random Variable</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -654,7 +654,7 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_ClosedWorkload_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '<em><b>Delay Time Specification</b></em>' container
+         * The meta object literal for the ' <em><b>Delay Time Specification</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -664,7 +664,7 @@ public interface CorePackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em>'
+         * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em> '
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -674,7 +674,7 @@ public interface CorePackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em>'
+         * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em> '
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -684,7 +684,7 @@ public interface CorePackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em>'
+         * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em> '
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

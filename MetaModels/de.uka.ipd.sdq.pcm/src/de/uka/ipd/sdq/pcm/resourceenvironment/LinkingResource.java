@@ -10,12 +10,11 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Linking Resource</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Linking Resource</b></em>'.
  * <!-- end-user-doc -->
  * 
- * <!-- begin-model-doc -->
- * Model&nbsp;element&nbsp;representing&nbsp;communication&nbsp;links&nbsp;like
- * &nbsp;LAN,&nbsp;WAN,&nbsp;WiFi&nbsp;etc. <!-- end-model-doc -->
+ * <!-- begin-model-doc --> Model&nbsp;element&nbsp;representing&nbsp;communication
+ * &nbsp;links&nbsp;like&nbsp;LAN,&nbsp;WAN,&nbsp;WiFi&nbsp;etc. <!-- end-model-doc -->
  * 
  * <p>
  * The following features are supported:
@@ -45,16 +44,16 @@ public interface LinkingResource extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Connected Resource Containers Linking Resource</b></em>'
+     * Returns the value of the ' <em><b>Connected Resource Containers Linking Resource</b></em>'
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer}. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Connected Resource Containers Linking Resource</em>' reference
+     * If the meaning of the ' <em>Connected Resource Containers Linking Resource</em>' reference
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Connected Resource Containers Linking Resource</em>' reference
+     * @return the value of the ' <em>Connected Resource Containers Linking Resource</em>' reference
      *         list.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource_ConnectedResourceContainers_LinkingResource()
      * @model ordered="false"
@@ -64,19 +63,19 @@ public interface LinkingResource extends Entity {
 
     /**
      * Returns the value of the '
-     * <em><b>Communication Link Resource Specifications Linking Resource</b></em>' containment
+     * <em><b>Communication Link Resource Specifications Linking Resource</b></em> ' containment
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification
      * <em>Linking Resource Communication Link Resource Specification</em>}'. <!-- begin-user-doc
      * -->
      * <p>
-     * If the meaning of the '<em>Communication Link Resource Specifications Linking Resource</em>'
+     * If the meaning of the ' <em>Communication Link Resource Specifications Linking Resource</em>'
      * containment reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Communication Link Resource Specifications Linking Resource</em>' containment
+     *         <em>Communication Link Resource Specifications Linking Resource</em> ' containment
      *         reference.
      * @see #setCommunicationLinkResourceSpecifications_LinkingResource(CommunicationLinkResourceSpecification)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource()
@@ -95,7 +94,7 @@ public interface LinkingResource extends Entity {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Communication Link Resource Specifications Linking Resource</em>' containment
+     *            <em>Communication Link Resource Specifications Linking Resource</em> ' containment
      *            reference.
      * @see #getCommunicationLinkResourceSpecifications_LinkingResource()
      * @generated
@@ -103,7 +102,7 @@ public interface LinkingResource extends Entity {
     void setCommunicationLinkResourceSpecifications_LinkingResource(CommunicationLinkResourceSpecification value);
 
     /**
-     * Returns the value of the '<em><b>Resource Environment Linking Resource</b></em>' container
+     * Returns the value of the ' <em><b>Resource Environment Linking Resource</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment#getLinkingResources__ResourceEnvironment
      * <em>Linking Resources Resource Environment</em>}'. <!-- begin-user-doc -->
@@ -131,7 +130,7 @@ public interface LinkingResource extends Entity {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Resource Environment Linking Resource</em>' container
+     *            the new value of the ' <em>Resource Environment Linking Resource</em>' container
      *            reference.
      * @see #getResourceEnvironment_LinkingResource()
      * @generated

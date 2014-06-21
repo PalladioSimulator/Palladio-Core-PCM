@@ -40,8 +40,8 @@ public class AllocationResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new AllocationResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new AllocationResourceImpl(uri);
         return result;
     }
 

@@ -43,7 +43,7 @@ public class PCMRandomVariableItemProvider extends RandomVariableItemProvider im
      * 
      * @generated
      */
-    public PCMRandomVariableItemProvider(AdapterFactory adapterFactory) {
+    public PCMRandomVariableItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,12 +54,12 @@ public class PCMRandomVariableItemProvider extends RandomVariableItemProvider im
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -68,8 +68,8 @@ public class PCMRandomVariableItemProvider extends RandomVariableItemProvider im
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/PCMRandomVariable"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/PCMRandomVariable"));
     }
 
     /**
@@ -79,10 +79,10 @@ public class PCMRandomVariableItemProvider extends RandomVariableItemProvider im
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((PCMRandomVariable) object).getSpecification();
-        return label == null || label.length() == 0 ? getString("_UI_PCMRandomVariable_type")
-                : getString("_UI_PCMRandomVariable_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((PCMRandomVariable) object).getSpecification();
+        return label == null || label.length() == 0 ? this.getString("_UI_PCMRandomVariable_type") : this
+                .getString("_UI_PCMRandomVariable_type") + " " + label;
     }
 
     /**
@@ -93,8 +93,8 @@ public class PCMRandomVariableItemProvider extends RandomVariableItemProvider im
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -105,7 +105,7 @@ public class PCMRandomVariableItemProvider extends RandomVariableItemProvider im
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -117,7 +117,7 @@ public class PCMRandomVariableItemProvider extends RandomVariableItemProvider im
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

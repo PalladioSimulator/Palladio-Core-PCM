@@ -47,7 +47,7 @@ public class SpecifiedExecutionTimeItemProvider extends SpecifiedQoSAnnotationIt
      * 
      * @generated
      */
-    public SpecifiedExecutionTimeItemProvider(AdapterFactory adapterFactory) {
+    public SpecifiedExecutionTimeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -58,12 +58,12 @@ public class SpecifiedExecutionTimeItemProvider extends SpecifiedQoSAnnotationIt
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -76,13 +76,13 @@ public class SpecifiedExecutionTimeItemProvider extends SpecifiedQoSAnnotationIt
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(QosPerformancePackage.Literals.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -91,7 +91,7 @@ public class SpecifiedExecutionTimeItemProvider extends SpecifiedQoSAnnotationIt
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -105,8 +105,8 @@ public class SpecifiedExecutionTimeItemProvider extends SpecifiedQoSAnnotationIt
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_SpecifiedExecutionTime_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_SpecifiedExecutionTime_type");
     }
 
     /**
@@ -117,12 +117,12 @@ public class SpecifiedExecutionTimeItemProvider extends SpecifiedQoSAnnotationIt
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(SpecifiedExecutionTime.class)) {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -135,10 +135,10 @@ public class SpecifiedExecutionTimeItemProvider extends SpecifiedQoSAnnotationIt
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 QosPerformancePackage.Literals.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
                 CoreFactory.eINSTANCE.createPCMRandomVariable()));
     }

@@ -255,11 +255,12 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * @generated
      */
     public static CompositionPackage init() {
-        if (isInited)
+        if (isInited) {
             return (CompositionPackage) EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+        }
 
         // Obtain or create and register package
-        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
                 : new CompositionPackageImpl());
 
@@ -271,58 +272,61 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
@@ -372,6 +376,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theCompositionPackage, new EValidator.Descriptor() {
+            @Override
             public EValidator getEValidator() {
                 return CompositionValidator.INSTANCE;
             }
@@ -390,8 +395,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getDelegationConnector() {
-        return delegationConnectorEClass;
+        return this.delegationConnectorEClass;
     }
 
     /**
@@ -399,8 +405,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getConnector() {
-        return connectorEClass;
+        return this.connectorEClass;
     }
 
     /**
@@ -408,8 +415,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getConnector_ParentStructure__Connector() {
-        return (EReference) connectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.connectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -417,8 +425,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getProvidedDelegationConnector() {
-        return providedDelegationConnectorEClass;
+        return this.providedDelegationConnectorEClass;
     }
 
     /**
@@ -426,8 +435,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector() {
-        return (EReference) providedDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.providedDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -435,8 +445,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector() {
-        return (EReference) providedDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.providedDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -444,8 +455,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector() {
-        return (EReference) providedDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.providedDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -453,8 +465,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getComposedStructure() {
-        return composedStructureEClass;
+        return this.composedStructureEClass;
     }
 
     /**
@@ -462,8 +475,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getComposedStructure_AssemblyContexts__ComposedStructure() {
-        return (EReference) composedStructureEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.composedStructureEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -471,8 +485,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure() {
-        return (EReference) composedStructureEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.composedStructureEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -480,8 +495,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getComposedStructure_EventChannel__ComposedStructure() {
-        return (EReference) composedStructureEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.composedStructureEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -489,8 +505,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getComposedStructure_Connectors__ComposedStructure() {
-        return (EReference) composedStructureEClass.getEStructuralFeatures().get(3);
+        return (EReference) this.composedStructureEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -498,8 +515,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getAssemblyConnector() {
-        return assemblyConnectorEClass;
+        return this.assemblyConnectorEClass;
     }
 
     /**
@@ -507,8 +525,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector() {
-        return (EReference) assemblyConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.assemblyConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -516,8 +535,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector() {
-        return (EReference) assemblyConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.assemblyConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -525,8 +545,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyConnector_ProvidedRole_AssemblyConnector() {
-        return (EReference) assemblyConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.assemblyConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -534,8 +555,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyConnector_RequiredRole_AssemblyConnector() {
-        return (EReference) assemblyConnectorEClass.getEStructuralFeatures().get(3);
+        return (EReference) this.assemblyConnectorEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -543,8 +565,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getRequiredDelegationConnector() {
-        return requiredDelegationConnectorEClass;
+        return this.requiredDelegationConnectorEClass;
     }
 
     /**
@@ -552,8 +575,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector() {
-        return (EReference) requiredDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.requiredDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -561,8 +585,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector() {
-        return (EReference) requiredDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.requiredDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -570,8 +595,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector() {
-        return (EReference) requiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.requiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -579,8 +605,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getResourceRequiredDelegationConnector() {
-        return resourceRequiredDelegationConnectorEClass;
+        return this.resourceRequiredDelegationConnectorEClass;
     }
 
     /**
@@ -588,8 +615,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getResourceRequiredDelegationConnector_InnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return (EReference) resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -597,8 +625,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return (EReference) resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -606,8 +635,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector() {
-        return (EReference) resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.resourceRequiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -615,8 +645,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getEventChannel() {
-        return eventChannelEClass;
+        return this.eventChannelEClass;
     }
 
     /**
@@ -624,8 +655,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannel_EventGroup__EventChannel() {
-        return (EReference) eventChannelEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.eventChannelEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -633,8 +665,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannel_EventChannelSourceConnector__EventChannel() {
-        return (EReference) eventChannelEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.eventChannelEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -642,8 +675,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannel_EventChannelSinkConnector__EventChannel() {
-        return (EReference) eventChannelEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.eventChannelEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -651,8 +685,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannel_ParentStructure__EventChannel() {
-        return (EReference) eventChannelEClass.getEStructuralFeatures().get(3);
+        return (EReference) this.eventChannelEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -660,8 +695,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getAssemblyEventConnector() {
-        return assemblyEventConnectorEClass;
+        return this.assemblyEventConnectorEClass;
     }
 
     /**
@@ -669,8 +705,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyEventConnector_SinkRole__AssemblyEventConnector() {
-        return (EReference) assemblyEventConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.assemblyEventConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -678,8 +715,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyEventConnector_SourceRole__AssemblyEventConnector() {
-        return (EReference) assemblyEventConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.assemblyEventConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -687,8 +725,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector() {
-        return (EReference) assemblyEventConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.assemblyEventConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -696,8 +735,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector() {
-        return (EReference) assemblyEventConnectorEClass.getEStructuralFeatures().get(3);
+        return (EReference) this.assemblyEventConnectorEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -705,8 +745,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyEventConnector_FilterCondition__AssemblyEventConnector() {
-        return (EReference) assemblyEventConnectorEClass.getEStructuralFeatures().get(4);
+        return (EReference) this.assemblyEventConnectorEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -714,8 +755,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getSourceDelegationConnector() {
-        return sourceDelegationConnectorEClass;
+        return this.sourceDelegationConnectorEClass;
     }
 
     /**
@@ -723,8 +765,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getSourceDelegationConnector_InnerSourceRole__SourceRole() {
-        return (EReference) sourceDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.sourceDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -732,8 +775,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getSourceDelegationConnector_OuterSourceRole__SourceRole() {
-        return (EReference) sourceDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.sourceDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -741,8 +785,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector() {
-        return (EReference) sourceDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.sourceDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -750,8 +795,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getSinkDelegationConnector() {
-        return sinkDelegationConnectorEClass;
+        return this.sinkDelegationConnectorEClass;
     }
 
     /**
@@ -759,8 +805,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector() {
-        return (EReference) sinkDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.sinkDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -768,8 +815,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getSinkDelegationConnector_InnerSinkRole__SinkRole() {
-        return (EReference) sinkDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.sinkDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -777,8 +825,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getSinkDelegationConnector_OuterSinkRole__SinkRole() {
-        return (EReference) sinkDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.sinkDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -786,8 +835,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getAssemblyInfrastructureConnector() {
-        return assemblyInfrastructureConnectorEClass;
+        return this.assemblyInfrastructureConnectorEClass;
     }
 
     /**
@@ -795,8 +845,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector() {
-        return (EReference) assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -804,8 +855,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector() {
-        return (EReference) assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -813,8 +865,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector() {
-        return (EReference) assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -822,8 +875,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector() {
-        return (EReference) assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(3);
+        return (EReference) this.assemblyInfrastructureConnectorEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -831,8 +885,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getRequiredInfrastructureDelegationConnector() {
-        return requiredInfrastructureDelegationConnectorEClass;
+        return this.requiredInfrastructureDelegationConnectorEClass;
     }
 
     /**
@@ -840,8 +895,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredInfrastructureDelegationConnector_InnerRequiredRole__RequiredInfrastructureDelegationConnector() {
-        return (EReference) requiredInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.requiredInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -849,8 +905,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredInfrastructureDelegationConnector_OuterRequiredRole__RequiredInfrastructureDelegationConnector() {
-        return (EReference) requiredInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.requiredInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -858,8 +915,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredInfrastructureDelegationConnector_AssemblyContext__RequiredInfrastructureDelegationConnector() {
-        return (EReference) requiredInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.requiredInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -867,8 +925,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getProvidedInfrastructureDelegationConnector() {
-        return providedInfrastructureDelegationConnectorEClass;
+        return this.providedInfrastructureDelegationConnectorEClass;
     }
 
     /**
@@ -876,8 +935,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        return (EReference) providedInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.providedInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -885,8 +945,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        return (EReference) providedInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.providedInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -894,8 +955,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector() {
-        return (EReference) providedInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.providedInfrastructureDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -903,8 +965,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getRequiredResourceDelegationConnector() {
-        return requiredResourceDelegationConnectorEClass;
+        return this.requiredResourceDelegationConnectorEClass;
     }
 
     /**
@@ -912,8 +975,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredResourceDelegationConnector_AssemblyContext__RequiredResourceDelegationConnector() {
-        return (EReference) requiredResourceDelegationConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.requiredResourceDelegationConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -921,8 +985,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredResourceDelegationConnector_InnerRequiredRole__RequiredResourceDelegationConnector() {
-        return (EReference) requiredResourceDelegationConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.requiredResourceDelegationConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -930,8 +995,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getRequiredResourceDelegationConnector_OuterRequiredRole__RequiredResourceDelegationConnector() {
-        return (EReference) requiredResourceDelegationConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.requiredResourceDelegationConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -939,8 +1005,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getEventChannelSinkConnector() {
-        return eventChannelSinkConnectorEClass;
+        return this.eventChannelSinkConnectorEClass;
     }
 
     /**
@@ -948,8 +1015,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector() {
-        return (EReference) eventChannelSinkConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.eventChannelSinkConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -957,8 +1025,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector() {
-        return (EReference) eventChannelSinkConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.eventChannelSinkConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -966,8 +1035,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector() {
-        return (EReference) eventChannelSinkConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.eventChannelSinkConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -975,8 +1045,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector() {
-        return (EReference) eventChannelSinkConnectorEClass.getEStructuralFeatures().get(3);
+        return (EReference) this.eventChannelSinkConnectorEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -984,8 +1055,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getEventChannelSourceConnector() {
-        return eventChannelSourceConnectorEClass;
+        return this.eventChannelSourceConnectorEClass;
     }
 
     /**
@@ -993,8 +1065,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannelSourceConnector_SourceRole__EventChannelSourceRole() {
-        return (EReference) eventChannelSourceConnectorEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.eventChannelSourceConnectorEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1002,8 +1075,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector() {
-        return (EReference) eventChannelSourceConnectorEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.eventChannelSourceConnectorEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1011,8 +1085,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector() {
-        return (EReference) eventChannelSourceConnectorEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.eventChannelSourceConnectorEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1020,8 +1095,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EClass getAssemblyContext() {
-        return assemblyContextEClass;
+        return this.assemblyContextEClass;
     }
 
     /**
@@ -1029,8 +1105,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyContext_ParentStructure__AssemblyContext() {
-        return (EReference) assemblyContextEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.assemblyContextEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1038,8 +1115,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyContext_EncapsulatedComponent__AssemblyContext() {
-        return (EReference) assemblyContextEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.assemblyContextEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1047,8 +1125,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public EReference getAssemblyContext_ConfigParameterUsages__AssemblyContext() {
-        return (EReference) assemblyContextEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.assemblyContextEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1056,8 +1135,9 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * 
      * @generated
      */
+    @Override
     public CompositionFactory getCompositionFactory() {
-        return (CompositionFactory) getEFactoryInstance();
+        return (CompositionFactory) this.getEFactoryInstance();
     }
 
     /**
@@ -1074,137 +1154,146 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * @generated
      */
     public void createPackageContents() {
-        if (isCreated)
+        if (this.isCreated) {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        delegationConnectorEClass = createEClass(DELEGATION_CONNECTOR);
+        this.delegationConnectorEClass = this.createEClass(DELEGATION_CONNECTOR);
 
-        connectorEClass = createEClass(CONNECTOR);
-        createEReference(connectorEClass, CONNECTOR__PARENT_STRUCTURE_CONNECTOR);
+        this.connectorEClass = this.createEClass(CONNECTOR);
+        this.createEReference(this.connectorEClass, CONNECTOR__PARENT_STRUCTURE_CONNECTOR);
 
-        composedStructureEClass = createEClass(COMPOSED_STRUCTURE);
-        createEReference(composedStructureEClass, COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE);
-        createEReference(composedStructureEClass,
+        this.composedStructureEClass = this.createEClass(COMPOSED_STRUCTURE);
+        this.createEReference(this.composedStructureEClass, COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE);
+        this.createEReference(this.composedStructureEClass,
                 COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
-        createEReference(composedStructureEClass, COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE);
-        createEReference(composedStructureEClass, COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE);
+        this.createEReference(this.composedStructureEClass, COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE);
+        this.createEReference(this.composedStructureEClass, COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE);
 
-        resourceRequiredDelegationConnectorEClass = createEClass(RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
-        createEReference(resourceRequiredDelegationConnectorEClass,
+        this.resourceRequiredDelegationConnectorEClass = this.createEClass(RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
+        this.createEReference(this.resourceRequiredDelegationConnectorEClass,
                 RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
-        createEReference(resourceRequiredDelegationConnectorEClass,
+        this.createEReference(this.resourceRequiredDelegationConnectorEClass,
                 RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
-        createEReference(resourceRequiredDelegationConnectorEClass,
+        this.createEReference(this.resourceRequiredDelegationConnectorEClass,
                 RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
 
-        eventChannelEClass = createEClass(EVENT_CHANNEL);
-        createEReference(eventChannelEClass, EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL);
-        createEReference(eventChannelEClass, EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL);
-        createEReference(eventChannelEClass, EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL);
-        createEReference(eventChannelEClass, EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL);
+        this.eventChannelEClass = this.createEClass(EVENT_CHANNEL);
+        this.createEReference(this.eventChannelEClass, EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL);
+        this.createEReference(this.eventChannelEClass, EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL);
+        this.createEReference(this.eventChannelEClass, EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL);
+        this.createEReference(this.eventChannelEClass, EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL);
 
-        eventChannelSourceConnectorEClass = createEClass(EVENT_CHANNEL_SOURCE_CONNECTOR);
-        createEReference(eventChannelSourceConnectorEClass,
+        this.eventChannelSourceConnectorEClass = this.createEClass(EVENT_CHANNEL_SOURCE_CONNECTOR);
+        this.createEReference(this.eventChannelSourceConnectorEClass,
                 EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE);
-        createEReference(eventChannelSourceConnectorEClass,
+        this.createEReference(this.eventChannelSourceConnectorEClass,
                 EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR);
-        createEReference(eventChannelSourceConnectorEClass,
+        this.createEReference(this.eventChannelSourceConnectorEClass,
                 EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR);
 
-        eventChannelSinkConnectorEClass = createEClass(EVENT_CHANNEL_SINK_CONNECTOR);
-        createEReference(eventChannelSinkConnectorEClass,
+        this.eventChannelSinkConnectorEClass = this.createEClass(EVENT_CHANNEL_SINK_CONNECTOR);
+        this.createEReference(this.eventChannelSinkConnectorEClass,
                 EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR);
-        createEReference(eventChannelSinkConnectorEClass,
+        this.createEReference(this.eventChannelSinkConnectorEClass,
                 EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR);
-        createEReference(eventChannelSinkConnectorEClass,
+        this.createEReference(this.eventChannelSinkConnectorEClass,
                 EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR);
-        createEReference(eventChannelSinkConnectorEClass,
+        this.createEReference(this.eventChannelSinkConnectorEClass,
                 EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR);
 
-        providedDelegationConnectorEClass = createEClass(PROVIDED_DELEGATION_CONNECTOR);
-        createEReference(providedDelegationConnectorEClass,
+        this.providedDelegationConnectorEClass = this.createEClass(PROVIDED_DELEGATION_CONNECTOR);
+        this.createEReference(this.providedDelegationConnectorEClass,
                 PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR);
-        createEReference(providedDelegationConnectorEClass,
+        this.createEReference(this.providedDelegationConnectorEClass,
                 PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR);
-        createEReference(providedDelegationConnectorEClass,
+        this.createEReference(this.providedDelegationConnectorEClass,
                 PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR);
 
-        requiredDelegationConnectorEClass = createEClass(REQUIRED_DELEGATION_CONNECTOR);
-        createEReference(requiredDelegationConnectorEClass,
+        this.requiredDelegationConnectorEClass = this.createEClass(REQUIRED_DELEGATION_CONNECTOR);
+        this.createEReference(this.requiredDelegationConnectorEClass,
                 REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR);
-        createEReference(requiredDelegationConnectorEClass,
+        this.createEReference(this.requiredDelegationConnectorEClass,
                 REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR);
-        createEReference(requiredDelegationConnectorEClass,
+        this.createEReference(this.requiredDelegationConnectorEClass,
                 REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR);
 
-        assemblyConnectorEClass = createEClass(ASSEMBLY_CONNECTOR);
-        createEReference(assemblyConnectorEClass, ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR);
-        createEReference(assemblyConnectorEClass, ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR);
-        createEReference(assemblyConnectorEClass, ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR);
-        createEReference(assemblyConnectorEClass, ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR);
+        this.assemblyConnectorEClass = this.createEClass(ASSEMBLY_CONNECTOR);
+        this.createEReference(this.assemblyConnectorEClass,
+                ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR);
+        this.createEReference(this.assemblyConnectorEClass,
+                ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR);
+        this.createEReference(this.assemblyConnectorEClass, ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR);
+        this.createEReference(this.assemblyConnectorEClass, ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR);
 
-        assemblyEventConnectorEClass = createEClass(ASSEMBLY_EVENT_CONNECTOR);
-        createEReference(assemblyEventConnectorEClass, ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR);
-        createEReference(assemblyEventConnectorEClass, ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR);
-        createEReference(assemblyEventConnectorEClass,
+        this.assemblyEventConnectorEClass = this.createEClass(ASSEMBLY_EVENT_CONNECTOR);
+        this.createEReference(this.assemblyEventConnectorEClass,
+                ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR);
+        this.createEReference(this.assemblyEventConnectorEClass,
+                ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR);
+        this.createEReference(this.assemblyEventConnectorEClass,
                 ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR);
-        createEReference(assemblyEventConnectorEClass,
+        this.createEReference(this.assemblyEventConnectorEClass,
                 ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR);
-        createEReference(assemblyEventConnectorEClass,
+        this.createEReference(this.assemblyEventConnectorEClass,
                 ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR);
 
-        sourceDelegationConnectorEClass = createEClass(SOURCE_DELEGATION_CONNECTOR);
-        createEReference(sourceDelegationConnectorEClass, SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE);
-        createEReference(sourceDelegationConnectorEClass, SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE);
-        createEReference(sourceDelegationConnectorEClass,
+        this.sourceDelegationConnectorEClass = this.createEClass(SOURCE_DELEGATION_CONNECTOR);
+        this.createEReference(this.sourceDelegationConnectorEClass,
+                SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE);
+        this.createEReference(this.sourceDelegationConnectorEClass,
+                SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE);
+        this.createEReference(this.sourceDelegationConnectorEClass,
                 SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR);
 
-        sinkDelegationConnectorEClass = createEClass(SINK_DELEGATION_CONNECTOR);
-        createEReference(sinkDelegationConnectorEClass,
+        this.sinkDelegationConnectorEClass = this.createEClass(SINK_DELEGATION_CONNECTOR);
+        this.createEReference(this.sinkDelegationConnectorEClass,
                 SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR);
-        createEReference(sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE);
-        createEReference(sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE);
+        this.createEReference(this.sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE);
+        this.createEReference(this.sinkDelegationConnectorEClass, SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE);
 
-        assemblyInfrastructureConnectorEClass = createEClass(ASSEMBLY_INFRASTRUCTURE_CONNECTOR);
-        createEReference(assemblyInfrastructureConnectorEClass,
+        this.assemblyInfrastructureConnectorEClass = this.createEClass(ASSEMBLY_INFRASTRUCTURE_CONNECTOR);
+        this.createEReference(this.assemblyInfrastructureConnectorEClass,
                 ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR);
-        createEReference(assemblyInfrastructureConnectorEClass,
+        this.createEReference(this.assemblyInfrastructureConnectorEClass,
                 ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR);
-        createEReference(assemblyInfrastructureConnectorEClass,
+        this.createEReference(this.assemblyInfrastructureConnectorEClass,
                 ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR);
-        createEReference(assemblyInfrastructureConnectorEClass,
+        this.createEReference(this.assemblyInfrastructureConnectorEClass,
                 ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR);
 
-        providedInfrastructureDelegationConnectorEClass = createEClass(PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
-        createEReference(providedInfrastructureDelegationConnectorEClass,
+        this.providedInfrastructureDelegationConnectorEClass = this
+                .createEClass(PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
+        this.createEReference(this.providedInfrastructureDelegationConnectorEClass,
                 PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
-        createEReference(providedInfrastructureDelegationConnectorEClass,
+        this.createEReference(this.providedInfrastructureDelegationConnectorEClass,
                 PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
-        createEReference(providedInfrastructureDelegationConnectorEClass,
+        this.createEReference(this.providedInfrastructureDelegationConnectorEClass,
                 PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
 
-        requiredInfrastructureDelegationConnectorEClass = createEClass(REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
-        createEReference(requiredInfrastructureDelegationConnectorEClass,
+        this.requiredInfrastructureDelegationConnectorEClass = this
+                .createEClass(REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
+        this.createEReference(this.requiredInfrastructureDelegationConnectorEClass,
                 REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
-        createEReference(requiredInfrastructureDelegationConnectorEClass,
+        this.createEReference(this.requiredInfrastructureDelegationConnectorEClass,
                 REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
-        createEReference(requiredInfrastructureDelegationConnectorEClass,
+        this.createEReference(this.requiredInfrastructureDelegationConnectorEClass,
                 REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR);
 
-        requiredResourceDelegationConnectorEClass = createEClass(REQUIRED_RESOURCE_DELEGATION_CONNECTOR);
-        createEReference(requiredResourceDelegationConnectorEClass,
+        this.requiredResourceDelegationConnectorEClass = this.createEClass(REQUIRED_RESOURCE_DELEGATION_CONNECTOR);
+        this.createEReference(this.requiredResourceDelegationConnectorEClass,
                 REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR);
-        createEReference(requiredResourceDelegationConnectorEClass,
+        this.createEReference(this.requiredResourceDelegationConnectorEClass,
                 REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR);
-        createEReference(requiredResourceDelegationConnectorEClass,
+        this.createEReference(this.requiredResourceDelegationConnectorEClass,
                 REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR);
 
-        assemblyContextEClass = createEClass(ASSEMBLY_CONTEXT);
-        createEReference(assemblyContextEClass, ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
-        createEReference(assemblyContextEClass, ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT);
-        createEReference(assemblyContextEClass, ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT);
+        this.assemblyContextEClass = this.createEClass(ASSEMBLY_CONTEXT);
+        this.createEReference(this.assemblyContextEClass, ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
+        this.createEReference(this.assemblyContextEClass, ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT);
+        this.createEReference(this.assemblyContextEClass, ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT);
     }
 
     /**
@@ -1221,21 +1310,23 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * @generated
      */
     public void initializePackageContents() {
-        if (isInitialized)
+        if (this.isInitialized) {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
-        setName(eNAME);
-        setNsPrefix(eNS_PREFIX);
-        setNsURI(eNS_URI);
+        this.setName(eNAME);
+        this.setNsPrefix(eNS_PREFIX);
+        this.setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
-        RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
+                .getEPackage(EntityPackage.eNS_URI);
+        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI);
-        CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-        ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
+        final CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+        final ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI);
 
         // Create type parameters
@@ -1243,430 +1334,441 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        delegationConnectorEClass.getESuperTypes().add(this.getConnector());
-        connectorEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        composedStructureEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        eventChannelEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        eventChannelSourceConnectorEClass.getESuperTypes().add(this.getConnector());
-        eventChannelSinkConnectorEClass.getESuperTypes().add(this.getConnector());
-        providedDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-        requiredDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-        assemblyConnectorEClass.getESuperTypes().add(this.getConnector());
-        assemblyEventConnectorEClass.getESuperTypes().add(this.getConnector());
-        sourceDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-        sinkDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-        assemblyInfrastructureConnectorEClass.getESuperTypes().add(this.getConnector());
-        providedInfrastructureDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-        requiredInfrastructureDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-        requiredResourceDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-        assemblyContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.delegationConnectorEClass.getESuperTypes().add(this.getConnector());
+        this.connectorEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.composedStructureEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.eventChannelEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.eventChannelSourceConnectorEClass.getESuperTypes().add(this.getConnector());
+        this.eventChannelSinkConnectorEClass.getESuperTypes().add(this.getConnector());
+        this.providedDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
+        this.requiredDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
+        this.assemblyConnectorEClass.getESuperTypes().add(this.getConnector());
+        this.assemblyEventConnectorEClass.getESuperTypes().add(this.getConnector());
+        this.sourceDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
+        this.sinkDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
+        this.assemblyInfrastructureConnectorEClass.getESuperTypes().add(this.getConnector());
+        this.providedInfrastructureDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
+        this.requiredInfrastructureDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
+        this.requiredResourceDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
+        this.assemblyContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
         // Initialize classes and features; add operations and parameters
-        initEClass(delegationConnectorEClass, DelegationConnector.class, "DelegationConnector", IS_ABSTRACT,
+        this.initEClass(this.delegationConnectorEClass, DelegationConnector.class, "DelegationConnector", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(connectorEClass, Connector.class, "Connector", IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.connectorEClass, Connector.class, "Connector", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getConnector_ParentStructure__Connector(), this.getComposedStructure(),
+        this.initEReference(this.getConnector_ParentStructure__Connector(), this.getComposedStructure(),
                 this.getComposedStructure_Connectors__ComposedStructure(), "parentStructure__Connector", null, 1, 1,
                 Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(composedStructureEClass, ComposedStructure.class, "ComposedStructure", IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getComposedStructure_AssemblyContexts__ComposedStructure(), this.getAssemblyContext(),
+        this.initEClass(this.composedStructureEClass, ComposedStructure.class, "ComposedStructure", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getComposedStructure_AssemblyContexts__ComposedStructure(), this.getAssemblyContext(),
                 this.getAssemblyContext_ParentStructure__AssemblyContext(), "assemblyContexts__ComposedStructure",
                 null, 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure(),
+        this.initEReference(this.getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure(),
                 this.getResourceRequiredDelegationConnector(),
                 this.getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector(),
                 "resourceRequiredDelegationConnectors_ComposedStructure", null, 0, -1, ComposedStructure.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getComposedStructure_EventChannel__ComposedStructure(), this.getEventChannel(),
+        this.initEReference(this.getComposedStructure_EventChannel__ComposedStructure(), this.getEventChannel(),
                 this.getEventChannel_ParentStructure__EventChannel(), "eventChannel__ComposedStructure", null, 0, -1,
                 ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getComposedStructure_Connectors__ComposedStructure(), this.getConnector(),
+        this.initEReference(this.getComposedStructure_Connectors__ComposedStructure(), this.getConnector(),
                 this.getConnector_ParentStructure__Connector(), "connectors__ComposedStructure", null, 0, -1,
                 ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        EOperation op = addEOperation(composedStructureEClass, ecorePackage.getEBoolean(),
+        EOperation op = this.addEOperation(this.composedStructureEClass, this.ecorePackage.getEBoolean(),
                 "MultipleConnectorsConstraint", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
-        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(composedStructureEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.composedStructureEClass, this.ecorePackage.getEBoolean(),
                 "MultipleConnectorsConstraintForAssemblyConnectors", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(resourceRequiredDelegationConnectorEClass, ResourceRequiredDelegationConnector.class,
+        this.initEClass(this.resourceRequiredDelegationConnectorEClass, ResourceRequiredDelegationConnector.class,
                 "ResourceRequiredDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getResourceRequiredDelegationConnector_InnerResourceRequiredRole_ResourceRequiredDelegationConnector(),
+        this.initEReference(
+                this.getResourceRequiredDelegationConnector_InnerResourceRequiredRole_ResourceRequiredDelegationConnector(),
                 theEntityPackage.getResourceRequiredRole(), null,
                 "innerResourceRequiredRole_ResourceRequiredDelegationConnector", null, 1, 1,
                 ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(
-                getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector(),
+        this.initEReference(
+                this.getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector(),
                 theEntityPackage.getResourceRequiredRole(), null,
                 "outerResourceRequiredRole_ResourceRequiredDelegationConnector", null, 1, 1,
                 ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector(),
+        this.initEReference(
+                this.getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector(),
                 this.getComposedStructure(),
                 this.getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure(),
                 "parentStructure_ResourceRequiredDelegationConnector", null, 1, 1,
                 ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(eventChannelEClass, EventChannel.class, "EventChannel", !IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.eventChannelEClass, EventChannel.class, "EventChannel", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getEventChannel_EventGroup__EventChannel(), theRepositoryPackage.getEventGroup(), null,
-                "eventGroup__EventChannel", null, 1, 1, EventChannel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEventChannel_EventChannelSourceConnector__EventChannel(),
+        this.initEReference(this.getEventChannel_EventGroup__EventChannel(), theRepositoryPackage.getEventGroup(),
+                null, "eventGroup__EventChannel", null, 1, 1, EventChannel.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getEventChannel_EventChannelSourceConnector__EventChannel(),
                 this.getEventChannelSourceConnector(),
                 this.getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector(),
                 "eventChannelSourceConnector__EventChannel", null, 0, -1, EventChannel.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
-        initEReference(getEventChannel_EventChannelSinkConnector__EventChannel(), this.getEventChannelSinkConnector(),
+        this.initEReference(this.getEventChannel_EventChannelSinkConnector__EventChannel(),
+                this.getEventChannelSinkConnector(),
                 this.getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector(),
                 "eventChannelSinkConnector__EventChannel", null, 0, -1, EventChannel.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
-        initEReference(getEventChannel_ParentStructure__EventChannel(), this.getComposedStructure(),
+        this.initEReference(this.getEventChannel_ParentStructure__EventChannel(), this.getComposedStructure(),
                 this.getComposedStructure_EventChannel__ComposedStructure(), "parentStructure__EventChannel", null, 1,
                 1, EventChannel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(eventChannelSourceConnectorEClass, EventChannelSourceConnector.class, "EventChannelSourceConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getEventChannelSourceConnector_SourceRole__EventChannelSourceRole(),
+        this.initEClass(this.eventChannelSourceConnectorEClass, EventChannelSourceConnector.class,
+                "EventChannelSourceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getEventChannelSourceConnector_SourceRole__EventChannelSourceRole(),
                 theRepositoryPackage.getSourceRole(), null, "sourceRole__EventChannelSourceRole", null, 1, 1,
                 EventChannelSourceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector(),
+        this.initEReference(this.getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__EventChannelSourceConnector", null, 1, 1,
                 EventChannelSourceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector(),
+        this.initEReference(this.getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector(),
                 this.getEventChannel(), this.getEventChannel_EventChannelSourceConnector__EventChannel(),
                 "eventChannel__EventChannelSourceConnector", null, 1, 1, EventChannelSourceConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(eventChannelSinkConnectorEClass, EventChannelSinkConnector.class, "EventChannelSinkConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector(),
+        this.initEClass(this.eventChannelSinkConnectorEClass, EventChannelSinkConnector.class,
+                "EventChannelSinkConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector(),
                 theRepositoryPackage.getSinkRole(), null, "sinkRole__EventChannelSinkConnector", null, 1, 1,
                 EventChannelSinkConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector(),
+        this.initEReference(this.getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_EventChannelSinkConnector__FilterCondition(),
                 "filterCondition__EventChannelSinkConnector", null, 0, 1, EventChannelSinkConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector(),
+        this.initEReference(this.getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__EventChannelSinkConnector", null, 1, 1,
                 EventChannelSinkConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector(), this.getEventChannel(),
-                this.getEventChannel_EventChannelSinkConnector__EventChannel(),
+        this.initEReference(this.getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector(),
+                this.getEventChannel(), this.getEventChannel_EventChannelSinkConnector__EventChannel(),
                 "eventChannel__EventChannelSinkConnector", null, 1, 1, EventChannelSinkConnector.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        initEClass(providedDelegationConnectorEClass, ProvidedDelegationConnector.class, "ProvidedDelegationConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector(),
+        this.initEClass(this.providedDelegationConnectorEClass, ProvidedDelegationConnector.class,
+                "ProvidedDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "innerProvidedRole_ProvidedDelegationConnector",
                 null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector(),
+        this.initEReference(this.getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "outerProvidedRole_ProvidedDelegationConnector",
                 null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector(),
+        this.initEReference(this.getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext_ProvidedDelegationConnector", null, 1, 1,
                 ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(providedDelegationConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.providedDelegationConnectorEClass, this.ecorePackage.getEBoolean(),
                 "ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure", 0, 1,
                 IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(providedDelegationConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.providedDelegationConnectorEClass, this.ecorePackage.getEBoolean(),
                 "ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(requiredDelegationConnectorEClass, RequiredDelegationConnector.class, "RequiredDelegationConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector(),
+        this.initEClass(this.requiredDelegationConnectorEClass, RequiredDelegationConnector.class,
+                "RequiredDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "innerRequiredRole_RequiredDelegationConnector",
                 null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector(),
+        this.initEReference(this.getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "outerRequiredRole_RequiredDelegationConnector",
                 null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector(),
+        this.initEReference(this.getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext_RequiredDelegationConnector", null, 1, 1,
                 RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(requiredDelegationConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.requiredDelegationConnectorEClass, this.ecorePackage.getEBoolean(),
                 "RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure", 0, 1,
                 IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(requiredDelegationConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.requiredDelegationConnectorEClass, this.ecorePackage.getEBoolean(),
                 "ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(requiredDelegationConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.requiredDelegationConnectorEClass, this.ecorePackage.getEBoolean(),
                 "RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector", 0, 1,
                 IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(assemblyConnectorEClass, AssemblyConnector.class, "AssemblyConnector", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector(), this.getAssemblyContext(),
-                null, "requiringAssemblyContext_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
-        initEReference(getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector(), this.getAssemblyContext(),
-                null, "providingAssemblyContext_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
-        initEReference(getAssemblyConnector_ProvidedRole_AssemblyConnector(),
+        this.initEClass(this.assemblyConnectorEClass, AssemblyConnector.class, "AssemblyConnector", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector(),
+                this.getAssemblyContext(), null, "requiringAssemblyContext_AssemblyConnector", null, 1, 1,
+                AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector(),
+                this.getAssemblyContext(), null, "providingAssemblyContext_AssemblyConnector", null, 1, 1,
+                AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getAssemblyConnector_ProvidedRole_AssemblyConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_AssemblyConnector", null, 1, 1,
                 AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyConnector_RequiredRole_AssemblyConnector(),
+        this.initEReference(this.getAssemblyConnector_RequiredRole_AssemblyConnector(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "requiredRole_AssemblyConnector", null, 1, 1,
                 AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = addEOperation(assemblyConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.assemblyConnectorEClass, this.ecorePackage.getEBoolean(),
                 "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(assemblyConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.assemblyConnectorEClass, this.ecorePackage.getEBoolean(),
                 "AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = addEOperation(assemblyConnectorEClass, ecorePackage.getEBoolean(),
+        op = this.addEOperation(this.assemblyConnectorEClass, this.ecorePackage.getEBoolean(),
                 "AssemblyConnectorsReferencedInterfacesMustMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
-        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = createEGenericType(ecorePackage.getEMap());
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = this.createEGenericType(this.ecorePackage.getEMap());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = createEGenericType(ecorePackage.getEJavaObject());
+        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        initEClass(assemblyEventConnectorEClass, AssemblyEventConnector.class, "AssemblyEventConnector", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getAssemblyEventConnector_SinkRole__AssemblyEventConnector(),
+        this.initEClass(this.assemblyEventConnectorEClass, AssemblyEventConnector.class, "AssemblyEventConnector",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getAssemblyEventConnector_SinkRole__AssemblyEventConnector(),
                 theRepositoryPackage.getSinkRole(), null, "sinkRole__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyEventConnector_SourceRole__AssemblyEventConnector(),
+        this.initEReference(this.getAssemblyEventConnector_SourceRole__AssemblyEventConnector(),
                 theRepositoryPackage.getSourceRole(), null, "sourceRole__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector(),
+        this.initEReference(this.getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector(),
                 this.getAssemblyContext(), null, "sinkAssemblyContext__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector(),
+        this.initEReference(this.getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector(),
                 this.getAssemblyContext(), null, "sourceAssemblyContext__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyEventConnector_FilterCondition__AssemblyEventConnector(),
+        this.initEReference(this.getAssemblyEventConnector_FilterCondition__AssemblyEventConnector(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_AssemblyEventConnector__FilterCondition(),
                 "filterCondition__AssemblyEventConnector", null, 0, 1, AssemblyEventConnector.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        initEClass(sourceDelegationConnectorEClass, SourceDelegationConnector.class, "SourceDelegationConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getSourceDelegationConnector_InnerSourceRole__SourceRole(),
+        this.initEClass(this.sourceDelegationConnectorEClass, SourceDelegationConnector.class,
+                "SourceDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getSourceDelegationConnector_InnerSourceRole__SourceRole(),
                 theRepositoryPackage.getSourceRole(), null, "innerSourceRole__SourceRole", null, 1, 1,
                 SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getSourceDelegationConnector_OuterSourceRole__SourceRole(),
+        this.initEReference(this.getSourceDelegationConnector_OuterSourceRole__SourceRole(),
                 theRepositoryPackage.getSourceRole(), null, "outerSourceRole__SourceRole", null, 1, 1,
                 SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector(),
+        this.initEReference(this.getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__SourceDelegationConnector", null, 1, 1,
                 SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(sinkDelegationConnectorEClass, SinkDelegationConnector.class, "SinkDelegationConnector",
+        this.initEClass(this.sinkDelegationConnectorEClass, SinkDelegationConnector.class, "SinkDelegationConnector",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector(),
+        this.initEReference(this.getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__SinkDelegationConnector", null, 1, 1,
                 SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getSinkDelegationConnector_InnerSinkRole__SinkRole(), theRepositoryPackage.getSinkRole(), null,
-                "innerSinkRole__SinkRole", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getSinkDelegationConnector_OuterSinkRole__SinkRole(), theRepositoryPackage.getSinkRole(), null,
-                "outerSinkRole__SinkRole", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getSinkDelegationConnector_InnerSinkRole__SinkRole(),
+                theRepositoryPackage.getSinkRole(), null, "innerSinkRole__SinkRole", null, 1, 1,
+                SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getSinkDelegationConnector_OuterSinkRole__SinkRole(),
+                theRepositoryPackage.getSinkRole(), null, "outerSinkRole__SinkRole", null, 1, 1,
+                SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(assemblyInfrastructureConnectorEClass, AssemblyInfrastructureConnector.class,
+        this.initEClass(this.assemblyInfrastructureConnectorEClass, AssemblyInfrastructureConnector.class,
                 "AssemblyInfrastructureConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector(),
+        this.initEReference(this.getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector(),
                 theRepositoryPackage.getInfrastructureProvidedRole(), null,
                 "providedRole__AssemblyInfrastructureConnector", null, 1, 1, AssemblyInfrastructureConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector(),
+        this.initEReference(this.getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector(),
                 theRepositoryPackage.getInfrastructureRequiredRole(), null,
                 "requiredRole__AssemblyInfrastructureConnector", null, 1, 1, AssemblyInfrastructureConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector(),
+        this.initEReference(
+                this.getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector(),
                 this.getAssemblyContext(), null, "providingAssemblyContext__AssemblyInfrastructureConnector", null, 1,
                 1, AssemblyInfrastructureConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector(),
+        this.initEReference(
+                this.getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector(),
                 this.getAssemblyContext(), null, "requiringAssemblyContext__AssemblyInfrastructureConnector", null, 0,
                 1, AssemblyInfrastructureConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(providedInfrastructureDelegationConnectorEClass, ProvidedInfrastructureDelegationConnector.class,
-                "ProvidedInfrastructureDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector(),
+        this.initEClass(this.providedInfrastructureDelegationConnectorEClass,
+                ProvidedInfrastructureDelegationConnector.class, "ProvidedInfrastructureDelegationConnector",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(
+                this.getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureProvidedRole(), null,
                 "innerProvidedRole__ProvidedInfrastructureDelegationConnector", null, 1, 1,
                 ProvidedInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(
-                getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector(),
+        this.initEReference(
+                this.getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureProvidedRole(), null,
                 "outerProvidedRole__ProvidedInfrastructureDelegationConnector", null, 1, 1,
                 ProvidedInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(
-                getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector(),
+        this.initEReference(
+                this.getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__ProvidedInfrastructureDelegationConnector", null, 1,
                 1, ProvidedInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(requiredInfrastructureDelegationConnectorEClass, RequiredInfrastructureDelegationConnector.class,
-                "RequiredInfrastructureDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(
-                getRequiredInfrastructureDelegationConnector_InnerRequiredRole__RequiredInfrastructureDelegationConnector(),
+        this.initEClass(this.requiredInfrastructureDelegationConnectorEClass,
+                RequiredInfrastructureDelegationConnector.class, "RequiredInfrastructureDelegationConnector",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(
+                this.getRequiredInfrastructureDelegationConnector_InnerRequiredRole__RequiredInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureRequiredRole(), null,
                 "innerRequiredRole__RequiredInfrastructureDelegationConnector", null, 1, 1,
                 RequiredInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(
-                getRequiredInfrastructureDelegationConnector_OuterRequiredRole__RequiredInfrastructureDelegationConnector(),
+        this.initEReference(
+                this.getRequiredInfrastructureDelegationConnector_OuterRequiredRole__RequiredInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureRequiredRole(), null,
                 "outerRequiredRole__RequiredInfrastructureDelegationConnector", null, 1, 1,
                 RequiredInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(
-                getRequiredInfrastructureDelegationConnector_AssemblyContext__RequiredInfrastructureDelegationConnector(),
+        this.initEReference(
+                this.getRequiredInfrastructureDelegationConnector_AssemblyContext__RequiredInfrastructureDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__RequiredInfrastructureDelegationConnector", null, 1,
                 1, RequiredInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(requiredResourceDelegationConnectorEClass, RequiredResourceDelegationConnector.class,
+        this.initEClass(this.requiredResourceDelegationConnectorEClass, RequiredResourceDelegationConnector.class,
                 "RequiredResourceDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getRequiredResourceDelegationConnector_AssemblyContext__RequiredResourceDelegationConnector(),
+        this.initEReference(
+                this.getRequiredResourceDelegationConnector_AssemblyContext__RequiredResourceDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__RequiredResourceDelegationConnector", null, 1, 1,
                 RequiredResourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getRequiredResourceDelegationConnector_InnerRequiredRole__RequiredResourceDelegationConnector(),
+        this.initEReference(
+                this.getRequiredResourceDelegationConnector_InnerRequiredRole__RequiredResourceDelegationConnector(),
                 theEntityPackage.getResourceRequiredRole(), null,
                 "innerRequiredRole__RequiredResourceDelegationConnector", null, 1, 1,
                 RequiredResourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getRequiredResourceDelegationConnector_OuterRequiredRole__RequiredResourceDelegationConnector(),
+        this.initEReference(
+                this.getRequiredResourceDelegationConnector_OuterRequiredRole__RequiredResourceDelegationConnector(),
                 theEntityPackage.getResourceRequiredRole(), null,
                 "outerRequiredRole__RequiredResourceDelegationConnector", null, 1, 1,
                 RequiredResourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(assemblyContextEClass, AssemblyContext.class, "AssemblyContext", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getAssemblyContext_ParentStructure__AssemblyContext(), this.getComposedStructure(),
+        this.initEClass(this.assemblyContextEClass, AssemblyContext.class, "AssemblyContext", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getAssemblyContext_ParentStructure__AssemblyContext(), this.getComposedStructure(),
                 this.getComposedStructure_AssemblyContexts__ComposedStructure(), "parentStructure__AssemblyContext",
                 null, 1, 1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyContext_EncapsulatedComponent__AssemblyContext(),
+        this.initEReference(this.getAssemblyContext_EncapsulatedComponent__AssemblyContext(),
                 theRepositoryPackage.getRepositoryComponent(), null, "encapsulatedComponent__AssemblyContext", null, 1,
                 1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getAssemblyContext_ConfigParameterUsages__AssemblyContext(),
+        this.initEReference(this.getAssemblyContext_ConfigParameterUsages__AssemblyContext(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_AssemblyContext__VariableUsage(),
                 "configParameterUsages__AssemblyContext", null, 0, -1, AssemblyContext.class, !IS_TRANSIENT,

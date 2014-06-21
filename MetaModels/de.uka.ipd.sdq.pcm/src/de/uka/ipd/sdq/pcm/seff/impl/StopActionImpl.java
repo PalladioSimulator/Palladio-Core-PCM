@@ -22,8 +22,8 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Stop Action</b></em>'. <!--
- * end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Stop Action</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * </p>
  * 
@@ -86,14 +86,16 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
      * 
      * @generated
      */
-    public boolean StopActionSuccessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean StopActionSuccessorMustNotBeDefined(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.STOP_ACTION);
             try {
                 STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

@@ -88,11 +88,11 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * @generated
      */
     public ResourceenvironmentItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -113,11 +113,11 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      */
     @Override
     public Adapter createResourceEnvironmentAdapter() {
-        if (resourceEnvironmentItemProvider == null) {
-            resourceEnvironmentItemProvider = new ResourceEnvironmentItemProvider(this);
+        if (this.resourceEnvironmentItemProvider == null) {
+            this.resourceEnvironmentItemProvider = new ResourceEnvironmentItemProvider(this);
         }
 
-        return resourceEnvironmentItemProvider;
+        return this.resourceEnvironmentItemProvider;
     }
 
     /**
@@ -137,11 +137,11 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      */
     @Override
     public Adapter createLinkingResourceAdapter() {
-        if (linkingResourceItemProvider == null) {
-            linkingResourceItemProvider = new LinkingResourceItemProvider(this);
+        if (this.linkingResourceItemProvider == null) {
+            this.linkingResourceItemProvider = new LinkingResourceItemProvider(this);
         }
 
-        return linkingResourceItemProvider;
+        return this.linkingResourceItemProvider;
     }
 
     /**
@@ -162,11 +162,11 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      */
     @Override
     public Adapter createResourceContainerAdapter() {
-        if (resourceContainerItemProvider == null) {
-            resourceContainerItemProvider = new ResourceContainerItemProvider(this);
+        if (this.resourceContainerItemProvider == null) {
+            this.resourceContainerItemProvider = new ResourceContainerItemProvider(this);
         }
 
-        return resourceContainerItemProvider;
+        return this.resourceContainerItemProvider;
     }
 
     /**
@@ -187,11 +187,11 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      */
     @Override
     public Adapter createProcessingResourceSpecificationAdapter() {
-        if (processingResourceSpecificationItemProvider == null) {
-            processingResourceSpecificationItemProvider = new ProcessingResourceSpecificationItemProvider(this);
+        if (this.processingResourceSpecificationItemProvider == null) {
+            this.processingResourceSpecificationItemProvider = new ProcessingResourceSpecificationItemProvider(this);
         }
 
-        return processingResourceSpecificationItemProvider;
+        return this.processingResourceSpecificationItemProvider;
     }
 
     /**
@@ -212,12 +212,12 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      */
     @Override
     public Adapter createCommunicationLinkResourceSpecificationAdapter() {
-        if (communicationLinkResourceSpecificationItemProvider == null) {
-            communicationLinkResourceSpecificationItemProvider = new CommunicationLinkResourceSpecificationItemProvider(
+        if (this.communicationLinkResourceSpecificationItemProvider == null) {
+            this.communicationLinkResourceSpecificationItemProvider = new CommunicationLinkResourceSpecificationItemProvider(
                     this);
         }
 
-        return communicationLinkResourceSpecificationItemProvider;
+        return this.communicationLinkResourceSpecificationItemProvider;
     }
 
     /**
@@ -226,8 +226,9 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -236,7 +237,8 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -246,8 +248,8 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -257,7 +259,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -267,9 +269,9 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -284,7 +286,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -292,8 +294,9 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -301,8 +304,9 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -310,8 +314,9 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -319,8 +324,9 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -329,11 +335,12 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -343,17 +350,23 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (resourceEnvironmentItemProvider != null)
-            resourceEnvironmentItemProvider.dispose();
-        if (linkingResourceItemProvider != null)
-            linkingResourceItemProvider.dispose();
-        if (resourceContainerItemProvider != null)
-            resourceContainerItemProvider.dispose();
-        if (processingResourceSpecificationItemProvider != null)
-            processingResourceSpecificationItemProvider.dispose();
-        if (communicationLinkResourceSpecificationItemProvider != null)
-            communicationLinkResourceSpecificationItemProvider.dispose();
+        if (this.resourceEnvironmentItemProvider != null) {
+            this.resourceEnvironmentItemProvider.dispose();
+        }
+        if (this.linkingResourceItemProvider != null) {
+            this.linkingResourceItemProvider.dispose();
+        }
+        if (this.resourceContainerItemProvider != null) {
+            this.resourceContainerItemProvider.dispose();
+        }
+        if (this.processingResourceSpecificationItemProvider != null) {
+            this.processingResourceSpecificationItemProvider.dispose();
+        }
+        if (this.communicationLinkResourceSpecificationItemProvider != null) {
+            this.communicationLinkResourceSpecificationItemProvider.dispose();
+        }
     }
 
 }

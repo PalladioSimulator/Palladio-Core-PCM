@@ -66,7 +66,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -84,68 +84,68 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      */
     protected ResourcetypeSwitch<Adapter> modelSwitch = new ResourcetypeSwitch<Adapter>() {
         @Override
-        public Adapter caseResourceSignature(ResourceSignature object) {
-            return createResourceSignatureAdapter();
+        public Adapter caseResourceSignature(final ResourceSignature object) {
+            return ResourcetypeAdapterFactory.this.createResourceSignatureAdapter();
         }
 
         @Override
-        public Adapter caseProcessingResourceType(ProcessingResourceType object) {
-            return createProcessingResourceTypeAdapter();
+        public Adapter caseProcessingResourceType(final ProcessingResourceType object) {
+            return ResourcetypeAdapterFactory.this.createProcessingResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceType(ResourceType object) {
-            return createResourceTypeAdapter();
+        public Adapter caseResourceType(final ResourceType object) {
+            return ResourcetypeAdapterFactory.this.createResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceRepository(ResourceRepository object) {
-            return createResourceRepositoryAdapter();
+        public Adapter caseResourceRepository(final ResourceRepository object) {
+            return ResourcetypeAdapterFactory.this.createResourceRepositoryAdapter();
         }
 
         @Override
-        public Adapter caseSchedulingPolicy(SchedulingPolicy object) {
-            return createSchedulingPolicyAdapter();
+        public Adapter caseSchedulingPolicy(final SchedulingPolicy object) {
+            return ResourcetypeAdapterFactory.this.createSchedulingPolicyAdapter();
         }
 
         @Override
-        public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
-            return createCommunicationLinkResourceTypeAdapter();
+        public Adapter caseCommunicationLinkResourceType(final CommunicationLinkResourceType object) {
+            return ResourcetypeAdapterFactory.this.createCommunicationLinkResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterface(ResourceInterface object) {
-            return createResourceInterfaceAdapter();
+        public Adapter caseResourceInterface(final ResourceInterface object) {
+            return ResourcetypeAdapterFactory.this.createResourceInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return ResourcetypeAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return ResourcetypeAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return ResourcetypeAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
-            return createUnitCarryingElementAdapter();
+        public Adapter caseUnitCarryingElement(final UnitCarryingElement object) {
+            return ResourcetypeAdapterFactory.this.createUnitCarryingElementAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
-            return createResourceInterfaceProvidingEntityAdapter();
+        public Adapter caseResourceInterfaceProvidingEntity(final ResourceInterfaceProvidingEntity object) {
+            return ResourcetypeAdapterFactory.this.createResourceInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return ResourcetypeAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -158,8 +158,8 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -268,7 +268,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -297,7 +297,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

@@ -88,11 +88,11 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * @generated
      */
     public EntityItemProviderAdapterFactory() {
-        supportedTypes.add(IEditingDomainItemProvider.class);
-        supportedTypes.add(IStructuredItemContentProvider.class);
-        supportedTypes.add(ITreeItemContentProvider.class);
-        supportedTypes.add(IItemLabelProvider.class);
-        supportedTypes.add(IItemPropertySource.class);
+        this.supportedTypes.add(IEditingDomainItemProvider.class);
+        this.supportedTypes.add(IStructuredItemContentProvider.class);
+        this.supportedTypes.add(ITreeItemContentProvider.class);
+        this.supportedTypes.add(IItemLabelProvider.class);
+        this.supportedTypes.add(IItemPropertySource.class);
     }
 
     /**
@@ -112,11 +112,11 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      */
     @Override
     public Adapter createResourceProvidedRoleAdapter() {
-        if (resourceProvidedRoleItemProvider == null) {
-            resourceProvidedRoleItemProvider = new ResourceProvidedRoleItemProvider(this);
+        if (this.resourceProvidedRoleItemProvider == null) {
+            this.resourceProvidedRoleItemProvider = new ResourceProvidedRoleItemProvider(this);
         }
 
-        return resourceProvidedRoleItemProvider;
+        return this.resourceProvidedRoleItemProvider;
     }
 
     /**
@@ -137,11 +137,11 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      */
     @Override
     public Adapter createResourceInterfaceRequiringEntityAdapter() {
-        if (resourceInterfaceRequiringEntityItemProvider == null) {
-            resourceInterfaceRequiringEntityItemProvider = new ResourceInterfaceRequiringEntityItemProvider(this);
+        if (this.resourceInterfaceRequiringEntityItemProvider == null) {
+            this.resourceInterfaceRequiringEntityItemProvider = new ResourceInterfaceRequiringEntityItemProvider(this);
         }
 
-        return resourceInterfaceRequiringEntityItemProvider;
+        return this.resourceInterfaceRequiringEntityItemProvider;
     }
 
     /**
@@ -161,11 +161,11 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      */
     @Override
     public Adapter createResourceRequiredRoleAdapter() {
-        if (resourceRequiredRoleItemProvider == null) {
-            resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
+        if (this.resourceRequiredRoleItemProvider == null) {
+            this.resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
         }
 
-        return resourceRequiredRoleItemProvider;
+        return this.resourceRequiredRoleItemProvider;
     }
 
     /**
@@ -186,11 +186,11 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      */
     @Override
     public Adapter createResourceInterfaceProvidingEntityAdapter() {
-        if (resourceInterfaceProvidingEntityItemProvider == null) {
-            resourceInterfaceProvidingEntityItemProvider = new ResourceInterfaceProvidingEntityItemProvider(this);
+        if (this.resourceInterfaceProvidingEntityItemProvider == null) {
+            this.resourceInterfaceProvidingEntityItemProvider = new ResourceInterfaceProvidingEntityItemProvider(this);
         }
 
-        return resourceInterfaceProvidingEntityItemProvider;
+        return this.resourceInterfaceProvidingEntityItemProvider;
     }
 
     /**
@@ -211,12 +211,12 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      */
     @Override
     public Adapter createResourceInterfaceProvidingRequiringEntityAdapter() {
-        if (resourceInterfaceProvidingRequiringEntityItemProvider == null) {
-            resourceInterfaceProvidingRequiringEntityItemProvider = new ResourceInterfaceProvidingRequiringEntityItemProvider(
+        if (this.resourceInterfaceProvidingRequiringEntityItemProvider == null) {
+            this.resourceInterfaceProvidingRequiringEntityItemProvider = new ResourceInterfaceProvidingRequiringEntityItemProvider(
                     this);
         }
 
-        return resourceInterfaceProvidingRequiringEntityItemProvider;
+        return this.resourceInterfaceProvidingRequiringEntityItemProvider;
     }
 
     /**
@@ -225,8 +225,9 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
+    @Override
     public ComposeableAdapterFactory getRootAdapterFactory() {
-        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+        return this.parentAdapterFactory == null ? this : this.parentAdapterFactory.getRootAdapterFactory();
     }
 
     /**
@@ -235,7 +236,8 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
-    public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+    @Override
+    public void setParentAdapterFactory(final ComposedAdapterFactory parentAdapterFactory) {
         this.parentAdapterFactory = parentAdapterFactory;
     }
 
@@ -245,8 +247,8 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object type) {
-        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    public boolean isFactoryForType(final Object type) {
+        return this.supportedTypes.contains(type) || super.isFactoryForType(type);
     }
 
     /**
@@ -256,7 +258,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * @generated
      */
     @Override
-    public Adapter adapt(Notifier notifier, Object type) {
+    public Adapter adapt(final Notifier notifier, final Object type) {
         return super.adapt(notifier, this);
     }
 
@@ -266,9 +268,9 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * @generated
      */
     @Override
-    public Object adapt(Object object, Object type) {
-        if (isFactoryForType(type)) {
-            Object adapter = super.adapt(object, type);
+    public Object adapt(final Object object, final Object type) {
+        if (this.isFactoryForType(type)) {
+            final Object adapter = super.adapt(object, type);
             if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
@@ -283,7 +285,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
-        return childCreationExtenderManager.getChildCreationExtenders();
+        return this.childCreationExtenderManager.getChildCreationExtenders();
     }
 
     /**
@@ -291,8 +293,9 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
-    public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
-        return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+    @Override
+    public Collection<?> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+        return this.childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
     }
 
     /**
@@ -300,8 +303,9 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
+    @Override
     public ResourceLocator getResourceLocator() {
-        return childCreationExtenderManager;
+        return this.childCreationExtenderManager;
     }
 
     /**
@@ -309,8 +313,9 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
-    public void addListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.addListener(notifyChangedListener);
+    @Override
+    public void addListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.addListener(notifyChangedListener);
     }
 
     /**
@@ -318,8 +323,9 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
-    public void removeListener(INotifyChangedListener notifyChangedListener) {
-        changeNotifier.removeListener(notifyChangedListener);
+    @Override
+    public void removeListener(final INotifyChangedListener notifyChangedListener) {
+        this.changeNotifier.removeListener(notifyChangedListener);
     }
 
     /**
@@ -328,11 +334,12 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
-    public void fireNotifyChanged(Notification notification) {
-        changeNotifier.fireNotifyChanged(notification);
+    @Override
+    public void fireNotifyChanged(final Notification notification) {
+        this.changeNotifier.fireNotifyChanged(notification);
 
-        if (parentAdapterFactory != null) {
-            parentAdapterFactory.fireNotifyChanged(notification);
+        if (this.parentAdapterFactory != null) {
+            this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
 
@@ -342,17 +349,23 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory imple
      * 
      * @generated
      */
+    @Override
     public void dispose() {
-        if (resourceProvidedRoleItemProvider != null)
-            resourceProvidedRoleItemProvider.dispose();
-        if (resourceInterfaceRequiringEntityItemProvider != null)
-            resourceInterfaceRequiringEntityItemProvider.dispose();
-        if (resourceRequiredRoleItemProvider != null)
-            resourceRequiredRoleItemProvider.dispose();
-        if (resourceInterfaceProvidingEntityItemProvider != null)
-            resourceInterfaceProvidingEntityItemProvider.dispose();
-        if (resourceInterfaceProvidingRequiringEntityItemProvider != null)
-            resourceInterfaceProvidingRequiringEntityItemProvider.dispose();
+        if (this.resourceProvidedRoleItemProvider != null) {
+            this.resourceProvidedRoleItemProvider.dispose();
+        }
+        if (this.resourceInterfaceRequiringEntityItemProvider != null) {
+            this.resourceInterfaceRequiringEntityItemProvider.dispose();
+        }
+        if (this.resourceRequiredRoleItemProvider != null) {
+            this.resourceRequiredRoleItemProvider.dispose();
+        }
+        if (this.resourceInterfaceProvidingEntityItemProvider != null) {
+            this.resourceInterfaceProvidingEntityItemProvider.dispose();
+        }
+        if (this.resourceInterfaceProvidingRequiringEntityItemProvider != null) {
+            this.resourceInterfaceProvidingRequiringEntityItemProvider.dispose();
+        }
     }
 
 }

@@ -35,11 +35,11 @@ public interface OperationRequiredRole extends RequiredRole {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Required Interface Operation Required Role</b></em>'
+     * Returns the value of the ' <em><b>Required Interface Operation Required Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This
      * property represents the interfaces that is required by this role. <!-- end-model-doc -->
      * 
-     * @return the value of the '<em>Required Interface Operation Required Role</em>' reference.
+     * @return the value of the ' <em>Required Interface Operation Required Role</em>' reference.
      * @see #setRequiredInterface__OperationRequiredRole(OperationInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationRequiredRole_RequiredInterface__OperationRequiredRole()
      * @model required="true" ordered="false"
@@ -54,7 +54,7 @@ public interface OperationRequiredRole extends RequiredRole {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Required Interface Operation Required Role</em>'
+     *            the new value of the ' <em>Required Interface Operation Required Role</em>'
      *            reference.
      * @see #getRequiredInterface__OperationRequiredRole()
      * @generated

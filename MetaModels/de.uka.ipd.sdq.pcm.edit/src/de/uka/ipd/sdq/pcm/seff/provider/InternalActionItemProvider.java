@@ -45,7 +45,7 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * 
      * @generated
      */
-    public InternalActionItemProvider(AdapterFactory adapterFactory) {
+    public InternalActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -56,12 +56,12 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -74,13 +74,13 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(SeffPackage.Literals.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -89,7 +89,7 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -102,8 +102,8 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalAction"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/InternalAction"));
     }
 
     /**
@@ -116,9 +116,9 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * @generated not
      */
     @Override
-    public String getText(Object object) {
+    public String getText(final Object object) {
         return ((InternalAction) object).getEntityName() + " [ID: " + ((InternalAction) object).getId() + "]" + " <"
-                + getString("_UI_InternalAction_type") + ">";
+                + this.getString("_UI_InternalAction_type") + ">";
     }
 
     /**
@@ -129,12 +129,12 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(InternalAction.class)) {
         case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -147,10 +147,10 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION,
                 ReliabilityFactory.eINSTANCE.createInternalFailureOccurrenceDescription()));
     }

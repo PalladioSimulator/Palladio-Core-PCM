@@ -44,7 +44,7 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * 
      * @generated
      */
-    public RequiredDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
+    public RequiredDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,15 +55,15 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addInnerRequiredRole_RequiredDelegationConnectorPropertyDescriptor(object);
-            addOuterRequiredRole_RequiredDelegationConnectorPropertyDescriptor(object);
-            addAssemblyContext_RequiredDelegationConnectorPropertyDescriptor(object);
+            this.addInnerRequiredRole_RequiredDelegationConnectorPropertyDescriptor(object);
+            this.addOuterRequiredRole_RequiredDelegationConnectorPropertyDescriptor(object);
+            this.addAssemblyContext_RequiredDelegationConnectorPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -72,13 +72,13 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * 
      * @generated
      */
-    protected void addInnerRequiredRole_RequiredDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_RequiredDelegationConnector_innerRequiredRole_RequiredDelegationConnector_feature"),
-                        getString(
+    protected void addInnerRequiredRole_RequiredDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredDelegationConnector_innerRequiredRole_RequiredDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_RequiredDelegationConnector_innerRequiredRole_RequiredDelegationConnector_feature",
                                 "_UI_RequiredDelegationConnector_type"),
@@ -92,13 +92,13 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * 
      * @generated
      */
-    protected void addOuterRequiredRole_RequiredDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_RequiredDelegationConnector_outerRequiredRole_RequiredDelegationConnector_feature"),
-                        getString(
+    protected void addOuterRequiredRole_RequiredDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredDelegationConnector_outerRequiredRole_RequiredDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_RequiredDelegationConnector_outerRequiredRole_RequiredDelegationConnector_feature",
                                 "_UI_RequiredDelegationConnector_type"),
@@ -112,13 +112,13 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * 
      * @generated
      */
-    protected void addAssemblyContext_RequiredDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature"),
-                        getString("_UI_PropertyDescriptor_description",
+    protected void addAssemblyContext_RequiredDelegationConnectorPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature"),
+                        this.getString("_UI_PropertyDescriptor_description",
                                 "_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature",
                                 "_UI_RequiredDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR,
@@ -131,8 +131,8 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/RequiredDelegationConnector"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/RequiredDelegationConnector"));
     }
 
     /**
@@ -142,10 +142,10 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((RequiredDelegationConnector) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_RequiredDelegationConnector_type")
-                : getString("_UI_RequiredDelegationConnector_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((RequiredDelegationConnector) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_RequiredDelegationConnector_type") : this
+                .getString("_UI_RequiredDelegationConnector_type") + " " + label;
     }
 
     /**
@@ -156,8 +156,8 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -168,7 +168,7 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

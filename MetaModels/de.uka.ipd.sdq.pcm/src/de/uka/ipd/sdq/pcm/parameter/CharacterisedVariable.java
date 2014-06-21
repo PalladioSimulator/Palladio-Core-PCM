@@ -19,7 +19,8 @@ import de.uka.ipd.sdq.stoex.Variable;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>
  * Characterisation Type</em>}</li>
  * </ul>
  * </p>

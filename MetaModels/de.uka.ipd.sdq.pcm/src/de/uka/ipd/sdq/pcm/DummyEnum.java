@@ -53,9 +53,8 @@ public enum DummyEnum implements Enumerator {
      * 
      * @generated
      */
-    public static DummyEnum get(String literal) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            DummyEnum result = VALUES_ARRAY[i];
+    public static DummyEnum get(final String literal) {
+        for (final DummyEnum result : VALUES_ARRAY) {
             if (result.toString().equals(literal)) {
                 return result;
             }
@@ -69,9 +68,8 @@ public enum DummyEnum implements Enumerator {
      * 
      * @generated
      */
-    public static DummyEnum getByName(String name) {
-        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-            DummyEnum result = VALUES_ARRAY[i];
+    public static DummyEnum getByName(final String name) {
+        for (final DummyEnum result : VALUES_ARRAY) {
             if (result.getName().equals(name)) {
                 return result;
             }
@@ -85,7 +83,7 @@ public enum DummyEnum implements Enumerator {
      * 
      * @generated
      */
-    public static DummyEnum get(int value) {
+    public static DummyEnum get(final int value) {
         switch (value) {
         }
         return null;
@@ -117,7 +115,7 @@ public enum DummyEnum implements Enumerator {
      * 
      * @generated
      */
-    private DummyEnum(int value, String name, String literal) {
+    private DummyEnum(final int value, final String name, final String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
@@ -128,8 +126,9 @@ public enum DummyEnum implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     /**
@@ -137,8 +136,9 @@ public enum DummyEnum implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getName() {
-        return name;
+        return this.name;
     }
 
     /**
@@ -146,8 +146,9 @@ public enum DummyEnum implements Enumerator {
      * 
      * @generated
      */
+    @Override
     public String getLiteral() {
-        return literal;
+        return this.literal;
     }
 
     /**
@@ -158,7 +159,7 @@ public enum DummyEnum implements Enumerator {
      */
     @Override
     public String toString() {
-        return literal;
+        return this.literal;
     }
 
 } // DummyEnum

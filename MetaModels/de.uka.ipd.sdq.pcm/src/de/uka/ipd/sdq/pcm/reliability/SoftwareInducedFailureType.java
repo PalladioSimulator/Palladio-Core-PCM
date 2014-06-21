@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType
- * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}</li>
+ * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type </em>}</li>
  * </ul>
  * </p>
  * 
@@ -43,26 +43,26 @@ public interface SoftwareInducedFailureType extends FailureType {
 
     /**
      * Returns the value of the '
-     * <em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>'
+     * <em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em> '
      * reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription}. It is
+     * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription} . It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getSoftwareInducedFailureType__InternalFailureOccurrenceDescription
-     * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}'. <!--
+     * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>} '. <!--
      * begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>' reference
+     * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em> ' reference
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>'
+     *         <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em> '
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType()
      * @see de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getSoftwareInducedFailureType__InternalFailureOccurrenceDescription
-     * @model opposite="softwareInducedFailureType__InternalFailureOccurrenceDescription"
+     * @model opposite= "softwareInducedFailureType__InternalFailureOccurrenceDescription"
      *        ordered="false"
      * @generated
      */

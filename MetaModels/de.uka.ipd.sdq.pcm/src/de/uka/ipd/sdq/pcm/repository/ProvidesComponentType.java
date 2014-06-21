@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * interfaces, leaving its requirements and implementation details open. So, provided types subsume
  * components which offer the same functionality, but with different implementations. As different
  * implementations might require different services from the environment, provided types omit
- * required interfaces. Provided types allow software architects to focus on a componentâ€™s
+ * required interfaces. Provided types allow software architects to focus on a component’s
  * functionality and introduce weak substitutability to the PCM. Using provided types, software
  * architects can draft ideas on how functionality can be partitioned among different components
  * without worrying about their implementation. In the initial phases of architectural design, it

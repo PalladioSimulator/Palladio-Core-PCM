@@ -43,12 +43,12 @@ public class UsagemodelXMLProcessor extends XMLProcessor {
      */
     @Override
     protected Map<String, Resource.Factory> getRegistrations() {
-        if (registrations == null) {
+        if (this.registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION, new UsagemodelResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION, new UsagemodelResourceFactoryImpl());
+            this.registrations.put(XML_EXTENSION, new UsagemodelResourceFactoryImpl());
+            this.registrations.put(STAR_EXTENSION, new UsagemodelResourceFactoryImpl());
         }
-        return registrations;
+        return this.registrations;
     }
 
 } // UsagemodelXMLProcessor

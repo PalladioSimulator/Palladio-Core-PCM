@@ -51,7 +51,7 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * 
      * @generated
      */
-    public VariableCharacterisationItemProvider(AdapterFactory adapterFactory) {
+    public VariableCharacterisationItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -62,13 +62,13 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addTypePropertyDescriptor(object);
+            this.addTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -77,12 +77,11 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * 
      * @generated
      */
-    protected void addTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_VariableCharacterisation_type_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_VariableCharacterisation_type_feature",
+    protected void addTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_VariableCharacterisation_type_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_VariableCharacterisation_type_feature",
                         "_UI_VariableCharacterisation_type"),
                 ParameterPackage.Literals.VARIABLE_CHARACTERISATION__TYPE, true, false, false,
                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
@@ -98,13 +97,13 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -113,7 +112,7 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -126,8 +125,8 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableCharacterisation"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/VariableCharacterisation"));
     }
 
     /**
@@ -137,11 +136,11 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        VariableCharacterisationType labelValue = ((VariableCharacterisation) object).getType();
-        String label = labelValue == null ? null : labelValue.toString();
-        return label == null || label.length() == 0 ? getString("_UI_VariableCharacterisation_type")
-                : getString("_UI_VariableCharacterisation_type") + " " + label;
+    public String getText(final Object object) {
+        final VariableCharacterisationType labelValue = ((VariableCharacterisation) object).getType();
+        final String label = labelValue == null ? null : labelValue.toString();
+        return label == null || label.length() == 0 ? this.getString("_UI_VariableCharacterisation_type") : this
+                .getString("_UI_VariableCharacterisation_type") + " " + label;
     }
 
     /**
@@ -152,15 +151,15 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(VariableCharacterisation.class)) {
         case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -173,10 +172,10 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
                 CoreFactory.eINSTANCE.createPCMRandomVariable()));
     }
@@ -189,7 +188,7 @@ public class VariableCharacterisationItemProvider extends ItemProviderAdapter im
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

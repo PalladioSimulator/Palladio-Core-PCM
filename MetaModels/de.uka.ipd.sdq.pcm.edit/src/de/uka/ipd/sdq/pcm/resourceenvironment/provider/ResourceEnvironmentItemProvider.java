@@ -46,7 +46,7 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * 
      * @generated
      */
-    public ResourceEnvironmentItemProvider(AdapterFactory adapterFactory) {
+    public ResourceEnvironmentItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -57,12 +57,12 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -75,15 +75,15 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures
+            this.childrenFeatures
                     .add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT);
-            childrenFeatures
+            this.childrenFeatures
                     .add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -92,7 +92,7 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -105,8 +105,8 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceEnvironment"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/ResourceEnvironment"));
     }
 
     /**
@@ -116,10 +116,10 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((ResourceEnvironment) object).getEntityName();
-        return label == null || label.length() == 0 ? getString("_UI_ResourceEnvironment_type")
-                : getString("_UI_ResourceEnvironment_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((ResourceEnvironment) object).getEntityName();
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceEnvironment_type") : this
+                .getString("_UI_ResourceEnvironment_type") + " " + label;
     }
 
     /**
@@ -130,13 +130,13 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(ResourceEnvironment.class)) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -149,14 +149,14 @@ public class ResourceEnvironmentItemProvider extends NamedElementItemProvider im
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
                 ResourceenvironmentFactory.eINSTANCE.createLinkingResource()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
                 ResourceenvironmentFactory.eINSTANCE.createResourceContainer()));
     }

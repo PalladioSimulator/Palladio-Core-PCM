@@ -28,8 +28,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>PCM Random Variable</b></em>
- * '. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>PCM Random Variable</b></em> '. <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> Random variables are used to describe user and component behaviour. They
  * allow not only constant values (e.g., 3 loop iterations), but also probabilistic values (e.g., 2
@@ -51,47 +51,56 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable <em>
- * Closed Workload PCM Random Variable</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable <em>Closed
+ * Workload PCM Random Variable</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getPassiveResource_capacity_PCMRandomVariable
  * <em>Passive Resource capacity PCM Random Variable</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getVariableCharacterisation_Specification
- * <em>Variable Characterisation Specification</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable
- * <em>Infrastructure Call PCM Random Variable</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable <em>
- * Resource Call PCM Random Variable</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getVariableCharacterisation_Specification <em>
+ * Variable Characterisation Specification</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable <em>
+ * Infrastructure Call PCM Random Variable</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable <em>Resource
+ * Call PCM Random Variable</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
  * <em>Parametric Resource Demand PCM Random Variable</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable <em>Loop
- * Action PCM Random Variable</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable <em>Loop Action
+ * PCM Random Variable</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getGuardedBranchTransition_PCMRandomVariable
  * <em>Guarded Branch Transition PCM Random Variable</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable
- * <em>Specified Execution Time PCM Random Variable</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable <em>
+ * Specified Execution Time PCM Random Variable</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
  * <em>Event Channel Sink Connector Filter Condition</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
- * <em>Assembly Event Connector Filter Condition</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition <em>
+ * Assembly Event Connector Filter Condition</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getLoop_LoopIteration <em>Loop Loop
  * Iteration</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable <em>Open
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable <em>Open
  * Workload PCM Random Variable</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getDelay_TimeSpecification <em>Delay Time
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getDelay_TimeSpecification <em>Delay Time
  * Specification</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
- * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}</li>
+ * <em>Communication Link Resource Specifcation throughput PCM Random Variable </em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable
- * <em>Processing Resource Specification processing Rate PCM Random Variable</em>}</li>
+ * <em>Processing Resource Specification processing Rate PCM Random Variable </em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
- * <em>Communication Link Resource Specification latency PCM Random Variable</em>}</li>
+ * <em>Communication Link Resource Specification latency PCM Random Variable </em>}</li>
  * </ul>
  * </p>
  * 
@@ -108,7 +117,7 @@ public interface PCMRandomVariable extends RandomVariable {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Variable Characterisation Specification</b></em>' container
+     * Returns the value of the ' <em><b>Variable Characterisation Specification</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
      * <em>Specification Variable Characterisation</em>}'. <!-- begin-user-doc -->
@@ -118,7 +127,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Variable Characterisation Specification</em>' container
+     * @return the value of the ' <em>Variable Characterisation Specification</em>' container
      *         reference.
      * @see #setVariableCharacterisation_Specification(VariableCharacterisation)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_VariableCharacterisation_Specification()
@@ -135,7 +144,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Variable Characterisation Specification</em>' container
+     *            the new value of the ' <em>Variable Characterisation Specification</em>' container
      *            reference.
      * @see #getVariableCharacterisation_Specification()
      * @generated
@@ -143,17 +152,17 @@ public interface PCMRandomVariable extends RandomVariable {
     void setVariableCharacterisation_Specification(VariableCharacterisation value);
 
     /**
-     * Returns the value of the '<em><b>Passive Resource capacity PCM Random Variable</b></em>'
+     * Returns the value of the ' <em><b>Passive Resource capacity PCM Random Variable</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource
      * <em>Capacity Passive Resource</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Passive Resource capacity PCM Random Variable</em>' container
+     * If the meaning of the ' <em>Passive Resource capacity PCM Random Variable</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Passive Resource capacity PCM Random Variable</em>' container
+     * @return the value of the ' <em>Passive Resource capacity PCM Random Variable</em>' container
      *         reference.
      * @see #setPassiveResource_capacity_PCMRandomVariable(PassiveResource)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable()
@@ -170,7 +179,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Passive Resource capacity PCM Random Variable</em>'
+     *            the new value of the ' <em>Passive Resource capacity PCM Random Variable</em>'
      *            container reference.
      * @see #getPassiveResource_capacity_PCMRandomVariable()
      * @generated
@@ -178,17 +187,17 @@ public interface PCMRandomVariable extends RandomVariable {
     void setPassiveResource_capacity_PCMRandomVariable(PassiveResource value);
 
     /**
-     * Returns the value of the '<em><b>Parametric Resource Demand PCM Random Variable</b></em>'
+     * Returns the value of the ' <em><b>Parametric Resource Demand PCM Random Variable</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand
      * <em>Specification Parameteric Resource Demand</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Parametric Resource Demand PCM Random Variable</em>' container
+     * If the meaning of the ' <em>Parametric Resource Demand PCM Random Variable</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Parametric Resource Demand PCM Random Variable</em>' container
+     * @return the value of the ' <em>Parametric Resource Demand PCM Random Variable</em>' container
      *         reference.
      * @see #setParametricResourceDemand_PCMRandomVariable(ParametricResourceDemand)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable()
@@ -205,7 +214,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Parametric Resource Demand PCM Random Variable</em>'
+     *            the new value of the ' <em>Parametric Resource Demand PCM Random Variable</em>'
      *            container reference.
      * @see #getParametricResourceDemand_PCMRandomVariable()
      * @generated
@@ -213,7 +222,7 @@ public interface PCMRandomVariable extends RandomVariable {
     void setParametricResourceDemand_PCMRandomVariable(ParametricResourceDemand value);
 
     /**
-     * Returns the value of the '<em><b>Loop Action PCM Random Variable</b></em>' container
+     * Returns the value of the '<em><b>Loop Action PCM Random Variable</b></em> ' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterationCount_LoopAction
      * <em>Iteration Count Loop Action</em>}'. <!-- begin-user-doc -->
@@ -239,7 +248,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Loop Action PCM Random Variable</em>' container
+     *            the new value of the '<em>Loop Action PCM Random Variable</em> ' container
      *            reference.
      * @see #getLoopAction_PCMRandomVariable()
      * @generated
@@ -247,17 +256,17 @@ public interface PCMRandomVariable extends RandomVariable {
     void setLoopAction_PCMRandomVariable(LoopAction value);
 
     /**
-     * Returns the value of the '<em><b>Guarded Branch Transition PCM Random Variable</b></em>'
+     * Returns the value of the ' <em><b>Guarded Branch Transition PCM Random Variable</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition
      * <em>Branch Condition Guarded Branch Transition</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Guarded Branch Transition PCM Random Variable</em>' container
+     * If the meaning of the ' <em>Guarded Branch Transition PCM Random Variable</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Guarded Branch Transition PCM Random Variable</em>' container
+     * @return the value of the ' <em>Guarded Branch Transition PCM Random Variable</em>' container
      *         reference.
      * @see #setGuardedBranchTransition_PCMRandomVariable(GuardedBranchTransition)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable()
@@ -274,7 +283,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Guarded Branch Transition PCM Random Variable</em>'
+     *            the new value of the ' <em>Guarded Branch Transition PCM Random Variable</em>'
      *            container reference.
      * @see #getGuardedBranchTransition_PCMRandomVariable()
      * @generated
@@ -315,17 +324,17 @@ public interface PCMRandomVariable extends RandomVariable {
     void setLoop_LoopIteration(Loop value);
 
     /**
-     * Returns the value of the '<em><b>Specified Execution Time PCM Random Variable</b></em>'
+     * Returns the value of the ' <em><b>Specified Execution Time PCM Random Variable</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime
      * <em>Specification Specified Execution Time</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Specified Execution Time PCM Random Variable</em>' container
+     * If the meaning of the ' <em>Specified Execution Time PCM Random Variable</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Specified Execution Time PCM Random Variable</em>' container
+     * @return the value of the ' <em>Specified Execution Time PCM Random Variable</em>' container
      *         reference.
      * @see #setSpecifiedExecutionTime_PCMRandomVariable(SpecifiedExecutionTime)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable()
@@ -342,7 +351,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Specified Execution Time PCM Random Variable</em>'
+     *            the new value of the ' <em>Specified Execution Time PCM Random Variable</em>'
      *            container reference.
      * @see #getSpecifiedExecutionTime_PCMRandomVariable()
      * @generated
@@ -350,17 +359,17 @@ public interface PCMRandomVariable extends RandomVariable {
     void setSpecifiedExecutionTime_PCMRandomVariable(SpecifiedExecutionTime value);
 
     /**
-     * Returns the value of the '<em><b>Assembly Event Connector Filter Condition</b></em>'
+     * Returns the value of the ' <em><b>Assembly Event Connector Filter Condition</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
      * <em>Filter Condition Assembly Event Connector</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Assembly Event Connector Filter Condition</em>' container
+     * If the meaning of the '<em>Assembly Event Connector Filter Condition</em> ' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Assembly Event Connector Filter Condition</em>' container
+     * @return the value of the ' <em>Assembly Event Connector Filter Condition</em>' container
      *         reference.
      * @see #setAssemblyEventConnector__FilterCondition(AssemblyEventConnector)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_AssemblyEventConnector__FilterCondition()
@@ -377,7 +386,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Assembly Event Connector Filter Condition</em>'
+     *            the new value of the ' <em>Assembly Event Connector Filter Condition</em>'
      *            container reference.
      * @see #getAssemblyEventConnector__FilterCondition()
      * @generated
@@ -385,17 +394,17 @@ public interface PCMRandomVariable extends RandomVariable {
     void setAssemblyEventConnector__FilterCondition(AssemblyEventConnector value);
 
     /**
-     * Returns the value of the '<em><b>Event Channel Sink Connector Filter Condition</b></em>'
+     * Returns the value of the ' <em><b>Event Channel Sink Connector Filter Condition</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector
      * <em>Filter Condition Event Channel Sink Connector</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Event Channel Sink Connector Filter Condition</em>' container
+     * If the meaning of the ' <em>Event Channel Sink Connector Filter Condition</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Event Channel Sink Connector Filter Condition</em>' container
+     * @return the value of the ' <em>Event Channel Sink Connector Filter Condition</em>' container
      *         reference.
      * @see #setEventChannelSinkConnector__FilterCondition(EventChannelSinkConnector)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_EventChannelSinkConnector__FilterCondition()
@@ -413,7 +422,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Event Channel Sink Connector Filter Condition</em>'
+     *            the new value of the ' <em>Event Channel Sink Connector Filter Condition</em>'
      *            container reference.
      * @see #getEventChannelSinkConnector__FilterCondition()
      * @generated
@@ -421,7 +430,7 @@ public interface PCMRandomVariable extends RandomVariable {
     void setEventChannelSinkConnector__FilterCondition(EventChannelSinkConnector value);
 
     /**
-     * Returns the value of the '<em><b>Infrastructure Call PCM Random Variable</b></em>' container
+     * Returns the value of the ' <em><b>Infrastructure Call PCM Random Variable</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall
      * <em>Number Of Calls Infrastructure Call</em>}'. <!-- begin-user-doc -->
@@ -431,7 +440,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Infrastructure Call PCM Random Variable</em>' container
+     * @return the value of the ' <em>Infrastructure Call PCM Random Variable</em>' container
      *         reference.
      * @see #setInfrastructureCall__PCMRandomVariable(InfrastructureCall)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_InfrastructureCall__PCMRandomVariable()
@@ -448,7 +457,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Infrastructure Call PCM Random Variable</em>' container
+     *            the new value of the ' <em>Infrastructure Call PCM Random Variable</em>' container
      *            reference.
      * @see #getInfrastructureCall__PCMRandomVariable()
      * @generated
@@ -456,7 +465,7 @@ public interface PCMRandomVariable extends RandomVariable {
     void setInfrastructureCall__PCMRandomVariable(InfrastructureCall value);
 
     /**
-     * Returns the value of the '<em><b>Resource Call PCM Random Variable</b></em>' container
+     * Returns the value of the ' <em><b>Resource Call PCM Random Variable</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
      * <em>Number Of Calls Resource Call</em>}'. <!-- begin-user-doc -->
@@ -482,7 +491,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Resource Call PCM Random Variable</em>' container
+     *            the new value of the ' <em>Resource Call PCM Random Variable</em>' container
      *            reference.
      * @see #getResourceCall__PCMRandomVariable()
      * @generated
@@ -490,7 +499,7 @@ public interface PCMRandomVariable extends RandomVariable {
     void setResourceCall__PCMRandomVariable(ResourceCall value);
 
     /**
-     * Returns the value of the '<em><b>Open Workload PCM Random Variable</b></em>' container
+     * Returns the value of the ' <em><b>Open Workload PCM Random Variable</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload
      * <em>Inter Arrival Time Open Workload</em>}'. <!-- begin-user-doc -->
@@ -516,7 +525,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Open Workload PCM Random Variable</em>' container
+     *            the new value of the ' <em>Open Workload PCM Random Variable</em>' container
      *            reference.
      * @see #getOpenWorkload_PCMRandomVariable()
      * @generated
@@ -524,7 +533,7 @@ public interface PCMRandomVariable extends RandomVariable {
     void setOpenWorkload_PCMRandomVariable(OpenWorkload value);
 
     /**
-     * Returns the value of the '<em><b>Closed Workload PCM Random Variable</b></em>' container
+     * Returns the value of the ' <em><b>Closed Workload PCM Random Variable</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
      * <em>Think Time Closed Workload</em>}'. <!-- begin-user-doc -->
@@ -550,7 +559,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Closed Workload PCM Random Variable</em>' container
+     *            the new value of the ' <em>Closed Workload PCM Random Variable</em>' container
      *            reference.
      * @see #getClosedWorkload_PCMRandomVariable()
      * @generated
@@ -592,19 +601,19 @@ public interface PCMRandomVariable extends RandomVariable {
 
     /**
      * Returns the value of the '
-     * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em>'
+     * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em> '
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification
      * <em>Throughput Communication Link Resource Specification</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>' container
+     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em> ' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>'
+     *         <em>Communication Link Resource Specifcation throughput PCM Random Variable</em> '
      *         container reference.
      * @see #setCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(CommunicationLinkResourceSpecification)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable()
@@ -618,12 +627,12 @@ public interface PCMRandomVariable extends RandomVariable {
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
-     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}' container
+     * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>} ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
      *            the new value of the '
-     *            <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>'
+     *            <em>Communication Link Resource Specifcation throughput PCM Random Variable</em> '
      *            container reference.
      * @see #getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable()
      * @generated
@@ -633,19 +642,19 @@ public interface PCMRandomVariable extends RandomVariable {
 
     /**
      * Returns the value of the '
-     * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em>'
+     * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em> '
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification
      * <em>Processing Rate Processing Resource Specification</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Processing Resource Specification processing Rate PCM Random Variable</em>' container
+     * <em>Processing Resource Specification processing Rate PCM Random Variable</em> ' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Processing Resource Specification processing Rate PCM Random Variable</em>'
+     *         <em>Processing Resource Specification processing Rate PCM Random Variable</em> '
      *         container reference.
      * @see #setProcessingResourceSpecification_processingRate_PCMRandomVariable(ProcessingResourceSpecification)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable()
@@ -659,12 +668,12 @@ public interface PCMRandomVariable extends RandomVariable {
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable
-     * <em>Processing Resource Specification processing Rate PCM Random Variable</em>}' container
+     * <em>Processing Resource Specification processing Rate PCM Random Variable</em>} ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
      *            the new value of the '
-     *            <em>Processing Resource Specification processing Rate PCM Random Variable</em>'
+     *            <em>Processing Resource Specification processing Rate PCM Random Variable</em> '
      *            container reference.
      * @see #getProcessingResourceSpecification_processingRate_PCMRandomVariable()
      * @generated
@@ -673,19 +682,19 @@ public interface PCMRandomVariable extends RandomVariable {
 
     /**
      * Returns the value of the '
-     * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em>'
+     * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em> '
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification
      * <em>Latency Communication Link Resource Specification</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Communication Link Resource Specification latency PCM Random Variable</em>' container
+     * <em>Communication Link Resource Specification latency PCM Random Variable</em> ' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Communication Link Resource Specification latency PCM Random Variable</em>'
+     *         <em>Communication Link Resource Specification latency PCM Random Variable</em> '
      *         container reference.
      * @see #setCommunicationLinkResourceSpecification_latency_PCMRandomVariable(CommunicationLinkResourceSpecification)
      * @see de.uka.ipd.sdq.pcm.core.CorePackage#getPCMRandomVariable_CommunicationLinkResourceSpecification_latency_PCMRandomVariable()
@@ -699,12 +708,12 @@ public interface PCMRandomVariable extends RandomVariable {
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
-     * <em>Communication Link Resource Specification latency PCM Random Variable</em>}' container
+     * <em>Communication Link Resource Specification latency PCM Random Variable</em>} ' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
      *            the new value of the '
-     *            <em>Communication Link Resource Specification latency PCM Random Variable</em>'
+     *            <em>Communication Link Resource Specification latency PCM Random Variable</em> '
      *            container reference.
      * @see #getCommunicationLinkResourceSpecification_latency_PCMRandomVariable()
      * @generated

@@ -46,7 +46,7 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * 
      * @generated
      */
-    public ResourceRequiredDelegationConnectorItemProvider(AdapterFactory adapterFactory) {
+    public ResourceRequiredDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -57,14 +57,14 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
-            addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
+            this.addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
+            this.addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -73,13 +73,14 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * 
      * @generated
      */
-    protected void addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ResourceRequiredDelegationConnector_innerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
-                        getString(
+    protected void addInnerResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(
+            final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_ResourceRequiredDelegationConnector_innerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_ResourceRequiredDelegationConnector_innerResourceRequiredRole_ResourceRequiredDelegationConnector_feature",
                                 "_UI_ResourceRequiredDelegationConnector_type"),
@@ -93,13 +94,14 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * 
      * @generated
      */
-    protected void addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
-                        getString(
+    protected void addOuterResourceRequiredRole_ResourceRequiredDelegationConnectorPropertyDescriptor(
+            final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_ResourceRequiredDelegationConnector_outerResourceRequiredRole_ResourceRequiredDelegationConnector_feature",
                                 "_UI_ResourceRequiredDelegationConnector_type"),
@@ -114,8 +116,9 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceRequiredDelegationConnector"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object,
+                this.getResourceLocator().getImage("full/obj16/ResourceRequiredDelegationConnector"));
     }
 
     /**
@@ -125,8 +128,8 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_ResourceRequiredDelegationConnector_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_ResourceRequiredDelegationConnector_type");
     }
 
     /**
@@ -137,8 +140,8 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -149,7 +152,7 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
@@ -161,7 +164,7 @@ public class ResourceRequiredDelegationConnectorItemProvider extends ItemProvide
      */
     @Override
     public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) adapterFactory).getResourceLocator();
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

@@ -26,10 +26,11 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl#getType <em>Type</em>}
- * </li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl#getParameter <em>
- * Parameter</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl#getType <em>Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl#getParameter <em>Parameter
+ * </em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.impl.RequiredCharacterisationImpl#getInterface_RequiredCharacterisation
  * <em>Interface Required Characterisation</em>}</li>
@@ -100,8 +101,9 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * 
      * @generated
      */
+    @Override
     public VariableCharacterisationType getType() {
-        return type;
+        return this.type;
     }
 
     /**
@@ -109,12 +111,14 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * 
      * @generated
      */
-    public void setType(VariableCharacterisationType newType) {
-        VariableCharacterisationType oldType = type;
-        type = newType == null ? TYPE_EDEFAULT : newType;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE,
-                    oldType, type));
+    @Override
+    public void setType(final VariableCharacterisationType newType) {
+        final VariableCharacterisationType oldType = this.type;
+        this.type = newType == null ? TYPE_EDEFAULT : newType;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE, oldType, this.type));
+        }
     }
 
     /**
@@ -122,17 +126,19 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * 
      * @generated
      */
+    @Override
     public Parameter getParameter() {
-        if (parameter != null && ((EObject) parameter).eIsProxy()) {
-            InternalEObject oldParameter = (InternalEObject) parameter;
-            parameter = (Parameter) eResolveProxy(oldParameter);
-            if (parameter != oldParameter) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER, oldParameter, parameter));
+        if (this.parameter != null && ((EObject) this.parameter).eIsProxy()) {
+            final InternalEObject oldParameter = (InternalEObject) this.parameter;
+            this.parameter = (Parameter) this.eResolveProxy(oldParameter);
+            if (this.parameter != oldParameter) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+                            RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER, oldParameter, this.parameter));
+                }
             }
         }
-        return parameter;
+        return this.parameter;
     }
 
     /**
@@ -141,7 +147,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     public Parameter basicGetParameter() {
-        return parameter;
+        return this.parameter;
     }
 
     /**
@@ -149,12 +155,14 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * 
      * @generated
      */
-    public void setParameter(Parameter newParameter) {
-        Parameter oldParameter = parameter;
-        parameter = newParameter;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER, oldParameter, parameter));
+    @Override
+    public void setParameter(final Parameter newParameter) {
+        final Parameter oldParameter = this.parameter;
+        this.parameter = newParameter;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER, oldParameter, this.parameter));
+        }
     }
 
     /**
@@ -162,10 +170,12 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * 
      * @generated
      */
+    @Override
     public Interface getInterface_RequiredCharacterisation() {
-        if (eContainerFeatureID() != RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION)
+        if (this.eContainerFeatureID() != RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION) {
             return null;
-        return (Interface) eInternalContainer();
+        }
+        return (Interface) this.eInternalContainer();
     }
 
     /**
@@ -174,8 +184,8 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     public NotificationChain basicSetInterface_RequiredCharacterisation(
-            Interface newInterface_RequiredCharacterisation, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newInterface_RequiredCharacterisation,
+            final Interface newInterface_RequiredCharacterisation, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newInterface_RequiredCharacterisation,
                 RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION, msgs);
         return msgs;
     }
@@ -185,24 +195,30 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * 
      * @generated
      */
-    public void setInterface_RequiredCharacterisation(Interface newInterface_RequiredCharacterisation) {
-        if (newInterface_RequiredCharacterisation != eInternalContainer()
-                || (eContainerFeatureID() != RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION && newInterface_RequiredCharacterisation != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newInterface_RequiredCharacterisation))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setInterface_RequiredCharacterisation(final Interface newInterface_RequiredCharacterisation) {
+        if (newInterface_RequiredCharacterisation != this.eInternalContainer()
+                || (this.eContainerFeatureID() != RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION && newInterface_RequiredCharacterisation != null)) {
+            if (EcoreUtil.isAncestor(this, newInterface_RequiredCharacterisation)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newInterface_RequiredCharacterisation != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newInterface_RequiredCharacterisation != null) {
                 msgs = ((InternalEObject) newInterface_RequiredCharacterisation).eInverseAdd(this,
                         RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS, Interface.class, msgs);
-            msgs = basicSetInterface_RequiredCharacterisation(newInterface_RequiredCharacterisation, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetInterface_RequiredCharacterisation(newInterface_RequiredCharacterisation, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION,
                     newInterface_RequiredCharacterisation, newInterface_RequiredCharacterisation));
+        }
     }
 
     /**
@@ -211,12 +227,13 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetInterface_RequiredCharacterisation((Interface) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetInterface_RequiredCharacterisation((Interface) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -227,10 +244,11 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
-            return basicSetInterface_RequiredCharacterisation(null, msgs);
+            return this.basicSetInterface_RequiredCharacterisation(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -241,11 +259,11 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
-            return eInternalContainer().eInverseRemove(this, RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS,
-                    Interface.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS, Interface.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -256,16 +274,17 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
-            return getType();
+            return this.getType();
         case RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER:
-            if (resolve)
-                return getParameter();
-            return basicGetParameter();
+            if (resolve) {
+                return this.getParameter();
+            }
+            return this.basicGetParameter();
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
-            return getInterface_RequiredCharacterisation();
+            return this.getInterface_RequiredCharacterisation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -276,16 +295,16 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
-            setType((VariableCharacterisationType) newValue);
+            this.setType((VariableCharacterisationType) newValue);
             return;
         case RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER:
-            setParameter((Parameter) newValue);
+            this.setParameter((Parameter) newValue);
             return;
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
-            setInterface_RequiredCharacterisation((Interface) newValue);
+            this.setInterface_RequiredCharacterisation((Interface) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -297,16 +316,16 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
-            setType(TYPE_EDEFAULT);
+            this.setType(TYPE_EDEFAULT);
             return;
         case RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER:
-            setParameter((Parameter) null);
+            this.setParameter((Parameter) null);
             return;
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
-            setInterface_RequiredCharacterisation((Interface) null);
+            this.setInterface_RequiredCharacterisation((Interface) null);
             return;
         }
         super.eUnset(featureID);
@@ -318,14 +337,14 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
-            return type != TYPE_EDEFAULT;
+            return this.type != TYPE_EDEFAULT;
         case RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER:
-            return parameter != null;
+            return this.parameter != null;
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
-            return getInterface_RequiredCharacterisation() != null;
+            return this.getInterface_RequiredCharacterisation() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -337,12 +356,13 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (type: ");
-        result.append(type);
+        result.append(this.type);
         result.append(')');
         return result.toString();
     }

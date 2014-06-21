@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Internal Action</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Internal Action</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> Internal Action Combines the execution of a number of internal
@@ -55,18 +55,18 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
      * Returns the value of the '
      * <em><b>Internal Failure Occurrence Descriptions Internal Action</b></em>' containment
      * reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription}. It is
+     * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription} . It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
      * <em>Internal Action Internal Failure Occurrence Description</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Internal Failure Occurrence Descriptions Internal Action</em>'
+     * If the meaning of the ' <em>Internal Failure Occurrence Descriptions Internal Action</em>'
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Internal Failure Occurrence Descriptions Internal Action</em>'
-     *         containment reference list.
+     * @return the value of the ' <em>Internal Failure Occurrence Descriptions Internal Action</em>
+     *         ' containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction_InternalFailureOccurrenceDescriptions__InternalAction()
      * @see de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
      * @model opposite="internalAction__InternalFailureOccurrenceDescription" containment="true"

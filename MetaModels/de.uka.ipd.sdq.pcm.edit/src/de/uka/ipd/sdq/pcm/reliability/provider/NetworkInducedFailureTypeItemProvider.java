@@ -44,7 +44,7 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * 
      * @generated
      */
-    public NetworkInducedFailureTypeItemProvider(AdapterFactory adapterFactory) {
+    public NetworkInducedFailureTypeItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -55,13 +55,13 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addCommunicationLinkResourceType__NetworkInducedFailureTypePropertyDescriptor(object);
+            this.addCommunicationLinkResourceType__NetworkInducedFailureTypePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -70,13 +70,13 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * 
      * @generated
      */
-    protected void addCommunicationLinkResourceType__NetworkInducedFailureTypePropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_NetworkInducedFailureType_communicationLinkResourceType__NetworkInducedFailureType_feature"),
-                        getString(
+    protected void addCommunicationLinkResourceType__NetworkInducedFailureTypePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_NetworkInducedFailureType_communicationLinkResourceType__NetworkInducedFailureType_feature"),
+                        this.getString(
                                 "_UI_PropertyDescriptor_description",
                                 "_UI_NetworkInducedFailureType_communicationLinkResourceType__NetworkInducedFailureType_feature",
                                 "_UI_NetworkInducedFailureType_type"),
@@ -90,8 +90,8 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/NetworkInducedFailureType"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/NetworkInducedFailureType"));
     }
 
     /**
@@ -104,10 +104,10 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * @generated not
      */
     @Override
-    public String getText(Object object) {
+    public String getText(final Object object) {
         return ((NetworkInducedFailureType) object).getEntityName() + " [ID: "
                 + ((NetworkInducedFailureType) object).getId() + "]" + " <"
-                + getString("_UI_NetworkInducedFailureType_type") + ">";
+                + this.getString("_UI_NetworkInducedFailureType_type") + ">";
     }
 
     /**
@@ -118,8 +118,8 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -130,7 +130,7 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

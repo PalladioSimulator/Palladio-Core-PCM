@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -19,12 +18,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Data Type</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Data Type</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl#getRepository__DataType <em>Repository
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl#getRepository__DataType <em>Repository
  * Data Type</em>}</li>
  * </ul>
  * </p>
@@ -63,10 +63,12 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * 
      * @generated
      */
+    @Override
     public Repository getRepository__DataType() {
-        if (eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE)
+        if (this.eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE) {
             return null;
-        return (Repository) eInternalContainer();
+        }
+        return (Repository) this.eInternalContainer();
     }
 
     /**
@@ -74,8 +76,9 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * 
      * @generated
      */
-    public NotificationChain basicSetRepository__DataType(Repository newRepository__DataType, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newRepository__DataType,
+    public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
+            NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newRepository__DataType,
                 RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE, msgs);
         return msgs;
     }
@@ -85,23 +88,29 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * 
      * @generated
      */
-    public void setRepository__DataType(Repository newRepository__DataType) {
-        if (newRepository__DataType != eInternalContainer()
-                || (eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newRepository__DataType))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setRepository__DataType(final Repository newRepository__DataType) {
+        if (newRepository__DataType != this.eInternalContainer()
+                || (this.eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
+            if (EcoreUtil.isAncestor(this, newRepository__DataType)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newRepository__DataType != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newRepository__DataType != null) {
                 msgs = ((InternalEObject) newRepository__DataType).eInverseAdd(this,
                         RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY, Repository.class, msgs);
-            msgs = basicSetRepository__DataType(newRepository__DataType, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetRepository__DataType(newRepository__DataType, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE,
-                    newRepository__DataType, newRepository__DataType));
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE, newRepository__DataType, newRepository__DataType));
+        }
     }
 
     /**
@@ -110,12 +119,13 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetRepository__DataType((Repository) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetRepository__DataType((Repository) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -126,10 +136,11 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return basicSetRepository__DataType(null, msgs);
+            return this.basicSetRepository__DataType(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -140,10 +151,10 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
+            return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -155,10 +166,10 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return getRepository__DataType();
+            return this.getRepository__DataType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -169,10 +180,10 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
-            setRepository__DataType((Repository) newValue);
+            this.setRepository__DataType((Repository) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -184,10 +195,10 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
-            setRepository__DataType((Repository) null);
+            this.setRepository__DataType((Repository) null);
             return;
         }
         super.eUnset(featureID);
@@ -199,10 +210,10 @@ public abstract class DataTypeImpl extends EStereotypableObjectImpl implements D
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return getRepository__DataType() != null;
+            return this.getRepository__DataType() != null;
         }
         return super.eIsSet(featureID);
     }

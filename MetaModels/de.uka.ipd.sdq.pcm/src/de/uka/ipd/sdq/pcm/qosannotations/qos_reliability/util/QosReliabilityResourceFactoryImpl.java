@@ -38,8 +38,8 @@ public class QosReliabilityResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(URI uri) {
-        XMLResource result = new QosReliabilityResourceImpl(uri);
+    public Resource createResource(final URI uri) {
+        final XMLResource result = new QosReliabilityResourceImpl(uri);
         return result;
     }
 

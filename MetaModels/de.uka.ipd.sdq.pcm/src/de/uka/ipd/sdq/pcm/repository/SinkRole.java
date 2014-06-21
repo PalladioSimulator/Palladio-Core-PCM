@@ -6,7 +6,7 @@
 package de.uka.ipd.sdq.pcm.repository;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Sink Role</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Sink Role</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A SinkRole, extending a ProvidedRole, identifies components that provide
@@ -51,7 +51,8 @@ public interface SinkRole extends ProvidedRole {
     EventGroup getEventGroup__SinkRole();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.SinkRole#getEventGroup__SinkRole
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.repository.SinkRole#getEventGroup__SinkRole
      * <em>Event Group Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

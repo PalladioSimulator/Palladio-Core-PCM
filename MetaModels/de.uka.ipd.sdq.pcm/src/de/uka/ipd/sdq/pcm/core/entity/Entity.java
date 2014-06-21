@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Entity</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Entity</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> Entity is a meta class high up the PCM meta class hierarchy and

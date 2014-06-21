@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Assembly Context</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Assembly Context</b></em>'.
  * <!-- end-user-doc -->
  * 
  * <!-- begin-model-doc --> An AssemblyContext uniquely identifies an assembly instance of an
@@ -46,7 +46,7 @@ public interface AssemblyContext extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Parent Structure Assembly Context</b></em>' container
+     * Returns the value of the ' <em><b>Parent Structure Assembly Context</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getAssemblyContexts__ComposedStructure
      * <em>Assembly Contexts Composed Structure</em>}'. <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public interface AssemblyContext extends Entity {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Parent Structure Assembly Context</em>' container
+     *            the new value of the ' <em>Parent Structure Assembly Context</em>' container
      *            reference.
      * @see #getParentStructure__AssemblyContext()
      * @generated
@@ -81,15 +81,15 @@ public interface AssemblyContext extends Entity {
     void setParentStructure__AssemblyContext(ComposedStructure value);
 
     /**
-     * Returns the value of the '<em><b>Encapsulated Component Assembly Context</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the ' <em><b>Encapsulated Component Assembly Context</b></em>'
+     * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Encapsulated Component Assembly Context</em>' reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Encapsulated Component Assembly Context</em>' reference.
+     * @return the value of the ' <em>Encapsulated Component Assembly Context</em>' reference.
      * @see #setEncapsulatedComponent__AssemblyContext(RepositoryComponent)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_EncapsulatedComponent__AssemblyContext()
      * @model required="true" ordered="false"
@@ -104,14 +104,15 @@ public interface AssemblyContext extends Entity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Encapsulated Component Assembly Context</em>' reference.
+     *            the new value of the ' <em>Encapsulated Component Assembly Context</em>'
+     *            reference.
      * @see #getEncapsulatedComponent__AssemblyContext()
      * @generated
      */
     void setEncapsulatedComponent__AssemblyContext(RepositoryComponent value);
 
     /**
-     * Returns the value of the '<em><b>Config Parameter Usages Assembly Context</b></em>'
+     * Returns the value of the ' <em><b>Config Parameter Usages Assembly Context</b></em>'
      * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
@@ -122,7 +123,7 @@ public interface AssemblyContext extends Entity {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Config Parameter Usages Assembly Context</em>' containment
+     * @return the value of the ' <em>Config Parameter Usages Assembly Context</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ConfigParameterUsages__AssemblyContext()
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage

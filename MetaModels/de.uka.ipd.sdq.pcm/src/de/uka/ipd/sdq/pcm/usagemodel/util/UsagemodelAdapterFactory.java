@@ -72,7 +72,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -90,98 +90,98 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      */
     protected UsagemodelSwitch<Adapter> modelSwitch = new UsagemodelSwitch<Adapter>() {
         @Override
-        public Adapter caseWorkload(Workload object) {
-            return createWorkloadAdapter();
+        public Adapter caseWorkload(final Workload object) {
+            return UsagemodelAdapterFactory.this.createWorkloadAdapter();
         }
 
         @Override
-        public Adapter caseUsageScenario(UsageScenario object) {
-            return createUsageScenarioAdapter();
+        public Adapter caseUsageScenario(final UsageScenario object) {
+            return UsagemodelAdapterFactory.this.createUsageScenarioAdapter();
         }
 
         @Override
-        public Adapter caseUserData(UserData object) {
-            return createUserDataAdapter();
+        public Adapter caseUserData(final UserData object) {
+            return UsagemodelAdapterFactory.this.createUserDataAdapter();
         }
 
         @Override
-        public Adapter caseUsageModel(UsageModel object) {
-            return createUsageModelAdapter();
+        public Adapter caseUsageModel(final UsageModel object) {
+            return UsagemodelAdapterFactory.this.createUsageModelAdapter();
         }
 
         @Override
-        public Adapter caseEntryLevelSystemCall(EntryLevelSystemCall object) {
-            return createEntryLevelSystemCallAdapter();
+        public Adapter caseEntryLevelSystemCall(final EntryLevelSystemCall object) {
+            return UsagemodelAdapterFactory.this.createEntryLevelSystemCallAdapter();
         }
 
         @Override
-        public Adapter caseAbstractUserAction(AbstractUserAction object) {
-            return createAbstractUserActionAdapter();
+        public Adapter caseAbstractUserAction(final AbstractUserAction object) {
+            return UsagemodelAdapterFactory.this.createAbstractUserActionAdapter();
         }
 
         @Override
-        public Adapter caseScenarioBehaviour(ScenarioBehaviour object) {
-            return createScenarioBehaviourAdapter();
+        public Adapter caseScenarioBehaviour(final ScenarioBehaviour object) {
+            return UsagemodelAdapterFactory.this.createScenarioBehaviourAdapter();
         }
 
         @Override
-        public Adapter caseBranchTransition(BranchTransition object) {
-            return createBranchTransitionAdapter();
+        public Adapter caseBranchTransition(final BranchTransition object) {
+            return UsagemodelAdapterFactory.this.createBranchTransitionAdapter();
         }
 
         @Override
-        public Adapter caseBranch(Branch object) {
-            return createBranchAdapter();
+        public Adapter caseBranch(final Branch object) {
+            return UsagemodelAdapterFactory.this.createBranchAdapter();
         }
 
         @Override
-        public Adapter caseLoop(Loop object) {
-            return createLoopAdapter();
+        public Adapter caseLoop(final Loop object) {
+            return UsagemodelAdapterFactory.this.createLoopAdapter();
         }
 
         @Override
-        public Adapter caseStop(Stop object) {
-            return createStopAdapter();
+        public Adapter caseStop(final Stop object) {
+            return UsagemodelAdapterFactory.this.createStopAdapter();
         }
 
         @Override
-        public Adapter caseStart(Start object) {
-            return createStartAdapter();
+        public Adapter caseStart(final Start object) {
+            return UsagemodelAdapterFactory.this.createStartAdapter();
         }
 
         @Override
-        public Adapter caseOpenWorkload(OpenWorkload object) {
-            return createOpenWorkloadAdapter();
+        public Adapter caseOpenWorkload(final OpenWorkload object) {
+            return UsagemodelAdapterFactory.this.createOpenWorkloadAdapter();
         }
 
         @Override
-        public Adapter caseDelay(Delay object) {
-            return createDelayAdapter();
+        public Adapter caseDelay(final Delay object) {
+            return UsagemodelAdapterFactory.this.createDelayAdapter();
         }
 
         @Override
-        public Adapter caseClosedWorkload(ClosedWorkload object) {
-            return createClosedWorkloadAdapter();
+        public Adapter caseClosedWorkload(final ClosedWorkload object) {
+            return UsagemodelAdapterFactory.this.createClosedWorkloadAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return UsagemodelAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return UsagemodelAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return UsagemodelAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return UsagemodelAdapterFactory.this.createEObjectAdapter();
         }
     };
 
@@ -194,12 +194,12 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Workload
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Workload
      * <em>Workload</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -273,7 +273,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Branch
      * <em>Branch</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -287,7 +287,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Loop
      * <em>Loop</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -315,7 +315,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Stop
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Stop
      * <em>Stop</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -329,7 +329,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Start
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Start
      * <em>Start</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -344,7 +344,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload <em>Open Workload</em>}'. <!--
+     * {@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload <em>Open Workload</em>} '. <!--
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
@@ -388,7 +388,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Delay
      * <em>Delay</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -402,7 +402,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.usagemodel.UserData
      * <em>User Data</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -416,7 +416,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -445,7 +445,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

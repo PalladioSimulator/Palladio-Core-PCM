@@ -57,10 +57,10 @@ public interface ResourcetypeFactory extends EFactory {
     SchedulingPolicy createSchedulingPolicy();
 
     /**
-     * Returns a new object of class '<em>Communication Link Resource Type</em>'. <!--
+     * Returns a new object of class '<em>Communication Link Resource Type</em> '. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return a new object of class '<em>Communication Link Resource Type</em>'.
+     * @return a new object of class '<em>Communication Link Resource Type</em> '.
      * @generated
      */
     CommunicationLinkResourceType createCommunicationLinkResourceType();

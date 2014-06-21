@@ -34,15 +34,15 @@ public interface InternalCallAction extends CallAction, AbstractInternalControlF
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Called Resource Demanding Internal Behaviour</b></em>'
+     * Returns the value of the ' <em><b>Called Resource Demanding Internal Behaviour</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Called Resource Demanding Internal Behaviour</em>' reference isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Called Resource Demanding Internal Behaviour</em>' reference
+     * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Called Resource Demanding Internal Behaviour</em>' reference.
+     * @return the value of the ' <em>Called Resource Demanding Internal Behaviour</em>' reference.
      * @see #setCalledResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalCallAction_CalledResourceDemandingInternalBehaviour()
      * @model required="true" ordered="false"
@@ -57,7 +57,7 @@ public interface InternalCallAction extends CallAction, AbstractInternalControlF
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Called Resource Demanding Internal Behaviour</em>'
+     *            the new value of the ' <em>Called Resource Demanding Internal Behaviour</em>'
      *            reference.
      * @see #getCalledResourceDemandingInternalBehaviour()
      * @generated

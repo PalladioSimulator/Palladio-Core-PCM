@@ -52,8 +52,8 @@ public interface AssemblyEventConnector extends Connector {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Sink Role Assembly Event Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * Returns the value of the ' <em><b>Sink Role Assembly Event Connector</b></em>' reference.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Sink Role Assembly Event Connector</em>' reference isn't clear,
      * there really should be more of a description here...
@@ -75,14 +75,14 @@ public interface AssemblyEventConnector extends Connector {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Sink Role Assembly Event Connector</em>' reference.
+     *            the new value of the ' <em>Sink Role Assembly Event Connector</em>' reference.
      * @see #getSinkRole__AssemblyEventConnector()
      * @generated
      */
     void setSinkRole__AssemblyEventConnector(SinkRole value);
 
     /**
-     * Returns the value of the '<em><b>Source Role Assembly Event Connector</b></em>' reference.
+     * Returns the value of the ' <em><b>Source Role Assembly Event Connector</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Source Role Assembly Event Connector</em>' reference isn't clear,
@@ -105,22 +105,23 @@ public interface AssemblyEventConnector extends Connector {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Source Role Assembly Event Connector</em>' reference.
+     *            the new value of the ' <em>Source Role Assembly Event Connector</em>' reference.
      * @see #getSourceRole__AssemblyEventConnector()
      * @generated
      */
     void setSourceRole__AssemblyEventConnector(SourceRole value);
 
     /**
-     * Returns the value of the '<em><b>Sink Assembly Context Assembly Event Connector</b></em>'
+     * Returns the value of the ' <em><b>Sink Assembly Context Assembly Event Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Sink Assembly Context Assembly Event Connector</em>' reference
+     * If the meaning of the ' <em>Sink Assembly Context Assembly Event Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Sink Assembly Context Assembly Event Connector</em>' reference.
+     * @return the value of the ' <em>Sink Assembly Context Assembly Event Connector</em>'
+     *         reference.
      * @see #setSinkAssemblyContext__AssemblyEventConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector()
      * @model required="true" ordered="false"
@@ -135,7 +136,7 @@ public interface AssemblyEventConnector extends Connector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Sink Assembly Context Assembly Event Connector</em>'
+     *            the new value of the ' <em>Sink Assembly Context Assembly Event Connector</em>'
      *            reference.
      * @see #getSinkAssemblyContext__AssemblyEventConnector()
      * @generated
@@ -143,15 +144,15 @@ public interface AssemblyEventConnector extends Connector {
     void setSinkAssemblyContext__AssemblyEventConnector(AssemblyContext value);
 
     /**
-     * Returns the value of the '<em><b>Source Assembly Context Assembly Event Connector</b></em>'
+     * Returns the value of the ' <em><b>Source Assembly Context Assembly Event Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Source Assembly Context Assembly Event Connector</em>' reference
+     * If the meaning of the ' <em>Source Assembly Context Assembly Event Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Source Assembly Context Assembly Event Connector</em>'
+     * @return the value of the ' <em>Source Assembly Context Assembly Event Connector</em>'
      *         reference.
      * @see #setSourceAssemblyContext__AssemblyEventConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector()
@@ -167,7 +168,7 @@ public interface AssemblyEventConnector extends Connector {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Source Assembly Context Assembly Event Connector</em>'
+     *            the new value of the ' <em>Source Assembly Context Assembly Event Connector</em>'
      *            reference.
      * @see #getSourceAssemblyContext__AssemblyEventConnector()
      * @generated
@@ -175,17 +176,17 @@ public interface AssemblyEventConnector extends Connector {
     void setSourceAssemblyContext__AssemblyEventConnector(AssemblyContext value);
 
     /**
-     * Returns the value of the '<em><b>Filter Condition Assembly Event Connector</b></em>'
+     * Returns the value of the ' <em><b>Filter Condition Assembly Event Connector</b></em>'
      * containment reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
      * <em>Assembly Event Connector Filter Condition</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Filter Condition Assembly Event Connector</em>' containment
+     * If the meaning of the '<em>Filter Condition Assembly Event Connector</em> ' containment
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Filter Condition Assembly Event Connector</em>' containment
+     * @return the value of the ' <em>Filter Condition Assembly Event Connector</em>' containment
      *         reference.
      * @see #setFilterCondition__AssemblyEventConnector(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyEventConnector_FilterCondition__AssemblyEventConnector()
@@ -202,7 +203,7 @@ public interface AssemblyEventConnector extends Connector {
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Filter Condition Assembly Event Connector</em>'
+     *            the new value of the ' <em>Filter Condition Assembly Event Connector</em>'
      *            containment reference.
      * @see #getFilterCondition__AssemblyEventConnector()
      * @generated

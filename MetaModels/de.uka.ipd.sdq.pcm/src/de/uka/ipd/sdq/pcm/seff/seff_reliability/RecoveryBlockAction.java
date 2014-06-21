@@ -45,21 +45,21 @@ public interface RecoveryBlockAction extends AbstractInternalControlFlowAction {
 
     /**
      * Returns the value of the '
-     * <em><b>Recovery Block Alternative Behaviours Recovery Block Action</b></em>' containment
+     * <em><b>Recovery Block Alternative Behaviours Recovery Block Action</b></em> ' containment
      * reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour}. It is
+     * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour} . It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour#getRecoveryBlockAction_RecoveryBlockAlternativeBehaviour
      * <em>Recovery Block Action Recovery Block Alternative Behaviour</em>}'. <!-- begin-user-doc
      * -->
      * <p>
-     * If the meaning of the '<em>Recovery Block Alternative Behaviours Recovery Block Action</em>'
+     * If the meaning of the ' <em>Recovery Block Alternative Behaviours Recovery Block Action</em>'
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Recovery Block Alternative Behaviours Recovery Block Action</em>' containment
+     *         <em>Recovery Block Alternative Behaviours Recovery Block Action</em> ' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.Seff_reliabilityPackage#getRecoveryBlockAction_RecoveryBlockAlternativeBehaviours_RecoveryBlockAction()
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryBlockAlternativeBehaviour#getRecoveryBlockAction_RecoveryBlockAlternativeBehaviour

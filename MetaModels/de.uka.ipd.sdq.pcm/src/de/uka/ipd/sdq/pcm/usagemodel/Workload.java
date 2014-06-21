@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Workload</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Workload</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A Workload specifies the usage intensity of a system, which relates to

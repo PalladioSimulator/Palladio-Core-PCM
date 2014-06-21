@@ -40,7 +40,7 @@ public class StartItemProvider extends AbstractUserActionItemProvider implements
      * 
      * @generated
      */
-    public StartItemProvider(AdapterFactory adapterFactory) {
+    public StartItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -51,12 +51,12 @@ public class StartItemProvider extends AbstractUserActionItemProvider implements
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -65,8 +65,8 @@ public class StartItemProvider extends AbstractUserActionItemProvider implements
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/Start"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/Start"));
     }
 
     /**
@@ -76,10 +76,10 @@ public class StartItemProvider extends AbstractUserActionItemProvider implements
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((Start) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_Start_type") : getString("_UI_Start_type") + " "
-                + label;
+    public String getText(final Object object) {
+        final String label = ((Start) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_Start_type") : this
+                .getString("_UI_Start_type") + " " + label;
     }
 
     /**
@@ -90,8 +90,8 @@ public class StartItemProvider extends AbstractUserActionItemProvider implements
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -102,7 +102,7 @@ public class StartItemProvider extends AbstractUserActionItemProvider implements
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 

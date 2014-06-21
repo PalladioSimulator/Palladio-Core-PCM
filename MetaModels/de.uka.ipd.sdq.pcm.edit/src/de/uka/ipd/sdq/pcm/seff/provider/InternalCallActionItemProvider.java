@@ -48,7 +48,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * 
      * @generated
      */
-    public InternalCallActionItemProvider(AdapterFactory adapterFactory) {
+    public InternalCallActionItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -59,17 +59,17 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addIdPropertyDescriptor(object);
-            addEntityNamePropertyDescriptor(object);
-            addPredecessor_AbstractActionPropertyDescriptor(object);
-            addSuccessor_AbstractActionPropertyDescriptor(object);
-            addCalledResourceDemandingInternalBehaviourPropertyDescriptor(object);
+            this.addIdPropertyDescriptor(object);
+            this.addEntityNamePropertyDescriptor(object);
+            this.addPredecessor_AbstractActionPropertyDescriptor(object);
+            this.addSuccessor_AbstractActionPropertyDescriptor(object);
+            this.addCalledResourceDemandingInternalBehaviourPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -78,13 +78,12 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * 
      * @generated
      */
-    protected void addIdPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-                getString("_UI_Identifier_id_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_Identifier_id_feature", "_UI_Identifier_type"),
-                IdentifierPackage.Literals.IDENTIFIER__ID, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+    protected void addIdPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_Identifier_id_feature"), this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_Identifier_id_feature", "_UI_Identifier_type"), IdentifierPackage.Literals.IDENTIFIER__ID,
+                true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -93,12 +92,11 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * 
      * @generated
      */
-    protected void addEntityNamePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_NamedElement_entityName_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature",
+    protected void addEntityNamePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_NamedElement_entityName_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature",
                         "_UI_NamedElement_type"), EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME, true, false,
                 false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
@@ -109,16 +107,13 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * 
      * @generated
      */
-    protected void addPredecessor_AbstractActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors
-                .add(createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                        getResourceLocator(),
-                        getString("_UI_AbstractAction_predecessor_AbstractAction_feature"),
-                        getString("_UI_PropertyDescriptor_description",
-                                "_UI_AbstractAction_predecessor_AbstractAction_feature", "_UI_AbstractAction_type"),
-                        SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, true, false, true, null,
-                        null, null));
+    protected void addPredecessor_AbstractActionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AbstractAction_predecessor_AbstractAction_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AbstractAction_predecessor_AbstractAction_feature",
+                        "_UI_AbstractAction_type"), SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
+                true, false, true, null, null, null));
     }
 
     /**
@@ -127,12 +122,11 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * 
      * @generated
      */
-    protected void addSuccessor_AbstractActionPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_AbstractAction_successor_AbstractAction_feature"),
-                getString("_UI_PropertyDescriptor_description", "_UI_AbstractAction_successor_AbstractAction_feature",
+    protected void addSuccessor_AbstractActionPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AbstractAction_successor_AbstractAction_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AbstractAction_successor_AbstractAction_feature",
                         "_UI_AbstractAction_type"), SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
                 true, false, true, null, null, null));
     }
@@ -143,14 +137,13 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * 
      * @generated
      */
-    protected void addCalledResourceDemandingInternalBehaviourPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_InternalCallAction_calledResourceDemandingInternalBehaviour_feature"),
-                getString("_UI_PropertyDescriptor_description",
-                        "_UI_InternalCallAction_calledResourceDemandingInternalBehaviour_feature",
-                        "_UI_InternalCallAction_type"),
+    protected void addCalledResourceDemandingInternalBehaviourPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_InternalCallAction_calledResourceDemandingInternalBehaviour_feature"), this
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_InternalCallAction_calledResourceDemandingInternalBehaviour_feature",
+                                "_UI_InternalCallAction_type"),
                 SeffPackage.Literals.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR, true, false,
                 true, null, null, null));
     }
@@ -165,15 +158,16 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * @generated
      */
     @Override
-    public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION);
-            childrenFeatures
+            this.childrenFeatures
+                    .add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION);
+            this.childrenFeatures
                     .add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION);
-            childrenFeatures.add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION);
+            this.childrenFeatures.add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
     /**
@@ -182,7 +176,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * @generated
      */
     @Override
-    protected EStructuralFeature getChildFeature(Object object, Object child) {
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
@@ -195,8 +189,8 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalCallAction"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/InternalCallAction"));
     }
 
     /**
@@ -206,10 +200,10 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((InternalCallAction) object).getId();
-        return label == null || label.length() == 0 ? getString("_UI_InternalCallAction_type")
-                : getString("_UI_InternalCallAction_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((InternalCallAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_InternalCallAction_type") : this
+                .getString("_UI_InternalCallAction_type") + " " + label;
     }
 
     /**
@@ -220,18 +214,18 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(InternalCallAction.class)) {
         case SeffPackage.INTERNAL_CALL_ACTION__ID:
         case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
         }
         super.notifyChanged(notification);
@@ -244,18 +238,18 @@ public class InternalCallActionItemProvider extends CallActionItemProvider imple
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
                 SeffPerformanceFactory.eINSTANCE.createParametricResourceDemand()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
                 SeffPerformanceFactory.eINSTANCE.createInfrastructureCall()));
 
-        newChildDescriptors.add(createChildParameter(
+        newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION,
                 SeffPerformanceFactory.eINSTANCE.createResourceCall()));
     }

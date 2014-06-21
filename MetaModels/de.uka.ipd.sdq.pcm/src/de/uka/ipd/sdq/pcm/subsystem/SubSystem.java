@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Sub System</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Sub System</b></em>'. <!--
  * end-user-doc -->
  * 
  * <!-- begin-model-doc --> A SubSystem is structually comparable to a CompositeComponent. The major

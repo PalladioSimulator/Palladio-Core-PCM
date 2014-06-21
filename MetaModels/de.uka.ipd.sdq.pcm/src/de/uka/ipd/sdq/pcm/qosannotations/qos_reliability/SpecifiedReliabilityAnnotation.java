@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation
- * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}</li>
+ * <em>External Failure Occurrence Descriptions Specified Reliability Annotation </em>}</li>
  * </ul>
  * </p>
  * 
@@ -49,26 +49,26 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * Returns the value of the '
-     * <em><b>External Failure Occurrence Descriptions Specified Reliability Annotation</b></em>'
+     * <em><b>External Failure Occurrence Descriptions Specified Reliability Annotation</b></em> '
      * containment reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription}. It is
+     * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription} . It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
-     * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}'. <!--
+     * <em>Specified Reliability Annotation External Failure Occurrence Description</em>} '. <!--
      * begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>'
+     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em> '
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>'
+     *         <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em> '
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage#getSpecifiedReliabilityAnnotation_ExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
      * @see de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
-     * @model opposite="specifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription"
+     * @model opposite= "specifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription"
      *        containment="true" required="true" ordered="false"
      * @generated
      */

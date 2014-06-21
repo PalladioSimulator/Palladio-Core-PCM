@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -64,10 +63,12 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * 
      * @generated
      */
+    @Override
     public ResourceDemandingSEFF getResourceDemandingSEFF_ResourceDemandingInternalBehaviour() {
-        if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR)
+        if (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR) {
             return null;
-        return (ResourceDemandingSEFF) eInternalContainer();
+        }
+        return (ResourceDemandingSEFF) this.eInternalContainer();
     }
 
     /**
@@ -76,11 +77,13 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     public NotificationChain basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
-            ResourceDemandingSEFF newResourceDemandingSEFF_ResourceDemandingInternalBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer(
-                (InternalEObject) newResourceDemandingSEFF_ResourceDemandingInternalBehaviour,
-                SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
-                msgs);
+            final ResourceDemandingSEFF newResourceDemandingSEFF_ResourceDemandingInternalBehaviour,
+            NotificationChain msgs) {
+        msgs = this
+                .eBasicSetContainer(
+                        (InternalEObject) newResourceDemandingSEFF_ResourceDemandingInternalBehaviour,
+                        SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
+                        msgs);
         return msgs;
     }
 
@@ -89,30 +92,36 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * 
      * @generated
      */
+    @Override
     public void setResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
-            ResourceDemandingSEFF newResourceDemandingSEFF_ResourceDemandingInternalBehaviour) {
-        if (newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != eInternalContainer()
-                || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR && newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newResourceDemandingSEFF_ResourceDemandingInternalBehaviour))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            final ResourceDemandingSEFF newResourceDemandingSEFF_ResourceDemandingInternalBehaviour) {
+        if (newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR && newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, newResourceDemandingSEFF_ResourceDemandingInternalBehaviour)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != null) {
                 msgs = ((InternalEObject) newResourceDemandingSEFF_ResourceDemandingInternalBehaviour).eInverseAdd(
                         this, SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS,
                         ResourceDemandingSEFF.class, msgs);
-            msgs = basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
+            }
+            msgs = this.basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
                     newResourceDemandingSEFF_ResourceDemandingInternalBehaviour, msgs);
-            if (msgs != null)
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
                     newResourceDemandingSEFF_ResourceDemandingInternalBehaviour,
                     newResourceDemandingSEFF_ResourceDemandingInternalBehaviour));
+        }
     }
 
     /**
@@ -121,13 +130,14 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour((ResourceDemandingSEFF) otherEnd,
-                    msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
+                    (ResourceDemandingSEFF) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -138,10 +148,11 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            return basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(null, msgs);
+            return this.basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -152,10 +163,10 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS,
                     ResourceDemandingSEFF.class, msgs);
         }
@@ -168,10 +179,10 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            return getResourceDemandingSEFF_ResourceDemandingInternalBehaviour();
+            return this.getResourceDemandingSEFF_ResourceDemandingInternalBehaviour();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -182,10 +193,10 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            setResourceDemandingSEFF_ResourceDemandingInternalBehaviour((ResourceDemandingSEFF) newValue);
+            this.setResourceDemandingSEFF_ResourceDemandingInternalBehaviour((ResourceDemandingSEFF) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -197,10 +208,10 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            setResourceDemandingSEFF_ResourceDemandingInternalBehaviour((ResourceDemandingSEFF) null);
+            this.setResourceDemandingSEFF_ResourceDemandingInternalBehaviour((ResourceDemandingSEFF) null);
             return;
         }
         super.eUnset(featureID);
@@ -212,10 +223,10 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            return getResourceDemandingSEFF_ResourceDemandingInternalBehaviour() != null;
+            return this.getResourceDemandingSEFF_ResourceDemandingInternalBehaviour() != null;
         }
         return super.eIsSet(featureID);
     }

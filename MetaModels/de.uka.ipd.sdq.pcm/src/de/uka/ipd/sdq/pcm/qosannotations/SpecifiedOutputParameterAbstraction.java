@@ -65,12 +65,12 @@ public interface SpecifiedOutputParameterAbstraction extends EStereotypableObjec
      * {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations
      * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}'. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Qos Annotations Specified Output Parameter Abstraction</em>'
+     * If the meaning of the ' <em>Qos Annotations Specified Output Parameter Abstraction</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Qos Annotations Specified Output Parameter Abstraction</em>'
+     * @return the value of the ' <em>Qos Annotations Specified Output Parameter Abstraction</em>'
      *         container reference.
      * @see #setQosAnnotations_SpecifiedOutputParameterAbstraction(QoSAnnotations)
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_QosAnnotations_SpecifiedOutputParameterAbstraction()
@@ -89,7 +89,7 @@ public interface SpecifiedOutputParameterAbstraction extends EStereotypableObjec
      * 
      * @param value
      *            the new value of the '
-     *            <em>Qos Annotations Specified Output Parameter Abstraction</em>' container
+     *            <em>Qos Annotations Specified Output Parameter Abstraction</em> ' container
      *            reference.
      * @see #getQosAnnotations_SpecifiedOutputParameterAbstraction()
      * @generated
@@ -97,15 +97,15 @@ public interface SpecifiedOutputParameterAbstraction extends EStereotypableObjec
     void setQosAnnotations_SpecifiedOutputParameterAbstraction(QoSAnnotations value);
 
     /**
-     * Returns the value of the '<em><b>Signature Specified Output Parameter Abstraction</b></em>'
+     * Returns the value of the ' <em><b>Signature Specified Output Parameter Abstraction</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Signature Specified Output Parameter Abstraction</em>' reference
+     * If the meaning of the ' <em>Signature Specified Output Parameter Abstraction</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Signature Specified Output Parameter Abstraction</em>'
+     * @return the value of the ' <em>Signature Specified Output Parameter Abstraction</em>'
      *         reference.
      * @see #setSignature_SpecifiedOutputParameterAbstraction(Signature)
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction()
@@ -121,7 +121,7 @@ public interface SpecifiedOutputParameterAbstraction extends EStereotypableObjec
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Signature Specified Output Parameter Abstraction</em>'
+     *            the new value of the ' <em>Signature Specified Output Parameter Abstraction</em>'
      *            reference.
      * @see #getSignature_SpecifiedOutputParameterAbstraction()
      * @generated
@@ -129,15 +129,15 @@ public interface SpecifiedOutputParameterAbstraction extends EStereotypableObjec
     void setSignature_SpecifiedOutputParameterAbstraction(Signature value);
 
     /**
-     * Returns the value of the '<em><b>Role Specified Output Parameter Abstraction</b></em>'
+     * Returns the value of the ' <em><b>Role Specified Output Parameter Abstraction</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '<em>Role Specified Output Parameter Abstraction</em>' reference isn't
+     * If the meaning of the ' <em>Role Specified Output Parameter Abstraction</em>' reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Role Specified Output Parameter Abstraction</em>' reference.
+     * @return the value of the ' <em>Role Specified Output Parameter Abstraction</em>' reference.
      * @see #setRole_SpecifiedOutputParameterAbstraction(Role)
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction()
      * @model required="true" ordered="false"
@@ -152,7 +152,7 @@ public interface SpecifiedOutputParameterAbstraction extends EStereotypableObjec
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Role Specified Output Parameter Abstraction</em>'
+     *            the new value of the ' <em>Role Specified Output Parameter Abstraction</em>'
      *            reference.
      * @see #getRole_SpecifiedOutputParameterAbstraction()
      * @generated
@@ -161,25 +161,25 @@ public interface SpecifiedOutputParameterAbstraction extends EStereotypableObjec
 
     /**
      * Returns the value of the '
-     * <em><b>Expected External Outputs Specified Output Parameter Abstraction</b></em>' containment
-     * reference list. The list contents are of type
+     * <em><b>Expected External Outputs Specified Output Parameter Abstraction</b></em> '
+     * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
-     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'.
+     * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>} '.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
-     * <em>Expected External Outputs Specified Output Parameter Abstraction</em>' containment
+     * <em>Expected External Outputs Specified Output Parameter Abstraction</em> ' containment
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Expected External Outputs Specified Output Parameter Abstraction</em>'
+     *         <em>Expected External Outputs Specified Output Parameter Abstraction</em> '
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
-     * @model opposite="specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage"
+     * @model opposite= "specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage"
      *        containment="true" ordered="false"
      * @generated
      */

@@ -43,7 +43,7 @@ public class InnerDeclarationItemProvider extends NamedElementItemProvider imple
      * 
      * @generated
      */
-    public InnerDeclarationItemProvider(AdapterFactory adapterFactory) {
+    public InnerDeclarationItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -54,13 +54,13 @@ public class InnerDeclarationItemProvider extends NamedElementItemProvider imple
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addDatatype_InnerDeclarationPropertyDescriptor(object);
+            this.addDatatype_InnerDeclarationPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
@@ -69,13 +69,12 @@ public class InnerDeclarationItemProvider extends NamedElementItemProvider imple
      * 
      * @generated
      */
-    protected void addDatatype_InnerDeclarationPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add(createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-                getResourceLocator(),
-                getString("_UI_InnerDeclaration_datatype_InnerDeclaration_feature"),
-                getString("_UI_PropertyDescriptor_description",
-                        "_UI_InnerDeclaration_datatype_InnerDeclaration_feature", "_UI_InnerDeclaration_type"),
+    protected void addDatatype_InnerDeclarationPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_InnerDeclaration_datatype_InnerDeclaration_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_InnerDeclaration_datatype_InnerDeclaration_feature",
+                        "_UI_InnerDeclaration_type"),
                 RepositoryPackage.Literals.INNER_DECLARATION__DATATYPE_INNER_DECLARATION, true, false, true, null,
                 null, null));
     }
@@ -86,8 +85,8 @@ public class InnerDeclarationItemProvider extends NamedElementItemProvider imple
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/InnerDeclaration"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/InnerDeclaration"));
     }
 
     /**
@@ -97,10 +96,10 @@ public class InnerDeclarationItemProvider extends NamedElementItemProvider imple
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        String label = ((InnerDeclaration) object).getEntityName();
-        return label == null || label.length() == 0 ? getString("_UI_InnerDeclaration_type")
-                : getString("_UI_InnerDeclaration_type") + " " + label;
+    public String getText(final Object object) {
+        final String label = ((InnerDeclaration) object).getEntityName();
+        return label == null || label.length() == 0 ? this.getString("_UI_InnerDeclaration_type") : this
+                .getString("_UI_InnerDeclaration_type") + " " + label;
     }
 
     /**
@@ -111,8 +110,8 @@ public class InnerDeclarationItemProvider extends NamedElementItemProvider imple
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
@@ -123,7 +122,7 @@ public class InnerDeclarationItemProvider extends NamedElementItemProvider imple
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
