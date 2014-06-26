@@ -20,8 +20,8 @@ public class SimCompConfigFactory {
 
     	Map<String, Object> configMap = AbstractSimulationConfigFactory.createConfigMap((AbstractSimulationConfiguration) config, stopConditions, model, experimentName);
     	configMap.put(AbstractSimulationConfig.SIMULATOR_ID, "de.uka.ipd.sdq.codegen.simucontroller.simcomp");
-    	
-    	Logger.getRootLogger().setLevel(Level.DEBUG);
+
+    	//Logger.getRootLogger().setLevel(Level.DEBUG);
     	
     	return new SimulationConfiguration(configMap, false);
     }
