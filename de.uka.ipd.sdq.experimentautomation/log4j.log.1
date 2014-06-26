@@ -1,0 +1,1148 @@
+[main      ] INFO : Task Composite Job Execution completed in 0.824869865 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.023122008 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.118096038 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 2.836E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.03160236 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.302062305 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.082189072 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.182414696 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.089025465 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.1368016 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.136922355 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.1431335 seconds
+[main      ] INFO : Task  completed in 0.043142901 seconds
+[main      ] INFO : Task  completed in 0.880218265 seconds
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Unable to build the simulation plugin. Failure Messages: The project was not built since its build path is incomplete. Cannot find the class file for de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus. Fix the build path then try building this project
+The type de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus cannot be resolved. It is indirectly referenced from required .class files
+
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CompilePluginCodeJob.checkForErrors(CompilePluginCodeJob.java:163)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CompilePluginCodeJob.execute(CompilePluginCodeJob.java:59)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.tooladapter.simucom.SimuComToolAdapter.runExperiment(SimuComToolAdapter.java:36)
+	at de.uka.ipd.sdq.experimentautomation.controller.ExperimentController.runNextExperiment(ExperimentController.java:102)
+	at de.uka.ipd.sdq.experimentautomation.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@16a068 uri='bundleentry://928.fwk26425437/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@17d2482 uri='bundleentry://928.fwk26425437/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@e7e1ee uri='bundleentry://928.fwk26425437/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.033869946 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.097342921 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.065151782 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.143065829 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.242E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.007819445 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.269936406 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.069947103 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.099057793 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.086078737 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.123357762 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.123470412 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.004336212 seconds
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@70f11 uri='bundleentry://928.fwk26425437/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@1d93f39 uri='bundleentry://928.fwk26425437/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@81be8a uri='bundleentry://928.fwk26425437/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.134735406 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.957821513 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Task Closing 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 1.860133349 seconds
+[main      ] INFO : Task  completed in 0.049548955 seconds
+[main      ] INFO : Task  completed in 1.34532E-4 seconds
+[main      ] INFO : Task Create. completed in 0.00472684 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.006987133 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.242E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.042194697 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.627351568 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.079417802 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.10983207 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.066925005 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.155879152 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.156174554 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.007549167 seconds
+[main      ] INFO : Task  completed in 0.023202646 seconds
+[main      ] INFO : Task  completed in 0.255568271 seconds
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Unable to build the simulation plugin. Failure Messages: The project was not built since its build path is incomplete. Cannot find the class file for de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus. Fix the build path then try building this project
+The type de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus cannot be resolved. It is indirectly referenced from required .class files
+
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CompilePluginCodeJob.checkForErrors(CompilePluginCodeJob.java:163)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CompilePluginCodeJob.execute(CompilePluginCodeJob.java:59)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.tooladapter.simucom.SimuComToolAdapter.runExperiment(SimuComToolAdapter.java:36)
+	at de.uka.ipd.sdq.experimentautomation.controller.ExperimentController.runNextExperiment(ExperimentController.java:102)
+	at de.uka.ipd.sdq.experimentautomation.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@445f88 uri='bundleentry://928.fwk26425437/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@dbe837 uri='bundleentry://928.fwk26425437/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@16a9a4c uri='bundleentry://928.fwk26425437/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.031655039 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.079499656 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.00213346 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.007916697 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 2.837E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.007454752 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.201214269 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.070161867 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.116074417 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.061528344 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.122671733 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.122820852 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.003984485 seconds
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@17d1b24 uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@1254e47 uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@164f4eb uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.226712461 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 1.288832014 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Task Closing 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 4.17777E-4 seconds
+[main      ] INFO : Task  completed in 0.044454584 seconds
+[main      ] INFO : Task  completed in 4.53031E-4 seconds
+[main      ] INFO : Task Create. completed in 0.007993688 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.003044791 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.242E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.07397211 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.416351747 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.088275816 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.204679268 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.107338374 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.202252432 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.202384937 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.217697225 seconds
+[main      ] INFO : Task  completed in 0.026388451 seconds
+[main      ] INFO : Task  completed in 0.769929922 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 2.167684704 real time seconds.
+[main      ] INFO : Simulation stopped. It took 2.167854489 seconds real time to terminate
+[main      ] INFO : Task  completed in 3.422494815 seconds
+[main      ] INFO : Task Composite Job Execution completed in 16.013511915 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@f3a6e uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@1c51a26 uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@1eba uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.046227807 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.180341613 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.489642283 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.002940649 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.242E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.008376617 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.381752412 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.099313078 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.122961867 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.108248083 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.153986795 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.15410998 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005272261 seconds
+[main      ] INFO : Task  completed in 0.020140027 seconds
+[main      ] INFO : Task  completed in 0.484124463 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 2.278302892 real time seconds.
+[main      ] INFO : Simulation stopped. It took 2.278422431 seconds real time to terminate
+[main      ] INFO : Task  completed in 2.922886659 seconds
+[main      ] INFO : Task Composite Job Execution completed in 9.107391863 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@e72b6c uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@d3d889 uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@2d171a uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.033232948 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.080705172 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.00539342 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.140585099 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.647E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.008261131 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.268048506 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.089254006 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.113476985 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.099681824 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.14291833 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.143022471 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005410439 seconds
+[main      ] INFO : Task  completed in 0.054826078 seconds
+[main      ] INFO : Task  completed in 0.563331958 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 2.182530993 real time seconds.
+[main      ] INFO : Simulation stopped. It took 2.182668766 seconds real time to terminate
+[main      ] INFO : Task  completed in 2.91056 seconds
+[main      ] INFO : Task Composite Job Execution completed in 8.18120067 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@8e2d21 uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@34fad8 uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@408e80 uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.032683476 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.082292807 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.004601223 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.002876221 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.242E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.007661007 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.33805396 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.082939531 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.132696361 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.091044654 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.139131996 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.139250724 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.004680646 seconds
+[main      ] INFO : Task  completed in 0.020181358 seconds
+[main      ] INFO : Task  completed in 1.085964465 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 2.145713102 real time seconds.
+[main      ] INFO : Simulation stopped. It took 2.145861412 seconds real time to terminate
+[main      ] INFO : Task  completed in 3.358096734 seconds
+[main      ] INFO : Task Composite Job Execution completed in 8.569791095 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@965fce uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@6bdb05 uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@f8288e uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.031328029 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.076529426 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.005219177 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.148149664 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.242E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.007606707 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.229890162 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.078712727 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.106956661 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.09431596 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.154169142 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.154288275 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.004749937 seconds
+[main      ] INFO : Task  completed in 0.051418214 seconds
+[main      ] INFO : Task  completed in 0.914580549 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 2.137811803 real time seconds.
+[main      ] INFO : Simulation stopped. It took 2.137959707 seconds real time to terminate
+[main      ] INFO : Task  completed in 3.182153332 seconds
+[main      ] INFO : Task Composite Job Execution completed in 8.395614838 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@12ae9cc uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@5b8d33 uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@9320e4 uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.031489305 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.086287423 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.005225256 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.138460553 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.647E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.007808505 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.238839754 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.080214456 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.149544011 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.066493856 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.13777817 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.137894062 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.004777087 seconds
+[main      ] INFO : Task  completed in 0.051987947 seconds
+[main      ] INFO : Task  completed in 0.85893472 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 3.494362641 real time seconds.
+[main      ] INFO : Simulation stopped. It took 3.494498388 seconds real time to terminate
+[main      ] INFO : Task  completed in 4.608298329 seconds
+[main      ] INFO : Task Composite Job Execution completed in 9.879015585 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@a96577 uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@1446e1f uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@199d8c0 uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.02808752 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.079824639 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.006675522 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.140556733 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.241E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.007590498 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.269185541 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.081250998 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.155380332 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.066104848 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.139315154 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.139425372 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.004693207 seconds
+[main      ] INFO : Task  completed in 0.052395999 seconds
+[main      ] INFO : Task  completed in 0.925348749 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 2.202884974 real time seconds.
+[main      ] INFO : Simulation stopped. It took 2.202997217 seconds real time to terminate
+[main      ] INFO : Task  completed in 3.261157409 seconds
+[main      ] INFO : Task Composite Job Execution completed in 8.45577801 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@124ce0f uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@1545f46 uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@3b0e2c uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimuComJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Generate SimuCom Plugin Code Create Simulation Metadata Files Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.029801177 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.0771956 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.005514985 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.134979751 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 3.242E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Generate SimuCom Plugin Code
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.007614407 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.231571402 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.07850161 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.158413371 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.067938044 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job oAW Job
+[main      ] INFO : Validating oAW configuration settings...
+[main      ] INFO : Running oAW task....
+[main      ] INFO : Task Running Xpand Generator... completed in 0.145122298 seconds
+[main      ] INFO : Task Running Xpand Generator... completed in 0.146330651 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.00506398 seconds
+[main      ] INFO : Task  completed in 0.062386995 seconds
+[main      ] INFO : Task  completed in 1.228768931 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] INFO : Starting Simulation
+[main      ] INFO : Simulated Resource Container created. ContainerID _1br-ICknEeC3vLdDtV4gcw
+[main      ] INFO : Creating Simulated Active Resource: CPU
+[main      ] INFO : Creating Simulated Active Resource: HDD
+[main      ] INFO : Creating composed structure defaultSystem
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] INFO : Simulation took 1000.0 simulation seconds
+[main      ] WARN : Simulation terminated. Took 2.247050233 real time seconds.
+[main      ] INFO : Simulation stopped. It took 2.247174635 seconds real time to terminate
+[main      ] INFO : Task  completed in 3.612538911 seconds
+[main      ] INFO : Task Composite Job Execution completed in 8.850786646 seconds
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@82a26f uri='bundleentry://928.fwk32956236/config/default.usagemodel'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.system.util.SystemResourceImpl@76371c uri='bundleentry://928.fwk32956236/config/default.system'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceImpl@11c2718 uri='bundleentry://928.fwk32956236/config/default.repository'
+[main      ] INFO : Creating workflow engine and starting workflow

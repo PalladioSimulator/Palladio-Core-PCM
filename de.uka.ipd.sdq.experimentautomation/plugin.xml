@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExperimentAutomation -->
+      <package
+            uri="http://sdq.ipd.uka.de/ExperimentAutomation/Variation/1.0"
+            class="de.uka.ipd.sdq.experimentautomation.variation.VariationPackage"
+            genModel="model/ExperimentAutomation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ExperimentAutomation -->
+      <parser
+            type="variation"
+            class="de.uka.ipd.sdq.experimentautomation.variation.util.VariationResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExperimentAutomation -->
+      <package
+            uri="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/1.0"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.ExperimentsPackage"
+            genModel="model/ExperimentAutomation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ExperimentAutomation -->
+      <parser
+            type="experiments"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.util.ExperimentsResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExperimentAutomation -->
+      <package
+            uri="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/AbstractSimulation/1.0"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.abstractsimulation.AbstractSimulationPackage"
+            genModel="model/ExperimentAutomation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ExperimentAutomation -->
+      <parser
+            type="abstractsimulation"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.abstractsimulation.util.AbstractSimulationResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExperimentAutomation -->
+      <package
+            uri="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/SimuCom/1.0"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.simucom.SimucomPackage"
+            genModel="model/ExperimentAutomation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ExperimentAutomation -->
+      <parser
+            type="simucom"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.simucom.util.SimucomResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExperimentAutomation -->
+      <package
+            uri="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/EventSim/1.0"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.eventsim.EventsimPackage"
+            genModel="model/ExperimentAutomation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ExperimentAutomation -->
+      <parser
+            type="eventsim"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.eventsim.util.EventsimResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ExperimentAutomation -->
+      <package
+            uri="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/SimComp/1.0"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.simcomp.SimcompPackage"
+            genModel="model/ExperimentAutomation.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated ExperimentAutomation -->
+      <parser
+            type="simcomp"
+            class="de.uka.ipd.sdq.experimentautomation.experiments.simcomp.util.SimcompResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

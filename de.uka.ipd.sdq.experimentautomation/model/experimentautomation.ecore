@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="experimentautomation" nsURI="http://sdq.ipd.uka.de/ExperimentAutomation/1.0"
+    nsPrefix="exa">
+  <eSubpackages name="variation" nsURI="http://sdq.ipd.uka.de/ExperimentAutomation/Variation/1.0"
+      nsPrefix="ExperimentAutomation.Variation">
+    <eClassifiers xsi:type="ecore:EClass" name="VariationType" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="strategyClass" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variedEntityInterface"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueVariation" eSuperTypes="#//variation/VariationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StructuralVariation" eSuperTypes="#//variation/VariationType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VariationRepository">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variation" ordered="false"
+          upperBound="-1" eType="#//variation/VariationType" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="experiments" nsURI="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/1.0"
+      nsPrefix="ExperimentAutomation.Experiments">
+    <eClassifiers xsi:type="ecore:EClass" name="ExperimentRepository">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="experiments" ordered="false"
+          upperBound="-1" eType="#//experiments/Experiment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toolConfiguration" ordered="false"
+          upperBound="-1" eType="#//experiments/ToolConfiguration" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repetitions" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Experiment">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variations" ordered="false"
+          upperBound="-1" eType="#//experiments/Variation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifications" upperBound="-1"
+          eType="#//experiments/Modification" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initialModel" ordered="false"
+          lowerBound="1" eType="#//experiments/PCMModelFiles" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="toolConfiguration" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//experiments/ToolConfiguration"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="stopConditions" ordered="false"
+          upperBound="-1" eType="#//experiments/abstractsimulation/StopCondition"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="experimentDesign" ordered="false"
+          lowerBound="1" eType="#//experiments/ExperimentDesign" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="responseMeasurement"
+          ordered="false" lowerBound="1" eType="#//experiments/ResponseMeasurement"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Variation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false"
+          lowerBound="1" eType="#//variation/VariationType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valueProvider" ordered="false"
+          lowerBound="1" eType="#//experiments/ValueProvider" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minValue" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxValue" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxVariations" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variedObjectId" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueProvider" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMModelFiles">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="allocationFile" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usagemodelFile" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="systemFile" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryFile" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceenvironmentFile"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="middlewareRepositoryFile"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="eventMiddlewareRepositoryFile"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ToolConfiguration" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExperimentDesign" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResponseMeasurement" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PolynomialValueProvider" eSuperTypes="#//experiments/ValueProvider">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exponent" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExponentialValueProvider" eSuperTypes="#//experiments/ValueProvider">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetValueProvider" eSuperTypes="#//experiments/ValueProvider">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlacketBurmanDesign"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FullFactorialDesign" eSuperTypes="#//experiments/ExperimentDesign"/>
+    <eClassifiers xsi:type="ecore:EClass" name="FractionalFactorialDesign"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OneFactorAtATime" eSuperTypes="#//experiments/ExperimentDesign"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimulationDurationMeasurement" eSuperTypes="#//experiments/ResponseMeasurement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProfilingMeasurement" eSuperTypes="#//experiments/ResponseMeasurement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="JMXMeasurement" eSuperTypes="#//experiments/ResponseMeasurement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="pollingPeriod" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LinearValueProvider" eSuperTypes="#//experiments/ValueProvider">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="summand" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Modification">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//variation/VariationType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="variedObjectId" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    </eClassifiers>
+    <eSubpackages name="abstractsimulation" nsURI="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/AbstractSimulation/1.0"
+        nsPrefix="ExperimentAutomation.Experiments.AbstractSimulation">
+      <eClassifiers xsi:type="ecore:EClass" name="AbstractSimulationConfiguration"
+          abstract="true" eSuperTypes="#//experiments/ToolConfiguration">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="persistenceFramework"
+            ordered="false" lowerBound="1" eType="#//experiments/abstractsimulation/PersistenceFramework"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="stopConditions" ordered="false"
+            lowerBound="1" upperBound="-1" eType="#//experiments/abstractsimulation/StopCondition"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="randomNumberGeneratorSeed"
+            ordered="false" eType="#//experiments/abstractsimulation/RandomNumberGeneratorSeed"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulateLinkingResources"
+            ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulateFailures" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="probeSpecConfiguration"
+            ordered="false" lowerBound="1" eType="#//experiments/abstractsimulation/ProbeSpecConfiguration"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="PersistenceFramework" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="RandomNumberGeneratorSeed">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="seed0" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="seed1" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="seed2" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="seed3" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="seed4" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="seed5" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ProbeSpecConfiguration">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="blackboardType" ordered="false"
+            lowerBound="1" eType="#//experiments/abstractsimulation/BlackboardType"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EEnum" name="BlackboardType">
+        <eLiterals name="SIMPLE"/>
+        <eLiterals name="CONCURRENT" value="1"/>
+        <eLiterals name="NONE" value="2"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SensorFramework" eSuperTypes="#//experiments/abstractsimulation/PersistenceFramework">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" ordered="false"
+            lowerBound="1" eType="#//experiments/abstractsimulation/SensorFrameworkDatasource"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SensorFrameworkDatasource" abstract="true"/>
+      <eClassifiers xsi:type="ecore:EClass" name="MemoryDatasource" eSuperTypes="#//experiments/abstractsimulation/SensorFrameworkDatasource"/>
+      <eClassifiers xsi:type="ecore:EClass" name="FileDatasource" eSuperTypes="#//experiments/abstractsimulation/SensorFrameworkDatasource">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="MeasurementCountStopCondition" eSuperTypes="#//experiments/abstractsimulation/StopCondition">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="measurementCount" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SimTimeStopCondition" eSuperTypes="#//experiments/abstractsimulation/StopCondition">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulationTime" ordered="false"
+            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="StopCondition" abstract="true"/>
+    </eSubpackages>
+    <eSubpackages name="simucom" nsURI="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/SimuCom/1.0"
+        nsPrefix="ExperimentAutomation.Experiments.SimuCom">
+      <eClassifiers xsi:type="ecore:EClass" name="SimuComConfiguration" eSuperTypes="#//experiments/abstractsimulation/AbstractSimulationConfiguration"/>
+    </eSubpackages>
+    <eSubpackages name="eventsim" nsURI="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/EventSim/1.0"
+        nsPrefix="ExperimentAutomation.Experiments.EventSim">
+      <eClassifiers xsi:type="ecore:EClass" name="EventSimConfiguration" eSuperTypes="#//experiments/abstractsimulation/AbstractSimulationConfiguration"/>
+    </eSubpackages>
+    <eSubpackages name="simcomp" nsURI="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/SimComp/1.0"
+        nsPrefix="ExperimentAutomation.Experiments.SimComp">
+      <eClassifiers xsi:type="ecore:EClass" name="SimCompConfiguration" eSuperTypes="#//experiments/abstractsimulation/AbstractSimulationConfiguration"/>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>
