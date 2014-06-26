@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExperimentAutomation.Experiments:ExperimentRepository xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ExperimentAutomation.Experiments="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/1.0" xmlns:ExperimentAutomation.Experiments.AbstractSimulation="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/AbstractSimulation/1.0" xmlns:ExperimentAutomation.Experiments.EventSim="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/EventSim/1.0" xmlns:ExperimentAutomation.Experiments.SimuCom="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/SimuCom/1.0" xmlns:ExperimentAutomation.Variation="http://sdq.ipd.uka.de/ExperimentAutomation/Variation/1.0" xsi:schemaLocation="http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/AbstractSimulation/1.0 http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/1.0#//abstractsimulation http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/EventSim/1.0 http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/1.0#//eventsim http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/SimuCom/1.0 http://sdq.ipd.uka.de/ExperimentAutomation/Experiments/1.0#//simucom" repetitions="30">
+  <experiments id="U_WL_POP" name="Vary ClosedWorkload Population" toolConfiguration="#//@toolConfiguration.1" description="">
+    <variations type="ExperimentAutomation.Variation:ValueVariation pcm.variation#_zUZqID5zEeCEPJs72ZSOBg" minValue="1" maxValue="10000" maxVariations="10000" variedObjectId="_f148wAL9EeKgndjQEHtBxg" name="ClosedWorkloadPopulation">
+      <valueProvider xsi:type="ExperimentAutomation.Experiments:SetValueProvider" values="1,10,100,1000"/>
+    </variations>
+    <initialModel allocationFile="D:\models\default.allocation" usagemodelFile="D:\models\default.usagemodel" systemFile="D:\models\default.system" repositoryFile="D:\models\default.repository" resourceenvironmentFile="D:\models\default.resourceenvironment" middlewareRepositoryFile="pathmap://PCM_MODELS/Glassfish.repository" eventMiddlewareRepositoryFile="pathmap://PCM_MODELS/default_event_middleware.repository"/>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:MeasurementCountStopCondition" measurementCount="10000"/>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:SimTimeStopCondition" simulationTime="-1"/>
+    <experimentDesign xsi:type="ExperimentAutomation.Experiments:FullFactorialDesign"/>
+    <responseMeasurement xsi:type="ExperimentAutomation.Experiments:SimulationDurationMeasurement"/>
+  </experiments>
+  <toolConfiguration xsi:type="ExperimentAutomation.Experiments.EventSim:EventSimConfiguration" name="EVENTSIM_1000MEASUREM">
+    <persistenceFramework xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:SensorFramework">
+      <datasource xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:MemoryDatasource"/>
+    </persistenceFramework>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:MeasurementCountStopCondition" measurementCount="1000"/>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:SimTimeStopCondition" simulationTime="-1"/>
+    <probeSpecConfiguration blackboardType="CONCURRENT"/>
+  </toolConfiguration>
+  <toolConfiguration xsi:type="ExperimentAutomation.Experiments.SimuCom:SimuComConfiguration" name="SIMUCOM_1000MEASUREM">
+    <persistenceFramework xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:SensorFramework">
+      <datasource xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:MemoryDatasource"/>
+    </persistenceFramework>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:MeasurementCountStopCondition" measurementCount="1000"/>
+    <stopConditions xsi:type="ExperimentAutomation.Experiments.AbstractSimulation:SimTimeStopCondition" simulationTime="-1"/>
+    <probeSpecConfiguration blackboardType="CONCURRENT"/>
+  </toolConfiguration>
+</ExperimentAutomation.Experiments:ExperimentRepository>

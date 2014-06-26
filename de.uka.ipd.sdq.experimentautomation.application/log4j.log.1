@@ -1,0 +1,1094 @@
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.031687955 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] WARN : Found validation problems in the models
+[main      ] WARN : Continuing workflow, ignoring model validation issues
+[main      ] INFO : Task Composite Job Execution completed in 0.08186072 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.002695104 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.034194647 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 1.639E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005189099 seconds
+[main      ] INFO : Task  completed in 0.056779047 seconds
+[main      ] INFO : Task  completed in 0.184269356 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.NullPointerException
+	at de.uka.ipd.sdq.simulation.traversal.usage.strategies.DelayTraversalStrategy.traverse(DelayTraversalStrategy.java:32)
+	at de.uka.ipd.sdq.simulation.traversal.usage.strategies.DelayTraversalStrategy.traverse(DelayTraversalStrategy.java:1)
+	at de.uka.ipd.sdq.simulation.traversal.BehaviourTraversal.traverse(BehaviourTraversal.java:104)
+	at de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal.beginTraversal(UsageBehaviorTraversal.java:104)
+	at de.uka.ipd.sdq.simulation.events.BeginUsageTraversalEvent.eventRoutine(BeginUsageTraversalEvent.java:42)
+	at de.uka.ipd.sdq.simulation.events.BeginUsageTraversalEvent.eventRoutine(BeginUsageTraversalEvent.java:1)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJSimEvent.actions(SSJSimEvent.java:41)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.031995967 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] WARN : Found validation problems in the models
+[main      ] WARN : Continuing workflow, ignoring model validation issues
+[main      ] INFO : Task Composite Job Execution completed in 0.07087305 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.00283887 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.035295216 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 1.229E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.004904025 seconds
+[main      ] INFO : Task  completed in 0.056792154 seconds
+[main      ] INFO : Task  completed in 0.183014372 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.NullPointerException
+	at de.uka.ipd.sdq.simulation.traversal.usage.strategies.DelayTraversalStrategy.traverse(DelayTraversalStrategy.java:32)
+	at de.uka.ipd.sdq.simulation.traversal.usage.strategies.DelayTraversalStrategy.traverse(DelayTraversalStrategy.java:1)
+	at de.uka.ipd.sdq.simulation.traversal.BehaviourTraversal.traverse(BehaviourTraversal.java:104)
+	at de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal.beginTraversal(UsageBehaviorTraversal.java:104)
+	at de.uka.ipd.sdq.simulation.events.BeginUsageTraversalEvent.eventRoutine(BeginUsageTraversalEvent.java:42)
+	at de.uka.ipd.sdq.simulation.events.BeginUsageTraversalEvent.eventRoutine(BeginUsageTraversalEvent.java:1)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJSimEvent.actions(SSJSimEvent.java:41)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.032541541 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] WARN : Found validation problems in the models
+[main      ] WARN : Continuing workflow, ignoring model validation issues
+[main      ] INFO : Task Composite Job Execution completed in 0.072944348 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.002874914 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.036508832 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 1.229E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.experimentautomation.experiments.util.ExperimentsResourceImpl@53f0a8 uri='file:/W:/Masterarbeit/Workspaces/runtimeworkspace/SimulationScalabilityAnalysis/Q1.1/eventsim.experiments'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.experimentautomation.variation.util.VariationResourceImpl@dca7d0 uri='file:/W:/Masterarbeit/Workspaces/runtimeworkspace/SimulationScalabilityAnalysis/Q1.1/pcm.variation'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@1cc5d23 uri='file:/W:/Masterarbeit/Workspaces/runtimeworkspace/SimulationScalabilityAnalysis/Q1.1/default.usagemodel'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.131696392 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.673982906 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Task Closing 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 2.56813E-4 seconds
+[main      ] INFO : Task  completed in 0.043047123 seconds
+[main      ] INFO : Task  completed in 2.38382E-4 seconds
+[main      ] INFO : Task Create. completed in 0.005997631 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.074464338 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 1.638E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.136324762 seconds
+[main      ] INFO : Task  completed in 0.040100939 seconds
+[main      ] INFO : Task  completed in 0.222501335 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.ClassCastException: de.uka.ipd.sdq.simulation.command.PCMModelCommandExecutor cannot be cast to de.uka.ipd.sdq.simulation.command.CountingPCMModelCommandExecutor
+	at de.uka.ipd.sdq.simulation.EventSimModel.finalise(EventSimModel.java:179)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJModel.finalise(SSJModel.java:29)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.stop(SSJExperiment.java:102)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment$1.actions(SSJExperiment.java:124)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.031449573 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.084710649 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.002927342 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.047261397 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 2.048E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005516363 seconds
+[main      ] INFO : Task  completed in 0.114648833 seconds
+[main      ] INFO : Task  completed in 1.901411202 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.ClassCastException: de.uka.ipd.sdq.simulation.command.PCMModelCommandExecutor cannot be cast to de.uka.ipd.sdq.simulation.command.CountingPCMModelCommandExecutor
+	at de.uka.ipd.sdq.simulation.EventSimModel.finalise(EventSimModel.java:179)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJModel.finalise(SSJModel.java:29)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.stop(SSJExperiment.java:102)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment$1.actions(SSJExperiment.java:124)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.030226536 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.070374578 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.003200539 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.035893218 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 2.048E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005492196 seconds
+[main      ] INFO : Task  completed in 0.059780525 seconds
+[main      ] INFO : Task  completed in 0.270986179 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.ClassCastException: de.uka.ipd.sdq.simulation.command.PCMModelCommandExecutor cannot be cast to de.uka.ipd.sdq.simulation.command.CountingPCMModelCommandExecutor
+	at de.uka.ipd.sdq.simulation.EventSimModel.finalise(EventSimModel.java:179)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJModel.finalise(SSJModel.java:29)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.stop(SSJExperiment.java:102)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment$1.actions(SSJExperiment.java:124)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.030665617 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.070675628 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.004032826 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.044876353 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 2.048E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005716242 seconds
+[main      ] INFO : Task  completed in 0.064377767 seconds
+[main      ] INFO : Task  completed in 0.202464587 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.ClassCastException: de.uka.ipd.sdq.simulation.command.PCMModelCommandExecutor cannot be cast to de.uka.ipd.sdq.simulation.command.CountingPCMModelCommandExecutor
+	at de.uka.ipd.sdq.simulation.EventSimModel.finalise(EventSimModel.java:179)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJModel.finalise(SSJModel.java:29)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.stop(SSJExperiment.java:102)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment$1.actions(SSJExperiment.java:124)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.029017426 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.062911843 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.003298431 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.040813217 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 2.457E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005388161 seconds
+[main      ] INFO : Task  completed in 0.054654503 seconds
+[main      ] INFO : Task  completed in 0.190359964 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.ClassCastException: de.uka.ipd.sdq.simulation.command.PCMModelCommandExecutor cannot be cast to de.uka.ipd.sdq.simulation.command.CountingPCMModelCommandExecutor
+	at de.uka.ipd.sdq.simulation.EventSimModel.finalise(EventSimModel.java:179)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJModel.finalise(SSJModel.java:29)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.stop(SSJExperiment.java:102)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment$1.actions(SSJExperiment.java:124)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.032617724 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.06770364 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.004581267 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.002821668 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 1.638E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005379968 seconds
+[main      ] INFO : Task  completed in 0.054813014 seconds
+[main      ] INFO : Task  completed in 0.185759036 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] INFO : Simulation stop requested!
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.ClassCastException: de.uka.ipd.sdq.simulation.command.PCMModelCommandExecutor cannot be cast to de.uka.ipd.sdq.simulation.command.CountingPCMModelCommandExecutor
+	at de.uka.ipd.sdq.simulation.EventSimModel.finalise(EventSimModel.java:179)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJModel.finalise(SSJModel.java:29)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.stop(SSJExperiment.java:102)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment$1.actions(SSJExperiment.java:124)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.030226536 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] INFO : Task Composite Job Execution completed in 0.064113581 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 0.002791358 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.036841829 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 1.639E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.005156333 seconds
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.experimentautomation.experiments.util.ExperimentsResourceImpl@1f5eb7f uri='file:/W:/Masterarbeit/Workspaces/runtimeworkspace/SimulationScalabilityAnalysis/Q1.1/eventsim.experiments'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.experimentautomation.variation.util.VariationResourceImpl@381a53 uri='file:/W:/Masterarbeit/Workspaces/runtimeworkspace/SimulationScalabilityAnalysis/Q1.1/pcm.variation'
+[main      ] INFO : Saving resource: de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceImpl@1eb7d25 uri='file:/W:/Masterarbeit/Workspaces/runtimeworkspace/SimulationScalabilityAnalysis/Q1.1/default.usagemodel'
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.14092528 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] WARN : Found validation problems in the models
+[main      ] WARN : Continuing workflow, ignoring model validation issues
+[main      ] INFO : Task Composite Job Execution completed in 0.768017878 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Task Closing 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 3.03097E-4 seconds
+[main      ] INFO : Task  completed in 0.046886622 seconds
+[main      ] INFO : Task  completed in 2.34695E-4 seconds
+[main      ] INFO : Task Create. completed in 0.006319569 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.01424678 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <>
+[main      ] INFO : Task Composite Job Execution completed in 2.048E-6 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Add event transformation job
+[main      ] INFO : Executing QVTO Transformation...
+[main      ] DEBUG: Script: platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto
+[main      ] INFO : Transformation executed successfully
+[main      ] DEBUG: Saving partition de.uka.ipd.sdq.pcmmodels.partition
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/default_event_middleware.repository
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Simulation Metadata Files
+[main      ] DEBUG: SDQ Workflow-Engine: Running job null
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Compile Plugin Code
+[main      ] INFO : Task Setting project description. completed in 0.140148289 seconds
+[main      ] INFO : Task  completed in 0.021007068 seconds
+[main      ] INFO : Task  completed in 0.237530843 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Building simulation plugin JAR archive
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Transfer Plugin to Dock and Simulate
+[main      ] WARN : Starting simulation...
+[main      ] ERROR: Workflow job failed, handling failure...
+[main      ] ERROR: Failure reason was: 
+de.uka.ipd.sdq.workflow.exceptions.JobFailedException: Simulation run failed.
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:65)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob.execute(OrderPreservingBlackboardCompositeJob.java:39)
+	at de.uka.ipd.sdq.workflow.OrderPreservingCompositeJob.execute(OrderPreservingCompositeJob.java:40)
+	at de.uka.ipd.sdq.workflow.BlackboardBasedWorkflow.execute(BlackboardBasedWorkflow.java:51)
+	at de.uka.ipd.sdq.workflow.Workflow.run(Workflow.java:63)
+	at de.uka.ipd.sdq.experimentautomation.application.tooladapter.eventsim.EventSimToolAdapter.runExperiment(EventSimToolAdapter.java:35)
+	at de.uka.ipd.sdq.experimentautomation.application.controller.ExperimentController.runNextExperiment(ExperimentController.java:123)
+	at de.uka.ipd.sdq.experimentautomation.application.ExperimentApplication.start(ExperimentApplication.java:37)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:194)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:368)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:559)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:514)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1311)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1287)
+Caused by: java.lang.RuntimeException: Simulation failed
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:72)
+	at de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransferSimulationBundleToDock.execute(TransferSimulationBundleToDock.java:57)
+	... 21 more
+Caused by: java.lang.RuntimeException: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:127)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.loadAndSimulateBundle(SimulationDockServiceImpl.java:87)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:70)
+	... 22 more
+Caused by: java.lang.RuntimeException: Simulation failed.
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:124)
+	... 24 more
+Caused by: java.lang.NullPointerException
+	at de.uka.ipd.sdq.simulation.traversal.usage.strategies.DelayTraversalStrategy.traverse(DelayTraversalStrategy.java:32)
+	at de.uka.ipd.sdq.simulation.traversal.usage.strategies.DelayTraversalStrategy.traverse(DelayTraversalStrategy.java:1)
+	at de.uka.ipd.sdq.simulation.traversal.BehaviourTraversal.traverse(BehaviourTraversal.java:104)
+	at de.uka.ipd.sdq.simulation.traversal.usage.UsageBehaviorTraversal.beginTraversal(UsageBehaviorTraversal.java:104)
+	at de.uka.ipd.sdq.simulation.events.BeginUsageTraversalEvent.eventRoutine(BeginUsageTraversalEvent.java:42)
+	at de.uka.ipd.sdq.simulation.events.BeginUsageTraversalEvent.eventRoutine(BeginUsageTraversalEvent.java:1)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJSimEvent.actions(SSJSimEvent.java:41)
+	at umontreal.iro.lecuyer.simevents.Simulator.start(Simulator.java:201)
+	at de.uka.ipd.sdq.simucomframework.ssj.SSJExperiment.start(SSJExperiment.java:81)
+	at de.uka.ipd.sdq.simulation.SimulationMain.startSimulation(SimulationMain.java:91)
+	at de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl.simulate(SimulationDockServiceImpl.java:120)
+	... 24 more
+[main      ] INFO : Cleaning up...
+[main      ] INFO : Deleting project de.uka.ipd.sdq.codegen.simucominstance
+[main      ] INFO : Workflow engine completed task
+[main      ] INFO : Creating workflow engine and starting workflow
+[main      ] DEBUG: Setting Blackboard of job de.uka.ipd.sdq.simulation.controller.workflow.jobs.EventSimJob
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load > Load Middleware Configuration into Blackboard Checking PCM model constraints Create Plugin Project Create working copy of models CompositeJob <> Add event transformation job Create Simulation Metadata Files null Compile Plugin Code Building simulation plugin JAR archive Transfer Plugin to Dock and Simulate >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job CompositeJob <Prepare PCM Blackboard Partions Perform PCM Model Load >
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Prepare PCM Blackboard Partions
+[main      ] DEBUG: Creating PCM Model Partition
+[main      ] DEBUG: Initialising PCM EPackages
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Perform PCM Model Load
+[main      ] INFO : Loading PCM Model Files
+[main      ] INFO : Task Composite Job Execution completed in 0.04171022 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Load Middleware Configuration into Blackboard
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking PCM model constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Checking oAW constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Check EMF Model Constraints
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Show validation errors
+[main      ] WARN : Found validation problems in the models
+[main      ] WARN : Continuing workflow, ignoring model validation issues
+[main      ] INFO : Task Composite Job Execution completed in 0.147781004 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create Plugin Project
+[main      ] INFO : Task Create. completed in 1.022666318 seconds
+[main      ] INFO : Task Opening 'de.uka.ipd.sdq.codegen.simucominstance'. completed in 0.145401694 seconds
+[main      ] DEBUG: SDQ Workflow-Engine: Running job Create working copy of models
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/PrimitiveTypes.repository
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Palladio.resourcetype
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.allocation
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.usagemodel
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/ConnectorConfig.featureconfig
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.resourceenvironment
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.system
+[main      ] DEBUG: Save resource pathmap://PCM_MODELS/Connector.featuremodel
+[main      ] DEBUG: Save resource file:/W:\Masterarbeit\Workspaces\runtime-New_configuration\de.uka.ipd.sdq.codegen.simucominstance\model/default.repository
