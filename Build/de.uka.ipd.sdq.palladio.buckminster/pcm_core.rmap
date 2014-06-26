@@ -28,7 +28,7 @@
   <rm:locator pattern="^de\.itemis\.xtext\..*" searchPathRef="itemis" failOnError="false"/>
   <rm:locator pattern="^org\.antlr\..*" searchPathRef="itemis" failOnError="false"/>
   <rm:locator searchPathRef="MDSDProfiles" failOnError="false"/>
-  <rm:locator searchPathRef="kepler" failOnError="false"/>
+  <rm:locator searchPathRef="luna" failOnError="false"/>
   <rm:locator searchPathRef="orbit" failOnError="false"/>
   <rm:locator searchPathRef="orbitintegration" failOnError="false"/>
   <rm:searchPath name="itemis">
@@ -119,7 +119,7 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/releases/kepler/"/>
+      <rm:uri format="http://download.eclipse.org/releases/luna/"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="orbit">
@@ -136,11 +136,11 @@
       <rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/I20140407192103/repository/"/>
     </rm:provider>
   </rm:searchPath>
-  <rm:searchPath name="kepler">
+  <rm:searchPath name="luna">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/releases/kepler/"/>
+      <rm:uri format="http://download.eclipse.org/releases/luna/"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="localresources">
