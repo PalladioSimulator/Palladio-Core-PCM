@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.log4j.Level;
@@ -84,9 +85,10 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		super.finalise();
 
 		// clean up created resources
-		for (String key : containerToResourceMap.keySet()) {
-			containerToResourceMap.get(key).deactivateResource();
-			containerToResourceMap.remove(key);
+		for(Iterator<Map.Entry<String, SimActiveResource>> it = containerToResourceMap.entrySet().iterator(); it.hasNext();) {
+		      Map.Entry<String, SimActiveResource> entry = it.next();
+		      entry.getValue().deactivateResource();
+		      it.remove();
 		}
 
 		AbstractActiveResource.cleanProcesses();
