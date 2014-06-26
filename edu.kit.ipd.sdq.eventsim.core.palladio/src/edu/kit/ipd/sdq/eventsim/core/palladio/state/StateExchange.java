@@ -36,5 +36,17 @@ public class StateExchange {
 
 		return stateExService.getUserState(userId);
 	}
+
+	public static void cleanupUserState(String userId) {
+		BundleContext bundleContext = Activator.getContext();
+		ServiceReference<IStateExchangeService> stateExServiceRef = bundleContext.getServiceReference(IStateExchangeService.class);
+		IStateExchangeService stateExService = bundleContext.getService(stateExServiceRef);
+
+		if (stateExService == null) {
+			throw new RuntimeException("Could not find user state exchange service");
+		}
+
+		stateExService.cleanupUserState(userId);
+	}
 	
 }

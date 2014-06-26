@@ -28,4 +28,9 @@ public class StateExchangeService implements IStateExchangeService {
 		return userToStateMap.get(userId);
 	}
 
+	@Override
+	public void cleanupUserState(String userId) {
+		userToStateMap.remove(userId);
+	}
+
 }

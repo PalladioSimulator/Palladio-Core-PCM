@@ -72,7 +72,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
 
             @Override
             public void enteredSystem() {
-                //ClosedWorkloadGenerator.this.blackboardGarbageCollector.enterRegion(user.getRequestContext().rootContext());
+                ClosedWorkloadGenerator.this.blackboardGarbageCollector.enterRegion(user.getRequestContext().rootContext());
             }
 
             @Override

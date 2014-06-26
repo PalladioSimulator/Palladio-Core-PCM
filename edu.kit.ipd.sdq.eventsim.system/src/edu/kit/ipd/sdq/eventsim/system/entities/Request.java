@@ -1,6 +1,5 @@
 package edu.kit.ipd.sdq.eventsim.system.entities;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.osgi.service.useradmin.User;
 
@@ -38,12 +37,6 @@ public class Request extends EventSimEntity implements IRequest {
      * Specification.
      */
     private RequestContext requestContext;
-
-//    /**
-//     * the simulated process is used to schedule resource requests issued by this Request on an
-//     * active or passive resource.
-//     */
-//    private SimulatedProcess simulatedProcess;
 
     /**
      * the activation event encapsulates the bahaviour that is to be performed when this Request is
@@ -149,8 +142,9 @@ public class Request extends EventSimEntity implements IRequest {
      */
     public void activate() {
         if (this.activationEvent == null) {
-        	if(logger.isEnabledFor(Level.WARN))
-        		logger.warn("Tried to activate request " + this.getName() + ", but there is no activation event.");
+        	// TODO reactive output (disabled it for performance measurements)
+        	//if(logger.isEnabledFor(Level.WARN))
+        	//	logger.warn("Tried to activate request " + this.getName() + ", but there is no activation event.");
             return;
         }
 

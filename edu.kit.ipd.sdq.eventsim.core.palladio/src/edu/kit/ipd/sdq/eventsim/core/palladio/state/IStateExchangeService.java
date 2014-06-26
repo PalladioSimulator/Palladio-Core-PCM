@@ -24,4 +24,11 @@ public interface IStateExchangeService {
 	 * @return A user state object
 	 */
 	public IUserState getUserState(String userId);
+
+	/**
+	 * Cleans up the stored state for the given user
+	 * 
+	 * @param userId
+	 */
+	public void cleanupUserState(String userId);
 }

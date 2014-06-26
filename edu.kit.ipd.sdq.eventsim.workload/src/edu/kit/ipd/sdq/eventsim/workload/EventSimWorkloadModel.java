@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.IStateExchangeService;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchangeService;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.workload.debug.DebugUsageTraversalListener;
@@ -26,6 +27,7 @@ import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
+import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 
 /**
  * The EventSim workload simulation model. This is the central class of the workload simulation.
@@ -105,6 +107,16 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 				User user = (User) request.getUser();
 
                 new ResumeUsageTraversalEvent(EventSimWorkloadModel.this, user.getUserState()).schedule((User) request.getUser(), 0);
+			}
+
+		});
+		
+		// setup state exchange service cleanup listener
+		this.getSimulationMiddleware().registerEventHandler(WorkloadUserFinished.EVENT_ID, new IEventHandler<WorkloadUserFinished>() {
+
+			@Override
+			public void handle(WorkloadUserFinished simulationEvent) {
+				StateExchange.cleanupUserState(simulationEvent.getUser().getId());
 			}
 
 		});

@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
@@ -36,7 +37,6 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 
 	// maps (ResourceContainer ID, ResourceType ID) -> SimActiveResource
 	private Map<String, SimActiveResource> containerToResourceMap;
-
 	private Map<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
 
 	public EventSimActiveResourceModel(ISimulationMiddleware middleware) {
@@ -69,22 +69,7 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 
 	}
 
-	// TODO String type -> ResourceType type?
 	public void consume(IRequest request, ResourceContainer resourceContainer, ResourceType resourceType, double absoluteDemand) {
-		// Request eventSimRequest = (Request) request;
-		//
-		// RequestState state = eventSimRequest.getRequestState();
-		// final ProcessingResourceType resourceType =
-		// demand.getRequiredResource_ParametricResourceDemand();
-		// final PCMRandomVariable demandSpecification =
-		// demand.getSpecification_ParametericResourceDemand();
-		//
-		// final double absoluteDemand =
-		// NumberConverter.toDouble(state.getStoExContext().evaluate(demandSpecification.getSpecification()));
-		//
-		// final SimulatedResourceContainer resourceContainer =
-		// (SimulatedResourceContainer)
-		// state.getComponent().getResourceContainer();
 
 		final SimActiveResource resource = findOrCreateResource(resourceContainer, resourceType);
 		if (resource == null) {
@@ -98,16 +83,11 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	public void finalise() {
 		super.finalise();
 
-		// TODO (SimComp) erzeugte Ressourcen merken und diese
-		// aufräumen/deaktivieren
-
-		// deactivate all resources
-		// for (SimulatedResourceContainer c :
-		// this.resourceEnvironment.getResourceContainers()) {
-		// for (SimActiveResource r : c.getResources()) {
-		// r.deactivateResource();
-		// }
-		// }
+		// clean up created resources
+		for (String key : containerToResourceMap.keySet()) {
+			containerToResourceMap.get(key).deactivateResource();
+			containerToResourceMap.remove(key);
+		}
 
 		AbstractActiveResource.cleanProcesses();
 	}
@@ -186,23 +166,6 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		return containerToResourceMap.get(compoundKey(specification, resourceType));
 	}
 
-	// protected SimulatedProcess createSimulatedProcess(IRequest request) {
-	// // initialise the simulated process by specifying its ID and a handler
-	// that reacts when the
-	// // process gets activated by the scheduler
-	// SimulatedProcess process = new SimulatedProcess(this, request,
-	// Long.toString(request.getId()));
-	//
-	// // add a handler that reacts when this Request has finished its execution
-	// and informs the
-	// // simulated process about that.
-	//
-	// // TODO (SimComp) get notified when request is finished!!!
-	// // this.addEntityListener(new RequestFinishedHandler(process));
-	//
-	// return process;
-	// }
-
 	private String compoundKey(ResourceContainer specification, ResourceType resourceType) {
 		// TODO better use resource name "CPU", HDD, ... as second component!?
 		return specification.getId() + resourceType.getId();
@@ -213,19 +176,21 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	 * simulated process about that.
 	 * 
 	 * @author Philipp Merkle
-	 * 
 	 */
-	private static final class RequestFinishedHandler implements IEntityListener {
+	private class RequestFinishedHandler implements IEntityListener {
 
+		private IRequest request;
 		private SimulatedProcess process;
 
-		public RequestFinishedHandler(SimulatedProcess process) {
+		public RequestFinishedHandler(IRequest request, SimulatedProcess process) {
+			this.request = request;
 			this.process = process;
 		}
 
 		@Override
 		public void leftSystem() {
-			this.process.setFinished();
+			process.setFinished();
+			requestToSimulatedProcessMap.remove(request);
 		}
 
 		@Override
@@ -243,8 +208,13 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	 */
 	public SimulatedProcess getOrCreateSimulatedProcess(IRequest request) {
 		if (!requestToSimulatedProcessMap.containsKey(request)) {
-			SimulatedProcess p = new SimulatedProcess(this, request, Long.toString(request.getId()));
-			requestToSimulatedProcessMap.put(request, p);
+			SimulatedProcess process = new SimulatedProcess(this, request, Long.toString(request.getId()));
+
+			// add listener for request finish
+			EventSimEntity entity = (EventSimEntity) request;
+			entity.addEntityListener(new RequestFinishedHandler(request, process));
+
+			requestToSimulatedProcessMap.put(request, process);
 		}
 		return requestToSimulatedProcessMap.get(request);
 	}

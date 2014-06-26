@@ -14,3 +14,5 @@ Require-Bundle: org.eclipse.ui,
  edu.kit.ipd.sdq.simcomp.middleware
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
+Export-Package: edu.kit.ipd.sdq.simcomp.controller.runconfig,
+ edu.kit.ipd.sdq.simcomp.controller.workflow.jobs

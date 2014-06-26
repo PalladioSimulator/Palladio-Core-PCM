@@ -210,37 +210,37 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	@Override
-	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> requestingType, Class<? extends ISimulationComponent> requiredType, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context) {
+	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> callerClass, Class<? extends ISimulationComponent> requiredTypeInterface, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context) {
 
 		// determine which simulation component implementation is the caller
 		SimulationComponentImpl caller = null;
 		List<SimulationComponentImpl> registeredComponents = getSimulationComponentMetadata();
 		for (SimulationComponentImpl component : registeredComponents) {
-			if (component.getComponentClass().equals(requestingType.getName())) {
+			if (component.getComponentClass().equals(callerClass.getName())) {
 				caller = component;
 			}
 		}
 
 		if (caller == null) {
-			throw new IllegalStateException("No simulation component implementation found in metadata for class " + requestingType.getName());
+			throw new IllegalStateException("No simulation component implementation found in metadata for class " + callerClass.getName());
 		}
 
 		// determine the used required interface
-		SimulationComponentRequiredType requiredInterface = null;
+		SimulationComponentRequiredType requiredType = null;
 		for (SimulationComponentRequiredType componentRequiredType : caller.getRequiredTypes()) {
-			if (componentRequiredType.getType().getTypeInterface().equals(requiredType.getName())) {
-				requiredInterface = componentRequiredType;
+			if (componentRequiredType.getType().getTypeInterface().equals(requiredTypeInterface.getName())) {
+				requiredType = componentRequiredType;
 			}
 		}
 
-		if (requiredInterface == null) {
-			throw new IllegalStateException("No required interface found for from simulation component " + caller + " to type " + requiredType.getName());
+		if (requiredType == null) {
+			throw new IllegalStateException("No required interface found for from simulation component " + caller + " to type " + requiredTypeInterface.getName());
 		}
 
 		// determine simulation component based on context
 		if (context != null) {
 			// TODO (SimComp): cache decision in a map
-			List<ISimulatorCompositonRule> compositionRules = simConfig.getCompositionRulesForRequiredType(requiredInterface);
+			List<ISimulatorCompositonRule> compositionRules = simConfig.getCompositionRulesForRequiredType(requiredType);
 
 			// iterate rules from bottom to top as they overwrite each other
 			for (int i = 0; i < compositionRules.size(); i++) {
@@ -265,16 +265,15 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		}
 
 		// nothing matched, we use the default simulation component
-		SimulationComponentImpl defaultComponent = simConfig.getDefaultComponentForRequiredType(requiredInterface);
+		SimulationComponentImpl defaultComponent = simConfig.getDefaultComponentForRequiredType(requiredType);
 		
 		if (defaultComponent == null) {
 			// we have no default configured, we use the first one
-			componentLoop:
 			for (SimulationComponentImpl simulationComponentImpl : registeredComponents) {
 				for (SimulationComponentType providedType : simulationComponentImpl.getProvidedTypes()) {
-					if (providedType.equals(requiredInterface.getType())) {
-						defaultComponent = simulationComponentImpl;
-						break componentLoop;
+					if (providedType.equals(requiredType.getType())) {
+
+						return getComponentForComponentMeta(simulationComponentImpl, componentList);
 					}
 				}
 			}
@@ -547,7 +546,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	/**
-	 * Notifies all simulation observers that the simulation is about to start
+	 * Notfies all simulation observers that the simulation is about to start
 	 */
 	private void notifyStartListeners() {
 		AbstractSimulationConfig config = (AbstractSimulationConfig) this.getSimulationConfiguration();
@@ -557,7 +556,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	/**
-	 * Notifies all simulation observers that the simulation has stopped
+	 * Notfies all simulation observers that the simulation has stopped
 	 */
 	private void notifyStopListeners() {
 		AbstractSimulationConfig config = (AbstractSimulationConfig) this.getSimulationConfiguration();
