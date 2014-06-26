@@ -88,14 +88,15 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @generated
+     * @generated not
      */
     @Override
     public Unit getUnit() {
         // TODO: implement this method to return the 'Unit' containment
         // reference
         // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        return null;
     }
 
     /**
@@ -344,7 +345,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
             return this.getUnit() != null;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return this.resourceProvidedRoles__ResourceInterfaceProvidingEntity != null
-                    && !this.resourceProvidedRoles__ResourceInterfaceProvidingEntity.isEmpty();
+            && !this.resourceProvidedRoles__ResourceInterfaceProvidingEntity.isEmpty();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
             return this.getResourceRepository_ResourceType() != null;
         }

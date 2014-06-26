@@ -10,12 +10,12 @@
   <schedulingPolicies__ResourceRepository id="ProcessorSharing" entityName="Processor Sharing"/>
   <schedulingPolicies__ResourceRepository id="FCFS" entityName="First-Come-First-Serve"/>
   <schedulingPolicies__ResourceRepository id="Delay" entityName="Delay"/>
-  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:ProcessingResourceType" id="_oro4gG3fEdy4YaaT-RYrLQ" entityName="CPU" unitSpecification="work units per second">
+  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:ProcessingResourceType" id="_oro4gG3fEdy4YaaT-RYrLQ" entityName="CPU">
     <resourceProvidedRoles__ResourceInterfaceProvidingEntity id="_patY8E5dEeCg1tUg4V9tRw" entityName="ResourceProvidedRole_CpuInterface_CPU" providedResourceInterface__ResourceProvidedRole="_tw_Q8E5CEeCUKeckjJ_n-w"/>
   </availableResourceTypes_ResourceRepository>
-  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:CommunicationLinkResourceType" id="_o3sScH2AEdyH8uerKnHYug" entityName="LAN" unitSpecification="byte per second"/>
-  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:ProcessingResourceType" id="_BIjHoQ3KEdyouMqirZIhzQ" entityName="HDD" unitSpecification="byte per second">
+  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:CommunicationLinkResourceType" id="_o3sScH2AEdyH8uerKnHYug" entityName="LAN"/>
+  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:ProcessingResourceType" id="_BIjHoQ3KEdyouMqirZIhzQ" entityName="HDD">
     <resourceProvidedRoles__ResourceInterfaceProvidingEntity id="_tCR8kE5dEeCg1tUg4V9tRw" entityName="ResourceProvidedRole_HddInterface_HDD" providedResourceInterface__ResourceProvidedRole="_xXv8QE5CEeCUKeckjJ_n-w"/>
   </availableResourceTypes_ResourceRepository>
-  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:ProcessingResourceType" id="_nvHX4KkREdyEA_b89s7q9w" entityName="DELAY" unitSpecification="seconds"/>
+  <availableResourceTypes_ResourceRepository xsi:type="resourcetype:ProcessingResourceType" id="_nvHX4KkREdyEA_b89s7q9w" entityName="DELAY"/>
 </resourcetype:ResourceRepository>
