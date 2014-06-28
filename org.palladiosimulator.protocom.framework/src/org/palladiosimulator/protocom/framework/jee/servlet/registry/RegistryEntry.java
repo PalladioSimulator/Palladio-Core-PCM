@@ -26,7 +26,7 @@ public class RegistryEntry {
 	/**
 	 * Constructs a new RegistryEntry object.
 	 * @param name the name of the registered object
-	 * @param iface the interface of the registered object
+	 * @param interfaces the interfaces of the registered object
 	 * @param location the location part of the registered object's URL
 	 * @param path the path part of the registered object's URL
 	 */
@@ -54,16 +54,16 @@ public class RegistryEntry {
 	}
 	
 	/**
-	 * Sets the interface of the registered object.
-	 * @param iface the interface of the registered object
+	 * Sets the interfaces of the registered object.
+	 * @param iface the interfaces of the registered object
 	 */
 	public void setInterfaces(Class<?>[] interfaces) {
 		this.interfaces = interfaces;
 	}
 	
 	/**
-	 * Gets the interface of the registered object.
-	 * @return the interface of the registered object
+	 * Gets the interfaces of the registered object.
+	 * @return the interfaces of the registered object
 	 */
 	public Class<?>[] getInterfaces() {
 		return interfaces;

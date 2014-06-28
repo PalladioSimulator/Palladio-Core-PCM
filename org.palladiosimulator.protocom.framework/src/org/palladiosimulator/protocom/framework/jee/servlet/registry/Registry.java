@@ -42,21 +42,6 @@ public class Registry {
 	}
 	
 	/**
-	 * 
-	 * @param name
-	 * @param iface
-	 * @param location
-	 * @param path
-	 * @throws RegistryException
-	 */
-	public static void register(String name, Class<?> iface, String location, String path)
-			throws RegistryException {
-		
-		Class<?>[] interfaces = new Class<?>[] {iface};
-		register(name, interfaces, location, path);
-	}
-	
-	/**
 	 * Registers the specified object in the registry.
 	 * @param name the name under which the object is registered
 	 * @param iface the interface of the object
@@ -64,7 +49,7 @@ public class Registry {
 	 * @param path the path part of the object's URL
 	 * @throws RegistryException
 	 */
-	public static void register(String name, Class<?>[] interfaces, String location, String path)
+	public void register(String name, Class<?>[] interfaces, String location, String path)
 			throws RegistryException {
 		
 		RegistryEntry entry = new RegistryEntry(name, interfaces, location, path);
@@ -72,7 +57,7 @@ public class Registry {
 		
 		params.add(new Parameter("action", "register"));
 		params.add(new Parameter("entry", entry.toJson()));	
-			
+		
 		String responseString = Request.get(Registry.location, "/Registry", params);
 		StringResponse response = StringResponse.fromJson(responseString);
 		
@@ -86,7 +71,7 @@ public class Registry {
 	 * @param name the name of the object to remove
 	 * @throws RegistryException
 	 */
-	public static void unregister(String name) throws RegistryException {
+	public void unregister(String name) throws RegistryException {
 		ArrayList<Parameter> params = new ArrayList<Parameter>(2);
 		
 		params.add(new Parameter("action", "unregister"));
@@ -106,7 +91,7 @@ public class Registry {
 	 * @return a stub for the object
 	 * @throws RegistryException
 	 */
-	public static Object lookup(String name) throws RegistryException {
+	public Object lookup(String name) throws RegistryException {
 		ArrayList<Parameter> params = new ArrayList<Parameter>(2);
 		
 		params.add(new Parameter("action", "lookup"));
@@ -120,11 +105,11 @@ public class Registry {
 		}
 		
 		RegistryEntry entry = RegistryEntry.fromJson(response.getPayload());
-		
+			
 		Object stub = Proxy.newProxyInstance(
 				entry.getInterfaces()[0].getClassLoader(), 
 				entry.getInterfaces(), 
-				new RemoteStub(entry.getLocation(), entry.getPath()));
+				new LocalStub(entry.getLocation(), entry.getPath()));
 		
 		return stub;
 	}

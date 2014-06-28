@@ -21,7 +21,7 @@ public class RemoteCall {
 	
 	private String name;
 	private Class<?>[] formalTypes, actualTypes;
-	private Object[] args;
+	private Object[] arguments;
 	
 	/**
 	 * Constructs a new RemoteCall object.
@@ -81,16 +81,16 @@ public class RemoteCall {
 	 * Gets the arguments of the method call.
 	 * @return an array containing the arguments of the method call
 	 */
-	public Object[] getArgs() {
-		return args;
+	public Object[] getArguments() {
+		return arguments;
 	}
 	
 	/**
 	 * Sets the arguments of the method call.
-	 * @param args an array containing the arguments of the method call
+	 * @param arguments an array containing the arguments of the method call
 	 */
-	public void setArgs(Object[] args) {
-		this.args = args;
+	public void setArguments(Object[] arguments) {
+		this.arguments = arguments;
 	}
 	
 	/**
@@ -99,7 +99,7 @@ public class RemoteCall {
 	 */
 	public void dispatch(Object target) {
 		try {
-			target.getClass().getMethod(name, formalTypes).invoke(target, args);
+			target.getClass().getMethod(name, formalTypes).invoke(target, arguments);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -128,9 +128,11 @@ public class RemoteCall {
 		try {
 			RemoteCall call = mapper.readValue(serialized, RemoteCall.class);
 			
-			for (int i = 0; i < call.args.length; i++) {
-				if (call.args[i] instanceof LinkedHashMap<?, ?>) {
-					call.args[i] = mapper.convertValue(call.args[i], call.actualTypes[i]);
+			if (call.getArguments() != null) {
+				for (int i = 0; i < call.arguments.length; i++) {
+					if (call.arguments[i] instanceof LinkedHashMap<?, ?>) {
+						call.arguments[i] = mapper.convertValue(call.arguments[i], call.actualTypes[i]);
+					}
 				}
 			}
 			

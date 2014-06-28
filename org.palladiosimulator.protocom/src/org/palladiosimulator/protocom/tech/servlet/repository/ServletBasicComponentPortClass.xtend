@@ -66,7 +66,7 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 					
 					try {
 						Class<?>[] interfaces = new Class<?>[] {«iface».class, «frameworkBase».common.IPort.class};
-						«frameworkBase».registry.Registry.register("«JavaNames::portClassName(pcmEntity)»" + "_" + assemblyContext, interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
+						«frameworkBase».registry.Registry.getInstance().register("«JavaNames::portClassName(pcmEntity)»" + "_" + assemblyContext, interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
 					} catch («frameworkBase».registry.RegistryException e) {
 						throw new «frameworkBase».modules.ModuleStartException();
 					}

@@ -113,7 +113,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 					try {
 						«FOR assemblyContext : pcmEntity.assemblyContexts__ComposedStructure»
 							«IF assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].size > 0»
-								«JavaNames::javaName(assemblyContext)» = («frameworkBase».common.IPort<«JavaNames::fqn(assemblyContext.encapsulatedComponent__AssemblyContext)»>) «frameworkBase».registry.Registry.lookup("«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»");
+								«JavaNames::javaName(assemblyContext)» = («frameworkBase».common.IPort<«JavaNames::fqn(assemblyContext.encapsulatedComponent__AssemblyContext)»>) «frameworkBase».registry.Registry.getInstance().lookup("«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»");
 							«ENDIF»
 						«ENDFOR»
 						

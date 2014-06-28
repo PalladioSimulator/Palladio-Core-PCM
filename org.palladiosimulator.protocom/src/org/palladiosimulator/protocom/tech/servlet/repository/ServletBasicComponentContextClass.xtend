@@ -110,7 +110,7 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 				])
 				.withImplementation('''
 					try {
-						portFor_«JavaNames::javaName(it).toFirstLower» = («JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole)») «frameworkBase».registry.Registry.lookup(«JavaNames::javaName(it).toFirstLower»);
+						portFor_«JavaNames::javaName(it).toFirstLower» = («JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole)») «frameworkBase».registry.Registry.getInstance().lookup(«JavaNames::javaName(it).toFirstLower»);
 					} catch («frameworkBase».registry.RegistryException e) {
 						e.printStackTrace();
 					}

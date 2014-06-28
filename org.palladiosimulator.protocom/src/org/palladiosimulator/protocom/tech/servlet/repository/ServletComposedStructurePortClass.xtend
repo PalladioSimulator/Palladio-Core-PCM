@@ -80,14 +80,14 @@ class ServletComposedStructurePortClass extends ServletClass<ProvidedRole> {
 					this.component = («JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)») «frameworkBase».common.LocalComponentRegistry.getInstance().getComponent(assemblyContext);
 					
 					try {
-						innerPort = («JavaNames::fqn((pcmEntity as OperationProvidedRole).providedInterface__OperationProvidedRole)») «frameworkBase».registry.Registry.lookup(componentId);
+						innerPort = («JavaNames::fqn((pcmEntity as OperationProvidedRole).providedInterface__OperationProvidedRole)») «frameworkBase».registry.Registry.getInstance().lookup(componentId);
 					} catch («frameworkBase».registry.RegistryException e) {
 						e.printStackTrace();
 					}
 					
 					try {
 						Class<?>[] interfaces = new Class<?>[] {«iface».class, «frameworkBase».common.IPort.class};
-						«frameworkBase».registry.Registry.register("«JavaNames::portClassName(pcmEntity)»", interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
+						«frameworkBase».registry.Registry.getInstance().register("«JavaNames::portClassName(pcmEntity)»", interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
 					} catch («frameworkBase».registry.RegistryException e) {
 						throw new «frameworkBase».modules.ModuleStartException();
 					}

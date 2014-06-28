@@ -83,7 +83,7 @@ class ServletUsageScenario extends ServletClass<UsageScenario> {
 	
 	private def generatePortLookup(OperationProvidedRole role) {
 		'''
-		«JavaNames::portMemberVar(role)» = («JavaNames::fqn(role.providedInterface__OperationProvidedRole)»)«frameworkBase».registry.Registry.lookup("«JavaNames::portClassName(role)»_");
+		«JavaNames::portMemberVar(role)» = («JavaNames::fqn(role.providedInterface__OperationProvidedRole)»)«frameworkBase».registry.Registry..getInstance().lookup("«JavaNames::portClassName(role)»_");
 		'''
 	}
 }

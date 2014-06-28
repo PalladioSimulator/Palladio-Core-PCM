@@ -1,15 +1,15 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.registry;
 
-import org.palladiosimulator.protocom.framework.jee.servlet.http.Request;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+
+import org.palladiosimulator.protocom.framework.jee.servlet.http.Request;
 
 /**
  * A RemoteStub object is used to delegate local method calls to a remote instance.
  * @author Christian Klaussner
  */
-public class RemoteStub implements InvocationHandler {
+public class LocalStub implements InvocationHandler {
 	private String location;
 	private String path;
 	
@@ -18,7 +18,7 @@ public class RemoteStub implements InvocationHandler {
 	 * @param location the location part of the remote URL
 	 * @param path the path part of the remote URL
 	 */
-	public RemoteStub(String location, String path) {
+	public LocalStub(String location, String path) {
 		this.location = location;
 		this.path = path;
 	}
@@ -29,9 +29,10 @@ public class RemoteStub implements InvocationHandler {
 		
 		call.setName(method.getName());
 		call.setFormalTypes(method.getParameterTypes());
-		call.setArgs(args);
 		
 		if (args != null) {
+			call.setArguments(args);
+			
 			Class<?>[] actualTypes = new Class<?>[args.length];
 			
 			for (int i = 0; i < actualTypes.length; i++) {
@@ -40,6 +41,7 @@ public class RemoteStub implements InvocationHandler {
 			
 			call.setActualTypes(actualTypes);
 		} else {
+			call.setArguments(new Object[0]);
 			call.setActualTypes(new Class<?>[0]);
 		}
 		
