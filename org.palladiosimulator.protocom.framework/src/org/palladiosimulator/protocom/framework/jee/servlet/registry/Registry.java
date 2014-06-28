@@ -105,7 +105,7 @@ public class Registry {
 		}
 		
 		RegistryEntry entry = RegistryEntry.fromJson(response.getPayload());
-			
+		
 		Object stub = Proxy.newProxyInstance(
 				entry.getInterfaces()[0].getClassLoader(), 
 				entry.getInterfaces(), 
