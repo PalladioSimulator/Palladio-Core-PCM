@@ -7,11 +7,11 @@ import java.io.PrintStream;
 import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
-public class CreateSimuComMetaDataFilesJob extends AbstractCreateMetaDataFilesJob implements IJob {
+public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJob implements IJob {
 
-	public CreateSimuComMetaDataFilesJob(AbstractCodeGenerationWorkflowRunConfiguration configuration) {
+	public CreateProtoComMetaDataFilesJob(AbstractCodeGenerationWorkflowRunConfiguration configuration) {
 		super();
-
+		
 		this.configuration = configuration;
 	}
 
@@ -39,8 +39,6 @@ public class CreateSimuComMetaDataFilesJob extends AbstractCreateMetaDataFilesJo
 	}
 
 	private final static String[] BUNDLES = new String[] {
-	     "de.uka.ipd.sdq.simulation", 
-	     "de.uka.ipd.sdq.simulation.abstractsimengine",
 		 "de.uka.ipd.sdq.simucomframework",
 		 "de.uka.ipd.sdq.simucomframework.simucomstatus",
 		 "de.uka.ipd.sdq.sensorframework",
@@ -52,20 +50,28 @@ public class CreateSimuComMetaDataFilesJob extends AbstractCreateMetaDataFilesJo
 		 "de.uka.ipd.sdq.probespec.framework",
 		 "de.uka.ipd.sdq.pipesandfilters",
 		 "de.uka.ipd.sdq.pipesandfilters.framework",
-		 "de.uka.ipd.sdq.reliability.core",
-		 "de.fzi.se.accuracy",
-		 "de.uka.ipd.sdq.probfunction.math"
+		 
+		 "de.uka.ipd.sdq.prototype.framework",
+		 "de.uka.ipd.sdq.resourcestrategies",
+		 "org.junit4",
+		 "de.uka.ipd.sdq.stoex",
+		 "de.uka.ipd.sdq.stoex.analyser",
+		 "de.uka.ipd.sdq.pcm.stochasticexpressions",
+		 "de.uka.ipd.sdq.pcm",
+		 "de.uka.ipd.sdq.sensorframework.storage",
+		 "de.uka.ipd.sdq.probfunction.math",
+		 "org.apache.commons.math"
 	};
-
-
+		
+		
 	@Override
 	protected String[] getRequiredBundles() {
 		return BUNDLES;
-	}
+	}	
 	
     @Override
     protected String getBundleActivator() {
         return "main.SimuComControl";
     }
-    
+	
 }

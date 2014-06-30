@@ -23,93 +23,89 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
  * 
  */
 public class DetermineFailureTypesJob implements
-IBlackboardInteractingJob<MDSDBlackboard> {
+		IBlackboardInteractingJob<MDSDBlackboard> {
 
-    /**
-     * The blackboard where the PCM model resides.
-     */
-    private MDSDBlackboard blackboard;
+	/**
+	 * The blackboard where the PCM model resides.
+	 */
+	private MDSDBlackboard blackboard;
 
-    /**
-     * The configuration of the workflow.
-     */
-    private AbstractPCMWorkflowRunConfiguration configuration = null;
+	/**
+	 * The configuration of the workflow.
+	 */
+	private AbstractPCMWorkflowRunConfiguration configuration = null;
 
-    /**
-     * Provides functionality for managing failure types.
-     */
-    private final MarkovFailureTypeHelper helper = new MarkovFailureTypeHelper();
+	/**
+	 * Provides functionality for managing failure types.
+	 */
+	private MarkovFailureTypeHelper helper = new MarkovFailureTypeHelper();
 
-    /**
-     * The constructor.
-     * 
-     * @param configuration
-     *            the configuration of the workflow
-     */
-    public DetermineFailureTypesJob(
-            final AbstractPCMWorkflowRunConfiguration configuration) {
-        super();
-        this.configuration = configuration;
-    }
+	/**
+	 * The constructor.
+	 * 
+	 * @param configuration
+	 *            the configuration of the workflow
+	 */
+	public DetermineFailureTypesJob(
+			AbstractPCMWorkflowRunConfiguration configuration) {
+		super();
+		this.configuration = configuration;
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @seede.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.
-     * IProgressMonitor)
-     */
-    @Override
-    public void execute(final IProgressMonitor monitor)
-            throws JobFailedException, UserCanceledException {
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seede.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.
+	 * IProgressMonitor)
+	 */
+	public void execute(final IProgressMonitor monitor)
+			throws JobFailedException, UserCanceledException {
 
-        // Check for the "simulate failures" option:
-        final SimuComWorkflowConfiguration config = (SimuComWorkflowConfiguration) configuration;
-        if (!config.getSimulateFailures()) {
-            return;
-        }
+		// Check for the "simulate failures" option:
+		SimuComWorkflowConfiguration config = (SimuComWorkflowConfiguration) configuration;
+		if (!config.getSimulateFailures()) {
+			return;
+		}
 
-        // Retrieve the PCM models that are already loaded into memory:
-        final PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.blackboard
-                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+		// Retrieve the PCM models that are already loaded into memory:
+		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.blackboard
+				.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 
-        // Derive the failure types for the simulation:
-        FailureStatistics.setFailureTypes(
-                helper.getFailureTypes(MarkovEvaluationType.POINTSOFFAILURE,
-                        pcmPartition.getRepositories(), pcmPartition
-                        .getResourceEnvironment(), pcmPartition
-                        .getSystem()));
-    }
+		// Derive the failure types for the simulation
+		FailureStatistics.setFailureTypes(
+				helper.getFailureTypes(MarkovEvaluationType.POINTSOFFAILURE,
+						pcmPartition.getRepositories(), pcmPartition
+								.getResourceEnvironment(), pcmPartition
+								.getSystem()));
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see de.uka.ipd.sdq.workflow.IJob#getName()
-     */
-    @Override
-    public String getName() {
-        return "Perform Failure Types Determination";
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see de.uka.ipd.sdq.workflow.IJob#getName()
+	 */
+	public String getName() {
+		return "Perform Failure Types Determination";
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @seede.uka.ipd.sdq.workflow.IJob#cleanup(org.eclipse.core.runtime.
-     * IProgressMonitor)
-     */
-    @Override
-    public void cleanup(final IProgressMonitor monitor)
-            throws CleanupFailedException {
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @seede.uka.ipd.sdq.workflow.IJob#cleanup(org.eclipse.core.runtime.
+	 * IProgressMonitor)
+	 */
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * de.uka.ipd.sdq.workflow.IBlackboardInteractingJob#setBlackboard(de.uka
-     * .ipd.sdq.workflow.Blackboard)
-     */
-    @Override
-    public void setBlackboard(final MDSDBlackboard blackboard) {
-        this.blackboard = blackboard;
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * de.uka.ipd.sdq.workflow.IBlackboardInteractingJob#setBlackboard(de.uka
+	 * .ipd.sdq.workflow.Blackboard)
+	 */
+	public void setBlackboard(final MDSDBlackboard blackboard) {
+		this.blackboard = blackboard;
+	}
 }
