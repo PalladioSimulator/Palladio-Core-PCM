@@ -16,6 +16,7 @@ import org.palladiosimulator.protocom.tech.rmi.system.PojoManifest
 import org.palladiosimulator.protocom.tech.rmi.system.PojoPluginXml
 import org.palladiosimulator.protocom.tech.rmi.system.PojoSystemClass
 import org.palladiosimulator.protocom.traverse.framework.system.XSystem
+import org.palladiosimulator.protocom.tech.rmi.system.PojoWebUsageScenario
 
 /**
  * An System translates into the following Java compilation units:
@@ -59,5 +60,8 @@ class JseSystem extends XSystem {
 		
 		//Classpath file
 		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new PojoClasspath(entity)))
+		
+		// Web Usage Scenario server
+		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new PojoWebUsageScenario(entity)))
 	}
 }
