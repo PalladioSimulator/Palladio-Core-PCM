@@ -72,7 +72,7 @@ abstract class SEFFBodyXpt {
 	} /* RecoveryAction - END */
 	'''
 
-	def String recoveryActionAlternative(RecoveryActionBehaviour behaviour) '''
+	private def String recoveryActionAlternative(RecoveryActionBehaviour behaviour) '''
 	/* RecoveryActionBehaviour - START */
 	«val id = behaviour.id.javaVariableName»
 	«behaviour.initFailureHandling(id)»

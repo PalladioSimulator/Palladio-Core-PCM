@@ -96,7 +96,7 @@ abstract class RepositoryXpt {
 	   ss.compositeComponentRoot
 	}
 	
-	def void compositeComponentRoot(ComposedProvidingRequiringEntity cpre) {
+	private def void compositeComponentRoot(ComposedProvidingRequiringEntity cpre) {
 		/* Handles CompositeComponents and SubSystems */
 		val fileName = cpre.getFileName()
 		val fileContent = '''

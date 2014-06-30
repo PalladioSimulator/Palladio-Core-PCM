@@ -14,7 +14,7 @@ public class M2TFileSystemAccess {
 	}
 	
 	public void generateFile(String fileName, CharSequence contents) {
-		fileName = fileName + "_xtend";
+		//fileName = fileName + "_xtend";
 		
 		Path p = Paths.get(rootDirectory, fileName);
 

@@ -136,7 +136,7 @@ abstract class ComposedStructureXpt {
 				);
 	'''
 	
-	def init(AssemblyContext context, ComposedStructure s) '''
+	private def init(AssemblyContext context, ComposedStructure s) '''
 		private void init«context.javaName()»() {
 			«context.encapsulatedComponent__AssemblyContext.fqnContext()» context = new «context.encapsulatedComponent__AssemblyContext.fqnContext()»(
 			«FOR role : context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)) SEPARATOR ","»

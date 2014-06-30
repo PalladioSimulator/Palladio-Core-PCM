@@ -20,7 +20,7 @@ abstract class ContextPatternXpt {
 		«entity.componentContextSetter»
 	'''
 	
-	def componentContextInterface(InterfaceRequiringEntity entity) {
+	private def componentContextInterface(InterfaceRequiringEntity entity) {
 		val fileName = entity.fqnContextInterface.fqnToDirectoryPath+".java"
 		val fileContent = '''
 			package «entity.fqnContextPackage»;
@@ -42,7 +42,7 @@ abstract class ContextPatternXpt {
 		fsa.generateFile(fileName, fileContent)
 	}
 	
-	def componentContextImpl(InterfaceRequiringEntity entity) {
+	private def componentContextImpl(InterfaceRequiringEntity entity) {
 		val fileName = entity.fqnContext.fqnToDirectoryPath+".java"
 		val fileContent = '''
 			package «entity.fqnContextPackage»;
@@ -83,11 +83,11 @@ abstract class ContextPatternXpt {
 		fsa.generateFile(fileName, fileContent)
 	}
 	
-	def componentContextMemberVar(InterfaceRequiringEntity entity) '''
+	private def componentContextMemberVar(InterfaceRequiringEntity entity) '''
 		protected «entity.fqnContextInterface» myContext = null;
 	'''
 	
-	def componentContextSetter(InterfaceRequiringEntity entity) '''
+	private def componentContextSetter(InterfaceRequiringEntity entity) '''
 		public void setContext(«entity.fqnContextInterface» myContext) {
 			this.myContext = myContext;
 			«IF entity instanceof ComposedStructure»

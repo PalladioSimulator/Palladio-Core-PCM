@@ -68,7 +68,7 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 «««		Do not close curly brace here.
 	'''
 	
-	def childMemberVarInit(AssemblyContext ac) '''
+	private def childMemberVarInit(AssemblyContext ac) '''
 		my«ac.javaName()» = new «ac.encapsulatedComponent__AssemblyContext.fqn()»
 		      	(«ac.componentConstructorParametersTM», model);
 	'''
