@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
+import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
@@ -159,14 +160,35 @@ public class TransformPCMForSensitivityAnalysisJob implements
 	/**
 	 * Finds object based on the following recursive equality definition:
 	 *
-	 * Two objects are equal iff (1) they have both instance of {@link Entity}
-	 * and have the same id, or (2) they are not both instances of
-	 * {@link Entity} and they are instances of the same {@link EClass} and
-	 * their parents are of equal {@link EClass} and their parents are equal
-	 * based on this definition.
+	 * Two objects are equal iff (1) they are both instance of {@link Entity}
+	 * or {@link Identifier} and have the same id, or (2) they are not both 
+	 * instances of {@link Entity} or {@link Identifier} and they are instances 
+	 * of the same {@link EClass} and their parents are of equal {@link EClass} 
+	 * and their parents are equal based on this definition.
+	 * The latter also checks if the objects have the same child index of
+	 * their corresponding parents. 
 	 */
 	private boolean entityBasedEquals(EObject eObject1, EObject eObject2) {
+		return entityBasedEquals(eObject1, eObject2, null, null);
+	}
 
+		
+	private boolean entityBasedEquals(EObject eObject1, EObject eObject2, EObject fromEObject1, EObject fromEObject2) {
+
+		// Same path from parent to child?
+		if (fromEObject1 != null && fromEObject2 != null) {
+			int i = 0;
+			for (EObject it : eObject1.eContents()) {
+				if (it.equals(fromEObject1)) {
+					if (eObject2.eContents().get(i) == null || !eObject2.eContents().get(i).equals(fromEObject2)) {
+						return false;
+					}
+					break;
+				}
+				i ++;
+			}
+		}
+		
 		if (eObject1 == eObject2){
 			return true;
 		}
@@ -178,6 +200,14 @@ public class TransformPCMForSensitivityAnalysisJob implements
 				Entity entity2 = (Entity) eObject2;
 
 				if (entity1.getId().equals(entity2.getId())) {
+					return true;
+				}
+				
+			} else if (eObject1 instanceof Identifier && eObject2 instanceof Identifier) {
+				Identifier identifier1 = (Identifier) eObject1;
+				Identifier identifier2 = (Identifier) eObject2;
+				
+				if (identifier1.getId().equals(identifier2.getId())) {
 					return true;
 				}
 
@@ -193,8 +223,7 @@ public class TransformPCMForSensitivityAnalysisJob implements
 			    EObject parent1 = eObject1.eContainer();
 			    EObject parent2 = eObject2.eContainer();
 
-				return entityBasedEquals(parent1, parent2);
-
+				return entityBasedEquals(parent1, parent2, eObject1, eObject2);
 			}
 
 
