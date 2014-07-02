@@ -25,8 +25,13 @@ public class ModelsAtRuntime {
             throw new RuntimeException(e);
         }
 
-        assert(modelUri.fragment() != null);
-        return resource.getEObject(modelUri.fragment());
+        // Get single EObject if URI has fragment, load whole model if not
+        String fragment = modelUri.fragment();
+        if(fragment != null) {
+            return resource.getEObject(fragment);
+        } else {
+            return resource.getEObject(modelUri.toString());
+        }
     }
     
     /**
