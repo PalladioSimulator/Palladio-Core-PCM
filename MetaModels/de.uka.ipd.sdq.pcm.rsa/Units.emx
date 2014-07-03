@@ -433,9 +433,6 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_J8G_VDaYEdypU_bkgRAm2w" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_J8G_UzaYEdypU_bkgRAm2w"/>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_6zypcDakEdypU_bkgRAm2w" name="unitSpecification">
-        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-      </ownedAttribute>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_DsKrQDaYEdypU_bkgRAm2w" name="BaseUnit">
       <generalization xmi:id="_OadSkDabEdypU_bkgRAm2w" general="_L4VUEDabEdypU_bkgRAm2w"/>
