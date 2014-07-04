@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.lang.java.util
+package org.palladiosimulator.protocom.lang.java
 
 import java.util.List
 

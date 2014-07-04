@@ -1,7 +1,7 @@
 package org.palladiosimulator.protocom.lang.java.impl
 
 import org.palladiosimulator.protocom.lang.java.IJMethod
-import org.palladiosimulator.protocom.lang.java.util.IJAnnotation
+import org.palladiosimulator.protocom.lang.java.IJAnnotation
 import java.util.Collection
 
 /**

@@ -1,7 +1,7 @@
 package org.palladiosimulator.protocom.lang.java
 
 import java.util.Collection
-import org.palladiosimulator.protocom.lang.java.util.IJAnnotation
+import org.palladiosimulator.protocom.lang.java.IJAnnotation
 
 /**
  * TODO: Common IJMember for Method and Field.
