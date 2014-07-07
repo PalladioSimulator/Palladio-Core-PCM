@@ -30,7 +30,8 @@ class PojoManifest extends PojoMFFile<System>{
 	}
 	
 	override requireBundle() {
-		'''de.uka.ipd.sdq.simucomframework,
+		'''org.eclipse.core.runtime;bundle-version="3.10.0",
+ de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.simucomstatus,
  de.uka.ipd.sdq.sensorframework,
  de.uka.ipd.sdq.simucomframework.variables,
