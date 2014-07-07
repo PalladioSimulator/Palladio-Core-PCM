@@ -80,7 +80,7 @@ class ProtoComProject {
 					"Tried to create an existing project. Preceeding cleanup failed");
 
 		if(logger.isDebugEnabled())
-			logger.debug("Creating Eclipse workspace project " + this.iProject.getName());
+			logger.debug("Creating Eclipse workspace project " + iProject.getName());
 		iProject.create(monitor);
 		iProject.open(monitor);
 		
