@@ -40,33 +40,28 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getId <em>Id </em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getId <em>Id</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getEntityName <em>Entity Name
  * </em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getPredecessor_AbstractAction <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getPredecessor_AbstractAction <em>
  * Predecessor Abstract Action</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getSuccessor_AbstractAction <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getSuccessor_AbstractAction <em>
  * Successor Abstract Action</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getResourceDemandingBehaviour_AbstractAction
  * <em>Resource Demanding Behaviour Abstract Action</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getResourceDemand_Action <em>Resource
- * Demand Action</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getInfrastructureCall__Action <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getResourceDemand_Action <em>
+ * Resource Demand Action</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getInfrastructureCall__Action <em>
  * Infrastructure Call Action</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getResourceCall__Action <em>Resource
- * Call Action</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getResourceCall__Action <em>
+ * Resource Call Action</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getCalledResourceDemandingInternalBehaviour
  * <em>Called Resource Demanding Internal Behaviour</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InternalCallActionImpl extends CallActionImpl implements InternalCallAction {
@@ -170,7 +165,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
     protected EList<ResourceCall> resourceCall__Action;
 
     /**
-     * The cached value of the ' {@link #getCalledResourceDemandingInternalBehaviour()
+     * The cached value of the '{@link #getCalledResourceDemandingInternalBehaviour()
      * <em>Called Resource Demanding Internal Behaviour</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
@@ -206,7 +201,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public String getId() {
-        return this.id;
+        return id;
     }
 
     /**
@@ -215,13 +210,11 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public void setId(final String newId) {
-        final String oldId = this.id;
-        this.id = newId;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.INTERNAL_CALL_ACTION__ID, oldId,
-                    this.id));
-        }
+    public void setId(String newId) {
+        String oldId = id;
+        id = newId;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.INTERNAL_CALL_ACTION__ID, oldId, id));
     }
 
     /**
@@ -231,7 +224,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public String getEntityName() {
-        return this.entityName;
+        return entityName;
     }
 
     /**
@@ -240,13 +233,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public void setEntityName(final String newEntityName) {
-        final String oldEntityName = this.entityName;
-        this.entityName = newEntityName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME,
-                    oldEntityName, this.entityName));
-        }
+    public void setEntityName(String newEntityName) {
+        String oldEntityName = entityName;
+        entityName = newEntityName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME,
+                    oldEntityName, entityName));
     }
 
     /**
@@ -256,18 +248,17 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public AbstractAction getPredecessor_AbstractAction() {
-        if (this.predecessor_AbstractAction != null && ((EObject) this.predecessor_AbstractAction).eIsProxy()) {
-            final InternalEObject oldPredecessor_AbstractAction = (InternalEObject) this.predecessor_AbstractAction;
-            this.predecessor_AbstractAction = (AbstractAction) this.eResolveProxy(oldPredecessor_AbstractAction);
-            if (this.predecessor_AbstractAction != oldPredecessor_AbstractAction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (predecessor_AbstractAction != null && ((EObject) predecessor_AbstractAction).eIsProxy()) {
+            InternalEObject oldPredecessor_AbstractAction = (InternalEObject) predecessor_AbstractAction;
+            predecessor_AbstractAction = (AbstractAction) eResolveProxy(oldPredecessor_AbstractAction);
+            if (predecessor_AbstractAction != oldPredecessor_AbstractAction) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION,
-                            oldPredecessor_AbstractAction, this.predecessor_AbstractAction));
-                }
+                            oldPredecessor_AbstractAction, predecessor_AbstractAction));
             }
         }
-        return this.predecessor_AbstractAction;
+        return predecessor_AbstractAction;
     }
 
     /**
@@ -276,7 +267,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     public AbstractAction basicGetPredecessor_AbstractAction() {
-        return this.predecessor_AbstractAction;
+        return predecessor_AbstractAction;
     }
 
     /**
@@ -284,19 +275,18 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * 
      * @generated
      */
-    public NotificationChain basicSetPredecessor_AbstractAction(final AbstractAction newPredecessor_AbstractAction,
+    public NotificationChain basicSetPredecessor_AbstractAction(AbstractAction newPredecessor_AbstractAction,
             NotificationChain msgs) {
-        final AbstractAction oldPredecessor_AbstractAction = this.predecessor_AbstractAction;
-        this.predecessor_AbstractAction = newPredecessor_AbstractAction;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+        AbstractAction oldPredecessor_AbstractAction = predecessor_AbstractAction;
+        predecessor_AbstractAction = newPredecessor_AbstractAction;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION, oldPredecessor_AbstractAction,
                     newPredecessor_AbstractAction);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -307,26 +297,22 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public void setPredecessor_AbstractAction(final AbstractAction newPredecessor_AbstractAction) {
-        if (newPredecessor_AbstractAction != this.predecessor_AbstractAction) {
+    public void setPredecessor_AbstractAction(AbstractAction newPredecessor_AbstractAction) {
+        if (newPredecessor_AbstractAction != predecessor_AbstractAction) {
             NotificationChain msgs = null;
-            if (this.predecessor_AbstractAction != null) {
-                msgs = ((InternalEObject) this.predecessor_AbstractAction).eInverseRemove(this,
+            if (predecessor_AbstractAction != null)
+                msgs = ((InternalEObject) predecessor_AbstractAction).eInverseRemove(this,
                         SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            }
-            if (newPredecessor_AbstractAction != null) {
+            if (newPredecessor_AbstractAction != null)
                 msgs = ((InternalEObject) newPredecessor_AbstractAction).eInverseAdd(this,
                         SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            }
-            msgs = this.basicSetPredecessor_AbstractAction(newPredecessor_AbstractAction, msgs);
-            if (msgs != null) {
+            msgs = basicSetPredecessor_AbstractAction(newPredecessor_AbstractAction, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION, newPredecessor_AbstractAction,
                     newPredecessor_AbstractAction));
-        }
     }
 
     /**
@@ -336,18 +322,17 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public AbstractAction getSuccessor_AbstractAction() {
-        if (this.successor_AbstractAction != null && ((EObject) this.successor_AbstractAction).eIsProxy()) {
-            final InternalEObject oldSuccessor_AbstractAction = (InternalEObject) this.successor_AbstractAction;
-            this.successor_AbstractAction = (AbstractAction) this.eResolveProxy(oldSuccessor_AbstractAction);
-            if (this.successor_AbstractAction != oldSuccessor_AbstractAction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (successor_AbstractAction != null && ((EObject) successor_AbstractAction).eIsProxy()) {
+            InternalEObject oldSuccessor_AbstractAction = (InternalEObject) successor_AbstractAction;
+            successor_AbstractAction = (AbstractAction) eResolveProxy(oldSuccessor_AbstractAction);
+            if (successor_AbstractAction != oldSuccessor_AbstractAction) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION, oldSuccessor_AbstractAction,
-                            this.successor_AbstractAction));
-                }
+                            successor_AbstractAction));
             }
         }
-        return this.successor_AbstractAction;
+        return successor_AbstractAction;
     }
 
     /**
@@ -356,7 +341,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     public AbstractAction basicGetSuccessor_AbstractAction() {
-        return this.successor_AbstractAction;
+        return successor_AbstractAction;
     }
 
     /**
@@ -364,19 +349,18 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * 
      * @generated
      */
-    public NotificationChain basicSetSuccessor_AbstractAction(final AbstractAction newSuccessor_AbstractAction,
+    public NotificationChain basicSetSuccessor_AbstractAction(AbstractAction newSuccessor_AbstractAction,
             NotificationChain msgs) {
-        final AbstractAction oldSuccessor_AbstractAction = this.successor_AbstractAction;
-        this.successor_AbstractAction = newSuccessor_AbstractAction;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+        AbstractAction oldSuccessor_AbstractAction = successor_AbstractAction;
+        successor_AbstractAction = newSuccessor_AbstractAction;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION, oldSuccessor_AbstractAction,
                     newSuccessor_AbstractAction);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -387,26 +371,22 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public void setSuccessor_AbstractAction(final AbstractAction newSuccessor_AbstractAction) {
-        if (newSuccessor_AbstractAction != this.successor_AbstractAction) {
+    public void setSuccessor_AbstractAction(AbstractAction newSuccessor_AbstractAction) {
+        if (newSuccessor_AbstractAction != successor_AbstractAction) {
             NotificationChain msgs = null;
-            if (this.successor_AbstractAction != null) {
-                msgs = ((InternalEObject) this.successor_AbstractAction).eInverseRemove(this,
+            if (successor_AbstractAction != null)
+                msgs = ((InternalEObject) successor_AbstractAction).eInverseRemove(this,
                         SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            }
-            if (newSuccessor_AbstractAction != null) {
+            if (newSuccessor_AbstractAction != null)
                 msgs = ((InternalEObject) newSuccessor_AbstractAction).eInverseAdd(this,
                         SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            }
-            msgs = this.basicSetSuccessor_AbstractAction(newSuccessor_AbstractAction, msgs);
-            if (msgs != null) {
+            msgs = basicSetSuccessor_AbstractAction(newSuccessor_AbstractAction, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION, newSuccessor_AbstractAction,
                     newSuccessor_AbstractAction));
-        }
     }
 
     /**
@@ -416,10 +396,9 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public ResourceDemandingBehaviour getResourceDemandingBehaviour_AbstractAction() {
-        if (this.eContainerFeatureID() != SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION) {
+        if (eContainerFeatureID() != SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION)
             return null;
-        }
-        return (ResourceDemandingBehaviour) this.eInternalContainer();
+        return (ResourceDemandingBehaviour) eInternalContainer();
     }
 
     /**
@@ -428,8 +407,8 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     public NotificationChain basicSetResourceDemandingBehaviour_AbstractAction(
-            final ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newResourceDemandingBehaviour_AbstractAction,
+            ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newResourceDemandingBehaviour_AbstractAction,
                 SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION, msgs);
         return msgs;
     }
@@ -441,31 +420,25 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public void setResourceDemandingBehaviour_AbstractAction(
-            final ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction) {
-        if (newResourceDemandingBehaviour_AbstractAction != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION && newResourceDemandingBehaviour_AbstractAction != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceDemandingBehaviour_AbstractAction)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+            ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction) {
+        if (newResourceDemandingBehaviour_AbstractAction != eInternalContainer()
+                || (eContainerFeatureID() != SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION && newResourceDemandingBehaviour_AbstractAction != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newResourceDemandingBehaviour_AbstractAction))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceDemandingBehaviour_AbstractAction != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newResourceDemandingBehaviour_AbstractAction != null)
                 msgs = ((InternalEObject) newResourceDemandingBehaviour_AbstractAction).eInverseAdd(this,
                         SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR, ResourceDemandingBehaviour.class,
                         msgs);
-            }
-            msgs = this.basicSetResourceDemandingBehaviour_AbstractAction(newResourceDemandingBehaviour_AbstractAction,
-                    msgs);
-            if (msgs != null) {
+            msgs = basicSetResourceDemandingBehaviour_AbstractAction(newResourceDemandingBehaviour_AbstractAction, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION,
                     newResourceDemandingBehaviour_AbstractAction, newResourceDemandingBehaviour_AbstractAction));
-        }
     }
 
     /**
@@ -475,12 +448,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public EList<ParametricResourceDemand> getResourceDemand_Action() {
-        if (this.resourceDemand_Action == null) {
-            this.resourceDemand_Action = new EObjectContainmentWithInverseEList<ParametricResourceDemand>(
+        if (resourceDemand_Action == null) {
+            resourceDemand_Action = new EObjectContainmentWithInverseEList<ParametricResourceDemand>(
                     ParametricResourceDemand.class, this, SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION,
                     SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
         }
-        return this.resourceDemand_Action;
+        return resourceDemand_Action;
     }
 
     /**
@@ -490,12 +463,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public EList<InfrastructureCall> getInfrastructureCall__Action() {
-        if (this.infrastructureCall__Action == null) {
-            this.infrastructureCall__Action = new EObjectContainmentWithInverseEList<InfrastructureCall>(
+        if (infrastructureCall__Action == null) {
+            infrastructureCall__Action = new EObjectContainmentWithInverseEList<InfrastructureCall>(
                     InfrastructureCall.class, this, SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION,
                     SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL);
         }
-        return this.infrastructureCall__Action;
+        return infrastructureCall__Action;
     }
 
     /**
@@ -505,12 +478,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public EList<ResourceCall> getResourceCall__Action() {
-        if (this.resourceCall__Action == null) {
-            this.resourceCall__Action = new EObjectContainmentWithInverseEList<ResourceCall>(ResourceCall.class, this,
+        if (resourceCall__Action == null) {
+            resourceCall__Action = new EObjectContainmentWithInverseEList<ResourceCall>(ResourceCall.class, this,
                     SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION,
                     SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL);
         }
-        return this.resourceCall__Action;
+        return resourceCall__Action;
     }
 
     /**
@@ -520,20 +493,18 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public ResourceDemandingInternalBehaviour getCalledResourceDemandingInternalBehaviour() {
-        if (this.calledResourceDemandingInternalBehaviour != null
-                && ((EObject) this.calledResourceDemandingInternalBehaviour).eIsProxy()) {
-            final InternalEObject oldCalledResourceDemandingInternalBehaviour = (InternalEObject) this.calledResourceDemandingInternalBehaviour;
-            this.calledResourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour) this
-                    .eResolveProxy(oldCalledResourceDemandingInternalBehaviour);
-            if (this.calledResourceDemandingInternalBehaviour != oldCalledResourceDemandingInternalBehaviour) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (calledResourceDemandingInternalBehaviour != null
+                && ((EObject) calledResourceDemandingInternalBehaviour).eIsProxy()) {
+            InternalEObject oldCalledResourceDemandingInternalBehaviour = (InternalEObject) calledResourceDemandingInternalBehaviour;
+            calledResourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour) eResolveProxy(oldCalledResourceDemandingInternalBehaviour);
+            if (calledResourceDemandingInternalBehaviour != oldCalledResourceDemandingInternalBehaviour) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
-                            oldCalledResourceDemandingInternalBehaviour, this.calledResourceDemandingInternalBehaviour));
-                }
+                            oldCalledResourceDemandingInternalBehaviour, calledResourceDemandingInternalBehaviour));
             }
         }
-        return this.calledResourceDemandingInternalBehaviour;
+        return calledResourceDemandingInternalBehaviour;
     }
 
     /**
@@ -542,7 +513,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     public ResourceDemandingInternalBehaviour basicGetCalledResourceDemandingInternalBehaviour() {
-        return this.calledResourceDemandingInternalBehaviour;
+        return calledResourceDemandingInternalBehaviour;
     }
 
     /**
@@ -552,14 +523,13 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public void setCalledResourceDemandingInternalBehaviour(
-            final ResourceDemandingInternalBehaviour newCalledResourceDemandingInternalBehaviour) {
-        final ResourceDemandingInternalBehaviour oldCalledResourceDemandingInternalBehaviour = this.calledResourceDemandingInternalBehaviour;
-        this.calledResourceDemandingInternalBehaviour = newCalledResourceDemandingInternalBehaviour;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+            ResourceDemandingInternalBehaviour newCalledResourceDemandingInternalBehaviour) {
+        ResourceDemandingInternalBehaviour oldCalledResourceDemandingInternalBehaviour = calledResourceDemandingInternalBehaviour;
+        calledResourceDemandingInternalBehaviour = newCalledResourceDemandingInternalBehaviour;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
-                    oldCalledResourceDemandingInternalBehaviour, this.calledResourceDemandingInternalBehaviour));
-        }
+                    oldCalledResourceDemandingInternalBehaviour, calledResourceDemandingInternalBehaviour));
     }
 
     /**
@@ -569,34 +539,31 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            if (this.predecessor_AbstractAction != null) {
-                msgs = ((InternalEObject) this.predecessor_AbstractAction).eInverseRemove(this,
+            if (predecessor_AbstractAction != null)
+                msgs = ((InternalEObject) predecessor_AbstractAction).eInverseRemove(this,
                         SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            }
-            return this.basicSetPredecessor_AbstractAction((AbstractAction) otherEnd, msgs);
+            return basicSetPredecessor_AbstractAction((AbstractAction) otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            if (this.successor_AbstractAction != null) {
-                msgs = ((InternalEObject) this.successor_AbstractAction).eInverseRemove(this,
+            if (successor_AbstractAction != null)
+                msgs = ((InternalEObject) successor_AbstractAction).eInverseRemove(this,
                         SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            }
-            return this.basicSetSuccessor_AbstractAction((AbstractAction) otherEnd, msgs);
+            return basicSetSuccessor_AbstractAction((AbstractAction) otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceDemand_Action()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceDemand_Action()).basicAdd(otherEnd,
+                    msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInfrastructureCall__Action()).basicAdd(
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getInfrastructureCall__Action()).basicAdd(
                     otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceCall__Action()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceCall__Action()).basicAdd(otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -607,21 +574,20 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            return this.basicSetPredecessor_AbstractAction(null, msgs);
+            return basicSetPredecessor_AbstractAction(null, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            return this.basicSetSuccessor_AbstractAction(null, msgs);
+            return basicSetSuccessor_AbstractAction(null, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return this.basicSetResourceDemandingBehaviour_AbstractAction(null, msgs);
+            return basicSetResourceDemandingBehaviour_AbstractAction(null, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
-            return ((InternalEList<?>) this.getResourceDemand_Action()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getResourceDemand_Action()).basicRemove(otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            return ((InternalEList<?>) this.getInfrastructureCall__Action()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getInfrastructureCall__Action()).basicRemove(otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            return ((InternalEList<?>) this.getResourceCall__Action()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getResourceCall__Action()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -632,11 +598,11 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return this.eInternalContainer().eInverseRemove(this,
-                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR, ResourceDemandingBehaviour.class, msgs);
+            return eInternalContainer().eInverseRemove(this, SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                    ResourceDemandingBehaviour.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -647,35 +613,32 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            return this.getId();
+            return getId();
         case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            return this.getEntityName();
+            return getEntityName();
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            if (resolve) {
-                return this.getPredecessor_AbstractAction();
-            }
-            return this.basicGetPredecessor_AbstractAction();
+            if (resolve)
+                return getPredecessor_AbstractAction();
+            return basicGetPredecessor_AbstractAction();
         case SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            if (resolve) {
-                return this.getSuccessor_AbstractAction();
-            }
-            return this.basicGetSuccessor_AbstractAction();
+            if (resolve)
+                return getSuccessor_AbstractAction();
+            return basicGetSuccessor_AbstractAction();
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return this.getResourceDemandingBehaviour_AbstractAction();
+            return getResourceDemandingBehaviour_AbstractAction();
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
-            return this.getResourceDemand_Action();
+            return getResourceDemand_Action();
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            return this.getInfrastructureCall__Action();
+            return getInfrastructureCall__Action();
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            return this.getResourceCall__Action();
+            return getResourceCall__Action();
         case SeffPackage.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            if (resolve) {
-                return this.getCalledResourceDemandingInternalBehaviour();
-            }
-            return this.basicGetCalledResourceDemandingInternalBehaviour();
+            if (resolve)
+                return getCalledResourceDemandingInternalBehaviour();
+            return basicGetCalledResourceDemandingInternalBehaviour();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -687,37 +650,37 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            this.setId((String) newValue);
+            setId((String) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            this.setEntityName((String) newValue);
+            setEntityName((String) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            this.setPredecessor_AbstractAction((AbstractAction) newValue);
+            setPredecessor_AbstractAction((AbstractAction) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            this.setSuccessor_AbstractAction((AbstractAction) newValue);
+            setSuccessor_AbstractAction((AbstractAction) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            this.setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) newValue);
+            setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
-            this.getResourceDemand_Action().clear();
-            this.getResourceDemand_Action().addAll((Collection<? extends ParametricResourceDemand>) newValue);
+            getResourceDemand_Action().clear();
+            getResourceDemand_Action().addAll((Collection<? extends ParametricResourceDemand>) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            this.getInfrastructureCall__Action().clear();
-            this.getInfrastructureCall__Action().addAll((Collection<? extends InfrastructureCall>) newValue);
+            getInfrastructureCall__Action().clear();
+            getInfrastructureCall__Action().addAll((Collection<? extends InfrastructureCall>) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            this.getResourceCall__Action().clear();
-            this.getResourceCall__Action().addAll((Collection<? extends ResourceCall>) newValue);
+            getResourceCall__Action().clear();
+            getResourceCall__Action().addAll((Collection<? extends ResourceCall>) newValue);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            this.setCalledResourceDemandingInternalBehaviour((ResourceDemandingInternalBehaviour) newValue);
+            setCalledResourceDemandingInternalBehaviour((ResourceDemandingInternalBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -729,34 +692,34 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            this.setId(ID_EDEFAULT);
+            setId(ID_EDEFAULT);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            this.setEntityName(ENTITY_NAME_EDEFAULT);
+            setEntityName(ENTITY_NAME_EDEFAULT);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            this.setPredecessor_AbstractAction((AbstractAction) null);
+            setPredecessor_AbstractAction((AbstractAction) null);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            this.setSuccessor_AbstractAction((AbstractAction) null);
+            setSuccessor_AbstractAction((AbstractAction) null);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            this.setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) null);
+            setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) null);
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
-            this.getResourceDemand_Action().clear();
+            getResourceDemand_Action().clear();
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            this.getInfrastructureCall__Action().clear();
+            getInfrastructureCall__Action().clear();
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            this.getResourceCall__Action().clear();
+            getResourceCall__Action().clear();
             return;
         case SeffPackage.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            this.setCalledResourceDemandingInternalBehaviour((ResourceDemandingInternalBehaviour) null);
+            setCalledResourceDemandingInternalBehaviour((ResourceDemandingInternalBehaviour) null);
             return;
         }
         super.eUnset(featureID);
@@ -768,27 +731,26 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            return ID_EDEFAULT == null ? this.id != null : !ID_EDEFAULT.equals(this.id);
+            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
         case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
-                    .equals(this.entityName);
+            return ENTITY_NAME_EDEFAULT == null ? entityName != null : !ENTITY_NAME_EDEFAULT.equals(entityName);
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            return this.predecessor_AbstractAction != null;
+            return predecessor_AbstractAction != null;
         case SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            return this.successor_AbstractAction != null;
+            return successor_AbstractAction != null;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return this.getResourceDemandingBehaviour_AbstractAction() != null;
+            return getResourceDemandingBehaviour_AbstractAction() != null;
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
-            return this.resourceDemand_Action != null && !this.resourceDemand_Action.isEmpty();
+            return resourceDemand_Action != null && !resourceDemand_Action.isEmpty();
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            return this.infrastructureCall__Action != null && !this.infrastructureCall__Action.isEmpty();
+            return infrastructureCall__Action != null && !infrastructureCall__Action.isEmpty();
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            return this.resourceCall__Action != null && !this.resourceCall__Action.isEmpty();
+            return resourceCall__Action != null && !resourceCall__Action.isEmpty();
         case SeffPackage.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            return this.calledResourceDemandingInternalBehaviour != null;
+            return calledResourceDemandingInternalBehaviour != null;
         }
         return super.eIsSet(featureID);
     }
@@ -799,7 +761,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == Identifier.class) {
             switch (derivedFeatureID) {
             case SeffPackage.INTERNAL_CALL_ACTION__ID:
@@ -855,7 +817,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == Identifier.class) {
             switch (baseFeatureID) {
             case IdentifierPackage.IDENTIFIER__ID:
@@ -912,15 +874,14 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (id: ");
-        result.append(this.id);
+        result.append(id);
         result.append(", entityName: ");
-        result.append(this.entityName);
+        result.append(entityName);
         result.append(')');
         return result.toString();
     }

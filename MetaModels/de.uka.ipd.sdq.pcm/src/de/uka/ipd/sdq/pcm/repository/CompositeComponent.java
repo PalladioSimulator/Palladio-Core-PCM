@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Composite Component</b></em> '. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Composite components are special implementation component types, which
  * are composed from inner components. Component developers compose inner components within
  * composite components with assembly connectors. An assembly connector binds a provided role with a
@@ -22,8 +22,8 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
  * component may contain a SEFF. However, this SEFF is not specified manually by the composite
  * component developer, but can be computed by combining the SEFFs of the inner components. <!--
  * end-model-doc -->
- * 
- * 
+ *
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeComponent()
  * @model
  * @generated

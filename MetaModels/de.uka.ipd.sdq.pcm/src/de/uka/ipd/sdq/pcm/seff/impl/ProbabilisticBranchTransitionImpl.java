@@ -18,12 +18,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl#getBranchProbability <em>
- * Branch Probability</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl#getBranchProbability
+ * <em>Branch Probability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionImpl implements
@@ -81,7 +80,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      */
     @Override
     public double getBranchProbability() {
-        return this.branchProbability;
+        return branchProbability;
     }
 
     /**
@@ -90,14 +89,13 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      * @generated
      */
     @Override
-    public void setBranchProbability(final double newBranchProbability) {
-        final double oldBranchProbability = this.branchProbability;
-        this.branchProbability = newBranchProbability;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setBranchProbability(double newBranchProbability) {
+        double oldBranchProbability = branchProbability;
+        branchProbability = newBranchProbability;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY, oldBranchProbability,
-                    this.branchProbability));
-        }
+                    branchProbability));
     }
 
     /**
@@ -106,10 +104,10 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            return this.getBranchProbability();
+            return getBranchProbability();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -120,10 +118,10 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            this.setBranchProbability((Double) newValue);
+            setBranchProbability((Double) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -135,10 +133,10 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            this.setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
+            setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -150,10 +148,10 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            return this.branchProbability != BRANCH_PROBABILITY_EDEFAULT;
+            return branchProbability != BRANCH_PROBABILITY_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -165,13 +163,12 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (branchProbability: ");
-        result.append(this.branchProbability);
+        result.append(branchProbability);
         result.append(')');
         return result.toString();
     }

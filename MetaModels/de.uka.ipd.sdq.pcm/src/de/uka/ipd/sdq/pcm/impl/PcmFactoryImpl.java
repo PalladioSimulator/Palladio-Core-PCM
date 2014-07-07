@@ -35,11 +35,11 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
      */
     public static PcmFactory init() {
         try {
-            final PcmFactory thePcmFactory = (PcmFactory) EPackage.Registry.INSTANCE.getEFactory(PcmPackage.eNS_URI);
+            PcmFactory thePcmFactory = (PcmFactory) EPackage.Registry.INSTANCE.getEFactory(PcmPackage.eNS_URI);
             if (thePcmFactory != null) {
                 return thePcmFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new PcmFactoryImpl();
@@ -60,10 +60,10 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case PcmPackage.DUMMY_CLASS:
-            return this.createDummyClass();
+            return (EObject) createDummyClass();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -76,7 +76,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
      */
     @Override
     public DummyClass createDummyClass() {
-        final DummyClassImpl dummyClass = new DummyClassImpl();
+        DummyClassImpl dummyClass = new DummyClassImpl();
         return dummyClass;
     }
 
@@ -87,7 +87,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
      */
     @Override
     public PcmPackage getPcmPackage() {
-        return (PcmPackage) this.getEPackage();
+        return (PcmPackage) getEPackage();
     }
 
     /**

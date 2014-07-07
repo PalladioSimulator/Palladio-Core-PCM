@@ -54,7 +54,7 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(final Object object) {
+    public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -72,18 +72,18 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
      */
     protected QosReliabilitySwitch<Adapter> modelSwitch = new QosReliabilitySwitch<Adapter>() {
         @Override
-        public Adapter caseSpecifiedReliabilityAnnotation(final SpecifiedReliabilityAnnotation object) {
-            return QosReliabilityAdapterFactory.this.createSpecifiedReliabilityAnnotationAdapter();
+        public Adapter caseSpecifiedReliabilityAnnotation(SpecifiedReliabilityAnnotation object) {
+            return createSpecifiedReliabilityAnnotationAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
-            return QosReliabilityAdapterFactory.this.createSpecifiedQoSAnnotationAdapter();
+        public Adapter caseSpecifiedQoSAnnotation(SpecifiedQoSAnnotation object) {
+            return createSpecifiedQoSAnnotationAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
-            return QosReliabilityAdapterFactory.this.createEObjectAdapter();
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
         }
     };
 
@@ -96,8 +96,8 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(final Notifier target) {
-        return this.modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(Notifier target) {
+        return modelSwitch.doSwitch((EObject) target);
     }
 
     /**

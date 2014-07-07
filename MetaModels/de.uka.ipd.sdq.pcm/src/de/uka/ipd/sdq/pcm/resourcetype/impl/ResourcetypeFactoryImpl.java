@@ -40,12 +40,12 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     public static ResourcetypeFactory init() {
         try {
-            final ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory) EPackage.Registry.INSTANCE
+            ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ResourcetypePackage.eNS_URI);
             if (theResourcetypeFactory != null) {
                 return theResourcetypeFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ResourcetypeFactoryImpl();
@@ -66,20 +66,20 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case ResourcetypePackage.RESOURCE_SIGNATURE:
-            return this.createResourceSignature();
+            return (EObject) createResourceSignature();
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE:
-            return this.createProcessingResourceType();
+            return (EObject) createProcessingResourceType();
         case ResourcetypePackage.RESOURCE_REPOSITORY:
-            return this.createResourceRepository();
+            return (EObject) createResourceRepository();
         case ResourcetypePackage.SCHEDULING_POLICY:
-            return this.createSchedulingPolicy();
+            return (EObject) createSchedulingPolicy();
         case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE:
-            return this.createCommunicationLinkResourceType();
+            return (EObject) createCommunicationLinkResourceType();
         case ResourcetypePackage.RESOURCE_INTERFACE:
-            return this.createResourceInterface();
+            return (EObject) createResourceInterface();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -92,7 +92,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public ResourceSignature createResourceSignature() {
-        final ResourceSignatureImpl resourceSignature = new ResourceSignatureImpl();
+        ResourceSignatureImpl resourceSignature = new ResourceSignatureImpl();
         return resourceSignature;
     }
 
@@ -103,7 +103,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public ResourceRepository createResourceRepository() {
-        final ResourceRepositoryImpl resourceRepository = new ResourceRepositoryImpl();
+        ResourceRepositoryImpl resourceRepository = new ResourceRepositoryImpl();
         return resourceRepository;
     }
 
@@ -114,7 +114,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public SchedulingPolicy createSchedulingPolicy() {
-        final SchedulingPolicyImpl schedulingPolicy = new SchedulingPolicyImpl();
+        SchedulingPolicyImpl schedulingPolicy = new SchedulingPolicyImpl();
         return schedulingPolicy;
     }
 
@@ -125,7 +125,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public CommunicationLinkResourceType createCommunicationLinkResourceType() {
-        final CommunicationLinkResourceTypeImpl communicationLinkResourceType = new CommunicationLinkResourceTypeImpl();
+        CommunicationLinkResourceTypeImpl communicationLinkResourceType = new CommunicationLinkResourceTypeImpl();
         return communicationLinkResourceType;
     }
 
@@ -136,7 +136,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public ResourceInterface createResourceInterface() {
-        final ResourceInterfaceImpl resourceInterface = new ResourceInterfaceImpl();
+        ResourceInterfaceImpl resourceInterface = new ResourceInterfaceImpl();
         return resourceInterface;
     }
 
@@ -147,7 +147,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public ProcessingResourceType createProcessingResourceType() {
-        final ProcessingResourceTypeImpl processingResourceType = new ProcessingResourceTypeImpl();
+        ProcessingResourceTypeImpl processingResourceType = new ProcessingResourceTypeImpl();
         return processingResourceType;
     }
 
@@ -158,7 +158,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public ResourcetypePackage getResourcetypePackage() {
-        return (ResourcetypePackage) this.getEPackage();
+        return (ResourcetypePackage) getEPackage();
     }
 
     /**

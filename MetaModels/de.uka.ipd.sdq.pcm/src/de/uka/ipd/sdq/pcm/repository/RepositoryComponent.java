@@ -10,19 +10,18 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Component</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Abstract superclass of all component types which can be part of a
  * component repository <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent <em>
- * Repository Repository Component</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
+ * <em>Repository Repository Component</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepositoryComponent()
  * @model abstract="true"
  * @generated
@@ -59,7 +58,7 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Repository Repository Component</em> ' container
+     *            the new value of the '<em>Repository Repository Component</em>' container
      *            reference.
      * @see #getRepository__RepositoryComponent()
      * @generated

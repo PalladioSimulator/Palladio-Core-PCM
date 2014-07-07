@@ -14,7 +14,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Failure Occurrence Description</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Abstract superclass that connects a failure type definition to an occurrence probability. Used to
@@ -22,16 +22,15 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * (i.e. Actions within ResourceDemandingBehaviours).
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability <em>
  * Failure Probability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription()
  * @model abstract="true"
  * @extends EStereotypableObject

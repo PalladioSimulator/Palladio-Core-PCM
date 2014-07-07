@@ -135,12 +135,11 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      * @generated
      */
     public static QosannotationsPackage init() {
-        if (isInited) {
+        if (isInited)
             return (QosannotationsPackage) EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI);
-        }
 
         // Obtain or create and register package
-        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
                 : new QosannotationsPackageImpl());
 
@@ -152,61 +151,58 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
@@ -256,7 +252,6 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theQosannotationsPackage, new EValidator.Descriptor() {
-            @Override
             public EValidator getEValidator() {
                 return QosannotationsValidator.INSTANCE;
             }
@@ -277,7 +272,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EClass getSpecifiedQoSAnnotation() {
-        return this.specifiedQoSAnnotationEClass;
+        return specifiedQoSAnnotationEClass;
     }
 
     /**
@@ -287,7 +282,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getSpecifiedQoSAnnotation_Signature_SpecifiedQoSAnnation() {
-        return (EReference) this.specifiedQoSAnnotationEClass.getEStructuralFeatures().get(0);
+        return (EReference) specifiedQoSAnnotationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -297,7 +292,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getSpecifiedQoSAnnotation_Role_SpecifiedQoSAnnotation() {
-        return (EReference) this.specifiedQoSAnnotationEClass.getEStructuralFeatures().get(1);
+        return (EReference) specifiedQoSAnnotationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -307,7 +302,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation() {
-        return (EReference) this.specifiedQoSAnnotationEClass.getEStructuralFeatures().get(2);
+        return (EReference) specifiedQoSAnnotationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -317,7 +312,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EClass getQoSAnnotations() {
-        return this.qoSAnnotationsEClass;
+        return qoSAnnotationsEClass;
     }
 
     /**
@@ -327,7 +322,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations() {
-        return (EReference) this.qoSAnnotationsEClass.getEStructuralFeatures().get(0);
+        return (EReference) qoSAnnotationsEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -337,7 +332,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getQoSAnnotations_System_QoSAnnotations() {
-        return (EReference) this.qoSAnnotationsEClass.getEStructuralFeatures().get(1);
+        return (EReference) qoSAnnotationsEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -347,7 +342,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations() {
-        return (EReference) this.qoSAnnotationsEClass.getEStructuralFeatures().get(2);
+        return (EReference) qoSAnnotationsEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -357,7 +352,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EClass getSpecifiedOutputParameterAbstraction() {
-        return this.specifiedOutputParameterAbstractionEClass;
+        return specifiedOutputParameterAbstractionEClass;
     }
 
     /**
@@ -367,7 +362,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction() {
-        return (EReference) this.specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(0);
+        return (EReference) specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -377,7 +372,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction() {
-        return (EReference) this.specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(1);
+        return (EReference) specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -387,7 +382,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
-        return (EReference) this.specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(2);
+        return (EReference) specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -397,7 +392,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public EReference getSpecifiedOutputParameterAbstraction_QosAnnotations_SpecifiedOutputParameterAbstraction() {
-        return (EReference) this.specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(3);
+        return (EReference) specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -407,7 +402,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      */
     @Override
     public QosannotationsFactory getQosannotationsFactory() {
-        return (QosannotationsFactory) this.getEFactoryInstance();
+        return (QosannotationsFactory) getEFactoryInstance();
     }
 
     /**
@@ -424,34 +419,30 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      * @generated
      */
     public void createPackageContents() {
-        if (this.isCreated) {
+        if (isCreated)
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.specifiedQoSAnnotationEClass = this.createEClass(SPECIFIED_QO_SANNOTATION);
-        this.createEReference(this.specifiedQoSAnnotationEClass,
-                SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION);
-        this.createEReference(this.specifiedQoSAnnotationEClass,
-                SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION);
-        this.createEReference(this.specifiedQoSAnnotationEClass,
+        specifiedQoSAnnotationEClass = createEClass(SPECIFIED_QO_SANNOTATION);
+        createEReference(specifiedQoSAnnotationEClass, SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION);
+        createEReference(specifiedQoSAnnotationEClass, SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION);
+        createEReference(specifiedQoSAnnotationEClass,
                 SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION);
 
-        this.qoSAnnotationsEClass = this.createEClass(QO_SANNOTATIONS);
-        this.createEReference(this.qoSAnnotationsEClass,
-                QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS);
-        this.createEReference(this.qoSAnnotationsEClass, QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS);
-        this.createEReference(this.qoSAnnotationsEClass, QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS);
+        qoSAnnotationsEClass = createEClass(QO_SANNOTATIONS);
+        createEReference(qoSAnnotationsEClass, QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS);
+        createEReference(qoSAnnotationsEClass, QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS);
+        createEReference(qoSAnnotationsEClass, QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS);
 
-        this.specifiedOutputParameterAbstractionEClass = this.createEClass(SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
-        this.createEReference(this.specifiedOutputParameterAbstractionEClass,
+        specifiedOutputParameterAbstractionEClass = createEClass(SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
+        createEReference(specifiedOutputParameterAbstractionEClass,
                 SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
-        this.createEReference(this.specifiedOutputParameterAbstractionEClass,
+        createEReference(specifiedOutputParameterAbstractionEClass,
                 SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
-        this.createEReference(this.specifiedOutputParameterAbstractionEClass,
+        createEReference(specifiedOutputParameterAbstractionEClass,
                 SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
-        this.createEReference(this.specifiedOutputParameterAbstractionEClass,
+        createEReference(specifiedOutputParameterAbstractionEClass,
                 SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
     }
 
@@ -469,107 +460,101 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
      * @generated
      */
     public void initializePackageContents() {
-        if (this.isInitialized) {
+        if (isInitialized)
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
-        this.setName(eNAME);
-        this.setNsPrefix(eNS_PREFIX);
-        this.setNsURI(eNS_URI);
+        setName(eNAME);
+        setNsPrefix(eNS_PREFIX);
+        setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        final QosPerformancePackage theQosPerformancePackage = (QosPerformancePackage) EPackage.Registry.INSTANCE
+        QosPerformancePackage theQosPerformancePackage = (QosPerformancePackage) EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI);
-        final QosReliabilityPackage theQosReliabilityPackage = (QosReliabilityPackage) EPackage.Registry.INSTANCE
+        QosReliabilityPackage theQosReliabilityPackage = (QosReliabilityPackage) EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI);
-        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+        RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI);
-        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI);
-        final SystemPackage theSystemPackage = (SystemPackage) EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI);
-        final ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
+        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+        SystemPackage theSystemPackage = (SystemPackage) EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+        ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI);
 
         // Add subpackages
-        this.getESubpackages().add(theQosPerformancePackage);
-        this.getESubpackages().add(theQosReliabilityPackage);
+        getESubpackages().add(theQosPerformancePackage);
+        getESubpackages().add(theQosReliabilityPackage);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.qoSAnnotationsEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        qoSAnnotationsEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
         // Initialize classes and features; add operations and parameters
-        this.initEClass(this.specifiedQoSAnnotationEClass, SpecifiedQoSAnnotation.class, "SpecifiedQoSAnnotation",
-                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getSpecifiedQoSAnnotation_Signature_SpecifiedQoSAnnation(),
-                theRepositoryPackage.getSignature(), null, "signature_SpecifiedQoSAnnation", null, 1, 1,
-                SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getSpecifiedQoSAnnotation_Role_SpecifiedQoSAnnotation(),
-                theRepositoryPackage.getRole(), null, "role_SpecifiedQoSAnnotation", null, 1, 1,
-                SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation(),
-                this.getQoSAnnotations(), this.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations(),
+        initEClass(specifiedQoSAnnotationEClass, SpecifiedQoSAnnotation.class, "SpecifiedQoSAnnotation", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getSpecifiedQoSAnnotation_Signature_SpecifiedQoSAnnation(), theRepositoryPackage.getSignature(),
+                null, "signature_SpecifiedQoSAnnation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
+        initEReference(getSpecifiedQoSAnnotation_Role_SpecifiedQoSAnnotation(), theRepositoryPackage.getRole(), null,
+                "role_SpecifiedQoSAnnotation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation(), this.getQoSAnnotations(),
+                this.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations(),
                 "qosAnnotations_SpecifiedQoSAnnotation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.qoSAnnotationsEClass, QoSAnnotations.class, "QoSAnnotations", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(qoSAnnotationsEClass, QoSAnnotations.class, "QoSAnnotations", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations(),
+        initEReference(getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations(),
                 this.getSpecifiedOutputParameterAbstraction(),
                 this.getSpecifiedOutputParameterAbstraction_QosAnnotations_SpecifiedOutputParameterAbstraction(),
                 "specifiedOutputParameterAbstractions_QoSAnnotations", null, 0, -1, QoSAnnotations.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getQoSAnnotations_System_QoSAnnotations(), theSystemPackage.getSystem(),
+        initEReference(getQoSAnnotations_System_QoSAnnotations(), theSystemPackage.getSystem(),
                 theSystemPackage.getSystem_QosAnnotations_System(), "system_QoSAnnotations", null, 1, 1,
                 QoSAnnotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations(),
-                this.getSpecifiedQoSAnnotation(),
+        initEReference(getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations(), this.getSpecifiedQoSAnnotation(),
                 this.getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation(),
                 "specifiedQoSAnnotations_QoSAnnotations", null, 0, -1, QoSAnnotations.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        final EOperation op = this.addEOperation(this.qoSAnnotationsEClass, this.ecorePackage.getEBoolean(),
+        EOperation op = addEOperation(qoSAnnotationsEClass, ecorePackage.getEBoolean(),
                 "MultipleReliabilityAnnotationsPerExternalCallNotAllowed", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.specifiedOutputParameterAbstractionEClass, SpecifiedOutputParameterAbstraction.class,
+        initEClass(specifiedOutputParameterAbstractionEClass, SpecifiedOutputParameterAbstraction.class,
                 "SpecifiedOutputParameterAbstraction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(
-                this.getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction(),
+        initEReference(getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction(),
                 theRepositoryPackage.getSignature(), null, "signature_SpecifiedOutputParameterAbstraction", null, 1, 1,
                 SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction(),
+        initEReference(getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction(),
                 theRepositoryPackage.getRole(), null, "role_SpecifiedOutputParameterAbstraction", null, 1, 1,
                 SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this
-                .getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(),
-                theParameterPackage.getVariableUsage(), theParameterPackage
+        initEReference(
+                getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(),
+                theParameterPackage.getVariableUsage(),
+                theParameterPackage
                         .getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(),
                 "expectedExternalOutputs_SpecifiedOutputParameterAbstraction", null, 0, -1,
                 SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(
-                this.getSpecifiedOutputParameterAbstraction_QosAnnotations_SpecifiedOutputParameterAbstraction(),
+        initEReference(getSpecifiedOutputParameterAbstraction_QosAnnotations_SpecifiedOutputParameterAbstraction(),
                 this.getQoSAnnotations(), this.getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations(),
                 "qosAnnotations_SpecifiedOutputParameterAbstraction", null, 1, 1,
                 SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,

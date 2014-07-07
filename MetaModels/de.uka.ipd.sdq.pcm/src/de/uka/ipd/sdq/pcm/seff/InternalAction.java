@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Internal Action</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Internal Action Combines the execution of a number of internal
  * computations by a component service in a single model entity. It models calculations inside a
  * component service, which do not include calls to required services. For a desired high
@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
  * stochastic expression. This abstraction underlies the assumption that the resource demands of a
  * number of instruction can be captured sufficiently accurate enough in one such expression <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
  * <em>Internal Failure Occurrence Descriptions Internal Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction()
  * @model
  * @generated
@@ -55,7 +55,7 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
      * Returns the value of the '
      * <em><b>Internal Failure Occurrence Descriptions Internal Action</b></em>' containment
      * reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription} . It is
+     * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription}. It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
      * <em>Internal Action Internal Failure Occurrence Description</em>}'. <!-- begin-user-doc -->
@@ -65,8 +65,8 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Internal Failure Occurrence Descriptions Internal Action</em>
-     *         ' containment reference list.
+     * @return the value of the '<em>Internal Failure Occurrence Descriptions Internal Action</em>'
+     *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction_InternalFailureOccurrenceDescriptions__InternalAction()
      * @see de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
      * @model opposite="internalAction__InternalFailureOccurrenceDescription" containment="true"

@@ -49,12 +49,12 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     public static CompositionFactory init() {
         try {
-            final CompositionFactory theCompositionFactory = (CompositionFactory) EPackage.Registry.INSTANCE
+            CompositionFactory theCompositionFactory = (CompositionFactory) EPackage.Registry.INSTANCE
                     .getEFactory(CompositionPackage.eNS_URI);
             if (theCompositionFactory != null) {
                 return theCompositionFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new CompositionFactoryImpl();
@@ -75,38 +75,38 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-            return this.createResourceRequiredDelegationConnector();
+            return (EObject) createResourceRequiredDelegationConnector();
         case CompositionPackage.EVENT_CHANNEL:
-            return this.createEventChannel();
+            return (EObject) createEventChannel();
         case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR:
-            return this.createEventChannelSourceConnector();
+            return (EObject) createEventChannelSourceConnector();
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR:
-            return this.createEventChannelSinkConnector();
+            return (EObject) createEventChannelSinkConnector();
         case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR:
-            return this.createProvidedDelegationConnector();
+            return (EObject) createProvidedDelegationConnector();
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR:
-            return this.createRequiredDelegationConnector();
+            return (EObject) createRequiredDelegationConnector();
         case CompositionPackage.ASSEMBLY_CONNECTOR:
-            return this.createAssemblyConnector();
+            return (EObject) createAssemblyConnector();
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR:
-            return this.createAssemblyEventConnector();
+            return (EObject) createAssemblyEventConnector();
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR:
-            return this.createSourceDelegationConnector();
+            return (EObject) createSourceDelegationConnector();
         case CompositionPackage.SINK_DELEGATION_CONNECTOR:
-            return this.createSinkDelegationConnector();
+            return (EObject) createSinkDelegationConnector();
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            return this.createAssemblyInfrastructureConnector();
+            return (EObject) createAssemblyInfrastructureConnector();
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
-            return this.createProvidedInfrastructureDelegationConnector();
+            return (EObject) createProvidedInfrastructureDelegationConnector();
         case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
-            return this.createRequiredInfrastructureDelegationConnector();
+            return (EObject) createRequiredInfrastructureDelegationConnector();
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-            return this.createRequiredResourceDelegationConnector();
+            return (EObject) createRequiredResourceDelegationConnector();
         case CompositionPackage.ASSEMBLY_CONTEXT:
-            return this.createAssemblyContext();
+            return (EObject) createAssemblyContext();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -119,7 +119,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public ProvidedDelegationConnector createProvidedDelegationConnector() {
-        final ProvidedDelegationConnectorImpl providedDelegationConnector = new ProvidedDelegationConnectorImpl();
+        ProvidedDelegationConnectorImpl providedDelegationConnector = new ProvidedDelegationConnectorImpl();
         return providedDelegationConnector;
     }
 
@@ -130,7 +130,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public AssemblyContext createAssemblyContext() {
-        final AssemblyContextImpl assemblyContext = new AssemblyContextImpl();
+        AssemblyContextImpl assemblyContext = new AssemblyContextImpl();
         return assemblyContext;
     }
 
@@ -141,7 +141,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public RequiredDelegationConnector createRequiredDelegationConnector() {
-        final RequiredDelegationConnectorImpl requiredDelegationConnector = new RequiredDelegationConnectorImpl();
+        RequiredDelegationConnectorImpl requiredDelegationConnector = new RequiredDelegationConnectorImpl();
         return requiredDelegationConnector;
     }
 
@@ -152,7 +152,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public AssemblyConnector createAssemblyConnector() {
-        final AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
+        AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
         return assemblyConnector;
     }
 
@@ -163,7 +163,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector() {
-        final ResourceRequiredDelegationConnectorImpl resourceRequiredDelegationConnector = new ResourceRequiredDelegationConnectorImpl();
+        ResourceRequiredDelegationConnectorImpl resourceRequiredDelegationConnector = new ResourceRequiredDelegationConnectorImpl();
         return resourceRequiredDelegationConnector;
     }
 
@@ -174,7 +174,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public EventChannel createEventChannel() {
-        final EventChannelImpl eventChannel = new EventChannelImpl();
+        EventChannelImpl eventChannel = new EventChannelImpl();
         return eventChannel;
     }
 
@@ -185,7 +185,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public AssemblyEventConnector createAssemblyEventConnector() {
-        final AssemblyEventConnectorImpl assemblyEventConnector = new AssemblyEventConnectorImpl();
+        AssemblyEventConnectorImpl assemblyEventConnector = new AssemblyEventConnectorImpl();
         return assemblyEventConnector;
     }
 
@@ -196,7 +196,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public SourceDelegationConnector createSourceDelegationConnector() {
-        final SourceDelegationConnectorImpl sourceDelegationConnector = new SourceDelegationConnectorImpl();
+        SourceDelegationConnectorImpl sourceDelegationConnector = new SourceDelegationConnectorImpl();
         return sourceDelegationConnector;
     }
 
@@ -207,7 +207,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public SinkDelegationConnector createSinkDelegationConnector() {
-        final SinkDelegationConnectorImpl sinkDelegationConnector = new SinkDelegationConnectorImpl();
+        SinkDelegationConnectorImpl sinkDelegationConnector = new SinkDelegationConnectorImpl();
         return sinkDelegationConnector;
     }
 
@@ -218,7 +218,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public AssemblyInfrastructureConnector createAssemblyInfrastructureConnector() {
-        final AssemblyInfrastructureConnectorImpl assemblyInfrastructureConnector = new AssemblyInfrastructureConnectorImpl();
+        AssemblyInfrastructureConnectorImpl assemblyInfrastructureConnector = new AssemblyInfrastructureConnectorImpl();
         return assemblyInfrastructureConnector;
     }
 
@@ -229,7 +229,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public RequiredInfrastructureDelegationConnector createRequiredInfrastructureDelegationConnector() {
-        final RequiredInfrastructureDelegationConnectorImpl requiredInfrastructureDelegationConnector = new RequiredInfrastructureDelegationConnectorImpl();
+        RequiredInfrastructureDelegationConnectorImpl requiredInfrastructureDelegationConnector = new RequiredInfrastructureDelegationConnectorImpl();
         return requiredInfrastructureDelegationConnector;
     }
 
@@ -240,7 +240,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public ProvidedInfrastructureDelegationConnector createProvidedInfrastructureDelegationConnector() {
-        final ProvidedInfrastructureDelegationConnectorImpl providedInfrastructureDelegationConnector = new ProvidedInfrastructureDelegationConnectorImpl();
+        ProvidedInfrastructureDelegationConnectorImpl providedInfrastructureDelegationConnector = new ProvidedInfrastructureDelegationConnectorImpl();
         return providedInfrastructureDelegationConnector;
     }
 
@@ -251,7 +251,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public RequiredResourceDelegationConnector createRequiredResourceDelegationConnector() {
-        final RequiredResourceDelegationConnectorImpl requiredResourceDelegationConnector = new RequiredResourceDelegationConnectorImpl();
+        RequiredResourceDelegationConnectorImpl requiredResourceDelegationConnector = new RequiredResourceDelegationConnectorImpl();
         return requiredResourceDelegationConnector;
     }
 
@@ -262,7 +262,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public EventChannelSinkConnector createEventChannelSinkConnector() {
-        final EventChannelSinkConnectorImpl eventChannelSinkConnector = new EventChannelSinkConnectorImpl();
+        EventChannelSinkConnectorImpl eventChannelSinkConnector = new EventChannelSinkConnectorImpl();
         return eventChannelSinkConnector;
     }
 
@@ -273,7 +273,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public EventChannelSourceConnector createEventChannelSourceConnector() {
-        final EventChannelSourceConnectorImpl eventChannelSourceConnector = new EventChannelSourceConnectorImpl();
+        EventChannelSourceConnectorImpl eventChannelSourceConnector = new EventChannelSourceConnectorImpl();
         return eventChannelSourceConnector;
     }
 
@@ -284,7 +284,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public CompositionPackage getCompositionPackage() {
-        return (CompositionPackage) this.getEPackage();
+        return (CompositionPackage) getEPackage();
     }
 
     /**

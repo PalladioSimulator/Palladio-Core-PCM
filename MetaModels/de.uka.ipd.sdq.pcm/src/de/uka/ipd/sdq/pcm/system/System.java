@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>System</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A System is the out-most entity of a PCM's assembly of components. It
  * captures the modeling decision to which extend a system under investigation is modelled within
  * the PCM. A System is not composable (part of another composition) because it has QoS annotations
@@ -41,7 +41,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
  * Like SubSystems, Systems are white-box entities for the Software Architect and also for the
  * System Deployer. Thus, a System Deployer can and must allocate inner components of a System
  * individually. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -49,7 +49,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
  * </em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem()
  * @model
  * @generated

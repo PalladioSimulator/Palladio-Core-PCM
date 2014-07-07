@@ -34,12 +34,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl#getBranchTransitions_Branch <em>Branch
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl#getBranchTransitions_Branch <em>Branch
  * Transitions Branch</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BranchImpl extends AbstractUserActionImpl implements Branch {
@@ -87,12 +86,12 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      */
     @Override
     public EList<BranchTransition> getBranchTransitions_Branch() {
-        if (this.branchTransitions_Branch == null) {
-            this.branchTransitions_Branch = new EObjectContainmentWithInverseEList<BranchTransition>(
-                    BranchTransition.class, this, UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH,
+        if (branchTransitions_Branch == null) {
+            branchTransitions_Branch = new EObjectContainmentWithInverseEList<BranchTransition>(BranchTransition.class,
+                    this, UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH,
                     UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION);
         }
-        return this.branchTransitions_Branch;
+        return branchTransitions_Branch;
     }
 
     /**
@@ -127,15 +126,14 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      * @generated
      */
     @Override
-    public boolean AllBranchProbabilitiesMustSumUpTo1(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean AllBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.BRANCH);
             try {
                 ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -161,11 +159,10 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getBranchTransitions_Branch()).basicAdd(
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getBranchTransitions_Branch()).basicAdd(
                     otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -177,11 +174,10 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            return ((InternalEList<?>) this.getBranchTransitions_Branch()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getBranchTransitions_Branch()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -192,10 +188,10 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            return this.getBranchTransitions_Branch();
+            return getBranchTransitions_Branch();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -207,11 +203,11 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            this.getBranchTransitions_Branch().clear();
-            this.getBranchTransitions_Branch().addAll((Collection<? extends BranchTransition>) newValue);
+            getBranchTransitions_Branch().clear();
+            getBranchTransitions_Branch().addAll((Collection<? extends BranchTransition>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -223,10 +219,10 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            this.getBranchTransitions_Branch().clear();
+            getBranchTransitions_Branch().clear();
             return;
         }
         super.eUnset(featureID);
@@ -238,10 +234,10 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            return this.branchTransitions_Branch != null && !this.branchTransitions_Branch.isEmpty();
+            return branchTransitions_Branch != null && !branchTransitions_Branch.isEmpty();
         }
         return super.eIsSet(featureID);
     }

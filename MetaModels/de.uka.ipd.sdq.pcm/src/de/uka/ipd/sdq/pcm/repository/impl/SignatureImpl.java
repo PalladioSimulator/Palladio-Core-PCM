@@ -27,14 +27,13 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getExceptions__Signature <em>Exceptions
- * Signature</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getExceptions__Signature <em>
+ * Exceptions Signature</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getFailureType <em>Failure Type</em>}
  * </li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class SignatureImpl extends EntityImpl implements Signature {
@@ -91,11 +90,11 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      */
     @Override
     public EList<ExceptionType> getExceptions__Signature() {
-        if (this.exceptions__Signature == null) {
-            this.exceptions__Signature = new EObjectContainmentEList<ExceptionType>(ExceptionType.class, this,
+        if (exceptions__Signature == null) {
+            exceptions__Signature = new EObjectContainmentEList<ExceptionType>(ExceptionType.class, this,
                     RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE);
         }
-        return this.exceptions__Signature;
+        return exceptions__Signature;
     }
 
     /**
@@ -105,11 +104,11 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      */
     @Override
     public EList<FailureType> getFailureType() {
-        if (this.failureType == null) {
-            this.failureType = new EObjectResolvingEList<FailureType>(FailureType.class, this,
+        if (failureType == null) {
+            failureType = new EObjectResolvingEList<FailureType>(FailureType.class, this,
                     RepositoryPackage.SIGNATURE__FAILURE_TYPE);
         }
-        return this.failureType;
+        return failureType;
     }
 
     /**
@@ -118,11 +117,10 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
-            return ((InternalEList<?>) this.getExceptions__Signature()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getExceptions__Signature()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -133,12 +131,12 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
-            return this.getExceptions__Signature();
+            return getExceptions__Signature();
         case RepositoryPackage.SIGNATURE__FAILURE_TYPE:
-            return this.getFailureType();
+            return getFailureType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -150,15 +148,15 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
-            this.getExceptions__Signature().clear();
-            this.getExceptions__Signature().addAll((Collection<? extends ExceptionType>) newValue);
+            getExceptions__Signature().clear();
+            getExceptions__Signature().addAll((Collection<? extends ExceptionType>) newValue);
             return;
         case RepositoryPackage.SIGNATURE__FAILURE_TYPE:
-            this.getFailureType().clear();
-            this.getFailureType().addAll((Collection<? extends FailureType>) newValue);
+            getFailureType().clear();
+            getFailureType().addAll((Collection<? extends FailureType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -170,13 +168,13 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
-            this.getExceptions__Signature().clear();
+            getExceptions__Signature().clear();
             return;
         case RepositoryPackage.SIGNATURE__FAILURE_TYPE:
-            this.getFailureType().clear();
+            getFailureType().clear();
             return;
         }
         super.eUnset(featureID);
@@ -188,12 +186,12 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
-            return this.exceptions__Signature != null && !this.exceptions__Signature.isEmpty();
+            return exceptions__Signature != null && !exceptions__Signature.isEmpty();
         case RepositoryPackage.SIGNATURE__FAILURE_TYPE:
-            return this.failureType != null && !this.failureType.isEmpty();
+            return failureType != null && !failureType.isEmpty();
         }
         return super.eIsSet(featureID);
     }

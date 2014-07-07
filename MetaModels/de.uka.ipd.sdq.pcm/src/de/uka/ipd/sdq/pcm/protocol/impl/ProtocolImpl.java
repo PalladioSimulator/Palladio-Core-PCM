@@ -23,7 +23,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * </em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class ProtocolImpl extends EStereotypableObjectImpl implements Protocol {
@@ -80,7 +80,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
      */
     @Override
     public String getProtocolTypeID() {
-        return this.protocolTypeID;
+        return protocolTypeID;
     }
 
     /**
@@ -89,13 +89,12 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
      * @generated
      */
     @Override
-    public void setProtocolTypeID(final String newProtocolTypeID) {
-        final String oldProtocolTypeID = this.protocolTypeID;
-        this.protocolTypeID = newProtocolTypeID;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID,
-                    oldProtocolTypeID, this.protocolTypeID));
-        }
+    public void setProtocolTypeID(String newProtocolTypeID) {
+        String oldProtocolTypeID = protocolTypeID;
+        protocolTypeID = newProtocolTypeID;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID,
+                    oldProtocolTypeID, protocolTypeID));
     }
 
     /**
@@ -104,10 +103,10 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            return this.getProtocolTypeID();
+            return getProtocolTypeID();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -118,10 +117,10 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            this.setProtocolTypeID((String) newValue);
+            setProtocolTypeID((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -133,10 +132,10 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            this.setProtocolTypeID(PROTOCOL_TYPE_ID_EDEFAULT);
+            setProtocolTypeID(PROTOCOL_TYPE_ID_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -148,11 +147,11 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            return PROTOCOL_TYPE_ID_EDEFAULT == null ? this.protocolTypeID != null : !PROTOCOL_TYPE_ID_EDEFAULT
-                    .equals(this.protocolTypeID);
+            return PROTOCOL_TYPE_ID_EDEFAULT == null ? protocolTypeID != null : !PROTOCOL_TYPE_ID_EDEFAULT
+                    .equals(protocolTypeID);
         }
         return super.eIsSet(featureID);
     }
@@ -164,13 +163,12 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (protocolTypeID: ");
-        result.append(this.protocolTypeID);
+        result.append(protocolTypeID);
         result.append(')');
         return result.toString();
     }

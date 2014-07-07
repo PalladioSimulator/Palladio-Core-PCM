@@ -20,12 +20,11 @@ import de.uka.ipd.sdq.stoex.impl.VariableImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl#getCharacterisationType <em>
- * Characterisation Type</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl#getCharacterisationType
+ * <em>Characterisation Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CharacterisedVariableImpl extends VariableImpl implements CharacterisedVariable {
@@ -82,7 +81,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      */
     @Override
     public VariableCharacterisationType getCharacterisationType() {
-        return this.characterisationType;
+        return characterisationType;
     }
 
     /**
@@ -91,15 +90,14 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      * @generated
      */
     @Override
-    public void setCharacterisationType(final VariableCharacterisationType newCharacterisationType) {
-        final VariableCharacterisationType oldCharacterisationType = this.characterisationType;
-        this.characterisationType = newCharacterisationType == null ? CHARACTERISATION_TYPE_EDEFAULT
+    public void setCharacterisationType(VariableCharacterisationType newCharacterisationType) {
+        VariableCharacterisationType oldCharacterisationType = characterisationType;
+        characterisationType = newCharacterisationType == null ? CHARACTERISATION_TYPE_EDEFAULT
                 : newCharacterisationType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, oldCharacterisationType,
-                    this.characterisationType));
-        }
+                    characterisationType));
     }
 
     /**
@@ -108,10 +106,10 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            return this.getCharacterisationType();
+            return getCharacterisationType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -122,10 +120,10 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            this.setCharacterisationType((VariableCharacterisationType) newValue);
+            setCharacterisationType((VariableCharacterisationType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -137,10 +135,10 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            this.setCharacterisationType(CHARACTERISATION_TYPE_EDEFAULT);
+            setCharacterisationType(CHARACTERISATION_TYPE_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -152,10 +150,10 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            return this.characterisationType != CHARACTERISATION_TYPE_EDEFAULT;
+            return characterisationType != CHARACTERISATION_TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -167,13 +165,12 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (characterisationType: ");
-        result.append(this.characterisationType);
+        result.append(characterisationType);
         result.append(')');
         return result.toString();
     }

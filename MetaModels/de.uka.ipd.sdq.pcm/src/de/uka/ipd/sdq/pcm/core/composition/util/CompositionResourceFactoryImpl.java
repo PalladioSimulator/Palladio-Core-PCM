@@ -40,8 +40,8 @@ public class CompositionResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(final URI uri) {
-        final XMLResource result = new CompositionResourceImpl(uri);
+    public Resource createResource(URI uri) {
+        XMLResource result = new CompositionResourceImpl(uri);
         return result;
     }
 

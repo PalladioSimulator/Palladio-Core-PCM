@@ -12,25 +12,23 @@ import de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Passive Resource</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity represents a passive resource, e.g., a semaphore. <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>Capacity
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>Capacity
  * Passive Resource</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource <em>Basic
- * Component Passive Resource</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource <em>
+ * Basic Component Passive Resource</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
  * <em>Resource Timeout Failure Type Passive Resource</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPassiveResource()
  * @model
  * @generated
@@ -75,7 +73,7 @@ public interface PassiveResource extends Entity {
     void setCapacity_PassiveResource(PCMRandomVariable value);
 
     /**
-     * Returns the value of the ' <em><b>Basic Component Passive Resource</b></em>' container
+     * Returns the value of the '<em><b>Basic Component Passive Resource</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
      * <em>Passive Resource Basic Component</em>}'. <!-- begin-user-doc -->
@@ -102,7 +100,7 @@ public interface PassiveResource extends Entity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Basic Component Passive Resource</em>' container
+     *            the new value of the '<em>Basic Component Passive Resource</em>' container
      *            reference.
      * @see #getBasicComponent_PassiveResource()
      * @generated
@@ -140,7 +138,7 @@ public interface PassiveResource extends Entity {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Resource Timeout Failure Type Passive Resource</em>'
+     *            the new value of the '<em>Resource Timeout Failure Type Passive Resource</em>'
      *            reference.
      * @see #getResourceTimeoutFailureType__PassiveResource()
      * @generated

@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Infrastructure Call</b></em> '. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
  * <em>Required Role Infrastructure Call</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall()
  * @model
  * @generated
@@ -80,7 +80,7 @@ public interface InfrastructureCall extends CallAction {
     void setSignature__InfrastructureCall(InfrastructureSignature value);
 
     /**
-     * Returns the value of the ' <em><b>Number Of Calls Infrastructure Call</b></em>' containment
+     * Returns the value of the '<em><b>Number Of Calls Infrastructure Call</b></em>' containment
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable
      * <em>Infrastructure Call PCM Random Variable</em>}'. <!-- begin-user-doc -->
@@ -108,7 +108,7 @@ public interface InfrastructureCall extends CallAction {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Number Of Calls Infrastructure Call</em>' containment
+     *            the new value of the '<em>Number Of Calls Infrastructure Call</em>' containment
      *            reference.
      * @see #getNumberOfCalls__InfrastructureCall()
      * @generated
@@ -173,7 +173,7 @@ public interface InfrastructureCall extends CallAction {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Required Role Infrastructure Call</em>' reference.
+     *            the new value of the '<em>Required Role Infrastructure Call</em>' reference.
      * @see #getRequiredRole__InfrastructureCall()
      * @generated
      */

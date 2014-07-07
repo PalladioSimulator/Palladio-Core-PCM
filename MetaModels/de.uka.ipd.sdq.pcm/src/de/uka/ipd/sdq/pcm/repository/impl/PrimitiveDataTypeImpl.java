@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveDataType {
@@ -79,7 +79,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      */
     @Override
     public PrimitiveTypeEnum getType() {
-        return this.type;
+        return type;
     }
 
     /**
@@ -88,13 +88,12 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public void setType(final PrimitiveTypeEnum newType) {
-        final PrimitiveTypeEnum oldType = this.type;
-        this.type = newType == null ? TYPE_EDEFAULT : newType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE,
-                    oldType, this.type));
-        }
+    public void setType(PrimitiveTypeEnum newType) {
+        PrimitiveTypeEnum oldType = type;
+        type = newType == null ? TYPE_EDEFAULT : newType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE, oldType,
+                    type));
     }
 
     /**
@@ -103,10 +102,10 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            return this.getType();
+            return getType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -117,10 +116,10 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            this.setType((PrimitiveTypeEnum) newValue);
+            setType((PrimitiveTypeEnum) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -132,10 +131,10 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            this.setType(TYPE_EDEFAULT);
+            setType(TYPE_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -147,10 +146,10 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            return this.type != TYPE_EDEFAULT;
+            return type != TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
@@ -162,13 +161,12 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (type: ");
-        result.append(this.type);
+        result.append(type);
         result.append(')');
         return result.toString();
     }

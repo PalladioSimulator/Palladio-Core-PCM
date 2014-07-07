@@ -31,24 +31,19 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryDescription <em>Repository
- * Description</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getComponents__Repository <em>Components
- * Repository</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository <em>Interfaces
- * Repository</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getFailureTypes__Repository <em>Failure
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryDescription <em>
+ * Repository Description</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getComponents__Repository <em>
+ * Components Repository</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository <em>
+ * Interfaces Repository</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getFailureTypes__Repository <em>
+ * Failure Types Repository</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getDataTypes__Repository <em>Data
  * Types Repository</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getDataTypes__Repository <em>Data Types
- * Repository</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RepositoryImpl extends EntityImpl implements Repository {
@@ -146,7 +141,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public String getRepositoryDescription() {
-        return this.repositoryDescription;
+        return repositoryDescription;
     }
 
     /**
@@ -155,14 +150,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      * @generated
      */
     @Override
-    public void setRepositoryDescription(final String newRepositoryDescription) {
-        final String oldRepositoryDescription = this.repositoryDescription;
-        this.repositoryDescription = newRepositoryDescription;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION, oldRepositoryDescription,
-                    this.repositoryDescription));
-        }
+    public void setRepositoryDescription(String newRepositoryDescription) {
+        String oldRepositoryDescription = repositoryDescription;
+        repositoryDescription = newRepositoryDescription;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION,
+                    oldRepositoryDescription, repositoryDescription));
     }
 
     /**
@@ -172,12 +165,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public EList<RepositoryComponent> getComponents__Repository() {
-        if (this.components__Repository == null) {
-            this.components__Repository = new EObjectContainmentWithInverseEList<RepositoryComponent>(
+        if (components__Repository == null) {
+            components__Repository = new EObjectContainmentWithInverseEList<RepositoryComponent>(
                     RepositoryComponent.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
                     RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
         }
-        return this.components__Repository;
+        return components__Repository;
     }
 
     /**
@@ -187,12 +180,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public EList<FailureType> getFailureTypes__Repository() {
-        if (this.failureTypes__Repository == null) {
-            this.failureTypes__Repository = new EObjectContainmentWithInverseEList<FailureType>(FailureType.class,
-                    this, RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY,
+        if (failureTypes__Repository == null) {
+            failureTypes__Repository = new EObjectContainmentWithInverseEList<FailureType>(FailureType.class, this,
+                    RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY,
                     ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE);
         }
-        return this.failureTypes__Repository;
+        return failureTypes__Repository;
     }
 
     /**
@@ -202,12 +195,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public EList<DataType> getDataTypes__Repository() {
-        if (this.dataTypes__Repository == null) {
-            this.dataTypes__Repository = new EObjectContainmentWithInverseEList<DataType>(DataType.class, this,
+        if (dataTypes__Repository == null) {
+            dataTypes__Repository = new EObjectContainmentWithInverseEList<DataType>(DataType.class, this,
                     RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE);
         }
-        return this.dataTypes__Repository;
+        return dataTypes__Repository;
     }
 
     /**
@@ -217,12 +210,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public EList<Interface> getInterfaces__Repository() {
-        if (this.interfaces__Repository == null) {
-            this.interfaces__Repository = new EObjectContainmentWithInverseEList<Interface>(Interface.class, this,
+        if (interfaces__Repository == null) {
+            interfaces__Repository = new EObjectContainmentWithInverseEList<Interface>(Interface.class, this,
                     RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY,
                     RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE);
         }
-        return this.interfaces__Repository;
+        return interfaces__Repository;
     }
 
     /**
@@ -232,21 +225,20 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getComponents__Repository()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getComponents__Repository()).basicAdd(otherEnd,
+                    msgs);
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInterfaces__Repository()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getInterfaces__Repository()).basicAdd(otherEnd,
+                    msgs);
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getFailureTypes__Repository()).basicAdd(
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getFailureTypes__Repository()).basicAdd(
                     otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getDataTypes__Repository()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getDataTypes__Repository()).basicAdd(otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -257,17 +249,16 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return ((InternalEList<?>) this.getComponents__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getComponents__Repository()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return ((InternalEList<?>) this.getInterfaces__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getInterfaces__Repository()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return ((InternalEList<?>) this.getFailureTypes__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getFailureTypes__Repository()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return ((InternalEList<?>) this.getDataTypes__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getDataTypes__Repository()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -278,18 +269,18 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            return this.getRepositoryDescription();
+            return getRepositoryDescription();
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return this.getComponents__Repository();
+            return getComponents__Repository();
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return this.getInterfaces__Repository();
+            return getInterfaces__Repository();
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return this.getFailureTypes__Repository();
+            return getFailureTypes__Repository();
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return this.getDataTypes__Repository();
+            return getDataTypes__Repository();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -301,26 +292,26 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            this.setRepositoryDescription((String) newValue);
+            setRepositoryDescription((String) newValue);
             return;
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            this.getComponents__Repository().clear();
-            this.getComponents__Repository().addAll((Collection<? extends RepositoryComponent>) newValue);
+            getComponents__Repository().clear();
+            getComponents__Repository().addAll((Collection<? extends RepositoryComponent>) newValue);
             return;
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            this.getInterfaces__Repository().clear();
-            this.getInterfaces__Repository().addAll((Collection<? extends Interface>) newValue);
+            getInterfaces__Repository().clear();
+            getInterfaces__Repository().addAll((Collection<? extends Interface>) newValue);
             return;
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            this.getFailureTypes__Repository().clear();
-            this.getFailureTypes__Repository().addAll((Collection<? extends FailureType>) newValue);
+            getFailureTypes__Repository().clear();
+            getFailureTypes__Repository().addAll((Collection<? extends FailureType>) newValue);
             return;
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            this.getDataTypes__Repository().clear();
-            this.getDataTypes__Repository().addAll((Collection<? extends DataType>) newValue);
+            getDataTypes__Repository().clear();
+            getDataTypes__Repository().addAll((Collection<? extends DataType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -332,22 +323,22 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            this.setRepositoryDescription(REPOSITORY_DESCRIPTION_EDEFAULT);
+            setRepositoryDescription(REPOSITORY_DESCRIPTION_EDEFAULT);
             return;
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            this.getComponents__Repository().clear();
+            getComponents__Repository().clear();
             return;
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            this.getInterfaces__Repository().clear();
+            getInterfaces__Repository().clear();
             return;
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            this.getFailureTypes__Repository().clear();
+            getFailureTypes__Repository().clear();
             return;
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            this.getDataTypes__Repository().clear();
+            getDataTypes__Repository().clear();
             return;
         }
         super.eUnset(featureID);
@@ -359,19 +350,19 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            return REPOSITORY_DESCRIPTION_EDEFAULT == null ? this.repositoryDescription != null
-                    : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(this.repositoryDescription);
+            return REPOSITORY_DESCRIPTION_EDEFAULT == null ? repositoryDescription != null
+                    : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(repositoryDescription);
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return this.components__Repository != null && !this.components__Repository.isEmpty();
+            return components__Repository != null && !components__Repository.isEmpty();
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return this.interfaces__Repository != null && !this.interfaces__Repository.isEmpty();
+            return interfaces__Repository != null && !interfaces__Repository.isEmpty();
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return this.failureTypes__Repository != null && !this.failureTypes__Repository.isEmpty();
+            return failureTypes__Repository != null && !failureTypes__Repository.isEmpty();
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return this.dataTypes__Repository != null && !this.dataTypes__Repository.isEmpty();
+            return dataTypes__Repository != null && !dataTypes__Repository.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -383,13 +374,12 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (repositoryDescription: ");
-        result.append(this.repositoryDescription);
+        result.append(repositoryDescription);
         result.append(')');
         return result.toString();
     }

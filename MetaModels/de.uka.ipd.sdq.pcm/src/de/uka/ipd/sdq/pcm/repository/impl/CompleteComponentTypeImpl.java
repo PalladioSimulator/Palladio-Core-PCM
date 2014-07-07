@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <em>Parent Provides Component Types</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CompleteComponentTypeImpl extends RepositoryComponentImpl implements CompleteComponentType {
@@ -84,12 +84,12 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      */
     @Override
     public EList<ProvidesComponentType> getParentProvidesComponentTypes() {
-        if (this.parentProvidesComponentTypes == null) {
-            this.parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(
+        if (parentProvidesComponentTypes == null) {
+            parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(
                     ProvidesComponentType.class, this,
                     RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
         }
-        return this.parentProvidesComponentTypes;
+        return parentProvidesComponentTypes;
     }
 
     /**
@@ -138,14 +138,14 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      */
     @Override
     public boolean AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
             try {
                 AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -224,15 +224,15 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * @generated
      */
     @Override
-    public boolean providedInterfacesHaveToConformToProvidedType2(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean providedInterfacesHaveToConformToProvidedType2(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
             try {
                 PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -261,10 +261,10 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            return this.getParentProvidesComponentTypes();
+            return getParentProvidesComponentTypes();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -276,11 +276,11 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            this.getParentProvidesComponentTypes().clear();
-            this.getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>) newValue);
+            getParentProvidesComponentTypes().clear();
+            getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -292,10 +292,10 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            this.getParentProvidesComponentTypes().clear();
+            getParentProvidesComponentTypes().clear();
             return;
         }
         super.eUnset(featureID);
@@ -307,10 +307,10 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            return this.parentProvidesComponentTypes != null && !this.parentProvidesComponentTypes.isEmpty();
+            return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
         }
         return super.eIsSet(featureID);
     }

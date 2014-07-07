@@ -12,10 +12,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Communication Link Resource Specification</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Throughput and performance specification of linking resources <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * <em>Throughput Communication Link Resource Specification</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification()
  * @model
  * @generated
@@ -51,7 +51,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
 
     /**
      * Returns the value of the '
-     * <em><b>Linking Resource Communication Link Resource Specification</b></em> ' container
+     * <em><b>Linking Resource Communication Link Resource Specification</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getCommunicationLinkResourceSpecifications_LinkingResource
      * <em>Communication Link Resource Specifications Linking Resource</em>}'. <!-- begin-user-doc
@@ -62,9 +62,8 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '
-     *         <em>Linking Resource Communication Link Resource Specification</em> ' container
-     *         reference.
+     * @return the value of the '<em>Linking Resource Communication Link Resource Specification</em>
+     *         ' container reference.
      * @see #setLinkingResource_CommunicationLinkResourceSpecification(LinkingResource)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification()
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getCommunicationLinkResourceSpecifications_LinkingResource
@@ -82,7 +81,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * 
      * @param value
      *            the new value of the '
-     *            <em>Linking Resource Communication Link Resource Specification</em> ' container
+     *            <em>Linking Resource Communication Link Resource Specification</em>' container
      *            reference.
      * @see #getLinkingResource_CommunicationLinkResourceSpecification()
      * @generated
@@ -117,7 +116,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
 
     /**
      * Returns the value of the '
-     * <em><b>Communication Link Resource Type Communication Link Resource Specification</b></em> '
+     * <em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
@@ -127,7 +126,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Communication Link Resource Type Communication Link Resource Specification</em> '
+     *         <em>Communication Link Resource Type Communication Link Resource Specification</em>'
      *         reference.
      * @see #setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(CommunicationLinkResourceType)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification()
@@ -139,7 +138,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification
-     * <em>Communication Link Resource Type Communication Link Resource Specification</em>} '
+     * <em>Communication Link Resource Type Communication Link Resource Specification</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

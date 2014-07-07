@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <em>Return Variable Usage Call Return Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CallReturnActionImpl extends CallActionImpl implements CallReturnAction {
@@ -78,13 +78,13 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
      */
     @Override
     public EList<VariableUsage> getReturnVariableUsage__CallReturnAction() {
-        if (this.returnVariableUsage__CallReturnAction == null) {
-            this.returnVariableUsage__CallReturnAction = new EObjectContainmentWithInverseEList<VariableUsage>(
+        if (returnVariableUsage__CallReturnAction == null) {
+            returnVariableUsage__CallReturnAction = new EObjectContainmentWithInverseEList<VariableUsage>(
                     VariableUsage.class, this,
                     SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION,
                     ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE);
         }
-        return this.returnVariableUsage__CallReturnAction;
+        return returnVariableUsage__CallReturnAction;
     }
 
     /**
@@ -94,11 +94,10 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getReturnVariableUsage__CallReturnAction())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getReturnVariableUsage__CallReturnAction())
                     .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -110,11 +109,10 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return ((InternalEList<?>) this.getReturnVariableUsage__CallReturnAction()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getReturnVariableUsage__CallReturnAction()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -125,10 +123,10 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return this.getReturnVariableUsage__CallReturnAction();
+            return getReturnVariableUsage__CallReturnAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -140,11 +138,11 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            this.getReturnVariableUsage__CallReturnAction().clear();
-            this.getReturnVariableUsage__CallReturnAction().addAll((Collection<? extends VariableUsage>) newValue);
+            getReturnVariableUsage__CallReturnAction().clear();
+            getReturnVariableUsage__CallReturnAction().addAll((Collection<? extends VariableUsage>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -156,10 +154,10 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            this.getReturnVariableUsage__CallReturnAction().clear();
+            getReturnVariableUsage__CallReturnAction().clear();
             return;
         }
         super.eUnset(featureID);
@@ -171,11 +169,10 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return this.returnVariableUsage__CallReturnAction != null
-                    && !this.returnVariableUsage__CallReturnAction.isEmpty();
+            return returnVariableUsage__CallReturnAction != null && !returnVariableUsage__CallReturnAction.isEmpty();
         }
         return super.eIsSet(featureID);
     }

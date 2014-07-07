@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.pcm.repository.Role;
  * end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class RoleImpl extends EntityImpl implements Role {

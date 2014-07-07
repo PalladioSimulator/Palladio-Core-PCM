@@ -10,8 +10,8 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Dummy Class</b></em>'. <!--
  * end-user-doc -->
- * 
- * 
+ *
+ *
  * @see de.uka.ipd.sdq.pcm.PcmPackage#getDummyClass()
  * @model
  * @extends EStereotypableObject

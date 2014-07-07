@@ -57,8 +57,8 @@ public class SeffPerformanceSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(EObject theEObject) {
+        return doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
@@ -68,12 +68,12 @@ public class SeffPerformanceSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
+    protected T doSwitch(EClass theEClass, EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
+            return doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -84,71 +84,66 @@ public class SeffPerformanceSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final int classifierID, final EObject theEObject) {
+    protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL: {
-            final InfrastructureCall infrastructureCall = (InfrastructureCall) theEObject;
-            T result = this.caseInfrastructureCall(infrastructureCall);
-            if (result == null) {
-                result = this.caseCallAction(infrastructureCall);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            InfrastructureCall infrastructureCall = (InfrastructureCall) theEObject;
+            T result = caseInfrastructureCall(infrastructureCall);
+            if (result == null)
+                result = caseCallAction(infrastructureCall);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case SeffPerformancePackage.RESOURCE_CALL: {
-            final ResourceCall resourceCall = (ResourceCall) theEObject;
-            T result = this.caseResourceCall(resourceCall);
-            if (result == null) {
-                result = this.caseCallAction(resourceCall);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            ResourceCall resourceCall = (ResourceCall) theEObject;
+            T result = caseResourceCall(resourceCall);
+            if (result == null)
+                result = caseCallAction(resourceCall);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND: {
-            final ParametricResourceDemand parametricResourceDemand = (ParametricResourceDemand) theEObject;
-            T result = this.caseParametricResourceDemand(parametricResourceDemand);
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            ParametricResourceDemand parametricResourceDemand = (ParametricResourceDemand) theEObject;
+            T result = caseParametricResourceDemand(parametricResourceDemand);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         default:
-            return this.defaultCase(theEObject);
+            return defaultCase(theEObject);
         }
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Infrastructure Call</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Infrastructure Call</em>
+     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Infrastructure Call</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Infrastructure Call</em>
+     *         '.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInfrastructureCall(final InfrastructureCall object) {
+    public T caseInfrastructureCall(InfrastructureCall object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Resource Call</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Resource Call</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Resource Call</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Resource Call</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseResourceCall(final ResourceCall object) {
+    public T caseResourceCall(ResourceCall object) {
         return null;
     }
 
@@ -164,7 +159,7 @@ public class SeffPerformanceSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseParametricResourceDemand(final ParametricResourceDemand object) {
+    public T caseParametricResourceDemand(ParametricResourceDemand object) {
         return null;
     }
 
@@ -179,7 +174,7 @@ public class SeffPerformanceSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCallAction(final CallAction object) {
+    public T caseCallAction(CallAction object) {
         return null;
     }
 
@@ -194,7 +189,7 @@ public class SeffPerformanceSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(final EObject object) {
+    public T defaultCase(EObject object) {
         return null;
     }
 

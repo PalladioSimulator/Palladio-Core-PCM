@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  * </em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class BranchActionImpl extends AbstractInternalControlFlowActionImpl implements BranchAction {
@@ -85,12 +85,12 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      */
     @Override
     public EList<AbstractBranchTransition> getBranches_Branch() {
-        if (this.branches_Branch == null) {
-            this.branches_Branch = new EObjectContainmentWithInverseEList<AbstractBranchTransition>(
+        if (branches_Branch == null) {
+            branches_Branch = new EObjectContainmentWithInverseEList<AbstractBranchTransition>(
                     AbstractBranchTransition.class, this, SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH,
                     SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION);
         }
-        return this.branches_Branch;
+        return branches_Branch;
     }
 
     /**
@@ -126,15 +126,15 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * @generated
      */
     @Override
-    public boolean EitherGuardedBranchesOrProbabilisiticBranchTransitions(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean EitherGuardedBranchesOrProbabilisiticBranchTransitions(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.BRANCH_ACTION);
             try {
                 EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -188,15 +188,15 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * @generated
      */
     @Override
-    public boolean AllProbabilisticBranchProbabilitiesMustSumUpTo1(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean AllProbabilisticBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.BRANCH_ACTION);
             try {
                 ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -222,12 +222,10 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getBranches_Branch()).basicAdd(otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getBranches_Branch()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -238,11 +236,10 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH:
-            return ((InternalEList<?>) this.getBranches_Branch()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getBranches_Branch()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -253,10 +250,10 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH:
-            return this.getBranches_Branch();
+            return getBranches_Branch();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -268,11 +265,11 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH:
-            this.getBranches_Branch().clear();
-            this.getBranches_Branch().addAll((Collection<? extends AbstractBranchTransition>) newValue);
+            getBranches_Branch().clear();
+            getBranches_Branch().addAll((Collection<? extends AbstractBranchTransition>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -284,10 +281,10 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH:
-            this.getBranches_Branch().clear();
+            getBranches_Branch().clear();
             return;
         }
         super.eUnset(featureID);
@@ -299,10 +296,10 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH:
-            return this.branches_Branch != null && !this.branches_Branch.isEmpty();
+            return branches_Branch != null && !branches_Branch.isEmpty();
         }
         return super.eIsSet(featureID);
     }

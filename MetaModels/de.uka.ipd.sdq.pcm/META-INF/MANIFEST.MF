@@ -80,6 +80,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.errorhandling,
  org.eclipse.ocl.ecore;bundle-version="1.2.1",
- edu.kit.ipd.sdq.mdsd.profiles;visibility:=reexport;bundle-version="1.0.0",
- org.modelversioning.emfprofile;visibility:=reexport;bundle-version="1.1.0"
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0";visibility:=reexport,
+ org.modelversioning.emfprofile;bundle-version="1.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy

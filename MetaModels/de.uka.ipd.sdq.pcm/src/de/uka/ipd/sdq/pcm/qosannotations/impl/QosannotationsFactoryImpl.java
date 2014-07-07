@@ -35,12 +35,12 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
      */
     public static QosannotationsFactory init() {
         try {
-            final QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory) EPackage.Registry.INSTANCE
+            QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosannotationsPackage.eNS_URI);
             if (theQosannotationsFactory != null) {
                 return theQosannotationsFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosannotationsFactoryImpl();
@@ -61,10 +61,10 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case QosannotationsPackage.QO_SANNOTATIONS:
-            return this.createQoSAnnotations();
+            return (EObject) createQoSAnnotations();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -77,7 +77,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
      */
     @Override
     public QoSAnnotations createQoSAnnotations() {
-        final QoSAnnotationsImpl qoSAnnotations = new QoSAnnotationsImpl();
+        QoSAnnotationsImpl qoSAnnotations = new QoSAnnotationsImpl();
         return qoSAnnotations;
     }
 
@@ -88,7 +88,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
      */
     @Override
     public QosannotationsPackage getQosannotationsPackage() {
-        return (QosannotationsPackage) this.getEPackage();
+        return (QosannotationsPackage) getEPackage();
     }
 
     /**

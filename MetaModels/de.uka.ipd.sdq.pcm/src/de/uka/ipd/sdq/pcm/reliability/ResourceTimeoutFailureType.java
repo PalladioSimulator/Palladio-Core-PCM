@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Timeout Failure Type</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Type definition for a timeout failure-on-demand related to an AcquireAction for a certain
@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * further information).
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * <em>Passive Resource Resource Timeout Failure Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getResourceTimeoutFailureType()
  * @model
  * @generated
@@ -70,7 +70,7 @@ public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Passive Resource Resource Timeout Failure Type</em>'
+     *            the new value of the '<em>Passive Resource Resource Timeout Failure Type</em>'
      *            reference.
      * @see #getPassiveResource__ResourceTimeoutFailureType()
      * @generated

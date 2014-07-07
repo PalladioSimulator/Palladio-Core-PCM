@@ -39,12 +39,12 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     public static ResourceenvironmentFactory init() {
         try {
-            final ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory) EPackage.Registry.INSTANCE
+            ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ResourceenvironmentPackage.eNS_URI);
             if (theResourceenvironmentFactory != null) {
                 return theResourceenvironmentFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ResourceenvironmentFactoryImpl();
@@ -65,18 +65,18 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT:
-            return this.createResourceEnvironment();
+            return (EObject) createResourceEnvironment();
         case ResourceenvironmentPackage.LINKING_RESOURCE:
-            return this.createLinkingResource();
+            return (EObject) createLinkingResource();
         case ResourceenvironmentPackage.RESOURCE_CONTAINER:
-            return this.createResourceContainer();
+            return (EObject) createResourceContainer();
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION:
-            return this.createProcessingResourceSpecification();
+            return (EObject) createProcessingResourceSpecification();
         case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
-            return this.createCommunicationLinkResourceSpecification();
+            return (EObject) createCommunicationLinkResourceSpecification();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -89,7 +89,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     @Override
     public ResourceEnvironment createResourceEnvironment() {
-        final ResourceEnvironmentImpl resourceEnvironment = new ResourceEnvironmentImpl();
+        ResourceEnvironmentImpl resourceEnvironment = new ResourceEnvironmentImpl();
         return resourceEnvironment;
     }
 
@@ -100,7 +100,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     @Override
     public LinkingResource createLinkingResource() {
-        final LinkingResourceImpl linkingResource = new LinkingResourceImpl();
+        LinkingResourceImpl linkingResource = new LinkingResourceImpl();
         return linkingResource;
     }
 
@@ -111,7 +111,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     @Override
     public ResourceContainer createResourceContainer() {
-        final ResourceContainerImpl resourceContainer = new ResourceContainerImpl();
+        ResourceContainerImpl resourceContainer = new ResourceContainerImpl();
         return resourceContainer;
     }
 
@@ -122,7 +122,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     @Override
     public ProcessingResourceSpecification createProcessingResourceSpecification() {
-        final ProcessingResourceSpecificationImpl processingResourceSpecification = new ProcessingResourceSpecificationImpl();
+        ProcessingResourceSpecificationImpl processingResourceSpecification = new ProcessingResourceSpecificationImpl();
         return processingResourceSpecification;
     }
 
@@ -133,7 +133,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     @Override
     public CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification() {
-        final CommunicationLinkResourceSpecificationImpl communicationLinkResourceSpecification = new CommunicationLinkResourceSpecificationImpl();
+        CommunicationLinkResourceSpecificationImpl communicationLinkResourceSpecification = new CommunicationLinkResourceSpecificationImpl();
         return communicationLinkResourceSpecification;
     }
 
@@ -144,7 +144,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     @Override
     public ResourceenvironmentPackage getResourceenvironmentPackage() {
-        return (ResourceenvironmentPackage) this.getEPackage();
+        return (ResourceenvironmentPackage) getEPackage();
     }
 
     /**

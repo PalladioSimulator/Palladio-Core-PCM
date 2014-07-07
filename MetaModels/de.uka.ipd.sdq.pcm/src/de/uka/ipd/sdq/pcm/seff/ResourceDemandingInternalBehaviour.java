@@ -8,12 +8,12 @@ package de.uka.ipd.sdq.pcm.seff;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Demanding Internal Behaviour</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Class representing component-internal behaviour not accessible from the
  * component's interface. Comparable to internal method in object-oriented programming. This
  * behaviour can be called from within a resource demanding behaviour using an InternalCallAction.
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -22,7 +22,7 @@ package de.uka.ipd.sdq.pcm.seff;
  * <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingInternalBehaviour()
  * @model
  * @generated
@@ -37,7 +37,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
 
     /**
      * Returns the value of the '
-     * <em><b>Resource Demanding SEFF Resource Demanding Internal Behaviour</b></em> ' container
+     * <em><b>Resource Demanding SEFF Resource Demanding Internal Behaviour</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours
      * <em>Resource Demanding Internal Behaviours</em>}'. <!-- begin-user-doc -->
@@ -49,7 +49,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em> ' container
+     *         <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container
      *         reference.
      * @see #setResourceDemandingSEFF_ResourceDemandingInternalBehaviour(ResourceDemandingSEFF)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingInternalBehaviour_ResourceDemandingSEFF_ResourceDemandingInternalBehaviour()
@@ -68,7 +68,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * 
      * @param value
      *            the new value of the '
-     *            <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em> ' container
+     *            <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container
      *            reference.
      * @see #getResourceDemandingSEFF_ResourceDemandingInternalBehaviour()
      * @generated

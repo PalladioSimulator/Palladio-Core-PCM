@@ -27,7 +27,7 @@ public class SeffReliabilityResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public SeffReliabilityResourceImpl(final URI uri) {
+    public SeffReliabilityResourceImpl(URI uri) {
         super(uri);
     }
 

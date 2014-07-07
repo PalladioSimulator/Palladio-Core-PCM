@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Set Variable Action</b></em> '. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Set Variable Action Assigns a variable characterisation to an OUT
  * parameter, INOUT parameter, or return value of the service. It ensures that performance-relevant
  * output parameter characterisations of a component service are specified to use them to
@@ -36,16 +36,15 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * assignments. In the case of using a SetVariableAction in two different branches of a
  * BranchAction, only the assignment in the chosen branch is valid and gets transferred back to the
  * caller. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction <em>
- * Local Variable Usages Set Variable Action</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction
+ * <em>Local Variable Usages Set Variable Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSetVariableAction()
  * @model
  * @generated
@@ -59,7 +58,7 @@ public interface SetVariableAction extends AbstractInternalControlFlowAction {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Local Variable Usages Set Variable Action</b></em>'
+     * Returns the value of the '<em><b>Local Variable Usages Set Variable Action</b></em>'
      * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
@@ -70,7 +69,7 @@ public interface SetVariableAction extends AbstractInternalControlFlowAction {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Local Variable Usages Set Variable Action</em>' containment
+     * @return the value of the '<em>Local Variable Usages Set Variable Action</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSetVariableAction_LocalVariableUsages_SetVariableAction()
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage

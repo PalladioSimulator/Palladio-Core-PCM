@@ -17,28 +17,25 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Context</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Mapping between AssemblyContext and Resource. Sometimes referred to as
  * "Deployment". <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
  * <em>Resource Container Allocation Context</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext <em>
- * Assembly Context Allocation Context</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
+ * <em>Assembly Context Allocation Context</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext <em>
  * Allocation Allocation Context</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext <em>
- * Event Channel Allocation Context</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
+ * <em>Event Channel Allocation Context</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext()
  * @model
  * @generated
@@ -52,7 +49,7 @@ public interface AllocationContext extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Resource Container Allocation Context</b></em>' reference.
+     * Returns the value of the '<em><b>Resource Container Allocation Context</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Container Allocation Context</em>' reference isn't clear,
@@ -75,14 +72,14 @@ public interface AllocationContext extends Entity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Resource Container Allocation Context</em>' reference.
+     *            the new value of the '<em>Resource Container Allocation Context</em>' reference.
      * @see #getResourceContainer_AllocationContext()
      * @generated
      */
     void setResourceContainer_AllocationContext(ResourceContainer value);
 
     /**
-     * Returns the value of the ' <em><b>Assembly Context Allocation Context</b></em>' reference.
+     * Returns the value of the '<em><b>Assembly Context Allocation Context</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Context Allocation Context</em>' reference isn't clear,
@@ -105,7 +102,7 @@ public interface AllocationContext extends Entity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Assembly Context Allocation Context</em>' reference.
+     *            the new value of the '<em>Assembly Context Allocation Context</em>' reference.
      * @see #getAssemblyContext_AllocationContext()
      * @generated
      */
@@ -169,7 +166,7 @@ public interface AllocationContext extends Entity {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Event Channel Allocation Context</em>' reference.
+     *            the new value of the '<em>Event Channel Allocation Context</em>' reference.
      * @see #getEventChannel__AllocationContext()
      * @generated
      */

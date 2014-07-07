@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Release Action</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> The ReleaseAction increases the number of available item for the given
  * passive resource type, before the current request can continue. It should be to execute by one of
  * the other concurrent requests. Acquisition and release of passive resources happen
@@ -18,16 +18,15 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * Resource locking may introduce deadlocks when simulating the model, however, for performance
  * analysis with the PCM it is assumed that no deadlocks occur. Otherwise, the model first needs to
  * be fixed accordingly before carrying out the performance prediction. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>Passive
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>Passive
  * Resource Release Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getReleaseAction()
  * @model
  * @generated
@@ -64,7 +63,7 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the '<em>Passive Resource Release Action</em> ' reference.
+     *            the new value of the '<em>Passive Resource Release Action</em>' reference.
      * @see #getPassiveResource_ReleaseAction()
      * @generated
      */

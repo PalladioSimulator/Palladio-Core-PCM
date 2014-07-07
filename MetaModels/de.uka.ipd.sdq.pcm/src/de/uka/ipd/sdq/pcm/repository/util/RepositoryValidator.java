@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -227,8 +228,8 @@ public class RepositoryValidator extends EObjectValidator {
      */
     public RepositoryValidator() {
         super();
-        this.compositionValidator = CompositionValidator.INSTANCE;
-        this.entityValidator = EntityValidator.INSTANCE;
+        compositionValidator = CompositionValidator.INSTANCE;
+        entityValidator = EntityValidator.INSTANCE;
     }
 
     /**
@@ -248,81 +249,80 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
         switch (classifierID) {
         case RepositoryPackage.PASSIVE_RESOURCE:
-            return this.validatePassiveResource((PassiveResource) value, diagnostics, context);
+            return validatePassiveResource((PassiveResource) value, diagnostics, context);
         case RepositoryPackage.BASIC_COMPONENT:
-            return this.validateBasicComponent((BasicComponent) value, diagnostics, context);
+            return validateBasicComponent((BasicComponent) value, diagnostics, context);
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE:
-            return this.validateImplementationComponentType((ImplementationComponentType) value, diagnostics, context);
+            return validateImplementationComponentType((ImplementationComponentType) value, diagnostics, context);
         case RepositoryPackage.REPOSITORY_COMPONENT:
-            return this.validateRepositoryComponent((RepositoryComponent) value, diagnostics, context);
+            return validateRepositoryComponent((RepositoryComponent) value, diagnostics, context);
         case RepositoryPackage.PROVIDED_ROLE:
-            return this.validateProvidedRole((ProvidedRole) value, diagnostics, context);
+            return validateProvidedRole((ProvidedRole) value, diagnostics, context);
         case RepositoryPackage.PARAMETER:
-            return this.validateParameter((Parameter) value, diagnostics, context);
+            return validateParameter((Parameter) value, diagnostics, context);
         case RepositoryPackage.DATA_TYPE:
-            return this.validateDataType((DataType) value, diagnostics, context);
+            return validateDataType((DataType) value, diagnostics, context);
         case RepositoryPackage.REPOSITORY:
-            return this.validateRepository((Repository) value, diagnostics, context);
+            return validateRepository((Repository) value, diagnostics, context);
         case RepositoryPackage.INTERFACE:
-            return this.validateInterface((Interface) value, diagnostics, context);
+            return validateInterface((Interface) value, diagnostics, context);
         case RepositoryPackage.REQUIRED_CHARACTERISATION:
-            return this.validateRequiredCharacterisation((RequiredCharacterisation) value, diagnostics, context);
+            return validateRequiredCharacterisation((RequiredCharacterisation) value, diagnostics, context);
         case RepositoryPackage.EVENT_GROUP:
-            return this.validateEventGroup((EventGroup) value, diagnostics, context);
+            return validateEventGroup((EventGroup) value, diagnostics, context);
         case RepositoryPackage.EVENT_TYPE:
-            return this.validateEventType((EventType) value, diagnostics, context);
+            return validateEventType((EventType) value, diagnostics, context);
         case RepositoryPackage.SIGNATURE:
-            return this.validateSignature((Signature) value, diagnostics, context);
+            return validateSignature((Signature) value, diagnostics, context);
         case RepositoryPackage.EXCEPTION_TYPE:
-            return this.validateExceptionType((ExceptionType) value, diagnostics, context);
+            return validateExceptionType((ExceptionType) value, diagnostics, context);
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE:
-            return this.validateInfrastructureSignature((InfrastructureSignature) value, diagnostics, context);
+            return validateInfrastructureSignature((InfrastructureSignature) value, diagnostics, context);
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE:
-            return this.validateInfrastructureInterface((InfrastructureInterface) value, diagnostics, context);
+            return validateInfrastructureInterface((InfrastructureInterface) value, diagnostics, context);
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE:
-            return this.validateInfrastructureRequiredRole((InfrastructureRequiredRole) value, diagnostics, context);
+            return validateInfrastructureRequiredRole((InfrastructureRequiredRole) value, diagnostics, context);
         case RepositoryPackage.REQUIRED_ROLE:
-            return this.validateRequiredRole((RequiredRole) value, diagnostics, context);
+            return validateRequiredRole((RequiredRole) value, diagnostics, context);
         case RepositoryPackage.OPERATION_SIGNATURE:
-            return this.validateOperationSignature((OperationSignature) value, diagnostics, context);
+            return validateOperationSignature((OperationSignature) value, diagnostics, context);
         case RepositoryPackage.OPERATION_INTERFACE:
-            return this.validateOperationInterface((OperationInterface) value, diagnostics, context);
+            return validateOperationInterface((OperationInterface) value, diagnostics, context);
         case RepositoryPackage.OPERATION_REQUIRED_ROLE:
-            return this.validateOperationRequiredRole((OperationRequiredRole) value, diagnostics, context);
+            return validateOperationRequiredRole((OperationRequiredRole) value, diagnostics, context);
         case RepositoryPackage.SOURCE_ROLE:
-            return this.validateSourceRole((SourceRole) value, diagnostics, context);
+            return validateSourceRole((SourceRole) value, diagnostics, context);
         case RepositoryPackage.SINK_ROLE:
-            return this.validateSinkRole((SinkRole) value, diagnostics, context);
+            return validateSinkRole((SinkRole) value, diagnostics, context);
         case RepositoryPackage.OPERATION_PROVIDED_ROLE:
-            return this.validateOperationProvidedRole((OperationProvidedRole) value, diagnostics, context);
+            return validateOperationProvidedRole((OperationProvidedRole) value, diagnostics, context);
         case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE:
-            return this.validateInfrastructureProvidedRole((InfrastructureProvidedRole) value, diagnostics, context);
+            return validateInfrastructureProvidedRole((InfrastructureProvidedRole) value, diagnostics, context);
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE:
-            return this.validateCompleteComponentType((CompleteComponentType) value, diagnostics, context);
+            return validateCompleteComponentType((CompleteComponentType) value, diagnostics, context);
         case RepositoryPackage.PROVIDES_COMPONENT_TYPE:
-            return this.validateProvidesComponentType((ProvidesComponentType) value, diagnostics, context);
+            return validateProvidesComponentType((ProvidesComponentType) value, diagnostics, context);
         case RepositoryPackage.COMPOSITE_COMPONENT:
-            return this.validateCompositeComponent((CompositeComponent) value, diagnostics, context);
+            return validateCompositeComponent((CompositeComponent) value, diagnostics, context);
         case RepositoryPackage.PRIMITIVE_DATA_TYPE:
-            return this.validatePrimitiveDataType((PrimitiveDataType) value, diagnostics, context);
+            return validatePrimitiveDataType((PrimitiveDataType) value, diagnostics, context);
         case RepositoryPackage.COLLECTION_DATA_TYPE:
-            return this.validateCollectionDataType((CollectionDataType) value, diagnostics, context);
+            return validateCollectionDataType((CollectionDataType) value, diagnostics, context);
         case RepositoryPackage.COMPOSITE_DATA_TYPE:
-            return this.validateCompositeDataType((CompositeDataType) value, diagnostics, context);
+            return validateCompositeDataType((CompositeDataType) value, diagnostics, context);
         case RepositoryPackage.INNER_DECLARATION:
-            return this.validateInnerDeclaration((InnerDeclaration) value, diagnostics, context);
+            return validateInnerDeclaration((InnerDeclaration) value, diagnostics, context);
         case RepositoryPackage.ROLE:
-            return this.validateRole((Role) value, diagnostics, context);
+            return validateRole((Role) value, diagnostics, context);
         case RepositoryPackage.PARAMETER_MODIFIER:
-            return this.validateParameterModifier((ParameterModifier) value, diagnostics, context);
+            return validateParameterModifier((ParameterModifier) value, diagnostics, context);
         case RepositoryPackage.COMPONENT_TYPE:
-            return this.validateComponentType((ComponentType) value, diagnostics, context);
+            return validateComponentType((ComponentType) value, diagnostics, context);
         case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
-            return this.validatePrimitiveTypeEnum((PrimitiveTypeEnum) value, diagnostics, context);
+            return validatePrimitiveTypeEnum((PrimitiveTypeEnum) value, diagnostics, context);
         default:
             return true;
         }
@@ -333,9 +333,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validatePassiveResource(final PassiveResource passiveResource, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(passiveResource, diagnostics, context);
+    public boolean validatePassiveResource(PassiveResource passiveResource, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) passiveResource, diagnostics, context);
     }
 
     /**
@@ -343,53 +343,40 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateBasicComponent(final BasicComponent basicComponent, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(basicComponent, diagnostics, context)) {
+    public boolean validateBasicComponent(BasicComponent basicComponent, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) basicComponent, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(basicComponent, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(
+        boolean result = validate_EveryMultiplicityConforms((EObject) basicComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) basicComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) basicComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) basicComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) basicComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) basicComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) basicComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(basicComponent,
+                    diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(basicComponent,
+                    diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(basicComponent,
+                    diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
                     basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
                     basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(
-                    basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
-                    basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
-                    basicComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateBasicComponent_NoSeffTypeUsedTwice(basicComponent, diagnostics, context);
-        }
+        if (result || diagnostics != null)
+            result &= validateBasicComponent_NoSeffTypeUsedTwice(basicComponent, diagnostics, context);
         return result;
     }
 
@@ -399,8 +386,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateBasicComponent_NoSeffTypeUsedTwice(final BasicComponent basicComponent,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateBasicComponent_NoSeffTypeUsedTwice(BasicComponent basicComponent,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         return basicComponent.NoSeffTypeUsedTwice(diagnostics, context);
     }
 
@@ -409,50 +396,38 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateImplementationComponentType(final ImplementationComponentType implementationComponentType,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(implementationComponentType, diagnostics, context)) {
+    public boolean validateImplementationComponentType(ImplementationComponentType implementationComponentType,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) implementationComponentType, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(implementationComponentType, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(
+        boolean result = validate_EveryMultiplicityConforms((EObject) implementationComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) implementationComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) implementationComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) implementationComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) implementationComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) implementationComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) implementationComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(
                     implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(
                     implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(
                     implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
                     implementationComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
                     implementationComponentType, diagnostics, context);
-        }
         return result;
     }
 
@@ -463,8 +438,8 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(
-            final ImplementationComponentType implementationComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return implementationComponentType.RequiredInterfacesHaveToConformToCompleteType(diagnostics, context);
     }
 
@@ -475,8 +450,8 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(
-            final ImplementationComponentType implementationComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return implementationComponentType.providedInterfacesHaveToConformToCompleteType(diagnostics, context);
     }
 
@@ -487,8 +462,8 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(
-            final ImplementationComponentType implementationComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return implementationComponentType.ProvidedInterfaceHaveToConformToComponentType(diagnostics, context);
     }
 
@@ -499,8 +474,8 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
-            final ImplementationComponentType implementationComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return implementationComponentType.ProvideSameOrMoreInterfacesAsCompleteComponentType(diagnostics, context);
     }
 
@@ -511,8 +486,8 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
-            final ImplementationComponentType implementationComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return implementationComponentType.RequireSameOrFewerInterfacesAsCompleteComponentType(diagnostics, context);
     }
 
@@ -521,9 +496,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRepositoryComponent(final RepositoryComponent repositoryComponent,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(repositoryComponent, diagnostics, context);
+    public boolean validateRepositoryComponent(RepositoryComponent repositoryComponent, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) repositoryComponent, diagnostics, context);
     }
 
     /**
@@ -531,9 +506,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRequiredRole(final RequiredRole requiredRole, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(requiredRole, diagnostics, context);
+    public boolean validateRequiredRole(RequiredRole requiredRole, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) requiredRole, diagnostics, context);
     }
 
     /**
@@ -541,8 +516,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRole(final Role role, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(role, diagnostics, context);
+    public boolean validateRole(Role role, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) role, diagnostics, context);
     }
 
     /**
@@ -550,33 +525,24 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInterface(final Interface interface_, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(interface_, diagnostics, context)) {
+    public boolean validateInterface(Interface interface_, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) interface_, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(interface_, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(interface_, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(interface_, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(interface_, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(interface_, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(interface_, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(interface_, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateInterface_NoProtocolTypeIDUsedTwice(interface_, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) interface_, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) interface_, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) interface_, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) interface_, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) interface_, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) interface_, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) interface_, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateInterface_NoProtocolTypeIDUsedTwice(interface_, diagnostics, context);
         return result;
     }
 
@@ -586,8 +552,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInterface_NoProtocolTypeIDUsedTwice(final Interface interface_,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateInterface_NoProtocolTypeIDUsedTwice(Interface interface_, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return interface_.NoProtocolTypeIDUsedTwice(diagnostics, context);
     }
 
@@ -596,9 +562,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRepository(final Repository repository, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(repository, diagnostics, context);
+    public boolean validateRepository(Repository repository, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) repository, diagnostics, context);
     }
 
     /**
@@ -606,9 +571,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateDataType(final DataType dataType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(dataType, diagnostics, context);
+    public boolean validateDataType(DataType dataType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) dataType, diagnostics, context);
     }
 
     /**
@@ -616,9 +580,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRequiredCharacterisation(final RequiredCharacterisation requiredCharacterisation,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(requiredCharacterisation, diagnostics, context);
+    public boolean validateRequiredCharacterisation(RequiredCharacterisation requiredCharacterisation,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) requiredCharacterisation, diagnostics, context);
     }
 
     /**
@@ -626,9 +590,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateParameter(final Parameter parameter, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(parameter, diagnostics, context);
+    public boolean validateParameter(Parameter parameter, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) parameter, diagnostics, context);
     }
 
     /**
@@ -636,8 +599,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateComponentType(final ComponentType componentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean validateComponentType(ComponentType componentType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return true;
     }
 
@@ -646,34 +609,26 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateOperationSignature(final OperationSignature operationSignature,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(operationSignature, diagnostics, context)) {
+    public boolean validateOperationSignature(OperationSignature operationSignature, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) operationSignature, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(operationSignature, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(operationSignature, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(operationSignature, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(operationSignature, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(operationSignature, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(operationSignature, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(operationSignature, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateOperationSignature_ParameterNamesHaveToBeUniqueForASignature(operationSignature,
+        boolean result = validate_EveryMultiplicityConforms((EObject) operationSignature, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) operationSignature, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) operationSignature, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) operationSignature, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) operationSignature, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) operationSignature, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) operationSignature, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateOperationSignature_ParameterNamesHaveToBeUniqueForASignature(operationSignature,
                     diagnostics, context);
-        }
         return result;
     }
 
@@ -684,8 +639,7 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateOperationSignature_ParameterNamesHaveToBeUniqueForASignature(
-            final OperationSignature operationSignature, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            OperationSignature operationSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return operationSignature.ParameterNamesHaveToBeUniqueForASignature(diagnostics, context);
     }
 
@@ -694,9 +648,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSignature(final Signature signature, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(signature, diagnostics, context);
+    public boolean validateSignature(Signature signature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) signature, diagnostics, context);
     }
 
     /**
@@ -704,9 +657,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateExceptionType(final ExceptionType exceptionType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(exceptionType, diagnostics, context);
+    public boolean validateExceptionType(ExceptionType exceptionType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) exceptionType, diagnostics, context);
     }
 
     /**
@@ -714,37 +667,28 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateOperationInterface(final OperationInterface operationInterface,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(operationInterface, diagnostics, context)) {
+    public boolean validateOperationInterface(OperationInterface operationInterface, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) operationInterface, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(operationInterface, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(operationInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(operationInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(operationInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(operationInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(operationInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(operationInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateInterface_NoProtocolTypeIDUsedTwice(operationInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateOperationInterface_SignaturesHaveToBeUniqueForAnInterface(operationInterface,
+        boolean result = validate_EveryMultiplicityConforms((EObject) operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateInterface_NoProtocolTypeIDUsedTwice(operationInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateOperationInterface_SignaturesHaveToBeUniqueForAnInterface(operationInterface,
                     diagnostics, context);
-        }
         return result;
     }
 
@@ -755,8 +699,7 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateOperationInterface_SignaturesHaveToBeUniqueForAnInterface(
-            final OperationInterface operationInterface, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            OperationInterface operationInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return operationInterface.SignaturesHaveToBeUniqueForAnInterface(diagnostics, context);
     }
 
@@ -765,9 +708,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInfrastructureSignature(final InfrastructureSignature infrastructureSignature,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(infrastructureSignature, diagnostics, context);
+    public boolean validateInfrastructureSignature(InfrastructureSignature infrastructureSignature,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) infrastructureSignature, diagnostics, context);
     }
 
     /**
@@ -775,9 +718,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInfrastructureRequiredRole(final InfrastructureRequiredRole infrastructureRequiredRole,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(infrastructureRequiredRole, diagnostics, context);
+    public boolean validateInfrastructureRequiredRole(InfrastructureRequiredRole infrastructureRequiredRole,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) infrastructureRequiredRole, diagnostics, context);
     }
 
     /**
@@ -785,9 +728,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateEventType(final EventType eventType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(eventType, diagnostics, context);
+    public boolean validateEventType(EventType eventType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) eventType, diagnostics, context);
     }
 
     /**
@@ -795,33 +737,24 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateEventGroup(final EventGroup eventGroup, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(eventGroup, diagnostics, context)) {
+    public boolean validateEventGroup(EventGroup eventGroup, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) eventGroup, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(eventGroup, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(eventGroup, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(eventGroup, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(eventGroup, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(eventGroup, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(eventGroup, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(eventGroup, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateInterface_NoProtocolTypeIDUsedTwice(eventGroup, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) eventGroup, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) eventGroup, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) eventGroup, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) eventGroup, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) eventGroup, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) eventGroup, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) eventGroup, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateInterface_NoProtocolTypeIDUsedTwice(eventGroup, diagnostics, context);
         return result;
     }
 
@@ -830,39 +763,29 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateCompleteComponentType(final CompleteComponentType completeComponentType,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(completeComponentType, diagnostics, context)) {
+    public boolean validateCompleteComponentType(CompleteComponentType completeComponentType,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) completeComponentType, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(completeComponentType, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(completeComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(completeComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(completeComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(completeComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(completeComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(completeComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
-                            completeComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateCompleteComponentType_providedInterfacesHaveToConformToProvidedType2(
+        boolean result = validate_EveryMultiplicityConforms((EObject) completeComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) completeComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) completeComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) completeComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) completeComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) completeComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) completeComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
                     completeComponentType, diagnostics, context);
-        }
+        if (result || diagnostics != null)
+            result &= validateCompleteComponentType_providedInterfacesHaveToConformToProvidedType2(
+                    completeComponentType, diagnostics, context);
         return result;
     }
 
@@ -874,8 +797,7 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
-            final CompleteComponentType completeComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            CompleteComponentType completeComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return completeComponentType.AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
                 diagnostics, context);
     }
@@ -887,8 +809,7 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateCompleteComponentType_providedInterfacesHaveToConformToProvidedType2(
-            final CompleteComponentType completeComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            CompleteComponentType completeComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return completeComponentType.providedInterfacesHaveToConformToProvidedType2(diagnostics, context);
     }
 
@@ -897,35 +818,26 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateProvidesComponentType(final ProvidesComponentType providesComponentType,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(providesComponentType, diagnostics, context)) {
+    public boolean validateProvidesComponentType(ProvidesComponentType providesComponentType,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) providesComponentType, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(providesComponentType, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(providesComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(providesComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(providesComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(providesComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(providesComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(providesComponentType, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(
-                            providesComponentType, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) providesComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) providesComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) providesComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) providesComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) providesComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) providesComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) providesComponentType, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(
+                    providesComponentType, diagnostics, context);
         return result;
     }
 
@@ -936,8 +848,7 @@ public class RepositoryValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(
-            final ProvidesComponentType providesComponentType, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ProvidesComponentType providesComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return providesComponentType.AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(diagnostics,
                 context);
     }
@@ -947,9 +858,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateOperationRequiredRole(final OperationRequiredRole operationRequiredRole,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(operationRequiredRole, diagnostics, context);
+    public boolean validateOperationRequiredRole(OperationRequiredRole operationRequiredRole,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) operationRequiredRole, diagnostics, context);
     }
 
     /**
@@ -957,9 +868,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSourceRole(final SourceRole sourceRole, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(sourceRole, diagnostics, context);
+    public boolean validateSourceRole(SourceRole sourceRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) sourceRole, diagnostics, context);
     }
 
     /**
@@ -967,9 +877,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInfrastructureProvidedRole(final InfrastructureProvidedRole infrastructureProvidedRole,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(infrastructureProvidedRole, diagnostics, context);
+    public boolean validateInfrastructureProvidedRole(InfrastructureProvidedRole infrastructureProvidedRole,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) infrastructureProvidedRole, diagnostics, context);
     }
 
     /**
@@ -977,9 +887,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateOperationProvidedRole(final OperationProvidedRole operationProvidedRole,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(operationProvidedRole, diagnostics, context);
+    public boolean validateOperationProvidedRole(OperationProvidedRole operationProvidedRole,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) operationProvidedRole, diagnostics, context);
     }
 
     /**
@@ -987,63 +897,47 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateCompositeComponent(final CompositeComponent compositeComponent,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(compositeComponent, diagnostics, context)) {
+    public boolean validateCompositeComponent(CompositeComponent compositeComponent, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) compositeComponent, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(compositeComponent, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(
+        boolean result = validate_EveryMultiplicityConforms((EObject) compositeComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) compositeComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) compositeComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) compositeComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) compositeComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) compositeComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) compositeComponent, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(compositeComponent,
+                    diagnostics, context);
+        if (result || diagnostics != null)
+            result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(
                     compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.compositionValidator
-                    .validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(compositeComponent,
-                            diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(
+        if (result || diagnostics != null)
+            result &= entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(
                     compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(
                     compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(
                     compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(
                     compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
                     compositeComponent, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
+        if (result || diagnostics != null)
+            result &= validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
                     compositeComponent, diagnostics, context);
-        }
         return result;
     }
 
@@ -1052,9 +946,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSinkRole(final SinkRole sinkRole, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(sinkRole, diagnostics, context);
+    public boolean validateSinkRole(SinkRole sinkRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) sinkRole, diagnostics, context);
     }
 
     /**
@@ -1062,9 +955,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validatePrimitiveDataType(final PrimitiveDataType primitiveDataType,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(primitiveDataType, diagnostics, context);
+    public boolean validatePrimitiveDataType(PrimitiveDataType primitiveDataType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) primitiveDataType, diagnostics, context);
     }
 
     /**
@@ -1072,9 +965,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateCollectionDataType(final CollectionDataType collectionDataType,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(collectionDataType, diagnostics, context);
+    public boolean validateCollectionDataType(CollectionDataType collectionDataType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) collectionDataType, diagnostics, context);
     }
 
     /**
@@ -1082,9 +975,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateCompositeDataType(final CompositeDataType compositeDataType,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(compositeDataType, diagnostics, context);
+    public boolean validateCompositeDataType(CompositeDataType compositeDataType, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) compositeDataType, diagnostics, context);
     }
 
     /**
@@ -1092,9 +985,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInnerDeclaration(final InnerDeclaration innerDeclaration, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(innerDeclaration, diagnostics, context);
+    public boolean validateInnerDeclaration(InnerDeclaration innerDeclaration, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) innerDeclaration, diagnostics, context);
     }
 
     /**
@@ -1102,33 +995,25 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInfrastructureInterface(final InfrastructureInterface infrastructureInterface,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(infrastructureInterface, diagnostics, context)) {
+    public boolean validateInfrastructureInterface(InfrastructureInterface infrastructureInterface,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) infrastructureInterface, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(infrastructureInterface, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(infrastructureInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(infrastructureInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(infrastructureInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(infrastructureInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(infrastructureInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(infrastructureInterface, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateInterface_NoProtocolTypeIDUsedTwice(infrastructureInterface, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) infrastructureInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) infrastructureInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) infrastructureInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) infrastructureInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) infrastructureInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) infrastructureInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) infrastructureInterface, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateInterface_NoProtocolTypeIDUsedTwice(infrastructureInterface, diagnostics, context);
         return result;
     }
 
@@ -1137,9 +1022,9 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateProvidedRole(final ProvidedRole providedRole, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(providedRole, diagnostics, context);
+    public boolean validateProvidedRole(ProvidedRole providedRole, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) providedRole, diagnostics, context);
     }
 
     /**
@@ -1147,8 +1032,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateParameterModifier(final ParameterModifier parameterModifier,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateParameterModifier(ParameterModifier parameterModifier, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return true;
     }
 
@@ -1157,8 +1042,8 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validatePrimitiveTypeEnum(final PrimitiveTypeEnum primitiveTypeEnum,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validatePrimitiveTypeEnum(PrimitiveTypeEnum primitiveTypeEnum, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return true;
     }
 
@@ -1171,8 +1056,7 @@ public class RepositoryValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to
-        // this validator.
+        // Specialize this to return a resource locator for messages specific to this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }

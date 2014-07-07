@@ -10,7 +10,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Protocol</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A protocol is a set of calling sequences and can be optionally added to
  * an interface. Protocols of provided interfaces specify the order in which services have to be
  * called by clients. Protocols of required interfaces specify the actual order in which the
@@ -30,14 +30,14 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * complete state of a components consists of all its interface states. Restrictions on the complete
  * state cannot be expressed in the PCM, as protocols can only be specified for single interfaces.
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID <em> Protocol Type ID</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID <em>Protocol Type ID</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.protocol.ProtocolPackage#getProtocol()
  * @model abstract="true"
  * @extends EStereotypableObject
@@ -66,7 +66,7 @@ public interface Protocol extends EStereotypableObject {
     String getProtocolTypeID();
 
     /**
-     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID
      * <em>Protocol Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

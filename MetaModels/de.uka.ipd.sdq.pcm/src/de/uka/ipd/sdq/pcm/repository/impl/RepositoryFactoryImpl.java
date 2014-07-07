@@ -63,12 +63,12 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     public static RepositoryFactory init() {
         try {
-            final RepositoryFactory theRepositoryFactory = (RepositoryFactory) EPackage.Registry.INSTANCE
+            RepositoryFactory theRepositoryFactory = (RepositoryFactory) EPackage.Registry.INSTANCE
                     .getEFactory(RepositoryPackage.eNS_URI);
             if (theRepositoryFactory != null) {
                 return theRepositoryFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new RepositoryFactoryImpl();
@@ -89,58 +89,58 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case RepositoryPackage.PASSIVE_RESOURCE:
-            return this.createPassiveResource();
+            return (EObject) createPassiveResource();
         case RepositoryPackage.BASIC_COMPONENT:
-            return this.createBasicComponent();
+            return (EObject) createBasicComponent();
         case RepositoryPackage.PARAMETER:
-            return this.createParameter();
+            return (EObject) createParameter();
         case RepositoryPackage.REPOSITORY:
-            return this.createRepository();
+            return (EObject) createRepository();
         case RepositoryPackage.REQUIRED_CHARACTERISATION:
-            return this.createRequiredCharacterisation();
+            return (EObject) createRequiredCharacterisation();
         case RepositoryPackage.EVENT_GROUP:
-            return this.createEventGroup();
+            return (EObject) createEventGroup();
         case RepositoryPackage.EVENT_TYPE:
-            return this.createEventType();
+            return (EObject) createEventType();
         case RepositoryPackage.EXCEPTION_TYPE:
-            return this.createExceptionType();
+            return (EObject) createExceptionType();
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE:
-            return this.createInfrastructureSignature();
+            return (EObject) createInfrastructureSignature();
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE:
-            return this.createInfrastructureInterface();
+            return (EObject) createInfrastructureInterface();
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE:
-            return this.createInfrastructureRequiredRole();
+            return (EObject) createInfrastructureRequiredRole();
         case RepositoryPackage.OPERATION_SIGNATURE:
-            return this.createOperationSignature();
+            return (EObject) createOperationSignature();
         case RepositoryPackage.OPERATION_INTERFACE:
-            return this.createOperationInterface();
+            return (EObject) createOperationInterface();
         case RepositoryPackage.OPERATION_REQUIRED_ROLE:
-            return this.createOperationRequiredRole();
+            return (EObject) createOperationRequiredRole();
         case RepositoryPackage.SOURCE_ROLE:
-            return this.createSourceRole();
+            return (EObject) createSourceRole();
         case RepositoryPackage.SINK_ROLE:
-            return this.createSinkRole();
+            return (EObject) createSinkRole();
         case RepositoryPackage.OPERATION_PROVIDED_ROLE:
-            return this.createOperationProvidedRole();
+            return (EObject) createOperationProvidedRole();
         case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE:
-            return this.createInfrastructureProvidedRole();
+            return (EObject) createInfrastructureProvidedRole();
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE:
-            return this.createCompleteComponentType();
+            return (EObject) createCompleteComponentType();
         case RepositoryPackage.PROVIDES_COMPONENT_TYPE:
-            return this.createProvidesComponentType();
+            return (EObject) createProvidesComponentType();
         case RepositoryPackage.COMPOSITE_COMPONENT:
-            return this.createCompositeComponent();
+            return (EObject) createCompositeComponent();
         case RepositoryPackage.PRIMITIVE_DATA_TYPE:
-            return this.createPrimitiveDataType();
+            return (EObject) createPrimitiveDataType();
         case RepositoryPackage.COLLECTION_DATA_TYPE:
-            return this.createCollectionDataType();
+            return (EObject) createCollectionDataType();
         case RepositoryPackage.COMPOSITE_DATA_TYPE:
-            return this.createCompositeDataType();
+            return (EObject) createCompositeDataType();
         case RepositoryPackage.INNER_DECLARATION:
-            return this.createInnerDeclaration();
+            return (EObject) createInnerDeclaration();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -152,14 +152,14 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * @generated
      */
     @Override
-    public Object createFromString(final EDataType eDataType, final String initialValue) {
+    public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
         case RepositoryPackage.PARAMETER_MODIFIER:
-            return this.createParameterModifierFromString(eDataType, initialValue);
+            return createParameterModifierFromString(eDataType, initialValue);
         case RepositoryPackage.COMPONENT_TYPE:
-            return this.createComponentTypeFromString(eDataType, initialValue);
+            return createComponentTypeFromString(eDataType, initialValue);
         case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
-            return this.createPrimitiveTypeEnumFromString(eDataType, initialValue);
+            return createPrimitiveTypeEnumFromString(eDataType, initialValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -171,14 +171,14 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * @generated
      */
     @Override
-    public String convertToString(final EDataType eDataType, final Object instanceValue) {
+    public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
         case RepositoryPackage.PARAMETER_MODIFIER:
-            return this.convertParameterModifierToString(eDataType, instanceValue);
+            return convertParameterModifierToString(eDataType, instanceValue);
         case RepositoryPackage.COMPONENT_TYPE:
-            return this.convertComponentTypeToString(eDataType, instanceValue);
+            return convertComponentTypeToString(eDataType, instanceValue);
         case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
-            return this.convertPrimitiveTypeEnumToString(eDataType, instanceValue);
+            return convertPrimitiveTypeEnumToString(eDataType, instanceValue);
         default:
             throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
@@ -191,7 +191,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public PassiveResource createPassiveResource() {
-        final PassiveResourceImpl passiveResource = new PassiveResourceImpl();
+        PassiveResourceImpl passiveResource = new PassiveResourceImpl();
         return passiveResource;
     }
 
@@ -202,7 +202,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public BasicComponent createBasicComponent() {
-        final BasicComponentImpl basicComponent = new BasicComponentImpl();
+        BasicComponentImpl basicComponent = new BasicComponentImpl();
         return basicComponent;
     }
 
@@ -213,7 +213,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public Repository createRepository() {
-        final RepositoryImpl repository = new RepositoryImpl();
+        RepositoryImpl repository = new RepositoryImpl();
         return repository;
     }
 
@@ -224,7 +224,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public RequiredCharacterisation createRequiredCharacterisation() {
-        final RequiredCharacterisationImpl requiredCharacterisation = new RequiredCharacterisationImpl();
+        RequiredCharacterisationImpl requiredCharacterisation = new RequiredCharacterisationImpl();
         return requiredCharacterisation;
     }
 
@@ -235,7 +235,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public Parameter createParameter() {
-        final ParameterImpl parameter = new ParameterImpl();
+        ParameterImpl parameter = new ParameterImpl();
         return parameter;
     }
 
@@ -244,12 +244,11 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * 
      * @generated
      */
-    public ComponentType createComponentTypeFromString(final EDataType eDataType, final String initialValue) {
-        final ComponentType result = ComponentType.get(initialValue);
-        if (result == null) {
+    public ComponentType createComponentTypeFromString(EDataType eDataType, String initialValue) {
+        ComponentType result = ComponentType.get(initialValue);
+        if (result == null)
             throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
                     + eDataType.getName() + "'");
-        }
         return result;
     }
 
@@ -258,7 +257,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * 
      * @generated
      */
-    public String convertComponentTypeToString(final EDataType eDataType, final Object instanceValue) {
+    public String convertComponentTypeToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -269,7 +268,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public OperationSignature createOperationSignature() {
-        final OperationSignatureImpl operationSignature = new OperationSignatureImpl();
+        OperationSignatureImpl operationSignature = new OperationSignatureImpl();
         return operationSignature;
     }
 
@@ -280,7 +279,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public ExceptionType createExceptionType() {
-        final ExceptionTypeImpl exceptionType = new ExceptionTypeImpl();
+        ExceptionTypeImpl exceptionType = new ExceptionTypeImpl();
         return exceptionType;
     }
 
@@ -291,7 +290,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public OperationInterface createOperationInterface() {
-        final OperationInterfaceImpl operationInterface = new OperationInterfaceImpl();
+        OperationInterfaceImpl operationInterface = new OperationInterfaceImpl();
         return operationInterface;
     }
 
@@ -302,7 +301,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public InfrastructureSignature createInfrastructureSignature() {
-        final InfrastructureSignatureImpl infrastructureSignature = new InfrastructureSignatureImpl();
+        InfrastructureSignatureImpl infrastructureSignature = new InfrastructureSignatureImpl();
         return infrastructureSignature;
     }
 
@@ -313,7 +312,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public InfrastructureRequiredRole createInfrastructureRequiredRole() {
-        final InfrastructureRequiredRoleImpl infrastructureRequiredRole = new InfrastructureRequiredRoleImpl();
+        InfrastructureRequiredRoleImpl infrastructureRequiredRole = new InfrastructureRequiredRoleImpl();
         return infrastructureRequiredRole;
     }
 
@@ -324,7 +323,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public EventType createEventType() {
-        final EventTypeImpl eventType = new EventTypeImpl();
+        EventTypeImpl eventType = new EventTypeImpl();
         return eventType;
     }
 
@@ -335,7 +334,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public EventGroup createEventGroup() {
-        final EventGroupImpl eventGroup = new EventGroupImpl();
+        EventGroupImpl eventGroup = new EventGroupImpl();
         return eventGroup;
     }
 
@@ -346,7 +345,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public CompleteComponentType createCompleteComponentType() {
-        final CompleteComponentTypeImpl completeComponentType = new CompleteComponentTypeImpl();
+        CompleteComponentTypeImpl completeComponentType = new CompleteComponentTypeImpl();
         return completeComponentType;
     }
 
@@ -357,7 +356,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public ProvidesComponentType createProvidesComponentType() {
-        final ProvidesComponentTypeImpl providesComponentType = new ProvidesComponentTypeImpl();
+        ProvidesComponentTypeImpl providesComponentType = new ProvidesComponentTypeImpl();
         return providesComponentType;
     }
 
@@ -368,7 +367,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public OperationRequiredRole createOperationRequiredRole() {
-        final OperationRequiredRoleImpl operationRequiredRole = new OperationRequiredRoleImpl();
+        OperationRequiredRoleImpl operationRequiredRole = new OperationRequiredRoleImpl();
         return operationRequiredRole;
     }
 
@@ -379,7 +378,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public SourceRole createSourceRole() {
-        final SourceRoleImpl sourceRole = new SourceRoleImpl();
+        SourceRoleImpl sourceRole = new SourceRoleImpl();
         return sourceRole;
     }
 
@@ -390,7 +389,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public InfrastructureProvidedRole createInfrastructureProvidedRole() {
-        final InfrastructureProvidedRoleImpl infrastructureProvidedRole = new InfrastructureProvidedRoleImpl();
+        InfrastructureProvidedRoleImpl infrastructureProvidedRole = new InfrastructureProvidedRoleImpl();
         return infrastructureProvidedRole;
     }
 
@@ -401,7 +400,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public OperationProvidedRole createOperationProvidedRole() {
-        final OperationProvidedRoleImpl operationProvidedRole = new OperationProvidedRoleImpl();
+        OperationProvidedRoleImpl operationProvidedRole = new OperationProvidedRoleImpl();
         return operationProvidedRole;
     }
 
@@ -412,7 +411,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public CompositeComponent createCompositeComponent() {
-        final CompositeComponentImpl compositeComponent = new CompositeComponentImpl();
+        CompositeComponentImpl compositeComponent = new CompositeComponentImpl();
         return compositeComponent;
     }
 
@@ -423,7 +422,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public SinkRole createSinkRole() {
-        final SinkRoleImpl sinkRole = new SinkRoleImpl();
+        SinkRoleImpl sinkRole = new SinkRoleImpl();
         return sinkRole;
     }
 
@@ -434,7 +433,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public PrimitiveDataType createPrimitiveDataType() {
-        final PrimitiveDataTypeImpl primitiveDataType = new PrimitiveDataTypeImpl();
+        PrimitiveDataTypeImpl primitiveDataType = new PrimitiveDataTypeImpl();
         return primitiveDataType;
     }
 
@@ -445,7 +444,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public CollectionDataType createCollectionDataType() {
-        final CollectionDataTypeImpl collectionDataType = new CollectionDataTypeImpl();
+        CollectionDataTypeImpl collectionDataType = new CollectionDataTypeImpl();
         return collectionDataType;
     }
 
@@ -456,7 +455,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public CompositeDataType createCompositeDataType() {
-        final CompositeDataTypeImpl compositeDataType = new CompositeDataTypeImpl();
+        CompositeDataTypeImpl compositeDataType = new CompositeDataTypeImpl();
         return compositeDataType;
     }
 
@@ -467,7 +466,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public InnerDeclaration createInnerDeclaration() {
-        final InnerDeclarationImpl innerDeclaration = new InnerDeclarationImpl();
+        InnerDeclarationImpl innerDeclaration = new InnerDeclarationImpl();
         return innerDeclaration;
     }
 
@@ -478,7 +477,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public InfrastructureInterface createInfrastructureInterface() {
-        final InfrastructureInterfaceImpl infrastructureInterface = new InfrastructureInterfaceImpl();
+        InfrastructureInterfaceImpl infrastructureInterface = new InfrastructureInterfaceImpl();
         return infrastructureInterface;
     }
 
@@ -487,12 +486,11 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * 
      * @generated
      */
-    public ParameterModifier createParameterModifierFromString(final EDataType eDataType, final String initialValue) {
-        final ParameterModifier result = ParameterModifier.get(initialValue);
-        if (result == null) {
+    public ParameterModifier createParameterModifierFromString(EDataType eDataType, String initialValue) {
+        ParameterModifier result = ParameterModifier.get(initialValue);
+        if (result == null)
             throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
                     + eDataType.getName() + "'");
-        }
         return result;
     }
 
@@ -501,7 +499,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * 
      * @generated
      */
-    public String convertParameterModifierToString(final EDataType eDataType, final Object instanceValue) {
+    public String convertParameterModifierToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -510,12 +508,11 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * 
      * @generated
      */
-    public PrimitiveTypeEnum createPrimitiveTypeEnumFromString(final EDataType eDataType, final String initialValue) {
-        final PrimitiveTypeEnum result = PrimitiveTypeEnum.get(initialValue);
-        if (result == null) {
+    public PrimitiveTypeEnum createPrimitiveTypeEnumFromString(EDataType eDataType, String initialValue) {
+        PrimitiveTypeEnum result = PrimitiveTypeEnum.get(initialValue);
+        if (result == null)
             throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
                     + eDataType.getName() + "'");
-        }
         return result;
     }
 
@@ -524,7 +521,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * 
      * @generated
      */
-    public String convertPrimitiveTypeEnumToString(final EDataType eDataType, final Object instanceValue) {
+    public String convertPrimitiveTypeEnumToString(EDataType eDataType, Object instanceValue) {
         return instanceValue == null ? null : instanceValue.toString();
     }
 
@@ -535,7 +532,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public RepositoryPackage getRepositoryPackage() {
-        return (RepositoryPackage) this.getEPackage();
+        return (RepositoryPackage) getEPackage();
     }
 
     /**

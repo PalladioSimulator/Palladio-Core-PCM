@@ -18,25 +18,22 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Resource Call</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall <em>Action
- * Resource Call</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall <em>
+ * Action Resource Call</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getResourceRequiredRole__ResourceCall
  * <em>Resource Required Role Resource Call</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall <em>
  * Signature Resource Call</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall <em>
- * Number Of Calls Resource Call</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
+ * <em>Number Of Calls Resource Call</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall()
  * @model
  * @generated
@@ -83,7 +80,7 @@ public interface ResourceCall extends CallAction {
     void setAction__ResourceCall(AbstractInternalControlFlowAction value);
 
     /**
-     * Returns the value of the ' <em><b>Resource Required Role Resource Call</b></em>' reference.
+     * Returns the value of the '<em><b>Resource Required Role Resource Call</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Required Role Resource Call</em>' reference isn't clear,
@@ -106,7 +103,7 @@ public interface ResourceCall extends CallAction {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Resource Required Role Resource Call</em>' reference.
+     *            the new value of the '<em>Resource Required Role Resource Call</em>' reference.
      * @see #getResourceRequiredRole__ResourceCall()
      * @generated
      */

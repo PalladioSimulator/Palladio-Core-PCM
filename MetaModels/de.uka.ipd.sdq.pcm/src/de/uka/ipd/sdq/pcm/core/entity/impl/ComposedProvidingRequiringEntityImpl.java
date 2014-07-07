@@ -53,7 +53,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * <em>Required Roles Interface Requiring Entity</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStructureImpl implements
@@ -125,13 +125,13 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      */
     @Override
     public EList<ProvidedRole> getProvidedRoles_InterfaceProvidingEntity() {
-        if (this.providedRoles_InterfaceProvidingEntity == null) {
-            this.providedRoles_InterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ProvidedRole>(
+        if (providedRoles_InterfaceProvidingEntity == null) {
+            providedRoles_InterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ProvidedRole>(
                     ProvidedRole.class, this,
                     EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
                     RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
         }
-        return this.providedRoles_InterfaceProvidingEntity;
+        return providedRoles_InterfaceProvidingEntity;
     }
 
     /**
@@ -141,14 +141,14 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      */
     @Override
     public EList<ResourceRequiredRole> getResourceRequiredRoles__ResourceInterfaceRequiringEntity() {
-        if (this.resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
-            this.resourceRequiredRoles__ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(
+        if (resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
+            resourceRequiredRoles__ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(
                     ResourceRequiredRole.class,
                     this,
                     EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
                     EntityPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
         }
-        return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity;
+        return resourceRequiredRoles__ResourceInterfaceRequiringEntity;
     }
 
     /**
@@ -158,13 +158,13 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      */
     @Override
     public EList<RequiredRole> getRequiredRoles_InterfaceRequiringEntity() {
-        if (this.requiredRoles_InterfaceRequiringEntity == null) {
-            this.requiredRoles_InterfaceRequiringEntity = new EObjectContainmentWithInverseEList<RequiredRole>(
+        if (requiredRoles_InterfaceRequiringEntity == null) {
+            requiredRoles_InterfaceRequiringEntity = new EObjectContainmentWithInverseEList<RequiredRole>(
                     RequiredRole.class, this,
                     EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
                     RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
         }
-        return this.requiredRoles_InterfaceRequiringEntity;
+        return requiredRoles_InterfaceRequiringEntity;
     }
 
     /**
@@ -198,14 +198,14 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      * @generated
      */
     @Override
-    public boolean ProvidedRolesMustBeBound(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean ProvidedRolesMustBeBound(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (PROVIDED_ROLES_MUST_BE_BOUND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(EntityPackage.Literals.COMPOSED_PROVIDING_REQUIRING_ENTITY);
             try {
                 PROVIDED_ROLES_MUST_BE_BOUND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PROVIDED_ROLES_MUST_BE_BOUND__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -229,18 +229,17 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getProvidedRoles_InterfaceProvidingEntity())
+                    .basicAdd(otherEnd, msgs);
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceRequiredRoles__ResourceInterfaceRequiringEntity())
+                    .basicAdd(otherEnd, msgs);
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getRequiredRoles_InterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getRequiredRoles_InterfaceRequiringEntity())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -251,16 +250,15 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<?>) this.getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<?>) this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicRemove(
+            return ((InternalEList<?>) getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicRemove(
                     otherEnd, msgs);
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<?>) this.getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -271,14 +269,14 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return this.getProvidedRoles_InterfaceProvidingEntity();
+            return getProvidedRoles_InterfaceProvidingEntity();
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity();
+            return getResourceRequiredRoles__ResourceInterfaceRequiringEntity();
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return this.getRequiredRoles_InterfaceRequiringEntity();
+            return getRequiredRoles_InterfaceRequiringEntity();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -290,20 +288,20 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            this.getProvidedRoles_InterfaceProvidingEntity().clear();
-            this.getProvidedRoles_InterfaceProvidingEntity().addAll((Collection<? extends ProvidedRole>) newValue);
+            getProvidedRoles_InterfaceProvidingEntity().clear();
+            getProvidedRoles_InterfaceProvidingEntity().addAll((Collection<? extends ProvidedRole>) newValue);
             return;
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().addAll(
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().addAll(
                     (Collection<? extends ResourceRequiredRole>) newValue);
             return;
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            this.getRequiredRoles_InterfaceRequiringEntity().clear();
-            this.getRequiredRoles_InterfaceRequiringEntity().addAll((Collection<? extends RequiredRole>) newValue);
+            getRequiredRoles_InterfaceRequiringEntity().clear();
+            getRequiredRoles_InterfaceRequiringEntity().addAll((Collection<? extends RequiredRole>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -315,16 +313,16 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            this.getProvidedRoles_InterfaceProvidingEntity().clear();
+            getProvidedRoles_InterfaceProvidingEntity().clear();
             return;
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
             return;
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            this.getRequiredRoles_InterfaceRequiringEntity().clear();
+            getRequiredRoles_InterfaceRequiringEntity().clear();
             return;
         }
         super.eUnset(featureID);
@@ -336,17 +334,15 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return this.providedRoles_InterfaceProvidingEntity != null
-                    && !this.providedRoles_InterfaceProvidingEntity.isEmpty();
+            return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity != null
-                    && !this.resourceRequiredRoles__ResourceInterfaceRequiringEntity.isEmpty();
+            return resourceRequiredRoles__ResourceInterfaceRequiringEntity != null
+                    && !resourceRequiredRoles__ResourceInterfaceRequiringEntity.isEmpty();
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return this.requiredRoles_InterfaceRequiringEntity != null
-                    && !this.requiredRoles_InterfaceRequiringEntity.isEmpty();
+            return requiredRoles_InterfaceRequiringEntity != null && !requiredRoles_InterfaceRequiringEntity.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -357,7 +353,7 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == InterfaceProvidingEntity.class) {
             switch (derivedFeatureID) {
             case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
@@ -397,7 +393,7 @@ public abstract class ComposedProvidingRequiringEntityImpl extends ComposedStruc
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == InterfaceProvidingEntity.class) {
             switch (baseFeatureID) {
             case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:

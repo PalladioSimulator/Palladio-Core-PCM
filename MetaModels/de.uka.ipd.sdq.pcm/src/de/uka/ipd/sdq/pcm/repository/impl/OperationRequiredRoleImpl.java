@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <em>Required Interface Operation Required Role</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class OperationRequiredRoleImpl extends RequiredRoleImpl implements OperationRequiredRole {
@@ -38,7 +38,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getRequiredInterface__OperationRequiredRole()
+     * The cached value of the '{@link #getRequiredInterface__OperationRequiredRole()
      * <em>Required Interface Operation Required Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
@@ -74,20 +74,18 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      */
     @Override
     public OperationInterface getRequiredInterface__OperationRequiredRole() {
-        if (this.requiredInterface__OperationRequiredRole != null
-                && ((EObject) this.requiredInterface__OperationRequiredRole).eIsProxy()) {
-            final InternalEObject oldRequiredInterface__OperationRequiredRole = (InternalEObject) this.requiredInterface__OperationRequiredRole;
-            this.requiredInterface__OperationRequiredRole = (OperationInterface) this
-                    .eResolveProxy(oldRequiredInterface__OperationRequiredRole);
-            if (this.requiredInterface__OperationRequiredRole != oldRequiredInterface__OperationRequiredRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (requiredInterface__OperationRequiredRole != null
+                && ((EObject) requiredInterface__OperationRequiredRole).eIsProxy()) {
+            InternalEObject oldRequiredInterface__OperationRequiredRole = (InternalEObject) requiredInterface__OperationRequiredRole;
+            requiredInterface__OperationRequiredRole = (OperationInterface) eResolveProxy(oldRequiredInterface__OperationRequiredRole);
+            if (requiredInterface__OperationRequiredRole != oldRequiredInterface__OperationRequiredRole) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE,
-                            oldRequiredInterface__OperationRequiredRole, this.requiredInterface__OperationRequiredRole));
-                }
+                            oldRequiredInterface__OperationRequiredRole, requiredInterface__OperationRequiredRole));
             }
         }
-        return this.requiredInterface__OperationRequiredRole;
+        return requiredInterface__OperationRequiredRole;
     }
 
     /**
@@ -96,7 +94,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      * @generated
      */
     public OperationInterface basicGetRequiredInterface__OperationRequiredRole() {
-        return this.requiredInterface__OperationRequiredRole;
+        return requiredInterface__OperationRequiredRole;
     }
 
     /**
@@ -106,14 +104,13 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      */
     @Override
     public void setRequiredInterface__OperationRequiredRole(
-            final OperationInterface newRequiredInterface__OperationRequiredRole) {
-        final OperationInterface oldRequiredInterface__OperationRequiredRole = this.requiredInterface__OperationRequiredRole;
-        this.requiredInterface__OperationRequiredRole = newRequiredInterface__OperationRequiredRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+            OperationInterface newRequiredInterface__OperationRequiredRole) {
+        OperationInterface oldRequiredInterface__OperationRequiredRole = requiredInterface__OperationRequiredRole;
+        requiredInterface__OperationRequiredRole = newRequiredInterface__OperationRequiredRole;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE,
-                    oldRequiredInterface__OperationRequiredRole, this.requiredInterface__OperationRequiredRole));
-        }
+                    oldRequiredInterface__OperationRequiredRole, requiredInterface__OperationRequiredRole));
     }
 
     /**
@@ -122,13 +119,12 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
-            if (resolve) {
-                return this.getRequiredInterface__OperationRequiredRole();
-            }
-            return this.basicGetRequiredInterface__OperationRequiredRole();
+            if (resolve)
+                return getRequiredInterface__OperationRequiredRole();
+            return basicGetRequiredInterface__OperationRequiredRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -139,10 +135,10 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
-            this.setRequiredInterface__OperationRequiredRole((OperationInterface) newValue);
+            setRequiredInterface__OperationRequiredRole((OperationInterface) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -154,10 +150,10 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
-            this.setRequiredInterface__OperationRequiredRole((OperationInterface) null);
+            setRequiredInterface__OperationRequiredRole((OperationInterface) null);
             return;
         }
         super.eUnset(featureID);
@@ -169,10 +165,10 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
-            return this.requiredInterface__OperationRequiredRole != null;
+            return requiredInterface__OperationRequiredRole != null;
         }
         return super.eIsSet(featureID);
     }

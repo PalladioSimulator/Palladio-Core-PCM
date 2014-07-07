@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -230,66 +231,64 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     @Override
-    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
         switch (classifierID) {
         case SeffPackage.STOP_ACTION:
-            return this.validateStopAction((StopAction) value, diagnostics, context);
+            return validateStopAction((StopAction) value, diagnostics, context);
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION:
-            return this.validateAbstractInternalControlFlowAction((AbstractInternalControlFlowAction) value,
-                    diagnostics, context);
-        case SeffPackage.ABSTRACT_ACTION:
-            return this.validateAbstractAction((AbstractAction) value, diagnostics, context);
-        case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR:
-            return this.validateResourceDemandingBehaviour((ResourceDemandingBehaviour) value, diagnostics, context);
-        case SeffPackage.ABSTRACT_LOOP_ACTION:
-            return this.validateAbstractLoopAction((AbstractLoopAction) value, diagnostics, context);
-        case SeffPackage.ABSTRACT_BRANCH_TRANSITION:
-            return this.validateAbstractBranchTransition((AbstractBranchTransition) value, diagnostics, context);
-        case SeffPackage.BRANCH_ACTION:
-            return this.validateBranchAction((BranchAction) value, diagnostics, context);
-        case SeffPackage.CALL_ACTION:
-            return this.validateCallAction((CallAction) value, diagnostics, context);
-        case SeffPackage.START_ACTION:
-            return this.validateStartAction((StartAction) value, diagnostics, context);
-        case SeffPackage.SERVICE_EFFECT_SPECIFICATION:
-            return this.validateServiceEffectSpecification((ServiceEffectSpecification) value, diagnostics, context);
-        case SeffPackage.RESOURCE_DEMANDING_SEFF:
-            return this.validateResourceDemandingSEFF((ResourceDemandingSEFF) value, diagnostics, context);
-        case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            return this.validateResourceDemandingInternalBehaviour((ResourceDemandingInternalBehaviour) value,
-                    diagnostics, context);
-        case SeffPackage.RELEASE_ACTION:
-            return this.validateReleaseAction((ReleaseAction) value, diagnostics, context);
-        case SeffPackage.LOOP_ACTION:
-            return this.validateLoopAction((LoopAction) value, diagnostics, context);
-        case SeffPackage.FORK_ACTION:
-            return this.validateForkAction((ForkAction) value, diagnostics, context);
-        case SeffPackage.FORKED_BEHAVIOUR:
-            return this.validateForkedBehaviour((ForkedBehaviour) value, diagnostics, context);
-        case SeffPackage.SYNCHRONISATION_POINT:
-            return this.validateSynchronisationPoint((SynchronisationPoint) value, diagnostics, context);
-        case SeffPackage.EXTERNAL_CALL_ACTION:
-            return this.validateExternalCallAction((ExternalCallAction) value, diagnostics, context);
-        case SeffPackage.CALL_RETURN_ACTION:
-            return this.validateCallReturnAction((CallReturnAction) value, diagnostics, context);
-        case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION:
-            return this.validateProbabilisticBranchTransition((ProbabilisticBranchTransition) value, diagnostics,
+            return validateAbstractInternalControlFlowAction((AbstractInternalControlFlowAction) value, diagnostics,
                     context);
+        case SeffPackage.ABSTRACT_ACTION:
+            return validateAbstractAction((AbstractAction) value, diagnostics, context);
+        case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR:
+            return validateResourceDemandingBehaviour((ResourceDemandingBehaviour) value, diagnostics, context);
+        case SeffPackage.ABSTRACT_LOOP_ACTION:
+            return validateAbstractLoopAction((AbstractLoopAction) value, diagnostics, context);
+        case SeffPackage.ABSTRACT_BRANCH_TRANSITION:
+            return validateAbstractBranchTransition((AbstractBranchTransition) value, diagnostics, context);
+        case SeffPackage.BRANCH_ACTION:
+            return validateBranchAction((BranchAction) value, diagnostics, context);
+        case SeffPackage.CALL_ACTION:
+            return validateCallAction((CallAction) value, diagnostics, context);
+        case SeffPackage.START_ACTION:
+            return validateStartAction((StartAction) value, diagnostics, context);
+        case SeffPackage.SERVICE_EFFECT_SPECIFICATION:
+            return validateServiceEffectSpecification((ServiceEffectSpecification) value, diagnostics, context);
+        case SeffPackage.RESOURCE_DEMANDING_SEFF:
+            return validateResourceDemandingSEFF((ResourceDemandingSEFF) value, diagnostics, context);
+        case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
+            return validateResourceDemandingInternalBehaviour((ResourceDemandingInternalBehaviour) value, diagnostics,
+                    context);
+        case SeffPackage.RELEASE_ACTION:
+            return validateReleaseAction((ReleaseAction) value, diagnostics, context);
+        case SeffPackage.LOOP_ACTION:
+            return validateLoopAction((LoopAction) value, diagnostics, context);
+        case SeffPackage.FORK_ACTION:
+            return validateForkAction((ForkAction) value, diagnostics, context);
+        case SeffPackage.FORKED_BEHAVIOUR:
+            return validateForkedBehaviour((ForkedBehaviour) value, diagnostics, context);
+        case SeffPackage.SYNCHRONISATION_POINT:
+            return validateSynchronisationPoint((SynchronisationPoint) value, diagnostics, context);
+        case SeffPackage.EXTERNAL_CALL_ACTION:
+            return validateExternalCallAction((ExternalCallAction) value, diagnostics, context);
+        case SeffPackage.CALL_RETURN_ACTION:
+            return validateCallReturnAction((CallReturnAction) value, diagnostics, context);
+        case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION:
+            return validateProbabilisticBranchTransition((ProbabilisticBranchTransition) value, diagnostics, context);
         case SeffPackage.ACQUIRE_ACTION:
-            return this.validateAcquireAction((AcquireAction) value, diagnostics, context);
+            return validateAcquireAction((AcquireAction) value, diagnostics, context);
         case SeffPackage.COLLECTION_ITERATOR_ACTION:
-            return this.validateCollectionIteratorAction((CollectionIteratorAction) value, diagnostics, context);
+            return validateCollectionIteratorAction((CollectionIteratorAction) value, diagnostics, context);
         case SeffPackage.GUARDED_BRANCH_TRANSITION:
-            return this.validateGuardedBranchTransition((GuardedBranchTransition) value, diagnostics, context);
+            return validateGuardedBranchTransition((GuardedBranchTransition) value, diagnostics, context);
         case SeffPackage.SET_VARIABLE_ACTION:
-            return this.validateSetVariableAction((SetVariableAction) value, diagnostics, context);
+            return validateSetVariableAction((SetVariableAction) value, diagnostics, context);
         case SeffPackage.INTERNAL_CALL_ACTION:
-            return this.validateInternalCallAction((InternalCallAction) value, diagnostics, context);
+            return validateInternalCallAction((InternalCallAction) value, diagnostics, context);
         case SeffPackage.EMIT_EVENT_ACTION:
-            return this.validateEmitEventAction((EmitEventAction) value, diagnostics, context);
+            return validateEmitEventAction((EmitEventAction) value, diagnostics, context);
         case SeffPackage.INTERNAL_ACTION:
-            return this.validateInternalAction((InternalAction) value, diagnostics, context);
+            return validateInternalAction((InternalAction) value, diagnostics, context);
         default:
             return true;
         }
@@ -300,33 +299,24 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateStopAction(final StopAction stopAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(stopAction, diagnostics, context)) {
+    public boolean validateStopAction(StopAction stopAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) stopAction, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(stopAction, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(stopAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(stopAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(stopAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(stopAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(stopAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(stopAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateStopAction_StopActionSuccessorMustNotBeDefined(stopAction, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) stopAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) stopAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) stopAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) stopAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) stopAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) stopAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) stopAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateStopAction_StopActionSuccessorMustNotBeDefined(stopAction, diagnostics, context);
         return result;
     }
 
@@ -336,8 +326,8 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateStopAction_StopActionSuccessorMustNotBeDefined(final StopAction stopAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateStopAction_StopActionSuccessorMustNotBeDefined(StopAction stopAction,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         return stopAction.StopActionSuccessorMustNotBeDefined(diagnostics, context);
     }
 
@@ -347,9 +337,9 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAbstractInternalControlFlowAction(
-            final AbstractInternalControlFlowAction abstractInternalControlFlowAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(abstractInternalControlFlowAction, diagnostics, context);
+            AbstractInternalControlFlowAction abstractInternalControlFlowAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) abstractInternalControlFlowAction, diagnostics, context);
     }
 
     /**
@@ -357,9 +347,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAbstractAction(final AbstractAction abstractAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(abstractAction, diagnostics, context);
+    public boolean validateAbstractAction(AbstractAction abstractAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) abstractAction, diagnostics, context);
     }
 
     /**
@@ -367,67 +357,56 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateResourceDemandingBehaviour(final ResourceDemandingBehaviour resourceDemandingBehaviour,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(resourceDemandingBehaviour, diagnostics, context)) {
+    public boolean validateResourceDemandingBehaviour(ResourceDemandingBehaviour resourceDemandingBehaviour,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) resourceDemandingBehaviour, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(resourceDemandingBehaviour, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(resourceDemandingBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(resourceDemandingBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(resourceDemandingBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(resourceDemandingBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(resourceDemandingBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(resourceDemandingBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingBehaviour,
-                    diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingBehaviour,
-                    diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
-                            resourceDemandingBehaviour, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) resourceDemandingBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) resourceDemandingBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) resourceDemandingBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) resourceDemandingBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) resourceDemandingBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) resourceDemandingBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) resourceDemandingBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingBehaviour, diagnostics,
+                    context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingBehaviour, diagnostics,
+                    context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
+                    resourceDemandingBehaviour, diagnostics, context);
         return result;
     }
 
     /**
-     * Validates the ExactlyOneStopAction constraint of ' <em>Resource Demanding Behaviour</em>'.
+     * Validates the ExactlyOneStopAction constraint of '<em>Resource Demanding Behaviour</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
     public boolean validateResourceDemandingBehaviour_ExactlyOneStopAction(
-            final ResourceDemandingBehaviour resourceDemandingBehaviour, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ResourceDemandingBehaviour resourceDemandingBehaviour, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return resourceDemandingBehaviour.ExactlyOneStopAction(diagnostics, context);
     }
 
     /**
-     * Validates the ExactlyOneStartAction constraint of ' <em>Resource Demanding Behaviour</em>'.
+     * Validates the ExactlyOneStartAction constraint of '<em>Resource Demanding Behaviour</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
     public boolean validateResourceDemandingBehaviour_ExactlyOneStartAction(
-            final ResourceDemandingBehaviour resourceDemandingBehaviour, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ResourceDemandingBehaviour resourceDemandingBehaviour, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return resourceDemandingBehaviour.ExactlyOneStartAction(diagnostics, context);
     }
 
@@ -439,8 +418,8 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
-            final ResourceDemandingBehaviour resourceDemandingBehaviour, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ResourceDemandingBehaviour resourceDemandingBehaviour, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return resourceDemandingBehaviour.EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
                 diagnostics, context);
     }
@@ -450,9 +429,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAbstractLoopAction(final AbstractLoopAction abstractLoopAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(abstractLoopAction, diagnostics, context);
+    public boolean validateAbstractLoopAction(AbstractLoopAction abstractLoopAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) abstractLoopAction, diagnostics, context);
     }
 
     /**
@@ -460,9 +439,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAbstractBranchTransition(final AbstractBranchTransition abstractBranchTransition,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(abstractBranchTransition, diagnostics, context);
+    public boolean validateAbstractBranchTransition(AbstractBranchTransition abstractBranchTransition,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) abstractBranchTransition, diagnostics, context);
     }
 
     /**
@@ -470,38 +449,29 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateBranchAction(final BranchAction branchAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(branchAction, diagnostics, context)) {
+    public boolean validateBranchAction(BranchAction branchAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) branchAction, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(branchAction, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(branchAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(branchAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(branchAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(branchAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(branchAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(branchAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateBranchAction_EitherGuardedBranchesOrProbabilisiticBranchTransitions(branchAction,
+        boolean result = validate_EveryMultiplicityConforms((EObject) branchAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) branchAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) branchAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) branchAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) branchAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) branchAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) branchAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateBranchAction_EitherGuardedBranchesOrProbabilisiticBranchTransitions(branchAction,
                     diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateBranchAction_AllProbabilisticBranchProbabilitiesMustSumUpTo1(branchAction,
-                    diagnostics, context);
-        }
+        if (result || diagnostics != null)
+            result &= validateBranchAction_AllProbabilisticBranchProbabilitiesMustSumUpTo1(branchAction, diagnostics,
+                    context);
         return result;
     }
 
@@ -512,7 +482,7 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateBranchAction_EitherGuardedBranchesOrProbabilisiticBranchTransitions(
-            final BranchAction branchAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            BranchAction branchAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return branchAction.EitherGuardedBranchesOrProbabilisiticBranchTransitions(diagnostics, context);
     }
 
@@ -522,8 +492,8 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateBranchAction_AllProbabilisticBranchProbabilitiesMustSumUpTo1(
-            final BranchAction branchAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateBranchAction_AllProbabilisticBranchProbabilitiesMustSumUpTo1(BranchAction branchAction,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         return branchAction.AllProbabilisticBranchProbabilitiesMustSumUpTo1(diagnostics, context);
     }
 
@@ -532,45 +502,35 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateStartAction(final StartAction startAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(startAction, diagnostics, context)) {
+    public boolean validateStartAction(StartAction startAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) startAction, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(startAction, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(startAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(startAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(startAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(startAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(startAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(startAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateStartAction_StartActionPredecessorMustNotBeDefined(startAction, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) startAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) startAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) startAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) startAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) startAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) startAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) startAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateStartAction_StartActionPredecessorMustNotBeDefined(startAction, diagnostics, context);
         return result;
     }
 
     /**
-     * Validates the StartActionPredecessorMustNotBeDefined constraint of ' <em>Start Action</em>'.
+     * Validates the StartActionPredecessorMustNotBeDefined constraint of '<em>Start Action</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    public boolean validateStartAction_StartActionPredecessorMustNotBeDefined(final StartAction startAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateStartAction_StartActionPredecessorMustNotBeDefined(StartAction startAction,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         return startAction.StartActionPredecessorMustNotBeDefined(diagnostics, context);
     }
 
@@ -579,48 +539,35 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateResourceDemandingSEFF(final ResourceDemandingSEFF resourceDemandingSEFF,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(resourceDemandingSEFF, diagnostics, context)) {
+    public boolean validateResourceDemandingSEFF(ResourceDemandingSEFF resourceDemandingSEFF,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) resourceDemandingSEFF, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(resourceDemandingSEFF, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(resourceDemandingSEFF, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(resourceDemandingSEFF, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(resourceDemandingSEFF, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(resourceDemandingSEFF, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(resourceDemandingSEFF, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(resourceDemandingSEFF, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateServiceEffectSpecification_ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(
-                            resourceDemandingSEFF, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingSEFF, diagnostics,
+        boolean result = validate_EveryMultiplicityConforms((EObject) resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateServiceEffectSpecification_ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(
+                    resourceDemandingSEFF, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingSEFF, diagnostics,
                     context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingSEFF, diagnostics,
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingSEFF, diagnostics,
                     context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
-                            resourceDemandingSEFF, diagnostics, context);
-        }
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
+                    resourceDemandingSEFF, diagnostics, context);
         return result;
     }
 
@@ -630,44 +577,35 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateResourceDemandingInternalBehaviour(
-            final ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(resourceDemandingInternalBehaviour, diagnostics, context)) {
+            ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) resourceDemandingInternalBehaviour, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(resourceDemandingInternalBehaviour, diagnostics,
+        boolean result = validate_EveryMultiplicityConforms((EObject) resourceDemandingInternalBehaviour, diagnostics,
                 context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(resourceDemandingInternalBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(resourceDemandingInternalBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(resourceDemandingInternalBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(resourceDemandingInternalBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(resourceDemandingInternalBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(resourceDemandingInternalBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingInternalBehaviour,
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) resourceDemandingInternalBehaviour, diagnostics,
+                    context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) resourceDemandingInternalBehaviour, diagnostics,
+                    context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) resourceDemandingInternalBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) resourceDemandingInternalBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) resourceDemandingInternalBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) resourceDemandingInternalBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingInternalBehaviour,
                     diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingInternalBehaviour,
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingInternalBehaviour,
                     diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
-                            resourceDemandingInternalBehaviour, diagnostics, context);
-        }
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
+                    resourceDemandingInternalBehaviour, diagnostics, context);
         return result;
     }
 
@@ -676,9 +614,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateReleaseAction(final ReleaseAction releaseAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(releaseAction, diagnostics, context);
+    public boolean validateReleaseAction(ReleaseAction releaseAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) releaseAction, diagnostics, context);
     }
 
     /**
@@ -686,9 +624,8 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateLoopAction(final LoopAction loopAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(loopAction, diagnostics, context);
+    public boolean validateLoopAction(LoopAction loopAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) loopAction, diagnostics, context);
     }
 
     /**
@@ -696,38 +633,29 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInternalAction(final InternalAction internalAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(internalAction, diagnostics, context)) {
+    public boolean validateInternalAction(InternalAction internalAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) internalAction, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(internalAction, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(internalAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(internalAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(internalAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(internalAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(internalAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(internalAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateInternalAction_MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
+        boolean result = validate_EveryMultiplicityConforms((EObject) internalAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) internalAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) internalAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) internalAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) internalAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) internalAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) internalAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateInternalAction_MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
                     internalAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateInternalAction_SumOfInternalActionFailureProbabilitiesMustNotExceed1(internalAction,
+        if (result || diagnostics != null)
+            result &= validateInternalAction_SumOfInternalActionFailureProbabilitiesMustNotExceed1(internalAction,
                     diagnostics, context);
-        }
         return result;
     }
 
@@ -738,7 +666,7 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateInternalAction_MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
-            final InternalAction internalAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            InternalAction internalAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return internalAction.MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(diagnostics, context);
     }
 
@@ -749,7 +677,7 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateInternalAction_SumOfInternalActionFailureProbabilitiesMustNotExceed1(
-            final InternalAction internalAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            InternalAction internalAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return internalAction.SumOfInternalActionFailureProbabilitiesMustNotExceed1(diagnostics, context);
     }
 
@@ -762,8 +690,7 @@ public class SeffValidator extends EObjectValidator {
     @Override
     public ResourceLocator getResourceLocator() {
         // TODO
-        // Specialize this to return a resource locator for messages specific to
-        // this validator.
+        // Specialize this to return a resource locator for messages specific to this validator.
         // Ensure that you remove @generated or mark it @generated NOT
         return super.getResourceLocator();
     }
@@ -773,9 +700,8 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateForkAction(final ForkAction forkAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(forkAction, diagnostics, context);
+    public boolean validateForkAction(ForkAction forkAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) forkAction, diagnostics, context);
     }
 
     /**
@@ -783,43 +709,30 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateForkedBehaviour(final ForkedBehaviour forkedBehaviour, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(forkedBehaviour, diagnostics, context)) {
+    public boolean validateForkedBehaviour(ForkedBehaviour forkedBehaviour, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) forkedBehaviour, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(forkedBehaviour, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(forkedBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(forkedBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(forkedBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(forkedBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(forkedBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(forkedBehaviour, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStopAction(forkedBehaviour, diagnostics,
-                    context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateResourceDemandingBehaviour_ExactlyOneStartAction(forkedBehaviour, diagnostics,
-                    context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
-                            forkedBehaviour, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(forkedBehaviour, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
+                    forkedBehaviour, diagnostics, context);
         return result;
     }
 
@@ -828,9 +741,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSynchronisationPoint(final SynchronisationPoint synchronisationPoint,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(synchronisationPoint, diagnostics, context);
+    public boolean validateSynchronisationPoint(SynchronisationPoint synchronisationPoint, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) synchronisationPoint, diagnostics, context);
     }
 
     /**
@@ -838,37 +751,28 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateExternalCallAction(final ExternalCallAction externalCallAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(externalCallAction, diagnostics, context)) {
+    public boolean validateExternalCallAction(ExternalCallAction externalCallAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) externalCallAction, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(externalCallAction, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(externalCallAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(externalCallAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(externalCallAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(externalCallAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(externalCallAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(externalCallAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateExternalCallAction_SignatureBelongsToRole(externalCallAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateExternalCallAction_OperationRequiredRoleMustBeReferencedByContainer(
-                    externalCallAction, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateExternalCallAction_SignatureBelongsToRole(externalCallAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateExternalCallAction_OperationRequiredRoleMustBeReferencedByContainer(externalCallAction,
+                    diagnostics, context);
         return result;
     }
 
@@ -878,8 +782,8 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateExternalCallAction_SignatureBelongsToRole(final ExternalCallAction externalCallAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateExternalCallAction_SignatureBelongsToRole(ExternalCallAction externalCallAction,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         return externalCallAction.SignatureBelongsToRole(diagnostics, context);
     }
 
@@ -890,8 +794,7 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateExternalCallAction_OperationRequiredRoleMustBeReferencedByContainer(
-            final ExternalCallAction externalCallAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ExternalCallAction externalCallAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
         return externalCallAction.OperationRequiredRoleMustBeReferencedByContainer(diagnostics, context);
     }
 
@@ -900,9 +803,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateCallReturnAction(final CallReturnAction callReturnAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(callReturnAction, diagnostics, context);
+    public boolean validateCallReturnAction(CallReturnAction callReturnAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) callReturnAction, diagnostics, context);
     }
 
     /**
@@ -910,9 +813,8 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateCallAction(final CallAction callAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(callAction, diagnostics, context);
+    public boolean validateCallAction(CallAction callAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) callAction, diagnostics, context);
     }
 
     /**
@@ -920,10 +822,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateProbabilisticBranchTransition(
-            final ProbabilisticBranchTransition probabilisticBranchTransition, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(probabilisticBranchTransition, diagnostics, context);
+    public boolean validateProbabilisticBranchTransition(ProbabilisticBranchTransition probabilisticBranchTransition,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) probabilisticBranchTransition, diagnostics, context);
     }
 
     /**
@@ -931,34 +832,26 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAcquireAction(final AcquireAction acquireAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(acquireAction, diagnostics, context)) {
+    public boolean validateAcquireAction(AcquireAction acquireAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) acquireAction, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(acquireAction, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(acquireAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(acquireAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(acquireAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(acquireAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(acquireAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(acquireAction, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validateAcquireAction_TimeoutValueOfAcquireActionMustNotBeNegative(acquireAction,
-                    diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) acquireAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) acquireAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) acquireAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) acquireAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) acquireAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) acquireAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) acquireAction, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateAcquireAction_TimeoutValueOfAcquireActionMustNotBeNegative(acquireAction, diagnostics,
+                    context);
         return result;
     }
 
@@ -968,8 +861,8 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateAcquireAction_TimeoutValueOfAcquireActionMustNotBeNegative(
-            final AcquireAction acquireAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateAcquireAction_TimeoutValueOfAcquireActionMustNotBeNegative(AcquireAction acquireAction,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         return acquireAction.TimeoutValueOfAcquireActionMustNotBeNegative(diagnostics, context);
     }
 
@@ -978,9 +871,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateCollectionIteratorAction(final CollectionIteratorAction collectionIteratorAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(collectionIteratorAction, diagnostics, context);
+    public boolean validateCollectionIteratorAction(CollectionIteratorAction collectionIteratorAction,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) collectionIteratorAction, diagnostics, context);
     }
 
     /**
@@ -988,9 +881,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateGuardedBranchTransition(final GuardedBranchTransition guardedBranchTransition,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(guardedBranchTransition, diagnostics, context);
+    public boolean validateGuardedBranchTransition(GuardedBranchTransition guardedBranchTransition,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) guardedBranchTransition, diagnostics, context);
     }
 
     /**
@@ -998,9 +891,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSetVariableAction(final SetVariableAction setVariableAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(setVariableAction, diagnostics, context);
+    public boolean validateSetVariableAction(SetVariableAction setVariableAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) setVariableAction, diagnostics, context);
     }
 
     /**
@@ -1008,9 +901,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateInternalCallAction(final InternalCallAction internalCallAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(internalCallAction, diagnostics, context);
+    public boolean validateInternalCallAction(InternalCallAction internalCallAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) internalCallAction, diagnostics, context);
     }
 
     /**
@@ -1018,9 +911,9 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateEmitEventAction(final EmitEventAction emitEventAction, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(emitEventAction, diagnostics, context);
+    public boolean validateEmitEventAction(EmitEventAction emitEventAction, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
+        return validate_EveryDefaultConstraint((EObject) emitEventAction, diagnostics, context);
     }
 
     /**
@@ -1028,35 +921,26 @@ public class SeffValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateServiceEffectSpecification(final ServiceEffectSpecification serviceEffectSpecification,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (!this.validate_NoCircularContainment(serviceEffectSpecification, diagnostics, context)) {
+    public boolean validateServiceEffectSpecification(ServiceEffectSpecification serviceEffectSpecification,
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
+        if (!validate_NoCircularContainment((EObject) serviceEffectSpecification, diagnostics, context))
             return false;
-        }
-        boolean result = this.validate_EveryMultiplicityConforms(serviceEffectSpecification, diagnostics, context);
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(serviceEffectSpecification, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(serviceEffectSpecification, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryProxyResolves(serviceEffectSpecification, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_UniqueID(serviceEffectSpecification, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryKeyUnique(serviceEffectSpecification, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(serviceEffectSpecification, diagnostics, context);
-        }
-        if (result || diagnostics != null) {
-            result &= this
-                    .validateServiceEffectSpecification_ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(
-                            serviceEffectSpecification, diagnostics, context);
-        }
+        boolean result = validate_EveryMultiplicityConforms((EObject) serviceEffectSpecification, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) serviceEffectSpecification, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) serviceEffectSpecification, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) serviceEffectSpecification, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) serviceEffectSpecification, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) serviceEffectSpecification, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) serviceEffectSpecification, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateServiceEffectSpecification_ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(
+                    serviceEffectSpecification, diagnostics, context);
         return result;
     }
 
@@ -1067,8 +951,8 @@ public class SeffValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateServiceEffectSpecification_ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(
-            final ServiceEffectSpecification serviceEffectSpecification, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            ServiceEffectSpecification serviceEffectSpecification, DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         return serviceEffectSpecification.ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(diagnostics,
                 context);
     }

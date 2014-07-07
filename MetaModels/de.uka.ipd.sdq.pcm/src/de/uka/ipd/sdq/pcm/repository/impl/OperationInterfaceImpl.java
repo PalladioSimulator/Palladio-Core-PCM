@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <em>Signatures Operation Interface</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class OperationInterfaceImpl extends InterfaceImpl implements OperationInterface {
@@ -87,13 +87,13 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      */
     @Override
     public EList<OperationSignature> getSignatures__OperationInterface() {
-        if (this.signatures__OperationInterface == null) {
-            this.signatures__OperationInterface = new EObjectContainmentWithInverseEList<OperationSignature>(
+        if (signatures__OperationInterface == null) {
+            signatures__OperationInterface = new EObjectContainmentWithInverseEList<OperationSignature>(
                     OperationSignature.class, this,
                     RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE,
                     RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE);
         }
-        return this.signatures__OperationInterface;
+        return signatures__OperationInterface;
     }
 
     /**
@@ -141,15 +141,14 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * @generated
      */
     @Override
-    public boolean SignaturesHaveToBeUniqueForAnInterface(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean SignaturesHaveToBeUniqueForAnInterface(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (SIGNATURES_HAVE_TO_BE_UNIQUE_FOR_AN_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.OPERATION_INTERFACE);
             try {
                 SIGNATURES_HAVE_TO_BE_UNIQUE_FOR_AN_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SIGNATURES_HAVE_TO_BE_UNIQUE_FOR_AN_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -175,12 +174,11 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getSignatures__OperationInterface())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSignatures__OperationInterface()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -191,11 +189,10 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE:
-            return ((InternalEList<?>) this.getSignatures__OperationInterface()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getSignatures__OperationInterface()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -206,10 +203,10 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE:
-            return this.getSignatures__OperationInterface();
+            return getSignatures__OperationInterface();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -221,11 +218,11 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE:
-            this.getSignatures__OperationInterface().clear();
-            this.getSignatures__OperationInterface().addAll((Collection<? extends OperationSignature>) newValue);
+            getSignatures__OperationInterface().clear();
+            getSignatures__OperationInterface().addAll((Collection<? extends OperationSignature>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -237,10 +234,10 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE:
-            this.getSignatures__OperationInterface().clear();
+            getSignatures__OperationInterface().clear();
             return;
         }
         super.eUnset(featureID);
@@ -252,10 +249,10 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE:
-            return this.signatures__OperationInterface != null && !this.signatures__OperationInterface.isEmpty();
+            return signatures__OperationInterface != null && !signatures__OperationInterface.isEmpty();
         }
         return super.eIsSet(featureID);
     }

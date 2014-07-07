@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -23,12 +24,11 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl#getUsageScenario_Workload <em>Usage
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl#getUsageScenario_Workload <em>Usage
  * Scenario Workload</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class WorkloadImpl extends EStereotypableObjectImpl implements Workload {
@@ -65,10 +65,9 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      */
     @Override
     public UsageScenario getUsageScenario_Workload() {
-        if (this.eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD) {
+        if (eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD)
             return null;
-        }
-        return (UsageScenario) this.eInternalContainer();
+        return (UsageScenario) eInternalContainer();
     }
 
     /**
@@ -76,9 +75,9 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * 
      * @generated
      */
-    public NotificationChain basicSetUsageScenario_Workload(final UsageScenario newUsageScenario_Workload,
+    public NotificationChain basicSetUsageScenario_Workload(UsageScenario newUsageScenario_Workload,
             NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newUsageScenario_Workload,
+        msgs = eBasicSetContainer((InternalEObject) newUsageScenario_Workload,
                 UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD, msgs);
         return msgs;
     }
@@ -89,29 +88,23 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public void setUsageScenario_Workload(final UsageScenario newUsageScenario_Workload) {
-        if (newUsageScenario_Workload != this.eInternalContainer()
-                || (this.eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD && newUsageScenario_Workload != null)) {
-            if (EcoreUtil.isAncestor(this, newUsageScenario_Workload)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setUsageScenario_Workload(UsageScenario newUsageScenario_Workload) {
+        if (newUsageScenario_Workload != eInternalContainer()
+                || (eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD && newUsageScenario_Workload != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newUsageScenario_Workload))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newUsageScenario_Workload != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newUsageScenario_Workload != null)
                 msgs = ((InternalEObject) newUsageScenario_Workload).eInverseAdd(this,
                         UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO, UsageScenario.class, msgs);
-            }
-            msgs = this.basicSetUsageScenario_Workload(newUsageScenario_Workload, msgs);
-            if (msgs != null) {
+            msgs = basicSetUsageScenario_Workload(newUsageScenario_Workload, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD, newUsageScenario_Workload,
-                    newUsageScenario_Workload));
-        }
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD,
+                    newUsageScenario_Workload, newUsageScenario_Workload));
     }
 
     /**
@@ -120,13 +113,12 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetUsageScenario_Workload((UsageScenario) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetUsageScenario_Workload((UsageScenario) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -137,11 +129,10 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
-            return this.basicSetUsageScenario_Workload(null, msgs);
+            return basicSetUsageScenario_Workload(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -152,11 +143,11 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
-            return this.eInternalContainer().eInverseRemove(this,
-                    UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO, UsageScenario.class, msgs);
+            return eInternalContainer().eInverseRemove(this, UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO,
+                    UsageScenario.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -167,10 +158,10 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
-            return this.getUsageScenario_Workload();
+            return getUsageScenario_Workload();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -181,10 +172,10 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
-            this.setUsageScenario_Workload((UsageScenario) newValue);
+            setUsageScenario_Workload((UsageScenario) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -196,10 +187,10 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
-            this.setUsageScenario_Workload((UsageScenario) null);
+            setUsageScenario_Workload((UsageScenario) null);
             return;
         }
         super.eUnset(featureID);
@@ -211,10 +202,10 @@ public abstract class WorkloadImpl extends EStereotypableObjectImpl implements W
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
-            return this.getUsageScenario_Workload() != null;
+            return getUsageScenario_Workload() != null;
         }
         return super.eIsSet(featureID);
     }

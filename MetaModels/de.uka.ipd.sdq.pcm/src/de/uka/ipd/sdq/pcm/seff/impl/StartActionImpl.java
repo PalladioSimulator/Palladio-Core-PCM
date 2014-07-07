@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class StartActionImpl extends AbstractInternalControlFlowActionImpl implements StartAction {
@@ -87,15 +87,14 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
      * @generated
      */
     @Override
-    public boolean StartActionPredecessorMustNotBeDefined(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean StartActionPredecessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.START_ACTION);
             try {
                 START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

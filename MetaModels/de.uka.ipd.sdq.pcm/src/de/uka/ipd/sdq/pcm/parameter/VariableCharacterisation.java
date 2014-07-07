@@ -11,7 +11,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Variable Characterisation</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Variable characterisations store performance critical meta-information
  * on a variable. For example, if a variable's value is used in a long running loop, the value of
  * the variable is performance critical. Or as an other example, for Q-Sort it is performancewise
@@ -23,11 +23,11 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * For example, in "a.NUMBER_OF_ELEMENTS=10" the a is the name of the variable, NUMBER_OF_ELEMENTS
  * is the characterisation type and "10" would be the specification (as PCMRandomVariable) of the
  * characterisation's value. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em> Type</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
  * <em>Specification Variable Characterisation</em>}</li>
@@ -36,7 +36,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <em>Variable Usage Variable Characterisation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model
  * @extends EStereotypableObject
@@ -67,7 +67,7 @@ public interface VariableCharacterisation extends EStereotypableObject {
     VariableCharacterisationType getType();
 
     /**
-     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType
      * <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
@@ -106,7 +106,7 @@ public interface VariableCharacterisation extends EStereotypableObject {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Specification Variable Characterisation</em>'
+     *            the new value of the '<em>Specification Variable Characterisation</em>'
      *            containment reference.
      * @see #getSpecification_VariableCharacterisation()
      * @generated
@@ -114,8 +114,8 @@ public interface VariableCharacterisation extends EStereotypableObject {
     void setSpecification_VariableCharacterisation(PCMRandomVariable value);
 
     /**
-     * Returns the value of the ' <em><b>Variable Usage Variable Characterisation</b></em>'
-     * container reference. It is bidirectional and its opposite is '
+     * Returns the value of the '<em><b>Variable Usage Variable Characterisation</b></em>' container
+     * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
      * <em>Variable Characterisation Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
@@ -124,7 +124,7 @@ public interface VariableCharacterisation extends EStereotypableObject {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Variable Usage Variable Characterisation</em>' container
+     * @return the value of the '<em>Variable Usage Variable Characterisation</em>' container
      *         reference.
      * @see #setVariableUsage_VariableCharacterisation(VariableUsage)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation_VariableUsage_VariableCharacterisation()
@@ -141,8 +141,8 @@ public interface VariableCharacterisation extends EStereotypableObject {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Variable Usage Variable Characterisation</em>'
-     *            container reference.
+     *            the new value of the '<em>Variable Usage Variable Characterisation</em>' container
+     *            reference.
      * @see #getVariableUsage_VariableCharacterisation()
      * @generated
      */

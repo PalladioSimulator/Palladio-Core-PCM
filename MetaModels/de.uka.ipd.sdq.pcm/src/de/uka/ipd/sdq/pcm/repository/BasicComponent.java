@@ -15,25 +15,24 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Basic Component</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity represents a black-box component implementation. Basic
  * components are atomic building blocks of a software architecture. They cannot be further
  * subdivided into smaller components and are built from scratch, i.e, not by assembling other
  * components. Component developers specify basic components by associating interfaces to them in a
  * providing or requiring role. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
  * <em>Service Effect Specifications Basic Component</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive
- * Resource Basic Component</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>
+ * Passive Resource Basic Component</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent()
  * @model
  * @generated
@@ -67,10 +66,10 @@ public interface BasicComponent extends ImplementationComponentType {
     EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent();
 
     /**
-     * Returns the value of the ' <em><b>Passive Resource Basic Component</b></em>' containment
+     * Returns the value of the '<em><b>Passive Resource Basic Component</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}. It is bidirectional and its opposite
-     * is ' {@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+     * is '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
      * <em>Basic Component Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the passive resources, e.g., semaphores,
      * that are owned by this basic component. <!-- end-model-doc -->

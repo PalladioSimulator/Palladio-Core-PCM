@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Interface Providing Entity</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <em>Resource Provided Roles Resource Interface Providing Entity</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceProvidingEntity()
  * @model
  * @generated
@@ -34,7 +34,7 @@ public interface ResourceInterfaceProvidingEntity extends Entity {
 
     /**
      * Returns the value of the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
+     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.entity.ResourceProvidedRole}. It is bidirectional and its
      * opposite is '
@@ -48,7 +48,7 @@ public interface ResourceInterfaceProvidingEntity extends Entity {
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Resource Provided Roles Resource Interface Providing Entity</em> ' containment
+     *         <em>Resource Provided Roles Resource Interface Providing Entity</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole

@@ -40,8 +40,8 @@ public class QosannotationsResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(final URI uri) {
-        final XMLResource result = new QosannotationsResourceImpl(uri);
+    public Resource createResource(URI uri) {
+        XMLResource result = new QosannotationsResourceImpl(uri);
         return result;
     }
 

@@ -87,7 +87,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int RESOURCE_ENVIRONMENT__ENTITY_NAME = EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Linking Resources Resource Environment</b></em>' containment
+     * The feature id for the '<em><b>Linking Resources Resource Environment</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -96,7 +96,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the ' <em><b>Resource Container Resource Environment</b></em>' containment
+     * The feature id for the '<em><b>Resource Container Resource Environment</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -143,7 +143,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int LINKING_RESOURCE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Connected Resource Containers Linking Resource</b></em>'
+     * The feature id for the '<em><b>Connected Resource Containers Linking Resource</b></em>'
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -153,7 +153,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Communication Link Resource Specifications Linking Resource</b></em> ' containment
+     * <em><b>Communication Link Resource Specifications Linking Resource</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -162,7 +162,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the ' <em><b>Resource Environment Linking Resource</b></em>' container
+     * The feature id for the '<em><b>Resource Environment Linking Resource</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -209,7 +209,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int RESOURCE_CONTAINER__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Active Resource Specifications Resource Container</b></em>'
+     * The feature id for the '<em><b>Active Resource Specifications Resource Container</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -218,7 +218,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the ' <em><b>Resource Environment Resource Container</b></em>' container
+     * The feature id for the '<em><b>Resource Environment Resource Container</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -227,7 +227,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the ' <em><b>Nested Resource Containers Resource Container</b></em>'
+     * The feature id for the '<em><b>Nested Resource Containers Resource Container</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -236,7 +236,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the ' <em><b>Parent Resource Container Resource Container</b></em>'
+     * The feature id for the '<em><b>Parent Resource Container Resource Container</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -311,7 +311,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the ' <em><b>Active Resource Type Active Resource Specification</b></em>'
+     * The feature id for the '<em><b>Active Resource Type Active Resource Specification</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -320,7 +320,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the ' <em><b>Processing Rate Processing Resource Specification</b></em>'
+     * The feature id for the '<em><b>Processing Rate Processing Resource Specification</b></em>'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -338,8 +338,8 @@ public interface ResourceenvironmentPackage extends EPackage {
     int PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
 
     /**
-     * The feature id for the ' <em><b>Resource Container Processing Resource Specification</b></em>
-     * ' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Container Processing Resource Specification</b></em>'
+     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
@@ -347,7 +347,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 7;
 
     /**
-     * The number of structural features of the ' <em>Processing Resource Specification</em>' class.
+     * The number of structural features of the '<em>Processing Resource Specification</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -378,7 +378,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Linking Resource Communication Link Resource Specification</b></em> ' container
+     * <em><b>Linking Resource Communication Link Resource Specification</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -397,7 +397,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Communication Link Resource Type Communication Link Resource Specification</b></em> '
+     * <em><b>Communication Link Resource Type Communication Link Resource Specification</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -406,7 +406,7 @@ public interface ResourceenvironmentPackage extends EPackage {
     int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the ' <em><b>Latency Communication Link Resource Specification</b></em>'
+     * The feature id for the '<em><b>Latency Communication Link Resource Specification</b></em>'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -415,8 +415,8 @@ public interface ResourceenvironmentPackage extends EPackage {
     int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the ' <em><b>Throughput Communication Link Resource Specification</b></em>
-     * ' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Throughput Communication Link Resource Specification</b></em>'
+     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
@@ -424,8 +424,8 @@ public interface ResourceenvironmentPackage extends EPackage {
     int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
     /**
-     * The number of structural features of the ' <em>Communication Link Resource Specification</em>
-     * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The number of structural features of the '<em>Communication Link Resource Specification</em>'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
@@ -503,7 +503,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * --> <!-- end-user-doc -->
      * 
      * @return the meta object for the containment reference '
-     *         <em>Communication Link Resource Specifications Linking Resource</em> '.
+     *         <em>Communication Link Resource Specifications Linking Resource</em>'.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource#getCommunicationLinkResourceSpecifications_LinkingResource()
      * @see #getLinkingResource()
      * @generated
@@ -596,7 +596,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification
      * <em>Processing Resource Specification</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class ' <em>Processing Resource Specification</em>'.
+     * @return the meta object for class '<em>Processing Resource Specification</em>'.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification
      * @generated
      */
@@ -631,7 +631,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer
      * <em>Required By Container</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the attribute '<em>Required By Container</em> '.
+     * @return the meta object for the attribute '<em>Required By Container</em>'.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer()
      * @see #getProcessingResourceSpecification()
      * @generated
@@ -710,7 +710,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * <em>Communication Link Resource Specification</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
-     * @return the meta object for class ' <em>Communication Link Resource Specification</em>'.
+     * @return the meta object for class '<em>Communication Link Resource Specification</em>'.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification
      * @generated
      */
@@ -723,7 +723,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * --> <!-- end-user-doc -->
      * 
      * @return the meta object for the container reference '
-     *         <em>Linking Resource Communication Link Resource Specification</em> '.
+     *         <em>Linking Resource Communication Link Resource Specification</em>'.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification()
      * @see #getCommunicationLinkResourceSpecification()
      * @generated
@@ -819,7 +819,7 @@ public interface ResourceenvironmentPackage extends EPackage {
         EClass RESOURCE_ENVIRONMENT = eINSTANCE.getResourceEnvironment();
 
         /**
-         * The meta object literal for the ' <em><b>Linking Resources Resource Environment</b></em>'
+         * The meta object literal for the '<em><b>Linking Resources Resource Environment</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -828,8 +828,8 @@ public interface ResourceenvironmentPackage extends EPackage {
                 .getResourceEnvironment_LinkingResources__ResourceEnvironment();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Container Resource Environment</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Container Resource Environment</b></em>'
+         * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -859,7 +859,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Communication Link Resource Specifications Linking Resource</b></em> ' containment
+         * <em><b>Communication Link Resource Specifications Linking Resource</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -868,7 +868,7 @@ public interface ResourceenvironmentPackage extends EPackage {
                 .getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Environment Linking Resource</b></em>'
+         * The meta object literal for the '<em><b>Resource Environment Linking Resource</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -898,8 +898,8 @@ public interface ResourceenvironmentPackage extends EPackage {
                 .getResourceContainer_ActiveResourceSpecifications_ResourceContainer();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Environment Resource Container</b></em>
-         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Environment Resource Container</b></em>'
+         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -955,7 +955,7 @@ public interface ResourceenvironmentPackage extends EPackage {
         EAttribute PROCESSING_RESOURCE_SPECIFICATION__MTTF = eINSTANCE.getProcessingResourceSpecification_MTTF();
 
         /**
-         * The meta object literal for the ' <em><b>Required By Container</b></em>' attribute
+         * The meta object literal for the '<em><b>Required By Container</b></em>' attribute
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1025,7 +1025,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Linking Resource Communication Link Resource Specification</b></em> ' container
+         * <em><b>Linking Resource Communication Link Resource Specification</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

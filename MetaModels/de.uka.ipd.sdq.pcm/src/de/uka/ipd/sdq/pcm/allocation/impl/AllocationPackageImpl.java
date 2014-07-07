@@ -127,14 +127,12 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      * @generated
      */
     public static AllocationPackage init() {
-        if (isInited) {
+        if (isInited)
             return (AllocationPackage) EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
-        }
 
         // Obtain or create and register package
-        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
-                .get(eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                : new AllocationPackageImpl());
+        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
+                .get(eNS_URI) : new AllocationPackageImpl());
 
         isInited = true;
 
@@ -144,61 +142,58 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
@@ -248,7 +243,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theAllocationPackage, new EValidator.Descriptor() {
-            @Override
             public EValidator getEValidator() {
                 return AllocationValidator.INSTANCE;
             }
@@ -269,7 +263,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EClass getAllocationContext() {
-        return this.allocationContextEClass;
+        return allocationContextEClass;
     }
 
     /**
@@ -279,7 +273,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EReference getAllocationContext_ResourceContainer_AllocationContext() {
-        return (EReference) this.allocationContextEClass.getEStructuralFeatures().get(0);
+        return (EReference) allocationContextEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -289,7 +283,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EReference getAllocationContext_AssemblyContext_AllocationContext() {
-        return (EReference) this.allocationContextEClass.getEStructuralFeatures().get(1);
+        return (EReference) allocationContextEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -299,7 +293,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EReference getAllocationContext_Allocation_AllocationContext() {
-        return (EReference) this.allocationContextEClass.getEStructuralFeatures().get(2);
+        return (EReference) allocationContextEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -309,7 +303,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EReference getAllocationContext_EventChannel__AllocationContext() {
-        return (EReference) this.allocationContextEClass.getEStructuralFeatures().get(3);
+        return (EReference) allocationContextEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -319,7 +313,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EClass getAllocation() {
-        return this.allocationEClass;
+        return allocationEClass;
     }
 
     /**
@@ -329,7 +323,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EReference getAllocation_TargetResourceEnvironment_Allocation() {
-        return (EReference) this.allocationEClass.getEStructuralFeatures().get(0);
+        return (EReference) allocationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -339,7 +333,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EReference getAllocation_System_Allocation() {
-        return (EReference) this.allocationEClass.getEStructuralFeatures().get(1);
+        return (EReference) allocationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -349,7 +343,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public EReference getAllocation_AllocationContexts_Allocation() {
-        return (EReference) this.allocationEClass.getEStructuralFeatures().get(2);
+        return (EReference) allocationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -359,7 +353,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      */
     @Override
     public AllocationFactory getAllocationFactory() {
-        return (AllocationFactory) this.getEFactoryInstance();
+        return (AllocationFactory) getEFactoryInstance();
     }
 
     /**
@@ -376,22 +370,21 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      * @generated
      */
     public void createPackageContents() {
-        if (this.isCreated) {
+        if (isCreated)
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.allocationContextEClass = this.createEClass(ALLOCATION_CONTEXT);
-        this.createEReference(this.allocationContextEClass, ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT);
-        this.createEReference(this.allocationContextEClass, ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT);
-        this.createEReference(this.allocationContextEClass, ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT);
-        this.createEReference(this.allocationContextEClass, ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT);
+        allocationContextEClass = createEClass(ALLOCATION_CONTEXT);
+        createEReference(allocationContextEClass, ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT);
+        createEReference(allocationContextEClass, ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT);
+        createEReference(allocationContextEClass, ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT);
+        createEReference(allocationContextEClass, ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT);
 
-        this.allocationEClass = this.createEClass(ALLOCATION);
-        this.createEReference(this.allocationEClass, ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION);
-        this.createEReference(this.allocationEClass, ALLOCATION__SYSTEM_ALLOCATION);
-        this.createEReference(this.allocationEClass, ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION);
+        allocationEClass = createEClass(ALLOCATION);
+        createEReference(allocationEClass, ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION);
+        createEReference(allocationEClass, ALLOCATION__SYSTEM_ALLOCATION);
+        createEReference(allocationEClass, ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION);
     }
 
     /**
@@ -408,97 +401,94 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      * @generated
      */
     public void initializePackageContents() {
-        if (this.isInitialized) {
+        if (isInitialized)
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
-        this.setName(eNAME);
-        this.setNsPrefix(eNS_PREFIX);
-        this.setNsURI(eNS_URI);
+        setName(eNAME);
+        setNsPrefix(eNS_PREFIX);
+        setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI);
-        final ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage) EPackage.Registry.INSTANCE
+        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+        ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI);
-        final CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
+        CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI);
-        final SystemPackage theSystemPackage = (SystemPackage) EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI);
+        SystemPackage theSystemPackage = (SystemPackage) EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.allocationContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.allocationEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        allocationContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        allocationEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
         // Initialize classes and features; add operations and parameters
-        this.initEClass(this.allocationContextEClass, AllocationContext.class, "AllocationContext", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getAllocationContext_ResourceContainer_AllocationContext(),
+        initEClass(allocationContextEClass, AllocationContext.class, "AllocationContext", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getAllocationContext_ResourceContainer_AllocationContext(),
                 theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer_AllocationContext",
                 null, 1, 1, AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getAllocationContext_AssemblyContext_AllocationContext(),
+        initEReference(getAllocationContext_AssemblyContext_AllocationContext(),
                 theCompositionPackage.getAssemblyContext(), null, "assemblyContext_AllocationContext", null, 0, 1,
                 AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getAllocationContext_Allocation_AllocationContext(), this.getAllocation(),
+        initEReference(getAllocationContext_Allocation_AllocationContext(), this.getAllocation(),
                 this.getAllocation_AllocationContexts_Allocation(), "allocation_AllocationContext", null, 1, 1,
                 AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getAllocationContext_EventChannel__AllocationContext(),
-                theCompositionPackage.getEventChannel(), null, "eventChannel__AllocationContext", null, 0, 1,
-                AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getAllocationContext_EventChannel__AllocationContext(), theCompositionPackage.getEventChannel(),
+                null, "eventChannel__AllocationContext", null, 0, 1, AllocationContext.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
 
-        EOperation op = this.addEOperation(this.allocationContextEClass, this.ecorePackage.getEBoolean(),
+        EOperation op = addEOperation(allocationContextEClass, ecorePackage.getEBoolean(),
                 "OneAssemblyContextOrOneEventChannelShouldBeReferred", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.allocationEClass, Allocation.class, "Allocation", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(allocationEClass, Allocation.class, "Allocation", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getAllocation_TargetResourceEnvironment_Allocation(),
+        initEReference(getAllocation_TargetResourceEnvironment_Allocation(),
                 theResourceenvironmentPackage.getResourceEnvironment(), null, "targetResourceEnvironment_Allocation",
                 null, 0, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getAllocation_System_Allocation(), theSystemPackage.getSystem(), null,
-                "system_Allocation", null, 1, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getAllocation_AllocationContexts_Allocation(), this.getAllocationContext(),
+        initEReference(getAllocation_System_Allocation(), theSystemPackage.getSystem(), null, "system_Allocation",
+                null, 1, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getAllocation_AllocationContexts_Allocation(), this.getAllocationContext(),
                 this.getAllocationContext_Allocation_AllocationContext(), "allocationContexts_Allocation", null, 0, -1,
                 Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = this.addEOperation(this.allocationEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(allocationEClass, ecorePackage.getEBoolean(),
                 "EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = this.addEOperation(this.allocationEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(allocationEClass, ecorePackage.getEBoolean(),
                 "CommunicatingServersHaveToBeConnectedByLinkingResource", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
     }
 
 } // AllocationPackageImpl

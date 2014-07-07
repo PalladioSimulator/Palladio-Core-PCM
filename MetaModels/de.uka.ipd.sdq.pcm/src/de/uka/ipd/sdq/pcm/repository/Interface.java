@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Interface</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity models the interface as a set of signatures representing
  * services provided or required by a component. An interface is an abstraction of piece of software
  * (a software entity) which should contain a sufficient amount of information for a caller to
@@ -33,23 +33,21 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  * or to request that functionality. This is reflected in the Palladio Component Model by a set of
  * abstract meta-classes giving a conceptual view on interfaces, entities, and their relationships.
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface <em>Parent
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface <em>Parent
  * Interfaces Interface</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols
  * Interface</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required
  * Characterisations</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface <em>Repository
  * Interface</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface()
  * @model abstract="true"
  * @generated

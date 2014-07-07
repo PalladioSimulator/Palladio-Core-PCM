@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * Loop</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class LoopImpl extends AbstractUserActionImpl implements Loop {
@@ -86,7 +86,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      */
     @Override
     public PCMRandomVariable getLoopIteration_Loop() {
-        return this.loopIteration_Loop;
+        return loopIteration_Loop;
     }
 
     /**
@@ -94,18 +94,16 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * 
      * @generated
      */
-    public NotificationChain basicSetLoopIteration_Loop(final PCMRandomVariable newLoopIteration_Loop,
-            NotificationChain msgs) {
-        final PCMRandomVariable oldLoopIteration_Loop = this.loopIteration_Loop;
-        this.loopIteration_Loop = newLoopIteration_Loop;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+    public NotificationChain basicSetLoopIteration_Loop(PCMRandomVariable newLoopIteration_Loop, NotificationChain msgs) {
+        PCMRandomVariable oldLoopIteration_Loop = loopIteration_Loop;
+        loopIteration_Loop = newLoopIteration_Loop;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, oldLoopIteration_Loop, newLoopIteration_Loop);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -116,25 +114,21 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public void setLoopIteration_Loop(final PCMRandomVariable newLoopIteration_Loop) {
-        if (newLoopIteration_Loop != this.loopIteration_Loop) {
+    public void setLoopIteration_Loop(PCMRandomVariable newLoopIteration_Loop) {
+        if (newLoopIteration_Loop != loopIteration_Loop) {
             NotificationChain msgs = null;
-            if (this.loopIteration_Loop != null) {
-                msgs = ((InternalEObject) this.loopIteration_Loop).eInverseRemove(this,
+            if (loopIteration_Loop != null)
+                msgs = ((InternalEObject) loopIteration_Loop).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION, PCMRandomVariable.class, msgs);
-            }
-            if (newLoopIteration_Loop != null) {
+            if (newLoopIteration_Loop != null)
                 msgs = ((InternalEObject) newLoopIteration_Loop).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION, PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetLoopIteration_Loop(newLoopIteration_Loop, msgs);
-            if (msgs != null) {
+            msgs = basicSetLoopIteration_Loop(newLoopIteration_Loop, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP,
                     newLoopIteration_Loop, newLoopIteration_Loop));
-        }
     }
 
     /**
@@ -144,7 +138,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      */
     @Override
     public ScenarioBehaviour getBodyBehaviour_Loop() {
-        return this.bodyBehaviour_Loop;
+        return bodyBehaviour_Loop;
     }
 
     /**
@@ -152,18 +146,16 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * 
      * @generated
      */
-    public NotificationChain basicSetBodyBehaviour_Loop(final ScenarioBehaviour newBodyBehaviour_Loop,
-            NotificationChain msgs) {
-        final ScenarioBehaviour oldBodyBehaviour_Loop = this.bodyBehaviour_Loop;
-        this.bodyBehaviour_Loop = newBodyBehaviour_Loop;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+    public NotificationChain basicSetBodyBehaviour_Loop(ScenarioBehaviour newBodyBehaviour_Loop, NotificationChain msgs) {
+        ScenarioBehaviour oldBodyBehaviour_Loop = bodyBehaviour_Loop;
+        bodyBehaviour_Loop = newBodyBehaviour_Loop;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, oldBodyBehaviour_Loop, newBodyBehaviour_Loop);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -174,25 +166,21 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public void setBodyBehaviour_Loop(final ScenarioBehaviour newBodyBehaviour_Loop) {
-        if (newBodyBehaviour_Loop != this.bodyBehaviour_Loop) {
+    public void setBodyBehaviour_Loop(ScenarioBehaviour newBodyBehaviour_Loop) {
+        if (newBodyBehaviour_Loop != bodyBehaviour_Loop) {
             NotificationChain msgs = null;
-            if (this.bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) this.bodyBehaviour_Loop).eInverseRemove(this,
+            if (bodyBehaviour_Loop != null)
+                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this,
                         UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
-            }
-            if (newBodyBehaviour_Loop != null) {
+            if (newBodyBehaviour_Loop != null)
                 msgs = ((InternalEObject) newBodyBehaviour_Loop).eInverseAdd(this,
                         UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
-            }
-            msgs = this.basicSetBodyBehaviour_Loop(newBodyBehaviour_Loop, msgs);
-            if (msgs != null) {
+            msgs = basicSetBodyBehaviour_Loop(newBodyBehaviour_Loop, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP,
                     newBodyBehaviour_Loop, newBodyBehaviour_Loop));
-        }
     }
 
     /**
@@ -201,20 +189,18 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
-            if (this.loopIteration_Loop != null) {
-                msgs = ((InternalEObject) this.loopIteration_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            if (loopIteration_Loop != null)
+                msgs = ((InternalEObject) loopIteration_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, null, msgs);
-            }
-            return this.basicSetLoopIteration_Loop((PCMRandomVariable) otherEnd, msgs);
+            return basicSetLoopIteration_Loop((PCMRandomVariable) otherEnd, msgs);
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-            if (this.bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) this.bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            if (bodyBehaviour_Loop != null)
+                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, null, msgs);
-            }
-            return this.basicSetBodyBehaviour_Loop((ScenarioBehaviour) otherEnd, msgs);
+            return basicSetBodyBehaviour_Loop((ScenarioBehaviour) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -225,13 +211,12 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
-            return this.basicSetLoopIteration_Loop(null, msgs);
+            return basicSetLoopIteration_Loop(null, msgs);
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-            return this.basicSetBodyBehaviour_Loop(null, msgs);
+            return basicSetBodyBehaviour_Loop(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -242,12 +227,12 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
-            return this.getLoopIteration_Loop();
+            return getLoopIteration_Loop();
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-            return this.getBodyBehaviour_Loop();
+            return getBodyBehaviour_Loop();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -258,13 +243,13 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
-            this.setLoopIteration_Loop((PCMRandomVariable) newValue);
+            setLoopIteration_Loop((PCMRandomVariable) newValue);
             return;
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-            this.setBodyBehaviour_Loop((ScenarioBehaviour) newValue);
+            setBodyBehaviour_Loop((ScenarioBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -276,13 +261,13 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
-            this.setLoopIteration_Loop((PCMRandomVariable) null);
+            setLoopIteration_Loop((PCMRandomVariable) null);
             return;
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-            this.setBodyBehaviour_Loop((ScenarioBehaviour) null);
+            setBodyBehaviour_Loop((ScenarioBehaviour) null);
             return;
         }
         super.eUnset(featureID);
@@ -294,12 +279,12 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
-            return this.loopIteration_Loop != null;
+            return loopIteration_Loop != null;
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
-            return this.bodyBehaviour_Loop != null;
+            return bodyBehaviour_Loop != null;
         }
         return super.eIsSet(featureID);
     }

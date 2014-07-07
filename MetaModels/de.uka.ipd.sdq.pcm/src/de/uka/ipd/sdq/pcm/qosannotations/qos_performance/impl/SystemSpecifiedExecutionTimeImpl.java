@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceVali
  * <em><b>System Specified Execution Time</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl implements
@@ -60,8 +60,8 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
     /**
      * The cached OCL expression body for the '
      * {@link #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>} '
-     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>}' operation.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -74,7 +74,7 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
     /**
      * The cached OCL invariant for the '
      * {@link #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>} ' invariant
+     * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
@@ -90,15 +90,15 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
      * @generated
      */
     @Override
-    public boolean SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(QosPerformancePackage.Literals.SYSTEM_SPECIFIED_EXECUTION_TIME);
             try {
                 SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

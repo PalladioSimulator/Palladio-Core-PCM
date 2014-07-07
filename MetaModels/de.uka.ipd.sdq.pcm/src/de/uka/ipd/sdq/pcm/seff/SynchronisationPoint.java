@@ -13,26 +13,25 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Synchronisation Point</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Component developers can use a SynchronisationPoint to join
  * synchronously ForkedBehaviours and specify a result of the computations with its attached
  * VariableUsages. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint
  * <em>Output Parameter Usage Synchronisation Point</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint <em>Fork
- * Action Synchronisation Point</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint <em>
+ * Fork Action Synchronisation Point</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
  * <em>Synchronous Forked Behaviours Synchronisation Point</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint()
  * @model
  * @extends EStereotypableObject
@@ -47,7 +46,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Output Parameter Usage Synchronisation Point</b></em>'
+     * Returns the value of the '<em><b>Output Parameter Usage Synchronisation Point</b></em>'
      * containment reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage
@@ -58,7 +57,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Output Parameter Usage Synchronisation Point</em>' containment
+     * @return the value of the '<em>Output Parameter Usage Synchronisation Point</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint()
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage
@@ -68,7 +67,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
     EList<VariableUsage> getOutputParameterUsage_SynchronisationPoint();
 
     /**
-     * Returns the value of the ' <em><b>Fork Action Synchronisation Point</b></em>' container
+     * Returns the value of the '<em><b>Fork Action Synchronisation Point</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction
      * <em>Synchronising Behaviours Fork Action</em>}'. <!-- begin-user-doc -->
@@ -95,7 +94,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Fork Action Synchronisation Point</em>' container
+     *            the new value of the '<em>Fork Action Synchronisation Point</em>' container
      *            reference.
      * @see #getForkAction_SynchronisationPoint()
      * @generated
@@ -103,10 +102,9 @@ public interface SynchronisationPoint extends EStereotypableObject {
     void setForkAction_SynchronisationPoint(ForkAction value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Synchronous Forked Behaviours Synchronisation Point</b></em>' containment reference
-     * list. The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour}. It is
-     * bidirectional and its opposite is '
+     * Returns the value of the '<em><b>Synchronous Forked Behaviours Synchronisation Point</b></em>
+     * ' containment reference list. The list contents are of type
+     * {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour}. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour
      * <em>Synchronisation Point Forked Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
@@ -115,7 +113,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Synchronous Forked Behaviours Synchronisation Point</em>'
+     * @return the value of the '<em>Synchronous Forked Behaviours Synchronisation Point</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint()
      * @see de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour

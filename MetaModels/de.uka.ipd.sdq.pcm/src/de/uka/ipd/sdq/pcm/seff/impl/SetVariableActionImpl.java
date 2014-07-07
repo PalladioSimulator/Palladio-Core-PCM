@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
  * <em>Local Variable Usages Set Variable Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl implements SetVariableAction {
@@ -78,13 +78,13 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      */
     @Override
     public EList<VariableUsage> getLocalVariableUsages_SetVariableAction() {
-        if (this.localVariableUsages_SetVariableAction == null) {
-            this.localVariableUsages_SetVariableAction = new EObjectContainmentWithInverseEList<VariableUsage>(
+        if (localVariableUsages_SetVariableAction == null) {
+            localVariableUsages_SetVariableAction = new EObjectContainmentWithInverseEList<VariableUsage>(
                     VariableUsage.class, this,
                     SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
                     ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE);
         }
-        return this.localVariableUsages_SetVariableAction;
+        return localVariableUsages_SetVariableAction;
     }
 
     /**
@@ -94,11 +94,10 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getLocalVariableUsages_SetVariableAction())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getLocalVariableUsages_SetVariableAction())
                     .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -110,11 +109,10 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-            return ((InternalEList<?>) this.getLocalVariableUsages_SetVariableAction()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getLocalVariableUsages_SetVariableAction()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -125,10 +123,10 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-            return this.getLocalVariableUsages_SetVariableAction();
+            return getLocalVariableUsages_SetVariableAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -140,11 +138,11 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-            this.getLocalVariableUsages_SetVariableAction().clear();
-            this.getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableUsage>) newValue);
+            getLocalVariableUsages_SetVariableAction().clear();
+            getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableUsage>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -156,10 +154,10 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-            this.getLocalVariableUsages_SetVariableAction().clear();
+            getLocalVariableUsages_SetVariableAction().clear();
             return;
         }
         super.eUnset(featureID);
@@ -171,11 +169,10 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-            return this.localVariableUsages_SetVariableAction != null
-                    && !this.localVariableUsages_SetVariableAction.isEmpty();
+            return localVariableUsages_SetVariableAction != null && !localVariableUsages_SetVariableAction.isEmpty();
         }
         return super.eIsSet(featureID);
     }

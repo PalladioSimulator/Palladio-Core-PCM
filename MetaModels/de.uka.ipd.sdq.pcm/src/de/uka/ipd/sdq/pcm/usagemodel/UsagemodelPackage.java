@@ -148,8 +148,8 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  * [34]&nbsp;James&nbsp;A.&nbsp;Whittaker&nbsp;and&nbsp;Michael&nbsp;G.&nbsp; Thomason,&nbsp;
  * "A&nbsp;Markov&nbsp;chain&nbsp;model&nbsp;for&nbsp;statistical&nbsp;software<br />
  * testing,
- * "&nbsp;IEEE&nbsp;Transactions&nbsp;on&nbsp;Software&nbsp;Engineering,&nbsp;vol.&nbsp;20,&nbsp;no.&nbsp;10,&nbsp;pp.&nbsp;812-824,&nbsp;Oct.&nb
- * s p ; 1 9 9 4 .<br />
+ * "&nbsp;IEEE&nbsp;Transactions&nbsp;on&nbsp;Software&nbsp;Engineering,&nbsp;vol.&nbsp;20,&nbsp;no.&nbsp;10,&nbsp;pp.&nbsp;812-824,&nbsp;Oct.&n
+ * b s p ; 1 9 9 4 .<br />
  * <br />
  * [78]&nbsp;V.&nbsp;Grassi,&nbsp;R.&nbsp;Mirandola,&nbsp;and&nbsp;A.&nbsp; Sabetta,&nbsp;
  * "From&nbsp;design&nbsp;to&nbsp;analysis&nbsp;models:&nbsp;a&nbsp;kernel&nbsp;languag e<br />
@@ -222,8 +222,8 @@ public interface UsagemodelPackage extends EPackage {
     UsagemodelPackage eINSTANCE = de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl.init();
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl
-     * <em>Workload</em>} ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl
+     * <em>Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getWorkload()
@@ -250,7 +250,7 @@ public interface UsagemodelPackage extends EPackage {
     int WORKLOAD_FEATURE_COUNT = 1;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.UsageScenarioImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UsageScenarioImpl
      * <em>Usage Scenario</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsageScenarioImpl
@@ -287,7 +287,7 @@ public interface UsagemodelPackage extends EPackage {
     int USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '<em><b>Scenario Behaviour Usage Scenario</b></em> ' containment
+     * The feature id for the '<em><b>Scenario Behaviour Usage Scenario</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -314,7 +314,7 @@ public interface UsagemodelPackage extends EPackage {
     int USAGE_SCENARIO_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl
      * <em>Scenario Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl
@@ -324,8 +324,7 @@ public interface UsagemodelPackage extends EPackage {
     int SCENARIO_BEHAVIOUR = 6;
 
     /**
-     * The meta object id for the '
-     * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl
      * <em>Abstract User Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl
@@ -335,7 +334,7 @@ public interface UsagemodelPackage extends EPackage {
     int ABSTRACT_USER_ACTION = 5;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl
      * <em>Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl
@@ -345,7 +344,7 @@ public interface UsagemodelPackage extends EPackage {
     int BRANCH_TRANSITION = 7;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl
      * <em>Branch</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl
@@ -355,8 +354,8 @@ public interface UsagemodelPackage extends EPackage {
     int BRANCH = 8;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl
-     * <em>Loop</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl <em>Loop</em>}
+     * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getLoop()
@@ -365,7 +364,7 @@ public interface UsagemodelPackage extends EPackage {
     int LOOP = 9;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.UsageModelImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UsageModelImpl
      * <em>Usage Model</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsageModelImpl
@@ -375,8 +374,8 @@ public interface UsagemodelPackage extends EPackage {
     int USAGE_MODEL = 3;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl
-     * <em>Stop</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl <em>Stop</em>}
+     * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getStop()
@@ -385,7 +384,7 @@ public interface UsagemodelPackage extends EPackage {
     int STOP = 10;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.StartImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.StartImpl
      * <em>Start</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.StartImpl
@@ -395,7 +394,7 @@ public interface UsagemodelPackage extends EPackage {
     int START = 11;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.OpenWorkloadImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.OpenWorkloadImpl
      * <em>Open Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.OpenWorkloadImpl
@@ -416,7 +415,7 @@ public interface UsagemodelPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL = 4;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl
      * <em>Closed Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl
@@ -426,7 +425,7 @@ public interface UsagemodelPackage extends EPackage {
     int CLOSED_WORKLOAD = 14;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
      * <em>Delay</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
@@ -436,7 +435,7 @@ public interface UsagemodelPackage extends EPackage {
     int DELAY = 13;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
      * <em>User Data</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
@@ -464,7 +463,7 @@ public interface UsagemodelPackage extends EPackage {
     int USER_DATA__USAGE_MODEL_USER_DATA = 1;
 
     /**
-     * The feature id for the ' <em><b>User Data Parameter Usages User Data</b></em>' containment
+     * The feature id for the '<em><b>User Data Parameter Usages User Data</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -545,7 +544,7 @@ public interface UsagemodelPackage extends EPackage {
     int ABSTRACT_USER_ACTION__PREDECESSOR = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * The feature id for the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -599,7 +598,7 @@ public interface UsagemodelPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
     /**
-     * The feature id for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * The feature id for the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -608,7 +607,7 @@ public interface UsagemodelPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION = ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION;
 
     /**
-     * The feature id for the ' <em><b>Provided Role Entry Level System Call</b></em>' reference.
+     * The feature id for the '<em><b>Provided Role Entry Level System Call</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -617,7 +616,7 @@ public interface UsagemodelPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the ' <em><b>Operation Signature Entry Level System Call</b></em>'
+     * The feature id for the '<em><b>Operation Signature Entry Level System Call</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -626,7 +625,7 @@ public interface UsagemodelPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the ' <em><b>Output Parameter Usages Entry Level System Call</b></em>'
+     * The feature id for the '<em><b>Output Parameter Usages Entry Level System Call</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -644,7 +643,7 @@ public interface UsagemodelPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL__PRIORITY = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the ' <em><b>Input Parameter Usages Entry Level System Call</b></em>'
+     * The feature id for the '<em><b>Input Parameter Usages Entry Level System Call</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -689,7 +688,7 @@ public interface UsagemodelPackage extends EPackage {
     int SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the ' <em><b>Branch Transition Scenario Behaviour</b></em>' container
+     * The feature id for the '<em><b>Branch Transition Scenario Behaviour</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -743,7 +742,7 @@ public interface UsagemodelPackage extends EPackage {
     int BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION = 1;
 
     /**
-     * The feature id for the ' <em><b>Branched Behaviour Branch Transition</b></em>' containment
+     * The feature id for the '<em><b>Branched Behaviour Branch Transition</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -797,7 +796,7 @@ public interface UsagemodelPackage extends EPackage {
     int BRANCH__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
     /**
-     * The feature id for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * The feature id for the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -860,7 +859,7 @@ public interface UsagemodelPackage extends EPackage {
     int LOOP__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
     /**
-     * The feature id for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * The feature id for the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -932,7 +931,7 @@ public interface UsagemodelPackage extends EPackage {
     int STOP__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
     /**
-     * The feature id for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * The feature id for the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -986,7 +985,7 @@ public interface UsagemodelPackage extends EPackage {
     int START__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
     /**
-     * The feature id for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * The feature id for the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1067,7 +1066,7 @@ public interface UsagemodelPackage extends EPackage {
     int DELAY__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
     /**
-     * The feature id for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>' container
+     * The feature id for the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -1130,7 +1129,7 @@ public interface UsagemodelPackage extends EPackage {
     int CLOSED_WORKLOAD_FEATURE_COUNT = WORKLOAD_FEATURE_COUNT + 2;
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Workload
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Workload
      * <em>Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Workload</em>'.
@@ -1144,7 +1143,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload
      * <em>Usage Scenario Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference ' <em>Usage Scenario Workload</em>'.
+     * @return the meta object for the container reference '<em>Usage Scenario Workload</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload()
      * @see #getWorkload()
      * @generated
@@ -1152,7 +1151,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getWorkload_UsageScenario_Workload();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
      * <em>Usage Scenario</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Usage Scenario</em>'.
@@ -1179,7 +1178,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
      * <em>Usage Model Usage Scenario</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference ' <em>Usage Model Usage Scenario</em>'.
+     * @return the meta object for the container reference '<em>Usage Model Usage Scenario</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario()
      * @see #getUsageScenario()
      * @generated
@@ -1191,7 +1190,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
      * <em>Workload Usage Scenario</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference ' <em>Workload Usage Scenario</em>'.
+     * @return the meta object for the containment reference '<em>Workload Usage Scenario</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario()
      * @see #getUsageScenario()
      * @generated
@@ -1199,7 +1198,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getUsageScenario_Workload_UsageScenario();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour
      * <em>Scenario Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Scenario Behaviour</em>'.
@@ -1240,7 +1239,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
      * <em>Loop Scenario Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference ' <em>Loop Scenario Behaviour</em>'.
+     * @return the meta object for the container reference '<em>Loop Scenario Behaviour</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour()
      * @see #getScenarioBehaviour()
      * @generated
@@ -1261,7 +1260,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getScenarioBehaviour_UsageScenario_SenarioBehaviour();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
      * <em>Abstract User Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Abstract User Action</em>'.
@@ -1309,7 +1308,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getAbstractUserAction_ScenarioBehaviour_AbstractUserAction();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition
      * <em>Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Branch Transition</em>'.
@@ -1335,7 +1334,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
      * <em>Branch Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference ' <em>Branch Branch Transition</em>'.
+     * @return the meta object for the container reference '<em>Branch Branch Transition</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition()
      * @see #getBranchTransition()
      * @generated
@@ -1357,7 +1356,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getBranchTransition_BranchedBehaviour_BranchTransition();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Branch
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch
      * <em>Branch</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Branch</em>'.
@@ -1380,8 +1379,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getBranch_BranchTransitions_Branch();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Loop <em>Loop</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop <em>Loop</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Loop</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Loop
@@ -1394,7 +1393,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop <em>Loop Iteration Loop</em>}
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference ' <em>Loop Iteration Loop</em>'.
+     * @return the meta object for the containment reference '<em>Loop Iteration Loop</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop()
      * @see #getLoop()
      * @generated
@@ -1406,7 +1405,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference ' <em>Body Behaviour Loop</em>'.
+     * @return the meta object for the containment reference '<em>Body Behaviour Loop</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop()
      * @see #getLoop()
      * @generated
@@ -1414,7 +1413,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getLoop_BodyBehaviour_Loop();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel
      * <em>Usage Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Usage Model</em>'.
@@ -1428,7 +1427,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel
      * <em>User Data Usage Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference list ' <em>User Data Usage Model</em>'.
+     * @return the meta object for the containment reference list '<em>User Data Usage Model</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel()
      * @see #getUsageModel()
      * @generated
@@ -1449,8 +1448,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getUsageModel_UsageScenario_UsageModel();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Stop <em>Stop</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Stop <em>Stop</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Stop</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Stop
@@ -1459,8 +1458,8 @@ public interface UsagemodelPackage extends EPackage {
     EClass getStop();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Start
-     * <em>Start</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Start <em>Start</em>}
+     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Start</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Start
@@ -1469,8 +1468,8 @@ public interface UsagemodelPackage extends EPackage {
     EClass getStart();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload
-     * <em>Open Workload</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload
+     * <em>Open Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Open Workload</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload
@@ -1492,9 +1491,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getOpenWorkload_InterArrivalTime_OpenWorkload();
 
     /**
-     * Returns the meta object for class '
-     * {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall <em>Entry Level System Call</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
+     * <em>Entry Level System Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Entry Level System Call</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
@@ -1570,7 +1568,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
      * <em>Closed Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Closed Workload</em>'.
@@ -1596,7 +1594,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
      * <em>Think Time Closed Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference ' <em>Think Time Closed Workload</em>'.
+     * @return the meta object for the containment reference '<em>Think Time Closed Workload</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload()
      * @see #getClosedWorkload()
      * @generated
@@ -1604,8 +1602,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getClosedWorkload_ThinkTime_ClosedWorkload();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.Delay
-     * <em>Delay</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay <em>Delay</em>}
+     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Delay</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Delay
@@ -1618,7 +1616,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay
      * <em>Time Specification Delay</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the containment reference ' <em>Time Specification Delay</em>'.
+     * @return the meta object for the containment reference '<em>Time Specification Delay</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay()
      * @see #getDelay()
      * @generated
@@ -1626,7 +1624,7 @@ public interface UsagemodelPackage extends EPackage {
     EReference getDelay_TimeSpecification_Delay();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.usagemodel.UserData
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData
      * <em>User Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>User Data</em>'.
@@ -1640,7 +1638,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
      * <em>Usage Model User Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference ' <em>Usage Model User Data</em>'.
+     * @return the meta object for the container reference '<em>Usage Model User Data</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData()
      * @see #getUserData()
      * @generated
@@ -1652,7 +1650,7 @@ public interface UsagemodelPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData
      * <em>Assembly Context user Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference ' <em>Assembly Context user Data</em>'.
+     * @return the meta object for the reference '<em>Assembly Context user Data</em>'.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData()
      * @see #getUserData()
      * @generated
@@ -1696,7 +1694,7 @@ public interface UsagemodelPackage extends EPackage {
      */
     interface Literals {
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl
          * <em>Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl
@@ -1706,7 +1704,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass WORKLOAD = eINSTANCE.getWorkload();
 
         /**
-         * The meta object literal for the ' <em><b>Usage Scenario Workload</b></em>' container
+         * The meta object literal for the '<em><b>Usage Scenario Workload</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1725,7 +1723,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass USAGE_SCENARIO = eINSTANCE.getUsageScenario();
 
         /**
-         * The meta object literal for the ' <em><b>Scenario Behaviour Usage Scenario</b></em>'
+         * The meta object literal for the '<em><b>Scenario Behaviour Usage Scenario</b></em>'
          * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1734,7 +1732,7 @@ public interface UsagemodelPackage extends EPackage {
                 .getUsageScenario_ScenarioBehaviour_UsageScenario();
 
         /**
-         * The meta object literal for the ' <em><b>Usage Model Usage Scenario</b></em>' container
+         * The meta object literal for the '<em><b>Usage Model Usage Scenario</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1742,7 +1740,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO = eINSTANCE.getUsageScenario_UsageModel_UsageScenario();
 
         /**
-         * The meta object literal for the ' <em><b>Workload Usage Scenario</b></em>' containment
+         * The meta object literal for the '<em><b>Workload Usage Scenario</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1761,7 +1759,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass SCENARIO_BEHAVIOUR = eINSTANCE.getScenarioBehaviour();
 
         /**
-         * The meta object literal for the ' <em><b>Actions Scenario Behaviour</b></em>' containment
+         * The meta object literal for the '<em><b>Actions Scenario Behaviour</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1770,7 +1768,7 @@ public interface UsagemodelPackage extends EPackage {
                 .getScenarioBehaviour_Actions_ScenarioBehaviour();
 
         /**
-         * The meta object literal for the ' <em><b>Branch Transition Scenario Behaviour</b></em>'
+         * The meta object literal for the '<em><b>Branch Transition Scenario Behaviour</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1779,7 +1777,7 @@ public interface UsagemodelPackage extends EPackage {
                 .getScenarioBehaviour_BranchTransition_ScenarioBehaviour();
 
         /**
-         * The meta object literal for the ' <em><b>Loop Scenario Behaviour</b></em>' container
+         * The meta object literal for the '<em><b>Loop Scenario Behaviour</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1788,7 +1786,7 @@ public interface UsagemodelPackage extends EPackage {
                 .getScenarioBehaviour_Loop_ScenarioBehaviour();
 
         /**
-         * The meta object literal for the ' <em><b>Usage Scenario Senario Behaviour</b></em>'
+         * The meta object literal for the '<em><b>Usage Scenario Senario Behaviour</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1824,8 +1822,8 @@ public interface UsagemodelPackage extends EPackage {
         EReference ABSTRACT_USER_ACTION__PREDECESSOR = eINSTANCE.getAbstractUserAction_Predecessor();
 
         /**
-         * The meta object literal for the ' <em><b>Scenario Behaviour Abstract User Action</b></em>
-         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Scenario Behaviour Abstract User Action</b></em>'
+         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -1852,7 +1850,7 @@ public interface UsagemodelPackage extends EPackage {
         EAttribute BRANCH_TRANSITION__BRANCH_PROBABILITY = eINSTANCE.getBranchTransition_BranchProbability();
 
         /**
-         * The meta object literal for the ' <em><b>Branch Branch Transition</b></em>' container
+         * The meta object literal for the '<em><b>Branch Branch Transition</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1861,7 +1859,7 @@ public interface UsagemodelPackage extends EPackage {
                 .getBranchTransition_Branch_BranchTransition();
 
         /**
-         * The meta object literal for the ' <em><b>Branched Behaviour Branch Transition</b></em>'
+         * The meta object literal for the '<em><b>Branched Behaviour Branch Transition</b></em>'
          * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1870,8 +1868,8 @@ public interface UsagemodelPackage extends EPackage {
                 .getBranchTransition_BranchedBehaviour_BranchTransition();
 
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl
-         * <em>Branch</em>} ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl
+         * <em>Branch</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranch()
@@ -1880,7 +1878,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass BRANCH = eINSTANCE.getBranch();
 
         /**
-         * The meta object literal for the ' <em><b>Branch Transitions Branch</b></em>' containment
+         * The meta object literal for the '<em><b>Branch Transitions Branch</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1888,7 +1886,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference BRANCH__BRANCH_TRANSITIONS_BRANCH = eINSTANCE.getBranch_BranchTransitions_Branch();
 
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl
          * <em>Loop</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl
@@ -1925,7 +1923,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass USAGE_MODEL = eINSTANCE.getUsageModel();
 
         /**
-         * The meta object literal for the ' <em><b>User Data Usage Model</b></em>' containment
+         * The meta object literal for the '<em><b>User Data Usage Model</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1933,7 +1931,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference USAGE_MODEL__USER_DATA_USAGE_MODEL = eINSTANCE.getUsageModel_UserData_UsageModel();
 
         /**
-         * The meta object literal for the ' <em><b>Usage Scenario Usage Model</b></em>' containment
+         * The meta object literal for the '<em><b>Usage Scenario Usage Model</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -1941,7 +1939,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL = eINSTANCE.getUsageModel_UsageScenario_UsageModel();
 
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl
          * <em>Stop</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.StopImpl
@@ -1951,7 +1949,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass STOP = eINSTANCE.getStop();
 
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.StartImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.StartImpl
          * <em>Start</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.StartImpl
@@ -1972,7 +1970,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass OPEN_WORKLOAD = eINSTANCE.getOpenWorkload();
 
         /**
-         * The meta object literal for the ' <em><b>Inter Arrival Time Open Workload</b></em>'
+         * The meta object literal for the '<em><b>Inter Arrival Time Open Workload</b></em>'
          * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -2010,7 +2008,7 @@ public interface UsagemodelPackage extends EPackage {
         EAttribute ENTRY_LEVEL_SYSTEM_CALL__PRIORITY = eINSTANCE.getEntryLevelSystemCall_Priority();
 
         /**
-         * The meta object literal for the ' <em><b>Provided Role Entry Level System Call</b></em>'
+         * The meta object literal for the '<em><b>Provided Role Entry Level System Call</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -2058,7 +2056,7 @@ public interface UsagemodelPackage extends EPackage {
         EAttribute CLOSED_WORKLOAD__POPULATION = eINSTANCE.getClosedWorkload_Population();
 
         /**
-         * The meta object literal for the ' <em><b>Think Time Closed Workload</b></em>' containment
+         * The meta object literal for the '<em><b>Think Time Closed Workload</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -2066,7 +2064,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD = eINSTANCE.getClosedWorkload_ThinkTime_ClosedWorkload();
 
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
          * <em>Delay</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
@@ -2076,7 +2074,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass DELAY = eINSTANCE.getDelay();
 
         /**
-         * The meta object literal for the ' <em><b>Time Specification Delay</b></em>' containment
+         * The meta object literal for the '<em><b>Time Specification Delay</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -2084,7 +2082,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference DELAY__TIME_SPECIFICATION_DELAY = eINSTANCE.getDelay_TimeSpecification_Delay();
 
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
          * <em>User Data</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UserDataImpl
@@ -2094,7 +2092,7 @@ public interface UsagemodelPackage extends EPackage {
         EClass USER_DATA = eINSTANCE.getUserData();
 
         /**
-         * The meta object literal for the ' <em><b>Usage Model User Data</b></em>' container
+         * The meta object literal for the '<em><b>Usage Model User Data</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -2102,7 +2100,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference USER_DATA__USAGE_MODEL_USER_DATA = eINSTANCE.getUserData_UsageModel_UserData();
 
         /**
-         * The meta object literal for the ' <em><b>Assembly Context user Data</b></em>' reference
+         * The meta object literal for the '<em><b>Assembly Context user Data</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -2110,7 +2108,7 @@ public interface UsagemodelPackage extends EPackage {
         EReference USER_DATA__ASSEMBLY_CONTEXT_USER_DATA = eINSTANCE.getUserData_AssemblyContext_userData();
 
         /**
-         * The meta object literal for the ' <em><b>User Data Parameter Usages User Data</b></em>'
+         * The meta object literal for the '<em><b>User Data Parameter Usages User Data</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

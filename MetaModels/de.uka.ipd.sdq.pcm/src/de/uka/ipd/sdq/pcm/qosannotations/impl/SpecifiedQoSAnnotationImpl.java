@@ -37,7 +37,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * <em>Qos Annotations Specified Qo SAnnotation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImpl implements SpecifiedQoSAnnotation {
@@ -96,18 +96,17 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      */
     @Override
     public Signature getSignature_SpecifiedQoSAnnation() {
-        if (this.signature_SpecifiedQoSAnnation != null && ((EObject) this.signature_SpecifiedQoSAnnation).eIsProxy()) {
-            final InternalEObject oldSignature_SpecifiedQoSAnnation = (InternalEObject) this.signature_SpecifiedQoSAnnation;
-            this.signature_SpecifiedQoSAnnation = (Signature) this.eResolveProxy(oldSignature_SpecifiedQoSAnnation);
-            if (this.signature_SpecifiedQoSAnnation != oldSignature_SpecifiedQoSAnnation) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (signature_SpecifiedQoSAnnation != null && ((EObject) signature_SpecifiedQoSAnnation).eIsProxy()) {
+            InternalEObject oldSignature_SpecifiedQoSAnnation = (InternalEObject) signature_SpecifiedQoSAnnation;
+            signature_SpecifiedQoSAnnation = (Signature) eResolveProxy(oldSignature_SpecifiedQoSAnnation);
+            if (signature_SpecifiedQoSAnnation != oldSignature_SpecifiedQoSAnnation) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
-                            oldSignature_SpecifiedQoSAnnation, this.signature_SpecifiedQoSAnnation));
-                }
+                            oldSignature_SpecifiedQoSAnnation, signature_SpecifiedQoSAnnation));
             }
         }
-        return this.signature_SpecifiedQoSAnnation;
+        return signature_SpecifiedQoSAnnation;
     }
 
     /**
@@ -116,7 +115,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     public Signature basicGetSignature_SpecifiedQoSAnnation() {
-        return this.signature_SpecifiedQoSAnnation;
+        return signature_SpecifiedQoSAnnation;
     }
 
     /**
@@ -125,14 +124,13 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public void setSignature_SpecifiedQoSAnnation(final Signature newSignature_SpecifiedQoSAnnation) {
-        final Signature oldSignature_SpecifiedQoSAnnation = this.signature_SpecifiedQoSAnnation;
-        this.signature_SpecifiedQoSAnnation = newSignature_SpecifiedQoSAnnation;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setSignature_SpecifiedQoSAnnation(Signature newSignature_SpecifiedQoSAnnation) {
+        Signature oldSignature_SpecifiedQoSAnnation = signature_SpecifiedQoSAnnation;
+        signature_SpecifiedQoSAnnation = newSignature_SpecifiedQoSAnnation;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
-                    oldSignature_SpecifiedQoSAnnation, this.signature_SpecifiedQoSAnnation));
-        }
+                    oldSignature_SpecifiedQoSAnnation, signature_SpecifiedQoSAnnation));
     }
 
     /**
@@ -142,18 +140,17 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      */
     @Override
     public Role getRole_SpecifiedQoSAnnotation() {
-        if (this.role_SpecifiedQoSAnnotation != null && ((EObject) this.role_SpecifiedQoSAnnotation).eIsProxy()) {
-            final InternalEObject oldRole_SpecifiedQoSAnnotation = (InternalEObject) this.role_SpecifiedQoSAnnotation;
-            this.role_SpecifiedQoSAnnotation = (Role) this.eResolveProxy(oldRole_SpecifiedQoSAnnotation);
-            if (this.role_SpecifiedQoSAnnotation != oldRole_SpecifiedQoSAnnotation) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (role_SpecifiedQoSAnnotation != null && ((EObject) role_SpecifiedQoSAnnotation).eIsProxy()) {
+            InternalEObject oldRole_SpecifiedQoSAnnotation = (InternalEObject) role_SpecifiedQoSAnnotation;
+            role_SpecifiedQoSAnnotation = (Role) eResolveProxy(oldRole_SpecifiedQoSAnnotation);
+            if (role_SpecifiedQoSAnnotation != oldRole_SpecifiedQoSAnnotation) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
-                            oldRole_SpecifiedQoSAnnotation, this.role_SpecifiedQoSAnnotation));
-                }
+                            oldRole_SpecifiedQoSAnnotation, role_SpecifiedQoSAnnotation));
             }
         }
-        return this.role_SpecifiedQoSAnnotation;
+        return role_SpecifiedQoSAnnotation;
     }
 
     /**
@@ -162,7 +159,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     public Role basicGetRole_SpecifiedQoSAnnotation() {
-        return this.role_SpecifiedQoSAnnotation;
+        return role_SpecifiedQoSAnnotation;
     }
 
     /**
@@ -171,14 +168,13 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public void setRole_SpecifiedQoSAnnotation(final Role newRole_SpecifiedQoSAnnotation) {
-        final Role oldRole_SpecifiedQoSAnnotation = this.role_SpecifiedQoSAnnotation;
-        this.role_SpecifiedQoSAnnotation = newRole_SpecifiedQoSAnnotation;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setRole_SpecifiedQoSAnnotation(Role newRole_SpecifiedQoSAnnotation) {
+        Role oldRole_SpecifiedQoSAnnotation = role_SpecifiedQoSAnnotation;
+        role_SpecifiedQoSAnnotation = newRole_SpecifiedQoSAnnotation;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
-                    oldRole_SpecifiedQoSAnnotation, this.role_SpecifiedQoSAnnotation));
-        }
+                    oldRole_SpecifiedQoSAnnotation, role_SpecifiedQoSAnnotation));
     }
 
     /**
@@ -188,10 +184,9 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      */
     @Override
     public QoSAnnotations getQosAnnotations_SpecifiedQoSAnnotation() {
-        if (this.eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION) {
+        if (eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION)
             return null;
-        }
-        return (QoSAnnotations) this.eInternalContainer();
+        return (QoSAnnotations) eInternalContainer();
     }
 
     /**
@@ -200,8 +195,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     public NotificationChain basicSetQosAnnotations_SpecifiedQoSAnnotation(
-            final QoSAnnotations newQosAnnotations_SpecifiedQoSAnnotation, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newQosAnnotations_SpecifiedQoSAnnotation,
+            QoSAnnotations newQosAnnotations_SpecifiedQoSAnnotation, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newQosAnnotations_SpecifiedQoSAnnotation,
                 QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION, msgs);
         return msgs;
     }
@@ -212,30 +207,25 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public void setQosAnnotations_SpecifiedQoSAnnotation(final QoSAnnotations newQosAnnotations_SpecifiedQoSAnnotation) {
-        if (newQosAnnotations_SpecifiedQoSAnnotation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION && newQosAnnotations_SpecifiedQoSAnnotation != null)) {
-            if (EcoreUtil.isAncestor(this, newQosAnnotations_SpecifiedQoSAnnotation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setQosAnnotations_SpecifiedQoSAnnotation(QoSAnnotations newQosAnnotations_SpecifiedQoSAnnotation) {
+        if (newQosAnnotations_SpecifiedQoSAnnotation != eInternalContainer()
+                || (eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION && newQosAnnotations_SpecifiedQoSAnnotation != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newQosAnnotations_SpecifiedQoSAnnotation))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newQosAnnotations_SpecifiedQoSAnnotation != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newQosAnnotations_SpecifiedQoSAnnotation != null)
                 msgs = ((InternalEObject) newQosAnnotations_SpecifiedQoSAnnotation).eInverseAdd(this,
                         QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
                         QoSAnnotations.class, msgs);
-            }
-            msgs = this.basicSetQosAnnotations_SpecifiedQoSAnnotation(newQosAnnotations_SpecifiedQoSAnnotation, msgs);
-            if (msgs != null) {
+            msgs = basicSetQosAnnotations_SpecifiedQoSAnnotation(newQosAnnotations_SpecifiedQoSAnnotation, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
                     newQosAnnotations_SpecifiedQoSAnnotation, newQosAnnotations_SpecifiedQoSAnnotation));
-        }
     }
 
     /**
@@ -244,13 +234,12 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetQosAnnotations_SpecifiedQoSAnnotation((QoSAnnotations) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetQosAnnotations_SpecifiedQoSAnnotation((QoSAnnotations) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -261,11 +250,10 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
-            return this.basicSetQosAnnotations_SpecifiedQoSAnnotation(null, msgs);
+            return basicSetQosAnnotations_SpecifiedQoSAnnotation(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -276,10 +264,10 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
                     QoSAnnotations.class, msgs);
         }
@@ -292,20 +280,18 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
-            if (resolve) {
-                return this.getSignature_SpecifiedQoSAnnation();
-            }
-            return this.basicGetSignature_SpecifiedQoSAnnation();
+            if (resolve)
+                return getSignature_SpecifiedQoSAnnation();
+            return basicGetSignature_SpecifiedQoSAnnation();
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
-            if (resolve) {
-                return this.getRole_SpecifiedQoSAnnotation();
-            }
-            return this.basicGetRole_SpecifiedQoSAnnotation();
+            if (resolve)
+                return getRole_SpecifiedQoSAnnotation();
+            return basicGetRole_SpecifiedQoSAnnotation();
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
-            return this.getQosAnnotations_SpecifiedQoSAnnotation();
+            return getQosAnnotations_SpecifiedQoSAnnotation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -316,16 +302,16 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
-            this.setSignature_SpecifiedQoSAnnation((Signature) newValue);
+            setSignature_SpecifiedQoSAnnation((Signature) newValue);
             return;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
-            this.setRole_SpecifiedQoSAnnotation((Role) newValue);
+            setRole_SpecifiedQoSAnnotation((Role) newValue);
             return;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
-            this.setQosAnnotations_SpecifiedQoSAnnotation((QoSAnnotations) newValue);
+            setQosAnnotations_SpecifiedQoSAnnotation((QoSAnnotations) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -337,16 +323,16 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
-            this.setSignature_SpecifiedQoSAnnation((Signature) null);
+            setSignature_SpecifiedQoSAnnation((Signature) null);
             return;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
-            this.setRole_SpecifiedQoSAnnotation((Role) null);
+            setRole_SpecifiedQoSAnnotation((Role) null);
             return;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
-            this.setQosAnnotations_SpecifiedQoSAnnotation((QoSAnnotations) null);
+            setQosAnnotations_SpecifiedQoSAnnotation((QoSAnnotations) null);
             return;
         }
         super.eUnset(featureID);
@@ -358,14 +344,14 @@ public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImp
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
-            return this.signature_SpecifiedQoSAnnation != null;
+            return signature_SpecifiedQoSAnnation != null;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
-            return this.role_SpecifiedQoSAnnotation != null;
+            return role_SpecifiedQoSAnnotation != null;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
-            return this.getQosAnnotations_SpecifiedQoSAnnotation() != null;
+            return getQosAnnotations_SpecifiedQoSAnnotation() != null;
         }
         return super.eIsSet(featureID);
     }

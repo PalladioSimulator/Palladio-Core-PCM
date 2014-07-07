@@ -33,12 +33,12 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      */
     public static QosReliabilityFactory init() {
         try {
-            final QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory) EPackage.Registry.INSTANCE
+            QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosReliabilityPackage.eNS_URI);
             if (theQosReliabilityFactory != null) {
                 return theQosReliabilityFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosReliabilityFactoryImpl();
@@ -59,10 +59,10 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION:
-            return this.createSpecifiedReliabilityAnnotation();
+            return (EObject) createSpecifiedReliabilityAnnotation();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -75,7 +75,7 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      */
     @Override
     public SpecifiedReliabilityAnnotation createSpecifiedReliabilityAnnotation() {
-        final SpecifiedReliabilityAnnotationImpl specifiedReliabilityAnnotation = new SpecifiedReliabilityAnnotationImpl();
+        SpecifiedReliabilityAnnotationImpl specifiedReliabilityAnnotation = new SpecifiedReliabilityAnnotationImpl();
         return specifiedReliabilityAnnotation;
     }
 
@@ -86,7 +86,7 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      */
     @Override
     public QosReliabilityPackage getQosReliabilityPackage() {
-        return (QosReliabilityPackage) this.getEPackage();
+        return (QosReliabilityPackage) getEPackage();
     }
 
     /**

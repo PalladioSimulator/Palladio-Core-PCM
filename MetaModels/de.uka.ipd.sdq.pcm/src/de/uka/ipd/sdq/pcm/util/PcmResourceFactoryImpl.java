@@ -38,8 +38,8 @@ public class PcmResourceFactoryImpl extends ResourceFactoryImpl {
      * @generated
      */
     @Override
-    public Resource createResource(final URI uri) {
-        final XMLResource result = new PcmResourceImpl(uri);
+    public Resource createResource(URI uri) {
+        XMLResource result = new PcmResourceImpl(uri);
         return result;
     }
 

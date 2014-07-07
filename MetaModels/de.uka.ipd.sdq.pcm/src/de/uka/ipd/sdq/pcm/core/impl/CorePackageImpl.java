@@ -119,12 +119,11 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      * @generated
      */
     public static CorePackage init() {
-        if (isInited) {
+        if (isInited)
             return (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-        }
 
         // Obtain or create and register package
-        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .get(eNS_URI) : new CorePackageImpl());
 
         isInited = true;
@@ -135,61 +134,59 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
@@ -239,7 +236,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theCorePackage, new EValidator.Descriptor() {
-            @Override
             public EValidator getEValidator() {
                 return CoreValidator.INSTANCE;
             }
@@ -260,7 +256,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EClass getPCMRandomVariable() {
-        return this.pcmRandomVariableEClass;
+        return pcmRandomVariableEClass;
     }
 
     /**
@@ -270,7 +266,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_ClosedWorkload_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(0);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -280,7 +276,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(1);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -290,7 +286,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_VariableCharacterisation_Specification() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(2);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -300,7 +296,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_InfrastructureCall__PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(3);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -310,7 +306,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_ResourceCall__PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(4);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -320,7 +316,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(5);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -330,7 +326,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_LoopAction_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(6);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -340,7 +336,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(7);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(7);
     }
 
     /**
@@ -350,7 +346,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(8);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(8);
     }
 
     /**
@@ -360,7 +356,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_AssemblyEventConnector__FilterCondition() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(10);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(10);
     }
 
     /**
@@ -370,7 +366,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_EventChannelSinkConnector__FilterCondition() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(9);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(9);
     }
 
     /**
@@ -380,7 +376,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_Loop_LoopIteration() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(11);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(11);
     }
 
     /**
@@ -390,7 +386,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_OpenWorkload_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(12);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(12);
     }
 
     /**
@@ -400,7 +396,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_Delay_TimeSpecification() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(13);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(13);
     }
 
     /**
@@ -410,7 +406,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(14);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(14);
     }
 
     /**
@@ -420,7 +416,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(15);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(15);
     }
 
     /**
@@ -430,7 +426,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public EReference getPCMRandomVariable_CommunicationLinkResourceSpecification_latency_PCMRandomVariable() {
-        return (EReference) this.pcmRandomVariableEClass.getEStructuralFeatures().get(16);
+        return (EReference) pcmRandomVariableEClass.getEStructuralFeatures().get(16);
     }
 
     /**
@@ -440,7 +436,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      */
     @Override
     public CoreFactory getCoreFactory() {
-        return (CoreFactory) this.getEFactoryInstance();
+        return (CoreFactory) getEFactoryInstance();
     }
 
     /**
@@ -457,40 +453,31 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      * @generated
      */
     public void createPackageContents() {
-        if (this.isCreated) {
+        if (isCreated)
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.pcmRandomVariableEClass = this.createEClass(PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION);
-        this.createEReference(this.pcmRandomVariableEClass,
-                PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION);
-        this.createEReference(this.pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION);
-        this.createEReference(this.pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION);
-        this.createEReference(this.pcmRandomVariableEClass,
+        pcmRandomVariableEClass = createEClass(PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE);
+        createEReference(pcmRandomVariableEClass, PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION);
+        createEReference(pcmRandomVariableEClass,
                 PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
+        createEReference(pcmRandomVariableEClass,
                 PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE);
-        this.createEReference(this.pcmRandomVariableEClass,
+        createEReference(pcmRandomVariableEClass,
                 PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE);
     }
 
@@ -508,143 +495,137 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      * @generated
      */
     public void initializePackageContents() {
-        if (this.isInitialized) {
+        if (isInitialized)
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
-        this.setName(eNAME);
-        this.setNsPrefix(eNS_PREFIX);
-        this.setNsURI(eNS_URI);
+        setName(eNAME);
+        setNsPrefix(eNS_PREFIX);
+        setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI);
-        final CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
+        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+        CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI);
-        final StoexPackage theStoexPackage = (StoexPackage) EPackage.Registry.INSTANCE
-                .getEPackage(StoexPackage.eNS_URI);
-        final UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage) EPackage.Registry.INSTANCE
+        StoexPackage theStoexPackage = (StoexPackage) EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+        UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage) EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI);
-        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+        RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI);
-        final ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
+        ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI);
-        final SeffPerformancePackage theSeffPerformancePackage = (SeffPerformancePackage) EPackage.Registry.INSTANCE
+        SeffPerformancePackage theSeffPerformancePackage = (SeffPerformancePackage) EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI);
-        final SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
-        final QosPerformancePackage theQosPerformancePackage = (QosPerformancePackage) EPackage.Registry.INSTANCE
+        SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+        QosPerformancePackage theQosPerformancePackage = (QosPerformancePackage) EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI);
-        final ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage) EPackage.Registry.INSTANCE
+        ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI);
 
         // Add subpackages
-        this.getESubpackages().add(theEntityPackage);
-        this.getESubpackages().add(theCompositionPackage);
+        getESubpackages().add(theEntityPackage);
+        getESubpackages().add(theCompositionPackage);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.pcmRandomVariableEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+        pcmRandomVariableEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 
         // Initialize classes and features; add operations and parameters
-        this.initEClass(this.pcmRandomVariableEClass, PCMRandomVariable.class, "PCMRandomVariable", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getPCMRandomVariable_ClosedWorkload_PCMRandomVariable(),
+        initEClass(pcmRandomVariableEClass, PCMRandomVariable.class, "PCMRandomVariable", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getPCMRandomVariable_ClosedWorkload_PCMRandomVariable(),
                 theUsagemodelPackage.getClosedWorkload(),
                 theUsagemodelPackage.getClosedWorkload_ThinkTime_ClosedWorkload(), "closedWorkload_PCMRandomVariable",
                 null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable(),
                 theRepositoryPackage.getPassiveResource(),
                 theRepositoryPackage.getPassiveResource_Capacity_PassiveResource(),
                 "passiveResource_capacity_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_VariableCharacterisation_Specification(),
+        initEReference(getPCMRandomVariable_VariableCharacterisation_Specification(),
                 theParameterPackage.getVariableCharacterisation(),
                 theParameterPackage.getVariableCharacterisation_Specification_VariableCharacterisation(),
                 "variableCharacterisation_Specification", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_InfrastructureCall__PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_InfrastructureCall__PCMRandomVariable(),
                 theSeffPerformancePackage.getInfrastructureCall(),
                 theSeffPerformancePackage.getInfrastructureCall_NumberOfCalls__InfrastructureCall(),
                 "infrastructureCall__PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_ResourceCall__PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_ResourceCall__PCMRandomVariable(),
                 theSeffPerformancePackage.getResourceCall(),
                 theSeffPerformancePackage.getResourceCall_NumberOfCalls__ResourceCall(),
                 "resourceCall__PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable(),
                 theSeffPerformancePackage.getParametricResourceDemand(),
                 theSeffPerformancePackage.getParametricResourceDemand_Specification_ParametericResourceDemand(),
                 "parametricResourceDemand_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_LoopAction_PCMRandomVariable(), theSeffPackage.getLoopAction(),
+        initEReference(getPCMRandomVariable_LoopAction_PCMRandomVariable(), theSeffPackage.getLoopAction(),
                 theSeffPackage.getLoopAction_IterationCount_LoopAction(), "loopAction_PCMRandomVariable", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable(),
                 theSeffPackage.getGuardedBranchTransition(),
                 theSeffPackage.getGuardedBranchTransition_BranchCondition_GuardedBranchTransition(),
                 "guardedBranchTransition_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable(),
                 theQosPerformancePackage.getSpecifiedExecutionTime(),
                 theQosPerformancePackage.getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime(),
                 "specifiedExecutionTime_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_EventChannelSinkConnector__FilterCondition(),
+        initEReference(getPCMRandomVariable_EventChannelSinkConnector__FilterCondition(),
                 theCompositionPackage.getEventChannelSinkConnector(),
                 theCompositionPackage.getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector(),
                 "eventChannelSinkConnector__FilterCondition", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_AssemblyEventConnector__FilterCondition(),
+        initEReference(getPCMRandomVariable_AssemblyEventConnector__FilterCondition(),
                 theCompositionPackage.getAssemblyEventConnector(),
                 theCompositionPackage.getAssemblyEventConnector_FilterCondition__AssemblyEventConnector(),
                 "assemblyEventConnector__FilterCondition", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_Loop_LoopIteration(), theUsagemodelPackage.getLoop(),
+        initEReference(getPCMRandomVariable_Loop_LoopIteration(), theUsagemodelPackage.getLoop(),
                 theUsagemodelPackage.getLoop_LoopIteration_Loop(), "loop_LoopIteration", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_OpenWorkload_PCMRandomVariable(),
-                theUsagemodelPackage.getOpenWorkload(),
+        initEReference(getPCMRandomVariable_OpenWorkload_PCMRandomVariable(), theUsagemodelPackage.getOpenWorkload(),
                 theUsagemodelPackage.getOpenWorkload_InterArrivalTime_OpenWorkload(), "openWorkload_PCMRandomVariable",
                 null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPCMRandomVariable_Delay_TimeSpecification(), theUsagemodelPackage.getDelay(),
+        initEReference(getPCMRandomVariable_Delay_TimeSpecification(), theUsagemodelPackage.getDelay(),
                 theUsagemodelPackage.getDelay_TimeSpecification_Delay(), "delay_TimeSpecification", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this
-                .getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(),
                 theResourceenvironmentPackage.getCommunicationLinkResourceSpecification(),
                 theResourceenvironmentPackage
                         .getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification(),
                 "communicationLinkResourceSpecifcation_throughput_PCMRandomVariable", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this
-                .getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable(),
-                theResourceenvironmentPackage.getProcessingResourceSpecification(), theResourceenvironmentPackage
+        initEReference(getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable(),
+                theResourceenvironmentPackage.getProcessingResourceSpecification(),
+                theResourceenvironmentPackage
                         .getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(),
                 "processingResourceSpecification_processingRate_PCMRandomVariable", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this
-                .getPCMRandomVariable_CommunicationLinkResourceSpecification_latency_PCMRandomVariable(),
+        initEReference(getPCMRandomVariable_CommunicationLinkResourceSpecification_latency_PCMRandomVariable(),
                 theResourceenvironmentPackage.getCommunicationLinkResourceSpecification(),
                 theResourceenvironmentPackage
                         .getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(),
@@ -652,15 +633,15 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        final EOperation op = this.addEOperation(this.pcmRandomVariableEClass, this.ecorePackage.getEBoolean(),
+        EOperation op = addEOperation(pcmRandomVariableEClass, ecorePackage.getEBoolean(),
                 "SpecificationMustNotBeNULL", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
     }
 
 } // CorePackageImpl

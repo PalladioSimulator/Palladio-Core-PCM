@@ -42,15 +42,13 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getTargetResourceEnvironment_Allocation
  * <em>Target Resource Environment Allocation</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getSystem_Allocation <em>System
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getSystem_Allocation <em>System
  * Allocation</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getAllocationContexts_Allocation <em>
- * Allocation Contexts Allocation</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getAllocationContexts_Allocation
+ * <em>Allocation Contexts Allocation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class AllocationImpl extends EntityImpl implements Allocation {
@@ -62,7 +60,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getTargetResourceEnvironment_Allocation()
+     * The cached value of the '{@link #getTargetResourceEnvironment_Allocation()
      * <em>Target Resource Environment Allocation</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
@@ -119,20 +117,17 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public ResourceEnvironment getTargetResourceEnvironment_Allocation() {
-        if (this.targetResourceEnvironment_Allocation != null
-                && ((EObject) this.targetResourceEnvironment_Allocation).eIsProxy()) {
-            final InternalEObject oldTargetResourceEnvironment_Allocation = (InternalEObject) this.targetResourceEnvironment_Allocation;
-            this.targetResourceEnvironment_Allocation = (ResourceEnvironment) this
-                    .eResolveProxy(oldTargetResourceEnvironment_Allocation);
-            if (this.targetResourceEnvironment_Allocation != oldTargetResourceEnvironment_Allocation) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (targetResourceEnvironment_Allocation != null && ((EObject) targetResourceEnvironment_Allocation).eIsProxy()) {
+            InternalEObject oldTargetResourceEnvironment_Allocation = (InternalEObject) targetResourceEnvironment_Allocation;
+            targetResourceEnvironment_Allocation = (ResourceEnvironment) eResolveProxy(oldTargetResourceEnvironment_Allocation);
+            if (targetResourceEnvironment_Allocation != oldTargetResourceEnvironment_Allocation) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION,
-                            oldTargetResourceEnvironment_Allocation, this.targetResourceEnvironment_Allocation));
-                }
+                            oldTargetResourceEnvironment_Allocation, targetResourceEnvironment_Allocation));
             }
         }
-        return this.targetResourceEnvironment_Allocation;
+        return targetResourceEnvironment_Allocation;
     }
 
     /**
@@ -141,7 +136,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     public ResourceEnvironment basicGetTargetResourceEnvironment_Allocation() {
-        return this.targetResourceEnvironment_Allocation;
+        return targetResourceEnvironment_Allocation;
     }
 
     /**
@@ -150,15 +145,13 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public void setTargetResourceEnvironment_Allocation(
-            final ResourceEnvironment newTargetResourceEnvironment_Allocation) {
-        final ResourceEnvironment oldTargetResourceEnvironment_Allocation = this.targetResourceEnvironment_Allocation;
-        this.targetResourceEnvironment_Allocation = newTargetResourceEnvironment_Allocation;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setTargetResourceEnvironment_Allocation(ResourceEnvironment newTargetResourceEnvironment_Allocation) {
+        ResourceEnvironment oldTargetResourceEnvironment_Allocation = targetResourceEnvironment_Allocation;
+        targetResourceEnvironment_Allocation = newTargetResourceEnvironment_Allocation;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION,
-                    oldTargetResourceEnvironment_Allocation, this.targetResourceEnvironment_Allocation));
-        }
+                    oldTargetResourceEnvironment_Allocation, targetResourceEnvironment_Allocation));
     }
 
     /**
@@ -168,18 +161,16 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public de.uka.ipd.sdq.pcm.system.System getSystem_Allocation() {
-        if (this.system_Allocation != null && ((EObject) this.system_Allocation).eIsProxy()) {
-            final InternalEObject oldSystem_Allocation = (InternalEObject) this.system_Allocation;
-            this.system_Allocation = (de.uka.ipd.sdq.pcm.system.System) this.eResolveProxy(oldSystem_Allocation);
-            if (this.system_Allocation != oldSystem_Allocation) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION, oldSystem_Allocation,
-                            this.system_Allocation));
-                }
+        if (system_Allocation != null && ((EObject) system_Allocation).eIsProxy()) {
+            InternalEObject oldSystem_Allocation = (InternalEObject) system_Allocation;
+            system_Allocation = (de.uka.ipd.sdq.pcm.system.System) eResolveProxy(oldSystem_Allocation);
+            if (system_Allocation != oldSystem_Allocation) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+                            AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION, oldSystem_Allocation, system_Allocation));
             }
         }
-        return this.system_Allocation;
+        return system_Allocation;
     }
 
     /**
@@ -188,7 +179,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     public de.uka.ipd.sdq.pcm.system.System basicGetSystem_Allocation() {
-        return this.system_Allocation;
+        return system_Allocation;
     }
 
     /**
@@ -197,13 +188,12 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public void setSystem_Allocation(final de.uka.ipd.sdq.pcm.system.System newSystem_Allocation) {
-        final de.uka.ipd.sdq.pcm.system.System oldSystem_Allocation = this.system_Allocation;
-        this.system_Allocation = newSystem_Allocation;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION,
-                    oldSystem_Allocation, this.system_Allocation));
-        }
+    public void setSystem_Allocation(de.uka.ipd.sdq.pcm.system.System newSystem_Allocation) {
+        de.uka.ipd.sdq.pcm.system.System oldSystem_Allocation = system_Allocation;
+        system_Allocation = newSystem_Allocation;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION,
+                    oldSystem_Allocation, system_Allocation));
     }
 
     /**
@@ -213,18 +203,18 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public EList<AllocationContext> getAllocationContexts_Allocation() {
-        if (this.allocationContexts_Allocation == null) {
-            this.allocationContexts_Allocation = new EObjectContainmentWithInverseEList<AllocationContext>(
+        if (allocationContexts_Allocation == null) {
+            allocationContexts_Allocation = new EObjectContainmentWithInverseEList<AllocationContext>(
                     AllocationContext.class, this, AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION,
                     AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT);
         }
-        return this.allocationContexts_Allocation;
+        return allocationContexts_Allocation;
     }
 
     /**
      * The cached OCL expression body for the '
      * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>} ' operation.
+     * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
@@ -252,7 +242,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     /**
      * The cached OCL invariant for the '
      * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>} ' invariant
+     * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
@@ -268,15 +258,15 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public boolean EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(AllocationPackage.Literals.ALLOCATION);
             try {
                 EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -353,15 +343,15 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public boolean CommunicatingServersHaveToBeConnectedByLinkingResource(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean CommunicatingServersHaveToBeConnectedByLinkingResource(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(AllocationPackage.Literals.ALLOCATION);
             try {
                 COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -387,12 +377,11 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getAllocationContexts_Allocation())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getAllocationContexts_Allocation()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -403,11 +392,10 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
-            return ((InternalEList<?>) this.getAllocationContexts_Allocation()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAllocationContexts_Allocation()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -418,20 +406,18 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
-            if (resolve) {
-                return this.getTargetResourceEnvironment_Allocation();
-            }
-            return this.basicGetTargetResourceEnvironment_Allocation();
+            if (resolve)
+                return getTargetResourceEnvironment_Allocation();
+            return basicGetTargetResourceEnvironment_Allocation();
         case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
-            if (resolve) {
-                return this.getSystem_Allocation();
-            }
-            return this.basicGetSystem_Allocation();
+            if (resolve)
+                return getSystem_Allocation();
+            return basicGetSystem_Allocation();
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
-            return this.getAllocationContexts_Allocation();
+            return getAllocationContexts_Allocation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -443,17 +429,17 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
-            this.setTargetResourceEnvironment_Allocation((ResourceEnvironment) newValue);
+            setTargetResourceEnvironment_Allocation((ResourceEnvironment) newValue);
             return;
         case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
-            this.setSystem_Allocation((de.uka.ipd.sdq.pcm.system.System) newValue);
+            setSystem_Allocation((de.uka.ipd.sdq.pcm.system.System) newValue);
             return;
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
-            this.getAllocationContexts_Allocation().clear();
-            this.getAllocationContexts_Allocation().addAll((Collection<? extends AllocationContext>) newValue);
+            getAllocationContexts_Allocation().clear();
+            getAllocationContexts_Allocation().addAll((Collection<? extends AllocationContext>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -465,16 +451,16 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
-            this.setTargetResourceEnvironment_Allocation((ResourceEnvironment) null);
+            setTargetResourceEnvironment_Allocation((ResourceEnvironment) null);
             return;
         case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
-            this.setSystem_Allocation((de.uka.ipd.sdq.pcm.system.System) null);
+            setSystem_Allocation((de.uka.ipd.sdq.pcm.system.System) null);
             return;
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
-            this.getAllocationContexts_Allocation().clear();
+            getAllocationContexts_Allocation().clear();
             return;
         }
         super.eUnset(featureID);
@@ -486,14 +472,14 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
-            return this.targetResourceEnvironment_Allocation != null;
+            return targetResourceEnvironment_Allocation != null;
         case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
-            return this.system_Allocation != null;
+            return system_Allocation != null;
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
-            return this.allocationContexts_Allocation != null && !this.allocationContexts_Allocation.isEmpty();
+            return allocationContexts_Allocation != null && !allocationContexts_Allocation.isEmpty();
         }
         return super.eIsSet(featureID);
     }

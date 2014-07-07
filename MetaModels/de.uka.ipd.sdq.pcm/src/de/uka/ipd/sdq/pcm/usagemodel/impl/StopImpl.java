@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
  * end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class StopImpl extends AbstractUserActionImpl implements Stop {
@@ -84,14 +84,14 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
      * @generated
      */
     @Override
-    public boolean StopHasNoSuccessor(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean StopHasNoSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.STOP);
             try {
                 STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

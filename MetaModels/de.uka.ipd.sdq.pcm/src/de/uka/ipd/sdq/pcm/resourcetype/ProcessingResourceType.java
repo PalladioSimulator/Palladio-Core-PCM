@@ -10,13 +10,13 @@ import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Processing Resource Type</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * ResourceType representation of CPU.
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType;
  * <em>Hardware Induced Failure Type Processing Resource Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getProcessingResourceType()
  * @model
  * @generated
@@ -50,7 +50,7 @@ public interface ProcessingResourceType extends ResourceType {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Hardware Induced Failure Type Processing Resource Type</em>'
+     * @return the value of the '<em>Hardware Induced Failure Type Processing Resource Type</em>'
      *         reference.
      * @see #setHardwareInducedFailureType__ProcessingResourceType(HardwareInducedFailureType)
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType()

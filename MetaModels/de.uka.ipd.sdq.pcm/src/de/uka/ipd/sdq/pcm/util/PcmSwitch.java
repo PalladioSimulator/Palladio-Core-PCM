@@ -56,8 +56,8 @@ public class PcmSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(EObject theEObject) {
+        return doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
@@ -67,12 +67,12 @@ public class PcmSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
+    protected T doSwitch(EClass theEClass, EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
+            return doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -83,18 +83,17 @@ public class PcmSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final int classifierID, final EObject theEObject) {
+    protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
         case PcmPackage.DUMMY_CLASS: {
-            final DummyClass dummyClass = (DummyClass) theEObject;
-            T result = this.caseDummyClass(dummyClass);
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            DummyClass dummyClass = (DummyClass) theEObject;
+            T result = caseDummyClass(dummyClass);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         default:
-            return this.defaultCase(theEObject);
+            return defaultCase(theEObject);
         }
     }
 
@@ -109,7 +108,7 @@ public class PcmSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDummyClass(final DummyClass object) {
+    public T caseDummyClass(DummyClass object) {
         return null;
     }
 
@@ -124,7 +123,7 @@ public class PcmSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(final EObject object) {
+    public T defaultCase(EObject object) {
         return null;
     }
 

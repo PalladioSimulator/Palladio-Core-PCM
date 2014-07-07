@@ -63,7 +63,7 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(final Object object) {
+    public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -81,58 +81,58 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
      */
     protected SystemSwitch<Adapter> modelSwitch = new SystemSwitch<Adapter>() {
         @Override
-        public Adapter caseSystem(final de.uka.ipd.sdq.pcm.system.System object) {
-            return SystemAdapterFactory.this.createSystemAdapter();
+        public Adapter caseSystem(de.uka.ipd.sdq.pcm.system.System object) {
+            return createSystemAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
-            return SystemAdapterFactory.this.createIdentifierAdapter();
+        public Adapter caseIdentifier(Identifier object) {
+            return createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
-            return SystemAdapterFactory.this.createNamedElementAdapter();
+        public Adapter caseNamedElement(NamedElement object) {
+            return createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
-            return SystemAdapterFactory.this.createEntityAdapter();
+        public Adapter caseEntity(Entity object) {
+            return createEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(final ComposedStructure object) {
-            return SystemAdapterFactory.this.createComposedStructureAdapter();
+        public Adapter caseComposedStructure(ComposedStructure object) {
+            return createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object) {
-            return SystemAdapterFactory.this.createInterfaceProvidingEntityAdapter();
+        public Adapter caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+            return createInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object) {
-            return SystemAdapterFactory.this.createResourceInterfaceRequiringEntityAdapter();
+        public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+            return createResourceInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object) {
-            return SystemAdapterFactory.this.createInterfaceRequiringEntityAdapter();
+        public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+            return createInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object) {
-            return SystemAdapterFactory.this.createInterfaceProvidingRequiringEntityAdapter();
+        public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+            return createInterfaceProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object) {
-            return SystemAdapterFactory.this.createComposedProvidingRequiringEntityAdapter();
+        public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+            return createComposedProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
-            return SystemAdapterFactory.this.createEObjectAdapter();
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
         }
     };
 
@@ -145,12 +145,12 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(final Notifier target) {
-        return this.modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(Notifier target) {
+        return modelSwitch.doSwitch((EObject) target);
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.system.System
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.system.System
      * <em>System</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -164,7 +164,7 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -193,7 +193,7 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

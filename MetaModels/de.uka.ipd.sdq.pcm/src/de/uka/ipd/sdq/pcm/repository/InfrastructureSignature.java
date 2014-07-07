@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Infrastructure Signature</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * <em>Infrastructure Interface Infrastructure Signature</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureSignature()
  * @model
  * @generated
@@ -36,7 +36,7 @@ public interface InfrastructureSignature extends Signature {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Parameters Infrastructure Signature</b></em>' containment
+     * Returns the value of the '<em><b>Parameters Infrastructure Signature</b></em>' containment
      * reference list. The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Parameter}
      * . It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getInfrastructureSignature__Parameter
@@ -57,7 +57,7 @@ public interface InfrastructureSignature extends Signature {
     EList<Parameter> getParameters__InfrastructureSignature();
 
     /**
-     * Returns the value of the ' <em><b>Infrastructure Interface Infrastructure Signature</b></em>'
+     * Returns the value of the '<em><b>Infrastructure Interface Infrastructure Signature</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
      * <em>Infrastructure Signatures Infrastructure Interface</em>}'. <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public interface InfrastructureSignature extends Signature {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Infrastructure Interface Infrastructure Signature</em>'
+     * @return the value of the '<em>Infrastructure Interface Infrastructure Signature</em>'
      *         container reference.
      * @see #setInfrastructureInterface__InfrastructureSignature(InfrastructureInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature()

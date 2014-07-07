@@ -29,7 +29,7 @@ public class ParameterResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public ParameterResourceImpl(final URI uri) {
+    public ParameterResourceImpl(URI uri) {
         super(uri);
     }
 

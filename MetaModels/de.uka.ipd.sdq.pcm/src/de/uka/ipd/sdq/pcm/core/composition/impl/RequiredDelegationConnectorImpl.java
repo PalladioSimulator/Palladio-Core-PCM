@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
  * <em>Assembly Context Required Delegation Connector</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl implements RequiredDelegationConnector {
@@ -56,7 +56,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getInnerRequiredRole_RequiredDelegationConnector()
+     * The cached value of the '{@link #getInnerRequiredRole_RequiredDelegationConnector()
      * <em>Inner Required Role Required Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      * 
@@ -67,7 +67,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     protected OperationRequiredRole innerRequiredRole_RequiredDelegationConnector;
 
     /**
-     * The cached value of the ' {@link #getOuterRequiredRole_RequiredDelegationConnector()
+     * The cached value of the '{@link #getOuterRequiredRole_RequiredDelegationConnector()
      * <em>Outer Required Role Required Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      * 
@@ -78,7 +78,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     protected OperationRequiredRole outerRequiredRole_RequiredDelegationConnector;
 
     /**
-     * The cached value of the ' {@link #getAssemblyContext_RequiredDelegationConnector()
+     * The cached value of the '{@link #getAssemblyContext_RequiredDelegationConnector()
      * <em>Assembly Context Required Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
@@ -114,23 +114,21 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public OperationRequiredRole getInnerRequiredRole_RequiredDelegationConnector() {
-        if (this.innerRequiredRole_RequiredDelegationConnector != null
-                && ((EObject) this.innerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
-            final InternalEObject oldInnerRequiredRole_RequiredDelegationConnector = (InternalEObject) this.innerRequiredRole_RequiredDelegationConnector;
-            this.innerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole) this
-                    .eResolveProxy(oldInnerRequiredRole_RequiredDelegationConnector);
-            if (this.innerRequiredRole_RequiredDelegationConnector != oldInnerRequiredRole_RequiredDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (innerRequiredRole_RequiredDelegationConnector != null
+                && ((EObject) innerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
+            InternalEObject oldInnerRequiredRole_RequiredDelegationConnector = (InternalEObject) innerRequiredRole_RequiredDelegationConnector;
+            innerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole) eResolveProxy(oldInnerRequiredRole_RequiredDelegationConnector);
+            if (innerRequiredRole_RequiredDelegationConnector != oldInnerRequiredRole_RequiredDelegationConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR,
                             oldInnerRequiredRole_RequiredDelegationConnector,
-                            this.innerRequiredRole_RequiredDelegationConnector));
-                }
+                            innerRequiredRole_RequiredDelegationConnector));
             }
         }
-        return this.innerRequiredRole_RequiredDelegationConnector;
+        return innerRequiredRole_RequiredDelegationConnector;
     }
 
     /**
@@ -139,7 +137,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     public OperationRequiredRole basicGetInnerRequiredRole_RequiredDelegationConnector() {
-        return this.innerRequiredRole_RequiredDelegationConnector;
+        return innerRequiredRole_RequiredDelegationConnector;
     }
 
     /**
@@ -149,17 +147,15 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public void setInnerRequiredRole_RequiredDelegationConnector(
-            final OperationRequiredRole newInnerRequiredRole_RequiredDelegationConnector) {
-        final OperationRequiredRole oldInnerRequiredRole_RequiredDelegationConnector = this.innerRequiredRole_RequiredDelegationConnector;
-        this.innerRequiredRole_RequiredDelegationConnector = newInnerRequiredRole_RequiredDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
+            OperationRequiredRole newInnerRequiredRole_RequiredDelegationConnector) {
+        OperationRequiredRole oldInnerRequiredRole_RequiredDelegationConnector = innerRequiredRole_RequiredDelegationConnector;
+        innerRequiredRole_RequiredDelegationConnector = newInnerRequiredRole_RequiredDelegationConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR,
-                    oldInnerRequiredRole_RequiredDelegationConnector,
-                    this.innerRequiredRole_RequiredDelegationConnector));
-        }
+                    oldInnerRequiredRole_RequiredDelegationConnector, innerRequiredRole_RequiredDelegationConnector));
     }
 
     /**
@@ -169,23 +165,21 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public OperationRequiredRole getOuterRequiredRole_RequiredDelegationConnector() {
-        if (this.outerRequiredRole_RequiredDelegationConnector != null
-                && ((EObject) this.outerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
-            final InternalEObject oldOuterRequiredRole_RequiredDelegationConnector = (InternalEObject) this.outerRequiredRole_RequiredDelegationConnector;
-            this.outerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole) this
-                    .eResolveProxy(oldOuterRequiredRole_RequiredDelegationConnector);
-            if (this.outerRequiredRole_RequiredDelegationConnector != oldOuterRequiredRole_RequiredDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (outerRequiredRole_RequiredDelegationConnector != null
+                && ((EObject) outerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
+            InternalEObject oldOuterRequiredRole_RequiredDelegationConnector = (InternalEObject) outerRequiredRole_RequiredDelegationConnector;
+            outerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole) eResolveProxy(oldOuterRequiredRole_RequiredDelegationConnector);
+            if (outerRequiredRole_RequiredDelegationConnector != oldOuterRequiredRole_RequiredDelegationConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR,
                             oldOuterRequiredRole_RequiredDelegationConnector,
-                            this.outerRequiredRole_RequiredDelegationConnector));
-                }
+                            outerRequiredRole_RequiredDelegationConnector));
             }
         }
-        return this.outerRequiredRole_RequiredDelegationConnector;
+        return outerRequiredRole_RequiredDelegationConnector;
     }
 
     /**
@@ -194,7 +188,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     public OperationRequiredRole basicGetOuterRequiredRole_RequiredDelegationConnector() {
-        return this.outerRequiredRole_RequiredDelegationConnector;
+        return outerRequiredRole_RequiredDelegationConnector;
     }
 
     /**
@@ -204,17 +198,15 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public void setOuterRequiredRole_RequiredDelegationConnector(
-            final OperationRequiredRole newOuterRequiredRole_RequiredDelegationConnector) {
-        final OperationRequiredRole oldOuterRequiredRole_RequiredDelegationConnector = this.outerRequiredRole_RequiredDelegationConnector;
-        this.outerRequiredRole_RequiredDelegationConnector = newOuterRequiredRole_RequiredDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
+            OperationRequiredRole newOuterRequiredRole_RequiredDelegationConnector) {
+        OperationRequiredRole oldOuterRequiredRole_RequiredDelegationConnector = outerRequiredRole_RequiredDelegationConnector;
+        outerRequiredRole_RequiredDelegationConnector = newOuterRequiredRole_RequiredDelegationConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR,
-                    oldOuterRequiredRole_RequiredDelegationConnector,
-                    this.outerRequiredRole_RequiredDelegationConnector));
-        }
+                    oldOuterRequiredRole_RequiredDelegationConnector, outerRequiredRole_RequiredDelegationConnector));
     }
 
     /**
@@ -224,23 +216,20 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public AssemblyContext getAssemblyContext_RequiredDelegationConnector() {
-        if (this.assemblyContext_RequiredDelegationConnector != null
-                && ((EObject) this.assemblyContext_RequiredDelegationConnector).eIsProxy()) {
-            final InternalEObject oldAssemblyContext_RequiredDelegationConnector = (InternalEObject) this.assemblyContext_RequiredDelegationConnector;
-            this.assemblyContext_RequiredDelegationConnector = (AssemblyContext) this
-                    .eResolveProxy(oldAssemblyContext_RequiredDelegationConnector);
-            if (this.assemblyContext_RequiredDelegationConnector != oldAssemblyContext_RequiredDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (assemblyContext_RequiredDelegationConnector != null
+                && ((EObject) assemblyContext_RequiredDelegationConnector).eIsProxy()) {
+            InternalEObject oldAssemblyContext_RequiredDelegationConnector = (InternalEObject) assemblyContext_RequiredDelegationConnector;
+            assemblyContext_RequiredDelegationConnector = (AssemblyContext) eResolveProxy(oldAssemblyContext_RequiredDelegationConnector);
+            if (assemblyContext_RequiredDelegationConnector != oldAssemblyContext_RequiredDelegationConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR,
-                            oldAssemblyContext_RequiredDelegationConnector,
-                            this.assemblyContext_RequiredDelegationConnector));
-                }
+                            oldAssemblyContext_RequiredDelegationConnector, assemblyContext_RequiredDelegationConnector));
             }
         }
-        return this.assemblyContext_RequiredDelegationConnector;
+        return assemblyContext_RequiredDelegationConnector;
     }
 
     /**
@@ -249,7 +238,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_RequiredDelegationConnector() {
-        return this.assemblyContext_RequiredDelegationConnector;
+        return assemblyContext_RequiredDelegationConnector;
     }
 
     /**
@@ -259,14 +248,13 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public void setAssemblyContext_RequiredDelegationConnector(
-            final AssemblyContext newAssemblyContext_RequiredDelegationConnector) {
-        final AssemblyContext oldAssemblyContext_RequiredDelegationConnector = this.assemblyContext_RequiredDelegationConnector;
-        this.assemblyContext_RequiredDelegationConnector = newAssemblyContext_RequiredDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+            AssemblyContext newAssemblyContext_RequiredDelegationConnector) {
+        AssemblyContext oldAssemblyContext_RequiredDelegationConnector = assemblyContext_RequiredDelegationConnector;
+        assemblyContext_RequiredDelegationConnector = newAssemblyContext_RequiredDelegationConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR,
-                    oldAssemblyContext_RequiredDelegationConnector, this.assemblyContext_RequiredDelegationConnector));
-        }
+                    oldAssemblyContext_RequiredDelegationConnector, assemblyContext_RequiredDelegationConnector));
     }
 
     /**
@@ -302,14 +290,14 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public boolean RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR);
             try {
                 REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -368,15 +356,15 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     @Override
-    public boolean ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR);
             try {
                 COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -432,14 +420,14 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public boolean RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR);
             try {
                 REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -472,23 +460,20 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            if (resolve) {
-                return this.getInnerRequiredRole_RequiredDelegationConnector();
-            }
-            return this.basicGetInnerRequiredRole_RequiredDelegationConnector();
+            if (resolve)
+                return getInnerRequiredRole_RequiredDelegationConnector();
+            return basicGetInnerRequiredRole_RequiredDelegationConnector();
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            if (resolve) {
-                return this.getOuterRequiredRole_RequiredDelegationConnector();
-            }
-            return this.basicGetOuterRequiredRole_RequiredDelegationConnector();
+            if (resolve)
+                return getOuterRequiredRole_RequiredDelegationConnector();
+            return basicGetOuterRequiredRole_RequiredDelegationConnector();
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
-            if (resolve) {
-                return this.getAssemblyContext_RequiredDelegationConnector();
-            }
-            return this.basicGetAssemblyContext_RequiredDelegationConnector();
+            if (resolve)
+                return getAssemblyContext_RequiredDelegationConnector();
+            return basicGetAssemblyContext_RequiredDelegationConnector();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -499,16 +484,16 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            this.setInnerRequiredRole_RequiredDelegationConnector((OperationRequiredRole) newValue);
+            setInnerRequiredRole_RequiredDelegationConnector((OperationRequiredRole) newValue);
             return;
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            this.setOuterRequiredRole_RequiredDelegationConnector((OperationRequiredRole) newValue);
+            setOuterRequiredRole_RequiredDelegationConnector((OperationRequiredRole) newValue);
             return;
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
-            this.setAssemblyContext_RequiredDelegationConnector((AssemblyContext) newValue);
+            setAssemblyContext_RequiredDelegationConnector((AssemblyContext) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -520,16 +505,16 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            this.setInnerRequiredRole_RequiredDelegationConnector((OperationRequiredRole) null);
+            setInnerRequiredRole_RequiredDelegationConnector((OperationRequiredRole) null);
             return;
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            this.setOuterRequiredRole_RequiredDelegationConnector((OperationRequiredRole) null);
+            setOuterRequiredRole_RequiredDelegationConnector((OperationRequiredRole) null);
             return;
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
-            this.setAssemblyContext_RequiredDelegationConnector((AssemblyContext) null);
+            setAssemblyContext_RequiredDelegationConnector((AssemblyContext) null);
             return;
         }
         super.eUnset(featureID);
@@ -541,14 +526,14 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            return this.innerRequiredRole_RequiredDelegationConnector != null;
+            return innerRequiredRole_RequiredDelegationConnector != null;
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
-            return this.outerRequiredRole_RequiredDelegationConnector != null;
+            return outerRequiredRole_RequiredDelegationConnector != null;
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
-            return this.assemblyContext_RequiredDelegationConnector != null;
+            return assemblyContext_RequiredDelegationConnector != null;
         }
         return super.eIsSet(featureID);
     }

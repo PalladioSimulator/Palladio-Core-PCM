@@ -16,7 +16,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Service Effect Specification</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Service Effect Specification Models the effect of invoking a specific
  * service of a basic component. Therefore, it references a Signature from an Interface, for which
  * the component takes a ProvidedRole, to identify the described service. This class is abstract and
@@ -35,21 +35,20 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * AssemblyContexts. Different SEFFs of a single component access the same component parameter
  * specifications. That means that parameter dependencies to the same component parameters in
  * different SEFF types refer also to the same characterisations. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type ID
  * </em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>Described
- * Service SEFF</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>
+ * Described Service SEFF</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
  * <em>Basic Component Service Effect Specification</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification()
  * @model abstract="true"
  * @extends EStereotypableObject
@@ -122,7 +121,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
     void setDescribedService__SEFF(Signature value);
 
     /**
-     * Returns the value of the ' <em><b>Basic Component Service Effect Specification</b></em>'
+     * Returns the value of the '<em><b>Basic Component Service Effect Specification</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
      * <em>Service Effect Specifications Basic Component</em>}'. <!-- begin-user-doc -->
@@ -132,7 +131,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Basic Component Service Effect Specification</em>' container
+     * @return the value of the '<em>Basic Component Service Effect Specification</em>' container
      *         reference.
      * @see #setBasicComponent_ServiceEffectSpecification(BasicComponent)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification()

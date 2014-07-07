@@ -29,7 +29,7 @@ public class AllocationResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public AllocationResourceImpl(final URI uri) {
+    public AllocationResourceImpl(URI uri) {
         super(uri);
     }
 

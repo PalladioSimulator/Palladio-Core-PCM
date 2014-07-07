@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * <em>Resource Container Resource Environment</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ResourceEnvironmentImpl extends NamedElementImpl implements ResourceEnvironment {
@@ -93,13 +93,13 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      */
     @Override
     public EList<LinkingResource> getLinkingResources__ResourceEnvironment() {
-        if (this.linkingResources__ResourceEnvironment == null) {
-            this.linkingResources__ResourceEnvironment = new EObjectContainmentWithInverseEList<LinkingResource>(
+        if (linkingResources__ResourceEnvironment == null) {
+            linkingResources__ResourceEnvironment = new EObjectContainmentWithInverseEList<LinkingResource>(
                     LinkingResource.class, this,
                     ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
                     ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE);
         }
-        return this.linkingResources__ResourceEnvironment;
+        return linkingResources__ResourceEnvironment;
     }
 
     /**
@@ -109,13 +109,13 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      */
     @Override
     public EList<ResourceContainer> getResourceContainer_ResourceEnvironment() {
-        if (this.resourceContainer_ResourceEnvironment == null) {
-            this.resourceContainer_ResourceEnvironment = new EObjectContainmentWithInverseEList<ResourceContainer>(
+        if (resourceContainer_ResourceEnvironment == null) {
+            resourceContainer_ResourceEnvironment = new EObjectContainmentWithInverseEList<ResourceContainer>(
                     ResourceContainer.class, this,
                     ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
                     ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER);
         }
-        return this.resourceContainer_ResourceEnvironment;
+        return resourceContainer_ResourceEnvironment;
     }
 
     /**
@@ -125,14 +125,13 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getLinkingResources__ResourceEnvironment())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getLinkingResources__ResourceEnvironment())
                     .basicAdd(otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceContainer_ResourceEnvironment())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceContainer_ResourceEnvironment())
                     .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -144,13 +143,12 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-            return ((InternalEList<?>) this.getLinkingResources__ResourceEnvironment()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getLinkingResources__ResourceEnvironment()).basicRemove(otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            return ((InternalEList<?>) this.getResourceContainer_ResourceEnvironment()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getResourceContainer_ResourceEnvironment()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -161,12 +159,12 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-            return this.getLinkingResources__ResourceEnvironment();
+            return getLinkingResources__ResourceEnvironment();
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            return this.getResourceContainer_ResourceEnvironment();
+            return getResourceContainer_ResourceEnvironment();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -178,15 +176,15 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-            this.getLinkingResources__ResourceEnvironment().clear();
-            this.getLinkingResources__ResourceEnvironment().addAll((Collection<? extends LinkingResource>) newValue);
+            getLinkingResources__ResourceEnvironment().clear();
+            getLinkingResources__ResourceEnvironment().addAll((Collection<? extends LinkingResource>) newValue);
             return;
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            this.getResourceContainer_ResourceEnvironment().clear();
-            this.getResourceContainer_ResourceEnvironment().addAll((Collection<? extends ResourceContainer>) newValue);
+            getResourceContainer_ResourceEnvironment().clear();
+            getResourceContainer_ResourceEnvironment().addAll((Collection<? extends ResourceContainer>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -198,13 +196,13 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-            this.getLinkingResources__ResourceEnvironment().clear();
+            getLinkingResources__ResourceEnvironment().clear();
             return;
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            this.getResourceContainer_ResourceEnvironment().clear();
+            getResourceContainer_ResourceEnvironment().clear();
             return;
         }
         super.eUnset(featureID);
@@ -216,14 +214,12 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-            return this.linkingResources__ResourceEnvironment != null
-                    && !this.linkingResources__ResourceEnvironment.isEmpty();
+            return linkingResources__ResourceEnvironment != null && !linkingResources__ResourceEnvironment.isEmpty();
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            return this.resourceContainer_ResourceEnvironment != null
-                    && !this.resourceContainer_ResourceEnvironment.isEmpty();
+            return resourceContainer_ResourceEnvironment != null && !resourceContainer_ResourceEnvironment.isEmpty();
         }
         return super.eIsSet(featureID);
     }

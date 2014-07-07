@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -26,7 +27,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
  * <em>Resource Repository Scheduling Policy</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy {
@@ -63,10 +64,9 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     @Override
     public ResourceRepository getResourceRepository__SchedulingPolicy() {
-        if (this.eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY) {
+        if (eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY)
             return null;
-        }
-        return (ResourceRepository) this.eInternalContainer();
+        return (ResourceRepository) eInternalContainer();
     }
 
     /**
@@ -75,8 +75,8 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     public NotificationChain basicSetResourceRepository__SchedulingPolicy(
-            final ResourceRepository newResourceRepository__SchedulingPolicy, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newResourceRepository__SchedulingPolicy,
+            ResourceRepository newResourceRepository__SchedulingPolicy, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newResourceRepository__SchedulingPolicy,
                 ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY, msgs);
         return msgs;
     }
@@ -87,30 +87,25 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public void setResourceRepository__SchedulingPolicy(final ResourceRepository newResourceRepository__SchedulingPolicy) {
-        if (newResourceRepository__SchedulingPolicy != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY && newResourceRepository__SchedulingPolicy != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceRepository__SchedulingPolicy)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setResourceRepository__SchedulingPolicy(ResourceRepository newResourceRepository__SchedulingPolicy) {
+        if (newResourceRepository__SchedulingPolicy != eInternalContainer()
+                || (eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY && newResourceRepository__SchedulingPolicy != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newResourceRepository__SchedulingPolicy))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceRepository__SchedulingPolicy != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newResourceRepository__SchedulingPolicy != null)
                 msgs = ((InternalEObject) newResourceRepository__SchedulingPolicy).eInverseAdd(this,
                         ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
                         ResourceRepository.class, msgs);
-            }
-            msgs = this.basicSetResourceRepository__SchedulingPolicy(newResourceRepository__SchedulingPolicy, msgs);
-            if (msgs != null) {
+            msgs = basicSetResourceRepository__SchedulingPolicy(newResourceRepository__SchedulingPolicy, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY,
                     newResourceRepository__SchedulingPolicy, newResourceRepository__SchedulingPolicy));
-        }
     }
 
     /**
@@ -119,13 +114,12 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetResourceRepository__SchedulingPolicy((ResourceRepository) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetResourceRepository__SchedulingPolicy((ResourceRepository) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -136,11 +130,10 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
-            return this.basicSetResourceRepository__SchedulingPolicy(null, msgs);
+            return basicSetResourceRepository__SchedulingPolicy(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -151,10 +144,10 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
                     ResourceRepository.class, msgs);
         }
@@ -167,10 +160,10 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
-            return this.getResourceRepository__SchedulingPolicy();
+            return getResourceRepository__SchedulingPolicy();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -181,10 +174,10 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
-            this.setResourceRepository__SchedulingPolicy((ResourceRepository) newValue);
+            setResourceRepository__SchedulingPolicy((ResourceRepository) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -196,10 +189,10 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
-            this.setResourceRepository__SchedulingPolicy((ResourceRepository) null);
+            setResourceRepository__SchedulingPolicy((ResourceRepository) null);
             return;
         }
         super.eUnset(featureID);
@@ -211,10 +204,10 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
-            return this.getResourceRepository__SchedulingPolicy() != null;
+            return getResourceRepository__SchedulingPolicy() != null;
         }
         return super.eIsSet(featureID);
     }

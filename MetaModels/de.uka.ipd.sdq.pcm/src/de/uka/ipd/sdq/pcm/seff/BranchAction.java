@@ -13,21 +13,21 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Branch Action</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> The BranchAction splits the RDSEFF control flow with an XOR-semantic,
  * meaning that the control flow continues on exactly one of its attached AbstractBranchTransitions.
  * The RDSEFF supports two different kinds of branch transitions, GuardedBranchTransitions, and
  * ProbabilisticBranchTransitions. RDSEFFs do not allow to use both kinds of transitions on a single
  * BranchAction. Analysis or simulation tools must select exactly one transition based on the
  * included guard or probability, before continuing at a BranchAction. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.BranchAction#getBranches_Branch <em> Branches Branch</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.BranchAction#getBranches_Branch <em>Branches Branch</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchAction()
  * @model
  * @generated

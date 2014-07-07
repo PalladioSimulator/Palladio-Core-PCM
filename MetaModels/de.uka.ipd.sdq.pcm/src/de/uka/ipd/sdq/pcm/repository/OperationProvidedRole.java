@@ -8,11 +8,11 @@ package de.uka.ipd.sdq.pcm.repository;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Operation Provided Role</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity represents the provided operation interfaces. The PCM uses
  * the association of an operation interface to a component to determine its role. <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -21,7 +21,7 @@ package de.uka.ipd.sdq.pcm.repository;
  * <em>Provided Interface Operation Provided Role</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationProvidedRole()
  * @model
  * @generated
@@ -55,7 +55,7 @@ public interface OperationProvidedRole extends ProvidedRole {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Provided Interface Operation Provided Role</em>'
+     *            the new value of the '<em>Provided Interface Operation Provided Role</em>'
      *            reference.
      * @see #getProvidedInterface__OperationProvidedRole()
      * @generated

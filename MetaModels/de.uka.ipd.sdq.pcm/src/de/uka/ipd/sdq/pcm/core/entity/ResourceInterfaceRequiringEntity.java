@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Interface Requiring Entity</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * <em>Resource Required Roles Resource Interface Requiring Entity</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceRequiringEntity()
  * @model
  * @generated
@@ -34,7 +34,7 @@ public interface ResourceInterfaceRequiringEntity extends Entity {
 
     /**
      * Returns the value of the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole}. It is bidirectional and its
      * opposite is '
@@ -48,7 +48,7 @@ public interface ResourceInterfaceRequiringEntity extends Entity {
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Resource Required Roles Resource Interface Requiring Entity</em> ' containment
+     *         <em>Resource Required Roles Resource Interface Requiring Entity</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole#getResourceInterfaceRequiringEntity__ResourceRequiredRole

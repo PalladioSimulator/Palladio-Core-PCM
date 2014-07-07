@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
  * end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class StartImpl extends AbstractUserActionImpl implements Start {
@@ -84,14 +84,14 @@ public class StartImpl extends AbstractUserActionImpl implements Start {
      * @generated
      */
     @Override
-    public boolean StartHasNoPredecessor(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean StartHasNoPredecessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (START_HAS_NO_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.START);
             try {
                 START_HAS_NO_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(START_HAS_NO_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

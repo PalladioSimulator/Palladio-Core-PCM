@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class StopActionImpl extends AbstractInternalControlFlowActionImpl implements StopAction {
@@ -87,15 +87,14 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
      * @generated
      */
     @Override
-    public boolean StopActionSuccessorMustNotBeDefined(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean StopActionSuccessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.STOP_ACTION);
             try {
                 STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

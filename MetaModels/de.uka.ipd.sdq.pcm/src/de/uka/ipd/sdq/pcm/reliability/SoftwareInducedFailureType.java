@@ -10,7 +10,7 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Software Induced Failure Type</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Type definition for a software-induced failure, i.e. a failure-on-demand occurrence&nbsp;due to a
@@ -19,16 +19,16 @@ import org.eclipse.emf.common.util.EList;
  * are: "EncryptionFailure", "ProtocolFailure", "WebServerFailure".
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType
- * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type </em>}</li>
+ * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getSoftwareInducedFailureType()
  * @model
  * @generated

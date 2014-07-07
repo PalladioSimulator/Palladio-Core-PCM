@@ -47,12 +47,12 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     public static UsagemodelFactory init() {
         try {
-            final UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory) EPackage.Registry.INSTANCE
+            UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory) EPackage.Registry.INSTANCE
                     .getEFactory(UsagemodelPackage.eNS_URI);
             if (theUsagemodelFactory != null) {
                 return theUsagemodelFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new UsagemodelFactoryImpl();
@@ -73,34 +73,34 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case UsagemodelPackage.USAGE_SCENARIO:
-            return this.createUsageScenario();
+            return (EObject) createUsageScenario();
         case UsagemodelPackage.USER_DATA:
-            return this.createUserData();
+            return (EObject) createUserData();
         case UsagemodelPackage.USAGE_MODEL:
-            return this.createUsageModel();
+            return (EObject) createUsageModel();
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL:
-            return this.createEntryLevelSystemCall();
+            return (EObject) createEntryLevelSystemCall();
         case UsagemodelPackage.SCENARIO_BEHAVIOUR:
-            return this.createScenarioBehaviour();
+            return (EObject) createScenarioBehaviour();
         case UsagemodelPackage.BRANCH_TRANSITION:
-            return this.createBranchTransition();
+            return (EObject) createBranchTransition();
         case UsagemodelPackage.BRANCH:
-            return this.createBranch();
+            return (EObject) createBranch();
         case UsagemodelPackage.LOOP:
-            return this.createLoop();
+            return (EObject) createLoop();
         case UsagemodelPackage.STOP:
-            return this.createStop();
+            return (EObject) createStop();
         case UsagemodelPackage.START:
-            return this.createStart();
+            return (EObject) createStart();
         case UsagemodelPackage.OPEN_WORKLOAD:
-            return this.createOpenWorkload();
+            return (EObject) createOpenWorkload();
         case UsagemodelPackage.DELAY:
-            return this.createDelay();
+            return (EObject) createDelay();
         case UsagemodelPackage.CLOSED_WORKLOAD:
-            return this.createClosedWorkload();
+            return (EObject) createClosedWorkload();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -113,7 +113,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public UsageScenario createUsageScenario() {
-        final UsageScenarioImpl usageScenario = new UsageScenarioImpl();
+        UsageScenarioImpl usageScenario = new UsageScenarioImpl();
         return usageScenario;
     }
 
@@ -124,7 +124,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public ScenarioBehaviour createScenarioBehaviour() {
-        final ScenarioBehaviourImpl scenarioBehaviour = new ScenarioBehaviourImpl();
+        ScenarioBehaviourImpl scenarioBehaviour = new ScenarioBehaviourImpl();
         return scenarioBehaviour;
     }
 
@@ -135,7 +135,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public BranchTransition createBranchTransition() {
-        final BranchTransitionImpl branchTransition = new BranchTransitionImpl();
+        BranchTransitionImpl branchTransition = new BranchTransitionImpl();
         return branchTransition;
     }
 
@@ -146,7 +146,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public Branch createBranch() {
-        final BranchImpl branch = new BranchImpl();
+        BranchImpl branch = new BranchImpl();
         return branch;
     }
 
@@ -157,7 +157,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public Loop createLoop() {
-        final LoopImpl loop = new LoopImpl();
+        LoopImpl loop = new LoopImpl();
         return loop;
     }
 
@@ -168,7 +168,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public UsageModel createUsageModel() {
-        final UsageModelImpl usageModel = new UsageModelImpl();
+        UsageModelImpl usageModel = new UsageModelImpl();
         return usageModel;
     }
 
@@ -179,7 +179,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public Stop createStop() {
-        final StopImpl stop = new StopImpl();
+        StopImpl stop = new StopImpl();
         return stop;
     }
 
@@ -190,7 +190,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public Start createStart() {
-        final StartImpl start = new StartImpl();
+        StartImpl start = new StartImpl();
         return start;
     }
 
@@ -201,7 +201,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public OpenWorkload createOpenWorkload() {
-        final OpenWorkloadImpl openWorkload = new OpenWorkloadImpl();
+        OpenWorkloadImpl openWorkload = new OpenWorkloadImpl();
         return openWorkload;
     }
 
@@ -212,7 +212,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public EntryLevelSystemCall createEntryLevelSystemCall() {
-        final EntryLevelSystemCallImpl entryLevelSystemCall = new EntryLevelSystemCallImpl();
+        EntryLevelSystemCallImpl entryLevelSystemCall = new EntryLevelSystemCallImpl();
         return entryLevelSystemCall;
     }
 
@@ -223,7 +223,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public ClosedWorkload createClosedWorkload() {
-        final ClosedWorkloadImpl closedWorkload = new ClosedWorkloadImpl();
+        ClosedWorkloadImpl closedWorkload = new ClosedWorkloadImpl();
         return closedWorkload;
     }
 
@@ -234,7 +234,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public Delay createDelay() {
-        final DelayImpl delay = new DelayImpl();
+        DelayImpl delay = new DelayImpl();
         return delay;
     }
 
@@ -245,7 +245,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public UserData createUserData() {
-        final UserDataImpl userData = new UserDataImpl();
+        UserDataImpl userData = new UserDataImpl();
         return userData;
     }
 
@@ -256,7 +256,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public UsagemodelPackage getUsagemodelPackage() {
-        return (UsagemodelPackage) this.getEPackage();
+        return (UsagemodelPackage) getEPackage();
     }
 
     /**

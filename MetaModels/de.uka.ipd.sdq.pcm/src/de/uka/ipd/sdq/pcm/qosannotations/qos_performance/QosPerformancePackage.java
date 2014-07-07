@@ -92,7 +92,7 @@ public interface QosPerformancePackage extends EPackage {
     int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the ' <em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
+     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -101,7 +101,7 @@ public interface QosPerformancePackage extends EPackage {
     int SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the ' <em><b>Specification Specified Execution Time</b></em>' containment
+     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -149,7 +149,7 @@ public interface QosPerformancePackage extends EPackage {
     int SYSTEM_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the ' <em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
+     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -158,7 +158,7 @@ public interface QosPerformancePackage extends EPackage {
     int SYSTEM_SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the ' <em><b>Specification Specified Execution Time</b></em>' containment
+     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -167,7 +167,7 @@ public interface QosPerformancePackage extends EPackage {
     int SYSTEM_SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME;
 
     /**
-     * The number of structural features of the ' <em>System Specified Execution Time</em>' class.
+     * The number of structural features of the '<em>System Specified Execution Time</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -206,7 +206,7 @@ public interface QosPerformancePackage extends EPackage {
     int COMPONENT_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the ' <em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
+     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -215,7 +215,7 @@ public interface QosPerformancePackage extends EPackage {
     int COMPONENT_SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the ' <em><b>Specification Specified Execution Time</b></em>' containment
+     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -224,7 +224,7 @@ public interface QosPerformancePackage extends EPackage {
     int COMPONENT_SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME;
 
     /**
-     * The feature id for the ' <em><b>Assembly Context Component Specified Execution Time</b></em>'
+     * The feature id for the '<em><b>Assembly Context Component Specified Execution Time</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -233,8 +233,8 @@ public interface QosPerformancePackage extends EPackage {
     int COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the ' <em>Component Specified Execution Time</em>'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The number of structural features of the '<em>Component Specified Execution Time</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      * @ordered
@@ -246,7 +246,7 @@ public interface QosPerformancePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
      * <em>System Specified Execution Time</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class ' <em>System Specified Execution Time</em>'.
+     * @return the meta object for class '<em>System Specified Execution Time</em>'.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
      * @generated
      */
@@ -282,7 +282,7 @@ public interface QosPerformancePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
      * <em>Component Specified Execution Time</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class ' <em>Component Specified Execution Time</em>'.
+     * @return the meta object for class '<em>Component Specified Execution Time</em>'.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
      * @generated
      */
@@ -348,7 +348,7 @@ public interface QosPerformancePackage extends EPackage {
         EClass SPECIFIED_EXECUTION_TIME = eINSTANCE.getSpecifiedExecutionTime();
 
         /**
-         * The meta object literal for the ' <em><b>Specification Specified Execution Time</b></em>'
+         * The meta object literal for the '<em><b>Specification Specified Execution Time</b></em>'
          * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

@@ -12,23 +12,21 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Composite Data Type</b></em> '. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity represents a complex data type containing other data types.
  * This construct is common in higher programming languages as record, struct, or class. <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType <em>Parent
- * Type Composite Data Type</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType <em>
- * Inner Declaration Composite Data Type</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType <em>
+ * Parent Type Composite Data Type</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
+ * <em>Inner Declaration Composite Data Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeDataType()
  * @model
  * @generated

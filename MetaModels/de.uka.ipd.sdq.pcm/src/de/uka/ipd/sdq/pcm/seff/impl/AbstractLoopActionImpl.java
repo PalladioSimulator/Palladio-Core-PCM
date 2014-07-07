@@ -21,12 +21,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl#getBodyBehaviour_Loop <em>Body
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl#getBodyBehaviour_Loop <em>Body
  * Behaviour Loop</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlowActionImpl implements
@@ -74,7 +73,7 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      */
     @Override
     public ResourceDemandingBehaviour getBodyBehaviour_Loop() {
-        return this.bodyBehaviour_Loop;
+        return bodyBehaviour_Loop;
     }
 
     /**
@@ -82,18 +81,17 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * 
      * @generated
      */
-    public NotificationChain basicSetBodyBehaviour_Loop(final ResourceDemandingBehaviour newBodyBehaviour_Loop,
+    public NotificationChain basicSetBodyBehaviour_Loop(ResourceDemandingBehaviour newBodyBehaviour_Loop,
             NotificationChain msgs) {
-        final ResourceDemandingBehaviour oldBodyBehaviour_Loop = this.bodyBehaviour_Loop;
-        this.bodyBehaviour_Loop = newBodyBehaviour_Loop;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+        ResourceDemandingBehaviour oldBodyBehaviour_Loop = bodyBehaviour_Loop;
+        bodyBehaviour_Loop = newBodyBehaviour_Loop;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, oldBodyBehaviour_Loop, newBodyBehaviour_Loop);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -104,27 +102,23 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * @generated
      */
     @Override
-    public void setBodyBehaviour_Loop(final ResourceDemandingBehaviour newBodyBehaviour_Loop) {
-        if (newBodyBehaviour_Loop != this.bodyBehaviour_Loop) {
+    public void setBodyBehaviour_Loop(ResourceDemandingBehaviour newBodyBehaviour_Loop) {
+        if (newBodyBehaviour_Loop != bodyBehaviour_Loop) {
             NotificationChain msgs = null;
-            if (this.bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) this.bodyBehaviour_Loop).eInverseRemove(this,
+            if (bodyBehaviour_Loop != null)
+                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this,
                         SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
                         ResourceDemandingBehaviour.class, msgs);
-            }
-            if (newBodyBehaviour_Loop != null) {
+            if (newBodyBehaviour_Loop != null)
                 msgs = ((InternalEObject) newBodyBehaviour_Loop).eInverseAdd(this,
                         SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
                         ResourceDemandingBehaviour.class, msgs);
-            }
-            msgs = this.basicSetBodyBehaviour_Loop(newBodyBehaviour_Loop, msgs);
-            if (msgs != null) {
+            msgs = basicSetBodyBehaviour_Loop(newBodyBehaviour_Loop, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, newBodyBehaviour_Loop, newBodyBehaviour_Loop));
-        }
     }
 
     /**
@@ -133,14 +127,13 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            if (this.bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) this.bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            if (bodyBehaviour_Loop != null)
+                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, null, msgs);
-            }
-            return this.basicSetBodyBehaviour_Loop((ResourceDemandingBehaviour) otherEnd, msgs);
+            return basicSetBodyBehaviour_Loop((ResourceDemandingBehaviour) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -151,11 +144,10 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            return this.basicSetBodyBehaviour_Loop(null, msgs);
+            return basicSetBodyBehaviour_Loop(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -166,10 +158,10 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            return this.getBodyBehaviour_Loop();
+            return getBodyBehaviour_Loop();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -180,10 +172,10 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            this.setBodyBehaviour_Loop((ResourceDemandingBehaviour) newValue);
+            setBodyBehaviour_Loop((ResourceDemandingBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -195,10 +187,10 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            this.setBodyBehaviour_Loop((ResourceDemandingBehaviour) null);
+            setBodyBehaviour_Loop((ResourceDemandingBehaviour) null);
             return;
         }
         super.eUnset(featureID);
@@ -210,10 +202,10 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            return this.bodyBehaviour_Loop != null;
+            return bodyBehaviour_Loop != null;
         }
         return super.eIsSet(featureID);
     }

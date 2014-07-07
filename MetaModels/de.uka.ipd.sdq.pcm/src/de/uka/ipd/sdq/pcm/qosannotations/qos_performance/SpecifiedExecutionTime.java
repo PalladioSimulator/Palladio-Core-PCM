@@ -11,25 +11,25 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Specified Execution Time</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
- * Specifies an execution time in&nbsp;terms&nbsp;of&nbsp;a&nbsp;PCMRandomVariable
- * &nbsp;which&nbsp;may&nbsp;depend
- * &nbsp;on&nbsp;component&nbsp;or&nbsp;input&nbsp;parameters&nbsp;of&nbsp;the
+ * Specifies an execution time
+ * in&nbsp;terms&nbsp;of&nbsp;a&nbsp;PCMRandomVariable&nbsp;which&nbsp;may
+ * &nbsp;depend&nbsp;on&nbsp;component&nbsp;or&nbsp;input&nbsp;parameters&nbsp;of&nbsp;the
  * referenced&nbsp;service.
  * </p>
  * <p>
  * Notes:
  * </p>
  * <p>
- * -&nbsp;Is&nbsp;it&nbsp;correct&nbsp;that&nbsp;the&nbsp;PCMRandomvariable&nbsp
- * ;can&nbsp;depend&nbsp;on&nbsp;parameters?<br />
- * -&nbsp;How&nbsp;is&nbsp;the&nbsp;relation&nbsp;of&nbsp;the&nbsp;specified&
- * nbsp;QoS&nbsp;to&nbsp;the&nbsp;input&nbsp;parameters&nbsp;established?<br />
+ * -&nbsp;Is&nbsp;it&nbsp;correct&nbsp;that&nbsp;the&nbsp;PCMRandomvariable&nbsp;can&nbsp;depend&
+ * nbsp;on&nbsp;parameters?<br />
+ * -&nbsp;How&nbsp;is&nbsp;the&nbsp;relation&nbsp;of&nbsp;the&nbsp;specified&nbsp;QoS&nbsp;to&nbsp;
+ * the&nbsp;input&nbsp;parameters&nbsp;established?<br />
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
  * <em>Specification Specified Execution Time</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSpecifiedExecutionTime()
  * @model abstract="true"
  * @generated
@@ -52,8 +52,8 @@ public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Specification Specified Execution Time</b></em>'
-     * containment reference. It is bidirectional and its opposite is '
+     * Returns the value of the '<em><b>Specification Specified Execution Time</b></em>' containment
+     * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable
      * <em>Specified Execution Time PCM Random Variable</em>}'. <!-- begin-user-doc -->
      * <p>
@@ -62,7 +62,7 @@ public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Specification Specified Execution Time</em> ' containment
+     * @return the value of the '<em>Specification Specified Execution Time</em>' containment
      *         reference.
      * @see #setSpecification_SpecifiedExecutionTime(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime()
@@ -80,8 +80,8 @@ public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Specification Specified Execution Time</em>'
-     *            containment reference.
+     *            the new value of the '<em>Specification Specified Execution Time</em>' containment
+     *            reference.
      * @see #getSpecification_SpecifiedExecutionTime()
      * @generated
      */

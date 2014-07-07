@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  * <em>Communication Link Resource Type Network Induced Failure Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements NetworkInducedFailureType {
@@ -88,23 +88,21 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      */
     @Override
     public CommunicationLinkResourceType getCommunicationLinkResourceType__NetworkInducedFailureType() {
-        if (this.communicationLinkResourceType__NetworkInducedFailureType != null
-                && ((EObject) this.communicationLinkResourceType__NetworkInducedFailureType).eIsProxy()) {
-            final InternalEObject oldCommunicationLinkResourceType__NetworkInducedFailureType = (InternalEObject) this.communicationLinkResourceType__NetworkInducedFailureType;
-            this.communicationLinkResourceType__NetworkInducedFailureType = (CommunicationLinkResourceType) this
-                    .eResolveProxy(oldCommunicationLinkResourceType__NetworkInducedFailureType);
-            if (this.communicationLinkResourceType__NetworkInducedFailureType != oldCommunicationLinkResourceType__NetworkInducedFailureType) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (communicationLinkResourceType__NetworkInducedFailureType != null
+                && ((EObject) communicationLinkResourceType__NetworkInducedFailureType).eIsProxy()) {
+            InternalEObject oldCommunicationLinkResourceType__NetworkInducedFailureType = (InternalEObject) communicationLinkResourceType__NetworkInducedFailureType;
+            communicationLinkResourceType__NetworkInducedFailureType = (CommunicationLinkResourceType) eResolveProxy(oldCommunicationLinkResourceType__NetworkInducedFailureType);
+            if (communicationLinkResourceType__NetworkInducedFailureType != oldCommunicationLinkResourceType__NetworkInducedFailureType) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE,
                             oldCommunicationLinkResourceType__NetworkInducedFailureType,
-                            this.communicationLinkResourceType__NetworkInducedFailureType));
-                }
+                            communicationLinkResourceType__NetworkInducedFailureType));
             }
         }
-        return this.communicationLinkResourceType__NetworkInducedFailureType;
+        return communicationLinkResourceType__NetworkInducedFailureType;
     }
 
     /**
@@ -113,7 +111,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     public CommunicationLinkResourceType basicGetCommunicationLinkResourceType__NetworkInducedFailureType() {
-        return this.communicationLinkResourceType__NetworkInducedFailureType;
+        return communicationLinkResourceType__NetworkInducedFailureType;
     }
 
     /**
@@ -122,22 +120,21 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
-            final CommunicationLinkResourceType newCommunicationLinkResourceType__NetworkInducedFailureType,
+            CommunicationLinkResourceType newCommunicationLinkResourceType__NetworkInducedFailureType,
             NotificationChain msgs) {
-        final CommunicationLinkResourceType oldCommunicationLinkResourceType__NetworkInducedFailureType = this.communicationLinkResourceType__NetworkInducedFailureType;
-        this.communicationLinkResourceType__NetworkInducedFailureType = newCommunicationLinkResourceType__NetworkInducedFailureType;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(
+        CommunicationLinkResourceType oldCommunicationLinkResourceType__NetworkInducedFailureType = communicationLinkResourceType__NetworkInducedFailureType;
+        communicationLinkResourceType__NetworkInducedFailureType = newCommunicationLinkResourceType__NetworkInducedFailureType;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(
                     this,
                     Notification.SET,
                     ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE,
                     oldCommunicationLinkResourceType__NetworkInducedFailureType,
                     newCommunicationLinkResourceType__NetworkInducedFailureType);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -149,36 +146,32 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      */
     @Override
     public void setCommunicationLinkResourceType__NetworkInducedFailureType(
-            final CommunicationLinkResourceType newCommunicationLinkResourceType__NetworkInducedFailureType) {
-        if (newCommunicationLinkResourceType__NetworkInducedFailureType != this.communicationLinkResourceType__NetworkInducedFailureType) {
+            CommunicationLinkResourceType newCommunicationLinkResourceType__NetworkInducedFailureType) {
+        if (newCommunicationLinkResourceType__NetworkInducedFailureType != communicationLinkResourceType__NetworkInducedFailureType) {
             NotificationChain msgs = null;
-            if (this.communicationLinkResourceType__NetworkInducedFailureType != null) {
-                msgs = ((InternalEObject) this.communicationLinkResourceType__NetworkInducedFailureType)
+            if (communicationLinkResourceType__NetworkInducedFailureType != null)
+                msgs = ((InternalEObject) communicationLinkResourceType__NetworkInducedFailureType)
                         .eInverseRemove(
                                 this,
                                 ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
                                 CommunicationLinkResourceType.class, msgs);
-            }
-            if (newCommunicationLinkResourceType__NetworkInducedFailureType != null) {
+            if (newCommunicationLinkResourceType__NetworkInducedFailureType != null)
                 msgs = ((InternalEObject) newCommunicationLinkResourceType__NetworkInducedFailureType)
                         .eInverseAdd(
                                 this,
                                 ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
                                 CommunicationLinkResourceType.class, msgs);
-            }
-            msgs = this.basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
+            msgs = basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
                     newCommunicationLinkResourceType__NetworkInducedFailureType, msgs);
-            if (msgs != null) {
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE,
                     newCommunicationLinkResourceType__NetworkInducedFailureType,
                     newCommunicationLinkResourceType__NetworkInducedFailureType));
-        }
     }
 
     /**
@@ -197,7 +190,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
     /**
      * The cached OCL invariant for the '
      * {@link #NetworkInducedFailureTypeHasCommunicationLinkResourceType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Network Induced Failure Type Has Communication Link Resource Type</em>} ' invariant
+     * <em>Network Induced Failure Type Has Communication Link Resource Type</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #NetworkInducedFailureTypeHasCommunicationLinkResourceType(org.eclipse.emf.common.util.DiagnosticChain,
@@ -213,15 +206,15 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     @Override
-    public boolean NetworkInducedFailureTypeHasCommunicationLinkResourceType(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean NetworkInducedFailureTypeHasCommunicationLinkResourceType(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (NETWORK_INDUCED_FAILURE_TYPE_HAS_COMMUNICATION_LINK_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(ReliabilityPackage.Literals.NETWORK_INDUCED_FAILURE_TYPE);
             try {
                 NETWORK_INDUCED_FAILURE_TYPE_HAS_COMMUNICATION_LINK_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(NETWORK_INDUCED_FAILURE_TYPE_HAS_COMMUNICATION_LINK_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -250,17 +243,16 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE:
-            if (this.communicationLinkResourceType__NetworkInducedFailureType != null) {
-                msgs = ((InternalEObject) this.communicationLinkResourceType__NetworkInducedFailureType)
+            if (communicationLinkResourceType__NetworkInducedFailureType != null)
+                msgs = ((InternalEObject) communicationLinkResourceType__NetworkInducedFailureType)
                         .eInverseRemove(
                                 this,
                                 ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
                                 CommunicationLinkResourceType.class, msgs);
-            }
-            return this.basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
+            return basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
                     (CommunicationLinkResourceType) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -272,11 +264,10 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE:
-            return this.basicSetCommunicationLinkResourceType__NetworkInducedFailureType(null, msgs);
+            return basicSetCommunicationLinkResourceType__NetworkInducedFailureType(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -287,13 +278,12 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE:
-            if (resolve) {
-                return this.getCommunicationLinkResourceType__NetworkInducedFailureType();
-            }
-            return this.basicGetCommunicationLinkResourceType__NetworkInducedFailureType();
+            if (resolve)
+                return getCommunicationLinkResourceType__NetworkInducedFailureType();
+            return basicGetCommunicationLinkResourceType__NetworkInducedFailureType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -304,10 +294,10 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE:
-            this.setCommunicationLinkResourceType__NetworkInducedFailureType((CommunicationLinkResourceType) newValue);
+            setCommunicationLinkResourceType__NetworkInducedFailureType((CommunicationLinkResourceType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -319,10 +309,10 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE:
-            this.setCommunicationLinkResourceType__NetworkInducedFailureType((CommunicationLinkResourceType) null);
+            setCommunicationLinkResourceType__NetworkInducedFailureType((CommunicationLinkResourceType) null);
             return;
         }
         super.eUnset(featureID);
@@ -334,10 +324,10 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE:
-            return this.communicationLinkResourceType__NetworkInducedFailureType != null;
+            return communicationLinkResourceType__NetworkInducedFailureType != null;
         }
         return super.eIsSet(featureID);
     }

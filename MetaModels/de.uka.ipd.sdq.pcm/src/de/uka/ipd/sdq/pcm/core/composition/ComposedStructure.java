@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Composed Structure</b></em>
  * '. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> TODO/FIXME: The distinction between ComposedStructure and
  * ComposedProvidingRequiringStructure does not make sense at the moment, because the
  * ComposedStructure already talks about inner provided / required delegation connectors, which only
@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * about the assembly connectors. SEE ALSO: ComposedProvidingRequiringStructure However, as
  * AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the
  * moment, the above might not help... -- Anne <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -42,7 +42,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <em>Connectors Composed Structure</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure()
  * @model abstract="true"
  * @generated
@@ -56,7 +56,7 @@ public interface ComposedStructure extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Assembly Contexts Composed Structure</b></em>' containment
+     * Returns the value of the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}. It is bidirectional and its
      * opposite is '
@@ -79,9 +79,9 @@ public interface ComposedStructure extends Entity {
 
     /**
      * Returns the value of the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em> ' containment
+     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
      * reference list. The list contents are of type
-     * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} . It is
+     * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector}. It is
      * bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * <em>Parent Structure Resource Required Delegation Connector</em>}'. <!-- begin-user-doc -->
@@ -91,9 +91,8 @@ public interface ComposedStructure extends Entity {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '
-     *         <em>Resource Required Delegation Connectors Composed Structure</em> ' containment
-     *         reference list.
+     * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>
+     *         ' containment reference list.
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
      * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * @model opposite="parentStructure_ResourceRequiredDelegationConnector" containment="true"
@@ -103,7 +102,7 @@ public interface ComposedStructure extends Entity {
     EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure();
 
     /**
-     * Returns the value of the ' <em><b>Event Channel Composed Structure</b></em>' containment
+     * Returns the value of the '<em><b>Event Channel Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel}. It is bidirectional and its
      * opposite is '
@@ -128,7 +127,7 @@ public interface ComposedStructure extends Entity {
      * Returns the value of the '<em><b>Connectors Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.core.composition.Connector}. It is bidirectional and its opposite
-     * is ' {@link de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector
+     * is '{@link de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector
      * <em>Parent Structure Connector</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Connectors Composed Structure</em>' containment reference list

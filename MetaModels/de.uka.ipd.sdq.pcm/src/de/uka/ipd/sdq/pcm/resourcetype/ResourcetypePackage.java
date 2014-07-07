@@ -112,7 +112,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the ' <em><b>Resource Interface Resource Signature</b></em>' container
+     * The feature id for the '<em><b>Resource Interface Resource Signature</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -130,7 +130,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_SIGNATURE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl
      * <em>Resource Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl
@@ -168,7 +168,7 @@ public interface ResourcetypePackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
+     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -177,7 +177,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the '<em><b>Resource Repository Resource Type</b></em> ' container
+     * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -245,7 +245,7 @@ public interface ResourcetypePackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
+     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -254,7 +254,7 @@ public interface ResourcetypePackage extends EPackage {
     int PROCESSING_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Resource Repository Resource Type</b></em> ' container
+     * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -282,7 +282,7 @@ public interface ResourcetypePackage extends EPackage {
     int PROCESSING_RESOURCE_TYPE_FEATURE_COUNT = RESOURCE_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * The feature id for the ' <em><b>Resource Interfaces Resource Repository</b></em>' containment
+     * The feature id for the '<em><b>Resource Interfaces Resource Repository</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -291,7 +291,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY = 0;
 
     /**
-     * The feature id for the ' <em><b>Scheduling Policies Resource Repository</b></em>' containment
+     * The feature id for the '<em><b>Scheduling Policies Resource Repository</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -300,7 +300,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY = 1;
 
     /**
-     * The feature id for the ' <em><b>Available Resource Types Resource Repository</b></em>'
+     * The feature id for the '<em><b>Available Resource Types Resource Repository</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -318,9 +318,8 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_REPOSITORY_FEATURE_COUNT = 3;
 
     /**
-     * The meta object id for the '
-     * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl <em>Scheduling Policy</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
+     * <em>Scheduling Policy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getSchedulingPolicy()
@@ -347,7 +346,7 @@ public interface ResourcetypePackage extends EPackage {
     int SCHEDULING_POLICY__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Resource Repository Scheduling Policy</b></em>' container
+     * The feature id for the '<em><b>Resource Repository Scheduling Policy</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -405,7 +404,7 @@ public interface ResourcetypePackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em> ' containment
+     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -414,7 +413,7 @@ public interface ResourcetypePackage extends EPackage {
     int COMMUNICATION_LINK_RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '<em><b>Resource Repository Resource Type</b></em> ' container
+     * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -424,7 +423,7 @@ public interface ResourcetypePackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Network Induced Failure Type Communication Link Resource Type</b></em> ' reference.
+     * <em><b>Network Induced Failure Type Communication Link Resource Type</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -433,7 +432,7 @@ public interface ResourcetypePackage extends EPackage {
     int COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE = RESOURCE_TYPE_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the ' <em>Communication Link Resource Type</em>' class.
+     * The number of structural features of the '<em>Communication Link Resource Type</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -471,7 +470,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_INTERFACE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Resource Repository Resource Interface</b></em>' container
+     * The feature id for the '<em><b>Resource Repository Resource Interface</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -480,7 +479,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the ' <em><b>Resource Signatures Resource Interface</b></em>' containment
+     * The feature id for the '<em><b>Resource Signatures Resource Interface</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -498,7 +497,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature
      * <em>Resource Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Resource Signature</em>'.
@@ -547,7 +546,7 @@ public interface ResourcetypePackage extends EPackage {
     EReference getResourceSignature_ResourceInterface__ResourceSignature();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType
      * <em>Resource Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Resource Type</em>'.
@@ -570,9 +569,8 @@ public interface ResourcetypePackage extends EPackage {
     EReference getResourceType_ResourceRepository_ResourceType();
 
     /**
-     * Returns the meta object for class '
-     * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository <em>Resource Repository</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository
+     * <em>Resource Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Resource Repository</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository
@@ -623,7 +621,7 @@ public interface ResourcetypePackage extends EPackage {
     EReference getResourceRepository_AvailableResourceTypes_ResourceRepository();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy
      * <em>Scheduling Policy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Scheduling Policy</em>'.
@@ -651,7 +649,7 @@ public interface ResourcetypePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType
      * <em>Communication Link Resource Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for class ' <em>Communication Link Resource Type</em>'.
+     * @return the meta object for class '<em>Communication Link Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType
      * @generated
      */
@@ -664,7 +662,7 @@ public interface ResourcetypePackage extends EPackage {
      * --> <!-- end-user-doc -->
      * 
      * @return the meta object for the reference '
-     *         <em>Network Induced Failure Type Communication Link Resource Type</em> '.
+     *         <em>Network Induced Failure Type Communication Link Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType()
      * @see #getCommunicationLinkResourceType()
      * @generated
@@ -672,7 +670,7 @@ public interface ResourcetypePackage extends EPackage {
     EReference getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface
      * <em>Resource Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Resource Interface</em>'.
@@ -768,7 +766,7 @@ public interface ResourcetypePackage extends EPackage {
         EClass RESOURCE_SIGNATURE = eINSTANCE.getResourceSignature();
 
         /**
-         * The meta object literal for the ' <em><b>Parameter Resource Signature</b></em>'
+         * The meta object literal for the '<em><b>Parameter Resource Signature</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -785,7 +783,7 @@ public interface ResourcetypePackage extends EPackage {
         EAttribute RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID = eINSTANCE.getResourceSignature_ResourceServiceId();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Interface Resource Signature</b></em>'
+         * The meta object literal for the '<em><b>Resource Interface Resource Signature</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -805,7 +803,7 @@ public interface ResourcetypePackage extends EPackage {
         EClass RESOURCE_TYPE = eINSTANCE.getResourceType();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Repository Resource Type</b></em>'
+         * The meta object literal for the '<em><b>Resource Repository Resource Type</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -825,8 +823,8 @@ public interface ResourcetypePackage extends EPackage {
         EClass RESOURCE_REPOSITORY = eINSTANCE.getResourceRepository();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Interfaces Resource Repository</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Interfaces Resource Repository</b></em>'
+         * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -834,8 +832,8 @@ public interface ResourcetypePackage extends EPackage {
                 .getResourceRepository_ResourceInterfaces__ResourceRepository();
 
         /**
-         * The meta object literal for the ' <em><b>Scheduling Policies Resource Repository</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Scheduling Policies Resource Repository</b></em>'
+         * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -864,7 +862,7 @@ public interface ResourcetypePackage extends EPackage {
         EClass SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Repository Scheduling Policy</b></em>'
+         * The meta object literal for the '<em><b>Resource Repository Scheduling Policy</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -886,7 +884,7 @@ public interface ResourcetypePackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Network Induced Failure Type Communication Link Resource Type</b></em> ' reference
+         * <em><b>Network Induced Failure Type Communication Link Resource Type</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -906,7 +904,7 @@ public interface ResourcetypePackage extends EPackage {
         EClass RESOURCE_INTERFACE = eINSTANCE.getResourceInterface();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Repository Resource Interface</b></em>'
+         * The meta object literal for the '<em><b>Resource Repository Resource Interface</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -915,7 +913,7 @@ public interface ResourcetypePackage extends EPackage {
                 .getResourceInterface_ResourceRepository__ResourceInterface();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Signatures Resource Interface</b></em>'
+         * The meta object literal for the '<em><b>Resource Signatures Resource Interface</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -936,7 +934,7 @@ public interface ResourcetypePackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * <em><b>Hardware Induced Failure Type Processing Resource Type</b></em> ' reference
+         * <em><b>Hardware Induced Failure Type Processing Resource Type</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

@@ -22,12 +22,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl#getIterationCount_LoopAction <em>Iteration
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl#getIterationCount_LoopAction <em>Iteration
  * Count Loop Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction {
@@ -75,7 +74,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      */
     @Override
     public PCMRandomVariable getIterationCount_LoopAction() {
-        return this.iterationCount_LoopAction;
+        return iterationCount_LoopAction;
     }
 
     /**
@@ -83,19 +82,18 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * 
      * @generated
      */
-    public NotificationChain basicSetIterationCount_LoopAction(final PCMRandomVariable newIterationCount_LoopAction,
+    public NotificationChain basicSetIterationCount_LoopAction(PCMRandomVariable newIterationCount_LoopAction,
             NotificationChain msgs) {
-        final PCMRandomVariable oldIterationCount_LoopAction = this.iterationCount_LoopAction;
-        this.iterationCount_LoopAction = newIterationCount_LoopAction;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+        PCMRandomVariable oldIterationCount_LoopAction = iterationCount_LoopAction;
+        iterationCount_LoopAction = newIterationCount_LoopAction;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION, oldIterationCount_LoopAction,
                     newIterationCount_LoopAction);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -106,28 +104,23 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * @generated
      */
     @Override
-    public void setIterationCount_LoopAction(final PCMRandomVariable newIterationCount_LoopAction) {
-        if (newIterationCount_LoopAction != this.iterationCount_LoopAction) {
+    public void setIterationCount_LoopAction(PCMRandomVariable newIterationCount_LoopAction) {
+        if (newIterationCount_LoopAction != iterationCount_LoopAction) {
             NotificationChain msgs = null;
-            if (this.iterationCount_LoopAction != null) {
-                msgs = ((InternalEObject) this.iterationCount_LoopAction)
+            if (iterationCount_LoopAction != null)
+                msgs = ((InternalEObject) iterationCount_LoopAction)
                         .eInverseRemove(this, CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE,
                                 PCMRandomVariable.class, msgs);
-            }
-            if (newIterationCount_LoopAction != null) {
+            if (newIterationCount_LoopAction != null)
                 msgs = ((InternalEObject) newIterationCount_LoopAction)
                         .eInverseAdd(this, CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE,
                                 PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetIterationCount_LoopAction(newIterationCount_LoopAction, msgs);
-            if (msgs != null) {
+            msgs = basicSetIterationCount_LoopAction(newIterationCount_LoopAction, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION, newIterationCount_LoopAction,
-                    newIterationCount_LoopAction));
-        }
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION,
+                    newIterationCount_LoopAction, newIterationCount_LoopAction));
     }
 
     /**
@@ -136,14 +129,13 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
-            if (this.iterationCount_LoopAction != null) {
-                msgs = ((InternalEObject) this.iterationCount_LoopAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            if (iterationCount_LoopAction != null)
+                msgs = ((InternalEObject) iterationCount_LoopAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION, null, msgs);
-            }
-            return this.basicSetIterationCount_LoopAction((PCMRandomVariable) otherEnd, msgs);
+            return basicSetIterationCount_LoopAction((PCMRandomVariable) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -154,11 +146,10 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
-            return this.basicSetIterationCount_LoopAction(null, msgs);
+            return basicSetIterationCount_LoopAction(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -169,10 +160,10 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
-            return this.getIterationCount_LoopAction();
+            return getIterationCount_LoopAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -183,10 +174,10 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
-            this.setIterationCount_LoopAction((PCMRandomVariable) newValue);
+            setIterationCount_LoopAction((PCMRandomVariable) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -198,10 +189,10 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
-            this.setIterationCount_LoopAction((PCMRandomVariable) null);
+            setIterationCount_LoopAction((PCMRandomVariable) null);
             return;
         }
         super.eUnset(featureID);
@@ -213,10 +204,10 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
-            return this.iterationCount_LoopAction != null;
+            return iterationCount_LoopAction != null;
         }
         return super.eIsSet(featureID);
     }

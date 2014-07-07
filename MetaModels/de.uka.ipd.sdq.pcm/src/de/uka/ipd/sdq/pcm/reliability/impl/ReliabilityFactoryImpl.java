@@ -40,12 +40,12 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     public static ReliabilityFactory init() {
         try {
-            final ReliabilityFactory theReliabilityFactory = (ReliabilityFactory) EPackage.Registry.INSTANCE
+            ReliabilityFactory theReliabilityFactory = (ReliabilityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ReliabilityPackage.eNS_URI);
             if (theReliabilityFactory != null) {
                 return theReliabilityFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ReliabilityFactoryImpl();
@@ -66,20 +66,20 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE:
-            return this.createHardwareInducedFailureType();
+            return (EObject) createHardwareInducedFailureType();
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE:
-            return this.createSoftwareInducedFailureType();
+            return (EObject) createSoftwareInducedFailureType();
         case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return this.createInternalFailureOccurrenceDescription();
+            return (EObject) createInternalFailureOccurrenceDescription();
         case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE:
-            return this.createNetworkInducedFailureType();
+            return (EObject) createNetworkInducedFailureType();
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return this.createExternalFailureOccurrenceDescription();
+            return (EObject) createExternalFailureOccurrenceDescription();
         case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE:
-            return this.createResourceTimeoutFailureType();
+            return (EObject) createResourceTimeoutFailureType();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -92,7 +92,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public HardwareInducedFailureType createHardwareInducedFailureType() {
-        final HardwareInducedFailureTypeImpl hardwareInducedFailureType = new HardwareInducedFailureTypeImpl();
+        HardwareInducedFailureTypeImpl hardwareInducedFailureType = new HardwareInducedFailureTypeImpl();
         return hardwareInducedFailureType;
     }
 
@@ -103,7 +103,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public ExternalFailureOccurrenceDescription createExternalFailureOccurrenceDescription() {
-        final ExternalFailureOccurrenceDescriptionImpl externalFailureOccurrenceDescription = new ExternalFailureOccurrenceDescriptionImpl();
+        ExternalFailureOccurrenceDescriptionImpl externalFailureOccurrenceDescription = new ExternalFailureOccurrenceDescriptionImpl();
         return externalFailureOccurrenceDescription;
     }
 
@@ -114,7 +114,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public ResourceTimeoutFailureType createResourceTimeoutFailureType() {
-        final ResourceTimeoutFailureTypeImpl resourceTimeoutFailureType = new ResourceTimeoutFailureTypeImpl();
+        ResourceTimeoutFailureTypeImpl resourceTimeoutFailureType = new ResourceTimeoutFailureTypeImpl();
         return resourceTimeoutFailureType;
     }
 
@@ -125,7 +125,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public NetworkInducedFailureType createNetworkInducedFailureType() {
-        final NetworkInducedFailureTypeImpl networkInducedFailureType = new NetworkInducedFailureTypeImpl();
+        NetworkInducedFailureTypeImpl networkInducedFailureType = new NetworkInducedFailureTypeImpl();
         return networkInducedFailureType;
     }
 
@@ -136,7 +136,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public InternalFailureOccurrenceDescription createInternalFailureOccurrenceDescription() {
-        final InternalFailureOccurrenceDescriptionImpl internalFailureOccurrenceDescription = new InternalFailureOccurrenceDescriptionImpl();
+        InternalFailureOccurrenceDescriptionImpl internalFailureOccurrenceDescription = new InternalFailureOccurrenceDescriptionImpl();
         return internalFailureOccurrenceDescription;
     }
 
@@ -147,7 +147,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public SoftwareInducedFailureType createSoftwareInducedFailureType() {
-        final SoftwareInducedFailureTypeImpl softwareInducedFailureType = new SoftwareInducedFailureTypeImpl();
+        SoftwareInducedFailureTypeImpl softwareInducedFailureType = new SoftwareInducedFailureTypeImpl();
         return softwareInducedFailureType;
     }
 
@@ -158,7 +158,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public ReliabilityPackage getReliabilityPackage() {
-        return (ReliabilityPackage) this.getEPackage();
+        return (ReliabilityPackage) getEPackage();
     }
 
     /**

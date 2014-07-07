@@ -10,10 +10,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Data Type</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity represents a data type that can be stored in a repository
  * and used for specification and modeling of interface signatures. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -21,7 +21,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getDataType()
  * @model abstract="true"
  * @extends EStereotypableObject
@@ -53,8 +53,7 @@ public interface DataType extends EStereotypableObject {
     Repository getRepository__DataType();
 
     /**
-     * Sets the value of the '
-     * {@link de.uka.ipd.sdq.pcm.repository.DataType#getRepository__DataType
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.DataType#getRepository__DataType
      * <em>Repository Data Type</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 

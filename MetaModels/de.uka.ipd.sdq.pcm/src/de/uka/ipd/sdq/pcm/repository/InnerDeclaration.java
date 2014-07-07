@@ -10,23 +10,21 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Inner Declaration</b></em>
  * '. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity represent a declaration of a data type inside of a composite
  * data type. It enriches the data type it declares with a name to allow multiple declarations of
  * the same type within a composite data type. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration <em>Datatype
- * Inner Declaration</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getCompositeDataType_InnerDeclaration <em>
- * Composite Data Type Inner Declaration</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration <em>
+ * Datatype Inner Declaration</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getCompositeDataType_InnerDeclaration
+ * <em>Composite Data Type Inner Declaration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInnerDeclaration()
  * @model
  * @generated
@@ -66,7 +64,7 @@ public interface InnerDeclaration extends NamedElement {
     void setDatatype_InnerDeclaration(DataType value);
 
     /**
-     * Returns the value of the ' <em><b>Composite Data Type Inner Declaration</b></em>' container
+     * Returns the value of the '<em><b>Composite Data Type Inner Declaration</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
      * <em>Inner Declaration Composite Data Type</em>}'. <!-- begin-user-doc -->
@@ -94,7 +92,7 @@ public interface InnerDeclaration extends NamedElement {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Composite Data Type Inner Declaration</em>' container
+     *            the new value of the '<em>Composite Data Type Inner Declaration</em>' container
      *            reference.
      * @see #getCompositeDataType_InnerDeclaration()
      * @generated

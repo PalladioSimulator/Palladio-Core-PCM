@@ -19,11 +19,11 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl#getEntityName <em>Entity Name</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl#getEntityName <em>Entity Name
+ * </em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class NamedElementImpl extends EStereotypableObjectImpl implements NamedElement {
@@ -80,7 +80,7 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
      */
     @Override
     public String getEntityName() {
-        return this.entityName;
+        return entityName;
     }
 
     /**
@@ -89,13 +89,12 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
      * @generated
      */
     @Override
-    public void setEntityName(final String newEntityName) {
-        final String oldEntityName = this.entityName;
-        this.entityName = newEntityName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.NAMED_ELEMENT__ENTITY_NAME,
-                    oldEntityName, this.entityName));
-        }
+    public void setEntityName(String newEntityName) {
+        String oldEntityName = entityName;
+        entityName = newEntityName;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.NAMED_ELEMENT__ENTITY_NAME,
+                    oldEntityName, entityName));
     }
 
     /**
@@ -104,10 +103,10 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            return this.getEntityName();
+            return getEntityName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -118,10 +117,10 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            this.setEntityName((String) newValue);
+            setEntityName((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -133,10 +132,10 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            this.setEntityName(ENTITY_NAME_EDEFAULT);
+            setEntityName(ENTITY_NAME_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -148,11 +147,10 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
-                    .equals(this.entityName);
+            return ENTITY_NAME_EDEFAULT == null ? entityName != null : !ENTITY_NAME_EDEFAULT.equals(entityName);
         }
         return super.eIsSet(featureID);
     }
@@ -164,13 +162,12 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (entityName: ");
-        result.append(this.entityName);
+        result.append(entityName);
         result.append(')');
         return result.toString();
     }

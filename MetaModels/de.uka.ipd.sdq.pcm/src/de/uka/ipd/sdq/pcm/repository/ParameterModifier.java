@@ -131,8 +131,9 @@ public enum ParameterModifier implements Enumerator {
      * 
      * @generated
      */
-    public static ParameterModifier get(final String literal) {
-        for (final ParameterModifier result : VALUES_ARRAY) {
+    public static ParameterModifier get(String literal) {
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+            ParameterModifier result = VALUES_ARRAY[i];
             if (result.toString().equals(literal)) {
                 return result;
             }
@@ -146,8 +147,9 @@ public enum ParameterModifier implements Enumerator {
      * 
      * @generated
      */
-    public static ParameterModifier getByName(final String name) {
-        for (final ParameterModifier result : VALUES_ARRAY) {
+    public static ParameterModifier getByName(String name) {
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+            ParameterModifier result = VALUES_ARRAY[i];
             if (result.getName().equals(name)) {
                 return result;
             }
@@ -161,7 +163,7 @@ public enum ParameterModifier implements Enumerator {
      * 
      * @generated
      */
-    public static ParameterModifier get(final int value) {
+    public static ParameterModifier get(int value) {
         switch (value) {
         case NONE_VALUE:
             return NONE;
@@ -201,7 +203,7 @@ public enum ParameterModifier implements Enumerator {
      * 
      * @generated
      */
-    private ParameterModifier(final int value, final String name, final String literal) {
+    private ParameterModifier(int value, String name, String literal) {
         this.value = value;
         this.name = name;
         this.literal = literal;
@@ -214,7 +216,7 @@ public enum ParameterModifier implements Enumerator {
      */
     @Override
     public int getValue() {
-        return this.value;
+        return value;
     }
 
     /**
@@ -224,7 +226,7 @@ public enum ParameterModifier implements Enumerator {
      */
     @Override
     public String getName() {
-        return this.name;
+        return name;
     }
 
     /**
@@ -234,7 +236,7 @@ public enum ParameterModifier implements Enumerator {
      */
     @Override
     public String getLiteral() {
-        return this.literal;
+        return literal;
     }
 
     /**
@@ -245,7 +247,7 @@ public enum ParameterModifier implements Enumerator {
      */
     @Override
     public String toString() {
-        return this.literal;
+        return literal;
     }
 
 } // ParameterModifier

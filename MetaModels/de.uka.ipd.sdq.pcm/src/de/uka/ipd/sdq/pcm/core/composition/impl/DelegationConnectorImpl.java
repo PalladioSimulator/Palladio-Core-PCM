@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.core.composition.DelegationConnector;
  * <em><b>Delegation Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class DelegationConnectorImpl extends ConnectorImpl implements DelegationConnector {

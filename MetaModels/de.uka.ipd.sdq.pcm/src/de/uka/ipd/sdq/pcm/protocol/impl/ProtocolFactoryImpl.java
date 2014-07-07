@@ -34,12 +34,12 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      */
     public static ProtocolFactory init() {
         try {
-            final ProtocolFactory theProtocolFactory = (ProtocolFactory) EPackage.Registry.INSTANCE
+            ProtocolFactory theProtocolFactory = (ProtocolFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ProtocolPackage.eNS_URI);
             if (theProtocolFactory != null) {
                 return theProtocolFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ProtocolFactoryImpl();
@@ -60,7 +60,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -74,7 +74,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      */
     @Override
     public ProtocolPackage getProtocolPackage() {
-        return (ProtocolPackage) this.getEPackage();
+        return (ProtocolPackage) getEPackage();
     }
 
     /**

@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Sub System</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A SubSystem is structually comparable to a CompositeComponent. The major
  * difference is the white-blox property it preserves for System Deployers. While Component
  * Developer have a white-box view for their CompositeComponents, a System Deployer perceives a
@@ -31,8 +31,8 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
  * Example: To model a layered architecture, of which each layer is potentially split up to run on
  * multiple machines (in the resource environment), each layer can be represented by a subsystem,
  * allowing to allocated each layer's components individually. <!-- end-model-doc -->
- * 
- * 
+ *
+ *
  * @see de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage#getSubSystem()
  * @model
  * @generated

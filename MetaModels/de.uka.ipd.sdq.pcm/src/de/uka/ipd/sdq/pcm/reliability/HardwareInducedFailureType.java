@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Hardware Induced Failure Type</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Type definition for a hardware-induced failure, i.e. a failure-on-demand occurrence&nbsp;due to
@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * certain PCM instance, together with a custom ProcessingResourceType.
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <em>Processing Resource Type Hardware Induced Failure Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getHardwareInducedFailureType()
  * @model
  * @generated
@@ -57,7 +57,7 @@ public interface HardwareInducedFailureType extends FailureType {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Processing Resource Type Hardware Induced Failure Type</em>'
+     * @return the value of the '<em>Processing Resource Type Hardware Induced Failure Type</em>'
      *         reference.
      * @see #setProcessingResourceType__HardwareInducedFailureType(ProcessingResourceType)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType()

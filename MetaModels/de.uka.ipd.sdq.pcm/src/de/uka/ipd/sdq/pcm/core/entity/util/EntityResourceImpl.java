@@ -29,7 +29,7 @@ public class EntityResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public EntityResourceImpl(final URI uri) {
+    public EntityResourceImpl(URI uri) {
         super(uri);
     }
 

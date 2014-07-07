@@ -8,16 +8,15 @@ package de.uka.ipd.sdq.pcm.repository;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Source Role</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.SourceRole#getEventGroup__SourceRole <em>Event Group Source
- * Role</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.SourceRole#getEventGroup__SourceRole <em>Event Group
+ * Source Role</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSourceRole()
  * @model
  * @generated

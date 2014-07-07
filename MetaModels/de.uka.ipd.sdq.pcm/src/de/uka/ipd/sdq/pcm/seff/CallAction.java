@@ -13,19 +13,18 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Call Action</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Generic class realising call relations between behaviours (e.g. method
  * call). <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.CallAction#getInputVariableUsages__CallAction <em>Input Variable
- * Usages Call Action</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.CallAction#getInputVariableUsages__CallAction <em>Input
+ * Variable Usages Call Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getCallAction()
  * @model abstract="true"
  * @extends EStereotypableObject
@@ -40,7 +39,7 @@ public interface CallAction extends EStereotypableObject {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Input Variable Usages Call Action</b></em>' containment
+     * Returns the value of the '<em><b>Input Variable Usages Call Action</b></em>' containment
      * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction__VariableUsage

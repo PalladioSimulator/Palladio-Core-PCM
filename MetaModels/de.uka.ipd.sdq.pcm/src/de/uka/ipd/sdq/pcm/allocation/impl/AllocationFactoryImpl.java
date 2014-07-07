@@ -36,12 +36,12 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
      */
     public static AllocationFactory init() {
         try {
-            final AllocationFactory theAllocationFactory = (AllocationFactory) EPackage.Registry.INSTANCE
+            AllocationFactory theAllocationFactory = (AllocationFactory) EPackage.Registry.INSTANCE
                     .getEFactory(AllocationPackage.eNS_URI);
             if (theAllocationFactory != null) {
                 return theAllocationFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new AllocationFactoryImpl();
@@ -62,12 +62,12 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case AllocationPackage.ALLOCATION_CONTEXT:
-            return this.createAllocationContext();
+            return (EObject) createAllocationContext();
         case AllocationPackage.ALLOCATION:
-            return this.createAllocation();
+            return (EObject) createAllocation();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -80,7 +80,7 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
      */
     @Override
     public AllocationContext createAllocationContext() {
-        final AllocationContextImpl allocationContext = new AllocationContextImpl();
+        AllocationContextImpl allocationContext = new AllocationContextImpl();
         return allocationContext;
     }
 
@@ -91,7 +91,7 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
      */
     @Override
     public Allocation createAllocation() {
-        final AllocationImpl allocation = new AllocationImpl();
+        AllocationImpl allocation = new AllocationImpl();
         return allocation;
     }
 
@@ -102,7 +102,7 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
      */
     @Override
     public AllocationPackage getAllocationPackage() {
-        return (AllocationPackage) this.getEPackage();
+        return (AllocationPackage) getEPackage();
     }
 
     /**

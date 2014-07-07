@@ -14,23 +14,22 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Closed Workload</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> ClosedWorkload specifies directly the (constant) user population and a
  * think time. It models that a fixed number of users execute their scenario, then wait (or think)
  * for the specified amount of think time as a RandomVariable, and then reenter the system executing
  * their scenario again. Performance analysts use closed workloads to model scenarios, where the
  * number of users is known (e.g., a fixed number of users in a company). <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation <em> Population</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think Time
- * Closed Workload</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation <em>Population</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think
+ * Time Closed Workload</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getClosedWorkload()
  * @model
  * @generated
@@ -60,7 +59,7 @@ public interface ClosedWorkload extends Workload {
     int getPopulation();
 
     /**
-     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation
      * <em>Population</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

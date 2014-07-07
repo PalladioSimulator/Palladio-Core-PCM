@@ -8,8 +8,8 @@ package de.uka.ipd.sdq.pcm.core.entity;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Interface Providing Requiring Entity</b></em>'. <!-- end-user-doc -->
- * 
- * 
+ *
+ *
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getResourceInterfaceProvidingRequiringEntity()
  * @model
  * @generated

@@ -65,7 +65,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(final Object object) {
+    public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -83,63 +83,63 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      */
     protected ReliabilitySwitch<Adapter> modelSwitch = new ReliabilitySwitch<Adapter>() {
         @Override
-        public Adapter caseFailureOccurrenceDescription(final FailureOccurrenceDescription object) {
-            return ReliabilityAdapterFactory.this.createFailureOccurrenceDescriptionAdapter();
+        public Adapter caseFailureOccurrenceDescription(FailureOccurrenceDescription object) {
+            return createFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseHardwareInducedFailureType(final HardwareInducedFailureType object) {
-            return ReliabilityAdapterFactory.this.createHardwareInducedFailureTypeAdapter();
+        public Adapter caseHardwareInducedFailureType(HardwareInducedFailureType object) {
+            return createHardwareInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseSoftwareInducedFailureType(final SoftwareInducedFailureType object) {
-            return ReliabilityAdapterFactory.this.createSoftwareInducedFailureTypeAdapter();
+        public Adapter caseSoftwareInducedFailureType(SoftwareInducedFailureType object) {
+            return createSoftwareInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseInternalFailureOccurrenceDescription(final InternalFailureOccurrenceDescription object) {
-            return ReliabilityAdapterFactory.this.createInternalFailureOccurrenceDescriptionAdapter();
+        public Adapter caseInternalFailureOccurrenceDescription(InternalFailureOccurrenceDescription object) {
+            return createInternalFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseNetworkInducedFailureType(final NetworkInducedFailureType object) {
-            return ReliabilityAdapterFactory.this.createNetworkInducedFailureTypeAdapter();
+        public Adapter caseNetworkInducedFailureType(NetworkInducedFailureType object) {
+            return createNetworkInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseExternalFailureOccurrenceDescription(final ExternalFailureOccurrenceDescription object) {
-            return ReliabilityAdapterFactory.this.createExternalFailureOccurrenceDescriptionAdapter();
+        public Adapter caseExternalFailureOccurrenceDescription(ExternalFailureOccurrenceDescription object) {
+            return createExternalFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseResourceTimeoutFailureType(final ResourceTimeoutFailureType object) {
-            return ReliabilityAdapterFactory.this.createResourceTimeoutFailureTypeAdapter();
+        public Adapter caseResourceTimeoutFailureType(ResourceTimeoutFailureType object) {
+            return createResourceTimeoutFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseFailureType(final FailureType object) {
-            return ReliabilityAdapterFactory.this.createFailureTypeAdapter();
+        public Adapter caseFailureType(FailureType object) {
+            return createFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
-            return ReliabilityAdapterFactory.this.createIdentifierAdapter();
+        public Adapter caseIdentifier(Identifier object) {
+            return createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
-            return ReliabilityAdapterFactory.this.createNamedElementAdapter();
+        public Adapter caseNamedElement(NamedElement object) {
+            return createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
-            return ReliabilityAdapterFactory.this.createEntityAdapter();
+        public Adapter caseEntity(Entity object) {
+            return createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
-            return ReliabilityAdapterFactory.this.createEObjectAdapter();
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
         }
     };
 
@@ -152,8 +152,8 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(final Notifier target) {
-        return this.modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(Notifier target) {
+        return modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -277,7 +277,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -306,7 +306,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

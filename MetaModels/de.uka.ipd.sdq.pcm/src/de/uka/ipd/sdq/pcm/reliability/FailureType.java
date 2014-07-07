@@ -11,23 +11,22 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Failure Type</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Abstract super class that&nbsp;provides a type definition for&nbsp;any failure-on-demand
  * occurrence during service execution.&nbsp;
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType <em>Repository
+ * <li>{@link de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType <em>Repository
  * Failure Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureType()
  * @model abstract="true"
  * @generated

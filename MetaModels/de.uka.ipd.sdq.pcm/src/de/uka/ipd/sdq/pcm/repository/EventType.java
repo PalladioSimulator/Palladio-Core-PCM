@@ -8,13 +8,13 @@ package de.uka.ipd.sdq.pcm.repository;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Event Type</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> The EventType represents a single class of events that can be emited by
  * a source or consumed by a sink. The characteristics of the event are defined by the variable
  * included in the EventType. Due to the extension of the signature class, the EventType is also
  * accessible for ServiceEffectSpecifications (SEFF). By this, a SEFF is able to represent an event
  * handler for this type of events. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -24,7 +24,7 @@ package de.uka.ipd.sdq.pcm.repository;
  * Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getEventType()
  * @model
  * @generated

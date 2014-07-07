@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -43,15 +44,14 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSpecifiedOutputParameterAbstractions_QoSAnnotations
  * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSystem_QoSAnnotations <em>
- * System Qo SAnnotations</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSystem_QoSAnnotations
+ * <em>System Qo SAnnotations</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSpecifiedQoSAnnotations_QoSAnnotations
  * <em>Specified Qo SAnnotations Qo SAnnotations</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
@@ -63,7 +63,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getSpecifiedOutputParameterAbstractions_QoSAnnotations()
+     * The cached value of the '{@link #getSpecifiedOutputParameterAbstractions_QoSAnnotations()
      * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -110,14 +110,14 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      */
     @Override
     public EList<SpecifiedOutputParameterAbstraction> getSpecifiedOutputParameterAbstractions_QoSAnnotations() {
-        if (this.specifiedOutputParameterAbstractions_QoSAnnotations == null) {
-            this.specifiedOutputParameterAbstractions_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedOutputParameterAbstraction>(
+        if (specifiedOutputParameterAbstractions_QoSAnnotations == null) {
+            specifiedOutputParameterAbstractions_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedOutputParameterAbstraction>(
                     SpecifiedOutputParameterAbstraction.class,
                     this,
                     QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS,
                     QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
         }
-        return this.specifiedOutputParameterAbstractions_QoSAnnotations;
+        return specifiedOutputParameterAbstractions_QoSAnnotations;
     }
 
     /**
@@ -127,10 +127,9 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      */
     @Override
     public de.uka.ipd.sdq.pcm.system.System getSystem_QoSAnnotations() {
-        if (this.eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS) {
+        if (eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS)
             return null;
-        }
-        return (de.uka.ipd.sdq.pcm.system.System) this.eInternalContainer();
+        return (de.uka.ipd.sdq.pcm.system.System) eInternalContainer();
     }
 
     /**
@@ -138,9 +137,9 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * 
      * @generated
      */
-    public NotificationChain basicSetSystem_QoSAnnotations(
-            final de.uka.ipd.sdq.pcm.system.System newSystem_QoSAnnotations, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newSystem_QoSAnnotations,
+    public NotificationChain basicSetSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System newSystem_QoSAnnotations,
+            NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newSystem_QoSAnnotations,
                 QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS, msgs);
         return msgs;
     }
@@ -151,29 +150,24 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * @generated
      */
     @Override
-    public void setSystem_QoSAnnotations(final de.uka.ipd.sdq.pcm.system.System newSystem_QoSAnnotations) {
-        if (newSystem_QoSAnnotations != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS && newSystem_QoSAnnotations != null)) {
-            if (EcoreUtil.isAncestor(this, newSystem_QoSAnnotations)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System newSystem_QoSAnnotations) {
+        if (newSystem_QoSAnnotations != eInternalContainer()
+                || (eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS && newSystem_QoSAnnotations != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newSystem_QoSAnnotations))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newSystem_QoSAnnotations != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newSystem_QoSAnnotations != null)
                 msgs = ((InternalEObject) newSystem_QoSAnnotations).eInverseAdd(this,
                         SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM, de.uka.ipd.sdq.pcm.system.System.class, msgs);
-            }
-            msgs = this.basicSetSystem_QoSAnnotations(newSystem_QoSAnnotations, msgs);
-            if (msgs != null) {
+            msgs = basicSetSystem_QoSAnnotations(newSystem_QoSAnnotations, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS, newSystem_QoSAnnotations,
                     newSystem_QoSAnnotations));
-        }
     }
 
     /**
@@ -183,13 +177,13 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      */
     @Override
     public EList<SpecifiedQoSAnnotation> getSpecifiedQoSAnnotations_QoSAnnotations() {
-        if (this.specifiedQoSAnnotations_QoSAnnotations == null) {
-            this.specifiedQoSAnnotations_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedQoSAnnotation>(
+        if (specifiedQoSAnnotations_QoSAnnotations == null) {
+            specifiedQoSAnnotations_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedQoSAnnotation>(
                     SpecifiedQoSAnnotation.class, this,
                     QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
                     QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION);
         }
-        return this.specifiedQoSAnnotations_QoSAnnotations;
+        return specifiedQoSAnnotations_QoSAnnotations;
     }
 
     /**
@@ -224,15 +218,15 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * @generated
      */
     @Override
-    public boolean MultipleReliabilityAnnotationsPerExternalCallNotAllowed(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean MultipleReliabilityAnnotationsPerExternalCallNotAllowed(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(QosannotationsPackage.Literals.QO_SANNOTATIONS);
             try {
                 MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -262,19 +256,18 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSpecifiedOutputParameterAbstractions_QoSAnnotations())
+                    .basicAdd(otherEnd, msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System) otherEnd, msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSpecifiedQoSAnnotations_QoSAnnotations()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSpecifiedQoSAnnotations_QoSAnnotations())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -285,16 +278,15 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            return ((InternalEList<?>) this.getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicRemove(
-                    otherEnd, msgs);
+            return ((InternalEList<?>) getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicRemove(otherEnd,
+                    msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-            return this.basicSetSystem_QoSAnnotations(null, msgs);
+            return basicSetSystem_QoSAnnotations(null, msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-            return ((InternalEList<?>) this.getSpecifiedQoSAnnotations_QoSAnnotations()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getSpecifiedQoSAnnotations_QoSAnnotations()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -305,10 +297,10 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-            return this.eInternalContainer().eInverseRemove(this, SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM,
+            return eInternalContainer().eInverseRemove(this, SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM,
                     de.uka.ipd.sdq.pcm.system.System.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -320,14 +312,14 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            return this.getSpecifiedOutputParameterAbstractions_QoSAnnotations();
+            return getSpecifiedOutputParameterAbstractions_QoSAnnotations();
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-            return this.getSystem_QoSAnnotations();
+            return getSystem_QoSAnnotations();
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-            return this.getSpecifiedQoSAnnotations_QoSAnnotations();
+            return getSpecifiedQoSAnnotations_QoSAnnotations();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -339,20 +331,19 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            this.getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
-            this.getSpecifiedOutputParameterAbstractions_QoSAnnotations().addAll(
+            getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
+            getSpecifiedOutputParameterAbstractions_QoSAnnotations().addAll(
                     (Collection<? extends SpecifiedOutputParameterAbstraction>) newValue);
             return;
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-            this.setSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System) newValue);
+            setSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System) newValue);
             return;
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-            this.getSpecifiedQoSAnnotations_QoSAnnotations().clear();
-            this.getSpecifiedQoSAnnotations_QoSAnnotations().addAll(
-                    (Collection<? extends SpecifiedQoSAnnotation>) newValue);
+            getSpecifiedQoSAnnotations_QoSAnnotations().clear();
+            getSpecifiedQoSAnnotations_QoSAnnotations().addAll((Collection<? extends SpecifiedQoSAnnotation>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -364,16 +355,16 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            this.getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
+            getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
             return;
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-            this.setSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System) null);
+            setSystem_QoSAnnotations((de.uka.ipd.sdq.pcm.system.System) null);
             return;
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-            this.getSpecifiedQoSAnnotations_QoSAnnotations().clear();
+            getSpecifiedQoSAnnotations_QoSAnnotations().clear();
             return;
         }
         super.eUnset(featureID);
@@ -385,16 +376,15 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            return this.specifiedOutputParameterAbstractions_QoSAnnotations != null
-                    && !this.specifiedOutputParameterAbstractions_QoSAnnotations.isEmpty();
+            return specifiedOutputParameterAbstractions_QoSAnnotations != null
+                    && !specifiedOutputParameterAbstractions_QoSAnnotations.isEmpty();
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
-            return this.getSystem_QoSAnnotations() != null;
+            return getSystem_QoSAnnotations() != null;
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-            return this.specifiedQoSAnnotations_QoSAnnotations != null
-                    && !this.specifiedQoSAnnotations_QoSAnnotations.isEmpty();
+            return specifiedQoSAnnotations_QoSAnnotations != null && !specifiedQoSAnnotations_QoSAnnotations.isEmpty();
         }
         return super.eIsSet(featureID);
     }

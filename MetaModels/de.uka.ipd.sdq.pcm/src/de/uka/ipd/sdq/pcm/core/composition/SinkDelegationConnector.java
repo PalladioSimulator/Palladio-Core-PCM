@@ -5,10 +5,10 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Sink Delegation Connector</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A SinkDelegationConnector delegates an incoming event to the
  * encapsulated assembly contexts to inner sink roles. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
  * <em>Outer Sink Role Sink Role</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSinkDelegationConnector()
  * @model
  * @generated
@@ -37,7 +37,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Assembly Context Sink Delegation Connector</b></em>'
+     * Returns the value of the '<em><b>Assembly Context Sink Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the ' <em>Assembly Context Sink Delegation Connector</em>' reference isn't
@@ -45,7 +45,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Assembly Context Sink Delegation Connector</em>' reference.
+     * @return the value of the '<em>Assembly Context Sink Delegation Connector</em>' reference.
      * @see #setAssemblyContext__SinkDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector()
      * @model required="true" ordered="false"
@@ -60,7 +60,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
      * end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Assembly Context Sink Delegation Connector</em>'
+     *            the new value of the '<em>Assembly Context Sink Delegation Connector</em>'
      *            reference.
      * @see #getAssemblyContext__SinkDelegationConnector()
      * @generated

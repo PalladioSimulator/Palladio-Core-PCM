@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.repository;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Infrastructure Provided Role</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -17,7 +17,7 @@ package de.uka.ipd.sdq.pcm.repository;
  * <em>Provided Interface Infrastructure Provided Role</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureProvidedRole()
  * @model
  * @generated
@@ -31,7 +31,7 @@ public interface InfrastructureProvidedRole extends ProvidedRole {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Provided Interface Infrastructure Provided Role</b></em>'
+     * Returns the value of the '<em><b>Provided Interface Infrastructure Provided Role</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the ' <em>Provided Interface Infrastructure Provided Role</em>' reference
@@ -39,7 +39,7 @@ public interface InfrastructureProvidedRole extends ProvidedRole {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Provided Interface Infrastructure Provided Role</em>'
+     * @return the value of the '<em>Provided Interface Infrastructure Provided Role</em>'
      *         reference.
      * @see #setProvidedInterface__InfrastructureProvidedRole(InfrastructureInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole()
@@ -55,7 +55,7 @@ public interface InfrastructureProvidedRole extends ProvidedRole {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Provided Interface Infrastructure Provided Role</em>'
+     *            the new value of the '<em>Provided Interface Infrastructure Provided Role</em>'
      *            reference.
      * @see #getProvidedInterface__InfrastructureProvidedRole()
      * @generated

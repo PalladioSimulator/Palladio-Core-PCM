@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  * <em>Resource Required Roles Resource Interface Requiring Entity</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements ResourceInterfaceRequiringEntity {
@@ -78,14 +78,14 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      */
     @Override
     public EList<ResourceRequiredRole> getResourceRequiredRoles__ResourceInterfaceRequiringEntity() {
-        if (this.resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
-            this.resourceRequiredRoles__ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(
+        if (resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
+            resourceRequiredRoles__ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(
                     ResourceRequiredRole.class,
                     this,
                     EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
                     EntityPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
         }
-        return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity;
+        return resourceRequiredRoles__ResourceInterfaceRequiringEntity;
     }
 
     /**
@@ -95,12 +95,11 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceRequiredRoles__ResourceInterfaceRequiringEntity())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -111,11 +110,10 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<?>) this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicRemove(
+            return ((InternalEList<?>) getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicRemove(
                     otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -127,10 +125,10 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity();
+            return getResourceRequiredRoles__ResourceInterfaceRequiringEntity();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -142,11 +140,11 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().addAll(
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().addAll(
                     (Collection<? extends ResourceRequiredRole>) newValue);
             return;
         }
@@ -159,10 +157,10 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
             return;
         }
         super.eUnset(featureID);
@@ -174,11 +172,11 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity != null
-                    && !this.resourceRequiredRoles__ResourceInterfaceRequiringEntity.isEmpty();
+            return resourceRequiredRoles__ResourceInterfaceRequiringEntity != null
+                    && !resourceRequiredRoles__ResourceInterfaceRequiringEntity.isEmpty();
         }
         return super.eIsSet(featureID);
     }

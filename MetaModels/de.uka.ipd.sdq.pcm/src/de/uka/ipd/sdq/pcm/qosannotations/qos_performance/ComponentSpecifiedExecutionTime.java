@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Component Specified Execution Time</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> The ComponentSpecifiedExecutionTime allows software architects (and
  * performance analysts) to specify the response time of a service (signature + role) of a
  * component. However, the response time is not given for the considered component in general, but
@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
  * 
  * 
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -37,7 +37,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
  * <em>Assembly Context Component Specified Execution Time</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getComponentSpecifiedExecutionTime()
  * @model
  * @generated
@@ -76,8 +76,8 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedExecutionTime 
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the '
-     *            <em>Assembly Context Component Specified Execution Time</em>' reference.
+     *            the new value of the '<em>Assembly Context Component Specified Execution Time</em>
+     *            ' reference.
      * @see #getAssemblyContext_ComponentSpecifiedExecutionTime()
      * @generated
      */

@@ -38,10 +38,10 @@ import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl.SpecifiedReliabilityAnnotationImpl#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation
- * <em>External Failure Occurrence Descriptions Specified Reliability Annotation </em>}</li>
+ * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationImpl implements
@@ -56,7 +56,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     /**
      * The cached value of the '
      * {@link #getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
-     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>} '
+     * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
@@ -91,20 +91,20 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      */
     @Override
     public EList<ExternalFailureOccurrenceDescription> getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation() {
-        if (this.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation == null) {
-            this.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation = new EObjectContainmentWithInverseEList<ExternalFailureOccurrenceDescription>(
+        if (externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation == null) {
+            externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation = new EObjectContainmentWithInverseEList<ExternalFailureOccurrenceDescription>(
                     ExternalFailureOccurrenceDescription.class,
                     this,
                     QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION,
                     ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
         }
-        return this.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation;
+        return externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation;
     }
 
     /**
      * The cached OCL expression body for the '
      * {@link #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>} '
+     * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
@@ -118,8 +118,8 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     /**
      * The cached OCL invariant for the '
      * {@link #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>} '
-     * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -134,15 +134,15 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      * @generated
      */
     @Override
-    public boolean SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION);
             try {
                 SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -168,7 +168,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     /**
      * The cached OCL expression body for the '
      * {@link #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>} ' operation.
+     * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
@@ -181,7 +181,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     /**
      * The cached OCL invariant for the '
      * {@link #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>} ' invariant
+     * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
@@ -197,15 +197,15 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      * @generated
      */
     @Override
-    public boolean SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION);
             try {
                 SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -230,7 +230,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     /**
      * The cached OCL expression body for the '
      * {@link #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>} ' operation.
+     * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
@@ -243,7 +243,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     /**
      * The cached OCL invariant for the '
      * {@link #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>} ' invariant
+     * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
@@ -259,15 +259,15 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      * @generated
      */
     @Override
-    public boolean MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION);
             try {
                 MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -296,13 +296,11 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()).basicAdd(otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -313,11 +311,10 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
-            return ((InternalEList<?>) this.getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation())
+            return ((InternalEList<?>) getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation())
                     .basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -329,10 +326,10 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
-            return this.getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation();
+            return getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -344,11 +341,11 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
-            this.getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation().clear();
-            this.getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation().addAll(
+            getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation().clear();
+            getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation().addAll(
                     (Collection<? extends ExternalFailureOccurrenceDescription>) newValue);
             return;
         }
@@ -361,10 +358,10 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
-            this.getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation().clear();
+            getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation().clear();
             return;
         }
         super.eUnset(featureID);
@@ -376,11 +373,11 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
-            return this.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation != null
-                    && !this.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.isEmpty();
+            return externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation != null
+                    && !externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.isEmpty();
         }
         return super.eIsSet(featureID);
     }

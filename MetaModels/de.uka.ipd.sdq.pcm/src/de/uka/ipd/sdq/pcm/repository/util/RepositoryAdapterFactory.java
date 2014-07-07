@@ -96,7 +96,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(final Object object) {
+    public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -114,218 +114,218 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
      */
     protected RepositorySwitch<Adapter> modelSwitch = new RepositorySwitch<Adapter>() {
         @Override
-        public Adapter casePassiveResource(final PassiveResource object) {
-            return RepositoryAdapterFactory.this.createPassiveResourceAdapter();
+        public Adapter casePassiveResource(PassiveResource object) {
+            return createPassiveResourceAdapter();
         }
 
         @Override
-        public Adapter caseBasicComponent(final BasicComponent object) {
-            return RepositoryAdapterFactory.this.createBasicComponentAdapter();
+        public Adapter caseBasicComponent(BasicComponent object) {
+            return createBasicComponentAdapter();
         }
 
         @Override
-        public Adapter caseImplementationComponentType(final ImplementationComponentType object) {
-            return RepositoryAdapterFactory.this.createImplementationComponentTypeAdapter();
+        public Adapter caseImplementationComponentType(ImplementationComponentType object) {
+            return createImplementationComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseRepositoryComponent(final RepositoryComponent object) {
-            return RepositoryAdapterFactory.this.createRepositoryComponentAdapter();
+        public Adapter caseRepositoryComponent(RepositoryComponent object) {
+            return createRepositoryComponentAdapter();
         }
 
         @Override
-        public Adapter caseProvidedRole(final ProvidedRole object) {
-            return RepositoryAdapterFactory.this.createProvidedRoleAdapter();
+        public Adapter caseProvidedRole(ProvidedRole object) {
+            return createProvidedRoleAdapter();
         }
 
         @Override
-        public Adapter caseParameter(final Parameter object) {
-            return RepositoryAdapterFactory.this.createParameterAdapter();
+        public Adapter caseParameter(Parameter object) {
+            return createParameterAdapter();
         }
 
         @Override
-        public Adapter caseDataType(final DataType object) {
-            return RepositoryAdapterFactory.this.createDataTypeAdapter();
+        public Adapter caseDataType(DataType object) {
+            return createDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseRepository(final Repository object) {
-            return RepositoryAdapterFactory.this.createRepositoryAdapter();
+        public Adapter caseRepository(Repository object) {
+            return createRepositoryAdapter();
         }
 
         @Override
-        public Adapter caseInterface(final Interface object) {
-            return RepositoryAdapterFactory.this.createInterfaceAdapter();
+        public Adapter caseInterface(Interface object) {
+            return createInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseRequiredCharacterisation(final RequiredCharacterisation object) {
-            return RepositoryAdapterFactory.this.createRequiredCharacterisationAdapter();
+        public Adapter caseRequiredCharacterisation(RequiredCharacterisation object) {
+            return createRequiredCharacterisationAdapter();
         }
 
         @Override
-        public Adapter caseEventGroup(final EventGroup object) {
-            return RepositoryAdapterFactory.this.createEventGroupAdapter();
+        public Adapter caseEventGroup(EventGroup object) {
+            return createEventGroupAdapter();
         }
 
         @Override
-        public Adapter caseEventType(final EventType object) {
-            return RepositoryAdapterFactory.this.createEventTypeAdapter();
+        public Adapter caseEventType(EventType object) {
+            return createEventTypeAdapter();
         }
 
         @Override
-        public Adapter caseSignature(final Signature object) {
-            return RepositoryAdapterFactory.this.createSignatureAdapter();
+        public Adapter caseSignature(Signature object) {
+            return createSignatureAdapter();
         }
 
         @Override
-        public Adapter caseExceptionType(final ExceptionType object) {
-            return RepositoryAdapterFactory.this.createExceptionTypeAdapter();
+        public Adapter caseExceptionType(ExceptionType object) {
+            return createExceptionTypeAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureSignature(final InfrastructureSignature object) {
-            return RepositoryAdapterFactory.this.createInfrastructureSignatureAdapter();
+        public Adapter caseInfrastructureSignature(InfrastructureSignature object) {
+            return createInfrastructureSignatureAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureInterface(final InfrastructureInterface object) {
-            return RepositoryAdapterFactory.this.createInfrastructureInterfaceAdapter();
+        public Adapter caseInfrastructureInterface(InfrastructureInterface object) {
+            return createInfrastructureInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureRequiredRole(final InfrastructureRequiredRole object) {
-            return RepositoryAdapterFactory.this.createInfrastructureRequiredRoleAdapter();
+        public Adapter caseInfrastructureRequiredRole(InfrastructureRequiredRole object) {
+            return createInfrastructureRequiredRoleAdapter();
         }
 
         @Override
-        public Adapter caseRequiredRole(final RequiredRole object) {
-            return RepositoryAdapterFactory.this.createRequiredRoleAdapter();
+        public Adapter caseRequiredRole(RequiredRole object) {
+            return createRequiredRoleAdapter();
         }
 
         @Override
-        public Adapter caseOperationSignature(final OperationSignature object) {
-            return RepositoryAdapterFactory.this.createOperationSignatureAdapter();
+        public Adapter caseOperationSignature(OperationSignature object) {
+            return createOperationSignatureAdapter();
         }
 
         @Override
-        public Adapter caseOperationInterface(final OperationInterface object) {
-            return RepositoryAdapterFactory.this.createOperationInterfaceAdapter();
+        public Adapter caseOperationInterface(OperationInterface object) {
+            return createOperationInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseOperationRequiredRole(final OperationRequiredRole object) {
-            return RepositoryAdapterFactory.this.createOperationRequiredRoleAdapter();
+        public Adapter caseOperationRequiredRole(OperationRequiredRole object) {
+            return createOperationRequiredRoleAdapter();
         }
 
         @Override
-        public Adapter caseSourceRole(final SourceRole object) {
-            return RepositoryAdapterFactory.this.createSourceRoleAdapter();
+        public Adapter caseSourceRole(SourceRole object) {
+            return createSourceRoleAdapter();
         }
 
         @Override
-        public Adapter caseSinkRole(final SinkRole object) {
-            return RepositoryAdapterFactory.this.createSinkRoleAdapter();
+        public Adapter caseSinkRole(SinkRole object) {
+            return createSinkRoleAdapter();
         }
 
         @Override
-        public Adapter caseOperationProvidedRole(final OperationProvidedRole object) {
-            return RepositoryAdapterFactory.this.createOperationProvidedRoleAdapter();
+        public Adapter caseOperationProvidedRole(OperationProvidedRole object) {
+            return createOperationProvidedRoleAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureProvidedRole(final InfrastructureProvidedRole object) {
-            return RepositoryAdapterFactory.this.createInfrastructureProvidedRoleAdapter();
+        public Adapter caseInfrastructureProvidedRole(InfrastructureProvidedRole object) {
+            return createInfrastructureProvidedRoleAdapter();
         }
 
         @Override
-        public Adapter caseCompleteComponentType(final CompleteComponentType object) {
-            return RepositoryAdapterFactory.this.createCompleteComponentTypeAdapter();
+        public Adapter caseCompleteComponentType(CompleteComponentType object) {
+            return createCompleteComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseProvidesComponentType(final ProvidesComponentType object) {
-            return RepositoryAdapterFactory.this.createProvidesComponentTypeAdapter();
+        public Adapter caseProvidesComponentType(ProvidesComponentType object) {
+            return createProvidesComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseCompositeComponent(final CompositeComponent object) {
-            return RepositoryAdapterFactory.this.createCompositeComponentAdapter();
+        public Adapter caseCompositeComponent(CompositeComponent object) {
+            return createCompositeComponentAdapter();
         }
 
         @Override
-        public Adapter casePrimitiveDataType(final PrimitiveDataType object) {
-            return RepositoryAdapterFactory.this.createPrimitiveDataTypeAdapter();
+        public Adapter casePrimitiveDataType(PrimitiveDataType object) {
+            return createPrimitiveDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseCollectionDataType(final CollectionDataType object) {
-            return RepositoryAdapterFactory.this.createCollectionDataTypeAdapter();
+        public Adapter caseCollectionDataType(CollectionDataType object) {
+            return createCollectionDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseCompositeDataType(final CompositeDataType object) {
-            return RepositoryAdapterFactory.this.createCompositeDataTypeAdapter();
+        public Adapter caseCompositeDataType(CompositeDataType object) {
+            return createCompositeDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseInnerDeclaration(final InnerDeclaration object) {
-            return RepositoryAdapterFactory.this.createInnerDeclarationAdapter();
+        public Adapter caseInnerDeclaration(InnerDeclaration object) {
+            return createInnerDeclarationAdapter();
         }
 
         @Override
-        public Adapter caseRole(final Role object) {
-            return RepositoryAdapterFactory.this.createRoleAdapter();
+        public Adapter caseRole(Role object) {
+            return createRoleAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
-            return RepositoryAdapterFactory.this.createIdentifierAdapter();
+        public Adapter caseIdentifier(Identifier object) {
+            return createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
-            return RepositoryAdapterFactory.this.createNamedElementAdapter();
+        public Adapter caseNamedElement(NamedElement object) {
+            return createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
-            return RepositoryAdapterFactory.this.createEntityAdapter();
+        public Adapter caseEntity(Entity object) {
+            return createEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object) {
-            return RepositoryAdapterFactory.this.createInterfaceProvidingEntityAdapter();
+        public Adapter caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+            return createInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object) {
-            return RepositoryAdapterFactory.this.createResourceInterfaceRequiringEntityAdapter();
+        public Adapter caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
+            return createResourceInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object) {
-            return RepositoryAdapterFactory.this.createInterfaceRequiringEntityAdapter();
+        public Adapter caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+            return createInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object) {
-            return RepositoryAdapterFactory.this.createInterfaceProvidingRequiringEntityAdapter();
+        public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+            return createInterfaceProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(final ComposedStructure object) {
-            return RepositoryAdapterFactory.this.createComposedStructureAdapter();
+        public Adapter caseComposedStructure(ComposedStructure object) {
+            return createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object) {
-            return RepositoryAdapterFactory.this.createComposedProvidingRequiringEntityAdapter();
+        public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+            return createComposedProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
-            return RepositoryAdapterFactory.this.createEObjectAdapter();
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
         }
     };
 
@@ -338,8 +338,8 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(final Notifier target) {
-        return this.modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(Notifier target) {
+        return modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -418,7 +418,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.repository.Role
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Role
      * <em>Role</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
@@ -432,10 +432,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.repository.Interface <em>Interface</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Interface
+     * <em>Interface</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.repository.Interface
@@ -460,7 +460,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.repository.DataType
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.DataType
      * <em>Data Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -489,10 +489,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.repository.Parameter <em>Parameter</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Parameter
+     * <em>Parameter</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.repository.Parameter
@@ -518,10 +518,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.repository.Signature <em>Signature</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Signature
+     * <em>Signature</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.repository.Signature
@@ -592,10 +592,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.repository.EventType <em>Event Type</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.EventType
+     * <em>Event Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.repository.EventType
@@ -724,7 +724,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.repository.SinkRole
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.SinkRole
      * <em>Sink Role</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -828,7 +828,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -857,7 +857,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

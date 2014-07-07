@@ -9,10 +9,10 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Required Delegation Connector</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A RequiredDelegationConnector delegates required roles of encapsulated
  * assembly contexts to&nbsp;outer&nbsp;required roles . <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
  * <em>Assembly Context Required Delegation Connector</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector()
  * @model
  * @generated
@@ -41,7 +41,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Inner Required Role Required Delegation Connector</b></em>'
+     * Returns the value of the '<em><b>Inner Required Role Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the ' <em>Inner Required Role Required Delegation Connector</em>' reference
@@ -49,7 +49,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Inner Required Role Required Delegation Connector</em>'
+     * @return the value of the '<em>Inner Required Role Required Delegation Connector</em>'
      *         reference.
      * @see #setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector()
@@ -65,7 +65,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Inner Required Role Required Delegation Connector</em>'
+     *            the new value of the '<em>Inner Required Role Required Delegation Connector</em>'
      *            reference.
      * @see #getInnerRequiredRole_RequiredDelegationConnector()
      * @generated
@@ -73,7 +73,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
     void setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole value);
 
     /**
-     * Returns the value of the ' <em><b>Outer Required Role Required Delegation Connector</b></em>'
+     * Returns the value of the '<em><b>Outer Required Role Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the ' <em>Outer Required Role Required Delegation Connector</em>' reference
@@ -81,7 +81,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Outer Required Role Required Delegation Connector</em>'
+     * @return the value of the '<em>Outer Required Role Required Delegation Connector</em>'
      *         reference.
      * @see #setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector()
@@ -97,7 +97,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Outer Required Role Required Delegation Connector</em>'
+     *            the new value of the '<em>Outer Required Role Required Delegation Connector</em>'
      *            reference.
      * @see #getOuterRequiredRole_RequiredDelegationConnector()
      * @generated
@@ -105,7 +105,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
     void setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole value);
 
     /**
-     * Returns the value of the ' <em><b>Assembly Context Required Delegation Connector</b></em>'
+     * Returns the value of the '<em><b>Assembly Context Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the ' <em>Assembly Context Required Delegation Connector</em>' reference
@@ -113,8 +113,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Assembly Context Required Delegation Connector</em>'
-     *         reference.
+     * @return the value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
      * @see #setAssemblyContext_RequiredDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector()
      * @model required="true" ordered="false"
@@ -129,7 +128,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Assembly Context Required Delegation Connector</em>'
+     *            the new value of the '<em>Assembly Context Required Delegation Connector</em>'
      *            reference.
      * @see #getAssemblyContext_RequiredDelegationConnector()
      * @generated

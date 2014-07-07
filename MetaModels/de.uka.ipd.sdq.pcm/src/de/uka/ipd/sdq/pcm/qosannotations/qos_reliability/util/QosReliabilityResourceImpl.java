@@ -27,7 +27,7 @@ public class QosReliabilityResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public QosReliabilityResourceImpl(final URI uri) {
+    public QosReliabilityResourceImpl(URI uri) {
         super(uri);
     }
 

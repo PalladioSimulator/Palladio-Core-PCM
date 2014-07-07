@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Demanding Behaviour</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Models the behaviour of a component service as a sequence of internal
  * actions with resource demands, control flow constructs, and external calls. Therefore, the class
  * contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource
@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any
  * ResourceDemandingBehaviour can have at most one starting and one finishing action. <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -38,12 +38,11 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * <li>
  * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
  * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps Behaviour
- * </em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps
+ * Behaviour</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour()
  * @model
  * @generated
@@ -57,7 +56,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
+     * Returns the value of the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
      * container reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}'. <!-- begin-user-doc -->
@@ -67,7 +66,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Abstract Loop Action Resource Demanding Behaviour</em>'
+     * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour()
@@ -103,7 +102,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Abstract Branch Transition Resource Demanding Behaviour</em>'
+     * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour()

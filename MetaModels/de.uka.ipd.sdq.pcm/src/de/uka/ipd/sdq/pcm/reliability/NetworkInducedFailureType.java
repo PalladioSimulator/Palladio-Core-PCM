@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Network Induced Failure Type</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Type definition for a network-induced failure, i.e. a failure-on-demand occurrence&nbsp;due to a
@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * CommunicationLinkResourceType: LAN.
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * <em>Communication Link Resource Type Network Induced Failure Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getNetworkInducedFailureType()
  * @model
  * @generated
@@ -46,7 +46,7 @@ public interface NetworkInducedFailureType extends FailureType {
 
     /**
      * Returns the value of the '
-     * <em><b>Communication Link Resource Type Network Induced Failure Type</b></em> ' reference. It
+     * <em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference. It
      * is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType
      * <em>Network Induced Failure Type Communication Link Resource Type</em>}'. <!-- begin-user-doc
@@ -59,7 +59,7 @@ public interface NetworkInducedFailureType extends FailureType {
      * <!-- end-user-doc -->
      * 
      * @return the value of the '
-     *         <em>Communication Link Resource Type Network Induced Failure Type</em> ' reference.
+     *         <em>Communication Link Resource Type Network Induced Failure Type</em>' reference.
      * @see #setCommunicationLinkResourceType__NetworkInducedFailureType(CommunicationLinkResourceType)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType()
      * @see de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType

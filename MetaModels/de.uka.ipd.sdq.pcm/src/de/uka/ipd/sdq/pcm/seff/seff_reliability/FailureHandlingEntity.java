@@ -13,14 +13,14 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Failure Handling Entity</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Failure handling entities are any program constructs that can handle failures. Instances of
  * failure handling entities specify any number of failure types that can be handled.
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
  * <em>Failure Types Failure Handling Entity</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getFailureHandlingEntity()
  * @model abstract="true"
  * @generated

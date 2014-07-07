@@ -21,12 +21,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl#getPassiveResource_ReleaseAction <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl#getPassiveResource_ReleaseAction <em>
  * Passive Resource Release Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl implements ReleaseAction {
@@ -74,18 +73,17 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public PassiveResource getPassiveResource_ReleaseAction() {
-        if (this.passiveResource_ReleaseAction != null && ((EObject) this.passiveResource_ReleaseAction).eIsProxy()) {
-            final InternalEObject oldPassiveResource_ReleaseAction = (InternalEObject) this.passiveResource_ReleaseAction;
-            this.passiveResource_ReleaseAction = (PassiveResource) this.eResolveProxy(oldPassiveResource_ReleaseAction);
-            if (this.passiveResource_ReleaseAction != oldPassiveResource_ReleaseAction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (passiveResource_ReleaseAction != null && ((EObject) passiveResource_ReleaseAction).eIsProxy()) {
+            InternalEObject oldPassiveResource_ReleaseAction = (InternalEObject) passiveResource_ReleaseAction;
+            passiveResource_ReleaseAction = (PassiveResource) eResolveProxy(oldPassiveResource_ReleaseAction);
+            if (passiveResource_ReleaseAction != oldPassiveResource_ReleaseAction) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION,
-                            oldPassiveResource_ReleaseAction, this.passiveResource_ReleaseAction));
-                }
+                            oldPassiveResource_ReleaseAction, passiveResource_ReleaseAction));
             }
         }
-        return this.passiveResource_ReleaseAction;
+        return passiveResource_ReleaseAction;
     }
 
     /**
@@ -94,7 +92,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     public PassiveResource basicGetPassiveResource_ReleaseAction() {
-        return this.passiveResource_ReleaseAction;
+        return passiveResource_ReleaseAction;
     }
 
     /**
@@ -103,14 +101,13 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public void setPassiveResource_ReleaseAction(final PassiveResource newPassiveResource_ReleaseAction) {
-        final PassiveResource oldPassiveResource_ReleaseAction = this.passiveResource_ReleaseAction;
-        this.passiveResource_ReleaseAction = newPassiveResource_ReleaseAction;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setPassiveResource_ReleaseAction(PassiveResource newPassiveResource_ReleaseAction) {
+        PassiveResource oldPassiveResource_ReleaseAction = passiveResource_ReleaseAction;
+        passiveResource_ReleaseAction = newPassiveResource_ReleaseAction;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION, oldPassiveResource_ReleaseAction,
-                    this.passiveResource_ReleaseAction));
-        }
+                    passiveResource_ReleaseAction));
     }
 
     /**
@@ -119,13 +116,12 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
-            if (resolve) {
-                return this.getPassiveResource_ReleaseAction();
-            }
-            return this.basicGetPassiveResource_ReleaseAction();
+            if (resolve)
+                return getPassiveResource_ReleaseAction();
+            return basicGetPassiveResource_ReleaseAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -136,10 +132,10 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
-            this.setPassiveResource_ReleaseAction((PassiveResource) newValue);
+            setPassiveResource_ReleaseAction((PassiveResource) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -151,10 +147,10 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
-            this.setPassiveResource_ReleaseAction((PassiveResource) null);
+            setPassiveResource_ReleaseAction((PassiveResource) null);
             return;
         }
         super.eUnset(featureID);
@@ -166,10 +162,10 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
-            return this.passiveResource_ReleaseAction != null;
+            return passiveResource_ReleaseAction != null;
         }
         return super.eIsSet(featureID);
     }

@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Branch</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A Branch splits the user flow with a XOR-semantic: one of the included
  * BranchTransitions is taken depending on the specified branch probabilities. Each BranchTransition
  * contains a nested ScenarioBehaviour, which a user executes once this branch transition is chosen.
@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  * 
  * A constraint ensures that all branchProbabilities of the included BranchTransitions sum up to 1.
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.EList;
  * Transitions Branch</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranch()
  * @model
  * @generated

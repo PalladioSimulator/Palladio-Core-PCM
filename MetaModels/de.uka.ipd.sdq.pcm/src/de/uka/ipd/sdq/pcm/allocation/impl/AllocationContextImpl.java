@@ -52,7 +52,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
  * <em>Event Channel Allocation Context</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class AllocationContextImpl extends EntityImpl implements AllocationContext {
@@ -64,7 +64,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getResourceContainer_AllocationContext()
+     * The cached value of the '{@link #getResourceContainer_AllocationContext()
      * <em>Resource Container Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      * 
@@ -122,20 +122,17 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public ResourceContainer getResourceContainer_AllocationContext() {
-        if (this.resourceContainer_AllocationContext != null
-                && ((EObject) this.resourceContainer_AllocationContext).eIsProxy()) {
-            final InternalEObject oldResourceContainer_AllocationContext = (InternalEObject) this.resourceContainer_AllocationContext;
-            this.resourceContainer_AllocationContext = (ResourceContainer) this
-                    .eResolveProxy(oldResourceContainer_AllocationContext);
-            if (this.resourceContainer_AllocationContext != oldResourceContainer_AllocationContext) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (resourceContainer_AllocationContext != null && ((EObject) resourceContainer_AllocationContext).eIsProxy()) {
+            InternalEObject oldResourceContainer_AllocationContext = (InternalEObject) resourceContainer_AllocationContext;
+            resourceContainer_AllocationContext = (ResourceContainer) eResolveProxy(oldResourceContainer_AllocationContext);
+            if (resourceContainer_AllocationContext != oldResourceContainer_AllocationContext) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
-                            oldResourceContainer_AllocationContext, this.resourceContainer_AllocationContext));
-                }
+                            oldResourceContainer_AllocationContext, resourceContainer_AllocationContext));
             }
         }
-        return this.resourceContainer_AllocationContext;
+        return resourceContainer_AllocationContext;
     }
 
     /**
@@ -144,7 +141,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     public ResourceContainer basicGetResourceContainer_AllocationContext() {
-        return this.resourceContainer_AllocationContext;
+        return resourceContainer_AllocationContext;
     }
 
     /**
@@ -153,14 +150,13 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public void setResourceContainer_AllocationContext(final ResourceContainer newResourceContainer_AllocationContext) {
-        final ResourceContainer oldResourceContainer_AllocationContext = this.resourceContainer_AllocationContext;
-        this.resourceContainer_AllocationContext = newResourceContainer_AllocationContext;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setResourceContainer_AllocationContext(ResourceContainer newResourceContainer_AllocationContext) {
+        ResourceContainer oldResourceContainer_AllocationContext = resourceContainer_AllocationContext;
+        resourceContainer_AllocationContext = newResourceContainer_AllocationContext;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
-                    oldResourceContainer_AllocationContext, this.resourceContainer_AllocationContext));
-        }
+                    oldResourceContainer_AllocationContext, resourceContainer_AllocationContext));
     }
 
     /**
@@ -170,20 +166,17 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public AssemblyContext getAssemblyContext_AllocationContext() {
-        if (this.assemblyContext_AllocationContext != null
-                && ((EObject) this.assemblyContext_AllocationContext).eIsProxy()) {
-            final InternalEObject oldAssemblyContext_AllocationContext = (InternalEObject) this.assemblyContext_AllocationContext;
-            this.assemblyContext_AllocationContext = (AssemblyContext) this
-                    .eResolveProxy(oldAssemblyContext_AllocationContext);
-            if (this.assemblyContext_AllocationContext != oldAssemblyContext_AllocationContext) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (assemblyContext_AllocationContext != null && ((EObject) assemblyContext_AllocationContext).eIsProxy()) {
+            InternalEObject oldAssemblyContext_AllocationContext = (InternalEObject) assemblyContext_AllocationContext;
+            assemblyContext_AllocationContext = (AssemblyContext) eResolveProxy(oldAssemblyContext_AllocationContext);
+            if (assemblyContext_AllocationContext != oldAssemblyContext_AllocationContext) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
-                            oldAssemblyContext_AllocationContext, this.assemblyContext_AllocationContext));
-                }
+                            oldAssemblyContext_AllocationContext, assemblyContext_AllocationContext));
             }
         }
-        return this.assemblyContext_AllocationContext;
+        return assemblyContext_AllocationContext;
     }
 
     /**
@@ -192,7 +185,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_AllocationContext() {
-        return this.assemblyContext_AllocationContext;
+        return assemblyContext_AllocationContext;
     }
 
     /**
@@ -201,14 +194,13 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public void setAssemblyContext_AllocationContext(final AssemblyContext newAssemblyContext_AllocationContext) {
-        final AssemblyContext oldAssemblyContext_AllocationContext = this.assemblyContext_AllocationContext;
-        this.assemblyContext_AllocationContext = newAssemblyContext_AllocationContext;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setAssemblyContext_AllocationContext(AssemblyContext newAssemblyContext_AllocationContext) {
+        AssemblyContext oldAssemblyContext_AllocationContext = assemblyContext_AllocationContext;
+        assemblyContext_AllocationContext = newAssemblyContext_AllocationContext;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
-                    oldAssemblyContext_AllocationContext, this.assemblyContext_AllocationContext));
-        }
+                    oldAssemblyContext_AllocationContext, assemblyContext_AllocationContext));
     }
 
     /**
@@ -218,10 +210,9 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public Allocation getAllocation_AllocationContext() {
-        if (this.eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT) {
+        if (eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT)
             return null;
-        }
-        return (Allocation) this.eInternalContainer();
+        return (Allocation) eInternalContainer();
     }
 
     /**
@@ -229,9 +220,9 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * 
      * @generated
      */
-    public NotificationChain basicSetAllocation_AllocationContext(final Allocation newAllocation_AllocationContext,
+    public NotificationChain basicSetAllocation_AllocationContext(Allocation newAllocation_AllocationContext,
             NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newAllocation_AllocationContext,
+        msgs = eBasicSetContainer((InternalEObject) newAllocation_AllocationContext,
                 AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT, msgs);
         return msgs;
     }
@@ -242,29 +233,24 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public void setAllocation_AllocationContext(final Allocation newAllocation_AllocationContext) {
-        if (newAllocation_AllocationContext != this.eInternalContainer()
-                || (this.eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT && newAllocation_AllocationContext != null)) {
-            if (EcoreUtil.isAncestor(this, newAllocation_AllocationContext)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setAllocation_AllocationContext(Allocation newAllocation_AllocationContext) {
+        if (newAllocation_AllocationContext != eInternalContainer()
+                || (eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT && newAllocation_AllocationContext != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newAllocation_AllocationContext))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAllocation_AllocationContext != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newAllocation_AllocationContext != null)
                 msgs = ((InternalEObject) newAllocation_AllocationContext).eInverseAdd(this,
                         AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION, Allocation.class, msgs);
-            }
-            msgs = this.basicSetAllocation_AllocationContext(newAllocation_AllocationContext, msgs);
-            if (msgs != null) {
+            msgs = basicSetAllocation_AllocationContext(newAllocation_AllocationContext, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT,
                     newAllocation_AllocationContext, newAllocation_AllocationContext));
-        }
     }
 
     /**
@@ -274,19 +260,17 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public EventChannel getEventChannel__AllocationContext() {
-        if (this.eventChannel__AllocationContext != null && ((EObject) this.eventChannel__AllocationContext).eIsProxy()) {
-            final InternalEObject oldEventChannel__AllocationContext = (InternalEObject) this.eventChannel__AllocationContext;
-            this.eventChannel__AllocationContext = (EventChannel) this
-                    .eResolveProxy(oldEventChannel__AllocationContext);
-            if (this.eventChannel__AllocationContext != oldEventChannel__AllocationContext) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (eventChannel__AllocationContext != null && ((EObject) eventChannel__AllocationContext).eIsProxy()) {
+            InternalEObject oldEventChannel__AllocationContext = (InternalEObject) eventChannel__AllocationContext;
+            eventChannel__AllocationContext = (EventChannel) eResolveProxy(oldEventChannel__AllocationContext);
+            if (eventChannel__AllocationContext != oldEventChannel__AllocationContext) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
-                            oldEventChannel__AllocationContext, this.eventChannel__AllocationContext));
-                }
+                            oldEventChannel__AllocationContext, eventChannel__AllocationContext));
             }
         }
-        return this.eventChannel__AllocationContext;
+        return eventChannel__AllocationContext;
     }
 
     /**
@@ -295,7 +279,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     public EventChannel basicGetEventChannel__AllocationContext() {
-        return this.eventChannel__AllocationContext;
+        return eventChannel__AllocationContext;
     }
 
     /**
@@ -304,14 +288,13 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public void setEventChannel__AllocationContext(final EventChannel newEventChannel__AllocationContext) {
-        final EventChannel oldEventChannel__AllocationContext = this.eventChannel__AllocationContext;
-        this.eventChannel__AllocationContext = newEventChannel__AllocationContext;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setEventChannel__AllocationContext(EventChannel newEventChannel__AllocationContext) {
+        EventChannel oldEventChannel__AllocationContext = eventChannel__AllocationContext;
+        eventChannel__AllocationContext = newEventChannel__AllocationContext;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
-                    oldEventChannel__AllocationContext, this.eventChannel__AllocationContext));
-        }
+                    oldEventChannel__AllocationContext, eventChannel__AllocationContext));
     }
 
     /**
@@ -346,15 +329,15 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public boolean OneAssemblyContextOrOneEventChannelShouldBeReferred(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean OneAssemblyContextOrOneEventChannelShouldBeReferred(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(AllocationPackage.Literals.ALLOCATION_CONTEXT);
             try {
                 ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -383,13 +366,12 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetAllocation_AllocationContext((Allocation) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetAllocation_AllocationContext((Allocation) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -400,11 +382,10 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
-            return this.basicSetAllocation_AllocationContext(null, msgs);
+            return basicSetAllocation_AllocationContext(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -415,10 +396,10 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION, Allocation.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -430,25 +411,22 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
-            if (resolve) {
-                return this.getResourceContainer_AllocationContext();
-            }
-            return this.basicGetResourceContainer_AllocationContext();
+            if (resolve)
+                return getResourceContainer_AllocationContext();
+            return basicGetResourceContainer_AllocationContext();
         case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-            if (resolve) {
-                return this.getAssemblyContext_AllocationContext();
-            }
-            return this.basicGetAssemblyContext_AllocationContext();
+            if (resolve)
+                return getAssemblyContext_AllocationContext();
+            return basicGetAssemblyContext_AllocationContext();
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
-            return this.getAllocation_AllocationContext();
+            return getAllocation_AllocationContext();
         case AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT:
-            if (resolve) {
-                return this.getEventChannel__AllocationContext();
-            }
-            return this.basicGetEventChannel__AllocationContext();
+            if (resolve)
+                return getEventChannel__AllocationContext();
+            return basicGetEventChannel__AllocationContext();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -459,19 +437,19 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
-            this.setResourceContainer_AllocationContext((ResourceContainer) newValue);
+            setResourceContainer_AllocationContext((ResourceContainer) newValue);
             return;
         case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-            this.setAssemblyContext_AllocationContext((AssemblyContext) newValue);
+            setAssemblyContext_AllocationContext((AssemblyContext) newValue);
             return;
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
-            this.setAllocation_AllocationContext((Allocation) newValue);
+            setAllocation_AllocationContext((Allocation) newValue);
             return;
         case AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT:
-            this.setEventChannel__AllocationContext((EventChannel) newValue);
+            setEventChannel__AllocationContext((EventChannel) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -483,19 +461,19 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
-            this.setResourceContainer_AllocationContext((ResourceContainer) null);
+            setResourceContainer_AllocationContext((ResourceContainer) null);
             return;
         case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-            this.setAssemblyContext_AllocationContext((AssemblyContext) null);
+            setAssemblyContext_AllocationContext((AssemblyContext) null);
             return;
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
-            this.setAllocation_AllocationContext((Allocation) null);
+            setAllocation_AllocationContext((Allocation) null);
             return;
         case AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT:
-            this.setEventChannel__AllocationContext((EventChannel) null);
+            setEventChannel__AllocationContext((EventChannel) null);
             return;
         }
         super.eUnset(featureID);
@@ -507,16 +485,16 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
-            return this.resourceContainer_AllocationContext != null;
+            return resourceContainer_AllocationContext != null;
         case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-            return this.assemblyContext_AllocationContext != null;
+            return assemblyContext_AllocationContext != null;
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
-            return this.getAllocation_AllocationContext() != null;
+            return getAllocation_AllocationContext() != null;
         case AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT:
-            return this.eventChannel__AllocationContext != null;
+            return eventChannel__AllocationContext != null;
         }
         return super.eIsSet(featureID);
     }

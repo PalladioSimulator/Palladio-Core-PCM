@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Demanding SEFF</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A resource demanding service effect specification (RDSEFF) is a special
  * type of SEFF designed for performance and reliability predictions. Besides dependencies between
  * provided and required services of a component, it additionally includes notions of resource
@@ -23,16 +23,15 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * construct lies in the fact, that ResourceDemandingBehaviours can be used recursively inside
  * themselves to describe loop bodies or branched behaviours (explained later), and these inner
  * behaviours should not be RDSEFFs themselves <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours <em>
- * Resource Demanding Internal Behaviours</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours
+ * <em>Resource Demanding Internal Behaviours</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingSEFF()
  * @model
  * @generated
@@ -46,8 +45,8 @@ public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecific
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Resource Demanding Internal Behaviours</b></em>'
-     * containment reference list. The list contents are of type
+     * Returns the value of the '<em><b>Resource Demanding Internal Behaviours</b></em>' containment
+     * reference list. The list contents are of type
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour}. It is bidirectional and
      * its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
@@ -59,7 +58,7 @@ public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecific
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Resource Demanding Internal Behaviours</em> ' containment
+     * @return the value of the '<em>Resource Demanding Internal Behaviours</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingSEFF_ResourceDemandingInternalBehaviours()
      * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour

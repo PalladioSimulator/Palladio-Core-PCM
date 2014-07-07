@@ -73,8 +73,8 @@ public class UsagemodelSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(EObject theEObject) {
+        return doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
@@ -84,12 +84,12 @@ public class UsagemodelSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
+    protected T doSwitch(EClass theEClass, EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
+            return doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -100,235 +100,185 @@ public class UsagemodelSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final int classifierID, final EObject theEObject) {
+    protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
         case UsagemodelPackage.WORKLOAD: {
-            final Workload workload = (Workload) theEObject;
-            T result = this.caseWorkload(workload);
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            Workload workload = (Workload) theEObject;
+            T result = caseWorkload(workload);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.USAGE_SCENARIO: {
-            final UsageScenario usageScenario = (UsageScenario) theEObject;
-            T result = this.caseUsageScenario(usageScenario);
-            if (result == null) {
-                result = this.caseEntity(usageScenario);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(usageScenario);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(usageScenario);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            UsageScenario usageScenario = (UsageScenario) theEObject;
+            T result = caseUsageScenario(usageScenario);
+            if (result == null)
+                result = caseEntity(usageScenario);
+            if (result == null)
+                result = caseIdentifier(usageScenario);
+            if (result == null)
+                result = caseNamedElement(usageScenario);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.USER_DATA: {
-            final UserData userData = (UserData) theEObject;
-            T result = this.caseUserData(userData);
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            UserData userData = (UserData) theEObject;
+            T result = caseUserData(userData);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.USAGE_MODEL: {
-            final UsageModel usageModel = (UsageModel) theEObject;
-            T result = this.caseUsageModel(usageModel);
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            UsageModel usageModel = (UsageModel) theEObject;
+            T result = caseUsageModel(usageModel);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: {
-            final EntryLevelSystemCall entryLevelSystemCall = (EntryLevelSystemCall) theEObject;
-            T result = this.caseEntryLevelSystemCall(entryLevelSystemCall);
-            if (result == null) {
-                result = this.caseAbstractUserAction(entryLevelSystemCall);
-            }
-            if (result == null) {
-                result = this.caseEntity(entryLevelSystemCall);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(entryLevelSystemCall);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(entryLevelSystemCall);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            EntryLevelSystemCall entryLevelSystemCall = (EntryLevelSystemCall) theEObject;
+            T result = caseEntryLevelSystemCall(entryLevelSystemCall);
+            if (result == null)
+                result = caseAbstractUserAction(entryLevelSystemCall);
+            if (result == null)
+                result = caseEntity(entryLevelSystemCall);
+            if (result == null)
+                result = caseIdentifier(entryLevelSystemCall);
+            if (result == null)
+                result = caseNamedElement(entryLevelSystemCall);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.ABSTRACT_USER_ACTION: {
-            final AbstractUserAction abstractUserAction = (AbstractUserAction) theEObject;
-            T result = this.caseAbstractUserAction(abstractUserAction);
-            if (result == null) {
-                result = this.caseEntity(abstractUserAction);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(abstractUserAction);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(abstractUserAction);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            AbstractUserAction abstractUserAction = (AbstractUserAction) theEObject;
+            T result = caseAbstractUserAction(abstractUserAction);
+            if (result == null)
+                result = caseEntity(abstractUserAction);
+            if (result == null)
+                result = caseIdentifier(abstractUserAction);
+            if (result == null)
+                result = caseNamedElement(abstractUserAction);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.SCENARIO_BEHAVIOUR: {
-            final ScenarioBehaviour scenarioBehaviour = (ScenarioBehaviour) theEObject;
-            T result = this.caseScenarioBehaviour(scenarioBehaviour);
-            if (result == null) {
-                result = this.caseEntity(scenarioBehaviour);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(scenarioBehaviour);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(scenarioBehaviour);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            ScenarioBehaviour scenarioBehaviour = (ScenarioBehaviour) theEObject;
+            T result = caseScenarioBehaviour(scenarioBehaviour);
+            if (result == null)
+                result = caseEntity(scenarioBehaviour);
+            if (result == null)
+                result = caseIdentifier(scenarioBehaviour);
+            if (result == null)
+                result = caseNamedElement(scenarioBehaviour);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.BRANCH_TRANSITION: {
-            final BranchTransition branchTransition = (BranchTransition) theEObject;
-            T result = this.caseBranchTransition(branchTransition);
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            BranchTransition branchTransition = (BranchTransition) theEObject;
+            T result = caseBranchTransition(branchTransition);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.BRANCH: {
-            final Branch branch = (Branch) theEObject;
-            T result = this.caseBranch(branch);
-            if (result == null) {
-                result = this.caseAbstractUserAction(branch);
-            }
-            if (result == null) {
-                result = this.caseEntity(branch);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(branch);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(branch);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            Branch branch = (Branch) theEObject;
+            T result = caseBranch(branch);
+            if (result == null)
+                result = caseAbstractUserAction(branch);
+            if (result == null)
+                result = caseEntity(branch);
+            if (result == null)
+                result = caseIdentifier(branch);
+            if (result == null)
+                result = caseNamedElement(branch);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.LOOP: {
-            final Loop loop = (Loop) theEObject;
-            T result = this.caseLoop(loop);
-            if (result == null) {
-                result = this.caseAbstractUserAction(loop);
-            }
-            if (result == null) {
-                result = this.caseEntity(loop);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(loop);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(loop);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            Loop loop = (Loop) theEObject;
+            T result = caseLoop(loop);
+            if (result == null)
+                result = caseAbstractUserAction(loop);
+            if (result == null)
+                result = caseEntity(loop);
+            if (result == null)
+                result = caseIdentifier(loop);
+            if (result == null)
+                result = caseNamedElement(loop);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.STOP: {
-            final Stop stop = (Stop) theEObject;
-            T result = this.caseStop(stop);
-            if (result == null) {
-                result = this.caseAbstractUserAction(stop);
-            }
-            if (result == null) {
-                result = this.caseEntity(stop);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(stop);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(stop);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            Stop stop = (Stop) theEObject;
+            T result = caseStop(stop);
+            if (result == null)
+                result = caseAbstractUserAction(stop);
+            if (result == null)
+                result = caseEntity(stop);
+            if (result == null)
+                result = caseIdentifier(stop);
+            if (result == null)
+                result = caseNamedElement(stop);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.START: {
-            final Start start = (Start) theEObject;
-            T result = this.caseStart(start);
-            if (result == null) {
-                result = this.caseAbstractUserAction(start);
-            }
-            if (result == null) {
-                result = this.caseEntity(start);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(start);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(start);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            Start start = (Start) theEObject;
+            T result = caseStart(start);
+            if (result == null)
+                result = caseAbstractUserAction(start);
+            if (result == null)
+                result = caseEntity(start);
+            if (result == null)
+                result = caseIdentifier(start);
+            if (result == null)
+                result = caseNamedElement(start);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.OPEN_WORKLOAD: {
-            final OpenWorkload openWorkload = (OpenWorkload) theEObject;
-            T result = this.caseOpenWorkload(openWorkload);
-            if (result == null) {
-                result = this.caseWorkload(openWorkload);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            OpenWorkload openWorkload = (OpenWorkload) theEObject;
+            T result = caseOpenWorkload(openWorkload);
+            if (result == null)
+                result = caseWorkload(openWorkload);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.DELAY: {
-            final Delay delay = (Delay) theEObject;
-            T result = this.caseDelay(delay);
-            if (result == null) {
-                result = this.caseAbstractUserAction(delay);
-            }
-            if (result == null) {
-                result = this.caseEntity(delay);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(delay);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(delay);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            Delay delay = (Delay) theEObject;
+            T result = caseDelay(delay);
+            if (result == null)
+                result = caseAbstractUserAction(delay);
+            if (result == null)
+                result = caseEntity(delay);
+            if (result == null)
+                result = caseIdentifier(delay);
+            if (result == null)
+                result = caseNamedElement(delay);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case UsagemodelPackage.CLOSED_WORKLOAD: {
-            final ClosedWorkload closedWorkload = (ClosedWorkload) theEObject;
-            T result = this.caseClosedWorkload(closedWorkload);
-            if (result == null) {
-                result = this.caseWorkload(closedWorkload);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            ClosedWorkload closedWorkload = (ClosedWorkload) theEObject;
+            T result = caseClosedWorkload(closedWorkload);
+            if (result == null)
+                result = caseWorkload(closedWorkload);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         default:
-            return this.defaultCase(theEObject);
+            return defaultCase(theEObject);
         }
     }
 
@@ -343,38 +293,38 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseWorkload(final Workload object) {
+    public T caseWorkload(Workload object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Usage Scenario</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Usage Scenario</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Usage Scenario</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Usage Scenario</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseUsageScenario(final UsageScenario object) {
+    public T caseUsageScenario(UsageScenario object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Scenario Behaviour</em>
+     * Returns the result of interpreting the object as an instance of '<em>Scenario Behaviour</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Scenario Behaviour</em>
+     * @return the result of interpreting the object as an instance of '<em>Scenario Behaviour</em>
      *         '.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseScenarioBehaviour(final ScenarioBehaviour object) {
+    public T caseScenarioBehaviour(ScenarioBehaviour object) {
         return null;
     }
 
@@ -390,23 +340,22 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractUserAction(final AbstractUserAction object) {
+    public T caseAbstractUserAction(AbstractUserAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Branch Transition</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * Returns the result of interpreting the object as an instance of '<em>Branch Transition</em>'.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Branch Transition</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Branch Transition</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBranchTransition(final BranchTransition object) {
+    public T caseBranchTransition(BranchTransition object) {
         return null;
     }
 
@@ -421,7 +370,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBranch(final Branch object) {
+    public T caseBranch(Branch object) {
         return null;
     }
 
@@ -436,7 +385,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLoop(final Loop object) {
+    public T caseLoop(Loop object) {
         return null;
     }
 
@@ -451,7 +400,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseUsageModel(final UsageModel object) {
+    public T caseUsageModel(UsageModel object) {
         return null;
     }
 
@@ -466,7 +415,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStop(final Stop object) {
+    public T caseStop(Stop object) {
         return null;
     }
 
@@ -481,22 +430,22 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStart(final Start object) {
+    public T caseStart(Start object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Open Workload</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Open Workload</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Open Workload</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Open Workload</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseOpenWorkload(final OpenWorkload object) {
+    public T caseOpenWorkload(OpenWorkload object) {
         return null;
     }
 
@@ -512,22 +461,22 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEntryLevelSystemCall(final EntryLevelSystemCall object) {
+    public T caseEntryLevelSystemCall(EntryLevelSystemCall object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Closed Workload</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Closed Workload</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Closed Workload</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Closed Workload</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseClosedWorkload(final ClosedWorkload object) {
+    public T caseClosedWorkload(ClosedWorkload object) {
         return null;
     }
 
@@ -542,7 +491,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseDelay(final Delay object) {
+    public T caseDelay(Delay object) {
         return null;
     }
 
@@ -557,7 +506,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseUserData(final UserData object) {
+    public T caseUserData(UserData object) {
         return null;
     }
 
@@ -572,22 +521,22 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIdentifier(final Identifier object) {
+    public T caseIdentifier(Identifier object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Named Element</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Named Element</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNamedElement(final NamedElement object) {
+    public T caseNamedElement(NamedElement object) {
         return null;
     }
 
@@ -602,7 +551,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEntity(final Entity object) {
+    public T caseEntity(Entity object) {
         return null;
     }
 
@@ -617,7 +566,7 @@ public class UsagemodelSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(final EObject object) {
+    public T defaultCase(EObject object) {
         return null;
     }
 

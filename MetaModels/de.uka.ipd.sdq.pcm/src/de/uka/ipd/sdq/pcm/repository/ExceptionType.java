@@ -10,19 +10,18 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Exception Type</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> This entity represents a type of an exception. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName <em> Exception Name</em>}
- * </li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName <em>Exception Name</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage <em>Exception Message
  * </em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getExceptionType()
  * @model
  * @extends EStereotypableObject
@@ -51,7 +50,7 @@ public interface ExceptionType extends EStereotypableObject {
     String getExceptionName();
 
     /**
-     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName
      * <em>Exception Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

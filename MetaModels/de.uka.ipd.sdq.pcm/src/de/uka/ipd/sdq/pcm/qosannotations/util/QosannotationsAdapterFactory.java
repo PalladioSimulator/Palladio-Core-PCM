@@ -60,7 +60,7 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public boolean isFactoryForType(final Object object) {
+    public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -78,38 +78,38 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
      */
     protected QosannotationsSwitch<Adapter> modelSwitch = new QosannotationsSwitch<Adapter>() {
         @Override
-        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
-            return QosannotationsAdapterFactory.this.createSpecifiedQoSAnnotationAdapter();
+        public Adapter caseSpecifiedQoSAnnotation(SpecifiedQoSAnnotation object) {
+            return createSpecifiedQoSAnnotationAdapter();
         }
 
         @Override
-        public Adapter caseQoSAnnotations(final QoSAnnotations object) {
-            return QosannotationsAdapterFactory.this.createQoSAnnotationsAdapter();
+        public Adapter caseQoSAnnotations(QoSAnnotations object) {
+            return createQoSAnnotationsAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedOutputParameterAbstraction(final SpecifiedOutputParameterAbstraction object) {
-            return QosannotationsAdapterFactory.this.createSpecifiedOutputParameterAbstractionAdapter();
+        public Adapter caseSpecifiedOutputParameterAbstraction(SpecifiedOutputParameterAbstraction object) {
+            return createSpecifiedOutputParameterAbstractionAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
-            return QosannotationsAdapterFactory.this.createIdentifierAdapter();
+        public Adapter caseIdentifier(Identifier object) {
+            return createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
-            return QosannotationsAdapterFactory.this.createNamedElementAdapter();
+        public Adapter caseNamedElement(NamedElement object) {
+            return createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
-            return QosannotationsAdapterFactory.this.createEntityAdapter();
+        public Adapter caseEntity(Entity object) {
+            return createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
-            return QosannotationsAdapterFactory.this.createEObjectAdapter();
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
         }
     };
 
@@ -122,8 +122,8 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     @Override
-    public Adapter createAdapter(final Notifier target) {
-        return this.modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(Notifier target) {
+        return modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -172,7 +172,7 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.identifier.Identifier
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
@@ -201,7 +201,7 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class ' {@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->

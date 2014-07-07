@@ -35,12 +35,12 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      */
     public static SeffPerformanceFactory init() {
         try {
-            final SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory) EPackage.Registry.INSTANCE
+            SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SeffPerformancePackage.eNS_URI);
             if (theSeffPerformanceFactory != null) {
                 return theSeffPerformanceFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffPerformanceFactoryImpl();
@@ -61,14 +61,14 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL:
-            return this.createInfrastructureCall();
+            return (EObject) createInfrastructureCall();
         case SeffPerformancePackage.RESOURCE_CALL:
-            return this.createResourceCall();
+            return (EObject) createResourceCall();
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND:
-            return this.createParametricResourceDemand();
+            return (EObject) createParametricResourceDemand();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -81,7 +81,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      */
     @Override
     public InfrastructureCall createInfrastructureCall() {
-        final InfrastructureCallImpl infrastructureCall = new InfrastructureCallImpl();
+        InfrastructureCallImpl infrastructureCall = new InfrastructureCallImpl();
         return infrastructureCall;
     }
 
@@ -92,7 +92,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      */
     @Override
     public ResourceCall createResourceCall() {
-        final ResourceCallImpl resourceCall = new ResourceCallImpl();
+        ResourceCallImpl resourceCall = new ResourceCallImpl();
         return resourceCall;
     }
 
@@ -103,7 +103,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      */
     @Override
     public ParametricResourceDemand createParametricResourceDemand() {
-        final ParametricResourceDemandImpl parametricResourceDemand = new ParametricResourceDemandImpl();
+        ParametricResourceDemandImpl parametricResourceDemand = new ParametricResourceDemandImpl();
         return parametricResourceDemand;
     }
 
@@ -114,7 +114,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      */
     @Override
     public SeffPerformancePackage getSeffPerformancePackage() {
-        return (SeffPerformancePackage) this.getEPackage();
+        return (SeffPerformancePackage) getEPackage();
     }
 
     /**

@@ -60,8 +60,8 @@ public class AllocationSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(EObject theEObject) {
+        return doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
@@ -71,12 +71,12 @@ public class AllocationSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
+    protected T doSwitch(EClass theEClass, EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
+            return doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -87,44 +87,36 @@ public class AllocationSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final int classifierID, final EObject theEObject) {
+    protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
         case AllocationPackage.ALLOCATION_CONTEXT: {
-            final AllocationContext allocationContext = (AllocationContext) theEObject;
-            T result = this.caseAllocationContext(allocationContext);
-            if (result == null) {
-                result = this.caseEntity(allocationContext);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(allocationContext);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(allocationContext);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            AllocationContext allocationContext = (AllocationContext) theEObject;
+            T result = caseAllocationContext(allocationContext);
+            if (result == null)
+                result = caseEntity(allocationContext);
+            if (result == null)
+                result = caseIdentifier(allocationContext);
+            if (result == null)
+                result = caseNamedElement(allocationContext);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         case AllocationPackage.ALLOCATION: {
-            final Allocation allocation = (Allocation) theEObject;
-            T result = this.caseAllocation(allocation);
-            if (result == null) {
-                result = this.caseEntity(allocation);
-            }
-            if (result == null) {
-                result = this.caseIdentifier(allocation);
-            }
-            if (result == null) {
-                result = this.caseNamedElement(allocation);
-            }
-            if (result == null) {
-                result = this.defaultCase(theEObject);
-            }
+            Allocation allocation = (Allocation) theEObject;
+            T result = caseAllocation(allocation);
+            if (result == null)
+                result = caseEntity(allocation);
+            if (result == null)
+                result = caseIdentifier(allocation);
+            if (result == null)
+                result = caseNamedElement(allocation);
+            if (result == null)
+                result = defaultCase(theEObject);
             return result;
         }
         default:
-            return this.defaultCase(theEObject);
+            return defaultCase(theEObject);
         }
     }
 
@@ -139,7 +131,7 @@ public class AllocationSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAllocationContext(final AllocationContext object) {
+    public T caseAllocationContext(AllocationContext object) {
         return null;
     }
 
@@ -154,7 +146,7 @@ public class AllocationSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAllocation(final Allocation object) {
+    public T caseAllocation(Allocation object) {
         return null;
     }
 
@@ -169,22 +161,22 @@ public class AllocationSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIdentifier(final Identifier object) {
+    public T caseIdentifier(Identifier object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of ' <em>Named Element</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
      * 
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of ' <em>Named Element</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNamedElement(final NamedElement object) {
+    public T caseNamedElement(NamedElement object) {
         return null;
     }
 
@@ -199,7 +191,7 @@ public class AllocationSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEntity(final Entity object) {
+    public T caseEntity(Entity object) {
         return null;
     }
 
@@ -214,7 +206,7 @@ public class AllocationSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(final EObject object) {
+    public T defaultCase(EObject object) {
         return null;
     }
 

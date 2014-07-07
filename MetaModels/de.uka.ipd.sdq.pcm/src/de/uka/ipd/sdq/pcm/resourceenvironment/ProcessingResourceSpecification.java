@@ -13,19 +13,17 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Processing Resource Specification</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Performance specification of processing resources (e.g. processing rate,
  * scheduling policy) <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR
- * </em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF
- * </em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>
+ * MTTR</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>
+ * MTTF</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer
  * <em>Required By Container</em>}</li>
@@ -46,7 +44,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
  * <em>Resource Container Processing Resource Specification</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification()
  * @model
  * @generated
@@ -179,15 +177,15 @@ public interface ProcessingResourceSpecification extends Identifier {
     void setSchedulingPolicy(SchedulingPolicy value);
 
     /**
-     * Returns the value of the ' <em><b>Active Resource Type Active Resource Specification</b></em>
-     * ' reference. <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Active Resource Type Active Resource Specification</b></em>'
+     * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the ' <em>Active Resource Type Active Resource Specification</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Active Resource Type Active Resource Specification</em>'
+     * @return the value of the '<em>Active Resource Type Active Resource Specification</em>'
      *         reference.
      * @see #setActiveResourceType_ActiveResourceSpecification(ProcessingResourceType)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification()
@@ -203,8 +201,8 @@ public interface ProcessingResourceSpecification extends Identifier {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Active Resource Type Active Resource Specification</em>
-     *            ' reference.
+     *            the new value of the '<em>Active Resource Type Active Resource Specification</em>'
+     *            reference.
      * @see #getActiveResourceType_ActiveResourceSpecification()
      * @generated
      */
@@ -292,7 +290,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Resource Container Processing Resource Specification</em>'
+     * @return the value of the '<em>Resource Container Processing Resource Specification</em>'
      *         container reference.
      * @see #setResourceContainer_ProcessingResourceSpecification(ResourceContainer)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification()

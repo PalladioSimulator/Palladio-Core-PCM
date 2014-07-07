@@ -64,7 +64,7 @@ public interface AllocationPackage extends EPackage {
     AllocationPackage eINSTANCE = de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl.init();
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl
      * <em>Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl
@@ -92,7 +92,7 @@ public interface AllocationPackage extends EPackage {
     int ALLOCATION_CONTEXT__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Resource Container Allocation Context</b></em>' reference.
+     * The feature id for the '<em><b>Resource Container Allocation Context</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -137,7 +137,7 @@ public interface AllocationPackage extends EPackage {
     int ALLOCATION_CONTEXT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl
      * <em>Allocation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl
@@ -165,7 +165,7 @@ public interface AllocationPackage extends EPackage {
     int ALLOCATION__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Target Resource Environment Allocation</b></em>' reference.
+     * The feature id for the '<em><b>Target Resource Environment Allocation</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -201,8 +201,8 @@ public interface AllocationPackage extends EPackage {
     int ALLOCATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext
-     * <em>Context</em>} '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext
+     * <em>Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext
@@ -228,7 +228,7 @@ public interface AllocationPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
      * <em>Assembly Context Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference ' <em>Assembly Context Allocation Context</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Allocation Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext()
      * @see #getAllocationContext()
      * @generated
@@ -240,8 +240,7 @@ public interface AllocationPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
      * <em>Allocation Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the container reference ' <em>Allocation Allocation Context</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Allocation Allocation Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext()
      * @see #getAllocationContext()
      * @generated
@@ -253,7 +252,7 @@ public interface AllocationPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
      * <em>Event Channel Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
-     * @return the meta object for the reference ' <em>Event Channel Allocation Context</em>'.
+     * @return the meta object for the reference '<em>Event Channel Allocation Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext()
      * @see #getAllocationContext()
      * @generated
@@ -261,7 +260,7 @@ public interface AllocationPackage extends EPackage {
     EReference getAllocationContext_EventChannel__AllocationContext();
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.allocation.Allocation
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.Allocation
      * <em>Allocation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Allocation</em>'.
@@ -342,7 +341,7 @@ public interface AllocationPackage extends EPackage {
         EClass ALLOCATION_CONTEXT = eINSTANCE.getAllocationContext();
 
         /**
-         * The meta object literal for the ' <em><b>Resource Container Allocation Context</b></em>'
+         * The meta object literal for the '<em><b>Resource Container Allocation Context</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -351,7 +350,7 @@ public interface AllocationPackage extends EPackage {
                 .getAllocationContext_ResourceContainer_AllocationContext();
 
         /**
-         * The meta object literal for the ' <em><b>Assembly Context Allocation Context</b></em>'
+         * The meta object literal for the '<em><b>Assembly Context Allocation Context</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -360,8 +359,8 @@ public interface AllocationPackage extends EPackage {
                 .getAllocationContext_AssemblyContext_AllocationContext();
 
         /**
-         * The meta object literal for the ' <em><b>Allocation Allocation Context</b></em>'
-         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Allocation Allocation Context</b></em>' container
+         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
          */
@@ -369,7 +368,7 @@ public interface AllocationPackage extends EPackage {
                 .getAllocationContext_Allocation_AllocationContext();
 
         /**
-         * The meta object literal for the ' <em><b>Event Channel Allocation Context</b></em>'
+         * The meta object literal for the '<em><b>Event Channel Allocation Context</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -389,7 +388,7 @@ public interface AllocationPackage extends EPackage {
         EClass ALLOCATION = eINSTANCE.getAllocation();
 
         /**
-         * The meta object literal for the ' <em><b>Target Resource Environment Allocation</b></em>'
+         * The meta object literal for the '<em><b>Target Resource Environment Allocation</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated
@@ -406,7 +405,7 @@ public interface AllocationPackage extends EPackage {
         EReference ALLOCATION__SYSTEM_ALLOCATION = eINSTANCE.getAllocation_System_Allocation();
 
         /**
-         * The meta object literal for the ' <em><b>Allocation Contexts Allocation</b></em>'
+         * The meta object literal for the '<em><b>Allocation Contexts Allocation</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @generated

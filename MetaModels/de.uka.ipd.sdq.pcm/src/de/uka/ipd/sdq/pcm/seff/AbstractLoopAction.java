@@ -8,13 +8,13 @@ package de.uka.ipd.sdq.pcm.seff;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Abstract Loop Action</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc -->
  * <p>
  * Abstract parent class of any loop (e.g. LoopAction)
  * </p>
  * <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -22,7 +22,7 @@ package de.uka.ipd.sdq.pcm.seff;
  * Loop</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractLoopAction()
  * @model abstract="true"
  * @generated

@@ -26,12 +26,11 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl#getInputVariableUsages__CallAction <em>Input
- * Variable Usages Call Action</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.CallActionImpl#getInputVariableUsages__CallAction <em>
+ * Input Variable Usages Call Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class CallActionImpl extends EStereotypableObjectImpl implements CallAction {
@@ -79,12 +78,12 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      */
     @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
-        if (this.inputVariableUsages__CallAction == null) {
-            this.inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
+        if (inputVariableUsages__CallAction == null) {
+            inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
                     VariableUsage.class, this, SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
                     ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE);
         }
-        return this.inputVariableUsages__CallAction;
+        return inputVariableUsages__CallAction;
     }
 
     /**
@@ -94,12 +93,11 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInputVariableUsages__CallAction())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getInputVariableUsages__CallAction()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -110,11 +108,10 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return ((InternalEList<?>) this.getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -125,10 +122,10 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return this.getInputVariableUsages__CallAction();
+            return getInputVariableUsages__CallAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -140,11 +137,11 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            this.getInputVariableUsages__CallAction().clear();
-            this.getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
+            getInputVariableUsages__CallAction().clear();
+            getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -156,10 +153,10 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            this.getInputVariableUsages__CallAction().clear();
+            getInputVariableUsages__CallAction().clear();
             return;
         }
         super.eUnset(featureID);
@@ -171,10 +168,10 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return this.inputVariableUsages__CallAction != null && !this.inputVariableUsages__CallAction.isEmpty();
+            return inputVariableUsages__CallAction != null && !inputVariableUsages__CallAction.isEmpty();
         }
         return super.eIsSet(featureID);
     }

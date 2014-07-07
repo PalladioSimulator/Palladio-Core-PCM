@@ -13,30 +13,27 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Repository</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> The repository entity allows storing components, data types, and
  * interfaces to be fetched and reused for construction of component instances as well as new
  * component types. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryDescription <em>Repository
  * Description</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components
  * Repository</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces
  * Repository</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.Repository#getFailureTypes__Repository <em>Failure Types
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getFailureTypes__Repository <em>Failure Types
  * Repository</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getDataTypes__Repository <em>Data Types
  * Repository</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository()
  * @model
  * @generated

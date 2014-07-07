@@ -10,18 +10,18 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Named Element</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> The NamedElement meta class is inherited by all PCM classes whose
  * instances bear a name. Thus, the semantic of "bearing a name" is given to all inheriting classes,
  * so that the name can be used in visualisations, for example. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName <em> Entity Name</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName <em>Entity Name</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement()
  * @model abstract="true"
  * @extends EStereotypableObject
@@ -53,7 +53,7 @@ public interface NamedElement extends EStereotypableObject {
     String getEntityName();
 
     /**
-     * Sets the value of the ' {@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName
      * <em>Entity Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value

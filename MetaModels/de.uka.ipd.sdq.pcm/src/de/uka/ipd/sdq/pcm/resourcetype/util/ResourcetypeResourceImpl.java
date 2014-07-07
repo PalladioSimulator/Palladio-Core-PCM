@@ -29,7 +29,7 @@ public class ResourcetypeResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public ResourcetypeResourceImpl(final URI uri) {
+    public ResourcetypeResourceImpl(URI uri) {
         super(uri);
     }
 

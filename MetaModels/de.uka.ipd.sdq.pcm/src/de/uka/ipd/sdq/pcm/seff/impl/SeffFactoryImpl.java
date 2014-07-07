@@ -55,12 +55,11 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     public static SeffFactory init() {
         try {
-            final SeffFactory theSeffFactory = (SeffFactory) EPackage.Registry.INSTANCE
-                    .getEFactory(SeffPackage.eNS_URI);
+            SeffFactory theSeffFactory = (SeffFactory) EPackage.Registry.INSTANCE.getEFactory(SeffPackage.eNS_URI);
             if (theSeffFactory != null) {
                 return theSeffFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffFactoryImpl();
@@ -81,50 +80,50 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case SeffPackage.STOP_ACTION:
-            return this.createStopAction();
+            return (EObject) createStopAction();
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR:
-            return this.createResourceDemandingBehaviour();
+            return (EObject) createResourceDemandingBehaviour();
         case SeffPackage.BRANCH_ACTION:
-            return this.createBranchAction();
+            return (EObject) createBranchAction();
         case SeffPackage.START_ACTION:
-            return this.createStartAction();
+            return (EObject) createStartAction();
         case SeffPackage.RESOURCE_DEMANDING_SEFF:
-            return this.createResourceDemandingSEFF();
+            return (EObject) createResourceDemandingSEFF();
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
-            return this.createResourceDemandingInternalBehaviour();
+            return (EObject) createResourceDemandingInternalBehaviour();
         case SeffPackage.RELEASE_ACTION:
-            return this.createReleaseAction();
+            return (EObject) createReleaseAction();
         case SeffPackage.LOOP_ACTION:
-            return this.createLoopAction();
+            return (EObject) createLoopAction();
         case SeffPackage.FORK_ACTION:
-            return this.createForkAction();
+            return (EObject) createForkAction();
         case SeffPackage.FORKED_BEHAVIOUR:
-            return this.createForkedBehaviour();
+            return (EObject) createForkedBehaviour();
         case SeffPackage.SYNCHRONISATION_POINT:
-            return this.createSynchronisationPoint();
+            return (EObject) createSynchronisationPoint();
         case SeffPackage.EXTERNAL_CALL_ACTION:
-            return this.createExternalCallAction();
+            return (EObject) createExternalCallAction();
         case SeffPackage.CALL_RETURN_ACTION:
-            return this.createCallReturnAction();
+            return (EObject) createCallReturnAction();
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION:
-            return this.createProbabilisticBranchTransition();
+            return (EObject) createProbabilisticBranchTransition();
         case SeffPackage.ACQUIRE_ACTION:
-            return this.createAcquireAction();
+            return (EObject) createAcquireAction();
         case SeffPackage.COLLECTION_ITERATOR_ACTION:
-            return this.createCollectionIteratorAction();
+            return (EObject) createCollectionIteratorAction();
         case SeffPackage.GUARDED_BRANCH_TRANSITION:
-            return this.createGuardedBranchTransition();
+            return (EObject) createGuardedBranchTransition();
         case SeffPackage.SET_VARIABLE_ACTION:
-            return this.createSetVariableAction();
+            return (EObject) createSetVariableAction();
         case SeffPackage.INTERNAL_CALL_ACTION:
-            return this.createInternalCallAction();
+            return (EObject) createInternalCallAction();
         case SeffPackage.EMIT_EVENT_ACTION:
-            return this.createEmitEventAction();
+            return (EObject) createEmitEventAction();
         case SeffPackage.INTERNAL_ACTION:
-            return this.createInternalAction();
+            return (EObject) createInternalAction();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -137,7 +136,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public StopAction createStopAction() {
-        final StopActionImpl stopAction = new StopActionImpl();
+        StopActionImpl stopAction = new StopActionImpl();
         return stopAction;
     }
 
@@ -148,7 +147,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ResourceDemandingBehaviour createResourceDemandingBehaviour() {
-        final ResourceDemandingBehaviourImpl resourceDemandingBehaviour = new ResourceDemandingBehaviourImpl();
+        ResourceDemandingBehaviourImpl resourceDemandingBehaviour = new ResourceDemandingBehaviourImpl();
         return resourceDemandingBehaviour;
     }
 
@@ -159,7 +158,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public BranchAction createBranchAction() {
-        final BranchActionImpl branchAction = new BranchActionImpl();
+        BranchActionImpl branchAction = new BranchActionImpl();
         return branchAction;
     }
 
@@ -170,7 +169,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public StartAction createStartAction() {
-        final StartActionImpl startAction = new StartActionImpl();
+        StartActionImpl startAction = new StartActionImpl();
         return startAction;
     }
 
@@ -181,7 +180,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ResourceDemandingSEFF createResourceDemandingSEFF() {
-        final ResourceDemandingSEFFImpl resourceDemandingSEFF = new ResourceDemandingSEFFImpl();
+        ResourceDemandingSEFFImpl resourceDemandingSEFF = new ResourceDemandingSEFFImpl();
         return resourceDemandingSEFF;
     }
 
@@ -192,7 +191,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ResourceDemandingInternalBehaviour createResourceDemandingInternalBehaviour() {
-        final ResourceDemandingInternalBehaviourImpl resourceDemandingInternalBehaviour = new ResourceDemandingInternalBehaviourImpl();
+        ResourceDemandingInternalBehaviourImpl resourceDemandingInternalBehaviour = new ResourceDemandingInternalBehaviourImpl();
         return resourceDemandingInternalBehaviour;
     }
 
@@ -203,7 +202,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ReleaseAction createReleaseAction() {
-        final ReleaseActionImpl releaseAction = new ReleaseActionImpl();
+        ReleaseActionImpl releaseAction = new ReleaseActionImpl();
         return releaseAction;
     }
 
@@ -214,7 +213,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public LoopAction createLoopAction() {
-        final LoopActionImpl loopAction = new LoopActionImpl();
+        LoopActionImpl loopAction = new LoopActionImpl();
         return loopAction;
     }
 
@@ -225,7 +224,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public InternalAction createInternalAction() {
-        final InternalActionImpl internalAction = new InternalActionImpl();
+        InternalActionImpl internalAction = new InternalActionImpl();
         return internalAction;
     }
 
@@ -236,7 +235,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ForkAction createForkAction() {
-        final ForkActionImpl forkAction = new ForkActionImpl();
+        ForkActionImpl forkAction = new ForkActionImpl();
         return forkAction;
     }
 
@@ -247,7 +246,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ForkedBehaviour createForkedBehaviour() {
-        final ForkedBehaviourImpl forkedBehaviour = new ForkedBehaviourImpl();
+        ForkedBehaviourImpl forkedBehaviour = new ForkedBehaviourImpl();
         return forkedBehaviour;
     }
 
@@ -258,7 +257,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public SynchronisationPoint createSynchronisationPoint() {
-        final SynchronisationPointImpl synchronisationPoint = new SynchronisationPointImpl();
+        SynchronisationPointImpl synchronisationPoint = new SynchronisationPointImpl();
         return synchronisationPoint;
     }
 
@@ -269,7 +268,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ExternalCallAction createExternalCallAction() {
-        final ExternalCallActionImpl externalCallAction = new ExternalCallActionImpl();
+        ExternalCallActionImpl externalCallAction = new ExternalCallActionImpl();
         return externalCallAction;
     }
 
@@ -280,7 +279,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public CallReturnAction createCallReturnAction() {
-        final CallReturnActionImpl callReturnAction = new CallReturnActionImpl();
+        CallReturnActionImpl callReturnAction = new CallReturnActionImpl();
         return callReturnAction;
     }
 
@@ -291,7 +290,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public ProbabilisticBranchTransition createProbabilisticBranchTransition() {
-        final ProbabilisticBranchTransitionImpl probabilisticBranchTransition = new ProbabilisticBranchTransitionImpl();
+        ProbabilisticBranchTransitionImpl probabilisticBranchTransition = new ProbabilisticBranchTransitionImpl();
         return probabilisticBranchTransition;
     }
 
@@ -302,7 +301,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public AcquireAction createAcquireAction() {
-        final AcquireActionImpl acquireAction = new AcquireActionImpl();
+        AcquireActionImpl acquireAction = new AcquireActionImpl();
         return acquireAction;
     }
 
@@ -313,7 +312,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public CollectionIteratorAction createCollectionIteratorAction() {
-        final CollectionIteratorActionImpl collectionIteratorAction = new CollectionIteratorActionImpl();
+        CollectionIteratorActionImpl collectionIteratorAction = new CollectionIteratorActionImpl();
         return collectionIteratorAction;
     }
 
@@ -324,7 +323,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public GuardedBranchTransition createGuardedBranchTransition() {
-        final GuardedBranchTransitionImpl guardedBranchTransition = new GuardedBranchTransitionImpl();
+        GuardedBranchTransitionImpl guardedBranchTransition = new GuardedBranchTransitionImpl();
         return guardedBranchTransition;
     }
 
@@ -335,7 +334,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public SetVariableAction createSetVariableAction() {
-        final SetVariableActionImpl setVariableAction = new SetVariableActionImpl();
+        SetVariableActionImpl setVariableAction = new SetVariableActionImpl();
         return setVariableAction;
     }
 
@@ -346,7 +345,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public InternalCallAction createInternalCallAction() {
-        final InternalCallActionImpl internalCallAction = new InternalCallActionImpl();
+        InternalCallActionImpl internalCallAction = new InternalCallActionImpl();
         return internalCallAction;
     }
 
@@ -357,7 +356,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public EmitEventAction createEmitEventAction() {
-        final EmitEventActionImpl emitEventAction = new EmitEventActionImpl();
+        EmitEventActionImpl emitEventAction = new EmitEventActionImpl();
         return emitEventAction;
     }
 
@@ -368,7 +367,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public SeffPackage getSeffPackage() {
-        return (SeffPackage) this.getEPackage();
+        return (SeffPackage) getEPackage();
     }
 
     /**

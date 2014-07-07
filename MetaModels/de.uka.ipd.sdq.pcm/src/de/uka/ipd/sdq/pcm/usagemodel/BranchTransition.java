@@ -10,29 +10,26 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Branch Transition</b></em>
  * '. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> The BranchTransition is an association class that realises the
  * containment of ScenarioBehaviours in in the branches of a Branch action. It is a separate meta
  * class because it has the additional attribute branchProbability that specifies how probably it is
  * that the references ScenarioBehaviour is executed in the Branch action.
  * 
  * See also Branch. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch Probability
- * </em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition <em>Branch
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch
+ * Probability</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition <em>Branch
  * Branch Transition</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition <em>
- * Branched Behaviour Branch Transition</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
+ * <em>Branched Behaviour Branch Transition</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition()
  * @model
  * @extends EStereotypableObject
@@ -109,7 +106,7 @@ public interface BranchTransition extends EStereotypableObject {
     void setBranch_BranchTransition(Branch value);
 
     /**
-     * Returns the value of the ' <em><b>Branched Behaviour Branch Transition</b></em>' containment
+     * Returns the value of the '<em><b>Branched Behaviour Branch Transition</b></em>' containment
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
      * <em>Branch Transition Scenario Behaviour</em>}'. <!-- begin-user-doc -->
@@ -137,7 +134,7 @@ public interface BranchTransition extends EStereotypableObject {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Branched Behaviour Branch Transition</em>' containment
+     *            the new value of the '<em>Branched Behaviour Branch Transition</em>' containment
      *            reference.
      * @see #getBranchedBehaviour_BranchTransition()
      * @generated

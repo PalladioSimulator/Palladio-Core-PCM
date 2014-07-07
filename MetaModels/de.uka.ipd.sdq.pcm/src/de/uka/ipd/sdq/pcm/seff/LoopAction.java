@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Loop Action</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Models the repeated execution of its inner ResourceDemandingBehaviour
  * for the loop body. The number of repetitions is specified by a random variable evaluating to
  * integer or an IntPMF. The number of iterations specified by the random variable always needs to
@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * does not change between two occurrences. Therefore, component developers should be aware of such
  * inaccuracies when using random variables twice inside the body behaviour of a LoopAction. <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * Loop Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getLoopAction()
  * @model
  * @generated

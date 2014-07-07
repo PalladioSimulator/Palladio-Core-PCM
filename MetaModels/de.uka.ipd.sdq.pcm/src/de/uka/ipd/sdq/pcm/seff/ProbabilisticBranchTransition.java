@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.seff;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Probabilistic Branch Transition</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> a GuardedBranchTransition, this transition provides a link between a
  * BranchAction and a nested ResourceDemandingBehaviour, which includes the actions executed inside
  * the branch. But instead of using a guard, it specifies a branching probability without parameter
@@ -24,16 +24,15 @@ package de.uka.ipd.sdq.pcm.seff;
  * parameters would result in different branching probabilities. The component developer cannot
  * foresee this, when specifying the RDSEFF using ProbabilisticBranchTransitions. <!-- end-model-doc
  * -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition#getBranchProbability <em>Branch
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition#getBranchProbability <em>Branch
  * Probability</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getProbabilisticBranchTransition()
  * @model
  * @generated

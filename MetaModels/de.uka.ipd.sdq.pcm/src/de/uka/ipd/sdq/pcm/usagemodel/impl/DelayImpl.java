@@ -22,12 +22,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl#getTimeSpecification_Delay <em>Time
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl#getTimeSpecification_Delay <em>Time
  * Specification Delay</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class DelayImpl extends AbstractUserActionImpl implements Delay {
@@ -75,7 +74,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      */
     @Override
     public PCMRandomVariable getTimeSpecification_Delay() {
-        return this.timeSpecification_Delay;
+        return timeSpecification_Delay;
     }
 
     /**
@@ -83,19 +82,18 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * 
      * @generated
      */
-    public NotificationChain basicSetTimeSpecification_Delay(final PCMRandomVariable newTimeSpecification_Delay,
+    public NotificationChain basicSetTimeSpecification_Delay(PCMRandomVariable newTimeSpecification_Delay,
             NotificationChain msgs) {
-        final PCMRandomVariable oldTimeSpecification_Delay = this.timeSpecification_Delay;
-        this.timeSpecification_Delay = newTimeSpecification_Delay;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+        PCMRandomVariable oldTimeSpecification_Delay = timeSpecification_Delay;
+        timeSpecification_Delay = newTimeSpecification_Delay;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, oldTimeSpecification_Delay,
                     newTimeSpecification_Delay);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -106,26 +104,21 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * @generated
      */
     @Override
-    public void setTimeSpecification_Delay(final PCMRandomVariable newTimeSpecification_Delay) {
-        if (newTimeSpecification_Delay != this.timeSpecification_Delay) {
+    public void setTimeSpecification_Delay(PCMRandomVariable newTimeSpecification_Delay) {
+        if (newTimeSpecification_Delay != timeSpecification_Delay) {
             NotificationChain msgs = null;
-            if (this.timeSpecification_Delay != null) {
-                msgs = ((InternalEObject) this.timeSpecification_Delay).eInverseRemove(this,
+            if (timeSpecification_Delay != null)
+                msgs = ((InternalEObject) timeSpecification_Delay).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, PCMRandomVariable.class, msgs);
-            }
-            if (newTimeSpecification_Delay != null) {
+            if (newTimeSpecification_Delay != null)
                 msgs = ((InternalEObject) newTimeSpecification_Delay).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetTimeSpecification_Delay(newTimeSpecification_Delay, msgs);
-            if (msgs != null) {
+            msgs = basicSetTimeSpecification_Delay(newTimeSpecification_Delay, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, newTimeSpecification_Delay,
-                    newTimeSpecification_Delay));
-        }
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY,
+                    newTimeSpecification_Delay, newTimeSpecification_Delay));
     }
 
     /**
@@ -134,14 +127,13 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            if (this.timeSpecification_Delay != null) {
-                msgs = ((InternalEObject) this.timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            if (timeSpecification_Delay != null)
+                msgs = ((InternalEObject) timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
-            }
-            return this.basicSetTimeSpecification_Delay((PCMRandomVariable) otherEnd, msgs);
+            return basicSetTimeSpecification_Delay((PCMRandomVariable) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -152,11 +144,10 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            return this.basicSetTimeSpecification_Delay(null, msgs);
+            return basicSetTimeSpecification_Delay(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -167,10 +158,10 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            return this.getTimeSpecification_Delay();
+            return getTimeSpecification_Delay();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -181,10 +172,10 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            this.setTimeSpecification_Delay((PCMRandomVariable) newValue);
+            setTimeSpecification_Delay((PCMRandomVariable) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -196,10 +187,10 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            this.setTimeSpecification_Delay((PCMRandomVariable) null);
+            setTimeSpecification_Delay((PCMRandomVariable) null);
             return;
         }
         super.eUnset(featureID);
@@ -211,10 +202,10 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            return this.timeSpecification_Delay != null;
+            return timeSpecification_Delay != null;
         }
         return super.eIsSet(featureID);
     }

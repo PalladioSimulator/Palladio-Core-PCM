@@ -29,7 +29,7 @@ public class ReliabilityResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public ReliabilityResourceImpl(final URI uri) {
+    public ReliabilityResourceImpl(URI uri) {
         super(uri);
     }
 

@@ -53,33 +53,27 @@ import de.uka.ipd.sdq.pcm.system.util.SystemValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAssemblyContexts__ComposedStructure <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAssemblyContexts__ComposedStructure <em>
  * Assembly Contexts Composed Structure</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getResourceRequiredDelegationConnectors_ComposedStructure
  * <em>Resource Required Delegation Connectors Composed Structure</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getEventChannel__ComposedStructure <em>Event
+ * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getEventChannel__ComposedStructure <em>Event
  * Channel Composed Structure</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getConnectors__ComposedStructure <em>Connectors
- * Composed Structure</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedRoles_InterfaceProvidingEntity <em>
- * Provided Roles Interface Providing Entity</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getConnectors__ComposedStructure <em>
+ * Connectors Composed Structure</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedRoles_InterfaceProvidingEntity
+ * <em>Provided Roles Interface Providing Entity</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getResourceRequiredRoles__ResourceInterfaceRequiringEntity
  * <em>Resource Required Roles Resource Interface Requiring Entity</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredRoles_InterfaceRequiringEntity <em>
- * Required Roles Interface Requiring Entity</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getQosAnnotations_System <em>Qos Annotations
+ * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredRoles_InterfaceRequiringEntity
+ * <em>Required Roles Interface Requiring Entity</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getQosAnnotations_System <em>Qos Annotations
  * System</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.System {
@@ -102,8 +96,7 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
     protected EList<AssemblyContext> assemblyContexts__ComposedStructure;
 
     /**
-     * The cached value of the '
-     * {@link #getResourceRequiredDelegationConnectors_ComposedStructure()
+     * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure()
      * <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
@@ -205,12 +198,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<AssemblyContext> getAssemblyContexts__ComposedStructure() {
-        if (this.assemblyContexts__ComposedStructure == null) {
-            this.assemblyContexts__ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyContext>(
+        if (assemblyContexts__ComposedStructure == null) {
+            assemblyContexts__ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyContext>(
                     AssemblyContext.class, this, SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE,
                     CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
         }
-        return this.assemblyContexts__ComposedStructure;
+        return assemblyContexts__ComposedStructure;
     }
 
     /**
@@ -220,14 +213,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure() {
-        if (this.resourceRequiredDelegationConnectors_ComposedStructure == null) {
-            this.resourceRequiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ResourceRequiredDelegationConnector>(
+        if (resourceRequiredDelegationConnectors_ComposedStructure == null) {
+            resourceRequiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ResourceRequiredDelegationConnector>(
                     ResourceRequiredDelegationConnector.class,
                     this,
                     SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
                     CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
         }
-        return this.resourceRequiredDelegationConnectors_ComposedStructure;
+        return resourceRequiredDelegationConnectors_ComposedStructure;
     }
 
     /**
@@ -237,12 +230,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<EventChannel> getEventChannel__ComposedStructure() {
-        if (this.eventChannel__ComposedStructure == null) {
-            this.eventChannel__ComposedStructure = new EObjectContainmentWithInverseEList<EventChannel>(
-                    EventChannel.class, this, SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE,
+        if (eventChannel__ComposedStructure == null) {
+            eventChannel__ComposedStructure = new EObjectContainmentWithInverseEList<EventChannel>(EventChannel.class,
+                    this, SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE,
                     CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL);
         }
-        return this.eventChannel__ComposedStructure;
+        return eventChannel__ComposedStructure;
     }
 
     /**
@@ -252,12 +245,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<Connector> getConnectors__ComposedStructure() {
-        if (this.connectors__ComposedStructure == null) {
-            this.connectors__ComposedStructure = new EObjectContainmentWithInverseEList<Connector>(Connector.class,
-                    this, SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE,
+        if (connectors__ComposedStructure == null) {
+            connectors__ComposedStructure = new EObjectContainmentWithInverseEList<Connector>(Connector.class, this,
+                    SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE,
                     CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR);
         }
-        return this.connectors__ComposedStructure;
+        return connectors__ComposedStructure;
     }
 
     /**
@@ -267,12 +260,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<ProvidedRole> getProvidedRoles_InterfaceProvidingEntity() {
-        if (this.providedRoles_InterfaceProvidingEntity == null) {
-            this.providedRoles_InterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ProvidedRole>(
+        if (providedRoles_InterfaceProvidingEntity == null) {
+            providedRoles_InterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ProvidedRole>(
                     ProvidedRole.class, this, SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
                     RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
         }
-        return this.providedRoles_InterfaceProvidingEntity;
+        return providedRoles_InterfaceProvidingEntity;
     }
 
     /**
@@ -282,13 +275,13 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<ResourceRequiredRole> getResourceRequiredRoles__ResourceInterfaceRequiringEntity() {
-        if (this.resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
-            this.resourceRequiredRoles__ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(
+        if (resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
+            resourceRequiredRoles__ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(
                     ResourceRequiredRole.class, this,
                     SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
                     EntityPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
         }
-        return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity;
+        return resourceRequiredRoles__ResourceInterfaceRequiringEntity;
     }
 
     /**
@@ -298,12 +291,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<RequiredRole> getRequiredRoles_InterfaceRequiringEntity() {
-        if (this.requiredRoles_InterfaceRequiringEntity == null) {
-            this.requiredRoles_InterfaceRequiringEntity = new EObjectContainmentWithInverseEList<RequiredRole>(
+        if (requiredRoles_InterfaceRequiringEntity == null) {
+            requiredRoles_InterfaceRequiringEntity = new EObjectContainmentWithInverseEList<RequiredRole>(
                     RequiredRole.class, this, SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
                     RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
         }
-        return this.requiredRoles_InterfaceRequiringEntity;
+        return requiredRoles_InterfaceRequiringEntity;
     }
 
     /**
@@ -313,12 +306,12 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @Override
     public EList<QoSAnnotations> getQosAnnotations_System() {
-        if (this.qosAnnotations_System == null) {
-            this.qosAnnotations_System = new EObjectContainmentWithInverseEList<QoSAnnotations>(QoSAnnotations.class,
-                    this, SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM,
+        if (qosAnnotations_System == null) {
+            qosAnnotations_System = new EObjectContainmentWithInverseEList<QoSAnnotations>(QoSAnnotations.class, this,
+                    SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM,
                     QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS);
         }
-        return this.qosAnnotations_System;
+        return qosAnnotations_System;
     }
 
     /**
@@ -354,14 +347,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public boolean MultipleConnectorsConstraint(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean MultipleConnectorsConstraint(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.COMPOSED_STRUCTURE);
             try {
                 MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -413,15 +406,15 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public boolean MultipleConnectorsConstraintForAssemblyConnectors(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean MultipleConnectorsConstraintForAssemblyConnectors(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (MULTIPLE_CONNECTORS_CONSTRAINT_FOR_ASSEMBLY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.COMPOSED_STRUCTURE);
             try {
                 MULTIPLE_CONNECTORS_CONSTRAINT_FOR_ASSEMBLY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(MULTIPLE_CONNECTORS_CONSTRAINT_FOR_ASSEMBLY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -474,14 +467,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public boolean ProvidedRolesMustBeBound(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean ProvidedRolesMustBeBound(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (PROVIDED_ROLES_MUST_BE_BOUND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(EntityPackage.Literals.COMPOSED_PROVIDING_REQUIRING_ENTITY);
             try {
                 PROVIDED_ROLES_MUST_BE_BOUND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PROVIDED_ROLES_MUST_BE_BOUND__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -530,15 +523,14 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public boolean SystemMustHaveAtLeastOneProvidedRole(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean SystemMustHaveAtLeastOneProvidedRole(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (SYSTEM_MUST_HAVE_AT_LEAST_ONE_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SystemPackage.Literals.SYSTEM);
             try {
                 SYSTEM_MUST_HAVE_AT_LEAST_ONE_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SYSTEM_MUST_HAVE_AT_LEAST_ONE_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -565,33 +557,32 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getAssemblyContexts__ComposedStructure())
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getAssemblyContexts__ComposedStructure())
                     .basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceRequiredDelegationConnectors_ComposedStructure())
+                    .basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getEventChannel__ComposedStructure())
-                    .basicAdd(otherEnd, msgs);
-        case SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getConnectors__ComposedStructure())
-                    .basicAdd(otherEnd, msgs);
-        case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
-        case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
-        case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getRequiredRoles_InterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
-        case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getQosAnnotations_System()).basicAdd(
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getEventChannel__ComposedStructure()).basicAdd(
                     otherEnd, msgs);
+        case SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getConnectors__ComposedStructure()).basicAdd(
+                    otherEnd, msgs);
+        case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getProvidedRoles_InterfaceProvidingEntity())
+                    .basicAdd(otherEnd, msgs);
+        case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceRequiredRoles__ResourceInterfaceRequiringEntity())
+                    .basicAdd(otherEnd, msgs);
+        case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getRequiredRoles_InterfaceRequiringEntity())
+                    .basicAdd(otherEnd, msgs);
+        case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getQosAnnotations_System()).basicAdd(otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -602,27 +593,26 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
-            return ((InternalEList<?>) this.getAssemblyContexts__ComposedStructure()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getAssemblyContexts__ComposedStructure()).basicRemove(otherEnd, msgs);
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-            return ((InternalEList<?>) this.getResourceRequiredDelegationConnectors_ComposedStructure()).basicRemove(
+            return ((InternalEList<?>) getResourceRequiredDelegationConnectors_ComposedStructure()).basicRemove(
                     otherEnd, msgs);
         case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:
-            return ((InternalEList<?>) this.getEventChannel__ComposedStructure()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getEventChannel__ComposedStructure()).basicRemove(otherEnd, msgs);
         case SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE:
-            return ((InternalEList<?>) this.getConnectors__ComposedStructure()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getConnectors__ComposedStructure()).basicRemove(otherEnd, msgs);
         case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<?>) this.getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<?>) this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicRemove(
+            return ((InternalEList<?>) getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicRemove(
                     otherEnd, msgs);
         case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return ((InternalEList<?>) this.getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
         case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            return ((InternalEList<?>) this.getQosAnnotations_System()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getQosAnnotations_System()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -633,24 +623,24 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
-            return this.getAssemblyContexts__ComposedStructure();
+            return getAssemblyContexts__ComposedStructure();
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-            return this.getResourceRequiredDelegationConnectors_ComposedStructure();
+            return getResourceRequiredDelegationConnectors_ComposedStructure();
         case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:
-            return this.getEventChannel__ComposedStructure();
+            return getEventChannel__ComposedStructure();
         case SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE:
-            return this.getConnectors__ComposedStructure();
+            return getConnectors__ComposedStructure();
         case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return this.getProvidedRoles_InterfaceProvidingEntity();
+            return getProvidedRoles_InterfaceProvidingEntity();
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity();
+            return getResourceRequiredRoles__ResourceInterfaceRequiringEntity();
         case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return this.getRequiredRoles_InterfaceRequiringEntity();
+            return getRequiredRoles_InterfaceRequiringEntity();
         case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            return this.getQosAnnotations_System();
+            return getQosAnnotations_System();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -662,41 +652,41 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
-            this.getAssemblyContexts__ComposedStructure().clear();
-            this.getAssemblyContexts__ComposedStructure().addAll((Collection<? extends AssemblyContext>) newValue);
+            getAssemblyContexts__ComposedStructure().clear();
+            getAssemblyContexts__ComposedStructure().addAll((Collection<? extends AssemblyContext>) newValue);
             return;
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-            this.getResourceRequiredDelegationConnectors_ComposedStructure().clear();
-            this.getResourceRequiredDelegationConnectors_ComposedStructure().addAll(
+            getResourceRequiredDelegationConnectors_ComposedStructure().clear();
+            getResourceRequiredDelegationConnectors_ComposedStructure().addAll(
                     (Collection<? extends ResourceRequiredDelegationConnector>) newValue);
             return;
         case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:
-            this.getEventChannel__ComposedStructure().clear();
-            this.getEventChannel__ComposedStructure().addAll((Collection<? extends EventChannel>) newValue);
+            getEventChannel__ComposedStructure().clear();
+            getEventChannel__ComposedStructure().addAll((Collection<? extends EventChannel>) newValue);
             return;
         case SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE:
-            this.getConnectors__ComposedStructure().clear();
-            this.getConnectors__ComposedStructure().addAll((Collection<? extends Connector>) newValue);
+            getConnectors__ComposedStructure().clear();
+            getConnectors__ComposedStructure().addAll((Collection<? extends Connector>) newValue);
             return;
         case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            this.getProvidedRoles_InterfaceProvidingEntity().clear();
-            this.getProvidedRoles_InterfaceProvidingEntity().addAll((Collection<? extends ProvidedRole>) newValue);
+            getProvidedRoles_InterfaceProvidingEntity().clear();
+            getProvidedRoles_InterfaceProvidingEntity().addAll((Collection<? extends ProvidedRole>) newValue);
             return;
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().addAll(
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().addAll(
                     (Collection<? extends ResourceRequiredRole>) newValue);
             return;
         case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            this.getRequiredRoles_InterfaceRequiringEntity().clear();
-            this.getRequiredRoles_InterfaceRequiringEntity().addAll((Collection<? extends RequiredRole>) newValue);
+            getRequiredRoles_InterfaceRequiringEntity().clear();
+            getRequiredRoles_InterfaceRequiringEntity().addAll((Collection<? extends RequiredRole>) newValue);
             return;
         case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            this.getQosAnnotations_System().clear();
-            this.getQosAnnotations_System().addAll((Collection<? extends QoSAnnotations>) newValue);
+            getQosAnnotations_System().clear();
+            getQosAnnotations_System().addAll((Collection<? extends QoSAnnotations>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -708,31 +698,31 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
-            this.getAssemblyContexts__ComposedStructure().clear();
+            getAssemblyContexts__ComposedStructure().clear();
             return;
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-            this.getResourceRequiredDelegationConnectors_ComposedStructure().clear();
+            getResourceRequiredDelegationConnectors_ComposedStructure().clear();
             return;
         case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:
-            this.getEventChannel__ComposedStructure().clear();
+            getEventChannel__ComposedStructure().clear();
             return;
         case SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE:
-            this.getConnectors__ComposedStructure().clear();
+            getConnectors__ComposedStructure().clear();
             return;
         case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            this.getProvidedRoles_InterfaceProvidingEntity().clear();
+            getProvidedRoles_InterfaceProvidingEntity().clear();
             return;
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
+            getResourceRequiredRoles__ResourceInterfaceRequiringEntity().clear();
             return;
         case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            this.getRequiredRoles_InterfaceRequiringEntity().clear();
+            getRequiredRoles_InterfaceRequiringEntity().clear();
             return;
         case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            this.getQosAnnotations_System().clear();
+            getQosAnnotations_System().clear();
             return;
         }
         super.eUnset(featureID);
@@ -744,29 +734,26 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
-            return this.assemblyContexts__ComposedStructure != null
-                    && !this.assemblyContexts__ComposedStructure.isEmpty();
+            return assemblyContexts__ComposedStructure != null && !assemblyContexts__ComposedStructure.isEmpty();
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-            return this.resourceRequiredDelegationConnectors_ComposedStructure != null
-                    && !this.resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
+            return resourceRequiredDelegationConnectors_ComposedStructure != null
+                    && !resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
         case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:
-            return this.eventChannel__ComposedStructure != null && !this.eventChannel__ComposedStructure.isEmpty();
+            return eventChannel__ComposedStructure != null && !eventChannel__ComposedStructure.isEmpty();
         case SystemPackage.SYSTEM__CONNECTORS_COMPOSED_STRUCTURE:
-            return this.connectors__ComposedStructure != null && !this.connectors__ComposedStructure.isEmpty();
+            return connectors__ComposedStructure != null && !connectors__ComposedStructure.isEmpty();
         case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return this.providedRoles_InterfaceProvidingEntity != null
-                    && !this.providedRoles_InterfaceProvidingEntity.isEmpty();
+            return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity != null
-                    && !this.resourceRequiredRoles__ResourceInterfaceRequiringEntity.isEmpty();
+            return resourceRequiredRoles__ResourceInterfaceRequiringEntity != null
+                    && !resourceRequiredRoles__ResourceInterfaceRequiringEntity.isEmpty();
         case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-            return this.requiredRoles_InterfaceRequiringEntity != null
-                    && !this.requiredRoles_InterfaceRequiringEntity.isEmpty();
+            return requiredRoles_InterfaceRequiringEntity != null && !requiredRoles_InterfaceRequiringEntity.isEmpty();
         case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            return this.qosAnnotations_System != null && !this.qosAnnotations_System.isEmpty();
+            return qosAnnotations_System != null && !qosAnnotations_System.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -777,7 +764,7 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == ComposedStructure.class) {
             switch (derivedFeatureID) {
             case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
@@ -837,7 +824,7 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == ComposedStructure.class) {
             switch (baseFeatureID) {
             case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:

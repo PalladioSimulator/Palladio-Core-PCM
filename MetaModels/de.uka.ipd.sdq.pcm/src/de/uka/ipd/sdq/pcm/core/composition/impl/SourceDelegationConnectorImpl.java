@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * <em>Assembly Context Source Delegation Connector</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SourceDelegationConnectorImpl extends DelegationConnectorImpl implements SourceDelegationConnector {
@@ -67,7 +67,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
     protected SourceRole outerSourceRole__SourceRole;
 
     /**
-     * The cached value of the ' {@link #getAssemblyContext__SourceDelegationConnector()
+     * The cached value of the '{@link #getAssemblyContext__SourceDelegationConnector()
      * <em>Assembly Context Source Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
@@ -103,18 +103,17 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public SourceRole getInnerSourceRole__SourceRole() {
-        if (this.innerSourceRole__SourceRole != null && ((EObject) this.innerSourceRole__SourceRole).eIsProxy()) {
-            final InternalEObject oldInnerSourceRole__SourceRole = (InternalEObject) this.innerSourceRole__SourceRole;
-            this.innerSourceRole__SourceRole = (SourceRole) this.eResolveProxy(oldInnerSourceRole__SourceRole);
-            if (this.innerSourceRole__SourceRole != oldInnerSourceRole__SourceRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (innerSourceRole__SourceRole != null && ((EObject) innerSourceRole__SourceRole).eIsProxy()) {
+            InternalEObject oldInnerSourceRole__SourceRole = (InternalEObject) innerSourceRole__SourceRole;
+            innerSourceRole__SourceRole = (SourceRole) eResolveProxy(oldInnerSourceRole__SourceRole);
+            if (innerSourceRole__SourceRole != oldInnerSourceRole__SourceRole) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE,
-                            oldInnerSourceRole__SourceRole, this.innerSourceRole__SourceRole));
-                }
+                            oldInnerSourceRole__SourceRole, innerSourceRole__SourceRole));
             }
         }
-        return this.innerSourceRole__SourceRole;
+        return innerSourceRole__SourceRole;
     }
 
     /**
@@ -123,7 +122,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     public SourceRole basicGetInnerSourceRole__SourceRole() {
-        return this.innerSourceRole__SourceRole;
+        return innerSourceRole__SourceRole;
     }
 
     /**
@@ -132,14 +131,13 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     @Override
-    public void setInnerSourceRole__SourceRole(final SourceRole newInnerSourceRole__SourceRole) {
-        final SourceRole oldInnerSourceRole__SourceRole = this.innerSourceRole__SourceRole;
-        this.innerSourceRole__SourceRole = newInnerSourceRole__SourceRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setInnerSourceRole__SourceRole(SourceRole newInnerSourceRole__SourceRole) {
+        SourceRole oldInnerSourceRole__SourceRole = innerSourceRole__SourceRole;
+        innerSourceRole__SourceRole = newInnerSourceRole__SourceRole;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE,
-                    oldInnerSourceRole__SourceRole, this.innerSourceRole__SourceRole));
-        }
+                    oldInnerSourceRole__SourceRole, innerSourceRole__SourceRole));
     }
 
     /**
@@ -149,18 +147,17 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public SourceRole getOuterSourceRole__SourceRole() {
-        if (this.outerSourceRole__SourceRole != null && ((EObject) this.outerSourceRole__SourceRole).eIsProxy()) {
-            final InternalEObject oldOuterSourceRole__SourceRole = (InternalEObject) this.outerSourceRole__SourceRole;
-            this.outerSourceRole__SourceRole = (SourceRole) this.eResolveProxy(oldOuterSourceRole__SourceRole);
-            if (this.outerSourceRole__SourceRole != oldOuterSourceRole__SourceRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (outerSourceRole__SourceRole != null && ((EObject) outerSourceRole__SourceRole).eIsProxy()) {
+            InternalEObject oldOuterSourceRole__SourceRole = (InternalEObject) outerSourceRole__SourceRole;
+            outerSourceRole__SourceRole = (SourceRole) eResolveProxy(oldOuterSourceRole__SourceRole);
+            if (outerSourceRole__SourceRole != oldOuterSourceRole__SourceRole) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE,
-                            oldOuterSourceRole__SourceRole, this.outerSourceRole__SourceRole));
-                }
+                            oldOuterSourceRole__SourceRole, outerSourceRole__SourceRole));
             }
         }
-        return this.outerSourceRole__SourceRole;
+        return outerSourceRole__SourceRole;
     }
 
     /**
@@ -169,7 +166,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     public SourceRole basicGetOuterSourceRole__SourceRole() {
-        return this.outerSourceRole__SourceRole;
+        return outerSourceRole__SourceRole;
     }
 
     /**
@@ -178,14 +175,13 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     @Override
-    public void setOuterSourceRole__SourceRole(final SourceRole newOuterSourceRole__SourceRole) {
-        final SourceRole oldOuterSourceRole__SourceRole = this.outerSourceRole__SourceRole;
-        this.outerSourceRole__SourceRole = newOuterSourceRole__SourceRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setOuterSourceRole__SourceRole(SourceRole newOuterSourceRole__SourceRole) {
+        SourceRole oldOuterSourceRole__SourceRole = outerSourceRole__SourceRole;
+        outerSourceRole__SourceRole = newOuterSourceRole__SourceRole;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE,
-                    oldOuterSourceRole__SourceRole, this.outerSourceRole__SourceRole));
-        }
+                    oldOuterSourceRole__SourceRole, outerSourceRole__SourceRole));
     }
 
     /**
@@ -195,23 +191,20 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public AssemblyContext getAssemblyContext__SourceDelegationConnector() {
-        if (this.assemblyContext__SourceDelegationConnector != null
-                && ((EObject) this.assemblyContext__SourceDelegationConnector).eIsProxy()) {
-            final InternalEObject oldAssemblyContext__SourceDelegationConnector = (InternalEObject) this.assemblyContext__SourceDelegationConnector;
-            this.assemblyContext__SourceDelegationConnector = (AssemblyContext) this
-                    .eResolveProxy(oldAssemblyContext__SourceDelegationConnector);
-            if (this.assemblyContext__SourceDelegationConnector != oldAssemblyContext__SourceDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (assemblyContext__SourceDelegationConnector != null
+                && ((EObject) assemblyContext__SourceDelegationConnector).eIsProxy()) {
+            InternalEObject oldAssemblyContext__SourceDelegationConnector = (InternalEObject) assemblyContext__SourceDelegationConnector;
+            assemblyContext__SourceDelegationConnector = (AssemblyContext) eResolveProxy(oldAssemblyContext__SourceDelegationConnector);
+            if (assemblyContext__SourceDelegationConnector != oldAssemblyContext__SourceDelegationConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR,
-                            oldAssemblyContext__SourceDelegationConnector,
-                            this.assemblyContext__SourceDelegationConnector));
-                }
+                            oldAssemblyContext__SourceDelegationConnector, assemblyContext__SourceDelegationConnector));
             }
         }
-        return this.assemblyContext__SourceDelegationConnector;
+        return assemblyContext__SourceDelegationConnector;
     }
 
     /**
@@ -220,7 +213,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__SourceDelegationConnector() {
-        return this.assemblyContext__SourceDelegationConnector;
+        return assemblyContext__SourceDelegationConnector;
     }
 
     /**
@@ -230,14 +223,13 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public void setAssemblyContext__SourceDelegationConnector(
-            final AssemblyContext newAssemblyContext__SourceDelegationConnector) {
-        final AssemblyContext oldAssemblyContext__SourceDelegationConnector = this.assemblyContext__SourceDelegationConnector;
-        this.assemblyContext__SourceDelegationConnector = newAssemblyContext__SourceDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+            AssemblyContext newAssemblyContext__SourceDelegationConnector) {
+        AssemblyContext oldAssemblyContext__SourceDelegationConnector = assemblyContext__SourceDelegationConnector;
+        assemblyContext__SourceDelegationConnector = newAssemblyContext__SourceDelegationConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR,
-                    oldAssemblyContext__SourceDelegationConnector, this.assemblyContext__SourceDelegationConnector));
-        }
+                    oldAssemblyContext__SourceDelegationConnector, assemblyContext__SourceDelegationConnector));
     }
 
     /**
@@ -246,23 +238,20 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
-            if (resolve) {
-                return this.getInnerSourceRole__SourceRole();
-            }
-            return this.basicGetInnerSourceRole__SourceRole();
+            if (resolve)
+                return getInnerSourceRole__SourceRole();
+            return basicGetInnerSourceRole__SourceRole();
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE:
-            if (resolve) {
-                return this.getOuterSourceRole__SourceRole();
-            }
-            return this.basicGetOuterSourceRole__SourceRole();
+            if (resolve)
+                return getOuterSourceRole__SourceRole();
+            return basicGetOuterSourceRole__SourceRole();
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR:
-            if (resolve) {
-                return this.getAssemblyContext__SourceDelegationConnector();
-            }
-            return this.basicGetAssemblyContext__SourceDelegationConnector();
+            if (resolve)
+                return getAssemblyContext__SourceDelegationConnector();
+            return basicGetAssemblyContext__SourceDelegationConnector();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -273,16 +262,16 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
-            this.setInnerSourceRole__SourceRole((SourceRole) newValue);
+            setInnerSourceRole__SourceRole((SourceRole) newValue);
             return;
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE:
-            this.setOuterSourceRole__SourceRole((SourceRole) newValue);
+            setOuterSourceRole__SourceRole((SourceRole) newValue);
             return;
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR:
-            this.setAssemblyContext__SourceDelegationConnector((AssemblyContext) newValue);
+            setAssemblyContext__SourceDelegationConnector((AssemblyContext) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -294,16 +283,16 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
-            this.setInnerSourceRole__SourceRole((SourceRole) null);
+            setInnerSourceRole__SourceRole((SourceRole) null);
             return;
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE:
-            this.setOuterSourceRole__SourceRole((SourceRole) null);
+            setOuterSourceRole__SourceRole((SourceRole) null);
             return;
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR:
-            this.setAssemblyContext__SourceDelegationConnector((AssemblyContext) null);
+            setAssemblyContext__SourceDelegationConnector((AssemblyContext) null);
             return;
         }
         super.eUnset(featureID);
@@ -315,14 +304,14 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
-            return this.innerSourceRole__SourceRole != null;
+            return innerSourceRole__SourceRole != null;
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE:
-            return this.outerSourceRole__SourceRole != null;
+            return outerSourceRole__SourceRole != null;
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR:
-            return this.assemblyContext__SourceDelegationConnector != null;
+            return assemblyContext__SourceDelegationConnector != null;
         }
         return super.eIsSet(featureID);
     }

@@ -401,14 +401,12 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      * @generated
      */
     public static RepositoryPackage init() {
-        if (isInited) {
+        if (isInited)
             return (RepositoryPackage) EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
-        }
 
         // Obtain or create and register package
-        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
-                .get(eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                : new RepositoryPackageImpl());
+        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
+                .get(eNS_URI) : new RepositoryPackageImpl());
 
         isInited = true;
 
@@ -418,61 +416,58 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
@@ -522,7 +517,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theRepositoryPackage, new EValidator.Descriptor() {
-            @Override
             public EValidator getEValidator() {
                 return RepositoryValidator.INSTANCE;
             }
@@ -543,7 +537,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getPassiveResource() {
-        return this.passiveResourceEClass;
+        return passiveResourceEClass;
     }
 
     /**
@@ -553,7 +547,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getPassiveResource_Capacity_PassiveResource() {
-        return (EReference) this.passiveResourceEClass.getEStructuralFeatures().get(0);
+        return (EReference) passiveResourceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -563,7 +557,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getPassiveResource_BasicComponent_PassiveResource() {
-        return (EReference) this.passiveResourceEClass.getEStructuralFeatures().get(1);
+        return (EReference) passiveResourceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -573,7 +567,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getPassiveResource_ResourceTimeoutFailureType__PassiveResource() {
-        return (EReference) this.passiveResourceEClass.getEStructuralFeatures().get(2);
+        return (EReference) passiveResourceEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -583,7 +577,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getBasicComponent() {
-        return this.basicComponentEClass;
+        return basicComponentEClass;
     }
 
     /**
@@ -593,7 +587,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent() {
-        return (EReference) this.basicComponentEClass.getEStructuralFeatures().get(0);
+        return (EReference) basicComponentEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -603,7 +597,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getBasicComponent_PassiveResource_BasicComponent() {
-        return (EReference) this.basicComponentEClass.getEStructuralFeatures().get(1);
+        return (EReference) basicComponentEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -613,7 +607,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getImplementationComponentType() {
-        return this.implementationComponentTypeEClass;
+        return implementationComponentTypeEClass;
     }
 
     /**
@@ -623,7 +617,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getImplementationComponentType_ParentCompleteComponentTypes() {
-        return (EReference) this.implementationComponentTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) implementationComponentTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -633,7 +627,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType() {
-        return (EReference) this.implementationComponentTypeEClass.getEStructuralFeatures().get(1);
+        return (EReference) implementationComponentTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -643,7 +637,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getImplementationComponentType_ComponentType() {
-        return (EAttribute) this.implementationComponentTypeEClass.getEStructuralFeatures().get(2);
+        return (EAttribute) implementationComponentTypeEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -653,7 +647,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getRepositoryComponent() {
-        return this.repositoryComponentEClass;
+        return repositoryComponentEClass;
     }
 
     /**
@@ -663,7 +657,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRepositoryComponent_Repository__RepositoryComponent() {
-        return (EReference) this.repositoryComponentEClass.getEStructuralFeatures().get(0);
+        return (EReference) repositoryComponentEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -673,7 +667,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getProvidedRole() {
-        return this.providedRoleEClass;
+        return providedRoleEClass;
     }
 
     /**
@@ -683,7 +677,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getProvidedRole_ProvidingEntity_ProvidedRole() {
-        return (EReference) this.providedRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) providedRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -693,7 +687,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getRole() {
-        return this.roleEClass;
+        return roleEClass;
     }
 
     /**
@@ -703,7 +697,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getRequiredRole() {
-        return this.requiredRoleEClass;
+        return requiredRoleEClass;
     }
 
     /**
@@ -713,7 +707,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRequiredRole_RequiringEntity_RequiredRole() {
-        return (EReference) this.requiredRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) requiredRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -723,7 +717,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getRepository() {
-        return this.repositoryEClass;
+        return repositoryEClass;
     }
 
     /**
@@ -733,7 +727,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getRepository_RepositoryDescription() {
-        return (EAttribute) this.repositoryEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) repositoryEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -743,7 +737,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRepository_Interfaces__Repository() {
-        return (EReference) this.repositoryEClass.getEStructuralFeatures().get(2);
+        return (EReference) repositoryEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -753,7 +747,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRepository_FailureTypes__Repository() {
-        return (EReference) this.repositoryEClass.getEStructuralFeatures().get(3);
+        return (EReference) repositoryEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -763,7 +757,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRepository_DataTypes__Repository() {
-        return (EReference) this.repositoryEClass.getEStructuralFeatures().get(4);
+        return (EReference) repositoryEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -773,7 +767,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRepository_Components__Repository() {
-        return (EReference) this.repositoryEClass.getEStructuralFeatures().get(1);
+        return (EReference) repositoryEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -783,7 +777,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getInterface() {
-        return this.interfaceEClass;
+        return interfaceEClass;
     }
 
     /**
@@ -793,7 +787,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInterface_ParentInterfaces__Interface() {
-        return (EReference) this.interfaceEClass.getEStructuralFeatures().get(0);
+        return (EReference) interfaceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -803,7 +797,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInterface_Protocols__Interface() {
-        return (EReference) this.interfaceEClass.getEStructuralFeatures().get(1);
+        return (EReference) interfaceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -813,7 +807,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInterface_RequiredCharacterisations() {
-        return (EReference) this.interfaceEClass.getEStructuralFeatures().get(2);
+        return (EReference) interfaceEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -823,7 +817,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInterface_Repository__Interface() {
-        return (EReference) this.interfaceEClass.getEStructuralFeatures().get(3);
+        return (EReference) interfaceEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -833,7 +827,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getRequiredCharacterisation() {
-        return this.requiredCharacterisationEClass;
+        return requiredCharacterisationEClass;
     }
 
     /**
@@ -843,7 +837,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getRequiredCharacterisation_Type() {
-        return (EAttribute) this.requiredCharacterisationEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) requiredCharacterisationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -853,7 +847,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRequiredCharacterisation_Parameter() {
-        return (EReference) this.requiredCharacterisationEClass.getEStructuralFeatures().get(1);
+        return (EReference) requiredCharacterisationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -863,7 +857,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getRequiredCharacterisation_Interface_RequiredCharacterisation() {
-        return (EReference) this.requiredCharacterisationEClass.getEStructuralFeatures().get(2);
+        return (EReference) requiredCharacterisationEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -873,7 +867,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getOperationProvidedRole() {
-        return this.operationProvidedRoleEClass;
+        return operationProvidedRoleEClass;
     }
 
     /**
@@ -883,7 +877,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getOperationProvidedRole_ProvidedInterface__OperationProvidedRole() {
-        return (EReference) this.operationProvidedRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) operationProvidedRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -893,7 +887,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getOperationInterface() {
-        return this.operationInterfaceEClass;
+        return operationInterfaceEClass;
     }
 
     /**
@@ -903,7 +897,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getOperationInterface_Signatures__OperationInterface() {
-        return (EReference) this.operationInterfaceEClass.getEStructuralFeatures().get(0);
+        return (EReference) operationInterfaceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -913,7 +907,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getOperationSignature() {
-        return this.operationSignatureEClass;
+        return operationSignatureEClass;
     }
 
     /**
@@ -923,7 +917,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getOperationSignature_Parameters__OperationSignature() {
-        return (EReference) this.operationSignatureEClass.getEStructuralFeatures().get(1);
+        return (EReference) operationSignatureEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -933,7 +927,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getOperationSignature_ReturnType__OperationSignature() {
-        return (EReference) this.operationSignatureEClass.getEStructuralFeatures().get(2);
+        return (EReference) operationSignatureEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -943,7 +937,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getOperationSignature_Interface__OperationSignature() {
-        return (EReference) this.operationSignatureEClass.getEStructuralFeatures().get(0);
+        return (EReference) operationSignatureEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -953,7 +947,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getSignature() {
-        return this.signatureEClass;
+        return signatureEClass;
     }
 
     /**
@@ -963,7 +957,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getSignature_Exceptions__Signature() {
-        return (EReference) this.signatureEClass.getEStructuralFeatures().get(0);
+        return (EReference) signatureEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -973,7 +967,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getSignature_FailureType() {
-        return (EReference) this.signatureEClass.getEStructuralFeatures().get(1);
+        return (EReference) signatureEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -983,7 +977,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getExceptionType() {
-        return this.exceptionTypeEClass;
+        return exceptionTypeEClass;
     }
 
     /**
@@ -993,7 +987,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getExceptionType_ExceptionName() {
-        return (EAttribute) this.exceptionTypeEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) exceptionTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1003,7 +997,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getExceptionType_ExceptionMessage() {
-        return (EAttribute) this.exceptionTypeEClass.getEStructuralFeatures().get(1);
+        return (EAttribute) exceptionTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1013,7 +1007,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getInfrastructureProvidedRole() {
-        return this.infrastructureProvidedRoleEClass;
+        return infrastructureProvidedRoleEClass;
     }
 
     /**
@@ -1023,7 +1017,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole() {
-        return (EReference) this.infrastructureProvidedRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) infrastructureProvidedRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1033,7 +1027,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getInfrastructureInterface() {
-        return this.infrastructureInterfaceEClass;
+        return infrastructureInterfaceEClass;
     }
 
     /**
@@ -1043,7 +1037,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface() {
-        return (EReference) this.infrastructureInterfaceEClass.getEStructuralFeatures().get(0);
+        return (EReference) infrastructureInterfaceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1053,7 +1047,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getInfrastructureSignature() {
-        return this.infrastructureSignatureEClass;
+        return infrastructureSignatureEClass;
     }
 
     /**
@@ -1063,7 +1057,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInfrastructureSignature_Parameters__InfrastructureSignature() {
-        return (EReference) this.infrastructureSignatureEClass.getEStructuralFeatures().get(0);
+        return (EReference) infrastructureSignatureEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1073,7 +1067,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature() {
-        return (EReference) this.infrastructureSignatureEClass.getEStructuralFeatures().get(1);
+        return (EReference) infrastructureSignatureEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1083,7 +1077,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getOperationRequiredRole() {
-        return this.operationRequiredRoleEClass;
+        return operationRequiredRoleEClass;
     }
 
     /**
@@ -1093,7 +1087,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getOperationRequiredRole_RequiredInterface__OperationRequiredRole() {
-        return (EReference) this.operationRequiredRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) operationRequiredRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1103,7 +1097,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getEventType() {
-        return this.eventTypeEClass;
+        return eventTypeEClass;
     }
 
     /**
@@ -1113,7 +1107,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getEventType_EventGroup__EventType() {
-        return (EReference) this.eventTypeEClass.getEStructuralFeatures().get(1);
+        return (EReference) eventTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1123,7 +1117,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getEventType_Parameter__EventType() {
-        return (EReference) this.eventTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) eventTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1133,7 +1127,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getEventGroup() {
-        return this.eventGroupEClass;
+        return eventGroupEClass;
     }
 
     /**
@@ -1143,7 +1137,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getEventGroup_EventTypes__EventGroup() {
-        return (EReference) this.eventGroupEClass.getEStructuralFeatures().get(0);
+        return (EReference) eventGroupEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1153,7 +1147,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getSourceRole() {
-        return this.sourceRoleEClass;
+        return sourceRoleEClass;
     }
 
     /**
@@ -1163,7 +1157,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getSourceRole_EventGroup__SourceRole() {
-        return (EReference) this.sourceRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) sourceRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1173,7 +1167,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getSinkRole() {
-        return this.sinkRoleEClass;
+        return sinkRoleEClass;
     }
 
     /**
@@ -1183,7 +1177,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getSinkRole_EventGroup__SinkRole() {
-        return (EReference) this.sinkRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) sinkRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1193,7 +1187,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getInfrastructureRequiredRole() {
-        return this.infrastructureRequiredRoleEClass;
+        return infrastructureRequiredRoleEClass;
     }
 
     /**
@@ -1203,7 +1197,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole() {
-        return (EReference) this.infrastructureRequiredRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) infrastructureRequiredRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1213,7 +1207,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getDataType() {
-        return this.dataTypeEClass;
+        return dataTypeEClass;
     }
 
     /**
@@ -1223,7 +1217,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getDataType_Repository__DataType() {
-        return (EReference) this.dataTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) dataTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1233,7 +1227,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getCompleteComponentType() {
-        return this.completeComponentTypeEClass;
+        return completeComponentTypeEClass;
     }
 
     /**
@@ -1243,7 +1237,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getCompleteComponentType_ParentProvidesComponentTypes() {
-        return (EReference) this.completeComponentTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) completeComponentTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1253,7 +1247,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getProvidesComponentType() {
-        return this.providesComponentTypeEClass;
+        return providesComponentTypeEClass;
     }
 
     /**
@@ -1263,7 +1257,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getCompositeComponent() {
-        return this.compositeComponentEClass;
+        return compositeComponentEClass;
     }
 
     /**
@@ -1273,7 +1267,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getPrimitiveDataType() {
-        return this.primitiveDataTypeEClass;
+        return primitiveDataTypeEClass;
     }
 
     /**
@@ -1283,7 +1277,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getPrimitiveDataType_Type() {
-        return (EAttribute) this.primitiveDataTypeEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) primitiveDataTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1293,7 +1287,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getCollectionDataType() {
-        return this.collectionDataTypeEClass;
+        return collectionDataTypeEClass;
     }
 
     /**
@@ -1303,7 +1297,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getCollectionDataType_InnerType_CollectionDataType() {
-        return (EReference) this.collectionDataTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) collectionDataTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1313,7 +1307,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getCompositeDataType() {
-        return this.compositeDataTypeEClass;
+        return compositeDataTypeEClass;
     }
 
     /**
@@ -1323,7 +1317,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getCompositeDataType_ParentType_CompositeDataType() {
-        return (EReference) this.compositeDataTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) compositeDataTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1333,7 +1327,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getCompositeDataType_InnerDeclaration_CompositeDataType() {
-        return (EReference) this.compositeDataTypeEClass.getEStructuralFeatures().get(1);
+        return (EReference) compositeDataTypeEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1343,7 +1337,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getInnerDeclaration() {
-        return this.innerDeclarationEClass;
+        return innerDeclarationEClass;
     }
 
     /**
@@ -1353,7 +1347,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInnerDeclaration_Datatype_InnerDeclaration() {
-        return (EReference) this.innerDeclarationEClass.getEStructuralFeatures().get(0);
+        return (EReference) innerDeclarationEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1363,7 +1357,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getInnerDeclaration_CompositeDataType_InnerDeclaration() {
-        return (EReference) this.innerDeclarationEClass.getEStructuralFeatures().get(1);
+        return (EReference) innerDeclarationEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1373,7 +1367,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EClass getParameter() {
-        return this.parameterEClass;
+        return parameterEClass;
     }
 
     /**
@@ -1383,7 +1377,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getParameter_InfrastructureSignature__Parameter() {
-        return (EReference) this.parameterEClass.getEStructuralFeatures().get(1);
+        return (EReference) parameterEClass.getEStructuralFeatures().get(1);
     }
 
     /**
@@ -1393,7 +1387,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getParameter_EventType__Parameter() {
-        return (EReference) this.parameterEClass.getEStructuralFeatures().get(3);
+        return (EReference) parameterEClass.getEStructuralFeatures().get(3);
     }
 
     /**
@@ -1403,7 +1397,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getParameter_OperationSignature__Parameter() {
-        return (EReference) this.parameterEClass.getEStructuralFeatures().get(2);
+        return (EReference) parameterEClass.getEStructuralFeatures().get(2);
     }
 
     /**
@@ -1413,7 +1407,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getParameter_DataType__Parameter() {
-        return (EReference) this.parameterEClass.getEStructuralFeatures().get(0);
+        return (EReference) parameterEClass.getEStructuralFeatures().get(0);
     }
 
     /**
@@ -1423,7 +1417,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getParameter_ParameterName() {
-        return (EAttribute) this.parameterEClass.getEStructuralFeatures().get(4);
+        return (EAttribute) parameterEClass.getEStructuralFeatures().get(4);
     }
 
     /**
@@ -1433,7 +1427,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EAttribute getParameter_Modifier__Parameter() {
-        return (EAttribute) this.parameterEClass.getEStructuralFeatures().get(5);
+        return (EAttribute) parameterEClass.getEStructuralFeatures().get(5);
     }
 
     /**
@@ -1443,7 +1437,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EReference getParameter_ResourceSignature__Parameter() {
-        return (EReference) this.parameterEClass.getEStructuralFeatures().get(6);
+        return (EReference) parameterEClass.getEStructuralFeatures().get(6);
     }
 
     /**
@@ -1453,7 +1447,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EEnum getComponentType() {
-        return this.componentTypeEEnum;
+        return componentTypeEEnum;
     }
 
     /**
@@ -1463,7 +1457,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EEnum getParameterModifier() {
-        return this.parameterModifierEEnum;
+        return parameterModifierEEnum;
     }
 
     /**
@@ -1473,7 +1467,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public EEnum getPrimitiveTypeEnum() {
-        return this.primitiveTypeEnumEEnum;
+        return primitiveTypeEnumEEnum;
     }
 
     /**
@@ -1483,7 +1477,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      */
     @Override
     public RepositoryFactory getRepositoryFactory() {
-        return (RepositoryFactory) this.getEFactoryInstance();
+        return (RepositoryFactory) getEFactoryInstance();
     }
 
     /**
@@ -1500,152 +1494,147 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      * @generated
      */
     public void createPackageContents() {
-        if (this.isCreated) {
+        if (isCreated)
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.passiveResourceEClass = this.createEClass(PASSIVE_RESOURCE);
-        this.createEReference(this.passiveResourceEClass, PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE);
-        this.createEReference(this.passiveResourceEClass, PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE);
-        this.createEReference(this.passiveResourceEClass,
-                PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE);
+        passiveResourceEClass = createEClass(PASSIVE_RESOURCE);
+        createEReference(passiveResourceEClass, PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE);
+        createEReference(passiveResourceEClass, PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE);
+        createEReference(passiveResourceEClass, PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE);
 
-        this.basicComponentEClass = this.createEClass(BASIC_COMPONENT);
-        this.createEReference(this.basicComponentEClass, BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT);
-        this.createEReference(this.basicComponentEClass, BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT);
+        basicComponentEClass = createEClass(BASIC_COMPONENT);
+        createEReference(basicComponentEClass, BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT);
+        createEReference(basicComponentEClass, BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT);
 
-        this.implementationComponentTypeEClass = this.createEClass(IMPLEMENTATION_COMPONENT_TYPE);
-        this.createEReference(this.implementationComponentTypeEClass,
+        implementationComponentTypeEClass = createEClass(IMPLEMENTATION_COMPONENT_TYPE);
+        createEReference(implementationComponentTypeEClass,
                 IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
-        this.createEReference(this.implementationComponentTypeEClass,
+        createEReference(implementationComponentTypeEClass,
                 IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
-        this.createEAttribute(this.implementationComponentTypeEClass, IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE);
+        createEAttribute(implementationComponentTypeEClass, IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE);
 
-        this.repositoryComponentEClass = this.createEClass(REPOSITORY_COMPONENT);
-        this.createEReference(this.repositoryComponentEClass, REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
+        repositoryComponentEClass = createEClass(REPOSITORY_COMPONENT);
+        createEReference(repositoryComponentEClass, REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
 
-        this.providedRoleEClass = this.createEClass(PROVIDED_ROLE);
-        this.createEReference(this.providedRoleEClass, PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
+        providedRoleEClass = createEClass(PROVIDED_ROLE);
+        createEReference(providedRoleEClass, PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
 
-        this.parameterEClass = this.createEClass(PARAMETER);
-        this.createEReference(this.parameterEClass, PARAMETER__DATA_TYPE_PARAMETER);
-        this.createEReference(this.parameterEClass, PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER);
-        this.createEReference(this.parameterEClass, PARAMETER__OPERATION_SIGNATURE_PARAMETER);
-        this.createEReference(this.parameterEClass, PARAMETER__EVENT_TYPE_PARAMETER);
-        this.createEAttribute(this.parameterEClass, PARAMETER__PARAMETER_NAME);
-        this.createEAttribute(this.parameterEClass, PARAMETER__MODIFIER_PARAMETER);
-        this.createEReference(this.parameterEClass, PARAMETER__RESOURCE_SIGNATURE_PARAMETER);
+        parameterEClass = createEClass(PARAMETER);
+        createEReference(parameterEClass, PARAMETER__DATA_TYPE_PARAMETER);
+        createEReference(parameterEClass, PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER);
+        createEReference(parameterEClass, PARAMETER__OPERATION_SIGNATURE_PARAMETER);
+        createEReference(parameterEClass, PARAMETER__EVENT_TYPE_PARAMETER);
+        createEAttribute(parameterEClass, PARAMETER__PARAMETER_NAME);
+        createEAttribute(parameterEClass, PARAMETER__MODIFIER_PARAMETER);
+        createEReference(parameterEClass, PARAMETER__RESOURCE_SIGNATURE_PARAMETER);
 
-        this.dataTypeEClass = this.createEClass(DATA_TYPE);
-        this.createEReference(this.dataTypeEClass, DATA_TYPE__REPOSITORY_DATA_TYPE);
+        dataTypeEClass = createEClass(DATA_TYPE);
+        createEReference(dataTypeEClass, DATA_TYPE__REPOSITORY_DATA_TYPE);
 
-        this.repositoryEClass = this.createEClass(REPOSITORY);
-        this.createEAttribute(this.repositoryEClass, REPOSITORY__REPOSITORY_DESCRIPTION);
-        this.createEReference(this.repositoryEClass, REPOSITORY__COMPONENTS_REPOSITORY);
-        this.createEReference(this.repositoryEClass, REPOSITORY__INTERFACES_REPOSITORY);
-        this.createEReference(this.repositoryEClass, REPOSITORY__FAILURE_TYPES_REPOSITORY);
-        this.createEReference(this.repositoryEClass, REPOSITORY__DATA_TYPES_REPOSITORY);
+        repositoryEClass = createEClass(REPOSITORY);
+        createEAttribute(repositoryEClass, REPOSITORY__REPOSITORY_DESCRIPTION);
+        createEReference(repositoryEClass, REPOSITORY__COMPONENTS_REPOSITORY);
+        createEReference(repositoryEClass, REPOSITORY__INTERFACES_REPOSITORY);
+        createEReference(repositoryEClass, REPOSITORY__FAILURE_TYPES_REPOSITORY);
+        createEReference(repositoryEClass, REPOSITORY__DATA_TYPES_REPOSITORY);
 
-        this.interfaceEClass = this.createEClass(INTERFACE);
-        this.createEReference(this.interfaceEClass, INTERFACE__PARENT_INTERFACES_INTERFACE);
-        this.createEReference(this.interfaceEClass, INTERFACE__PROTOCOLS_INTERFACE);
-        this.createEReference(this.interfaceEClass, INTERFACE__REQUIRED_CHARACTERISATIONS);
-        this.createEReference(this.interfaceEClass, INTERFACE__REPOSITORY_INTERFACE);
+        interfaceEClass = createEClass(INTERFACE);
+        createEReference(interfaceEClass, INTERFACE__PARENT_INTERFACES_INTERFACE);
+        createEReference(interfaceEClass, INTERFACE__PROTOCOLS_INTERFACE);
+        createEReference(interfaceEClass, INTERFACE__REQUIRED_CHARACTERISATIONS);
+        createEReference(interfaceEClass, INTERFACE__REPOSITORY_INTERFACE);
 
-        this.requiredCharacterisationEClass = this.createEClass(REQUIRED_CHARACTERISATION);
-        this.createEAttribute(this.requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__TYPE);
-        this.createEReference(this.requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__PARAMETER);
-        this.createEReference(this.requiredCharacterisationEClass,
-                REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION);
+        requiredCharacterisationEClass = createEClass(REQUIRED_CHARACTERISATION);
+        createEAttribute(requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__TYPE);
+        createEReference(requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__PARAMETER);
+        createEReference(requiredCharacterisationEClass, REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION);
 
-        this.eventGroupEClass = this.createEClass(EVENT_GROUP);
-        this.createEReference(this.eventGroupEClass, EVENT_GROUP__EVENT_TYPES_EVENT_GROUP);
+        eventGroupEClass = createEClass(EVENT_GROUP);
+        createEReference(eventGroupEClass, EVENT_GROUP__EVENT_TYPES_EVENT_GROUP);
 
-        this.eventTypeEClass = this.createEClass(EVENT_TYPE);
-        this.createEReference(this.eventTypeEClass, EVENT_TYPE__PARAMETER_EVENT_TYPE);
-        this.createEReference(this.eventTypeEClass, EVENT_TYPE__EVENT_GROUP_EVENT_TYPE);
+        eventTypeEClass = createEClass(EVENT_TYPE);
+        createEReference(eventTypeEClass, EVENT_TYPE__PARAMETER_EVENT_TYPE);
+        createEReference(eventTypeEClass, EVENT_TYPE__EVENT_GROUP_EVENT_TYPE);
 
-        this.signatureEClass = this.createEClass(SIGNATURE);
-        this.createEReference(this.signatureEClass, SIGNATURE__EXCEPTIONS_SIGNATURE);
-        this.createEReference(this.signatureEClass, SIGNATURE__FAILURE_TYPE);
+        signatureEClass = createEClass(SIGNATURE);
+        createEReference(signatureEClass, SIGNATURE__EXCEPTIONS_SIGNATURE);
+        createEReference(signatureEClass, SIGNATURE__FAILURE_TYPE);
 
-        this.exceptionTypeEClass = this.createEClass(EXCEPTION_TYPE);
-        this.createEAttribute(this.exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_NAME);
-        this.createEAttribute(this.exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_MESSAGE);
+        exceptionTypeEClass = createEClass(EXCEPTION_TYPE);
+        createEAttribute(exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_NAME);
+        createEAttribute(exceptionTypeEClass, EXCEPTION_TYPE__EXCEPTION_MESSAGE);
 
-        this.infrastructureSignatureEClass = this.createEClass(INFRASTRUCTURE_SIGNATURE);
-        this.createEReference(this.infrastructureSignatureEClass,
-                INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE);
-        this.createEReference(this.infrastructureSignatureEClass,
+        infrastructureSignatureEClass = createEClass(INFRASTRUCTURE_SIGNATURE);
+        createEReference(infrastructureSignatureEClass, INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE);
+        createEReference(infrastructureSignatureEClass,
                 INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE);
 
-        this.infrastructureInterfaceEClass = this.createEClass(INFRASTRUCTURE_INTERFACE);
-        this.createEReference(this.infrastructureInterfaceEClass,
+        infrastructureInterfaceEClass = createEClass(INFRASTRUCTURE_INTERFACE);
+        createEReference(infrastructureInterfaceEClass,
                 INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE);
 
-        this.infrastructureRequiredRoleEClass = this.createEClass(INFRASTRUCTURE_REQUIRED_ROLE);
-        this.createEReference(this.infrastructureRequiredRoleEClass,
+        infrastructureRequiredRoleEClass = createEClass(INFRASTRUCTURE_REQUIRED_ROLE);
+        createEReference(infrastructureRequiredRoleEClass,
                 INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE);
 
-        this.requiredRoleEClass = this.createEClass(REQUIRED_ROLE);
-        this.createEReference(this.requiredRoleEClass, REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
+        requiredRoleEClass = createEClass(REQUIRED_ROLE);
+        createEReference(requiredRoleEClass, REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
 
-        this.operationSignatureEClass = this.createEClass(OPERATION_SIGNATURE);
-        this.createEReference(this.operationSignatureEClass, OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE);
-        this.createEReference(this.operationSignatureEClass, OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE);
-        this.createEReference(this.operationSignatureEClass, OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE);
+        operationSignatureEClass = createEClass(OPERATION_SIGNATURE);
+        createEReference(operationSignatureEClass, OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE);
+        createEReference(operationSignatureEClass, OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE);
+        createEReference(operationSignatureEClass, OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE);
 
-        this.operationInterfaceEClass = this.createEClass(OPERATION_INTERFACE);
-        this.createEReference(this.operationInterfaceEClass, OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE);
+        operationInterfaceEClass = createEClass(OPERATION_INTERFACE);
+        createEReference(operationInterfaceEClass, OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE);
 
-        this.operationRequiredRoleEClass = this.createEClass(OPERATION_REQUIRED_ROLE);
-        this.createEReference(this.operationRequiredRoleEClass,
+        operationRequiredRoleEClass = createEClass(OPERATION_REQUIRED_ROLE);
+        createEReference(operationRequiredRoleEClass,
                 OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE);
 
-        this.sourceRoleEClass = this.createEClass(SOURCE_ROLE);
-        this.createEReference(this.sourceRoleEClass, SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE);
+        sourceRoleEClass = createEClass(SOURCE_ROLE);
+        createEReference(sourceRoleEClass, SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE);
 
-        this.sinkRoleEClass = this.createEClass(SINK_ROLE);
-        this.createEReference(this.sinkRoleEClass, SINK_ROLE__EVENT_GROUP_SINK_ROLE);
+        sinkRoleEClass = createEClass(SINK_ROLE);
+        createEReference(sinkRoleEClass, SINK_ROLE__EVENT_GROUP_SINK_ROLE);
 
-        this.operationProvidedRoleEClass = this.createEClass(OPERATION_PROVIDED_ROLE);
-        this.createEReference(this.operationProvidedRoleEClass,
+        operationProvidedRoleEClass = createEClass(OPERATION_PROVIDED_ROLE);
+        createEReference(operationProvidedRoleEClass,
                 OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE);
 
-        this.infrastructureProvidedRoleEClass = this.createEClass(INFRASTRUCTURE_PROVIDED_ROLE);
-        this.createEReference(this.infrastructureProvidedRoleEClass,
+        infrastructureProvidedRoleEClass = createEClass(INFRASTRUCTURE_PROVIDED_ROLE);
+        createEReference(infrastructureProvidedRoleEClass,
                 INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE);
 
-        this.completeComponentTypeEClass = this.createEClass(COMPLETE_COMPONENT_TYPE);
-        this.createEReference(this.completeComponentTypeEClass,
-                COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
+        completeComponentTypeEClass = createEClass(COMPLETE_COMPONENT_TYPE);
+        createEReference(completeComponentTypeEClass, COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
 
-        this.providesComponentTypeEClass = this.createEClass(PROVIDES_COMPONENT_TYPE);
+        providesComponentTypeEClass = createEClass(PROVIDES_COMPONENT_TYPE);
 
-        this.compositeComponentEClass = this.createEClass(COMPOSITE_COMPONENT);
+        compositeComponentEClass = createEClass(COMPOSITE_COMPONENT);
 
-        this.primitiveDataTypeEClass = this.createEClass(PRIMITIVE_DATA_TYPE);
-        this.createEAttribute(this.primitiveDataTypeEClass, PRIMITIVE_DATA_TYPE__TYPE);
+        primitiveDataTypeEClass = createEClass(PRIMITIVE_DATA_TYPE);
+        createEAttribute(primitiveDataTypeEClass, PRIMITIVE_DATA_TYPE__TYPE);
 
-        this.collectionDataTypeEClass = this.createEClass(COLLECTION_DATA_TYPE);
-        this.createEReference(this.collectionDataTypeEClass, COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE);
+        collectionDataTypeEClass = createEClass(COLLECTION_DATA_TYPE);
+        createEReference(collectionDataTypeEClass, COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE);
 
-        this.compositeDataTypeEClass = this.createEClass(COMPOSITE_DATA_TYPE);
-        this.createEReference(this.compositeDataTypeEClass, COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE);
-        this.createEReference(this.compositeDataTypeEClass, COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE);
+        compositeDataTypeEClass = createEClass(COMPOSITE_DATA_TYPE);
+        createEReference(compositeDataTypeEClass, COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE);
+        createEReference(compositeDataTypeEClass, COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE);
 
-        this.innerDeclarationEClass = this.createEClass(INNER_DECLARATION);
-        this.createEReference(this.innerDeclarationEClass, INNER_DECLARATION__DATATYPE_INNER_DECLARATION);
-        this.createEReference(this.innerDeclarationEClass, INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION);
+        innerDeclarationEClass = createEClass(INNER_DECLARATION);
+        createEReference(innerDeclarationEClass, INNER_DECLARATION__DATATYPE_INNER_DECLARATION);
+        createEReference(innerDeclarationEClass, INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION);
 
-        this.roleEClass = this.createEClass(ROLE);
+        roleEClass = createEClass(ROLE);
 
         // Create enums
-        this.parameterModifierEEnum = this.createEEnum(PARAMETER_MODIFIER);
-        this.componentTypeEEnum = this.createEEnum(COMPONENT_TYPE);
-        this.primitiveTypeEnumEEnum = this.createEEnum(PRIMITIVE_TYPE_ENUM);
+        parameterModifierEEnum = createEEnum(PARAMETER_MODIFIER);
+        componentTypeEEnum = createEEnum(COMPONENT_TYPE);
+        primitiveTypeEnumEEnum = createEEnum(PRIMITIVE_TYPE_ENUM);
     }
 
     /**
@@ -1662,28 +1651,26 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      * @generated
      */
     public void initializePackageContents() {
-        if (this.isInitialized) {
+        if (isInitialized)
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
-        this.setName(eNAME);
-        this.setNsPrefix(eNS_PREFIX);
-        this.setNsURI(eNS_URI);
+        setName(eNAME);
+        setNsPrefix(eNS_PREFIX);
+        setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI);
-        final CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
-        final ReliabilityPackage theReliabilityPackage = (ReliabilityPackage) EPackage.Registry.INSTANCE
+        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+        CorePackage theCorePackage = (CorePackage) EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
+        ReliabilityPackage theReliabilityPackage = (ReliabilityPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI);
-        final SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
-        final ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
+        SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+        ParameterPackage theParameterPackage = (ParameterPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI);
-        final ResourcetypePackage theResourcetypePackage = (ResourcetypePackage) EPackage.Registry.INSTANCE
+        ResourcetypePackage theResourcetypePackage = (ResourcetypePackage) EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI);
-        final ProtocolPackage theProtocolPackage = (ProtocolPackage) EPackage.Registry.INSTANCE
+        ProtocolPackage theProtocolPackage = (ProtocolPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI);
 
         // Create type parameters
@@ -1691,503 +1678,495 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.passiveResourceEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.basicComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
-        this.implementationComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
-        this.repositoryComponentEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
-        this.providedRoleEClass.getESuperTypes().add(this.getRole());
-        this.repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.eventGroupEClass.getESuperTypes().add(this.getInterface());
-        this.eventTypeEClass.getESuperTypes().add(this.getSignature());
-        this.signatureEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.infrastructureSignatureEClass.getESuperTypes().add(this.getSignature());
-        this.infrastructureInterfaceEClass.getESuperTypes().add(this.getInterface());
-        this.infrastructureRequiredRoleEClass.getESuperTypes().add(this.getRequiredRole());
-        this.requiredRoleEClass.getESuperTypes().add(this.getRole());
-        this.operationSignatureEClass.getESuperTypes().add(this.getSignature());
-        this.operationInterfaceEClass.getESuperTypes().add(this.getInterface());
-        this.operationRequiredRoleEClass.getESuperTypes().add(this.getRequiredRole());
-        this.sourceRoleEClass.getESuperTypes().add(this.getRequiredRole());
-        this.sinkRoleEClass.getESuperTypes().add(this.getProvidedRole());
-        this.operationProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
-        this.infrastructureProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
-        this.completeComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
-        this.providesComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
-        this.compositeComponentEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
-        this.compositeComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
-        this.primitiveDataTypeEClass.getESuperTypes().add(this.getDataType());
-        this.collectionDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.collectionDataTypeEClass.getESuperTypes().add(this.getDataType());
-        this.compositeDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        this.compositeDataTypeEClass.getESuperTypes().add(this.getDataType());
-        this.innerDeclarationEClass.getESuperTypes().add(theEntityPackage.getNamedElement());
-        this.roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        passiveResourceEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        basicComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
+        implementationComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
+        repositoryComponentEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
+        providedRoleEClass.getESuperTypes().add(this.getRole());
+        repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        eventGroupEClass.getESuperTypes().add(this.getInterface());
+        eventTypeEClass.getESuperTypes().add(this.getSignature());
+        signatureEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        infrastructureSignatureEClass.getESuperTypes().add(this.getSignature());
+        infrastructureInterfaceEClass.getESuperTypes().add(this.getInterface());
+        infrastructureRequiredRoleEClass.getESuperTypes().add(this.getRequiredRole());
+        requiredRoleEClass.getESuperTypes().add(this.getRole());
+        operationSignatureEClass.getESuperTypes().add(this.getSignature());
+        operationInterfaceEClass.getESuperTypes().add(this.getInterface());
+        operationRequiredRoleEClass.getESuperTypes().add(this.getRequiredRole());
+        sourceRoleEClass.getESuperTypes().add(this.getRequiredRole());
+        sinkRoleEClass.getESuperTypes().add(this.getProvidedRole());
+        operationProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
+        infrastructureProvidedRoleEClass.getESuperTypes().add(this.getProvidedRole());
+        completeComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
+        providesComponentTypeEClass.getESuperTypes().add(this.getRepositoryComponent());
+        compositeComponentEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
+        compositeComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
+        primitiveDataTypeEClass.getESuperTypes().add(this.getDataType());
+        collectionDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        collectionDataTypeEClass.getESuperTypes().add(this.getDataType());
+        compositeDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        compositeDataTypeEClass.getESuperTypes().add(this.getDataType());
+        innerDeclarationEClass.getESuperTypes().add(theEntityPackage.getNamedElement());
+        roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
         // Initialize classes and features; add operations and parameters
-        this.initEClass(this.passiveResourceEClass, PassiveResource.class, "PassiveResource", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getPassiveResource_Capacity_PassiveResource(), theCorePackage.getPCMRandomVariable(),
+        initEClass(passiveResourceEClass, PassiveResource.class, "PassiveResource", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getPassiveResource_Capacity_PassiveResource(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable(),
                 "capacity_PassiveResource", null, 1, 1, PassiveResource.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPassiveResource_BasicComponent_PassiveResource(), this.getBasicComponent(),
+        initEReference(getPassiveResource_BasicComponent_PassiveResource(), this.getBasicComponent(),
                 this.getBasicComponent_PassiveResource_BasicComponent(), "basicComponent_PassiveResource", null, 1, 1,
                 PassiveResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getPassiveResource_ResourceTimeoutFailureType__PassiveResource(),
+        initEReference(getPassiveResource_ResourceTimeoutFailureType__PassiveResource(),
                 theReliabilityPackage.getResourceTimeoutFailureType(),
                 theReliabilityPackage.getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType(),
                 "resourceTimeoutFailureType__PassiveResource", null, 0, 1, PassiveResource.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        this.initEClass(this.basicComponentEClass, BasicComponent.class, "BasicComponent", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(basicComponentEClass, BasicComponent.class, "BasicComponent", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getBasicComponent_ServiceEffectSpecifications__BasicComponent(),
+        initEReference(getBasicComponent_ServiceEffectSpecifications__BasicComponent(),
                 theSeffPackage.getServiceEffectSpecification(),
                 theSeffPackage.getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification(),
                 "serviceEffectSpecifications__BasicComponent", null, 0, -1, BasicComponent.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
-        this.initEReference(this.getBasicComponent_PassiveResource_BasicComponent(), this.getPassiveResource(),
+        initEReference(getBasicComponent_PassiveResource_BasicComponent(), this.getPassiveResource(),
                 this.getPassiveResource_BasicComponent_PassiveResource(), "passiveResource_BasicComponent", null, 0,
                 -1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        EOperation op = this.addEOperation(this.basicComponentEClass, this.ecorePackage.getEBoolean(),
-                "NoSeffTypeUsedTwice", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        EOperation op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "NoSeffTypeUsedTwice", 0, 1,
+                IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.implementationComponentTypeEClass, ImplementationComponentType.class,
-                "ImplementationComponentType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getImplementationComponentType_ParentCompleteComponentTypes(),
-                this.getCompleteComponentType(), null, "parentCompleteComponentTypes", null, 0, -1,
-                ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType(),
+        initEClass(implementationComponentTypeEClass, ImplementationComponentType.class, "ImplementationComponentType",
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getImplementationComponentType_ParentCompleteComponentTypes(), this.getCompleteComponentType(),
+                null, "parentCompleteComponentTypes", null, 0, -1, ImplementationComponentType.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
+        initEReference(getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType(),
                 theParameterPackage.getVariableUsage(), null, "componentParameterUsage_ImplementationComponentType",
                 null, 0, -1, ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getImplementationComponentType_ComponentType(), this.getComponentType(),
-                "componentType", "BUSINESS_COMPONENT", 1, 1, ImplementationComponentType.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEAttribute(getImplementationComponentType_ComponentType(), this.getComponentType(), "componentType",
+                "BUSINESS_COMPONENT", 1, 1, ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = this.addEOperation(this.implementationComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(implementationComponentTypeEClass, ecorePackage.getEBoolean(),
                 "RequiredInterfacesHaveToConformToCompleteType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = this.addEOperation(this.implementationComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(implementationComponentTypeEClass, ecorePackage.getEBoolean(),
                 "providedInterfacesHaveToConformToCompleteType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = this.addEOperation(this.implementationComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(implementationComponentTypeEClass, ecorePackage.getEBoolean(),
                 "ProvidedInterfaceHaveToConformToComponentType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = this.addEOperation(this.implementationComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(implementationComponentTypeEClass, ecorePackage.getEBoolean(),
                 "ProvideSameOrMoreInterfacesAsCompleteComponentType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = this.addEOperation(this.implementationComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(implementationComponentTypeEClass, ecorePackage.getEBoolean(),
                 "RequireSameOrFewerInterfacesAsCompleteComponentType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.repositoryComponentEClass, RepositoryComponent.class, "RepositoryComponent", IS_ABSTRACT,
+        initEClass(repositoryComponentEClass, RepositoryComponent.class, "RepositoryComponent", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getRepositoryComponent_Repository__RepositoryComponent(), this.getRepository(),
+        initEReference(getRepositoryComponent_Repository__RepositoryComponent(), this.getRepository(),
                 this.getRepository_Components__Repository(), "repository__RepositoryComponent", null, 1, 1,
                 RepositoryComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.providedRoleEClass, ProvidedRole.class, "ProvidedRole", IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(providedRoleEClass, ProvidedRole.class, "ProvidedRole", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getProvidedRole_ProvidingEntity_ProvidedRole(),
-                theEntityPackage.getInterfaceProvidingEntity(),
+        initEReference(getProvidedRole_ProvidingEntity_ProvidedRole(), theEntityPackage.getInterfaceProvidingEntity(),
                 theEntityPackage.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(),
                 "providingEntity_ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getParameter_DataType__Parameter(), this.getDataType(), null, "dataType__Parameter",
-                null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getParameter_InfrastructureSignature__Parameter(), this.getInfrastructureSignature(),
+        initEReference(getParameter_DataType__Parameter(), this.getDataType(), null, "dataType__Parameter", null, 1, 1,
+                Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getParameter_InfrastructureSignature__Parameter(), this.getInfrastructureSignature(),
                 this.getInfrastructureSignature_Parameters__InfrastructureSignature(),
                 "infrastructureSignature__Parameter", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getParameter_OperationSignature__Parameter(), this.getOperationSignature(),
+        initEReference(getParameter_OperationSignature__Parameter(), this.getOperationSignature(),
                 this.getOperationSignature_Parameters__OperationSignature(), "operationSignature__Parameter", null, 0,
                 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getParameter_EventType__Parameter(), this.getEventType(),
+        initEReference(getParameter_EventType__Parameter(), this.getEventType(),
                 this.getEventType_Parameter__EventType(), "eventType__Parameter", null, 0, 1, Parameter.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getParameter_ParameterName(), this.ecorePackage.getEString(), "parameterName", null,
-                1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        initEAttribute(getParameter_ParameterName(), ecorePackage.getEString(), "parameterName", null, 1, 1,
+                Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getParameter_Modifier__Parameter(), this.getParameterModifier(),
-                "modifier__Parameter", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getParameter_ResourceSignature__Parameter(),
-                theResourcetypePackage.getResourceSignature(),
+        initEAttribute(getParameter_Modifier__Parameter(), this.getParameterModifier(), "modifier__Parameter", null, 1,
+                1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
+        initEReference(getParameter_ResourceSignature__Parameter(), theResourcetypePackage.getResourceSignature(),
                 theResourcetypePackage.getResourceSignature_Parameter__ResourceSignature(),
                 "resourceSignature__Parameter", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getDataType_Repository__DataType(), this.getRepository(),
+        initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getDataType_Repository__DataType(), this.getRepository(),
                 this.getRepository_DataTypes__Repository(), "repository__DataType", null, 1, 1, DataType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getRepository_RepositoryDescription(), this.ecorePackage.getEString(),
-                "repositoryDescription", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getRepository_Components__Repository(), this.getRepositoryComponent(),
+        initEAttribute(getRepository_RepositoryDescription(), ecorePackage.getEString(), "repositoryDescription", null,
+                0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
+        initEReference(getRepository_Components__Repository(), this.getRepositoryComponent(),
                 this.getRepositoryComponent_Repository__RepositoryComponent(), "components__Repository", null, 0, -1,
                 Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getRepository_Interfaces__Repository(), this.getInterface(),
+        initEReference(getRepository_Interfaces__Repository(), this.getInterface(),
                 this.getInterface_Repository__Interface(), "interfaces__Repository", null, 0, -1, Repository.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getRepository_FailureTypes__Repository(), theReliabilityPackage.getFailureType(),
+        initEReference(getRepository_FailureTypes__Repository(), theReliabilityPackage.getFailureType(),
                 theReliabilityPackage.getFailureType_Repository__FailureType(), "failureTypes__Repository", null, 0,
                 -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getRepository_DataTypes__Repository(), this.getDataType(),
+        initEReference(getRepository_DataTypes__Repository(), this.getDataType(),
                 this.getDataType_Repository__DataType(), "dataTypes__Repository", null, 0, -1, Repository.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(interfaceEClass, Interface.class, "Interface", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInterface_ParentInterfaces__Interface(), this.getInterface(), null,
+        initEReference(getInterface_ParentInterfaces__Interface(), this.getInterface(), null,
                 "parentInterfaces__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getInterface_Protocols__Interface(), theProtocolPackage.getProtocol(), null,
+        initEReference(getInterface_Protocols__Interface(), theProtocolPackage.getProtocol(), null,
                 "protocols__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getInterface_RequiredCharacterisations(), this.getRequiredCharacterisation(),
+        initEReference(getInterface_RequiredCharacterisations(), this.getRequiredCharacterisation(),
                 this.getRequiredCharacterisation_Interface_RequiredCharacterisation(), "requiredCharacterisations",
                 null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getInterface_Repository__Interface(), this.getRepository(),
+        initEReference(getInterface_Repository__Interface(), this.getRepository(),
                 this.getRepository_Interfaces__Repository(), "repository__Interface", null, 1, 1, Interface.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = this.addEOperation(this.interfaceEClass, this.ecorePackage.getEBoolean(), "NoProtocolTypeIDUsedTwice", 0,
-                1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        op = addEOperation(interfaceEClass, ecorePackage.getEBoolean(), "NoProtocolTypeIDUsedTwice", 0, 1, IS_UNIQUE,
+                IS_ORDERED);
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.requiredCharacterisationEClass, RequiredCharacterisation.class,
-                "RequiredCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getRequiredCharacterisation_Type(),
-                theParameterPackage.getVariableCharacterisationType(), "type", null, 1, 1,
-                RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getRequiredCharacterisation_Parameter(), this.getParameter(), null, "parameter", null,
-                1, 1, RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+        initEClass(requiredCharacterisationEClass, RequiredCharacterisation.class, "RequiredCharacterisation",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getRequiredCharacterisation_Type(), theParameterPackage.getVariableCharacterisationType(),
+                "type", null, 1, 1, RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getRequiredCharacterisation_Parameter(), this.getParameter(), null, "parameter", null, 1, 1,
+                RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getRequiredCharacterisation_Interface_RequiredCharacterisation(), this.getInterface(),
+        initEReference(getRequiredCharacterisation_Interface_RequiredCharacterisation(), this.getInterface(),
                 this.getInterface_RequiredCharacterisations(), "interface_RequiredCharacterisation", null, 1, 1,
                 RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.eventGroupEClass, EventGroup.class, "EventGroup", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(eventGroupEClass, EventGroup.class, "EventGroup", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getEventGroup_EventTypes__EventGroup(), this.getEventType(),
+        initEReference(getEventGroup_EventTypes__EventGroup(), this.getEventType(),
                 this.getEventType_EventGroup__EventType(), "eventTypes__EventGroup", null, 0, -1, EventGroup.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.eventTypeEClass, EventType.class, "EventType", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(eventTypeEClass, EventType.class, "EventType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getEventType_Parameter__EventType(), this.getParameter(),
+        initEReference(getEventType_Parameter__EventType(), this.getParameter(),
                 this.getParameter_EventType__Parameter(), "parameter__EventType", null, 1, 1, EventType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getEventType_EventGroup__EventType(), this.getEventGroup(),
+        initEReference(getEventType_EventGroup__EventType(), this.getEventGroup(),
                 this.getEventGroup_EventTypes__EventGroup(), "eventGroup__EventType", null, 1, 1, EventType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.signatureEClass, Signature.class, "Signature", IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(signatureEClass, Signature.class, "Signature", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getSignature_Exceptions__Signature(), this.getExceptionType(), null,
-                "exceptions__Signature", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getSignature_FailureType(), theReliabilityPackage.getFailureType(), null,
-                "failureType", null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getSignature_Exceptions__Signature(), this.getExceptionType(), null, "exceptions__Signature",
+                null, 0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getSignature_FailureType(), theReliabilityPackage.getFailureType(), null, "failureType", null,
+                0, -1, Signature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.exceptionTypeEClass, ExceptionType.class, "ExceptionType", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(exceptionTypeEClass, ExceptionType.class, "ExceptionType", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getExceptionType_ExceptionName(), this.ecorePackage.getEString(), "exceptionName",
-                null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getExceptionType_ExceptionMessage(), this.ecorePackage.getEString(),
-                "exceptionMessage", null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEAttribute(getExceptionType_ExceptionName(), ecorePackage.getEString(), "exceptionName", null, 1, 1,
+                ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
+        initEAttribute(getExceptionType_ExceptionMessage(), ecorePackage.getEString(), "exceptionMessage", null, 1, 1,
+                ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.infrastructureSignatureEClass, InfrastructureSignature.class, "InfrastructureSignature",
+        initEClass(infrastructureSignatureEClass, InfrastructureSignature.class, "InfrastructureSignature",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInfrastructureSignature_Parameters__InfrastructureSignature(), this.getParameter(),
+        initEReference(getInfrastructureSignature_Parameters__InfrastructureSignature(), this.getParameter(),
                 this.getParameter_InfrastructureSignature__Parameter(), "parameters__InfrastructureSignature", null, 0,
                 -1, InfrastructureSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature(),
+        initEReference(getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature(),
                 this.getInfrastructureInterface(),
                 this.getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface(),
                 "infrastructureInterface__InfrastructureSignature", null, 1, 1, InfrastructureSignature.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.infrastructureInterfaceEClass, InfrastructureInterface.class, "InfrastructureInterface",
+        initEClass(infrastructureInterfaceEClass, InfrastructureInterface.class, "InfrastructureInterface",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface(),
+        initEReference(getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface(),
                 this.getInfrastructureSignature(),
                 this.getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature(),
                 "infrastructureSignatures__InfrastructureInterface", null, 0, -1, InfrastructureInterface.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.infrastructureRequiredRoleEClass, InfrastructureRequiredRole.class,
-                "InfrastructureRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole(),
+        initEClass(infrastructureRequiredRoleEClass, InfrastructureRequiredRole.class, "InfrastructureRequiredRole",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole(),
                 this.getInfrastructureInterface(), null, "requiredInterface__InfrastructureRequiredRole", null, 1, 1,
                 InfrastructureRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.requiredRoleEClass, RequiredRole.class, "RequiredRole", IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(requiredRoleEClass, RequiredRole.class, "RequiredRole", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getRequiredRole_RequiringEntity_RequiredRole(),
-                theEntityPackage.getInterfaceRequiringEntity(),
+        initEReference(getRequiredRole_RequiringEntity_RequiredRole(), theEntityPackage.getInterfaceRequiringEntity(),
                 theEntityPackage.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(),
                 "requiringEntity_RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.operationSignatureEClass, OperationSignature.class, "OperationSignature", !IS_ABSTRACT,
+        initEClass(operationSignatureEClass, OperationSignature.class, "OperationSignature", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getOperationSignature_Interface__OperationSignature(), this.getOperationInterface(),
+        initEReference(getOperationSignature_Interface__OperationSignature(), this.getOperationInterface(),
                 this.getOperationInterface_Signatures__OperationInterface(), "interface__OperationSignature", null, 1,
                 1, OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getOperationSignature_Parameters__OperationSignature(), this.getParameter(),
+        initEReference(getOperationSignature_Parameters__OperationSignature(), this.getParameter(),
                 this.getParameter_OperationSignature__Parameter(), "parameters__OperationSignature", null, 0, -1,
                 OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        this.initEReference(this.getOperationSignature_ReturnType__OperationSignature(), this.getDataType(), null,
+        initEReference(getOperationSignature_ReturnType__OperationSignature(), this.getDataType(), null,
                 "returnType__OperationSignature", null, 0, 1, OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = this.addEOperation(this.operationSignatureEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(operationSignatureEClass, ecorePackage.getEBoolean(),
                 "ParameterNamesHaveToBeUniqueForASignature", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.operationInterfaceEClass, OperationInterface.class, "OperationInterface", !IS_ABSTRACT,
+        initEClass(operationInterfaceEClass, OperationInterface.class, "OperationInterface", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getOperationInterface_Signatures__OperationInterface(), this.getOperationSignature(),
+        initEReference(getOperationInterface_Signatures__OperationInterface(), this.getOperationSignature(),
                 this.getOperationSignature_Interface__OperationSignature(), "signatures__OperationInterface", null, 0,
                 -1, OperationInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = this.addEOperation(this.operationInterfaceEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(operationInterfaceEClass, ecorePackage.getEBoolean(),
                 "SignaturesHaveToBeUniqueForAnInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.operationRequiredRoleEClass, OperationRequiredRole.class, "OperationRequiredRole",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getOperationRequiredRole_RequiredInterface__OperationRequiredRole(),
+        initEClass(operationRequiredRoleEClass, OperationRequiredRole.class, "OperationRequiredRole", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getOperationRequiredRole_RequiredInterface__OperationRequiredRole(),
                 this.getOperationInterface(), null, "requiredInterface__OperationRequiredRole", null, 1, 1,
                 OperationRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.sourceRoleEClass, SourceRole.class, "SourceRole", !IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(sourceRoleEClass, SourceRole.class, "SourceRole", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getSourceRole_EventGroup__SourceRole(), this.getEventGroup(), null,
-                "eventGroup__SourceRole", null, 1, 1, SourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getSourceRole_EventGroup__SourceRole(), this.getEventGroup(), null, "eventGroup__SourceRole",
+                null, 1, 1, SourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.sinkRoleEClass, SinkRole.class, "SinkRole", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getSinkRole_EventGroup__SinkRole(), this.getEventGroup(), null,
-                "eventGroup__SinkRole", null, 1, 1, SinkRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEClass(sinkRoleEClass, SinkRole.class, "SinkRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getSinkRole_EventGroup__SinkRole(), this.getEventGroup(), null, "eventGroup__SinkRole", null, 1,
+                1, SinkRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.operationProvidedRoleEClass, OperationProvidedRole.class, "OperationProvidedRole",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(),
+        initEClass(operationProvidedRoleEClass, OperationProvidedRole.class, "OperationProvidedRole", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(),
                 this.getOperationInterface(), null, "providedInterface__OperationProvidedRole", null, 1, 1,
                 OperationProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.infrastructureProvidedRoleEClass, InfrastructureProvidedRole.class,
-                "InfrastructureProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole(),
+        initEClass(infrastructureProvidedRoleEClass, InfrastructureProvidedRole.class, "InfrastructureProvidedRole",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole(),
                 this.getInfrastructureInterface(), null, "providedInterface__InfrastructureProvidedRole", null, 1, 1,
                 InfrastructureProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.completeComponentTypeEClass, CompleteComponentType.class, "CompleteComponentType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getCompleteComponentType_ParentProvidesComponentTypes(),
-                this.getProvidesComponentType(), null, "parentProvidesComponentTypes", null, 0, -1,
-                CompleteComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEClass(completeComponentTypeEClass, CompleteComponentType.class, "CompleteComponentType", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getCompleteComponentType_ParentProvidesComponentTypes(), this.getProvidesComponentType(), null,
+                "parentProvidesComponentTypes", null, 0, -1, CompleteComponentType.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        op = this.addEOperation(this.completeComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(completeComponentTypeEClass, ecorePackage.getEBoolean(),
                 "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType", 0, 1, IS_UNIQUE,
                 IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        op = this.addEOperation(this.completeComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(completeComponentTypeEClass, ecorePackage.getEBoolean(),
                 "providedInterfacesHaveToConformToProvidedType2", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.providesComponentTypeEClass, ProvidesComponentType.class, "ProvidesComponentType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(providesComponentTypeEClass, ProvidesComponentType.class, "ProvidesComponentType", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        op = this.addEOperation(this.providesComponentTypeEClass, this.ecorePackage.getEBoolean(),
+        op = addEOperation(providesComponentTypeEClass, ecorePackage.getEBoolean(),
                 "AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        g1 = createEGenericType(ecorePackage.getEMap());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.compositeComponentEClass, CompositeComponent.class, "CompositeComponent", !IS_ABSTRACT,
+        initEClass(compositeComponentEClass, CompositeComponent.class, "CompositeComponent", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        this.initEClass(this.primitiveDataTypeEClass, PrimitiveDataType.class, "PrimitiveDataType", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getPrimitiveDataType_Type(), this.getPrimitiveTypeEnum(), "type", null, 1, 1,
+        initEClass(primitiveDataTypeEClass, PrimitiveDataType.class, "PrimitiveDataType", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEAttribute(getPrimitiveDataType_Type(), this.getPrimitiveTypeEnum(), "type", null, 1, 1,
                 PrimitiveDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.collectionDataTypeEClass, CollectionDataType.class, "CollectionDataType", !IS_ABSTRACT,
+        initEClass(collectionDataTypeEClass, CollectionDataType.class, "CollectionDataType", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getCollectionDataType_InnerType_CollectionDataType(), this.getDataType(), null,
+        initEReference(getCollectionDataType_InnerType_CollectionDataType(), this.getDataType(), null,
                 "innerType_CollectionDataType", null, 1, 1, CollectionDataType.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.compositeDataTypeEClass, CompositeDataType.class, "CompositeDataType", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getCompositeDataType_ParentType_CompositeDataType(), this.getCompositeDataType(),
-                null, "parentType_CompositeDataType", null, 0, -1, CompositeDataType.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
-        this.initEReference(this.getCompositeDataType_InnerDeclaration_CompositeDataType(), this.getInnerDeclaration(),
+        initEClass(compositeDataTypeEClass, CompositeDataType.class, "CompositeDataType", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getCompositeDataType_ParentType_CompositeDataType(), this.getCompositeDataType(), null,
+                "parentType_CompositeDataType", null, 0, -1, CompositeDataType.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEReference(getCompositeDataType_InnerDeclaration_CompositeDataType(), this.getInnerDeclaration(),
                 this.getInnerDeclaration_CompositeDataType_InnerDeclaration(), "innerDeclaration_CompositeDataType",
                 null, 0, -1, CompositeDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.innerDeclarationEClass, InnerDeclaration.class, "InnerDeclaration", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInnerDeclaration_Datatype_InnerDeclaration(), this.getDataType(), null,
+        initEClass(innerDeclarationEClass, InnerDeclaration.class, "InnerDeclaration", !IS_ABSTRACT, !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getInnerDeclaration_Datatype_InnerDeclaration(), this.getDataType(), null,
                 "datatype_InnerDeclaration", null, 1, 1, InnerDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getInnerDeclaration_CompositeDataType_InnerDeclaration(), this.getCompositeDataType(),
+        initEReference(getInnerDeclaration_CompositeDataType_InnerDeclaration(), this.getCompositeDataType(),
                 this.getCompositeDataType_InnerDeclaration_CompositeDataType(), "compositeDataType_InnerDeclaration",
                 null, 1, 1, InnerDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.roleEClass, Role.class, "Role", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(roleEClass, Role.class, "Role", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         // Initialize enums and add enum literals
-        this.initEEnum(this.parameterModifierEEnum, ParameterModifier.class, "ParameterModifier");
-        this.addEEnumLiteral(this.parameterModifierEEnum, ParameterModifier.NONE);
-        this.addEEnumLiteral(this.parameterModifierEEnum, ParameterModifier.IN);
-        this.addEEnumLiteral(this.parameterModifierEEnum, ParameterModifier.OUT);
-        this.addEEnumLiteral(this.parameterModifierEEnum, ParameterModifier.INOUT);
+        initEEnum(parameterModifierEEnum, ParameterModifier.class, "ParameterModifier");
+        addEEnumLiteral(parameterModifierEEnum, ParameterModifier.NONE);
+        addEEnumLiteral(parameterModifierEEnum, ParameterModifier.IN);
+        addEEnumLiteral(parameterModifierEEnum, ParameterModifier.OUT);
+        addEEnumLiteral(parameterModifierEEnum, ParameterModifier.INOUT);
 
-        this.initEEnum(this.componentTypeEEnum, ComponentType.class, "ComponentType");
-        this.addEEnumLiteral(this.componentTypeEEnum, ComponentType.BUSINESS_COMPONENT);
-        this.addEEnumLiteral(this.componentTypeEEnum, ComponentType.INFRASTRUCTURE_COMPONENT);
+        initEEnum(componentTypeEEnum, ComponentType.class, "ComponentType");
+        addEEnumLiteral(componentTypeEEnum, ComponentType.BUSINESS_COMPONENT);
+        addEEnumLiteral(componentTypeEEnum, ComponentType.INFRASTRUCTURE_COMPONENT);
 
-        this.initEEnum(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.class, "PrimitiveTypeEnum");
-        this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.INT);
-        this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.STRING);
-        this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.BOOL);
-        this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.DOUBLE);
-        this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.CHAR);
-        this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.BYTE);
-        this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.LONG);
+        initEEnum(primitiveTypeEnumEEnum, PrimitiveTypeEnum.class, "PrimitiveTypeEnum");
+        addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.INT);
+        addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.STRING);
+        addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.BOOL);
+        addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.DOUBLE);
+        addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.CHAR);
+        addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.BYTE);
+        addEEnumLiteral(primitiveTypeEnumEEnum, PrimitiveTypeEnum.LONG);
     }
 
 } // RepositoryPackageImpl

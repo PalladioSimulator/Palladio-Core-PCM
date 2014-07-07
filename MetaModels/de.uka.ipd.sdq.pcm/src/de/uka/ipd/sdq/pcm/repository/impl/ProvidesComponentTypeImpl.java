@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <em><b>Provides Component Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implements ProvidesComponentType {
@@ -59,7 +59,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
     /**
      * The cached OCL expression body for the '
      * {@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>} '
+     * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain,
@@ -72,7 +72,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
     /**
      * The cached OCL invariant for the '
      * {@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>} '
+     * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain,
@@ -88,15 +88,15 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
      * @generated
      */
     @Override
-    public boolean AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.PROVIDES_COMPONENT_TYPE);
             try {
                 AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }

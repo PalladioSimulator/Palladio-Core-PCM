@@ -5,11 +5,11 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Source Delegation Connector</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A SourceDelegationConnector delegates outgoing events of encapsulated
  * assembly contexts to an external souce role of the enclosing assembly context. <!-- end-model-doc
  * -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * <em>Assembly Context Source Delegation Connector</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSourceDelegationConnector()
  * @model
  * @generated
@@ -98,7 +98,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
     void setOuterSourceRole__SourceRole(SourceRole value);
 
     /**
-     * Returns the value of the ' <em><b>Assembly Context Source Delegation Connector</b></em>'
+     * Returns the value of the '<em><b>Assembly Context Source Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the ' <em>Assembly Context Source Delegation Connector</em>' reference
@@ -106,7 +106,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the ' <em>Assembly Context Source Delegation Connector</em>' reference.
+     * @return the value of the '<em>Assembly Context Source Delegation Connector</em>' reference.
      * @see #setAssemblyContext__SourceDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector()
      * @model required="true" ordered="false"
@@ -121,7 +121,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Assembly Context Source Delegation Connector</em>'
+     *            the new value of the '<em>Assembly Context Source Delegation Connector</em>'
      *            reference.
      * @see #getAssemblyContext__SourceDelegationConnector()
      * @generated

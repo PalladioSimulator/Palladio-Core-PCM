@@ -10,19 +10,18 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Provided Role</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> Provided roles list the interfaces offered by a component. <!--
  * end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing
- * Entity Provided Role</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>
+ * Providing Entity Provided Role</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidedRole()
  * @model abstract="true"
  * @generated

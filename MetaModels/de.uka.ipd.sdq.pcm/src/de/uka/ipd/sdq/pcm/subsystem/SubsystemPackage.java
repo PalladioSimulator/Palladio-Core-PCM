@@ -63,7 +63,7 @@ public interface SubsystemPackage extends EPackage {
     SubsystemPackage eINSTANCE = de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl.init();
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
      * <em>Sub System</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
@@ -91,7 +91,7 @@ public interface SubsystemPackage extends EPackage {
     int SUB_SYSTEM__ENTITY_NAME = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the ' <em><b>Assembly Contexts Composed Structure</b></em>' containment
+     * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -101,7 +101,7 @@ public interface SubsystemPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em> ' containment
+     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -128,7 +128,7 @@ public interface SubsystemPackage extends EPackage {
     int SUB_SYSTEM__CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
 
     /**
-     * The feature id for the ' <em><b>Provided Roles Interface Providing Entity</b></em>'
+     * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -138,7 +138,7 @@ public interface SubsystemPackage extends EPackage {
 
     /**
      * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em> ' containment
+     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -147,7 +147,7 @@ public interface SubsystemPackage extends EPackage {
     int SUB_SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the ' <em><b>Required Roles Interface Requiring Entity</b></em>'
+     * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
@@ -174,7 +174,7 @@ public interface SubsystemPackage extends EPackage {
     int SUB_SYSTEM_FEATURE_COUNT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.subsystem.SubSystem
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.subsystem.SubSystem
      * <em>Sub System</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Sub System</em>'.
@@ -206,7 +206,7 @@ public interface SubsystemPackage extends EPackage {
      */
     interface Literals {
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
          * <em>Sub System</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl

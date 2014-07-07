@@ -8,24 +8,22 @@ package de.uka.ipd.sdq.pcm.seff;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Forked Behaviour</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A ForkedBehaviour can be considered as a program thread. All parameter
  * characterisations from the surrounding RDSEFF are also valid inside the ForkedBehaviours and can
  * be used to parameterise resource demands or control flow constructs. The parameter
  * characterisations are the same in each ForkedBehaviour. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour <em>
  * Synchronisation Point Forked Behaviour</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork Action
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork Action
  * Forked Behaivour</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour()
  * @model
  * @generated
@@ -39,7 +37,7 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the ' <em><b>Synchronisation Point Forked Behaviour</b></em>' container
+     * Returns the value of the '<em><b>Synchronisation Point Forked Behaviour</b></em>' container
      * reference. It is bidirectional and its opposite is '
      * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
      * <em>Synchronous Forked Behaviours Synchronisation Point</em>}'. <!-- begin-user-doc -->
@@ -49,7 +47,7 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
      * </p>
      * <!-- end-user-doc -->
      * 
-     * @return the value of the '<em>Synchronisation Point Forked Behaviour</em> ' container
+     * @return the value of the '<em>Synchronisation Point Forked Behaviour</em>' container
      *         reference.
      * @see #setSynchronisationPoint_ForkedBehaviour(SynchronisationPoint)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour_SynchronisationPoint_ForkedBehaviour()
@@ -67,7 +65,7 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
      * --> <!-- end-user-doc -->
      * 
      * @param value
-     *            the new value of the ' <em>Synchronisation Point Forked Behaviour</em>' container
+     *            the new value of the '<em>Synchronisation Point Forked Behaviour</em>' container
      *            reference.
      * @see #getSynchronisationPoint_ForkedBehaviour()
      * @generated

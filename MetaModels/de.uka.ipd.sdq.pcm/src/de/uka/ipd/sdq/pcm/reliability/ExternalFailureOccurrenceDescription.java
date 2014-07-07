@@ -14,23 +14,25 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnn
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>External Failure Occurrence Description</b></em>'. <!-- end-user-doc -->
- * 
- * <!-- begin-model-doc --> Special&nbsp;case&nbsp;of&nbsp;a&nbsp;FailureOccurenceDescription
- * &nbsp;specifying &nbsp;the&nbsp;failure&nbsp;potential&nbsp;of&nbsp;system-external
- * &nbsp;calls.&nbsp;Can&nbsp;relate&nbsp;to any FailureType. <!-- end-model-doc -->
- * 
+ *
+ * <!-- begin-model-doc -->
+ * Special&nbsp;case&nbsp;of&nbsp;a&nbsp;FailureOccurenceDescription&nbsp;specifying
+ * &nbsp;the&nbsp;failure
+ * &nbsp;potential&nbsp;of&nbsp;system-external&nbsp;calls.&nbsp;Can&nbsp;relate&nbsp;to any
+ * FailureType. <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
- * <em>Specified Reliability Annotation External Failure Occurrence Description </em>}</li>
+ * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription
  * <em>Failure Type External Failure Occurrence Description</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getExternalFailureOccurrenceDescription()
  * @model
  * @generated
@@ -72,13 +74,13 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
     /**
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
-     * <em>Specified Reliability Annotation External Failure Occurrence Description</em>} '
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}' container
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @param value
      *            the new value of the '
-     *            <em>Specified Reliability Annotation External Failure Occurrence Description</em>
-     *            ' container reference.
+     *            <em>Specified Reliability Annotation External Failure Occurrence Description</em>'
+     *            container reference.
      * @see #getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
      * @generated
      */

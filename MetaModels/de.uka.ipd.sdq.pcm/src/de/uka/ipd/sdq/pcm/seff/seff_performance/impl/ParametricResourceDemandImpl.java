@@ -50,7 +50,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ParametricResourceDemandImpl extends EStereotypableObjectImpl implements ParametricResourceDemand {
@@ -73,7 +73,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
     protected PCMRandomVariable specification_ParametericResourceDemand;
 
     /**
-     * The cached value of the ' {@link #getRequiredResource_ParametricResourceDemand()
+     * The cached value of the '{@link #getRequiredResource_ParametricResourceDemand()
      * <em>Required Resource Parametric Resource Demand</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
@@ -109,7 +109,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      */
     @Override
     public PCMRandomVariable getSpecification_ParametericResourceDemand() {
-        return this.specification_ParametericResourceDemand;
+        return specification_ParametericResourceDemand;
     }
 
     /**
@@ -118,18 +118,17 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     public NotificationChain basicSetSpecification_ParametericResourceDemand(
-            final PCMRandomVariable newSpecification_ParametericResourceDemand, NotificationChain msgs) {
-        final PCMRandomVariable oldSpecification_ParametericResourceDemand = this.specification_ParametericResourceDemand;
-        this.specification_ParametericResourceDemand = newSpecification_ParametericResourceDemand;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+            PCMRandomVariable newSpecification_ParametericResourceDemand, NotificationChain msgs) {
+        PCMRandomVariable oldSpecification_ParametericResourceDemand = specification_ParametericResourceDemand;
+        specification_ParametericResourceDemand = newSpecification_ParametericResourceDemand;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
                     oldSpecification_ParametericResourceDemand, newSpecification_ParametericResourceDemand);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -140,30 +139,24 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public void setSpecification_ParametericResourceDemand(
-            final PCMRandomVariable newSpecification_ParametericResourceDemand) {
-        if (newSpecification_ParametericResourceDemand != this.specification_ParametericResourceDemand) {
+    public void setSpecification_ParametericResourceDemand(PCMRandomVariable newSpecification_ParametericResourceDemand) {
+        if (newSpecification_ParametericResourceDemand != specification_ParametericResourceDemand) {
             NotificationChain msgs = null;
-            if (this.specification_ParametericResourceDemand != null) {
-                msgs = ((InternalEObject) this.specification_ParametericResourceDemand).eInverseRemove(this,
+            if (specification_ParametericResourceDemand != null)
+                msgs = ((InternalEObject) specification_ParametericResourceDemand).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            if (newSpecification_ParametericResourceDemand != null) {
+            if (newSpecification_ParametericResourceDemand != null)
                 msgs = ((InternalEObject) newSpecification_ParametericResourceDemand).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetSpecification_ParametericResourceDemand(newSpecification_ParametericResourceDemand,
-                    msgs);
-            if (msgs != null) {
+            msgs = basicSetSpecification_ParametericResourceDemand(newSpecification_ParametericResourceDemand, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
                     newSpecification_ParametericResourceDemand, newSpecification_ParametericResourceDemand));
-        }
     }
 
     /**
@@ -173,23 +166,20 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      */
     @Override
     public ProcessingResourceType getRequiredResource_ParametricResourceDemand() {
-        if (this.requiredResource_ParametricResourceDemand != null
-                && ((EObject) this.requiredResource_ParametricResourceDemand).eIsProxy()) {
-            final InternalEObject oldRequiredResource_ParametricResourceDemand = (InternalEObject) this.requiredResource_ParametricResourceDemand;
-            this.requiredResource_ParametricResourceDemand = (ProcessingResourceType) this
-                    .eResolveProxy(oldRequiredResource_ParametricResourceDemand);
-            if (this.requiredResource_ParametricResourceDemand != oldRequiredResource_ParametricResourceDemand) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (requiredResource_ParametricResourceDemand != null
+                && ((EObject) requiredResource_ParametricResourceDemand).eIsProxy()) {
+            InternalEObject oldRequiredResource_ParametricResourceDemand = (InternalEObject) requiredResource_ParametricResourceDemand;
+            requiredResource_ParametricResourceDemand = (ProcessingResourceType) eResolveProxy(oldRequiredResource_ParametricResourceDemand);
+            if (requiredResource_ParametricResourceDemand != oldRequiredResource_ParametricResourceDemand) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
-                            oldRequiredResource_ParametricResourceDemand,
-                            this.requiredResource_ParametricResourceDemand));
-                }
+                            oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
             }
         }
-        return this.requiredResource_ParametricResourceDemand;
+        return requiredResource_ParametricResourceDemand;
     }
 
     /**
@@ -198,7 +188,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     public ProcessingResourceType basicGetRequiredResource_ParametricResourceDemand() {
-        return this.requiredResource_ParametricResourceDemand;
+        return requiredResource_ParametricResourceDemand;
     }
 
     /**
@@ -208,14 +198,13 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      */
     @Override
     public void setRequiredResource_ParametricResourceDemand(
-            final ProcessingResourceType newRequiredResource_ParametricResourceDemand) {
-        final ProcessingResourceType oldRequiredResource_ParametricResourceDemand = this.requiredResource_ParametricResourceDemand;
-        this.requiredResource_ParametricResourceDemand = newRequiredResource_ParametricResourceDemand;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+            ProcessingResourceType newRequiredResource_ParametricResourceDemand) {
+        ProcessingResourceType oldRequiredResource_ParametricResourceDemand = requiredResource_ParametricResourceDemand;
+        requiredResource_ParametricResourceDemand = newRequiredResource_ParametricResourceDemand;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
-                    oldRequiredResource_ParametricResourceDemand, this.requiredResource_ParametricResourceDemand));
-        }
+                    oldRequiredResource_ParametricResourceDemand, requiredResource_ParametricResourceDemand));
     }
 
     /**
@@ -225,10 +214,9 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      */
     @Override
     public AbstractInternalControlFlowAction getAction_ParametricResourceDemand() {
-        if (this.eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND) {
+        if (eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND)
             return null;
-        }
-        return (AbstractInternalControlFlowAction) this.eInternalContainer();
+        return (AbstractInternalControlFlowAction) eInternalContainer();
     }
 
     /**
@@ -237,8 +225,8 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     public NotificationChain basicSetAction_ParametricResourceDemand(
-            final AbstractInternalControlFlowAction newAction_ParametricResourceDemand, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newAction_ParametricResourceDemand,
+            AbstractInternalControlFlowAction newAction_ParametricResourceDemand, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newAction_ParametricResourceDemand,
                 SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, msgs);
         return msgs;
     }
@@ -249,31 +237,25 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public void setAction_ParametricResourceDemand(
-            final AbstractInternalControlFlowAction newAction_ParametricResourceDemand) {
-        if (newAction_ParametricResourceDemand != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
-            if (EcoreUtil.isAncestor(this, newAction_ParametricResourceDemand)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setAction_ParametricResourceDemand(AbstractInternalControlFlowAction newAction_ParametricResourceDemand) {
+        if (newAction_ParametricResourceDemand != eInternalContainer()
+                || (eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newAction_ParametricResourceDemand))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAction_ParametricResourceDemand != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newAction_ParametricResourceDemand != null)
                 msgs = ((InternalEObject) newAction_ParametricResourceDemand).eInverseAdd(this,
                         SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
                         AbstractInternalControlFlowAction.class, msgs);
-            }
-            msgs = this.basicSetAction_ParametricResourceDemand(newAction_ParametricResourceDemand, msgs);
-            if (msgs != null) {
+            msgs = basicSetAction_ParametricResourceDemand(newAction_ParametricResourceDemand, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND,
                     newAction_ParametricResourceDemand, newAction_ParametricResourceDemand));
-        }
     }
 
     /**
@@ -309,14 +291,14 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      */
     @Override
     public boolean DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND);
             try {
                 DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -349,23 +331,21 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
-            if (this.specification_ParametericResourceDemand != null) {
-                msgs = ((InternalEObject) this.specification_ParametericResourceDemand)
+            if (specification_ParametericResourceDemand != null)
+                msgs = ((InternalEObject) specification_ParametericResourceDemand)
                         .eInverseRemove(
                                 this,
                                 EOPPOSITE_FEATURE_BASE
                                         - SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
                                 null, msgs);
-            }
-            return this.basicSetSpecification_ParametericResourceDemand((PCMRandomVariable) otherEnd, msgs);
+            return basicSetSpecification_ParametericResourceDemand((PCMRandomVariable) otherEnd, msgs);
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetAction_ParametricResourceDemand((AbstractInternalControlFlowAction) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetAction_ParametricResourceDemand((AbstractInternalControlFlowAction) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -376,13 +356,12 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
-            return this.basicSetSpecification_ParametericResourceDemand(null, msgs);
+            return basicSetSpecification_ParametericResourceDemand(null, msgs);
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-            return this.basicSetAction_ParametricResourceDemand(null, msgs);
+            return basicSetAction_ParametricResourceDemand(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -393,10 +372,10 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
                     AbstractInternalControlFlowAction.class, msgs);
         }
@@ -409,17 +388,16 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
-            return this.getSpecification_ParametericResourceDemand();
+            return getSpecification_ParametericResourceDemand();
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-            if (resolve) {
-                return this.getRequiredResource_ParametricResourceDemand();
-            }
-            return this.basicGetRequiredResource_ParametricResourceDemand();
+            if (resolve)
+                return getRequiredResource_ParametricResourceDemand();
+            return basicGetRequiredResource_ParametricResourceDemand();
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-            return this.getAction_ParametricResourceDemand();
+            return getAction_ParametricResourceDemand();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -430,16 +408,16 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
-            this.setSpecification_ParametericResourceDemand((PCMRandomVariable) newValue);
+            setSpecification_ParametericResourceDemand((PCMRandomVariable) newValue);
             return;
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-            this.setRequiredResource_ParametricResourceDemand((ProcessingResourceType) newValue);
+            setRequiredResource_ParametricResourceDemand((ProcessingResourceType) newValue);
             return;
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-            this.setAction_ParametricResourceDemand((AbstractInternalControlFlowAction) newValue);
+            setAction_ParametricResourceDemand((AbstractInternalControlFlowAction) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -451,16 +429,16 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
-            this.setSpecification_ParametericResourceDemand((PCMRandomVariable) null);
+            setSpecification_ParametericResourceDemand((PCMRandomVariable) null);
             return;
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-            this.setRequiredResource_ParametricResourceDemand((ProcessingResourceType) null);
+            setRequiredResource_ParametricResourceDemand((ProcessingResourceType) null);
             return;
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-            this.setAction_ParametricResourceDemand((AbstractInternalControlFlowAction) null);
+            setAction_ParametricResourceDemand((AbstractInternalControlFlowAction) null);
             return;
         }
         super.eUnset(featureID);
@@ -472,14 +450,14 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
-            return this.specification_ParametericResourceDemand != null;
+            return specification_ParametericResourceDemand != null;
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-            return this.requiredResource_ParametricResourceDemand != null;
+            return requiredResource_ParametricResourceDemand != null;
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-            return this.getAction_ParametricResourceDemand() != null;
+            return getAction_ParametricResourceDemand() != null;
         }
         return super.eIsSet(featureID);
     }

@@ -24,18 +24,16 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl#getSuccessor <em>Successor</em>}
- * </li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl#getPredecessor <em>Predecessor
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl#getSuccessor <em>Successor
  * </em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl#getPredecessor <em>
+ * Predecessor</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl#getScenarioBehaviour_AbstractUserAction
  * <em>Scenario Behaviour Abstract User Action</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class AbstractUserActionImpl extends EntityImpl implements AbstractUserAction {
@@ -92,17 +90,16 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public AbstractUserAction getSuccessor() {
-        if (this.successor != null && ((EObject) this.successor).eIsProxy()) {
-            final InternalEObject oldSuccessor = (InternalEObject) this.successor;
-            this.successor = (AbstractUserAction) this.eResolveProxy(oldSuccessor);
-            if (this.successor != oldSuccessor) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, oldSuccessor, this.successor));
-                }
+        if (successor != null && ((EObject) successor).eIsProxy()) {
+            InternalEObject oldSuccessor = (InternalEObject) successor;
+            successor = (AbstractUserAction) eResolveProxy(oldSuccessor);
+            if (successor != oldSuccessor) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+                            UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, oldSuccessor, successor));
             }
         }
-        return this.successor;
+        return successor;
     }
 
     /**
@@ -111,7 +108,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     public AbstractUserAction basicGetSuccessor() {
-        return this.successor;
+        return successor;
     }
 
     /**
@@ -119,17 +116,16 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * 
      * @generated
      */
-    public NotificationChain basicSetSuccessor(final AbstractUserAction newSuccessor, NotificationChain msgs) {
-        final AbstractUserAction oldSuccessor = this.successor;
-        this.successor = newSuccessor;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+    public NotificationChain basicSetSuccessor(AbstractUserAction newSuccessor, NotificationChain msgs) {
+        AbstractUserAction oldSuccessor = successor;
+        successor = newSuccessor;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, oldSuccessor, newSuccessor);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -140,25 +136,21 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public void setSuccessor(final AbstractUserAction newSuccessor) {
-        if (newSuccessor != this.successor) {
+    public void setSuccessor(AbstractUserAction newSuccessor) {
+        if (newSuccessor != successor) {
             NotificationChain msgs = null;
-            if (this.successor != null) {
-                msgs = ((InternalEObject) this.successor).eInverseRemove(this,
+            if (successor != null)
+                msgs = ((InternalEObject) successor).eInverseRemove(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, AbstractUserAction.class, msgs);
-            }
-            if (newSuccessor != null) {
+            if (newSuccessor != null)
                 msgs = ((InternalEObject) newSuccessor).eInverseAdd(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, AbstractUserAction.class, msgs);
-            }
-            msgs = this.basicSetSuccessor(newSuccessor, msgs);
-            if (msgs != null) {
+            msgs = basicSetSuccessor(newSuccessor, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, newSuccessor, newSuccessor));
-        }
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
+                    newSuccessor, newSuccessor));
     }
 
     /**
@@ -168,17 +160,16 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public AbstractUserAction getPredecessor() {
-        if (this.predecessor != null && ((EObject) this.predecessor).eIsProxy()) {
-            final InternalEObject oldPredecessor = (InternalEObject) this.predecessor;
-            this.predecessor = (AbstractUserAction) this.eResolveProxy(oldPredecessor);
-            if (this.predecessor != oldPredecessor) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, oldPredecessor, this.predecessor));
-                }
+        if (predecessor != null && ((EObject) predecessor).eIsProxy()) {
+            InternalEObject oldPredecessor = (InternalEObject) predecessor;
+            predecessor = (AbstractUserAction) eResolveProxy(oldPredecessor);
+            if (predecessor != oldPredecessor) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+                            UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, oldPredecessor, predecessor));
             }
         }
-        return this.predecessor;
+        return predecessor;
     }
 
     /**
@@ -187,7 +178,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     public AbstractUserAction basicGetPredecessor() {
-        return this.predecessor;
+        return predecessor;
     }
 
     /**
@@ -195,17 +186,16 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * 
      * @generated
      */
-    public NotificationChain basicSetPredecessor(final AbstractUserAction newPredecessor, NotificationChain msgs) {
-        final AbstractUserAction oldPredecessor = this.predecessor;
-        this.predecessor = newPredecessor;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+    public NotificationChain basicSetPredecessor(AbstractUserAction newPredecessor, NotificationChain msgs) {
+        AbstractUserAction oldPredecessor = predecessor;
+        predecessor = newPredecessor;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, oldPredecessor, newPredecessor);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -216,25 +206,21 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public void setPredecessor(final AbstractUserAction newPredecessor) {
-        if (newPredecessor != this.predecessor) {
+    public void setPredecessor(AbstractUserAction newPredecessor) {
+        if (newPredecessor != predecessor) {
             NotificationChain msgs = null;
-            if (this.predecessor != null) {
-                msgs = ((InternalEObject) this.predecessor).eInverseRemove(this,
+            if (predecessor != null)
+                msgs = ((InternalEObject) predecessor).eInverseRemove(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, AbstractUserAction.class, msgs);
-            }
-            if (newPredecessor != null) {
+            if (newPredecessor != null)
                 msgs = ((InternalEObject) newPredecessor).eInverseAdd(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, AbstractUserAction.class, msgs);
-            }
-            msgs = this.basicSetPredecessor(newPredecessor, msgs);
-            if (msgs != null) {
+            msgs = basicSetPredecessor(newPredecessor, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, newPredecessor, newPredecessor));
-        }
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
+                    newPredecessor, newPredecessor));
     }
 
     /**
@@ -244,10 +230,9 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public ScenarioBehaviour getScenarioBehaviour_AbstractUserAction() {
-        if (this.eContainerFeatureID() != UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION) {
+        if (eContainerFeatureID() != UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION)
             return null;
-        }
-        return (ScenarioBehaviour) this.eInternalContainer();
+        return (ScenarioBehaviour) eInternalContainer();
     }
 
     /**
@@ -256,8 +241,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     public NotificationChain basicSetScenarioBehaviour_AbstractUserAction(
-            final ScenarioBehaviour newScenarioBehaviour_AbstractUserAction, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newScenarioBehaviour_AbstractUserAction,
+            ScenarioBehaviour newScenarioBehaviour_AbstractUserAction, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newScenarioBehaviour_AbstractUserAction,
                 UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION, msgs);
         return msgs;
     }
@@ -268,30 +253,25 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public void setScenarioBehaviour_AbstractUserAction(final ScenarioBehaviour newScenarioBehaviour_AbstractUserAction) {
-        if (newScenarioBehaviour_AbstractUserAction != this.eInternalContainer()
-                || (this.eContainerFeatureID() != UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION && newScenarioBehaviour_AbstractUserAction != null)) {
-            if (EcoreUtil.isAncestor(this, newScenarioBehaviour_AbstractUserAction)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour newScenarioBehaviour_AbstractUserAction) {
+        if (newScenarioBehaviour_AbstractUserAction != eInternalContainer()
+                || (eContainerFeatureID() != UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION && newScenarioBehaviour_AbstractUserAction != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newScenarioBehaviour_AbstractUserAction))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newScenarioBehaviour_AbstractUserAction != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newScenarioBehaviour_AbstractUserAction != null)
                 msgs = ((InternalEObject) newScenarioBehaviour_AbstractUserAction)
                         .eInverseAdd(this, UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR,
                                 ScenarioBehaviour.class, msgs);
-            }
-            msgs = this.basicSetScenarioBehaviour_AbstractUserAction(newScenarioBehaviour_AbstractUserAction, msgs);
-            if (msgs != null) {
+            msgs = basicSetScenarioBehaviour_AbstractUserAction(newScenarioBehaviour_AbstractUserAction, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION,
                     newScenarioBehaviour_AbstractUserAction, newScenarioBehaviour_AbstractUserAction));
-        }
     }
 
     /**
@@ -300,25 +280,22 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            if (this.successor != null) {
-                msgs = ((InternalEObject) this.successor).eInverseRemove(this,
+            if (successor != null)
+                msgs = ((InternalEObject) successor).eInverseRemove(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, AbstractUserAction.class, msgs);
-            }
-            return this.basicSetSuccessor((AbstractUserAction) otherEnd, msgs);
+            return basicSetSuccessor((AbstractUserAction) otherEnd, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            if (this.predecessor != null) {
-                msgs = ((InternalEObject) this.predecessor).eInverseRemove(this,
+            if (predecessor != null)
+                msgs = ((InternalEObject) predecessor).eInverseRemove(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, AbstractUserAction.class, msgs);
-            }
-            return this.basicSetPredecessor((AbstractUserAction) otherEnd, msgs);
+            return basicSetPredecessor((AbstractUserAction) otherEnd, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -329,15 +306,14 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            return this.basicSetSuccessor(null, msgs);
+            return basicSetSuccessor(null, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            return this.basicSetPredecessor(null, msgs);
+            return basicSetPredecessor(null, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return this.basicSetScenarioBehaviour_AbstractUserAction(null, msgs);
+            return basicSetScenarioBehaviour_AbstractUserAction(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -348,10 +324,10 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -363,20 +339,18 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            if (resolve) {
-                return this.getSuccessor();
-            }
-            return this.basicGetSuccessor();
+            if (resolve)
+                return getSuccessor();
+            return basicGetSuccessor();
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            if (resolve) {
-                return this.getPredecessor();
-            }
-            return this.basicGetPredecessor();
+            if (resolve)
+                return getPredecessor();
+            return basicGetPredecessor();
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return this.getScenarioBehaviour_AbstractUserAction();
+            return getScenarioBehaviour_AbstractUserAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -387,16 +361,16 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            this.setSuccessor((AbstractUserAction) newValue);
+            setSuccessor((AbstractUserAction) newValue);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            this.setPredecessor((AbstractUserAction) newValue);
+            setPredecessor((AbstractUserAction) newValue);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            this.setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) newValue);
+            setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -408,16 +382,16 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            this.setSuccessor((AbstractUserAction) null);
+            setSuccessor((AbstractUserAction) null);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            this.setPredecessor((AbstractUserAction) null);
+            setPredecessor((AbstractUserAction) null);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            this.setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) null);
+            setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) null);
             return;
         }
         super.eUnset(featureID);
@@ -429,14 +403,14 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            return this.successor != null;
+            return successor != null;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            return this.predecessor != null;
+            return predecessor != null;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return this.getScenarioBehaviour_AbstractUserAction() != null;
+            return getScenarioBehaviour_AbstractUserAction() != null;
         }
         return super.eIsSet(featureID);
     }

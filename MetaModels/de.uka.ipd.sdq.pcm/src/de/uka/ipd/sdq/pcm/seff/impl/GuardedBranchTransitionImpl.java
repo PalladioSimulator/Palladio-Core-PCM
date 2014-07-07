@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <em>Branch Condition Guarded Branch Transition</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl implements GuardedBranchTransition {
@@ -75,7 +75,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      */
     @Override
     public PCMRandomVariable getBranchCondition_GuardedBranchTransition() {
-        return this.branchCondition_GuardedBranchTransition;
+        return branchCondition_GuardedBranchTransition;
     }
 
     /**
@@ -84,18 +84,17 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     public NotificationChain basicSetBranchCondition_GuardedBranchTransition(
-            final PCMRandomVariable newBranchCondition_GuardedBranchTransition, NotificationChain msgs) {
-        final PCMRandomVariable oldBranchCondition_GuardedBranchTransition = this.branchCondition_GuardedBranchTransition;
-        this.branchCondition_GuardedBranchTransition = newBranchCondition_GuardedBranchTransition;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+            PCMRandomVariable newBranchCondition_GuardedBranchTransition, NotificationChain msgs) {
+        PCMRandomVariable oldBranchCondition_GuardedBranchTransition = branchCondition_GuardedBranchTransition;
+        branchCondition_GuardedBranchTransition = newBranchCondition_GuardedBranchTransition;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION,
                     oldBranchCondition_GuardedBranchTransition, newBranchCondition_GuardedBranchTransition);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -106,30 +105,24 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     @Override
-    public void setBranchCondition_GuardedBranchTransition(
-            final PCMRandomVariable newBranchCondition_GuardedBranchTransition) {
-        if (newBranchCondition_GuardedBranchTransition != this.branchCondition_GuardedBranchTransition) {
+    public void setBranchCondition_GuardedBranchTransition(PCMRandomVariable newBranchCondition_GuardedBranchTransition) {
+        if (newBranchCondition_GuardedBranchTransition != branchCondition_GuardedBranchTransition) {
             NotificationChain msgs = null;
-            if (this.branchCondition_GuardedBranchTransition != null) {
-                msgs = ((InternalEObject) this.branchCondition_GuardedBranchTransition).eInverseRemove(this,
+            if (branchCondition_GuardedBranchTransition != null)
+                msgs = ((InternalEObject) branchCondition_GuardedBranchTransition).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            if (newBranchCondition_GuardedBranchTransition != null) {
+            if (newBranchCondition_GuardedBranchTransition != null)
                 msgs = ((InternalEObject) newBranchCondition_GuardedBranchTransition).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetBranchCondition_GuardedBranchTransition(newBranchCondition_GuardedBranchTransition,
-                    msgs);
-            if (msgs != null) {
+            msgs = basicSetBranchCondition_GuardedBranchTransition(newBranchCondition_GuardedBranchTransition, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION,
                     newBranchCondition_GuardedBranchTransition, newBranchCondition_GuardedBranchTransition));
-        }
     }
 
     /**
@@ -138,16 +131,15 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
-            if (this.branchCondition_GuardedBranchTransition != null) {
-                msgs = ((InternalEObject) this.branchCondition_GuardedBranchTransition).eInverseRemove(this,
+            if (branchCondition_GuardedBranchTransition != null)
+                msgs = ((InternalEObject) branchCondition_GuardedBranchTransition).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
                                 - SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION,
                         null, msgs);
-            }
-            return this.basicSetBranchCondition_GuardedBranchTransition((PCMRandomVariable) otherEnd, msgs);
+            return basicSetBranchCondition_GuardedBranchTransition((PCMRandomVariable) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -158,11 +150,10 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
-            return this.basicSetBranchCondition_GuardedBranchTransition(null, msgs);
+            return basicSetBranchCondition_GuardedBranchTransition(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -173,10 +164,10 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
-            return this.getBranchCondition_GuardedBranchTransition();
+            return getBranchCondition_GuardedBranchTransition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -187,10 +178,10 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
-            this.setBranchCondition_GuardedBranchTransition((PCMRandomVariable) newValue);
+            setBranchCondition_GuardedBranchTransition((PCMRandomVariable) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -202,10 +193,10 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
-            this.setBranchCondition_GuardedBranchTransition((PCMRandomVariable) null);
+            setBranchCondition_GuardedBranchTransition((PCMRandomVariable) null);
             return;
         }
         super.eUnset(featureID);
@@ -217,10 +208,10 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
-            return this.branchCondition_GuardedBranchTransition != null;
+            return branchCondition_GuardedBranchTransition != null;
         }
         return super.eIsSet(featureID);
     }

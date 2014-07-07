@@ -54,7 +54,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
  * <em>Required Role Infrastructure Call</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class InfrastructureCallImpl extends CallActionImpl implements InfrastructureCall {
@@ -124,19 +124,17 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public InfrastructureSignature getSignature__InfrastructureCall() {
-        if (this.signature__InfrastructureCall != null && ((EObject) this.signature__InfrastructureCall).eIsProxy()) {
-            final InternalEObject oldSignature__InfrastructureCall = (InternalEObject) this.signature__InfrastructureCall;
-            this.signature__InfrastructureCall = (InfrastructureSignature) this
-                    .eResolveProxy(oldSignature__InfrastructureCall);
-            if (this.signature__InfrastructureCall != oldSignature__InfrastructureCall) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (signature__InfrastructureCall != null && ((EObject) signature__InfrastructureCall).eIsProxy()) {
+            InternalEObject oldSignature__InfrastructureCall = (InternalEObject) signature__InfrastructureCall;
+            signature__InfrastructureCall = (InfrastructureSignature) eResolveProxy(oldSignature__InfrastructureCall);
+            if (signature__InfrastructureCall != oldSignature__InfrastructureCall) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
-                            oldSignature__InfrastructureCall, this.signature__InfrastructureCall));
-                }
+                            oldSignature__InfrastructureCall, signature__InfrastructureCall));
             }
         }
-        return this.signature__InfrastructureCall;
+        return signature__InfrastructureCall;
     }
 
     /**
@@ -145,7 +143,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     public InfrastructureSignature basicGetSignature__InfrastructureCall() {
-        return this.signature__InfrastructureCall;
+        return signature__InfrastructureCall;
     }
 
     /**
@@ -154,14 +152,13 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public void setSignature__InfrastructureCall(final InfrastructureSignature newSignature__InfrastructureCall) {
-        final InfrastructureSignature oldSignature__InfrastructureCall = this.signature__InfrastructureCall;
-        this.signature__InfrastructureCall = newSignature__InfrastructureCall;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setSignature__InfrastructureCall(InfrastructureSignature newSignature__InfrastructureCall) {
+        InfrastructureSignature oldSignature__InfrastructureCall = signature__InfrastructureCall;
+        signature__InfrastructureCall = newSignature__InfrastructureCall;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
-                    oldSignature__InfrastructureCall, this.signature__InfrastructureCall));
-        }
+                    oldSignature__InfrastructureCall, signature__InfrastructureCall));
     }
 
     /**
@@ -171,7 +168,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public PCMRandomVariable getNumberOfCalls__InfrastructureCall() {
-        return this.numberOfCalls__InfrastructureCall;
+        return numberOfCalls__InfrastructureCall;
     }
 
     /**
@@ -180,18 +177,17 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__InfrastructureCall(
-            final PCMRandomVariable newNumberOfCalls__InfrastructureCall, NotificationChain msgs) {
-        final PCMRandomVariable oldNumberOfCalls__InfrastructureCall = this.numberOfCalls__InfrastructureCall;
-        this.numberOfCalls__InfrastructureCall = newNumberOfCalls__InfrastructureCall;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+            PCMRandomVariable newNumberOfCalls__InfrastructureCall, NotificationChain msgs) {
+        PCMRandomVariable oldNumberOfCalls__InfrastructureCall = numberOfCalls__InfrastructureCall;
+        numberOfCalls__InfrastructureCall = newNumberOfCalls__InfrastructureCall;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
                     oldNumberOfCalls__InfrastructureCall, newNumberOfCalls__InfrastructureCall);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -202,28 +198,24 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public void setNumberOfCalls__InfrastructureCall(final PCMRandomVariable newNumberOfCalls__InfrastructureCall) {
-        if (newNumberOfCalls__InfrastructureCall != this.numberOfCalls__InfrastructureCall) {
+    public void setNumberOfCalls__InfrastructureCall(PCMRandomVariable newNumberOfCalls__InfrastructureCall) {
+        if (newNumberOfCalls__InfrastructureCall != numberOfCalls__InfrastructureCall) {
             NotificationChain msgs = null;
-            if (this.numberOfCalls__InfrastructureCall != null) {
-                msgs = ((InternalEObject) this.numberOfCalls__InfrastructureCall).eInverseRemove(this,
+            if (numberOfCalls__InfrastructureCall != null)
+                msgs = ((InternalEObject) numberOfCalls__InfrastructureCall).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            if (newNumberOfCalls__InfrastructureCall != null) {
+            if (newNumberOfCalls__InfrastructureCall != null)
                 msgs = ((InternalEObject) newNumberOfCalls__InfrastructureCall).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetNumberOfCalls__InfrastructureCall(newNumberOfCalls__InfrastructureCall, msgs);
-            if (msgs != null) {
+            msgs = basicSetNumberOfCalls__InfrastructureCall(newNumberOfCalls__InfrastructureCall, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
                     newNumberOfCalls__InfrastructureCall, newNumberOfCalls__InfrastructureCall));
-        }
     }
 
     /**
@@ -233,10 +225,9 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public AbstractInternalControlFlowAction getAction__InfrastructureCall() {
-        if (this.eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL) {
+        if (eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL)
             return null;
-        }
-        return (AbstractInternalControlFlowAction) this.eInternalContainer();
+        return (AbstractInternalControlFlowAction) eInternalContainer();
     }
 
     /**
@@ -245,8 +236,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     public NotificationChain basicSetAction__InfrastructureCall(
-            final AbstractInternalControlFlowAction newAction__InfrastructureCall, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newAction__InfrastructureCall,
+            AbstractInternalControlFlowAction newAction__InfrastructureCall, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newAction__InfrastructureCall,
                 SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL, msgs);
         return msgs;
     }
@@ -257,30 +248,25 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public void setAction__InfrastructureCall(final AbstractInternalControlFlowAction newAction__InfrastructureCall) {
-        if (newAction__InfrastructureCall != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL && newAction__InfrastructureCall != null)) {
-            if (EcoreUtil.isAncestor(this, newAction__InfrastructureCall)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setAction__InfrastructureCall(AbstractInternalControlFlowAction newAction__InfrastructureCall) {
+        if (newAction__InfrastructureCall != eInternalContainer()
+                || (eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL && newAction__InfrastructureCall != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newAction__InfrastructureCall))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAction__InfrastructureCall != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newAction__InfrastructureCall != null)
                 msgs = ((InternalEObject) newAction__InfrastructureCall).eInverseAdd(this,
                         SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
                         AbstractInternalControlFlowAction.class, msgs);
-            }
-            msgs = this.basicSetAction__InfrastructureCall(newAction__InfrastructureCall, msgs);
-            if (msgs != null) {
+            msgs = basicSetAction__InfrastructureCall(newAction__InfrastructureCall, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL,
                     newAction__InfrastructureCall, newAction__InfrastructureCall));
-        }
     }
 
     /**
@@ -290,20 +276,17 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public InfrastructureRequiredRole getRequiredRole__InfrastructureCall() {
-        if (this.requiredRole__InfrastructureCall != null
-                && ((EObject) this.requiredRole__InfrastructureCall).eIsProxy()) {
-            final InternalEObject oldRequiredRole__InfrastructureCall = (InternalEObject) this.requiredRole__InfrastructureCall;
-            this.requiredRole__InfrastructureCall = (InfrastructureRequiredRole) this
-                    .eResolveProxy(oldRequiredRole__InfrastructureCall);
-            if (this.requiredRole__InfrastructureCall != oldRequiredRole__InfrastructureCall) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (requiredRole__InfrastructureCall != null && ((EObject) requiredRole__InfrastructureCall).eIsProxy()) {
+            InternalEObject oldRequiredRole__InfrastructureCall = (InternalEObject) requiredRole__InfrastructureCall;
+            requiredRole__InfrastructureCall = (InfrastructureRequiredRole) eResolveProxy(oldRequiredRole__InfrastructureCall);
+            if (requiredRole__InfrastructureCall != oldRequiredRole__InfrastructureCall) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
-                            oldRequiredRole__InfrastructureCall, this.requiredRole__InfrastructureCall));
-                }
+                            oldRequiredRole__InfrastructureCall, requiredRole__InfrastructureCall));
             }
         }
-        return this.requiredRole__InfrastructureCall;
+        return requiredRole__InfrastructureCall;
     }
 
     /**
@@ -312,7 +295,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__InfrastructureCall() {
-        return this.requiredRole__InfrastructureCall;
+        return requiredRole__InfrastructureCall;
     }
 
     /**
@@ -321,14 +304,13 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public void setRequiredRole__InfrastructureCall(final InfrastructureRequiredRole newRequiredRole__InfrastructureCall) {
-        final InfrastructureRequiredRole oldRequiredRole__InfrastructureCall = this.requiredRole__InfrastructureCall;
-        this.requiredRole__InfrastructureCall = newRequiredRole__InfrastructureCall;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setRequiredRole__InfrastructureCall(InfrastructureRequiredRole newRequiredRole__InfrastructureCall) {
+        InfrastructureRequiredRole oldRequiredRole__InfrastructureCall = requiredRole__InfrastructureCall;
+        requiredRole__InfrastructureCall = newRequiredRole__InfrastructureCall;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
-                    oldRequiredRole__InfrastructureCall, this.requiredRole__InfrastructureCall));
-        }
+                    oldRequiredRole__InfrastructureCall, requiredRole__InfrastructureCall));
     }
 
     /**
@@ -363,15 +345,14 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public boolean SignatureMustBelongToUsedRequiredRole(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean SignatureMustBelongToUsedRequiredRole(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL);
             try {
                 SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -422,15 +403,15 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public boolean ReferencedRequiredRoleMustBeRequiredByComponent(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean ReferencedRequiredRoleMustBeRequiredByComponent(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL);
             try {
                 REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -485,14 +466,14 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public boolean SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL);
             try {
                 SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -521,21 +502,19 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            if (this.numberOfCalls__InfrastructureCall != null) {
-                msgs = ((InternalEObject) this.numberOfCalls__InfrastructureCall).eInverseRemove(this,
+            if (numberOfCalls__InfrastructureCall != null)
+                msgs = ((InternalEObject) numberOfCalls__InfrastructureCall).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
                                 - SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
                         null, msgs);
-            }
-            return this.basicSetNumberOfCalls__InfrastructureCall((PCMRandomVariable) otherEnd, msgs);
+            return basicSetNumberOfCalls__InfrastructureCall((PCMRandomVariable) otherEnd, msgs);
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetAction__InfrastructureCall((AbstractInternalControlFlowAction) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetAction__InfrastructureCall((AbstractInternalControlFlowAction) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -546,13 +525,12 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            return this.basicSetNumberOfCalls__InfrastructureCall(null, msgs);
+            return basicSetNumberOfCalls__InfrastructureCall(null, msgs);
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
-            return this.basicSetAction__InfrastructureCall(null, msgs);
+            return basicSetAction__InfrastructureCall(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -563,10 +541,10 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
                     AbstractInternalControlFlowAction.class, msgs);
         }
@@ -579,22 +557,20 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
-            if (resolve) {
-                return this.getSignature__InfrastructureCall();
-            }
-            return this.basicGetSignature__InfrastructureCall();
+            if (resolve)
+                return getSignature__InfrastructureCall();
+            return basicGetSignature__InfrastructureCall();
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            return this.getNumberOfCalls__InfrastructureCall();
+            return getNumberOfCalls__InfrastructureCall();
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
-            return this.getAction__InfrastructureCall();
+            return getAction__InfrastructureCall();
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL:
-            if (resolve) {
-                return this.getRequiredRole__InfrastructureCall();
-            }
-            return this.basicGetRequiredRole__InfrastructureCall();
+            if (resolve)
+                return getRequiredRole__InfrastructureCall();
+            return basicGetRequiredRole__InfrastructureCall();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -605,19 +581,19 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
-            this.setSignature__InfrastructureCall((InfrastructureSignature) newValue);
+            setSignature__InfrastructureCall((InfrastructureSignature) newValue);
             return;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            this.setNumberOfCalls__InfrastructureCall((PCMRandomVariable) newValue);
+            setNumberOfCalls__InfrastructureCall((PCMRandomVariable) newValue);
             return;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
-            this.setAction__InfrastructureCall((AbstractInternalControlFlowAction) newValue);
+            setAction__InfrastructureCall((AbstractInternalControlFlowAction) newValue);
             return;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL:
-            this.setRequiredRole__InfrastructureCall((InfrastructureRequiredRole) newValue);
+            setRequiredRole__InfrastructureCall((InfrastructureRequiredRole) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -629,19 +605,19 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
-            this.setSignature__InfrastructureCall((InfrastructureSignature) null);
+            setSignature__InfrastructureCall((InfrastructureSignature) null);
             return;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            this.setNumberOfCalls__InfrastructureCall((PCMRandomVariable) null);
+            setNumberOfCalls__InfrastructureCall((PCMRandomVariable) null);
             return;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
-            this.setAction__InfrastructureCall((AbstractInternalControlFlowAction) null);
+            setAction__InfrastructureCall((AbstractInternalControlFlowAction) null);
             return;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL:
-            this.setRequiredRole__InfrastructureCall((InfrastructureRequiredRole) null);
+            setRequiredRole__InfrastructureCall((InfrastructureRequiredRole) null);
             return;
         }
         super.eUnset(featureID);
@@ -653,16 +629,16 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
-            return this.signature__InfrastructureCall != null;
+            return signature__InfrastructureCall != null;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            return this.numberOfCalls__InfrastructureCall != null;
+            return numberOfCalls__InfrastructureCall != null;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
-            return this.getAction__InfrastructureCall() != null;
+            return getAction__InfrastructureCall() != null;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL:
-            return this.requiredRole__InfrastructureCall != null;
+            return requiredRole__InfrastructureCall != null;
         }
         return super.eIsSet(featureID);
     }

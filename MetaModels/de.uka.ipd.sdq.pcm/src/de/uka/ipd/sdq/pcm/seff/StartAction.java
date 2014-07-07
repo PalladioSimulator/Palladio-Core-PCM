@@ -12,11 +12,11 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Start Action</b></em>'.
  * <!-- end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> StartActions initiate a scenario behaviour and contain only a successor.
  * <!-- end-model-doc -->
- * 
- * 
+ *
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getStartAction()
  * @model
  * @generated

@@ -25,15 +25,14 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl#getRepository__DataType <em>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl#getRepository__DataType <em>
  * Repository Data Type</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl#getInnerType_CollectionDataType
  * <em>Inner Type Collection Data Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CollectionDataTypeImpl extends EntityImpl implements CollectionDataType {
@@ -81,10 +80,9 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public Repository getRepository__DataType() {
-        if (this.eContainerFeatureID() != RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE) {
+        if (eContainerFeatureID() != RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE)
             return null;
-        }
-        return (Repository) this.eInternalContainer();
+        return (Repository) eInternalContainer();
     }
 
     /**
@@ -92,9 +90,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * 
      * @generated
      */
-    public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
-            NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newRepository__DataType,
+    public NotificationChain basicSetRepository__DataType(Repository newRepository__DataType, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newRepository__DataType,
                 RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE, msgs);
         return msgs;
     }
@@ -105,29 +102,24 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public void setRepository__DataType(final Repository newRepository__DataType) {
-        if (newRepository__DataType != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__DataType)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setRepository__DataType(Repository newRepository__DataType) {
+        if (newRepository__DataType != eInternalContainer()
+                || (eContainerFeatureID() != RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newRepository__DataType))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRepository__DataType != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newRepository__DataType != null)
                 msgs = ((InternalEObject) newRepository__DataType).eInverseAdd(this,
                         RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY, Repository.class, msgs);
-            }
-            msgs = this.basicSetRepository__DataType(newRepository__DataType, msgs);
-            if (msgs != null) {
+            msgs = basicSetRepository__DataType(newRepository__DataType, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE, newRepository__DataType,
                     newRepository__DataType));
-        }
     }
 
     /**
@@ -137,18 +129,17 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public DataType getInnerType_CollectionDataType() {
-        if (this.innerType_CollectionDataType != null && ((EObject) this.innerType_CollectionDataType).eIsProxy()) {
-            final InternalEObject oldInnerType_CollectionDataType = (InternalEObject) this.innerType_CollectionDataType;
-            this.innerType_CollectionDataType = (DataType) this.eResolveProxy(oldInnerType_CollectionDataType);
-            if (this.innerType_CollectionDataType != oldInnerType_CollectionDataType) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (innerType_CollectionDataType != null && ((EObject) innerType_CollectionDataType).eIsProxy()) {
+            InternalEObject oldInnerType_CollectionDataType = (InternalEObject) innerType_CollectionDataType;
+            innerType_CollectionDataType = (DataType) eResolveProxy(oldInnerType_CollectionDataType);
+            if (innerType_CollectionDataType != oldInnerType_CollectionDataType) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE,
-                            oldInnerType_CollectionDataType, this.innerType_CollectionDataType));
-                }
+                            oldInnerType_CollectionDataType, innerType_CollectionDataType));
             }
         }
-        return this.innerType_CollectionDataType;
+        return innerType_CollectionDataType;
     }
 
     /**
@@ -157,7 +148,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     public DataType basicGetInnerType_CollectionDataType() {
-        return this.innerType_CollectionDataType;
+        return innerType_CollectionDataType;
     }
 
     /**
@@ -166,14 +157,13 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public void setInnerType_CollectionDataType(final DataType newInnerType_CollectionDataType) {
-        final DataType oldInnerType_CollectionDataType = this.innerType_CollectionDataType;
-        this.innerType_CollectionDataType = newInnerType_CollectionDataType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setInnerType_CollectionDataType(DataType newInnerType_CollectionDataType) {
+        DataType oldInnerType_CollectionDataType = innerType_CollectionDataType;
+        innerType_CollectionDataType = newInnerType_CollectionDataType;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE,
-                    oldInnerType_CollectionDataType, this.innerType_CollectionDataType));
-        }
+                    oldInnerType_CollectionDataType, innerType_CollectionDataType));
     }
 
     /**
@@ -182,13 +172,12 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetRepository__DataType((Repository) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetRepository__DataType((Repository) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -199,11 +188,10 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return this.basicSetRepository__DataType(null, msgs);
+            return basicSetRepository__DataType(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -214,10 +202,10 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
+            return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -229,15 +217,14 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return this.getRepository__DataType();
+            return getRepository__DataType();
         case RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE:
-            if (resolve) {
-                return this.getInnerType_CollectionDataType();
-            }
-            return this.basicGetInnerType_CollectionDataType();
+            if (resolve)
+                return getInnerType_CollectionDataType();
+            return basicGetInnerType_CollectionDataType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -248,13 +235,13 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            this.setRepository__DataType((Repository) newValue);
+            setRepository__DataType((Repository) newValue);
             return;
         case RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE:
-            this.setInnerType_CollectionDataType((DataType) newValue);
+            setInnerType_CollectionDataType((DataType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -266,13 +253,13 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            this.setRepository__DataType((Repository) null);
+            setRepository__DataType((Repository) null);
             return;
         case RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE:
-            this.setInnerType_CollectionDataType((DataType) null);
+            setInnerType_CollectionDataType((DataType) null);
             return;
         }
         super.eUnset(featureID);
@@ -284,12 +271,12 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
-            return this.getRepository__DataType() != null;
+            return getRepository__DataType() != null;
         case RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE:
-            return this.innerType_CollectionDataType != null;
+            return innerType_CollectionDataType != null;
         }
         return super.eIsSet(featureID);
     }
@@ -300,7 +287,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == DataType.class) {
             switch (derivedFeatureID) {
             case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
@@ -318,7 +305,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == DataType.class) {
             switch (baseFeatureID) {
             case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:

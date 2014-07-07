@@ -35,12 +35,12 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
      */
     public static SubsystemFactory init() {
         try {
-            final SubsystemFactory theSubsystemFactory = (SubsystemFactory) EPackage.Registry.INSTANCE
+            SubsystemFactory theSubsystemFactory = (SubsystemFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SubsystemPackage.eNS_URI);
             if (theSubsystemFactory != null) {
                 return theSubsystemFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SubsystemFactoryImpl();
@@ -61,10 +61,10 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case SubsystemPackage.SUB_SYSTEM:
-            return this.createSubSystem();
+            return (EObject) createSubSystem();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -77,7 +77,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
      */
     @Override
     public SubSystem createSubSystem() {
-        final SubSystemImpl subSystem = new SubSystemImpl();
+        SubSystemImpl subSystem = new SubSystemImpl();
         return subSystem;
     }
 
@@ -88,7 +88,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
      */
     @Override
     public SubsystemPackage getSubsystemPackage() {
-        return (SubsystemPackage) this.getEPackage();
+        return (SubsystemPackage) getEPackage();
     }
 
     /**

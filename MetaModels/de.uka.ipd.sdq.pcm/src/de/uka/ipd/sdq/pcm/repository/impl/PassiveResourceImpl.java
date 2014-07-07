@@ -28,9 +28,8 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl#getCapacity_PassiveResource <em>
- * Capacity Passive Resource</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl#getCapacity_PassiveResource
+ * <em>Capacity Passive Resource</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.repository.impl.PassiveResourceImpl#getBasicComponent_PassiveResource
  * <em>Basic Component Passive Resource</em>}</li>
@@ -39,7 +38,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <em>Resource Timeout Failure Type Passive Resource</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
@@ -62,7 +61,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
     protected PCMRandomVariable capacity_PassiveResource;
 
     /**
-     * The cached value of the ' {@link #getResourceTimeoutFailureType__PassiveResource()
+     * The cached value of the '{@link #getResourceTimeoutFailureType__PassiveResource()
      * <em>Resource Timeout Failure Type Passive Resource</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * 
@@ -98,7 +97,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public PCMRandomVariable getCapacity_PassiveResource() {
-        return this.capacity_PassiveResource;
+        return capacity_PassiveResource;
     }
 
     /**
@@ -106,19 +105,18 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * 
      * @generated
      */
-    public NotificationChain basicSetCapacity_PassiveResource(final PCMRandomVariable newCapacity_PassiveResource,
+    public NotificationChain basicSetCapacity_PassiveResource(PCMRandomVariable newCapacity_PassiveResource,
             NotificationChain msgs) {
-        final PCMRandomVariable oldCapacity_PassiveResource = this.capacity_PassiveResource;
-        this.capacity_PassiveResource = newCapacity_PassiveResource;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+        PCMRandomVariable oldCapacity_PassiveResource = capacity_PassiveResource;
+        capacity_PassiveResource = newCapacity_PassiveResource;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE, oldCapacity_PassiveResource,
                     newCapacity_PassiveResource);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -129,28 +127,24 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public void setCapacity_PassiveResource(final PCMRandomVariable newCapacity_PassiveResource) {
-        if (newCapacity_PassiveResource != this.capacity_PassiveResource) {
+    public void setCapacity_PassiveResource(PCMRandomVariable newCapacity_PassiveResource) {
+        if (newCapacity_PassiveResource != capacity_PassiveResource) {
             NotificationChain msgs = null;
-            if (this.capacity_PassiveResource != null) {
-                msgs = ((InternalEObject) this.capacity_PassiveResource).eInverseRemove(this,
+            if (capacity_PassiveResource != null)
+                msgs = ((InternalEObject) capacity_PassiveResource).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            if (newCapacity_PassiveResource != null) {
+            if (newCapacity_PassiveResource != null)
                 msgs = ((InternalEObject) newCapacity_PassiveResource).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE,
                         PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetCapacity_PassiveResource(newCapacity_PassiveResource, msgs);
-            if (msgs != null) {
+            msgs = basicSetCapacity_PassiveResource(newCapacity_PassiveResource, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE, newCapacity_PassiveResource,
                     newCapacity_PassiveResource));
-        }
     }
 
     /**
@@ -160,10 +154,9 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public BasicComponent getBasicComponent_PassiveResource() {
-        if (this.eContainerFeatureID() != RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE) {
+        if (eContainerFeatureID() != RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE)
             return null;
-        }
-        return (BasicComponent) this.eInternalContainer();
+        return (BasicComponent) eInternalContainer();
     }
 
     /**
@@ -171,9 +164,9 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * 
      * @generated
      */
-    public NotificationChain basicSetBasicComponent_PassiveResource(
-            final BasicComponent newBasicComponent_PassiveResource, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newBasicComponent_PassiveResource,
+    public NotificationChain basicSetBasicComponent_PassiveResource(BasicComponent newBasicComponent_PassiveResource,
+            NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newBasicComponent_PassiveResource,
                 RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE, msgs);
         return msgs;
     }
@@ -184,30 +177,25 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public void setBasicComponent_PassiveResource(final BasicComponent newBasicComponent_PassiveResource) {
-        if (newBasicComponent_PassiveResource != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE && newBasicComponent_PassiveResource != null)) {
-            if (EcoreUtil.isAncestor(this, newBasicComponent_PassiveResource)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setBasicComponent_PassiveResource(BasicComponent newBasicComponent_PassiveResource) {
+        if (newBasicComponent_PassiveResource != eInternalContainer()
+                || (eContainerFeatureID() != RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE && newBasicComponent_PassiveResource != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newBasicComponent_PassiveResource))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newBasicComponent_PassiveResource != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newBasicComponent_PassiveResource != null)
                 msgs = ((InternalEObject) newBasicComponent_PassiveResource)
                         .eInverseAdd(this, RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT,
                                 BasicComponent.class, msgs);
-            }
-            msgs = this.basicSetBasicComponent_PassiveResource(newBasicComponent_PassiveResource, msgs);
-            if (msgs != null) {
+            msgs = basicSetBasicComponent_PassiveResource(newBasicComponent_PassiveResource, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE,
                     newBasicComponent_PassiveResource, newBasicComponent_PassiveResource));
-        }
     }
 
     /**
@@ -217,21 +205,18 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public ResourceTimeoutFailureType getResourceTimeoutFailureType__PassiveResource() {
-        if (this.resourceTimeoutFailureType__PassiveResource != null
-                && ((EObject) this.resourceTimeoutFailureType__PassiveResource).eIsProxy()) {
-            final InternalEObject oldResourceTimeoutFailureType__PassiveResource = (InternalEObject) this.resourceTimeoutFailureType__PassiveResource;
-            this.resourceTimeoutFailureType__PassiveResource = (ResourceTimeoutFailureType) this
-                    .eResolveProxy(oldResourceTimeoutFailureType__PassiveResource);
-            if (this.resourceTimeoutFailureType__PassiveResource != oldResourceTimeoutFailureType__PassiveResource) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (resourceTimeoutFailureType__PassiveResource != null
+                && ((EObject) resourceTimeoutFailureType__PassiveResource).eIsProxy()) {
+            InternalEObject oldResourceTimeoutFailureType__PassiveResource = (InternalEObject) resourceTimeoutFailureType__PassiveResource;
+            resourceTimeoutFailureType__PassiveResource = (ResourceTimeoutFailureType) eResolveProxy(oldResourceTimeoutFailureType__PassiveResource);
+            if (resourceTimeoutFailureType__PassiveResource != oldResourceTimeoutFailureType__PassiveResource) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
-                            oldResourceTimeoutFailureType__PassiveResource,
-                            this.resourceTimeoutFailureType__PassiveResource));
-                }
+                            oldResourceTimeoutFailureType__PassiveResource, resourceTimeoutFailureType__PassiveResource));
             }
         }
-        return this.resourceTimeoutFailureType__PassiveResource;
+        return resourceTimeoutFailureType__PassiveResource;
     }
 
     /**
@@ -240,7 +225,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     public ResourceTimeoutFailureType basicGetResourceTimeoutFailureType__PassiveResource() {
-        return this.resourceTimeoutFailureType__PassiveResource;
+        return resourceTimeoutFailureType__PassiveResource;
     }
 
     /**
@@ -249,18 +234,17 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     public NotificationChain basicSetResourceTimeoutFailureType__PassiveResource(
-            final ResourceTimeoutFailureType newResourceTimeoutFailureType__PassiveResource, NotificationChain msgs) {
-        final ResourceTimeoutFailureType oldResourceTimeoutFailureType__PassiveResource = this.resourceTimeoutFailureType__PassiveResource;
-        this.resourceTimeoutFailureType__PassiveResource = newResourceTimeoutFailureType__PassiveResource;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+            ResourceTimeoutFailureType newResourceTimeoutFailureType__PassiveResource, NotificationChain msgs) {
+        ResourceTimeoutFailureType oldResourceTimeoutFailureType__PassiveResource = resourceTimeoutFailureType__PassiveResource;
+        resourceTimeoutFailureType__PassiveResource = newResourceTimeoutFailureType__PassiveResource;
+        if (eNotificationRequired()) {
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
                     oldResourceTimeoutFailureType__PassiveResource, newResourceTimeoutFailureType__PassiveResource);
-            if (msgs == null) {
+            if (msgs == null)
                 msgs = notification;
-            } else {
+            else
                 msgs.add(notification);
-            }
         }
         return msgs;
     }
@@ -272,33 +256,29 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public void setResourceTimeoutFailureType__PassiveResource(
-            final ResourceTimeoutFailureType newResourceTimeoutFailureType__PassiveResource) {
-        if (newResourceTimeoutFailureType__PassiveResource != this.resourceTimeoutFailureType__PassiveResource) {
+            ResourceTimeoutFailureType newResourceTimeoutFailureType__PassiveResource) {
+        if (newResourceTimeoutFailureType__PassiveResource != resourceTimeoutFailureType__PassiveResource) {
             NotificationChain msgs = null;
-            if (this.resourceTimeoutFailureType__PassiveResource != null) {
-                msgs = ((InternalEObject) this.resourceTimeoutFailureType__PassiveResource)
+            if (resourceTimeoutFailureType__PassiveResource != null)
+                msgs = ((InternalEObject) resourceTimeoutFailureType__PassiveResource)
                         .eInverseRemove(
                                 this,
                                 ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
                                 ResourceTimeoutFailureType.class, msgs);
-            }
-            if (newResourceTimeoutFailureType__PassiveResource != null) {
+            if (newResourceTimeoutFailureType__PassiveResource != null)
                 msgs = ((InternalEObject) newResourceTimeoutFailureType__PassiveResource)
                         .eInverseAdd(
                                 this,
                                 ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
                                 ResourceTimeoutFailureType.class, msgs);
-            }
-            msgs = this.basicSetResourceTimeoutFailureType__PassiveResource(
-                    newResourceTimeoutFailureType__PassiveResource, msgs);
-            if (msgs != null) {
+            msgs = basicSetResourceTimeoutFailureType__PassiveResource(newResourceTimeoutFailureType__PassiveResource,
+                    msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
                     newResourceTimeoutFailureType__PassiveResource, newResourceTimeoutFailureType__PassiveResource));
-        }
     }
 
     /**
@@ -307,29 +287,25 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-            if (this.capacity_PassiveResource != null) {
-                msgs = ((InternalEObject) this.capacity_PassiveResource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            if (capacity_PassiveResource != null)
+                msgs = ((InternalEObject) capacity_PassiveResource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE, null, msgs);
-            }
-            return this.basicSetCapacity_PassiveResource((PCMRandomVariable) otherEnd, msgs);
+            return basicSetCapacity_PassiveResource((PCMRandomVariable) otherEnd, msgs);
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetBasicComponent_PassiveResource((BasicComponent) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetBasicComponent_PassiveResource((BasicComponent) otherEnd, msgs);
         case RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE:
-            if (this.resourceTimeoutFailureType__PassiveResource != null) {
-                msgs = ((InternalEObject) this.resourceTimeoutFailureType__PassiveResource)
+            if (resourceTimeoutFailureType__PassiveResource != null)
+                msgs = ((InternalEObject) resourceTimeoutFailureType__PassiveResource)
                         .eInverseRemove(
                                 this,
                                 ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
                                 ResourceTimeoutFailureType.class, msgs);
-            }
-            return this
-                    .basicSetResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) otherEnd, msgs);
+            return basicSetResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -340,15 +316,14 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-            return this.basicSetCapacity_PassiveResource(null, msgs);
+            return basicSetCapacity_PassiveResource(null, msgs);
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
-            return this.basicSetBasicComponent_PassiveResource(null, msgs);
+            return basicSetBasicComponent_PassiveResource(null, msgs);
         case RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE:
-            return this.basicSetResourceTimeoutFailureType__PassiveResource(null, msgs);
+            return basicSetResourceTimeoutFailureType__PassiveResource(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -359,10 +334,10 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT, BasicComponent.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -374,17 +349,16 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-            return this.getCapacity_PassiveResource();
+            return getCapacity_PassiveResource();
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
-            return this.getBasicComponent_PassiveResource();
+            return getBasicComponent_PassiveResource();
         case RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE:
-            if (resolve) {
-                return this.getResourceTimeoutFailureType__PassiveResource();
-            }
-            return this.basicGetResourceTimeoutFailureType__PassiveResource();
+            if (resolve)
+                return getResourceTimeoutFailureType__PassiveResource();
+            return basicGetResourceTimeoutFailureType__PassiveResource();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -395,16 +369,16 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-            this.setCapacity_PassiveResource((PCMRandomVariable) newValue);
+            setCapacity_PassiveResource((PCMRandomVariable) newValue);
             return;
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
-            this.setBasicComponent_PassiveResource((BasicComponent) newValue);
+            setBasicComponent_PassiveResource((BasicComponent) newValue);
             return;
         case RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE:
-            this.setResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) newValue);
+            setResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -416,16 +390,16 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-            this.setCapacity_PassiveResource((PCMRandomVariable) null);
+            setCapacity_PassiveResource((PCMRandomVariable) null);
             return;
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
-            this.setBasicComponent_PassiveResource((BasicComponent) null);
+            setBasicComponent_PassiveResource((BasicComponent) null);
             return;
         case RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE:
-            this.setResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) null);
+            setResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) null);
             return;
         }
         super.eUnset(featureID);
@@ -437,14 +411,14 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
-            return this.capacity_PassiveResource != null;
+            return capacity_PassiveResource != null;
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
-            return this.getBasicComponent_PassiveResource() != null;
+            return getBasicComponent_PassiveResource() != null;
         case RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE:
-            return this.resourceTimeoutFailureType__PassiveResource != null;
+            return resourceTimeoutFailureType__PassiveResource != null;
         }
         return super.eIsSet(featureID);
     }

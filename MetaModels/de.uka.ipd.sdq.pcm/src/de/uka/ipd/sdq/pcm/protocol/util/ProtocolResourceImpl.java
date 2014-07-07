@@ -29,7 +29,7 @@ public class ProtocolResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public ProtocolResourceImpl(final URI uri) {
+    public ProtocolResourceImpl(URI uri) {
         super(uri);
     }
 

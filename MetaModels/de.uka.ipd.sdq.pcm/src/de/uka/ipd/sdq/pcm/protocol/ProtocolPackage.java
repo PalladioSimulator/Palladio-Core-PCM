@@ -67,7 +67,7 @@ public interface ProtocolPackage extends EPackage {
     ProtocolPackage eINSTANCE = de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl.init();
 
     /**
-     * The meta object id for the ' {@link de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl
      * <em>Protocol</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @see de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl
@@ -95,7 +95,7 @@ public interface ProtocolPackage extends EPackage {
     int PROTOCOL_FEATURE_COUNT = 1;
 
     /**
-     * Returns the meta object for class ' {@link de.uka.ipd.sdq.pcm.protocol.Protocol
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.protocol.Protocol
      * <em>Protocol</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * 
      * @return the meta object for class '<em>Protocol</em>'.
@@ -139,7 +139,7 @@ public interface ProtocolPackage extends EPackage {
      */
     interface Literals {
         /**
-         * The meta object literal for the ' {@link de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl
          * <em>Protocol</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          * 
          * @see de.uka.ipd.sdq.pcm.protocol.impl.ProtocolImpl

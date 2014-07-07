@@ -29,7 +29,7 @@ public class CompositionResourceImpl extends XMIResourceImpl {
      *            the URI of the new resource.
      * @generated
      */
-    public CompositionResourceImpl(final URI uri) {
+    public CompositionResourceImpl(URI uri) {
         super(uri);
     }
 

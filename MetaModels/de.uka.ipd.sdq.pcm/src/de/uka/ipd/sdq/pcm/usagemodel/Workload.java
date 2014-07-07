@@ -10,7 +10,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Workload</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
  * <!-- begin-model-doc --> A Workload specifies the usage intensity of a system, which relates to
  * the number of users concurrently present in the system. The PCM usage model adopts this concept
  * from classical queueing theory [123]. The specified workloads can directly be used in queueing
@@ -25,7 +25,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * 
  * [123] E. Lazowska, J. Zahorjan, G. Graham, and K. Sevcik, Quantitative System Performance.
  * Prentice Hall, 1984. <!-- end-model-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -33,7 +33,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * Workload</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getWorkload()
  * @model abstract="true"
  * @extends EStereotypableObject
