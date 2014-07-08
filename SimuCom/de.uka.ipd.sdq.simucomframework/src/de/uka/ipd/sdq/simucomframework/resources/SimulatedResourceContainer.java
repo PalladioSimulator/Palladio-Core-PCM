@@ -82,7 +82,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
                 .loadModel(activeResourceURI);
         final ScheduledResource r = new ScheduledResource(activeResource, myModel, resourceContainerID,
                 schedulingStrategyID);
-        String resourceType = activeResource.getActiveResourceType_ActiveResourceSpecification().getId();
+        final String resourceType = activeResource.getActiveResourceType_ActiveResourceSpecification().getId();
         activeResources.put(resourceType, r);
 
         // Currently, resources can also be looked up by the provided interface id
