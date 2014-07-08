@@ -25,7 +25,9 @@ public class ModelsAtRuntime {
      * concrete fragment that references the EObject; otherwise an EObject cannot be uniquely
      * identified in a given resource. For example, the String
      * "platform:/resource/myProject/daufault.usagemodel#_ieXlgKDrEeKjDcfkNgs1Gg" correctly includes
-     * a fragment while "platform:/resource/myProject/daufault.usagemodel" does not.
+     * a fragment while "platform:/resource/myProject/daufault.usagemodel" does not. Use the
+     * <code>getResourceURI(...)</code> method of this class in case you want to get a correct
+     * resource URI for a given EObject.
      * 
      * @param resourceURI
      *            Resource URI to a given EObject (has to include fragment).
@@ -54,7 +56,7 @@ public class ModelsAtRuntime {
     }
 
     /**
-     * Created a resource URI for a given EObject; including its fragment that uniquely identifies
+     * Creates a resource URI for a given EObject; including its fragment that uniquely identifies
      * the EObject within the resource.
      * 
      * @param eObject
