@@ -4,7 +4,8 @@ rem Possibly not all metamodel changes have been accounted for, so some may have
 for /f "delims=" %%a IN ('dir /b *.designdecision') do (
  sed -i "s/sdq.ipd.uka.de\/DesignDecision\/1.0/sdq.ipd.uka.de\/DesignDecision\/2.0\" xmlns:specific=\"http:\/\/sdq.ipd.uka.de\/DesignDecision\/Specific\/2.0/g" "%%a"
  
- sed -i "s/sdq.ipd.uka.de\/DesignDecision\/2.0\">/sdq.ipd.uka.de\/DesignDecision\/2.0\" xmlns:specific=\"http:\/\/sdq.ipd.uka.de\/DesignDecision\/Specific\/2.0\">/g" "%%a"
+sed -i "s/sdq.ipd.uka.de\/DesignDecision\/2.0\x22/sdq.ipd.uka.de\/DesignDecision\/2.0\" xmlns:specific=\"http:\/\/sdq.ipd.uka.de\/DesignDecision\/Specific\/2.0\x22>\n/g" "%%a"
+
  
  sed -i "s/designdecision:AllocationDegree/specific:AllocationDegree/g" %%a
  sed -i "s/designdecision:AssembledComponentDegree/specific:AssembledComponentDegree/g" %%a
