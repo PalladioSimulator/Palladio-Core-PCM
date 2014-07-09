@@ -11,44 +11,44 @@ import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
  *
  */
 public class ForkContext extends Context {
-	
-	private Context parentContext;
 
-	/**
-	 * Constructor of the parallel process
-	 * @param parentContext The current context of the parent thread.
-	 * Used to evaluate variables in the parallel process 
-	 * @param parent The parent process
-	 */
-	public ForkContext(Context parentContext, SimuComSimProcess parent) {
-		super(parentContext.getModel());
-		this.setSimProcess(parent);
-		this.parentContext = parentContext;
-		this.stack = new SimulatedStack<Object>();
+    private final Context parentContext;
 
-		// Run this thread with a copy of the parents stackframe
-		// Likely subject to change in later PCM versions
-		this.stack.pushStackFrame(parentContext.getStack().currentStackFrame().copyFrame());
-	}
+    /**
+     * Constructor of the parallel process
+     * @param parentContext The current context of the parent thread.
+     * Used to evaluate variables in the parallel process
+     * @param parent The parent process
+     */
+    public ForkContext(final Context parentContext, final SimuComSimProcess parent) {
+        super(parentContext.getModel());
+        this.setSimProcess(parent);
+        this.parentContext = parentContext;
+        this.stack = new SimulatedStack<Object>();
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6701742993106975705L;
+        // Run this thread with a copy of the parents stackframe
+        // Likely subject to change in later PCM versions
+        this.stack.pushStackFrame(parentContext.getStack().currentStackFrame().copyFrame());
+    }
 
-	@Override
-	public AbstractSimulatedResourceContainer findResource(String assemblyContextID) {
-		// Use my parents allocation information to do my look ups
-		return parentContext.findResource(assemblyContextID);
-	}
+    /**
+     *
+     */
+    private static final long serialVersionUID = 6701742993106975705L;
 
-	public Context getParentContext() {
-		return parentContext;
-	}
+    @Override
+    public AbstractSimulatedResourceContainer findResource(final String assemblyContextID) {
+        // Use my parents allocation information to do my look ups
+        return parentContext.findResource(assemblyContextID);
+    }
 
-	@Override
-	protected void initialiseAssemblyContextLookup() {
-		// Emtpy as we use our parents allocation lookup
-	}
-	
+    public Context getParentContext() {
+        return parentContext;
+    }
+
+    @Override
+    protected void initialiseAssemblyContextLookup() {
+        // Emtpy as we use our parents allocation lookup
+    }
+
 }

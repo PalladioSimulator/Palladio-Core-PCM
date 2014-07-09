@@ -9,17 +9,17 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 /**
  * Base class for ForkBehaviours. Generator creates a specialisation of this and
  * uses it to execute actions in parallel
- * 
+ *
  * @author Steffen Becker
- * 
+ *
  */
 public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 
-    protected Context ctx;
-    private final ISimProcess myParent;
-    protected String assemblyContextID;
-    private final boolean isAsync;
-    private boolean isTerminated = false;
+    protected final Context myContext;
+    private   final ISimProcess parentProcess;
+    protected final String assemblyContextID;
+    private   final boolean isAsync;
+    private   boolean isTerminated = false;
 
     private static Logger logger = Logger.getLogger(ForkedBehaviourProcess.class.getName());
 
@@ -29,15 +29,20 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
         // use the session id from the parent process
         this.currentSessionId = myContext.getThread().getCurrentSessionId();
 
-        this.ctx = new ForkContext(myContext, this);
+        this.myContext = createForkContext(myContext);
 
-        this.myParent = myContext.getThread();
+        this.parentProcess = myContext.getThread();
         this.assemblyContextID = assemblyContextID;
         this.isAsync = isAsync;
+    }
 
-        // prevent garbage collector to dispose measurements taken within the given request context
-        // TODO: Provide a new solution for this
-        //this.blackboardGarbageCollector.enterRegion(getRequestContext().rootContext());
+    /**
+     * Factory method for the fork context used in the forked behaviour
+     * @param myContext
+     * @return
+     */
+    protected Context createForkContext(final Context myContext) {
+        return new ForkContext(myContext, this);
     }
 
     public ForkedBehaviourProcess(final Context myContext, final String assemblyContextID, final boolean isAsync, final int priority) {
@@ -54,22 +59,17 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
         // not yet terminated (which may happen under some wired conditions) and
         // the simulation is still running, we can think about triggering the
         // parent again.
-        if (!isAsync && !myParent.isTerminated() && simulationIsRunning()) {
-            myParent.scheduleAt(0);
+        if (!isAsync && !parentProcess.isTerminated() && simulationIsRunning()) {
+            parentProcess.scheduleAt(0);
         } else {
             if(logger.isDebugEnabled()) {
                 logger.debug("Asynch behaviour finished at simtime " + getModel().getSimulationControl().getCurrentSimulationTime());
             }
         }
-
-        // tell garbage collector that this process is no longer interested in measurements taken
-        // within the given request context
-        // TODO: Provide a new solution for this
-        //blackboardGarbageCollector.leaveRegion(getRequestContext().rootContext());
     }
 
     private boolean simulationIsRunning() {
-        return this.ctx.getModel().getSimulationControl().isRunning();
+        return this.myContext.getModel().getSimulationControl().isRunning();
     }
 
     /**
@@ -84,7 +84,7 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * de.uka.ipd.sdq.simulation.abstractsimengine.SimProcess#isTerminated
      * ()
