@@ -15,7 +15,12 @@ public abstract class ClosedWorkloadUserFactory extends AbstractWorkloadUserFact
 
     public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec,
             final String usageScenarioURI) {
-        super(model, (UsageScenario) ModelsAtRuntime.loadModel(usageScenarioURI));
+        this(model, thinkTimeSpec, (UsageScenario) ModelsAtRuntime.loadModel(usageScenarioURI));
+    }
+    
+    public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec,
+            final UsageScenario usageScenario) {
+        super(model, usageScenario);
 
         this.thinkTime = thinkTimeSpec;
     }

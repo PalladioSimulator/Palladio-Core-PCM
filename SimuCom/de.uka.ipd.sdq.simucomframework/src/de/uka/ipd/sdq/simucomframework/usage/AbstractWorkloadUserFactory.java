@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
 import org.palladiosimulator.edp2.util.MeasuringPointUtility;
@@ -22,7 +21,7 @@ import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 public abstract class AbstractWorkloadUserFactory implements IUserFactory {
 
     protected final List<Probe> usageStartStopProbes;
-    protected final UsageScenario usageScenario;
+    private final UsageScenario usageScenario;
     protected final SimuComModel model;
     private final ICalculatorFactory calculatorFactory;
 
@@ -53,7 +52,7 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
         mp.setUsageScenario(usageScenario);
         
         final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
-        measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) usageScenario));
+        measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(usageScenario));
         measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
 
         return this.calculatorFactory.buildResponseTimeCalculator(measuringPoint, this.usageStartStopProbes);
