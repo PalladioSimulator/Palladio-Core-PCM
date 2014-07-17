@@ -12,7 +12,7 @@ import desmoj.core.simulator.TimeSpan;
  * @author Philipp Merkle
  */
 public class DesmoJSimEvent<E extends IEntity> extends Event<DesmoJEntity> implements
-        ISimEvent<E> {
+ISimEvent<E> {
 
     private final AbstractSimEventDelegator<E> event;
 
@@ -25,20 +25,20 @@ public class DesmoJSimEvent<E extends IEntity> extends Event<DesmoJEntity> imple
      * The event handler, which is called by DESMO-J when an event occurred.
      * <p>
      * {@inheritDoc}
-     * 
+     *
      * @see Event#eventRoutine(desmoj.core.simulator.Entity)
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eventRoutine(final DesmoJEntity who) {
         // delegate the event handling to the encapsulated event
-        this.event.eventRoutine((E) who.getEncapsulatedEntity());
+        this.event.eventRoutine(who == null ? null : (E) who.getEncapsulatedEntity());
     }
 
     @Override
     public void schedule(final E entity, final double delay) {
         final AbstractSimEntityDelegator simEntity = (AbstractSimEntityDelegator) entity;
-        final DesmoJEntity desmoJEntity = (DesmoJEntity) simEntity.getEncapsulatedEntity();
+        final DesmoJEntity desmoJEntity = simEntity == null ? null : (DesmoJEntity) simEntity.getEncapsulatedEntity();
         this.schedule(desmoJEntity, new TimeSpan(delay));
     }
 
@@ -53,5 +53,5 @@ public class DesmoJSimEvent<E extends IEntity> extends Event<DesmoJEntity> imple
     public double scheduledAtTime() {
         return this.scheduledNext().getTimeAsDouble();
     }
-    
+
 }
