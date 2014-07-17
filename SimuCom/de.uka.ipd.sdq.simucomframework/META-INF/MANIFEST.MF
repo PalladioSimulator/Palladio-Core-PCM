@@ -7,6 +7,7 @@ Bundle-Vendor: sdq.ipd.uka.de
 Export-Package: de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.accuracy,
  de.uka.ipd.sdq.simucomframework.calculator,
+ de.uka.ipd.sdq.simucomframework.entities,
  de.uka.ipd.sdq.simucomframework.exceptions,
  de.uka.ipd.sdq.simucomframework.fork,
  de.uka.ipd.sdq.simucomframework.model,
