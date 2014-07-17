@@ -4,15 +4,15 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntityDelegator;
 
 /**
- * 
+ *
  * @author Philipp Merkle
  *
  */
-public class SimuComEntity extends AbstractSimEntityDelegator {
+public abstract class SimuComEntity extends AbstractSimEntityDelegator {
 
-    private SimuComModel model;
-    
-    protected SimuComEntity(SimuComModel model, String name) {
+    private final SimuComModel model;
+
+    protected SimuComEntity(final SimuComModel model, final String name) {
         super(model, name);
         this.model = model;
     }
@@ -21,6 +21,4 @@ public class SimuComEntity extends AbstractSimEntityDelegator {
     public SimuComModel getModel() {
         return this.model;
     }
-    
-    
 }

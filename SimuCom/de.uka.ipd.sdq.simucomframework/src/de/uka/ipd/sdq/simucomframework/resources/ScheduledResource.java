@@ -32,19 +32,19 @@ public class ScheduledResource extends AbstractScheduledResource {
     private ResourceFailedEvent failedEvent;
     private ResourceRepairedEvent repairedEvent;
 
-    public ScheduledResource(final ProcessingResourceSpecification activeResource, SimuComModel myModel,
-            String resourceContainerID, String schedulingStrategyID) {
+    public ScheduledResource(final ProcessingResourceSpecification activeResource, final SimuComModel myModel,
+            final String resourceContainerID, final String schedulingStrategyID) {
         super(myModel, // myModel
                 activeResource.getId(), // typeID
                 resourceContainerID, // resourceContainerID
                 activeResource.getActiveResourceType_ActiveResourceSpecification().getId(), // resourceTypeID
                 activeResource.getResourceContainer_ProcessingResourceSpecification().getEntityName() + " ["
-                        + activeResource.getActiveResourceType_ActiveResourceSpecification().getEntityName() + "] <"
-                        + activeResource.getResourceContainer_ProcessingResourceSpecification().getId() + ">", // description
+                + activeResource.getActiveResourceType_ActiveResourceSpecification().getEntityName() + "] <"
+                + activeResource.getResourceContainer_ProcessingResourceSpecification().getId() + ">", // description
                 schedulingStrategyID, // schedulingStrategyID
                 activeResource.getNumberOfReplicas(), // numberOfInstances
                 activeResource.isRequiredByContainer() // requiredByContainer
-        );
+                );
         this.activeResource = activeResource;
         this.processingRate = activeResource.getProcessingRate_ProcessingResourceSpecification().getSpecification();
 
@@ -61,31 +61,29 @@ public class ScheduledResource extends AbstractScheduledResource {
 
     /**
      * Creates the events that let the resource fail and be repaired.
-     * 
+     *
      * @param model
      *            the SimuComModel
      */
     private void createAvailabilityEvents(final SimuComModel model) {
         this.failedEvent = new ResourceFailedEvent(model, "ResourceFailed");
         this.repairedEvent = new ResourceRepairedEvent(model, "ResourceRepaired");
-        this.failedEvent.setResource(this);
         this.failedEvent.setRepairedEvent(repairedEvent);
-        this.repairedEvent.setResource(this);
         this.repairedEvent.setFailedEvent(failedEvent);
     }
 
     @Override
-    protected IActiveResource createActiveResource(SimuComModel myModel) {
+    protected IActiveResource createActiveResource(final SimuComModel myModel) {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("Creating scheduled resource with strategy " + getSchedulingStrategyID() + " and "
                     + getNumberOfInstances() + " replicas!");
         }
-        IActiveResource aResource = getScheduledResource(myModel, "Utilisation of " + this.getName() + " "
+        final IActiveResource aResource = getScheduledResource(myModel, "Utilisation of " + this.getName() + " "
                 + getDescription());
         return aResource;
     }
 
-    private IActiveResource getScheduledResource(SimuComModel simuComModel, String sensorDescription) {
+    private IActiveResource getScheduledResource(final SimuComModel simuComModel, final String sensorDescription) {
         IActiveResource scheduledResource = null;
         // active resources scheduled by standard scheduling techniques
         if (getSchedulingStrategyID().equals(SchedulingStrategy.FCFS)) {
@@ -119,7 +117,7 @@ public class ScheduledResource extends AbstractScheduledResource {
     }
 
     @Override
-    protected double calculateDemand(double demand) {
+    protected double calculateDemand(final double demand) {
         return demand / Context.evaluateStatic(processingRate, Double.class);
     }
 
@@ -134,27 +132,27 @@ public class ScheduledResource extends AbstractScheduledResource {
     }
 
     @Override
-    public void consumeResource(SimuComSimProcess process, int resourceServiceID,
-            Map<String, Serializable> parameterMap, double abstractDemand) {
+    public void consumeResource(final SimuComSimProcess process, final int resourceServiceID,
+            final Map<String, Serializable> parameterMap, final double abstractDemand) {
         // Check first if the resource is currently available.
         // This works for the standard resource types (CPU, HDD, DELAY).
         assertAvailability();
 
         getUnderlyingResource().registerProcess(process);
         // registerProcessWindows(process, aResource);
-        double concreteDemand = calculateDemand(abstractDemand);
+        final double concreteDemand = calculateDemand(abstractDemand);
         fireDemand(concreteDemand);
         this.totalDemandedTime += concreteDemand;
         getUnderlyingResource().process(process, resourceServiceID, parameterMap, concreteDemand);
     }
 
     @Override
-    public double getRemainingDemandForProcess(SimuComSimProcess thread) {
+    public double getRemainingDemandForProcess(final SimuComSimProcess thread) {
         return getUnderlyingResource().getRemainingDemand(thread);
     }
 
     @Override
-    public void updateDemand(SimuComSimProcess thread, double demand) {
+    public void updateDemand(final SimuComSimProcess thread, final double demand) {
         getUnderlyingResource().updateDemand(thread, demand);
     }
 
@@ -167,7 +165,7 @@ public class ScheduledResource extends AbstractScheduledResource {
         }
 
         // calculate overall utilization and inform listeners
-        double totalTime = getModel().getSimulationControl().getCurrentSimulationTime() * getNumberOfInstances();
+        final double totalTime = getModel().getSimulationControl().getCurrentSimulationTime() * getNumberOfInstances();
         if (totalDemandedTime > totalTime) {
             totalDemandedTime = totalTime;
         }
@@ -188,11 +186,11 @@ public class ScheduledResource extends AbstractScheduledResource {
     /**
      * Method to alter processing rate at runtime, e.g., to model changing parameters of cloud
      * environments at runtime
-     * 
+     *
      * @param newProcessingRate
      *            The new processing rate of this resource
      */
-    public void setProcessingRate(String newProcessingRate) {
+    public void setProcessingRate(final String newProcessingRate) {
         this.processingRate = newProcessingRate;
     }
 
@@ -202,7 +200,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 
     /**
      * Returns the failure time for this resource (or -1.0 if the resource cannot fail).
-     * 
+     *
      * @return the failure time for the resource
      */
     public double getFailureTime() {
@@ -218,7 +216,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 
     /**
      * Returns the repair time for this resource (or -1.0 if the resource cannot fail).
-     * 
+     *
      * @return the repair time for the resource
      */
     public double getRepairTime() {
