@@ -52,13 +52,11 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
         
         // 1. Load PCM Models into memory        
         if (loadModels == true) {
-            this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
-            
-            // store models in temporary eclipse plug-in
-            this.add(new CreateWorkingCopyOfModelsJob(configuration));
-            
-            this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
+            this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));            
+            this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));            
         }
+        // store models in temporary eclipse plug-in
+        this.add(new CreateWorkingCopyOfModelsJob(configuration));
         
         // 2. Validate PCM Models
         this.addJob(new ValidatePCMModelsJob(configuration));
