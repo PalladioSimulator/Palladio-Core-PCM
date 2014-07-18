@@ -47,11 +47,14 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
         this.debugListener = listener;
 
         // Stage Preparation
-        // 1. Load PCM Models into memory
+        // 0. Create plug-in project for simulation
+        this.add(new CreatePluginProjectJob(configuration));
+        
+        // 1. Load PCM Models into memory        
         if (loadModels == true) {
             this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
+            
             // store models in temporary eclipse plug-in
-            this.add(new CreatePluginProjectJob(configuration));
             this.add(new CreateWorkingCopyOfModelsJob(configuration));
             
             this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
