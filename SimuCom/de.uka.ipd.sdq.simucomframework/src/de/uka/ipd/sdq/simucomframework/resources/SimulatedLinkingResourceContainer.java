@@ -26,7 +26,7 @@ public class SimulatedLinkingResourceContainer extends AbstractSimulatedResource
         final LinkingResource linkingResource = (LinkingResource) ModelsAtRuntime.loadModel(linkingResourceURI);
         final SimulatedLinkingResource r = new SimulatedLinkingResource(linkingResource, myModel, resourceContainerID);
         activeResources.put(linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
-                .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification().getEntityName(), r);
+                .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification().getId(), r);
 
         // setup calculators
         // TODO: setup waiting time calculator
