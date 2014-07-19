@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Arrays;
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
@@ -14,6 +13,7 @@ import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringP
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.probeframework.ProbeFrameworkContext;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
 import org.palladiosimulator.probeframework.probes.EventProbe;
 import org.palladiosimulator.probeframework.probes.EventProbeList;
 import org.palladiosimulator.probeframework.probes.Probe;
@@ -34,9 +34,9 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 /**
  * Offers static methods to setup different types of calculators for resources like
  * {@link AbstractScheduledResource} and {@link IPassiveResource}.
- * 
+ *
  * TODO Some calculators are created in AbstractMain. Why is that? [Lehrig]
- * 
+ *
  * @author Philipp Merkle, Sebastian Lehrig
  */
 public final class CalculatorHelper {
@@ -53,7 +53,7 @@ public final class CalculatorHelper {
      * events that are relevant for calculating the waiting time. When such an event arrives, an
      * appropriate {@link BasicMeasurement} will be taken and published at the
      * {@link ISampleBlackboard}.
-     * 
+     *
      * @param resource
      *            the resource
      * @param model
@@ -91,7 +91,7 @@ public final class CalculatorHelper {
      * events that are relevant for calculating the hold time. When such an event arrives, an
      * appropriate {@link BasicMeasurement} will be taken and published at the
      * {@link ISampleBlackboard}.
-     * 
+     *
      * @param r
      *            the resource
      */
@@ -109,12 +109,12 @@ public final class CalculatorHelper {
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement(new RequestContext(process.getId()));
             }
 
             @Override
             public void release(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(1)).takeMeasurement(new RequestContext(process.getId()));
             }
         });
     }
@@ -133,7 +133,7 @@ public final class CalculatorHelper {
      * will be registered at the resource which gets notified of events that are relevant for
      * calculating the demanded time. When such an event arrives, an appropriate
      * {@link BasicMeasurement} will be taken and published at the {@link ISampleBlackboard}.
-     * 
+     *
      * @param scheduledResource
      *            the resource
      */
@@ -150,7 +150,7 @@ public final class CalculatorHelper {
      * will be registered at the resource which gets notified of events that are relevant for
      * calculating the state. When such an event arrives, an appropriate {@link BasicMeasurement}
      * will be taken and published at the {@link ISampleBlackboard}.
-     * 
+     *
      * @param scheduledResource
      *            the resource
      */
@@ -258,7 +258,7 @@ public final class CalculatorHelper {
         mp.setPassiveResource(resource.getResource());
 
         final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
-        measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getResource()));
+        measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getResource()));
         measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         return measuringPoint;
     }
@@ -278,7 +278,7 @@ public final class CalculatorHelper {
             mp.setActiveResource(resource.getActiveResource());
             mp.setReplicaID(replicaID);
 
-            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getActiveResource()));
+            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getActiveResource()));
             measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         } else if (scheduledResource instanceof SimulatedLinkingResource) {
             final SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
@@ -286,7 +286,7 @@ public final class CalculatorHelper {
             final LinkingResourceMeasuringPoint mp = pcmMeasuringpointFactory.createLinkingResourceMeasuringPoint();
             mp.setLinkingResource(resource.getLinkingResource());
 
-            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getLinkingResource()));
+            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getLinkingResource()));
             measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         } else {
             throw new IllegalArgumentException("Unknown variant of AbstractScheduledResource");

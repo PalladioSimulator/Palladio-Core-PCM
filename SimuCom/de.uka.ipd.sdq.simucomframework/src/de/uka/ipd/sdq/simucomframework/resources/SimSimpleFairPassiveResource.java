@@ -19,17 +19,17 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
  * Simulates a simple passive resource.
- * 
+ *
  * Note: This class intentionally does not extend {@link SimAbstractPassiveResource}, because that
  * abstract class is intended for passive resources that are accessed by EXACT schedulers (e.g.,
  * specific Windows, Linux Scheduler).
- * 
+ *
  * TODO: comment
- * 
+ *
  * TODO Initialize based on given model elements [Lehrig]
- * 
+ *
  * @author Fabro, Sebastian Lehrig
- * 
+ *
  * @param <M>
  *            the type of the simulation model.
  */
@@ -48,19 +48,18 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
     private final AssemblyContext assemblyContext;
 
     public SimSimpleFairPassiveResource(final PassiveResource resource, final AssemblyContext assemblyContext,
-            final SimuComModel simuComModel, final SchedulerModel model, final Long capacity,
-            final boolean simulateFailures) {
-        super(model, capacity, resource.getEntityName(), resource.getId() + ":" + assemblyContext.getId());
+            final SimuComModel simuComModel, final Long capacity) {
+        super(simuComModel, capacity, resource.getEntityName(), resource.getId() + ":" + assemblyContext.getId());
         this.resource = resource;
         this.assemblyContext = assemblyContext;
 
         this.simuComModel = simuComModel;
         this.waiting_queue = new ArrayDeque<IWaitingProcess>();
-        this.myModel = model;
+        this.myModel = simuComModel;
         this.passiveResourceID = resource.getId();
         this.observee = new PassiveResourceObservee();
         this.available = capacity;
-        this.simulateFailures = simulateFailures;
+        this.simulateFailures = simuComModel.getConfiguration().getSimulateFailures();
     }
 
     private boolean canProceed(final ISchedulableProcess process, final long num) {
@@ -119,7 +118,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 
     /**
      * Schedules a timeout event if a timeout is specified and failures are simulated.
-     * 
+     *
      * @param timeout
      *            indicates if the acquire request is associated with a timeout
      * @param timeoutValue
@@ -146,7 +145,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 
     /**
      * Retrieves the passive resource ID.
-     * 
+     *
      * @return the passive resource ID
      */
     protected String getPassiveResourceID() {
@@ -196,7 +195,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 
     /**
      * Determines if a given process is currently waiting to acquire this resource.
-     * 
+     *
      * @param process
      *            the process
      * @return TRUE if the process is waiting to acquire the resource; FALSE otherwise
@@ -207,7 +206,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 
     /**
      * Removes a waiting process from the queue.
-     * 
+     *
      * @param process
      *            the process to remove
      */

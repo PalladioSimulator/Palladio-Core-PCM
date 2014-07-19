@@ -19,9 +19,9 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 /**
  * TODO Get rid of heavy argument passing. Model elements are often enough as they contain
  * information like ID and name. [Lehrig]
- * 
+ *
  * TODO Find original author ;)
- * 
+ *
  * @author ???, Sebastian Lehrig
  */
 public class SimulatedResourceContainer extends AbstractSimulatedResourceContainer {
@@ -119,15 +119,13 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
     private IPassiveResource getSimplePassiveResource(final PassiveResource resource,
             final AssemblyContext assemblyContext, final SimuComModel simuComModel,
             final long capacity) {
-        // return new SimFairPassiveResource(capacity, name, name, null,null);
-        return new SimSimpleFairPassiveResource(resource, assemblyContext, simuComModel, myModel, capacity,
-                myModel.getConfiguration().getSimulateFailures());
+        return new SimSimpleFairPassiveResource(resource, assemblyContext, simuComModel, capacity);
     }
 
     /**
      * Demand processing of a resource demand by a given type of active resources. If the resource
      * container has no own resources, look in parent resource container.
-     * 
+     *
      * @param requestingProcess
      *            The thread requesting the processing of a resouce demand
      * @param typeID
@@ -159,7 +157,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
      * Demand processing of a resource demand by a given type of active resource and a resource
      * interface operation. If the resource container has no own resources, look in parent resource
      * container.
-     * 
+     *
      * @param requestingProcess
      *            The thread requesting the processing of a resource demand
      * @param typeID
@@ -193,7 +191,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
     /**
      * Demand processing of a resource demand by a given type of active resource and a resource
      * interface operation and additional parameters which can be used in an active resource
-     * 
+     *
      * @param requestingProcess
      *            The thread requesting the processing of a resource demand
      * @param providedInterfaceID
@@ -206,7 +204,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
      *            <parameterName, specification>
      * @param demand
      *            The demand in units processable by the resource. The resource is responsible
-     * 
+     *
      */
     @Override
     public void loadActiveResource(final SimuComSimProcess requestingProcess, final String providedInterfaceID,
