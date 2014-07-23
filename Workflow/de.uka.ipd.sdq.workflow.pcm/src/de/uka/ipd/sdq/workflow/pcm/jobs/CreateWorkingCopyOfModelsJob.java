@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.workflow.pcm.jobs;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -89,7 +91,22 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 		// access the resources
 		PCMResourceSetPartition partition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		ResourceSet resourceSet = partition.getResourceSet();
-		for (Resource resource : resourceSet.getResources()) {
+		
+		
+		// Cannot do a deep copy within iterating the resource set, because if
+		// proxies are resolved, new resources are created within the resource
+		// set and a ConcurrentModificationException will be raised (happened
+		// for Peropteryx when having the ConnectorConfig.featureconfig in the
+		// ResourceSet, which causes the FeatureConfig to be copied, which has a
+		// FeatureDiagram as "annotatedElement" which needs to be resolved.
+		// Resolving the FeatureDiagramImpl proxy lead to modification of the
+		// ResourceSet).
+		// Thus, create new ArrayList to iterate. 
+		// TODO test whether the resource of resolved proxy is copied as expected. 
+		List<Resource> resourceListToIterate = new ArrayList<Resource>();
+		resourceListToIterate.addAll(resourceSet.getResources());
+		
+		for (Resource resource : resourceListToIterate) {
 
 			// we only need to copy the file models
 			if (resource.getURI().scheme() != "pathmap") {
