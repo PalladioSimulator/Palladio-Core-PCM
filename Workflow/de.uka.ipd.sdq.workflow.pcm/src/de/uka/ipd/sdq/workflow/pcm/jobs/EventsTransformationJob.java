@@ -123,7 +123,7 @@ public class EventsTransformationJob
 		{
 			URI modelId = loc.getModelID();
 			String fileExtension = modelId.fileExtension();
-			if(fileExtension.equals("repository") )
+			if(fileExtension != null && fileExtension.equals("repository") )
 			{
 				ResourceSetPartition partition = blackboard.getPartition(loc.getPartitionID());
 				List<EObject> contents = partition.getContents(modelId);
@@ -203,8 +203,13 @@ public class EventsTransformationJob
 		
 		// Only the first resource is necessary. 
 		// All the others are eventually referenced models like the PrimitiveTypes repository we do not need here
-		Resource r = eventMiddlewarePartition.getResourceSet().getResources().get(0);
-		return new ModelLocation(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID, r.getURI());
+		// Check for an empty list (happened when being called by PerOpteryx)
+		if (eventMiddlewarePartition.getResourceSet().getResources().size() > 0){
+			Resource r = eventMiddlewarePartition.getResourceSet().getResources().get(0);
+			return new ModelLocation(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID, r.getURI());
+		} else {
+			return new ModelLocation(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID, URI.createURI(""));
+		}
 	}
 
 	public void setBlackboard(MDSDBlackboard blackboard) {
