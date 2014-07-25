@@ -43,9 +43,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     /** Default name of persistence recorder. */
     public static final String DEFAULT_PERSISTENCE_RECORDER_NAME = "";
 
-    public static String VERBOSE_LOGGING = "verboseLogging";
-    /** the type of the ProbeFramework blackboard */
-    public static String BLACKBOARD_TYPE = "blackboardType";
+    public static final String VERBOSE_LOGGING = "verboseLogging";
 
     /** Simulation configuration tab */
     public static final String EXPERIMENT_RUN = "experimentRun";
@@ -116,11 +114,6 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
 
     public List<ISimulationListener> getListeners() {
         return listeners;
-    }
-
-    private String asString(final Map<String, Object> configuration, final String propertyName) {
-        final String result = (String) configuration.get(propertyName);
-        return result == null ? "" : result;
     }
 
     public String getAdditionalExperimentRunDescription() {
