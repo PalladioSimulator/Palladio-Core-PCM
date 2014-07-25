@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
  */
 public class SimuComConfig extends AbstractSimulationConfig implements Serializable, Cloneable {
     /** Logger of this class. */
-    private static final Logger logger = Logger.getLogger(SimuComConfig.class);
+    private static final Logger LOGGER = Logger.getLogger(SimuComConfig.class);
 
     /** Serialization ID of this class. */
     private static final long serialVersionUID = -3364130550065874984L;
@@ -58,6 +58,10 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
     public static final String CONFIDENCE_BATCH_SIZE = "confidenceBatchSize";
     public static final String CONFIDENCE_MIN_NUMBER_OF_BATCHES = "confidenceMinNumberOfBatches";
 
+    // SimuCom extensions can also provide extension to the SimuCom configuration.
+    // This map stores the extension configurations.
+    private final HashMap<String, SimuComConfigExtension> simuComConfigExtensions;
+    
     private boolean simulateFailures = false;
     private boolean simulateLinkingResources = false;
     private boolean useConfidence = false;
@@ -65,13 +69,11 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
     private int confidenceHalfWidth = 0;
     private URI confidenceModelElementURI;
     private String confidenceModelElementName;
+    
     /* next three are batch algorithm settings */
     private boolean automaticBatches;
     private int batchSize;
     private int minNumberOfBatches;
-    // SimuCom extensions can also provide extension to the SimuCom configuration.
-    // This map stores the extension configurations.
-    private HashMap<String, SimuComConfigExtension> simuComConfigExtensions = null;
 
 
 
@@ -211,8 +213,8 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
         try {
             config = (SimuComConfig) clone();
         } catch (final CloneNotSupportedException e) {
-            if(logger.isEnabledFor(Level.FATAL)) {
-                logger.fatal("Could not clone configuration.", e);
+            if(LOGGER.isEnabledFor(Level.FATAL)) {
+                LOGGER.fatal("Could not clone configuration.", e);
             }
         }
         return config;
