@@ -13,22 +13,23 @@ import desmoj.core.simulator.SingleUnitTimeFormatter;
  */
 public class DesmoJExperiment extends AbstractExperiment {
 
-    private Experiment experiment;
-    
-    private DesmoJModel desmojModel;
+    private final Experiment experiment;
 
-    public DesmoJExperiment(DesmoJModel model) {
+    private final DesmoJModel desmojModel;
+
+    public DesmoJExperiment(final DesmoJModel model) {
         super(model);
-        
+
         this.desmojModel = model;
         this.experiment = new Experiment(model.getConfiguration().getNameExperimentRun(),
-        		TimeUnit.NANOSECONDS, 
-        		TimeUnit.SECONDS, 
-        		new SingleUnitTimeFormatter(TimeUnit.SECONDS, TimeUnit.NANOSECONDS, 9, false));
+                TimeUnit.NANOSECONDS,
+                TimeUnit.SECONDS,
+                new SingleUnitTimeFormatter(TimeUnit.SECONDS, TimeUnit.NANOSECONDS, 9, false));
         this.desmojModel.connectToExperiment(experiment);
         this.experiment.setShowProgressBar(false);
     }
 
+    @Override
     public double getCurrentSimulationTime() {
         return experiment.getSimClock().getTime().getTimeAsDouble();
     }
@@ -37,27 +38,18 @@ public class DesmoJExperiment extends AbstractExperiment {
         return this.experiment;
     }
 
-//    @Override
-//    public void scheduleEvent(final IEvent event, final double delay) {
-//        new ExternalEvent(desmojModel, "StopEvent", false) {
-//            @Override
-//            public void eventRoutine() {
-//                event.run();
-//            }
-//        }.schedule(new TimeSpan(delay));
-//    }
-
     @Override
     public void startSimulator() {
-    	//this.experiment.getSimClock().addObserver(this.timeProgressObserver);
         this.experiment.stop(new ModelCondition(this.desmojModel,"Stop Cond Check",false) {
-			
-			@Override
-			public boolean check() {
-				return checkStopConditions();
-			}
-		});
+
+            @Override
+            public boolean check() {
+                return checkStopConditions();
+            }
+        });
         this.experiment.start();
+        // This line ensures cleanup as Desmo-J does not call stop on its own as it seems...
+        super.stop();
     }
 
     @Override
