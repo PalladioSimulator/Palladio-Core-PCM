@@ -88,7 +88,7 @@ public class ConstantsContainer {
 	/** Default URI of the usage model file. */
 	public static final String DEFAULT_USAGE_FILE = "";
 	/** Default Eclipse plug-in project name for temporary data. */
-	public static final String DEFAULT_TEMPORARY_DATA_LOCATION = "de.uka.ipd.sdq.temporary";
+	public static final String DEFAULT_TEMPORARY_DATA_LOCATION = "org.palladiosimulator.temporary";
 	/** Default value for the deletion of temporary data after an analysis. */
 	public static final Boolean DEFAULT_DELETE_TEMPORARY_DATA_AFTER_ANALYSIS = true;
 	/** Default value for the analysis of accuracy influence. */
