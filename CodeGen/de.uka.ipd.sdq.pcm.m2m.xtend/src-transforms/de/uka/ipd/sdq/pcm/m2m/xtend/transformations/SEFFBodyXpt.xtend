@@ -1,28 +1,34 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction
-import de.uka.ipd.sdq.pcm.seff.StartAction
-import de.uka.ipd.sdq.pcm.seff.StopAction
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
-import de.uka.ipd.sdq.pcm.seff.LoopAction
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
+import com.google.inject.Inject
+import de.uka.ipd.sdq.completions.DelegatingExternalCallAction
 import de.uka.ipd.sdq.pcm.reliability.FailureType
-import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
-import de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType
 import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType
 import de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType
-import de.uka.ipd.sdq.completions.DelegatingExternalCallAction
-import de.uka.ipd.sdq.pcm.seff.InternalAction
-import de.uka.ipd.sdq.pcm.seff.BranchAction
+import de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType
+import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
+import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.AcquireAction
+import de.uka.ipd.sdq.pcm.seff.BranchAction
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
+import de.uka.ipd.sdq.pcm.seff.ForkAction
+import de.uka.ipd.sdq.pcm.seff.InternalAction
+import de.uka.ipd.sdq.pcm.seff.LoopAction
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction
-import de.uka.ipd.sdq.pcm.seff.ForkAction
-import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.seff.StartAction
+import de.uka.ipd.sdq.pcm.seff.StopAction
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"completions.DelegatingExteralCallAction",
+	"pcm.reliability.*",
+	"pcm.seff.*"
+])
 abstract class SEFFBodyXpt {
 	@Inject extension CallsXpt
 	@Inject extension PCMext

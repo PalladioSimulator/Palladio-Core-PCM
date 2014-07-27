@@ -1,18 +1,32 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
+import com.google.inject.Inject
+import de.uka.ipd.sdq.completions.Completion
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
-import de.uka.ipd.sdq.completions.Completion
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector
-import com.google.inject.Inject
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"completions.Completion",
+	"pcm.core.composition.AssemblyConnector",
+	"pcm.core.composition.AssemblyContext",
+	"pcm.core.composition.AssemblyInfrastructureConnector",
+	"pcm.core.composition.ComposedStructure",
+	"pcm.core.entity.ComposedProvidingRequiringEntity",
+	"pcm.core.entity.InterfaceProvidingEntity",
+	"pcm.repository.InfrastructureProvidedRole",
+	"pcm.repository.InfrastructureRequiredRole",
+	"pcm.repository.OperationProvidedRole",
+	"pcm.repository.OperationRequiredRole"
+])
 abstract class ComposedStructureXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext

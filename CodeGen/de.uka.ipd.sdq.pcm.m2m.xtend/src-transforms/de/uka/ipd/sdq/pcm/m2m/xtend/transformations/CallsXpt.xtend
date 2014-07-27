@@ -6,8 +6,16 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 import java.util.List
 
+@ModelIn(#[
+	"pcm.core.entity.Entity",
+	"pcm.parameter.VariableUsage",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationSignature",
+	"pcm.seff.seff_performance.InfrastructureCall"
+])
 abstract class CallsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt

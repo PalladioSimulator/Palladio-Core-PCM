@@ -1,25 +1,38 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
-import de.uka.ipd.sdq.pcm.reliability.FailureType
-import de.uka.ipd.sdq.pcm.system.System
 import de.uka.ipd.sdq.completions.Completion
-import de.uka.ipd.sdq.pcm.transformations.Helper
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
 import de.uka.ipd.sdq.pcm.allocation.Allocation
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+import de.uka.ipd.sdq.pcm.core.entity.Entity
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
+import de.uka.ipd.sdq.pcm.reliability.FailureType
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+import de.uka.ipd.sdq.pcm.system.System
+import de.uka.ipd.sdq.pcm.transformations.Helper
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.completions.Completion",
+	"pcm.allocation.Allocation",
+	"pcm.core.composition.ComposedStructure",
+	"pcm.core.entity.Entity",
+	"pcm.core.entity.InterfaceProvidingEntity",
+	"pcm.core.entity.InterfaceRequiringEntity",
+	"pcm.reliability.FailureType",
+	"pcm.system.System",
+	"pcm.usagemodel.UsageScenario",
+	"pcm.repository.*"
+])
 class JavaNamesExt {
 	def removeAllSpecialChars(String s) {
 		Helper::removeAllSpecialChars(s)

@@ -4,7 +4,14 @@ import de.uka.ipd.sdq.pcm.repository.CollectionDataType
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
 import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.repository.CollectionDataType",
+	"pcm.repository.CompositeDataType",
+	"pcm.repository.PrimitiveDataType",
+	"pcm.repository.PrimitiveTypeEnum"
+])
 class DataTypesXpt {
 //	def dispatch String dataType(DataType type) {
 //		// «ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"»

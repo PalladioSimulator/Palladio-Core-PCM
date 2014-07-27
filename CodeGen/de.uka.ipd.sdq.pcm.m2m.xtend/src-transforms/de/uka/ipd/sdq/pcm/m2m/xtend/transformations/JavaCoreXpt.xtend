@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
+import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
+import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
@@ -16,9 +18,17 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
 import de.uka.ipd.sdq.pcm.seff.StopAction
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
-import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.repository.*",
+	"pcm.core.entity.InterfaceProvidingEntity",
+	"pcm.core.entity.InterfaceProvidingRequiringEntity",
+	"pcm.seff.AbstractAction",
+	"pcm.seff.ServiceEffektSpecification",
+	"pcm.seff.StopAction",
+	"pcm.subsytem.Subsystem"
+])
 abstract class JavaCoreXpt {
 	@Inject M2TFileSystemAccess fsa
 	

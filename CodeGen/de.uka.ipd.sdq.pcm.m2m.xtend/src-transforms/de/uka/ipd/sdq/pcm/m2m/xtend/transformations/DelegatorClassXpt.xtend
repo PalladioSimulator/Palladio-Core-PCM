@@ -1,12 +1,19 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.repository.InfrastructureInterface",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationInterface",
+	"pcm.repository.OperationSignature"
+])
 class DelegatorClassXpt {
 	@Inject M2TFileSystemAccess fsa
 	

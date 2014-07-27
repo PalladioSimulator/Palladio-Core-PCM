@@ -1,8 +1,13 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.seff.ExternalCallAction",
+	"pcm.usagemodel.UsageScenario"
+])
 class CalculatorsXpt {
 	def setupCalculatorResponseTime(String s, String startProbeSetId, String endProbeSetId) '''
 		getModel().getProbeSpecContext().getCalculatorRegistry().registerCalculator(

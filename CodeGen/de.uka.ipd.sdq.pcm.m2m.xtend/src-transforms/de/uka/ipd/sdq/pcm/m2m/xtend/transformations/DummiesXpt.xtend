@@ -1,15 +1,25 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import de.uka.ipd.sdq.pcm.system.System
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import de.uka.ipd.sdq.pcm.system.System
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.system.System",
+	"pcm.repository.InfrastructureInterface",
+	"pcm.repository.InfrastructureRequiredRole",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationInterface",
+	"pcm.repository.OperationRequiredRole",
+	"pcm.repository.OperationSignature"
+])
 abstract class DummiesXpt {
 	@Inject M2TFileSystemAccess fsa
 	

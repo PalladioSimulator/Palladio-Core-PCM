@@ -1,16 +1,25 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.repository.Repository
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.Repository
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
-import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
-
+@ModelIn(#[
+	"pcm.core.entity.ComposedProvidingRequiringEntity",
+	"pcm.repository.CompositeComponent",
+	"pcm.repository.InfrastructureInterface",
+	"pcm.repository.OperationInterface",
+	"pcm.repository.Repository",
+	"pcm.repository.RepositoryComponent",
+	"pcm.subsystem.SubSystem"
+])
 abstract class RepositoryXpt {
 	@Inject M2TFileSystemAccess fsa
 

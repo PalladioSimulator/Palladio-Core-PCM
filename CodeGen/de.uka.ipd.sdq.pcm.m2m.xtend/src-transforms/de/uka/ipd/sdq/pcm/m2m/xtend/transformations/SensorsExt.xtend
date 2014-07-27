@@ -1,16 +1,26 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
-import org.eclipse.emf.ecore.EObject
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.core.entity.Entity
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import java.util.Set
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
-import com.google.inject.Inject
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import java.util.Set
+import org.eclipse.emf.ecore.EObject
 
+@ModelIn(#[
+	"pcm.core.entity.Entity",
+	"pcm.repository.BasicComponent",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationSignature",
+	"pcm.repository.RepositoryComponent",
+	"pcm.seff.ExternalCallAction",
+	"pcm.seff.InternalAction"
+])
 class SensorsExt {
 	@Inject extension PCMext
 	@Inject extension JavaNamesExt

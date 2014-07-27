@@ -1,12 +1,19 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.completions.CompletionRepository
-import de.uka.ipd.sdq.pcm.system.System
-import de.uka.ipd.sdq.completions.Completion
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
 import com.google.inject.Inject
+import de.uka.ipd.sdq.completions.Completion
+import de.uka.ipd.sdq.completions.CompletionRepository
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+import de.uka.ipd.sdq.pcm.system.System
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.repository.RepositoryComponent",
+	"pcm.system.System",
+	"completions.Completion",
+	"completions.CompletionRepository"
+])
 class CompletionsXpt {
 	@Inject M2TFileSystemAccess fsa
 	

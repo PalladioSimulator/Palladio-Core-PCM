@@ -1,16 +1,28 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
-import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval
-import de.uka.ipd.sdq.pcm.seff.AbstractAction
+import com.google.inject.Inject
+import de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
 import de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference
 import de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference
-import de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
-import com.google.inject.Inject
-import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange
 import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition
+import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval
+import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange
 import de.fzi.se.quality.qualityannotation.PCMParameterPartition
+import de.uka.ipd.sdq.pcm.seff.AbstractAction
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"quality.parameters.pcm.PCMComponentParameterReference",
+	"quality.parameters.pcm.PCMOperationParameterReference",
+	"quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference",
+	"quality.qualityannotation.CharacterisedPCMParameterPartition",
+	"quality.qualityannotation.CharacterisedPCMParameterPartitionInterval",
+	"quality.qualityannotation.CharacterisedPCMParameterPartitionRange",
+	"quality.qualityannotation.PCMParameterPartition",
+	"pcm.seff.AbstractAction",
+	"pcm.seff.ResourceDemandingSEFF"
+])
 class SimAccuracyXpt {
 	@Inject extension SimAccuracyInfluenceExt	
 	

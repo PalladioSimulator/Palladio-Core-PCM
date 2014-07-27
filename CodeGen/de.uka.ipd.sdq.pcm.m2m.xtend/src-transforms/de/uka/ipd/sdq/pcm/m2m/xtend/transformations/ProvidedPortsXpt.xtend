@@ -1,17 +1,29 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
 import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.core.composition.ComposedStructure",
+	"pcm.core.entity.ComposedProvidingRequiringEntity",
+	"pcm.core.entity.InterfaceProvidingEntity",
+	"pcm.repository.InfrastructureInterface",
+	"pcm.repository.InfrastructureProvidedRole",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationInterface",
+	"pcm.repository.OperationProvidedRole",
+	"pcm.repository.OperationSignature"
+])
 abstract class ProvidedPortsXpt {
 	@Inject M2TFileSystemAccess fsa
 

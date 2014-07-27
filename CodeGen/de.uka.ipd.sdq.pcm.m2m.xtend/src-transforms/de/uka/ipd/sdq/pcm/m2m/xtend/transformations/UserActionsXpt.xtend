@@ -1,14 +1,24 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
+import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
-import de.uka.ipd.sdq.pcm.usagemodel.Start
-import de.uka.ipd.sdq.pcm.usagemodel.Stop
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
-import de.uka.ipd.sdq.pcm.usagemodel.Loop
 import de.uka.ipd.sdq.pcm.usagemodel.Branch
 import de.uka.ipd.sdq.pcm.usagemodel.Delay
-import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
+import de.uka.ipd.sdq.pcm.usagemodel.Loop
+import de.uka.ipd.sdq.pcm.usagemodel.Start
+import de.uka.ipd.sdq.pcm.usagemodel.Stop
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.usagemodel.AbstractUserAction",
+	"pcm.usagemodel.Branch",
+	"pcm.usagemodel.Delay",
+	"pcm.usagemodel.EntryLevelSystemCall",
+	"pcm.usagemodel.Loop",
+	"pcm.usagemodel.Start",
+	"pcm.usagemodel.Stop"
+])
 abstract class UserActionsXpt {
 	@Inject extension CallsXpt
 	@Inject extension JavaNamesExt

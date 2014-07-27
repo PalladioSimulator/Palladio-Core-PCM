@@ -1,17 +1,30 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
+import de.fzi.se.quality.QualityRepository
+import de.fzi.se.quality.parameters.ParameterReference
+import de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
+import de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference
+import de.fzi.se.quality.parameters.pcm.PCMParameterReference
+import de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference
+import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition
+import de.fzi.se.quality.qualityannotation.PCMServiceSpecification
+import de.fzi.se.quality.qualityannotation.QualityAnnotation
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
 import de.uka.ipd.sdq.pcm.transformations.Helper
-import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition
-import de.fzi.se.quality.qualityannotation.QualityAnnotation
-import de.fzi.se.quality.QualityRepository
-import de.fzi.se.quality.qualityannotation.PCMServiceSpecification
-import de.fzi.se.quality.parameters.ParameterReference
-import de.fzi.se.quality.parameters.pcm.PCMParameterReference
-import de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference
-import de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
-import de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"quality.QualityRepository",
+	"quality.parameters.ParameterReference",
+	"quality.parameters.pcm.PCMComponentParameterReference",
+	"quality.parameters.pcm.PCMOperationParameterReference",
+	"quality.parameters.pcm.PCMParameterReference",
+	"quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference",
+	"quality.qualityannotation.CharacterisedPCMParameterPartition",
+	"quality.qualityannotation.PCMServiceSpecification",
+	"quality.qualityannotation.QualityAnnotation",
+	"pcm.seff.ResourceDemandingSEFF"
+])
 class SimAccuracyInfluenceExt {
 	QualityRepository qualityAnnotationRepository
 	

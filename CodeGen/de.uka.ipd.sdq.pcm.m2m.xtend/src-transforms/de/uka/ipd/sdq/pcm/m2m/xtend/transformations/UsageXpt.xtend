@@ -1,17 +1,30 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
+import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.allocation.Allocation
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.system.System
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
 import de.uka.ipd.sdq.pcm.usagemodel.Stop
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
-import de.uka.ipd.sdq.pcm.system.System
-import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.allocation.Allocation",
+	"pcm.repository.InfrastructureRequiredRole",
+	"pcm.repository.InfrastructureProvidedRole",
+	"pcm.repository.OperationProvidedRole",
+	"pcm.repository.OperationRequiredRole",
+	"pcm.system.System",
+	"pcm.usagemodel.AbstractUserAction",
+	"pcm.usagemodel.Stop",
+	"pcm.usagemodel.UsageModel",
+	"pcm.usagemodel.UsageScenario"
+])
 abstract class UsageXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext

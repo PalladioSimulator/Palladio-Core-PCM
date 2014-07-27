@@ -1,16 +1,25 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
+import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector
+import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.Repository
 import de.uka.ipd.sdq.pcm.system.System
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
-import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
-
+@ModelIn(#[
+	"pcm.usagemodel.UsageModel",
+	"pcm.usagemodel.EntryLevelSystemCall",
+	"pcm.system.System",
+	"pcm.repository.InfrastructureProvidedRole",
+	"pcm.repository.OperationProvidedRole",
+	"pcm.repository.Repository",
+	"pcm.core.composition.ProvidedDelegationConnector"
+])
 class BuildXpt {
 	@Inject M2TFileSystemAccess fsa
 

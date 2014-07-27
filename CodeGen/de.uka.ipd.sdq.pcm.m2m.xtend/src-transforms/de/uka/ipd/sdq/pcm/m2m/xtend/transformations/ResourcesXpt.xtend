@@ -4,7 +4,14 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.repository.PassiveResource",
+	"pcm.seff.AbstractInternalControlFlowAction",
+	"pcm.seff.seff_performance.ParametricResourceDemand",
+	"pcm.seff.seff_performance.ResourceCall"
+])
 abstract class ResourcesXpt {
 	// For each resource demand load a resource
 	def resourceDemands(AbstractInternalControlFlowAction aicfa) '''
