@@ -27,6 +27,7 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
 
     @Override
     protected void addSimulatorSpecificJobs(SimuComWorkflowConfiguration configuration) {
+    	System.out.println("SimuComJob");
         // 1. Initialize Failure Type Information
         this.add(new DetermineFailureTypesJob(configuration));
         

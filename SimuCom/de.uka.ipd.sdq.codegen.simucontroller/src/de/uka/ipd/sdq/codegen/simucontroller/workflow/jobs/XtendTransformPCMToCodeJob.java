@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.mwe2.runtime.workflow.IWorkflowComponent;
 import org.eclipse.emf.mwe2.runtime.workflow.IWorkflowContext;
@@ -351,7 +352,7 @@ public class XtendTransformPCMToCodeJob extends
 		if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
 			sC2.put(SLOT_NAME_QUALITY_ANNOTATION_MODEL,
 					pcmPartition.getElement(
-							QualityFactory.eINSTANCE.createQualityRepository())
+							(EClass) QualityFactory.eINSTANCE.createQualityRepository())
 							.get(0));
 		}
 		return sC2;
