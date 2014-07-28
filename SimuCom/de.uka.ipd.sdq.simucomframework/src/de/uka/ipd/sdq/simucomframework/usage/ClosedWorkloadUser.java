@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 /**
  * A closed workload user is a user which performs the typical closed workload
  * cycle: execute, think, execute, ...
- * 
+ *
  * @author Steffen Becker, Sebastian Lehrig
  */
 public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
@@ -33,7 +33,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 
     /**
      * Constructor of the closed workload user
-     * 
+     *
      * @param owner
      *            The model this user belongs to
      * @param name
@@ -55,16 +55,18 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 
     protected long sessionId;
 
+    private boolean requestStop = false;
+
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see desmoj.core.simulator.SimProcess#lifeCycle()
      */
     @Override
     protected void internalLifeCycle() {
 
         // Repeat usage scenario runs as long as simulation is running:
-        while (getModel().getSimulationControl().isRunning()) {
+        while (!requestStop && getModel().getSimulationControl().isRunning()) {
             // update session id
             updateNewSessionID();
 
@@ -75,9 +77,6 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
                         this.getModel().getFailureStatistics().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
                     }
                 }
-                // TODO: Fix me and provide a new solution
-                //blackboardGarbageCollector.enterRegion(getRequestContext()
-                //		.rootContext());
                 scenarioRunner(this);
                 if (getModel().getConfiguration().getSimulateFailures()) {
                     this.getModel().getFailureStatistics().recordSuccess();
@@ -93,9 +92,6 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
                 // is not finished:
                 this.getModel().increaseMainMeasurementsCount();
 
-                //TODO: Fixme and provide a new solution
-                //blackboardGarbageCollector.leaveRegion(getRequestContext()
-                //		.rootContext());
                 runCount++;
             }
         }
@@ -113,7 +109,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner#scenarioRunner(
      * desmoj.core.simulator.SimProcess)
@@ -130,7 +126,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
      */
     @Override
@@ -155,6 +151,10 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
     @Override
     public RequestContext getRequestContext() {
         return super.getRequestContext().append("." + runCount);
+    }
+
+    public void requestStop() {
+        this.requestStop  = true;
     }
 
 }

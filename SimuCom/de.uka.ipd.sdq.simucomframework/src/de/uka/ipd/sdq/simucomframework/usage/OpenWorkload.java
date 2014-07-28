@@ -9,13 +9,13 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
  * Implementation of the workload driver interface for open workloads
- * 
+ *
  * @author Steffen Becker
- * 
+ *
  */
 public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 
-    private final String interArrivalTime;
+    private String interArrivalTime;
     private final IUserFactory userFactory;
 
     private static Logger logger = Logger.getLogger(OpenWorkload.class
@@ -27,7 +27,7 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 
     /**
      * Constructor of the open workload driver
-     * 
+     *
      * @param model
      *            The simulation model this driver belongs to
      * @param userFactory
@@ -104,6 +104,10 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
     @Override
     public IUserFactory getUserFactory() {
         return this.userFactory;
+    }
+
+    public void setInterarrivalTime(final String newInterarrivalTime) {
+        this.interArrivalTime = newInterarrivalTime;
     }
 
 }
