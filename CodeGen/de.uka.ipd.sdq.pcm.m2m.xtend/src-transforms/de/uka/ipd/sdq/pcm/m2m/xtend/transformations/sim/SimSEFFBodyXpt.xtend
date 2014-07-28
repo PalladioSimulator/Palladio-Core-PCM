@@ -1,31 +1,55 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
 import com.google.inject.Inject
+import de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
+import de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference
+import de.fzi.se.quality.qualityannotation.PCMParameterPartition
+import de.uka.ipd.sdq.completions.DelegatingExternalCallAction
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
-import de.uka.ipd.sdq.pcm.seff.LoopAction
-import de.uka.ipd.sdq.pcm.seff.InternalAction
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt
 import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription
 import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
-import de.uka.ipd.sdq.pcm.seff.BranchAction
-import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition
-import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
-import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition
-import de.uka.ipd.sdq.pcm.seff.AcquireAction
-import de.uka.ipd.sdq.pcm.seff.ReleaseAction
-import de.uka.ipd.sdq.pcm.seff.StartAction
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
-import de.fzi.se.quality.qualityannotation.PCMParameterPartition
-import de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference
-import de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
-import de.uka.ipd.sdq.pcm.seff.StopAction
-import de.uka.ipd.sdq.pcm.seff.SetVariableAction
-import de.uka.ipd.sdq.pcm.seff.ForkAction
-import de.uka.ipd.sdq.completions.DelegatingExternalCallAction
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt
 import de.uka.ipd.sdq.pcm.seff.AbstractAction
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
+import de.uka.ipd.sdq.pcm.seff.AcquireAction
+import de.uka.ipd.sdq.pcm.seff.BranchAction
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
+import de.uka.ipd.sdq.pcm.seff.ForkAction
+import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition
+import de.uka.ipd.sdq.pcm.seff.InternalAction
+import de.uka.ipd.sdq.pcm.seff.LoopAction
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition
+import de.uka.ipd.sdq.pcm.seff.ReleaseAction
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction
+import de.uka.ipd.sdq.pcm.seff.StartAction
+import de.uka.ipd.sdq.pcm.seff.StopAction
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"quality.parameters.pcm.PCMComponentParameterReference",
+	"quality.parameters.pcm.PCMOperationParameterReference",
+	"quality.qualityannotation.PCMParameterPartition",
+	"completions.DelegatingExternalCallAction",
+	"pcm.reliability.InternalFailureOccurrenceDescription",
+	"pcm.reliability.SoftwareInducedFailureType",
+	"pcm.seff.AbstractAction",
+	"pcm.seff.AbstractBranchTransition",
+	"pcm.seff.AcquireAction",
+	"pcm.seff.BranchAction",
+	"pcm.seff.CollectionIteratorAction",
+	"pcm.seff.ForkAction",
+	"pcm.seff.GuardedBranchTransition",
+	"pcm.seff.InternalAction",
+	"pcm.seff.LoopAction",
+	"pcm.seff.ProbabilisticBranchTransition",
+	"pcm.seff.ReleaseAction",
+	"pcm.seff.ResourceDemandingSEFF",
+	"pcm.seff.SetVariableAction",
+	"pcm.seff.StartAction",
+	"pcm.seff.StopAction"
+])
 class SimSEFFBodyXpt extends SEFFBodyXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext

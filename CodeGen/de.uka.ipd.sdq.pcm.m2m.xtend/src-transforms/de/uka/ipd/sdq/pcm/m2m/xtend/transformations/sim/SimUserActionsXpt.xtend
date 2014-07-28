@@ -3,15 +3,25 @@ package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UsageXpt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UserActionsXpt
+import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
 import de.uka.ipd.sdq.pcm.usagemodel.Branch
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition
 import de.uka.ipd.sdq.pcm.usagemodel.Delay
 import de.uka.ipd.sdq.pcm.usagemodel.Loop
 import de.uka.ipd.sdq.pcm.usagemodel.Start
 import de.uka.ipd.sdq.pcm.usagemodel.Stop
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UserActionsXpt
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.usagemodel.AbstractUserAction",
+	"pcm.usagemodel.Branch",
+	"pcm.usagemodel.BranchTransition",
+	"pcm.usagemodel.Delay",
+	"pcm.usagemodel.Loop",
+	"pcm.usagemodel.Start",
+	"pcm.usagemodel.Stop"
+])
 class SimUserActionsXpt extends UserActionsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension UsageXpt

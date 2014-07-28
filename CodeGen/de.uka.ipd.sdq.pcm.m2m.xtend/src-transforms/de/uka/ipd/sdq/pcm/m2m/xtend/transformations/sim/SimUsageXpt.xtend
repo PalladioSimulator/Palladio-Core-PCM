@@ -1,26 +1,42 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
-import de.uka.ipd.sdq.pcm.system.System
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UsageXpt
-import de.uka.ipd.sdq.pcm.usagemodel.UserData
 import de.uka.ipd.sdq.pcm.allocation.Allocation
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour
+import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.DummiesXpt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsXpt
-import de.uka.ipd.sdq.pcm.usagemodel.Start
-import de.uka.ipd.sdq.pcm.usagemodel.Workload
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UsageXpt
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.repository.RequiredRole
+import de.uka.ipd.sdq.pcm.system.System
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload
-import de.uka.ipd.sdq.pcm.repository.RequiredRole
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.DummiesXpt
+import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour
+import de.uka.ipd.sdq.pcm.usagemodel.Start
+import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import de.uka.ipd.sdq.pcm.usagemodel.UserData
+import de.uka.ipd.sdq.pcm.usagemodel.Workload
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.allocation.Allocation",
+	"pcm.repository.InfrastructureRequiredRole",
+	"pcm.repository.OperationRequiredRole",
+	"pcm.repository.RequiredRole",
+	"pcm.system.System",
+	"pcm.usagemodel.ClosedWorkload",
+	"pcm.usagemodel.OpenWorkload",
+	"pcm.usagemodel.ScenarioBehaviour",
+	"pcm.usagemodel.Start",
+	"pcm.usagemodel.UsageModel",
+	"pcm.usagemodel.UsageScenario",
+	"pcm.usagemodel.UserData",
+	"pcm.usagemodel.Workload"
+])
 class SimUsageXpt extends UsageXpt {
 	@Inject M2TFileSystemAccess fsa		
 	

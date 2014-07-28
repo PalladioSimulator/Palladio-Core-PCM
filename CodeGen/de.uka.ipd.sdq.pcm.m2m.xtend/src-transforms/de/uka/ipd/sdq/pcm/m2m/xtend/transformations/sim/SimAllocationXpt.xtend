@@ -1,19 +1,26 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
-import de.uka.ipd.sdq.pcm.allocation.Allocation
-
 import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
+import de.uka.ipd.sdq.pcm.allocation.Allocation
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext
-import de.uka.ipd.sdq.pcm.subsystem.SubSystem
-import de.uka.ipd.sdq.pcm.system.System
-import javax.annotation.processing.Completion
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
+import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.AllocationXpt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.AllocationXpt
+import de.uka.ipd.sdq.pcm.subsystem.SubSystem
+import de.uka.ipd.sdq.pcm.system.System
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import javax.annotation.processing.Completion
 
+@ModelIn(#[
+	"pcm.allocation.*",
+	"pcm.core.composition.AssemblyContext",
+	"pcm.repository.CompositeComponent",
+	"pcm.subsystem.SubSystem",
+	"pcm.system.System"
+])
 class SimAllocationXpt extends AllocationXpt {
 	@Inject extension M2TFileSystemAccess fsa
 	

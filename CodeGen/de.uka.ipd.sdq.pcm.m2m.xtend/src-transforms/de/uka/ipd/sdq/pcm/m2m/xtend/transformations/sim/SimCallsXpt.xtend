@@ -1,23 +1,35 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
 import com.google.inject.Inject
+import de.fzi.se.quality.qualityannotation.PCMParameterPartition
+import de.uka.ipd.sdq.pcm.core.entity.Entity
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CallsXpt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsExt
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage
-import java.util.List
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
-import de.uka.ipd.sdq.pcm.seff.InternalAction
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsXpt
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.repository.Signature
-import de.uka.ipd.sdq.pcm.core.entity.Entity
 import de.uka.ipd.sdq.pcm.seff.AbstractAction
-import de.fzi.se.quality.qualityannotation.PCMParameterPartition
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CallsXpt
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
+import de.uka.ipd.sdq.pcm.seff.InternalAction
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import java.util.List
 
+@ModelIn(#[
+	"quality.qualityannotation.PCMParameterPartition",
+	"pcm.core.entity.Entity",
+	"pcm.parameter.VariableUsage",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationSignature",
+	"pcm.repository.Signature",
+	"pcm.seff.AbstractAction",
+	"pcm.seff.ExternalCallAction",
+	"pcm.seff.InternalAction"
+])
 class SimCallsXpt extends CallsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext

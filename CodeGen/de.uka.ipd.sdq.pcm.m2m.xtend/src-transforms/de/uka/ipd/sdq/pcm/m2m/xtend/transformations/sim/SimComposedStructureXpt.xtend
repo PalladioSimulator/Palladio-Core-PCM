@@ -1,18 +1,29 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
 import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
+import de.uka.ipd.sdq.completions.Completion
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
-import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
-import de.uka.ipd.sdq.pcm.system.System
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ComposedStructureXpt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
+import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
-import de.uka.ipd.sdq.completions.Completion
+import de.uka.ipd.sdq.pcm.system.System
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"completions.Completion",
+	"pcm.core.composition.AssemblyContext",
+	"pcm.core.composition.ComposedStructure",
+	"pcm.core.entity.ComposedProvidingRequiringEntity",
+	"pcm.repository.BasicComponent",
+	"pcm.repository.CompositeComponent",
+	"pcm.subsystem.SubSystem",
+	"pcm.system.System"
+])
 class SimComposedStructureXpt extends ComposedStructureXpt {
 	@Inject extension PCMext
 	@Inject extension JavaNamesExt

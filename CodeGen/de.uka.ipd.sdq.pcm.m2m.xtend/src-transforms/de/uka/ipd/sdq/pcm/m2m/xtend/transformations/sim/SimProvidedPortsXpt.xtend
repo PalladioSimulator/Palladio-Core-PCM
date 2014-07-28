@@ -13,7 +13,19 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.repository.Signature
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"completions.Completion",
+	"pcm.core.entity.ComposedProvidingRequiringEntity",
+	"pcm.repository.InfrastructureInterface",
+	"pcm.repository.InfrastructureProvidedRole",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationInterface",
+	"pcm.repository.OperationProvidedRole",
+	"pcm.repository.OperationSignature",
+	"pcm.repository.Signature"
+])
 class SimProvidedPortsXpt extends ProvidedPortsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt

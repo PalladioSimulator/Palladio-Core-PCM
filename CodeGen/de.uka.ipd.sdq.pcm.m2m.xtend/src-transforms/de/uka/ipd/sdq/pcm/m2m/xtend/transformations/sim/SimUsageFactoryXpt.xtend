@@ -1,15 +1,23 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
-import de.uka.ipd.sdq.pcm.usagemodel.Workload
+import de.uka.ipd.sdq.pcm.system.System
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload
-import de.uka.ipd.sdq.pcm.system.System
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import de.uka.ipd.sdq.pcm.usagemodel.Workload
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.system.System",
+	"pcm.usagemodel.ClosedWorkload",
+	"pcm.usagemoel.OpenWorkload",
+	"pcm.usagemodel.UsageScenario",
+	"pcm.usagemodel.Workload"
+])
 class SimUsageFactoryXpt {
 	@Inject M2TFileSystemAccess fsa	
 	

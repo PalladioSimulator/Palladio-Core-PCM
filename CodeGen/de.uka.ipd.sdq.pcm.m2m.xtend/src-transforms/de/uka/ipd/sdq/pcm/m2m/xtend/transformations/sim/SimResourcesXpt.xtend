@@ -13,9 +13,21 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
 import static de.uka.ipd.sdq.pcm.transformations.Helper.*
 
+@ModelIn(#[
+	"completions.NetworkDemandParametricResourceDemand",
+	"pcm.repository.PassiveResource",
+	"pcm.resourceenviroment.CommunicationLinkResourceSpecification",
+	"pcm.resourceenviroment.LinkinResource",
+	"pcm.resourceenviroment.ProcessingResourceSpecification",
+	"pcm.resourceenviroment.ResourceContainer",
+	"pcm.resourceenviroment.ResourceEnviroment",
+	"pcm.seff.seff_performance.ParametricResourceDemand",
+	"pcm.seff.seff_performance.ResourceCall"
+])
 class SimResourcesXpt extends ResourcesXpt {
 	@Inject extension JavaNamesExt
 	

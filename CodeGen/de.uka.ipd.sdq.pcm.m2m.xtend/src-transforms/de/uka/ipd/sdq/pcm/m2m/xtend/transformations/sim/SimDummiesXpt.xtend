@@ -18,7 +18,25 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.system.System
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.qosannotations.qos_performance.SpecifiedExecutionTime",
+	"pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime",
+	"pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation",
+	"pcm.reliability.ExternalFailureOccurrenceDescription",
+	"pcm.reliability.FailureType",
+	"pcm.reliability.HardwareInducedFailureType",
+	"pcm.reliability.NetworkInducedFailureType",
+	"pcm.reliability.SoftwareInducedFailureType",
+	"pcm.repository.InfrastructureInterface",
+	"pcm.repository.InfrastructureRequiredRole",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationInterface",
+	"pcm.repository.OperationRequiredRole",
+	"pcm.repository.OperationSignature",
+	"pcm.system.System"
+])
 class SimDummiesXpt extends DummiesXpt {
 	//-------------------------------
 	// In the simulation, generate a time delay

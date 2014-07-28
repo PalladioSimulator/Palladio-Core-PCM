@@ -1,29 +1,50 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
-import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
 import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaCoreXpt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
-import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaCoreXpt
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
-import de.uka.ipd.sdq.pcm.seff.AbstractAction
-import de.uka.ipd.sdq.pcm.seff.StopAction
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
-import de.uka.ipd.sdq.pcm.seff.LoopAction
-import de.uka.ipd.sdq.pcm.seff.BranchAction
-import de.uka.ipd.sdq.pcm.seff.ForkAction
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt
-import de.uka.ipd.sdq.pcm.repository.Signature
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
+import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent
+import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+import de.uka.ipd.sdq.pcm.repository.Signature
+import de.uka.ipd.sdq.pcm.seff.AbstractAction
+import de.uka.ipd.sdq.pcm.seff.BranchAction
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
+import de.uka.ipd.sdq.pcm.seff.ForkAction
+import de.uka.ipd.sdq.pcm.seff.LoopAction
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
+import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
+import de.uka.ipd.sdq.pcm.seff.StopAction
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.core.entity.InterfaceProvidingEntity",
+	"pcm.repository.BasicComponent",
+	"pcm.repository.CompositeComponent",
+	"pcm.repository.ImplementationComponentType",
+	"pcm.repository.InfrastructureInterface",
+	"pcm.repository.InfrastructureSignature",
+	"pcm.repository.OperationInterface",
+	"pcm.repository.OperationSignature",
+	"pcm.repository.RepositoryComponent",
+	"pcm.repository.Signature",
+	"pcm.seff.AbstractAction",
+	"pcm.seff.BranchAction",
+	"pcm.seff.CollectionIteratorAction",
+	"pcm.seff.ForkAction",
+	"pcm.seff.LoopAction",
+	"pcm.seff.ResourceDemandingSEFF",
+	"pcm.seff.ServiceEffectSpecification",
+	"pcm.seff.StopAction"
+])
 class SimJavaCoreXpt extends JavaCoreXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext

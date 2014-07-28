@@ -1,19 +1,30 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsExt
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CalculatorsXpt
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsExt
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
+import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
+@ModelIn(#[
+	"pcm.repository.BasicComponent",
+	"pcm.repository.RepositoryComponent",
+	"pcm.seff.ExternalCallAction",
+	"pcm.seff.InternalAction",
+	"pcm.seff.ResourceDemandingSEFF",
+	"pcm.seff.ServiceEffectSpecification",
+	"pcm.usagemodel.EntryLevelSystemCall",
+	"pcm.usagemodel.UsageScenario"
+])
 class SimCalculatorsXpt extends CalculatorsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext
