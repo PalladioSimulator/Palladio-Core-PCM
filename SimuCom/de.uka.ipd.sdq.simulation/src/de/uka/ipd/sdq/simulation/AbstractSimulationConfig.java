@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.palladiosimulator.recorderframework.IRecorderConfigurationFactory;
 import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
 
@@ -15,12 +16,14 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 /**
  * This is the abstract base class for simulation configurations. It encapsulates the configuration
  * elements that are common to all PCM simulators.
- * 
+ *
  * @author roman
  * @author Philipp Merkle
- * 
+ *
  */
 public abstract class AbstractSimulationConfig implements Serializable, ISimulationConfig {
+
+    private final static Logger LOG = Logger.getLogger(AbstractSimulationConfig.class);
 
     /** Serialization ID of this class. */
     private static final long serialVersionUID = 891323270372759718L;
@@ -89,6 +92,8 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
 
             this.listeners = new ArrayList<ISimulationListener>();
         } catch (final Exception e) {
+            LOG.error("Setup of simulation failed");
+            LOG.error("The configuration could not be loaded",e);
             throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
         }
     }
@@ -176,7 +181,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     /**
      * Dispose random generator and delete reference to it so that this {@link SimuComConfig} can be
      * started again and will create a new RandomGenerator.
-     * 
+     *
      * @author martens
      */
     public void disposeRandomGenerator() {
