@@ -124,8 +124,8 @@ ISimProcessListener {
     @Override
     public void fireTerminated() {
         LoggingWrapper.log("Process " + this.getId() + " terminated.");
-        for (final IActiveResource o : terminatedObservers) {
-            o.notifyTerminated(this);
+        for (final IActiveResource activeResource : terminatedObservers) {
+            activeResource.notifyTerminated(this);
         }
         terminatedObservers.removeAll(removedObservers);
         removedObservers.clear();
@@ -140,7 +140,7 @@ ISimProcessListener {
     /**
      * Returns the {@link RequestContext} in which this simulated process is
      * executed.
-     * 
+     *
      * @return the request context
      */
     public RequestContext getRequestContext() {
@@ -170,7 +170,7 @@ ISimProcessListener {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessDelegate
      * #lifeCycle()
@@ -210,7 +210,7 @@ ISimProcessListener {
     }
 
     /**
-     * 
+     *
      */
     protected void removeProcessFromSimStatus() {
         if(logger.isDebugEnabled()) {
@@ -244,6 +244,11 @@ ISimProcessListener {
 
     @Override
     public void notifySuspending(final ISimProcess process) {
+        // nothing to do here
+    }
+
+    @Override
+    public void notifyTerminated(final ISimProcess process) {
         // nothing to do here
     }
 
