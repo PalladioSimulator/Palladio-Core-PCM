@@ -27,7 +27,6 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
 
     @Override
     protected void addSimulatorSpecificJobs(SimuComWorkflowConfiguration configuration) {
-    	System.out.println("SimuComJob");
         // 1. Initialize Failure Type Information
         this.add(new DetermineFailureTypesJob(configuration));
         
@@ -36,7 +35,7 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_CODEGENERATION,configuration);
         
         // 2. Generate the plugin's code using oAW
-      //  this.addJob(new TransformPCMToCodeJob(configuration));
+        //this.addJob(new TransformPCMToCodeJob(configuration));
         this.addJob(new XtendTransformPCMToCodeJob(configuration));
         this.addJob(new CreateSimuComMetaDataFilesJob(configuration));
 

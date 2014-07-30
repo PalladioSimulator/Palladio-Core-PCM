@@ -71,8 +71,8 @@ public class DetermineFailureTypesJob implements
 		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.blackboard
 				.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 
-		// Derive the failure types for the simulation
-		FailureStatistics.setFailureTypes(
+		// Derive the failure types for the simulation:
+		FailureStatistics.getInstance().setFailureTypes(
 				helper.getFailureTypes(MarkovEvaluationType.POINTSOFFAILURE,
 						pcmPartition.getRepositories(), pcmPartition
 								.getResourceEnvironment(), pcmPartition

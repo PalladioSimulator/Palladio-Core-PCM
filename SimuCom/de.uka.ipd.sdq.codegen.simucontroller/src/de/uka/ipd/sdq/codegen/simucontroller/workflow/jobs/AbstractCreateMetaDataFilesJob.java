@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -35,16 +36,27 @@ public abstract class AbstractCreateMetaDataFilesJob {
 
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
-				IProject project = CreatePluginProjectJob.getProject(configuration.getStoragePluginID());
-				
-				try {
-					createPluginXml(project);
-					createManifestMf(project);
-					createBuildProperties(project);
-				} catch (CoreException e) {
-					throw new JobFailedException("Failed to create plugin metadata files",e);
+		IProject project = CreatePluginProjectJob.getProject(configuration
+				.getStoragePluginID());
+
+		try {
+			if (!project.exists()) {
+				project.create(monitor);
+				project.open(monitor);
+				IFolder folder = project.getFolder("META-INF/");
+				if (!folder.exists()) {
+					folder.create(true, true, monitor);
 				}
 			}
+
+			createPluginXml(project);
+			createManifestMf(project);
+			createBuildProperties(project);
+		} catch (CoreException e) {
+			throw new JobFailedException(
+					"Failed to create plugin metadata files", e);
+		}
+	}
 
 	public String getName() {
 		return "Create SimuCom Metadata Files";
@@ -55,18 +67,17 @@ public abstract class AbstractCreateMetaDataFilesJob {
 	}
 
 	private void createPluginXml(IProject project) throws CoreException {
-	
+
 		ByteArrayOutputStream baos;
 		PrintStream out;
-	
+
 		baos = new ByteArrayOutputStream();
 		out = new PrintStream(baos);
-	
-		
+
 		writePluginXmlContent(out);
-		
+
 		out.close();
-	
+
 		IFile pluginXml = project.getFile(F_PLUGIN);
 		if (!pluginXml.exists())
 			pluginXml.create(new ByteArrayInputStream(baos.toByteArray()),
@@ -76,17 +87,17 @@ public abstract class AbstractCreateMetaDataFilesJob {
 	protected abstract void writePluginXmlContent(PrintStream out);
 
 	private void createBuildProperties(IProject project) throws CoreException {
-	
+
 		ByteArrayOutputStream baos;
 		PrintStream out;
-	
+
 		baos = new ByteArrayOutputStream();
 		out = new PrintStream(baos);
-	
+
 		writeBuildPropertiesContent(out);
-		
+
 		out.close();
-	
+
 		IFile buildProperties = project.getFile(F_BUILD);
 		if (!buildProperties.exists())
 			buildProperties.create(
@@ -94,48 +105,48 @@ public abstract class AbstractCreateMetaDataFilesJob {
 	}
 
 	protected abstract void writeBuildPropertiesContent(PrintStream out);
-	
 
 	private void createManifestMf(IProject project) throws CoreException {
-	
+
 		ByteArrayOutputStream baos;
 		PrintStream out;
-	
+
 		baos = new ByteArrayOutputStream();
 		out = new PrintStream(baos);
-	
+
 		out.println("Manifest-Version: 1.0"); //$NON-NLS-1$
 		out.println("Bundle-ManifestVersion: 2"); //$NON-NLS-1$
 		out.println("Bundle-Name: SimuCom Instance Plug-in"); //$NON-NLS-1$
 		out.println("Bundle-SymbolicName: " + project.getName() + ";singleton:=true"); //$NON-NLS-1$
 		out.println("Bundle-Version: 1.0.0"); //$NON-NLS-1$
 		out.println("Bundle-Activator: " + getBundleActivator());
-		
+
 		out.print("Require-Bundle: ");
-		
-		List<String> requiredBundles = new ArrayList<String>();
+
+		final List<String> requiredBundles = new ArrayList<String>();
 		requiredBundles.addAll(Arrays.asList(getRequiredBundles()));
-		requiredBundles.addAll(configuration.getCodeGenerationRequiredBundles());
-		
+		requiredBundles
+				.addAll(configuration.getCodeGenerationRequiredBundles());
+
 		out.println(StringUtils.join(requiredBundles, ",\n "));
-		
-	
-		
-		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$
+
+		out.println("Bundle-ActivationPolicy: lazy"); //$NON-NLS-1$
 		out.println("Bundle-ClassPath: bin/,");
 		out.println(" .");
-		//out.println("Export-Package: main");
-		
+		out.println("Bundle-RequiredExecutionEnvironment: JavaSE-1.6");
+		// out.println("Export-Package: main");
+
 		out.close();
-	
-		IFile manifestMf = project.getFile(F_MANIFEST_FP);
-		if (!manifestMf.exists())
+
+		final IFile manifestMf = project.getFile(F_MANIFEST_FP);
+		if (!manifestMf.exists()) {
 			manifestMf.create(new ByteArrayInputStream(baos.toByteArray()),
 					true, null);
+		}
 	}
 
 	protected abstract String[] getRequiredBundles();
-	
+
 	protected abstract String getBundleActivator();
 
 }
