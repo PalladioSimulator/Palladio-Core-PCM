@@ -125,10 +125,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     }
 
     private Calculator setupRecorder(final Calculator calculator) {
-        // TODO remove the following 2 obsolete lines once measuring points are fully supported.
-        // [Lehrig]
-        // StringMeasuringPoint measuringPoint = measuringpointFactory.createStringMeasuringPoint();
-        // measuringPoint.setMeasuringPoint(calculatorName);
         final Map<String, Object> recorderConfigurationMap = new HashMap<String, Object>();
         recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC,
                 calculator.getMetricDesciption());
