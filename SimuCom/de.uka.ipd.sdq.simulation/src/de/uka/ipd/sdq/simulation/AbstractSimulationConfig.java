@@ -28,6 +28,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     /** Serialization ID of this class. */
     private static final long serialVersionUID = 891323270372759718L;
 
+    public static final String VARIATION_ID = "variationId";
     public static final String SIMULATOR_ID = "simulatorId";
     public static final String PERSISTENCE_RECORDER_NAME = "persistenceFramework";
     public static final String USE_FIXED_SEED = "useFixedSeed";
@@ -39,6 +40,8 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     public static final String DEFAULT_SIMULATOR_ID = "de.uka.ipd.sdq.codegen.simucontroller.simucom";
     /** Default name for an experiment run. */
     public static final String DEFAULT_EXPERIMENT_RUN = "MyRun";
+    /** Default name for an experiment run. */
+    public static final String DEFAULT_VARIATION_NAME = "Default Variation";
     /** Default for stop condition simulation time. */
     public static final String DEFAULT_SIMULATION_TIME = "150000";
     /** Default for stop condition maximum measurement count. */
@@ -58,6 +61,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     private final List<ISimulationListener> listeners;
     /** configuration options */
     protected String nameExperimentRun;
+    protected String variationId;
     private String additionalExperimentRunDescription;
     protected long simuTime;
     protected Long maxMeasurementsCount;
@@ -79,6 +83,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         try {
             this.verboseLogging = (Boolean) configuration.get(VERBOSE_LOGGING);
             this.isDebug = debug;
+            this.variationId = (String) configuration.get(VARIATION_ID);
 
             this.simulatorId = (String) configuration.get(SIMULATOR_ID);
             this.nameExperimentRun = (String) configuration.get(EXPERIMENT_RUN);
@@ -156,6 +161,10 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
 
     public String getNameBase() {
         return nameExperimentRun;
+    }
+    
+    public String getVariationId() {
+        return variationId;
     }
 
     public void setNameBase(final String name) {
