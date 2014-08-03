@@ -269,47 +269,17 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 		componentHelperMethodsDeclaration(entity)
 	}
 	
-	override parameterListTM(Signature signature)
-	      '''de.uka.ipd.sdq.simucomframework.Context ctx'''
-	      
-	override parameterUsageListTM(Signature signature)
-	 '''ctx'''
-	 
-	override returnTypeTM(OperationSignature signature)    
-	     '''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>'''
-	     
-	override returnTypeTM(InfrastructureSignature signature)    
-	     '''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>'''
-	     
-	override contextTypeTM(AbstractAction action) 
-	     '''de.uka.ipd.sdq.simucomframework.Context'''
+	override parameterListTM(Signature signature)      '''de.uka.ipd.sdq.simucomframework.Context ctx'''
+	override parameterUsageListTM(Signature signature) '''ctx'''
+	override returnTypeTM(Signature signature)         '''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>'''
+	override contextTypeTM(AbstractAction action)      '''de.uka.ipd.sdq.simucomframework.Context'''
 	
-	override componentServiceTM(OperationSignature signature, RepositoryComponent component) {
-		componentService(signature, component)
-	}
-	
-	override componentServiceTM(InfrastructureSignature signature, RepositoryComponent component) {
+	override componentServiceTM(Signature signature, RepositoryComponent component) {
 		componentService(signature, component)
 	}
 	
 	override containerAvailabilityCheckTM(OperationSignature signature) {
 		containerAvailabilityCheck(signature)
 	}
-	
-	override componentService(ServiceEffectSpecification seff) '''
-	« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: Unknown Service Effect Specification found!" */ »
-	'''
-	
-	override componentImplementationChildClassTM(RepositoryComponent component) '''
-	'''
-	
-	override superClassesTM(RepositoryComponent component) '''
-	'''
-	
-	override innerImplementation(RepositoryComponent component) '''
-	'''
-	
-	override innerImplementation(CompositeComponent component) '''
-	'''
 	
 }

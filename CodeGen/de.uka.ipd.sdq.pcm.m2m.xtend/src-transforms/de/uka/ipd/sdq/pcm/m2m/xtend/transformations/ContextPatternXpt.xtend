@@ -183,10 +183,12 @@ abstract class ContextPatternXpt {
 	// Template method to add information to the component context
 	// (here: to the interface)
 	// ----------------------------------
-	def void contextInterfaceAdditionsTM(InterfaceRequiringEntity entity)
+	def contextInterfaceAdditionsTM(InterfaceRequiringEntity entity) {
+	}
 	
 	// ----------------------------------
 	// Template method to add information to the component context
 	// ----------------------------------
-	def void componentContextImplAdditionsTM(InterfaceRequiringEntity entity)
+	def componentContextImplAdditionsTM(InterfaceRequiringEntity entity) {
+	}
 }

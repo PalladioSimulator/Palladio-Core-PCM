@@ -34,7 +34,7 @@ class SimUsageFactoryXpt {
 		val systemList = _this.querySystemCalls
 			.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole]
 			.map[it as System]
-			.uniqueIterable
+			.uniqueSystemList
 			
 		val fileName = _this.implementationPackage().fqnToDirectoryPath() + "/" + _this.javaName() + "Factory.java"
 		val fileContent = '''
@@ -70,7 +70,7 @@ class SimUsageFactoryXpt {
 		«val systemList = _this.querySystemCalls
 			.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole]
 			.map[it as System]
-			.uniqueIterable»
+			.uniqueSystemList»
 		private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
 		«FOR system : systemList»
 		private «system.fqn()» my«system.javaName()» = null;

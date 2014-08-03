@@ -198,7 +198,7 @@ class SimUsageXpt extends UsageXpt {
 		«val systemList = u.querySystemCalls
 			.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole]
 			.map[it as System]
-			.uniqueIterable»
+			.uniqueSystemList»
 		de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
 			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«FOR system : systemList SEPARATOR ","»«system.systemVariableParameter»«ENDFOR»),
 			«_this.population»,
@@ -217,7 +217,7 @@ class SimUsageXpt extends UsageXpt {
 		«val systemList = u.querySystemCalls
 			.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole]
 			.map[it as System]
-			.uniqueIterable»
+			.uniqueSystemList»
 		de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
 			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«FOR system : systemList SEPARATOR ","»«system.systemVariableParameter»«ENDFOR»),
 			"«_this.interArrivalTime_OpenWorkload.specification.specificationString()»",
@@ -228,7 +228,7 @@ class SimUsageXpt extends UsageXpt {
 		«val systemList = _this.querySystemCalls
 			.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole]
 			.map[it as System]
-			.uniqueIterable»
+			.uniqueSystemList»
 		public «_this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«FOR system : systemList SEPARATOR ","»«system.systemVariableDecl»«ENDFOR») {
 			ctx = new «a.fqnAllocationContext()»(model);
 			ctx.getStack().createAndPushNewStackFrame();

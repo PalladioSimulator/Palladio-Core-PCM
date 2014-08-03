@@ -142,8 +142,8 @@ abstract class ProvidedPortsXpt {
 		}
 	'''
 		
-	def CharSequence componentPortHelperMethodsTM(OperationProvidedRole role)
-	def CharSequence componentPortHelperMethodsTM(InfrastructureProvidedRole role)
+	def dispatch componentPortHelperMethodsTM(OperationProvidedRole role) ''''''
+	def dispatch componentPortHelperMethodsTM(InfrastructureProvidedRole role) ''''''
 	
 	def dispatch composedStructurePortImpl(OperationProvidedRole role, ComposedProvidingRequiringEntity cs) '''
 		// Port class for «role.portClassName»
@@ -185,8 +185,8 @@ abstract class ProvidedPortsXpt {
 		}
 	'''
 	
-	def CharSequence composedComponentPortHelperMethodsTM(OperationInterface iface)
-	def CharSequence composedComponentPortHelperMethodsTM(InfrastructureInterface iface)
+	def dispatch composedComponentPortHelperMethodsTM(OperationInterface iface) ''''''
+	def dispatch composedComponentPortHelperMethodsTM(InfrastructureInterface iface) ''''''
 
 	def dispatch portDelegator(OperationSignature signature) '''
 		public «signature.operationSignature» {
@@ -214,8 +214,8 @@ abstract class ProvidedPortsXpt {
 		}
 	'''
 	
-	def CharSequence portDelegationDelegatingCallTM(OperationSignature signature)
-	def CharSequence portDelegationDelegatingCallTM(InfrastructureSignature signature)
+	def dispatch portDelegationDelegatingCallTM(OperationSignature signature) '''«/* error */»'''
+	def dispatch portDelegationDelegatingCallTM(InfrastructureSignature signature) '''«/* error */»'''
 
 	def dispatch composedStructurePortDelegationDelegatingCallTM(OperationSignature signature,
 		ComposedProvidingRequiringEntity cs) '''«/* error */»'''

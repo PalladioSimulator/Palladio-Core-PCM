@@ -360,6 +360,28 @@ class PCMext {
 		else
 			o.eContainer.findContainerComponent
 	}
+	
+	def List<System> uniqueSystemList(List<System> s) {
+		if (s != null) {
+			recursiveList(s, newArrayList, 0)
+		}
+	}
+	
+	private def List<System> recursiveList(List<System> s, List<System> result, int pos) {
+		if (pos < s.size) {
+			if (s.get(pos) != null && result.contains(s.get(pos))) {
+				recursiveList(s, result, pos+1)
+			} else {
+				val element = s.get(pos) as System
+				if (element != null) {
+					result.add(element)
+				}
+				recursiveList(s, result, pos+1)
+			}
+		} else {
+			return result
+		}
+	}
 
 	def <T> List<T> uniqueIterable(Iterable<T> s) {
 		val result = <T>newArrayList()
@@ -370,15 +392,15 @@ class PCMext {
 				//do nothing
 			}
 		}
-
-		//Didn't work with the new Xtend version, NullPointerException was thrown
-		//		s.filterNull.forall [
-		//			if (result != null && !result.contains(it)) {
-		//					result.add(it)
-		//				} else {
-		//					//do nothing
-		//				}
-		//		]
+//		if (s != null) {
+//			s.forall [
+//				if (result != null && it != null && !result.contains(it)) {
+//					result.add(it)
+//				} else {
+//					//do nothing
+//				}
+//			]
+//		}
 		return result
 	}
 

@@ -62,17 +62,25 @@ abstract class JavaCoreXpt {
 		«ENDIF»
 	'''
 
-	def dispatch returnType(InfrastructureSignature signature)'''
+	def dispatch returnType(InfrastructureSignature signature) '''
 		void
 	'''
-	//Abstract methods for returnType and ParameterList that must be overwritten 
-	def CharSequence returnTypeTM(OperationSignature signature)
 
-	def CharSequence returnTypeTM(InfrastructureSignature signature)
+	def dispatch returnTypeTM(OperationSignature signature) '''
+		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ »
+	'''
 
-	def CharSequence parameterListTM(Signature signature)
+	def dispatch returnTypeTM(InfrastructureSignature signature) '''
+		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ »
+	'''
 
-	def CharSequence parameterUsageListTM(Signature signature)
+	def parameterListTM(Signature signature) '''
+		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ »
+	'''
+
+	def parameterUsageListTM(Signature signature) '''
+		« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ »
+	'''
 	
 	def parameter(Parameter param) '''
 		«IF param.dataType__Parameter != null»
@@ -89,23 +97,23 @@ abstract class JavaCoreXpt {
 
 	//-----
 	// Generate method implementations by traversing the SEFF
-	def CharSequence componentService(ServiceEffectSpecification seff)
-
+	def componentService(ServiceEffectSpecification seff) '''
+	« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: Unknown Service Effect Specification found!" */ »
+	'''
 	def dispatch componentServiceSignature(OperationSignature signature) '''
-		«signature.returnTypeTM»
-			«signature.interface__OperationSignature.javaName.toFirstLower»_«signature.javaSignature»
-				(«signature.parameterListTM»)
+		«signature.returnTypeTM»	«signature.interface__OperationSignature.javaName.toFirstLower»_«signature.javaSignature»(«signature.parameterListTM»)
 	'''
 
 	def dispatch componentServiceSignature(InfrastructureSignature signature) '''
-		«signature.returnTypeTM»
-			«signature.infrastructureInterface__InfrastructureSignature.javaName.toFirstLower»_«signature.javaSignature»
-				(«signature.parameterListTM»)
+		«signature.returnTypeTM»	«signature.infrastructureInterface__InfrastructureSignature.javaName.toFirstLower»_«signature.javaSignature»(«signature.parameterListTM»)
 	'''
 
-	def CharSequence componentServiceTM(OperationSignature signature, RepositoryComponent component) 
+	def dispatch componentServiceTM(OperationSignature signature, RepositoryComponent component) '''
+	'''
 
-	def CharSequence componentServiceTM(InfrastructureSignature signature, RepositoryComponent component)
+	def dispatch componentServiceTM(InfrastructureSignature signature, RepositoryComponent component) '''
+	'''
+
 
 	def String actions(AbstractAction action) '''
 		«action.action»
@@ -145,6 +153,7 @@ abstract class JavaCoreXpt {
 				«component.requiredInterfaces»
 				«component.innerImplementation»
 				«component.specificImplementationPartTM»
+				
 			}
 			«component.componentImplementationChildClassTM»
 		'''
@@ -162,6 +171,15 @@ abstract class JavaCoreXpt {
 			«entity.contentImplementationInterfaceHeader»
 			{
 				«entity.componentHelperMethodsDeclarationTM»
+«««				«FOR providedRole:entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))»
+«««					«FOR operationSignature:(providedRole as OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
+«««						«operationSignature.componentServiceSignature»
+«««						«";"»
+«««					«ENDFOR»
+«««					«';'»
+«««				«ENDFOR»
+«««				
+				
 				«entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
 					map[providedInterface__OperationProvidedRole.signatures__OperationInterface].
 					flatten.map[it.componentServiceSignature].join(";")»;
@@ -198,20 +216,26 @@ abstract class JavaCoreXpt {
 		public interface «entity.interfaceName»
 	'''
 
-	def CharSequence componentHelperMethodsDeclarationTM(InterfaceProvidingEntity entity)
+	def componentHelperMethodsDeclarationTM(InterfaceProvidingEntity entity) '''
+	'''
 
-	def CharSequence componentImplementationChildClassTM(RepositoryComponent component)
+	def componentImplementationChildClassTM(RepositoryComponent component) '''
+	'''
 
-	def CharSequence specificImplementationPartTM(RepositoryComponent component) 
+	def specificImplementationPartTM(RepositoryComponent component) '''
+	'''
 
 	// Add some component methods also to the generated java interface to access it via EJB lookup.
-	def CharSequence specificImplementationPartForInterfaceTM(RepositoryComponent component)
+	def specificImplementationPartForInterfaceTM(RepositoryComponent component) '''
+	'''
 	
-	def CharSequence superClassesTM(RepositoryComponent component) 
+	def superClassesTM(RepositoryComponent component) '''
+	'''
 	
-	def CharSequence innerImplementation(RepositoryComponent component)
+	def dispatch innerImplementation(RepositoryComponent component) '''
+	'''
 	
-	def innerImplementation(BasicComponent component) '''
+	def dispatch innerImplementation(BasicComponent component) '''
 		«FOR iface:component.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
 			map[providedInterface__OperationProvidedRole.signatures__OperationInterface].flatten»
 			«componentServiceTM(iface, component)»
@@ -222,11 +246,15 @@ abstract class JavaCoreXpt {
 		«ENDFOR»
 	'''
 	
-	def CharSequence innerImplementation(CompositeComponent component)
+	def dispatch innerImplementation(CompositeComponent component) '''
+	'''
 
-	def CharSequence componentConstructorTM(RepositoryComponent component)
+	def componentConstructorTM(RepositoryComponent component) '''
+	'''
 
-	def CharSequence containerAvailabilityCheckTM(OperationSignature signature)
+	def containerAvailabilityCheckTM(OperationSignature signature) '''
+	'''
 
-	def CharSequence contextTypeTM(AbstractAction action)
+	def contextTypeTM(AbstractAction action) '''
+	'''
 }

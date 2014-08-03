@@ -49,15 +49,15 @@ abstract class CallsXpt {
 	// Template method for code to be executed before
 	// an external call
 	// ----------------------------------
-	def void preCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) 
+	def CharSequence preCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) 
 	
-	def void preCallTM(InfrastructureSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages)
+	def CharSequence preCallTM(InfrastructureSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages)
 	
 	// ----------------------------------
 	// Template method for code to be executed after
 	// an external call
 	// ----------------------------------
-	def void postCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> outParameterUsages)
+	def CharSequence postCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> outParameterUsages)
 	
-	def void postCallTM(InfrastructureSignature signature, Entity call, String prefix)
+	def CharSequence postCallTM(InfrastructureSignature signature, Entity call, String prefix)
 }

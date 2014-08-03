@@ -9,9 +9,11 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ProvidedPortsXpt
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.Interface
 import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole
 import de.uka.ipd.sdq.pcm.repository.Signature
 import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 
@@ -109,32 +111,19 @@ class SimProvidedPortsXpt extends ProvidedPortsXpt {
 	'''
 	
 	// overwrite template methods
-	override componentPortHelperMethodsTM(OperationProvidedRole role) {
-		componentPortHelperMethods(role)
-	}
-	
-	override componentPortHelperMethodsTM(InfrastructureProvidedRole role) {
+	override componentPortHelperMethodsTM(ProvidedRole role) {
 		componentPortHelperMethods(role)
 	}
 
-	override composedComponentPortHelperMethodsTM(OperationInterface iface) {
+	override composedComponentPortHelperMethodsTM(Interface iface) {
 		composedComponentPortHelperMethods(iface)
 	}
 	
-	override composedComponentPortHelperMethodsTM(InfrastructureInterface iface) {
-		composedComponentPortHelperMethods(iface)
-	}
-	
-	override portDelegationDelegatingCallTM(OperationSignature signature) {
-		portDelegationDelegatingCall(signature)
-	}
-	
-	override portDelegationDelegatingCallTM(InfrastructureSignature signature) {
+	override portDelegationDelegatingCallTM(Signature signature) {
 		portDelegationDelegatingCall(signature)
 	}
 	
 	override composedStructurePortDelegationDelegatingCallTM(Signature signature, ComposedProvidingRequiringEntity cs) {
 		composedStructurePortDelegationDelegatingCall(signature, cs)
 	}
-	
 }
