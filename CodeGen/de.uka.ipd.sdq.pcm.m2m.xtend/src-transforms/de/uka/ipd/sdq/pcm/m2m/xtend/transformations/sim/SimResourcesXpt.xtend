@@ -54,10 +54,57 @@ class SimResourcesXpt extends ResourcesXpt {
 	
 	// New: Load resource demand using ResourceInterfaces
 	def dispatch resourceDemand(ResourceCall rc) '''
-	   {
-	      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«rc.numberOfCalls__ResourceCall.specification.specificationString()»",Double.class));
-	      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«rc.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«rc.signature__ResourceCall.resourceServiceId»,demand);
-	   }
+ {
+            
+      java.util.HashMap<String, java.io.Serializable> parameterMap = new java.util.HashMap<>();
+      String typeString;
+      String specificationString;
+      java.io.Serializable solvedSpecification;
+      
+   	 			
+   	 	«FOR parm: rc.signature__ResourceCall.parameter__ResourceSignature»
+   	 	 	«FOR spec: rc.inputVariableUsages__CallAction»		
+   	 	 	if("«spec.namedReference__VariableUsage.referenceName.javaString()»".equals("«parm.parameterName.javaString()»")){       
+   	 	 	
+   	 	 	//remove Brackets [] from specification String	
+   	 	 	specificationString = (String)"«rc.numberOfCalls__ResourceCall.variableCharacterisation_Specification.specification_VariableCharacterisation.specification.specificationString()»".subSequence(1, "«rc.numberOfCalls__ResourceCall.variableCharacterisation_Specification.specification_VariableCharacterisation.specification.specificationString()»".length() - 1);
+   	 	 	
+   	 	 	typeString = "«parm.dataType__Parameter.toString()»";
+   	 	 	
+   	 	 	solvedSpecification = null;     		
+   	 	 	
+   	 	 	if(typeString.contains("INT")){          			
+   	 	 	solvedSpecification = ctx.evaluate(specificationString,Integer.class);
+   	 	 	}else if(typeString.contains("STRING")){                			
+   	 	 	solvedSpecification = ctx.evaluate(specificationString,String.class);
+   	 	 	} else if(typeString.contains("BOOL")){      			
+   	 	 	solvedSpecification = ctx.evaluate(specificationString,Boolean.class);
+   	 	 	} else if(typeString.contains("DOUBLE")){        			
+   	 	 	solvedSpecification = ctx.evaluate(specificationString,Double.class);
+   	 	 	} else if(typeString.contains("CHAR")){        			
+   	 	 	solvedSpecification = ctx.evaluate(specificationString,Character.class);
+   	 	 	} else if(typeString.contains("BYTE")){		
+   	 	 	solvedSpecification = ctx.evaluate(specificationString,Byte.class);
+   	 	 	} else if(typeString.contains("LONG")){                  			
+   	 	 	solvedSpecification = ctx.evaluate(specificationString,Long.class);
+   	 	 	} else {
+   	 	 	throw new RuntimeException("Just Primitive Data Types are supported.");
+   	 	 	}
+   	 	 	
+   	 	 	parameterMap.put("«spec.namedReference__VariableUsage.referenceName.javaString()»", solvedSpecification);            
+   	 	 	}  	  	
+   	 	 	
+    	«ENDFOR»		     
+   	 «ENDFOR»
+   	 	
+      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«rc.numberOfCalls__ResourceCall.specification.specificationString()»",Double.class));
+      if(parameterMap.size()>=1){
+      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«rc.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«rc.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
+      }else{
+      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«rc.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«rc.signature__ResourceCall.resourceServiceId»,demand);     	
+      }
+     
+   }
 	'''
 	
 	// ----------------------------
