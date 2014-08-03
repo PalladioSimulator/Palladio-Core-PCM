@@ -77,7 +77,7 @@ public class XtendTransformPCMToCodeJob extends
 	public void cleanup(IProgressMonitor monitr) throws CleanupFailedException {
 		// do nothing
 	}
-
+	
 	@Override
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
