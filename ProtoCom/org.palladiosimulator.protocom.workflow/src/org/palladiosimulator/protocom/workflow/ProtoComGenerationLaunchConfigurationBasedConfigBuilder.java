@@ -44,8 +44,9 @@ public class ProtoComGenerationLaunchConfigurationBasedConfigBuilder extends Abs
     }
 
     private boolean hasValidSensitvityVariableAttribute(String attribute) throws CoreException {
-        if (!configuration.hasAttribute(attribute))
+        if (!configuration.hasAttribute(attribute)) {
             return false;
+        }
         Object value = getStringAttribute(attribute);
         // Anne: I sometimes get a "NO ELEMENT SELECTED" result from the LaunchConfig even if I
         // deleted the string from the field

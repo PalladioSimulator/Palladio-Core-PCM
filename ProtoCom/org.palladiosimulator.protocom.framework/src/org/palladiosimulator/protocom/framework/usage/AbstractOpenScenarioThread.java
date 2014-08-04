@@ -17,8 +17,8 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
  */
 public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread {
 
-    private RunProperties runProps;
-    private String interarrivalTime;
+    private final RunProperties runProps;
+    private final String interarrivalTime;
 
     public AbstractOpenScenarioThread(Experiment exp, ExperimentRun expRun, String scenarioName,
             RunProperties runProps, String interarrivalTimeInSec) {
@@ -32,6 +32,7 @@ public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread 
     protected void runAndMeasureUsageScenarioIteration() {
 
         new Thread() {
+            @Override
             public void run() {
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.debug("New Thread: Open Scenario (" + scenarioName + "), interarrival time: "

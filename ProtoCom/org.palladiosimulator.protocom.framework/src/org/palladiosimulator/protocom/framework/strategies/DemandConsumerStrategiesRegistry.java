@@ -5,9 +5,9 @@ import java.util.HashMap;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;
 
-public class DemandConsumerStrategiesRegistry {
+public final class DemandConsumerStrategiesRegistry {
 
-    private HashMap<ResourceTypeEnum, IDemandStrategy> strategiesHash = new HashMap<ResourceTypeEnum, IDemandStrategy>();
+    private final HashMap<ResourceTypeEnum, IDemandStrategy> strategiesHash = new HashMap<ResourceTypeEnum, IDemandStrategy>();
     private static DemandConsumerStrategiesRegistry singletonInstance = new DemandConsumerStrategiesRegistry();
 
     private DemandConsumerStrategiesRegistry() {

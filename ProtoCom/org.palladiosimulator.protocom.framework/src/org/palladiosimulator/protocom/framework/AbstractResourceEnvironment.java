@@ -29,13 +29,13 @@ public class AbstractResourceEnvironment {
     /**
      * CPU strategies, names
      */
-    protected static final String[] cpuStrategies = {
+    protected static final String[] CPU_STRATEGIES = {
             "primes", "count_numbers", "fft", "fibonacci", "mandelbrot", "sortarray", "void", "wait"
     };
     /**
      * CPU strategies, corresponding classes
      */
-    protected static final Class<?>[] cpuStrategiesClasses = {
+    protected static final Class<?>[] CPU_STRATEGIES_CLASSES = {
             CalculatePrimesDemand.class, CountNumbersDemand.class, FFTDemand.class, FibonacciDemand.class,
             MandelbrotDemand.class, SortArrayDemand.class, VoidDemand.class, WaitDemand.class
     };
@@ -43,13 +43,13 @@ public class AbstractResourceEnvironment {
     /**
      * HDD strategies, names
      */
-    protected static final String[] hddStrategies = {
+    protected static final String[] HDD_STRATEGIES = {
         "largeChunks"
     };
     /**
      * HDD strategies, corresponding classes
      */
-    protected static final Class<?>[] hddStrategiesClasses = {
+    protected static final Class<?>[] HDD_STRATEGIES_CLASSES = {
         ReadLargeChunksDemand.class
     };
 
@@ -94,7 +94,7 @@ public class AbstractResourceEnvironment {
      */
     protected static void setUpCPU(String usedStrategy, String calibrationPath, DegreeOfAccuracyEnum accuracy,
             String processingRate) {
-        IDemandStrategy strategy = getStrategy(usedStrategy, cpuStrategies, cpuStrategiesClasses);
+        IDemandStrategy strategy = getStrategy(usedStrategy, CPU_STRATEGIES, CPU_STRATEGIES_CLASSES);
 
         if (strategy == null) {
             LOGGER.warn("CPU strategy " + (usedStrategy == null ? "" : usedStrategy)
@@ -120,7 +120,7 @@ public class AbstractResourceEnvironment {
      */
     protected static void setUpHDD(String usedStrategy, String calibrationPath, DegreeOfAccuracyEnum accuracy,
             String processingRate) {
-        IDemandStrategy strategy = getStrategy(usedStrategy, cpuStrategies, cpuStrategiesClasses);
+        IDemandStrategy strategy = getStrategy(usedStrategy, CPU_STRATEGIES, CPU_STRATEGIES_CLASSES);
 
         if (strategy == null) {
             LOGGER.warn("HDD strategy " + (usedStrategy == null ? "" : usedStrategy)

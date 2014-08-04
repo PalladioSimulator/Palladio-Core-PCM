@@ -68,12 +68,12 @@ public class RunProperties {
         return getOptionValue(sOpt);
     }
 
-    public String getOptionValue(String opt) {
+    public String getOptionValue(final String opt) {
         if (cmdLine.hasOption(opt)) {
             return cmdLine.getOptionValue(opt);
-        } else // look in file
-        {
-            String longOpt = getLongOpt(opt);
+        } else {
+            // look in file
+            final String longOpt = getLongOpt(opt);
 
             if (hasPropertyInFile(longOpt)) {
                 return getPropertyFromFile(longOpt);
@@ -83,8 +83,8 @@ public class RunProperties {
         }
     }
 
-    public boolean hasOption(char opt) {
-        String sOpt = "" + opt;
+    public boolean hasOption(final char opt) {
+        final String sOpt = "" + opt;
         return hasOption(sOpt);
     }
 

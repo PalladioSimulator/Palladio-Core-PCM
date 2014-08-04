@@ -25,8 +25,9 @@ public class ProtoComCodeGenerationJob extends SequentialBlackboardInteractingJo
             throws CoreException {
         super(false);
 
-        if (listener == null && configuration.isDebug())
+        if (listener == null && configuration.isDebug()) {
             throw new IllegalArgumentException("Debug listener has to be non-null for debug runs");
+        }
 
         // 1. Load PCM models into memory
         this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));

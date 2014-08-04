@@ -119,15 +119,15 @@ public class ProtoComGenerationConfigurationTab extends AbstractConfigurationTab
     protected void createFurtherSections(Composite container) {
         final Group sensitivityAnalysisParametersGroup = new Group(container, SWT.NONE);
         sensitivityAnalysisParametersGroup.setText("Sensitivity Analysis Parameters");
-        final GridData gd_sensitivityAnalysisParametersGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        sensitivityAnalysisParametersGroup.setLayoutData(gd_sensitivityAnalysisParametersGroup);
-        final GridLayout gridLayout_1 = new GridLayout();
-        gridLayout_1.numColumns = 3;
-        sensitivityAnalysisParametersGroup.setLayout(gridLayout_1);
+        final GridData gridDataSensitivityAnalysisParametersGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        sensitivityAnalysisParametersGroup.setLayoutData(gridDataSensitivityAnalysisParametersGroup);
+        final GridLayout gridLayout1 = new GridLayout();
+        gridLayout1.numColumns = 3;
+        sensitivityAnalysisParametersGroup.setLayout(gridLayout1);
 
         final Label variableToAdaptLabel = new Label(sensitivityAnalysisParametersGroup, SWT.NONE);
-        final GridData gd_variableToAdaptLabel = new GridData(SWT.RIGHT, SWT.CENTER, false, false);
-        variableToAdaptLabel.setLayoutData(gd_variableToAdaptLabel);
+        final GridData gridDataVariableToAdaptLabel = new GridData(SWT.RIGHT, SWT.CENTER, false, false);
+        variableToAdaptLabel.setLayoutData(gridDataVariableToAdaptLabel);
         variableToAdaptLabel.setText("Variable:");
 
         variableText = new Text(sensitivityAnalysisParametersGroup, SWT.BORDER);
@@ -144,11 +144,11 @@ public class ProtoComGenerationConfigurationTab extends AbstractConfigurationTab
         selectVariableButton.setText("Select Variable...");
 
         final Composite composite = new Composite(sensitivityAnalysisParametersGroup, SWT.NONE);
-        final GridData gd_composite = new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1);
-        composite.setLayoutData(gd_composite);
-        final GridLayout gridLayout_2 = new GridLayout();
-        gridLayout_2.numColumns = 6;
-        composite.setLayout(gridLayout_2);
+        final GridData gdComposite = new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1);
+        composite.setLayoutData(gdComposite);
+        final GridLayout gridLayout2 = new GridLayout();
+        gridLayout2.numColumns = 6;
+        composite.setLayout(gridLayout2);
 
         final Label minimumLabel = new Label(composite, SWT.NONE);
         minimumLabel.setText("Minimum:");
@@ -173,11 +173,11 @@ public class ProtoComGenerationConfigurationTab extends AbstractConfigurationTab
 
         final Group modelTargetGroup = new Group(container, SWT.NONE);
         modelTargetGroup.setText("Transformation Target");
-        final GridData gd_modelTarget = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        modelTargetGroup.setLayoutData(gd_modelTarget);
-        final GridLayout gridLayout_modelTarget = new GridLayout();
-        gridLayout_modelTarget.numColumns = 1;
-        modelTargetGroup.setLayout(gridLayout_modelTarget);
+        final GridData gridDataModelTarget = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        modelTargetGroup.setLayoutData(gridDataModelTarget);
+        final GridLayout gridLayoutModelTarget = new GridLayout();
+        gridLayoutModelTarget.numColumns = 1;
+        modelTargetGroup.setLayout(gridLayoutModelTarget);
 
         final ModifyListener modifyListener = new ModifyListener() {
 
