@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessListener;
 
 public abstract class SimuComSimProcess extends AbstractSimProcessDelegator implements ISchedulableProcess,
-ISimProcessListener {
+        ISimProcessListener {
 
     private static AtomicLong sessionID = new AtomicLong(0);
     /** Logger for this class. */
@@ -73,7 +73,7 @@ ISimProcessListener {
         // suspended or resumed again.
         this.addProcessListener(this);
 
-        if(logger.isDebugEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug("Create SimuComSimProcess with id " + getRawId());
         }
     }
@@ -85,9 +85,8 @@ ISimProcessListener {
 
     /*
      * (non-Javadoc)
-     *
-     * @see
-     * de.uka.ipd.sdq.scheduler.ISchedulableProcess#timeout(java.lang.String)
+     * 
+     * @see de.uka.ipd.sdq.scheduler.ISchedulableProcess#timeout(java.lang.String)
      */
     @Override
     public void timeout(final String timeoutFailureTypeId) {
@@ -100,23 +99,21 @@ ISimProcessListener {
      * Clients may override default behaviour, e.g., PassiveResource
      */
     protected void addProcessToSimStatus() {
-        if(logger.isDebugEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug("Starting simulation process " + this.getName());
         }
 
         if (isDebug) {
             processStatus = SimucomstatusFactory.eINSTANCE.createProcess();
-            this.getModel().getSimulationStatus().getProcessStatus()
-            .getProcesses().add(processStatus);
+            this.getModel().getSimulationStatus().getProcessStatus().getProcesses().add(processStatus);
             processStatus.setId(this.getName());
-            processStatus.setProcessStartTime(this.getModel()
-                    .getSimulationControl().getCurrentSimulationTime());
+            processStatus.setProcessStartTime(this.getModel().getSimulationControl().getCurrentSimulationTime());
         }
     }
 
     @Override
     public void addTerminatedObserver(final IActiveResource r) {
-        if (!terminatedObservers.contains(r)){
+        if (!terminatedObservers.contains(r)) {
             terminatedObservers.add(r);
         }
     }
@@ -138,8 +135,7 @@ ISimProcessListener {
     }
 
     /**
-     * Returns the {@link RequestContext} in which this simulated process is
-     * executed.
+     * Returns the {@link RequestContext} in which this simulated process is executed.
      *
      * @return the request context
      */
@@ -148,7 +144,7 @@ ISimProcessListener {
     }
 
     @Override
-    public ISchedulableProcess getRootProcess(){
+    public ISchedulableProcess getRootProcess() {
         // TODO: What is expected here?
         return null;
     }
@@ -170,10 +166,8 @@ ISimProcessListener {
 
     /*
      * (non-Javadoc)
-     *
-     * @see
-     * de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessDelegate
-     * #lifeCycle()
+     * 
+     * @see de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessDelegate #lifeCycle()
      */
     @Override
     public final void lifeCycle() {
@@ -183,22 +177,19 @@ ISimProcessListener {
         } catch (final Exception e) {
             String message = e.getMessage();
             message = message == null ? "" : message;
-            if (e instanceof IllegalArgumentException && message.contains("Cannot schedule in the past")){
-                if(logger.isEnabledFor(Level.WARN)) {
+            if (e instanceof IllegalArgumentException && message.contains("Cannot schedule in the past")) {
+                if (logger.isEnabledFor(Level.WARN)) {
                     logger.warn(
                             "Simulation caused an exception because it scheduled in the past. Check your models that you do not have any negative demands, arrival times, or similar",
                             e);
                 }
-            }
-            else {
-                if(logger.isEnabledFor(Level.WARN)) {
-                    logger.warn(
-                            "Simulation caused an exception. Caught it in SimProcess Lifecycle Method",
-                            e);
+            } else {
+                if (logger.isEnabledFor(Level.WARN)) {
+                    logger.warn("Simulation caused an exception. Caught it in SimProcess Lifecycle Method", e);
                 }
             }
             getModel().setStatus(SimulationResult.ERROR, e);
-            if(logger.isDebugEnabled()) {
+            if (logger.isDebugEnabled()) {
                 logger.debug("Trying to stop simulation now...");
             }
             this.getModel().getSimulationControl().stop();
@@ -213,12 +204,11 @@ ISimProcessListener {
      *
      */
     protected void removeProcessFromSimStatus() {
-        if(logger.isDebugEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug("Terminating SimuComSimProcess " + this.getName());
         }
         if (isDebug) {
-            this.getModel().getSimulationStatus().getProcessStatus()
-            .getProcesses().remove(processStatus);
+            this.getModel().getSimulationStatus().getProcessStatus().getProcesses().remove(processStatus);
         }
     }
 
@@ -238,7 +228,8 @@ ISimProcessListener {
         if (this.isTimeoutFailure) {
             // reset timeout failure
             this.isTimeoutFailure = false;
-            FailureException.raise(this.getModel(),this.getModel().getFailureStatistics().getFailureType(timeoutFailureTypeId));
+            FailureException.raise(this.getModel(),
+                    this.getModel().getFailureStatistics().getFailureType(timeoutFailureTypeId));
         }
     }
 
@@ -256,6 +247,5 @@ ISimProcessListener {
     public SimuComModel getModel() {
         return (SimuComModel) super.getModel();
     }
-
 
 }

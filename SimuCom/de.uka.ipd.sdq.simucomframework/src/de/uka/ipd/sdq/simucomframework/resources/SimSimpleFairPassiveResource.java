@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public class SimSimpleFairPassiveResource extends AbstractSimResource implements IPassiveResource {
 
-    protected Queue<IWaitingProcess> waiting_queue;
+    protected Queue<IWaitingProcess> waitingQueue;
     private final SchedulerModel myModel;
     private long available;
     private final String passiveResourceID;
@@ -54,7 +54,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
         this.assemblyContext = assemblyContext;
 
         this.simuComModel = simuComModel;
-        this.waiting_queue = new ArrayDeque<IWaitingProcess>();
+        this.waitingQueue = new ArrayDeque<IWaitingProcess>();
         this.myModel = simuComModel;
         this.passiveResourceID = resource.getId();
         this.observee = new PassiveResourceObservee();
@@ -63,7 +63,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
     }
 
     private boolean canProceed(final ISchedulableProcess process, final long num) {
-        return (waiting_queue.isEmpty() || waiting_queue.peek().getProcess().equals(process)) && num <= available;
+        return (waitingQueue.isEmpty() || waitingQueue.peek().getProcess().equals(process)) && num <= available;
     }
 
     @Override
@@ -78,7 +78,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 
     @Override
     public Queue<IWaitingProcess> getWaitingProcesses() {
-        return waiting_queue;
+        return waitingQueue;
     }
 
     private void grantAccess(final ISchedulableProcess process, final long num) {
@@ -89,7 +89,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
     }
 
     @Override
-    public boolean acquire(final ISchedulableProcess sched_process, final long num, final boolean timeout,
+    public boolean acquire(final ISchedulableProcess schedulableProcess, final long num, final boolean timeout,
             final double timeoutValue) {
 
         // AM: Copied from AbstractActiveResource: If simulation is stopped,
@@ -102,16 +102,16 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
         // Do we need some logic here to check if the simulation has stopped?
         // In this case, this method should not block, but return in order to
         // allow processes to complete
-        observee.fireRequest(sched_process, num);
-        if (canProceed(sched_process, num)) {
-            grantAccess(sched_process, num);
+        observee.fireRequest(schedulableProcess, num);
+        if (canProceed(schedulableProcess, num)) {
+            grantAccess(schedulableProcess, num);
             return true;
         } else {
-            LoggingWrapper.log("Process " + sched_process + " is waiting for " + num + " of " + this);
-            final SimpleWaitingProcess process = new SimpleWaitingProcess(myModel, sched_process, num);
+            LoggingWrapper.log("Process " + schedulableProcess + " is waiting for " + num + " of " + this);
+            final SimpleWaitingProcess process = new SimpleWaitingProcess(myModel, schedulableProcess, num);
             processTimeout(timeout, timeoutValue, process);
-            waiting_queue.add(process);
-            sched_process.passivate();
+            waitingQueue.add(process);
+            schedulableProcess.passivate();
             return false;
         }
     }
@@ -153,7 +153,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
     }
 
     @Override
-    public void release(final ISchedulableProcess sched_process, final long num) {
+    public void release(final ISchedulableProcess schedulableProcess, final long num) {
 
         // AM: Copied from AbstractActiveResource: If simulation is stopped,
         // allow all processes to finish
@@ -162,19 +162,19 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
             return;
         }
 
-        LoggingWrapper.log("Process " + sched_process + " releases " + num + " of " + this);
+        LoggingWrapper.log("Process " + schedulableProcess + " releases " + num + " of " + this);
         this.available += num;
-        observee.fireRelease(sched_process, num);
+        observee.fireRelease(schedulableProcess, num);
         notifyWaitingProcesses();
     }
 
     private void notifyWaitingProcesses() {
-        SimpleWaitingProcess waitingProcess = (SimpleWaitingProcess) waiting_queue.peek();
+        SimpleWaitingProcess waitingProcess = (SimpleWaitingProcess) waitingQueue.peek();
         while (waitingProcess != null && canProceed(waitingProcess.getProcess(), waitingProcess.getNumRequested())) {
             grantAccess(waitingProcess.getProcess(), waitingProcess.getNumRequested());
-            waiting_queue.remove();
+            waitingQueue.remove();
             waitingProcess.getProcess().activate();
-            waitingProcess = (SimpleWaitingProcess) waiting_queue.peek();
+            waitingProcess = (SimpleWaitingProcess) waitingQueue.peek();
         }
     }
 
@@ -201,7 +201,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
      * @return TRUE if the process is waiting to acquire the resource; FALSE otherwise
      */
     public boolean isWaiting(final SimpleWaitingProcess process) {
-        return waiting_queue.contains(process);
+        return waitingQueue.contains(process);
     }
 
     /**
@@ -211,6 +211,6 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
      *            the process to remove
      */
     public void remove(final SimpleWaitingProcess process) {
-        waiting_queue.remove(process);
+        waitingQueue.remove(process);
     }
 }

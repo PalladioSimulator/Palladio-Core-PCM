@@ -10,8 +10,7 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  *            the type of the entity which is modified by this event
  * @see ISimEvent
  */
-public abstract class AbstractSimEventDelegator<E extends IEntity> extends SimulationElement
-        implements ISimEvent<E> {
+public abstract class AbstractSimEventDelegator<E extends IEntity> extends SimulationElement implements ISimEvent<E> {
 
     /**
      * the delegate has the simulation-library-specific knowledge of how this event can be scheduled

@@ -10,8 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
  *            the type of the simulation model
  * @see ISimProcess
  */
-public abstract class AbstractSimProcessDelegator extends AbstractSimEntityDelegator implements
-        ISimProcess {
+public abstract class AbstractSimProcessDelegator extends AbstractSimEntityDelegator implements ISimProcess {
 
     private static AtomicLong processIdGenerator = new AtomicLong(0);
 
@@ -69,7 +68,7 @@ public abstract class AbstractSimProcessDelegator extends AbstractSimEntityDeleg
 
     /**
      * {@inheritDoc}
-     */    
+     */
     public void passivate(double delay) {
         delegate.passivate(delay);
     }
@@ -81,13 +80,13 @@ public abstract class AbstractSimProcessDelegator extends AbstractSimEntityDeleg
     public void removeProcessListener(ISimProcessListener l) {
         delegate.removeProcessListener(l);
     }
-    
-//    public boolean isScheduled() {
-//        return delegate.isScheduled();
-//    }
-//
-//    public void reschedule(double d) {
-//        delegate.reschedule(d);
-//    }
+
+    // public boolean isScheduled() {
+    // return delegate.isScheduled();
+    // }
+    //
+    // public void reschedule(double d) {
+    // delegate.reschedule(d);
+    // }
 
 }

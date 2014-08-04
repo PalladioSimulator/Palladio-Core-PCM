@@ -6,8 +6,8 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 /**
  * Represents a failure of an AbstractScheduledResource.
  *
- * After the occurrence of the failure event, the resource remains unavailable
- * until the next repair event occurs.
+ * After the occurrence of the failure event, the resource remains unavailable until the next repair
+ * event occurs.
  *
  * @author brosch, Sebastian Lehrig
  *
@@ -33,7 +33,9 @@ public class ResourceFailedEvent extends AbstractSimEventDelegator<ScheduledReso
 
     /*
      * (non-Javadoc)
-     * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent#eventRoutine(de.uka.ipd.sdq.simucomframework.abstractSimEngine.IEntityDelegate)
+     * 
+     * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent#eventRoutine(de.uka.ipd.sdq.
+     * simucomframework.abstractSimEngine.IEntityDelegate)
      */
     @Override
     public void eventRoutine(final ScheduledResource who) {

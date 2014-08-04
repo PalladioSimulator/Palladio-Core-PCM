@@ -7,11 +7,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 public interface IComponentBuilder extends IBuilder {
 
-	AssemblyContext getAssemblyContext();
-	
-	OperationProvidedRole getOperationProvidedRole();
+    AssemblyContext getAssemblyContext();
 
-	OperationRequiredRole getOperationRequiredRole();
+    OperationProvidedRole getOperationProvidedRole();
 
-	RepositoryComponent getComponent();
+    OperationRequiredRole getOperationRequiredRole();
+
+    RepositoryComponent getComponent();
 }

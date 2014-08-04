@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simulation.abstractsimengine;
 
-
 public abstract class AbstractSimulationModel implements ISimulationModel {
 
     protected final ISimulationConfig config;

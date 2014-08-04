@@ -209,12 +209,12 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
             mp.setMeasuringPoint("System execution results");
 
             model.getProbeFrameworkContext()
-            .getCalculatorFactory()
-            .buildExecutionResultCalculator(
-                    mp,
-                    new EventProbeList(model.getFailureStatistics().getExecutionResultProbe(), Arrays
-                            .asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(this.model
-                                    .getSimulationControl()))));
+                    .getCalculatorFactory()
+                    .buildExecutionResultCalculator(
+                            mp,
+                            new EventProbeList(model.getFailureStatistics().getExecutionResultProbe(), Arrays
+                                    .asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(this.model
+                                            .getSimulationControl()))));
         }
     }
 

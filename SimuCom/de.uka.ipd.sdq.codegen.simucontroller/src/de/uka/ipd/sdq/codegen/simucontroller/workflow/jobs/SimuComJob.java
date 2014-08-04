@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.workflow.jobs.IJob;
 
 /**
  * Main job for the SDQ workflow engine which will run a SimuComSimulation
+ * 
  * @author Steffen
  */
 public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfiguration> {
@@ -29,11 +30,11 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
     protected void addSimulatorSpecificJobs(SimuComWorkflowConfiguration configuration) {
         // 1. Initialize Failure Type Information
         this.add(new DetermineFailureTypesJob(configuration));
-        
+
         // All Workflow extension jobs with the extension hook id
         // WORKFLOW_ID_BEFORE_CODEGENERATION
-        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_CODEGENERATION,configuration);
-        
+        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_CODEGENERATION, configuration);
+
         // 2. Generate the plugin's code using oAW
         this.addJob(new TransformPCMToCodeJob(configuration));
         this.addJob(new CreateSimuComMetaDataFilesJob(configuration));
@@ -44,30 +45,30 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         // 4. Jar the compiled code into a JAR bundle
         BuildPluginJarJob buildBundleJob = new BuildPluginJarJob(configuration);
         this.addJob(buildBundleJob);
-        
+
         // All Workflow extension jobs with the extension hook id
         // WORKFLOW_ID_BEFORE_DOCK
-        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_DOCK,configuration);
-        
+        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_BEFORE_DOCK, configuration);
+
         // 5. Transfer the JAR to a free simulation dock and simulate it
         this.addJob(new TransferSimulationBundleToDock(configuration, debugListener, buildBundleJob));
-        
+
         // All Workflow extension jobs with the extension hook id
         // WORKFLOW_ID_AFTER_SIMULATION
-        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_SIMULATION,configuration);
-        
+        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_SIMULATION, configuration);
+
         // Initialize all Workflow extension jobs
         for (IJob extensionJob : myJobs) {
-			if (extensionJob instanceof AbstractSimuComExtensionJob) {
-				((AbstractSimuComExtensionJob)extensionJob).initialize(configuration);
-				((AbstractSimuComExtensionJob)extensionJob).setConfiguration(configuration);
-			}
-		}
+            if (extensionJob instanceof AbstractSimuComExtensionJob) {
+                ((AbstractSimuComExtensionJob) extensionJob).initialize(configuration);
+                ((AbstractSimuComExtensionJob) extensionJob).setConfiguration(configuration);
+            }
+        }
 
     }
-    
+
     public String getWorkflowId() {
-        return "workflow.extension.simucom"; 
+        return "workflow.extension.simucom";
     }
-    
+
 }

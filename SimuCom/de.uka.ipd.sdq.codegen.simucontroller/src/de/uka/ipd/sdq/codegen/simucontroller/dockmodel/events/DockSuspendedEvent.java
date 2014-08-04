@@ -4,9 +4,9 @@ import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 
 public class DockSuspendedEvent extends DockEvent {
 
-	public DockSuspendedEvent(DockModel dock) {
-		super(dock);
-		// TODO Auto-generated constructor stub
-	}
+    public DockSuspendedEvent(DockModel dock) {
+        super(dock);
+        // TODO Auto-generated constructor stub
+    }
 
 }

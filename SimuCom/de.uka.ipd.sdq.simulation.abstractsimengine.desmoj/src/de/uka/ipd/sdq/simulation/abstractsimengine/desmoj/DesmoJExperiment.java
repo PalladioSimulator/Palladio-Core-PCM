@@ -21,10 +21,8 @@ public class DesmoJExperiment extends AbstractExperiment {
         super(model);
 
         this.desmojModel = model;
-        this.experiment = new Experiment(model.getConfiguration().getNameExperimentRun(),
-                TimeUnit.NANOSECONDS,
-                TimeUnit.SECONDS,
-                new SingleUnitTimeFormatter(TimeUnit.SECONDS, TimeUnit.NANOSECONDS, 9, false));
+        this.experiment = new Experiment(model.getConfiguration().getNameExperimentRun(), TimeUnit.NANOSECONDS,
+                TimeUnit.SECONDS, new SingleUnitTimeFormatter(TimeUnit.SECONDS, TimeUnit.NANOSECONDS, 9, false));
         this.desmojModel.connectToExperiment(experiment);
         this.experiment.setShowProgressBar(false);
     }
@@ -40,7 +38,7 @@ public class DesmoJExperiment extends AbstractExperiment {
 
     @Override
     public void startSimulator() {
-        this.experiment.stop(new ModelCondition(this.desmojModel,"Stop Cond Check",false) {
+        this.experiment.stop(new ModelCondition(this.desmojModel, "Stop Cond Check", false) {
 
             @Override
             public boolean check() {
@@ -57,7 +55,7 @@ public class DesmoJExperiment extends AbstractExperiment {
         // TODO in Desmo-J, "stopped" experiments can be proceeded. Check, if it is here necessary
         // to abort the experiment instead.
         this.experiment.stop();
-        //this.experiment.getSimClock().deleteObserver(this.timeProgressObserver);
+        // this.experiment.getSimClock().deleteObserver(this.timeProgressObserver);
     }
 
 }

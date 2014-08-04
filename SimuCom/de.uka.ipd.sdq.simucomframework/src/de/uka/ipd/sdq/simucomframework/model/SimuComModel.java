@@ -63,7 +63,7 @@ public class SimuComModel extends SchedulerModel {
 
     public SimuComModel(final SimuComConfig config, final SimuComStatus status, final ISimEngineFactory factory,
             final boolean isRemoteRun) {
-        this(config,status,factory,isRemoteRun,null);
+        this(config, status, factory, isRemoteRun, null);
     }
 
     public SimuComModel(final SimuComConfig config, final SimuComStatus status, final ISimEngineFactory factory,
@@ -99,9 +99,8 @@ public class SimuComModel extends SchedulerModel {
 
     private ProbeFrameworkContext initialiseProbeFramework() {
         // create ProbeFramework context
-        final ProbeFrameworkContext result = new ProbeFrameworkContext(
-                new RecorderAttachingCalculatorFactoryDecorator(
-                        new DefaultCalculatorFactory(), this.config));
+        final ProbeFrameworkContext result = new ProbeFrameworkContext(new RecorderAttachingCalculatorFactoryDecorator(
+                new DefaultCalculatorFactory(), this.config));
 
         return result;
     }
@@ -113,18 +112,25 @@ public class SimuComModel extends SchedulerModel {
         return issues;
     }
 
-    /**Sets the list of issues.
-     * @param issues the list of issues to use. May not be {@code null}.
+    /**
+     * Sets the list of issues.
+     * 
+     * @param issues
+     *            the list of issues to use. May not be {@code null}.
      */
     public void setIssues(final List<SeverityAndIssue> issues) {
         if (issues == null) {
-            throw new IllegalArgumentException("issues must not be null. Create and provide an empty list if the list should be reset.");
+            throw new IllegalArgumentException(
+                    "issues must not be null. Create and provide an empty list if the list should be reset.");
         }
         this.issues = issues;
     }
 
-    /**Adds an issues to the list of issues.
-     * @param issue the issue.
+    /**
+     * Adds an issues to the list of issues.
+     * 
+     * @param issue
+     *            the issue.
      */
     public void addIssue(final SeverityAndIssue issue) {
         this.issues.add(issue);
@@ -134,8 +140,12 @@ public class SimuComModel extends SchedulerModel {
         if (this.config.getVerboseLogging()) {
             final EContentAdapter contentAdapter = new EContentAdapter() {
 
-                /* (non-Javadoc)
-                 * @see org.eclipse.emf.ecore.util.EContentAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
+                /*
+                 * (non-Javadoc)
+                 * 
+                 * @see
+                 * org.eclipse.emf.ecore.util.EContentAdapter#notifyChanged(org.eclipse.emf.common
+                 * .notify.Notification)
                  */
                 @Override
                 public void notifyChanged(final Notification notification) {
@@ -144,14 +154,14 @@ public class SimuComModel extends SchedulerModel {
                         if (notification.getFeature() == SimucomstatusPackage.eINSTANCE.getProcess_CurrentAction()) {
                             final Process p = (Process) notification.getNotifier();
                             final Action a = (Action) notification.getNewValue();
-                            if(logger.isDebugEnabled()) {
-                                logger.debug("Process "+p.getId()+" changed currentAction to "+a.getClass().getName());
+                            if (logger.isDebugEnabled()) {
+                                logger.debug("Process " + p.getId() + " changed currentAction to "
+                                        + a.getClass().getName());
                             }
                         }
-                    } else
-                        if(logger.isDebugEnabled()) {
-                            logger.debug("Simulation Status Updated");
-                        }
+                    } else if (logger.isDebugEnabled()) {
+                        logger.debug("Simulation Status Updated");
+                    }
                 }
 
             };
@@ -187,23 +197,26 @@ public class SimuComModel extends SchedulerModel {
     }
 
     /**
-     * Create this simulation run's resources using the resource factory given.
-     * The factory is queried for the list of IDs of the resources to create and
-     * creates and inialises each of them
-     * @param resourceContainerFactory The resource factory used to initialse the simulated
-     * resources
+     * Create this simulation run's resources using the resource factory given. The factory is
+     * queried for the list of IDs of the resources to create and creates and inialises each of them
+     * 
+     * @param resourceContainerFactory
+     *            The resource factory used to initialse the simulated resources
      */
     public void initialiseResourceContainer(final IResourceContainerFactory resourceContainerFactory) {
         for (final String id : resourceContainerFactory.getResourceContainerIDList()) {
-            final SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.createResourceContainer(id);
+            final SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry
+                    .createResourceContainer(id);
             resourceContainerFactory.fillResourceContainerWithResources(rc);
         }
         for (final String id : resourceContainerFactory.getResourceContainerIDList()) {
-            final SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.getResourceContainer(id);
+            final SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry
+                    .getResourceContainer(id);
             resourceContainerFactory.fillResourceContainerWithNestedResourceContainers(rc);
         }
         for (final String id : resourceContainerFactory.getLinkingResourceContainerIDList()) {
-            final SimulatedLinkingResourceContainer rc = (SimulatedLinkingResourceContainer) resourceRegistry.createLinkingResourceContainer(id);
+            final SimulatedLinkingResourceContainer rc = (SimulatedLinkingResourceContainer) resourceRegistry
+                    .createLinkingResourceContainer(id);
             resourceContainerFactory.fillLinkingResourceContainer(rc);
         }
         resourceRegistry.activateAllActiveResources();
@@ -211,8 +224,11 @@ public class SimuComModel extends SchedulerModel {
 
     /**
      * Set the simulation result
-     * @param error The new status
-     * @param t The exception message if any, null otherwise
+     * 
+     * @param error
+     *            The new status
+     * @param t
+     *            The exception message if any, null otherwise
      */
     public void setStatus(final SimulationResult error, final Throwable t) {
         this.status = error;
@@ -222,15 +238,15 @@ public class SimuComModel extends SchedulerModel {
     /**
      * @return The simulation status
      */
-    public SimulationResult getErrorStatus(){
+    public SimulationResult getErrorStatus() {
         return status;
     }
 
     /**
-     * @return The exception caused during the last simulation run. Null
-     * if there was no such exception
+     * @return The exception caused during the last simulation run. Null if there was no such
+     *         exception
      */
-    public Throwable getErrorThrowable(){
+    public Throwable getErrorThrowable() {
         return this.errorMessage;
     }
 
@@ -289,8 +305,9 @@ public class SimuComModel extends SchedulerModel {
         this.getResourceRegistry().deactivateAllActiveResources();
         this.getResourceRegistry().deactivateAllPassiveResources();
 
-        if(logger.isEnabledFor(Level.INFO)) {
-            logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulated time units");
+        if (logger.isEnabledFor(Level.INFO)) {
+            logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime()
+                    + " simulated time units");
         }
 
         AbstractActiveResource.cleanProcesses();

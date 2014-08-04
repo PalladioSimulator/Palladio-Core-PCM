@@ -7,11 +7,10 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 /**
  * Represents a failure-on-demand occurrence during the simulation.
  * 
- * This mechanism is used in the simulation to indicate that a failure-on-demand
- * has occurred during service execution. The executing SimProcess (an
- * OpenWorkloadUser, ClosedWorkloadUser or ForkedBehaviourProcess) cancels its
- * associated control and data flow. The central FailureStatistics object is
- * updated to log the failure-on-demand occurrence.
+ * This mechanism is used in the simulation to indicate that a failure-on-demand has occurred during
+ * service execution. The executing SimProcess (an OpenWorkloadUser, ClosedWorkloadUser or
+ * ForkedBehaviourProcess) cancels its associated control and data flow. The central
+ * FailureStatistics object is updated to log the failure-on-demand occurrence.
  * 
  * @author brosch
  * 
@@ -36,8 +35,8 @@ public class FailureException extends RuntimeException {
     private final MarkovFailureType failureType;
 
     /**
-     * A private constructor prevents the direct creation of an exception and
-     * enforces using the raise()-method instead.
+     * A private constructor prevents the direct creation of an exception and enforces using the
+     * raise()-method instead.
      * 
      * @param failureType
      *            the failure type identification

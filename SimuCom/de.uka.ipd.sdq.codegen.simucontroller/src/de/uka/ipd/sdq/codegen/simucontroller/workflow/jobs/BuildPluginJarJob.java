@@ -19,46 +19,48 @@ import edu.rice.cs.util.jar.JarBuilder;
 
 public class BuildPluginJarJob implements IJob {
 
-	private byte[] result = null;
-	private AbstractCodeGenerationWorkflowRunConfiguration configuration;
+    private byte[] result = null;
+    private AbstractCodeGenerationWorkflowRunConfiguration configuration;
 
-	public BuildPluginJarJob(AbstractCodeGenerationWorkflowRunConfiguration configuration){
-		super();
-		
-		this.configuration = configuration;
-	}
-	
-	public byte[] getResult() {
-		return result;
-	}
+    public BuildPluginJarJob(AbstractCodeGenerationWorkflowRunConfiguration configuration) {
+        super();
 
-	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
-		URI location = null;
-		try {
-			location = CreatePluginProjectJob.getProject(this.configuration.getStoragePluginID()).getLocationURI();
-			String jarLocation = new File(location).getAbsolutePath() + File.separator + "simucominstance.jar";
-			JarBuilder builder = new JarBuilder(new File(jarLocation));
-			addCompiledClasses(location, builder);
-			addMetadataFiles(location, builder);
-			addModelFiles(location, builder);
-			builder.close();
-			this.result = loadBundle(new File(location).getAbsolutePath() + File.separator + "simucominstance.jar");
-		} catch (IOException e) {
-			throw new JobFailedException("Compile Plugin failed. Error creating JAR archive.", e);
-		}
-	}
+        this.configuration = configuration;
+    }
 
-	/**
-	 * @param location
-	 * @param builder
-	 */
-	private void addMetadataFiles(URI location, JarBuilder builder) {
-		builder.addDirectoryRecursive(new File(location),"",new FileFilter(){
-			public boolean accept(File pathname) {
-				return pathname.getName().toUpperCase().contains("META-INF") || pathname.getName().toUpperCase().contains("MANIFEST") || pathname.getName().contains("plugin.xml");
-			}
-		});
-	}
+    public byte[] getResult() {
+        return result;
+    }
+
+    public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+        URI location = null;
+        try {
+            location = CreatePluginProjectJob.getProject(this.configuration.getStoragePluginID()).getLocationURI();
+            String jarLocation = new File(location).getAbsolutePath() + File.separator + "simucominstance.jar";
+            JarBuilder builder = new JarBuilder(new File(jarLocation));
+            addCompiledClasses(location, builder);
+            addMetadataFiles(location, builder);
+            addModelFiles(location, builder);
+            builder.close();
+            this.result = loadBundle(new File(location).getAbsolutePath() + File.separator + "simucominstance.jar");
+        } catch (IOException e) {
+            throw new JobFailedException("Compile Plugin failed. Error creating JAR archive.", e);
+        }
+    }
+
+    /**
+     * @param location
+     * @param builder
+     */
+    private void addMetadataFiles(URI location, JarBuilder builder) {
+        builder.addDirectoryRecursive(new File(location), "", new FileFilter() {
+            public boolean accept(File pathname) {
+                return pathname.getName().toUpperCase().contains("META-INF")
+                        || pathname.getName().toUpperCase().contains("MANIFEST")
+                        || pathname.getName().contains("plugin.xml");
+            }
+        });
+    }
 
     /**
      * @param location
@@ -71,34 +73,34 @@ public class BuildPluginJarJob implements IJob {
             }
         })[0], "model");
     }
-	
-	/**
-	 * @param location
-	 * @param builder
-	 */
-	private void addCompiledClasses(URI location, JarBuilder builder) {
-		builder.addDirectoryRecursive(new File(location).listFiles(new FilenameFilter(){
-			public boolean accept(File dir, String name) {
-				return name.contains("bin");
-			}
-		})[0], "");
-	}
 
-	public String getName() {
-		return "Building simulation plugin JAR archive";
-	}
+    /**
+     * @param location
+     * @param builder
+     */
+    private void addCompiledClasses(URI location, JarBuilder builder) {
+        builder.addDirectoryRecursive(new File(location).listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.contains("bin");
+            }
+        })[0], "");
+    }
 
-	public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
-	}
+    public String getName() {
+        return "Building simulation plugin JAR archive";
+    }
 
-	private byte[] loadBundle(String location) throws IOException {
-		byte[] result = null;
-		File bundleFile = new File(location);
-		result = new byte[(int) bundleFile.length()];
-		FileInputStream fis = new FileInputStream(bundleFile);
-		fis.read(result);
-		fis.close();
-		return result;
-	}
-	
+    public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
+    }
+
+    private byte[] loadBundle(String location) throws IOException {
+        byte[] result = null;
+        File bundleFile = new File(location);
+        result = new byte[(int) bundleFile.length()];
+        FileInputStream fis = new FileInputStream(bundleFile);
+        fis.read(result);
+        fis.close();
+        return result;
+    }
+
 }

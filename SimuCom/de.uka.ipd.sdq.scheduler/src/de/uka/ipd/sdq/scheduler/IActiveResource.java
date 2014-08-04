@@ -6,12 +6,10 @@ import java.util.Map;
 import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 
-
 /**
- * An active resource can execute demands of schedulable processes. Active
- * resources are shared by multiple processes so that they need to use
- * scheduling strategies to assign processing time of the resources to
- * processes.
+ * An active resource can execute demands of schedulable processes. Active resources are shared by
+ * multiple processes so that they need to use scheduling strategies to assign processing time of
+ * the resources to processes.
  * 
  * @author jens
  * 
@@ -60,8 +58,9 @@ public interface IActiveResource {
     public abstract void notifyTerminated(ISchedulableProcess simProcess);
 
     /**
-     * Get the number of processes currently having requests issued to this resource and waiting
-     * for the request to complete.
+     * Get the number of processes currently having requests issued to this resource and waiting for
+     * the request to complete.
+     * 
      * @param schedulerEntity
      * @return
      */

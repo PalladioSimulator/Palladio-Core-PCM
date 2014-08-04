@@ -26,27 +26,27 @@ public class SimuComLaunchConfigurationBasedConfigBuilder extends
         SimuComWorkflowConfiguration config = (SimuComWorkflowConfiguration) configuration;
         config.setSimulateFailures(getBooleanAttribute(ConstantsContainer.SIMULATE_FAILURES));
 
-		// accuracy analysis
-		config.setAccuracyInfluenceAnalysisEnabled(getBooleanAttribute(ConstantsContainer.ANALYSE_ACCURACY));
-		config.setAccuracyInformationModelFile(getStringAttribute(ConstantsContainer.ACCURACY_QUALITY_ANNOTATION_FILE));
+        // accuracy analysis
+        config.setAccuracyInfluenceAnalysisEnabled(getBooleanAttribute(ConstantsContainer.ANALYSE_ACCURACY));
+        config.setAccuracyInformationModelFile(getStringAttribute(ConstantsContainer.ACCURACY_QUALITY_ANNOTATION_FILE));
 
-		config.setMiddlewareFile   ( getStringAttribute(ConstantsContainer.MWREPOSITORY_FILE) );
-		config.setEventMiddlewareFile   ( getStringAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE) );
-		
+        config.setMiddlewareFile(getStringAttribute(ConstantsContainer.MWREPOSITORY_FILE));
+        config.setEventMiddlewareFile(getStringAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE));
+
         SimuComConfig simuComConfig = new SimuComConfig(properties, config.isDebug());
 
         // Set SimuCom config extensions based on registered extensions
         for (String workflowHookId : WorkflowHooks.getAllWorkflowHookIDs()) {
-	        for (WorkflowExtension<?> workflowExtension : ExtensionHelper.getWorkflowExtensions(workflowHookId)) {
-	            if ((workflowExtension.getExtensionConfigurationBuilder() != null)
-	                    && (workflowExtension.getExtensionConfigurationBuilder() instanceof SimuComExtensionConfigurationBuilder)) {
-	                SimuComConfigExtension simuComConfigExtension = ((SimuComExtensionConfigurationBuilder) workflowExtension
-	                        .getExtensionConfigurationBuilder()).deriveSimuComConfigExtension(properties);
-	                if (simuComConfigExtension != null) {
-	                    simuComConfig.addSimuComConfigExtension(workflowExtension.getId(), simuComConfigExtension);
-	                }
-	            }
-	        }
+            for (WorkflowExtension<?> workflowExtension : ExtensionHelper.getWorkflowExtensions(workflowHookId)) {
+                if ((workflowExtension.getExtensionConfigurationBuilder() != null)
+                        && (workflowExtension.getExtensionConfigurationBuilder() instanceof SimuComExtensionConfigurationBuilder)) {
+                    SimuComConfigExtension simuComConfigExtension = ((SimuComExtensionConfigurationBuilder) workflowExtension
+                            .getExtensionConfigurationBuilder()).deriveSimuComConfigExtension(properties);
+                    if (simuComConfigExtension != null) {
+                        simuComConfig.addSimuComConfigExtension(workflowExtension.getId(), simuComConfigExtension);
+                    }
+                }
+            }
         }
 
         config.setSimuComConfiguration(simuComConfig);

@@ -57,7 +57,7 @@ public class DesmoJSimProcess extends SimulatedProcess {
             }.schedule(new TimeSpan(delay));
         }
     }
-    
+
     public void passivate(double delay) {
         if (!isTerminated()) {
             if (this.myProcessState != ProcessState.RUNNING) {
@@ -78,7 +78,7 @@ public class DesmoJSimProcess extends SimulatedProcess {
                     }
                 }
             }.schedule(new TimeSpan(delay));
-            
+
             suspend();
         }
     }

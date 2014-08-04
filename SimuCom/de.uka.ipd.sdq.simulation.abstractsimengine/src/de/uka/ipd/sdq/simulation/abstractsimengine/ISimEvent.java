@@ -33,7 +33,7 @@ public interface ISimEvent<E extends IEntity> {
      * Removes this event from the list of future events.
      */
     public void removeEvent();
-    
+
     public double scheduledAtTime();
 
 }

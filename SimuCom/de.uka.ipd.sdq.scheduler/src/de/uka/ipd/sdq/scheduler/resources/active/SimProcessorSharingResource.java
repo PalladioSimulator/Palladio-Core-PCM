@@ -47,7 +47,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
     }
 
     private final ProcessingFinishedEvent processingFinished;
-    private final Hashtable<ISchedulableProcess,Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
+    private final Hashtable<ISchedulableProcess, Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
     private double last_time;
 
     public SimProcessorSharingResource(final SchedulerModel model, final String name, final String id, final long i) {
@@ -58,60 +58,54 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
     public void scheduleNextEvent() {
         ISchedulableProcess shortest = null;
         for (final ISchedulableProcess process : running_processes.keySet()) {
-            if (shortest == null || running_processes.get(shortest) > running_processes.get(process)){
+            if (shortest == null || running_processes.get(shortest) > running_processes.get(process)) {
                 shortest = process;
             }
         }
         processingFinished.removeEvent();
-        if (shortest!=null){
+        if (shortest != null) {
             double remainingTime = running_processes.get(shortest) * getSpeed();
 
             // avoid trouble caused by rounding issues
             remainingTime = remainingTime < JIFFY ? 0.0 : remainingTime;
 
-            assert remainingTime >= 0 : "Remaining time ("+ remainingTime +")small than zero!";
+            assert remainingTime >= 0 : "Remaining time (" + remainingTime + ")small than zero!";
 
             processingFinished.schedule(shortest, remainingTime);
         }
     }
 
-
     private void toNow() {
         final double now = getModel().getSimulationControl().getCurrentSimulationTime();
         double passed_time = now - last_time;
-        if (MathTools.less(0, passed_time)){
+        if (MathTools.less(0, passed_time)) {
             passed_time /= getSpeed();
-            for (final Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
-                final double rem =   e.getValue() - passed_time;
+            for (final Entry<ISchedulableProcess, Double> e : running_processes.entrySet()) {
+                final double rem = e.getValue() - passed_time;
                 e.setValue(rem);
             }
         }
         last_time = now;
     }
 
-
     private double getSpeed() {
-        final double speed = (double)running_processes.size() / (double)getCapacity();
+        final double speed = (double) running_processes.size() / (double) getCapacity();
         return speed < 1.0 ? 1.0 : speed;
     }
-
 
     @Override
     public void start() {
     }
 
-
     @Override
     protected void dequeue(final ISchedulableProcess process) {
     }
-
 
     @Override
     protected void doProcessing(final ISchedulableProcess process, final int resourceServiceID, double demand) {
         toNow();
         LoggingWrapper.log("PS: " + process + " demands " + demand);
-        if(demand < JIFFY)
-        {
+        if (demand < JIFFY) {
             demand = JIFFY;
             LoggingWrapper.log("PS: " + process + " demand was increased to match JIFFY " + demand);
         }
@@ -126,7 +120,6 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
         process.passivate();
     }
 
-
     @Override
     public double getRemainingDemand(final ISchedulableProcess process) {
         if (!running_processes.contains(process)) {
@@ -139,10 +132,10 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
     @Override
     public void updateDemand(final ISchedulableProcess process, final double demand) {
         boolean updated = false;
-        for (final Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+        for (final Entry<ISchedulableProcess, Double> e : running_processes.entrySet()) {
             if (e.getKey().equals(process)) {
                 if (Double.isNaN(demand)) {
-                    if(logger.isEnabledFor(Level.INFO)) {
+                    if (logger.isEnabledFor(Level.INFO)) {
                         logger.info("Specified demand " + demand + "is not a number.");
                     }
                 }

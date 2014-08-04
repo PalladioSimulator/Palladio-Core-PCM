@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.SensitivityAnalysisConfiguration;
 
 public class SimuComWorkflowConfiguration extends AbstractSimulationWorkflowConfiguration {
-    
+
     /** Logger for this class. */
     private static final Logger LOGGER = Logger.getLogger(SimuComWorkflowConfiguration.class);
 

@@ -24,12 +24,13 @@ public class SimFCFSResource extends AbstractActiveResource {
         public void eventRoutine(final ISchedulableProcess process) {
             final ISchedulableProcess first = process;
             toNow();
-            assert MathTools.equalsDouble(0, running_processes.get(first)) : "Remaining demand ("+ running_processes.get(first) +") not zero!";
+            assert MathTools.equalsDouble(0, running_processes.get(first)) : "Remaining demand ("
+                    + running_processes.get(first) + ") not zero!";
             running_processes.remove(first);
             processQ.remove(first);
             fireStateChange(processQ.size(), 0);
             fireDemandCompleted(first);
-            LoggingWrapper.log("Demand of Process "+ first + " finished.");
+            LoggingWrapper.log("Demand of Process " + first + " finished.");
             scheduleNextEvent();
             first.activate();
         }
@@ -67,7 +68,7 @@ public class SimFCFSResource extends AbstractActiveResource {
                 // avoid trouble caused by rounding issues
                 demand = MathTools.equalsDouble(demand, 0) ? 0.0 : demand;
 
-                assert demand >= 0 : "Remaining demand ("+ demand +") smaller than zero!";
+                assert demand >= 0 : "Remaining demand (" + demand + ") smaller than zero!";
 
                 running_processes.put(first, demand);
             }
@@ -106,7 +107,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 
     @Override
     public void updateDemand(final ISchedulableProcess process, final double demand) {
-        for (final Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+        for (final Entry<ISchedulableProcess, Double> e : running_processes.entrySet()) {
             if (e.getKey().equals(process)) {
                 e.setValue(demand);
                 break;
@@ -121,8 +122,10 @@ public class SimFCFSResource extends AbstractActiveResource {
 
     @Override
     public void stop() {
-        // TODO: why are these fields not empty when the simulation stops, although AbstractActiveResource.cleanProcesses()
-        // is being called? This should be investigated, and the following cleanup should not be necessary.
+        // TODO: why are these fields not empty when the simulation stops, although
+        // AbstractActiveResource.cleanProcesses()
+        // is being called? This should be investigated, and the following cleanup should not be
+        // necessary.
         // (this problem has been encountered for a linking resource)
         processQ.clear();
         running_processes.clear();

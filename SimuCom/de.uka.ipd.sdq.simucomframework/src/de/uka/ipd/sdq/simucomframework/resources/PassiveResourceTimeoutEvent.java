@@ -35,11 +35,8 @@ public class PassiveResourceTimeoutEvent extends AbstractSimEventDelegator<Simpl
      * @param process
      *            the waiting process
      */
-    public PassiveResourceTimeoutEvent(
-            final SimuComModel simuComModel,
-            final SchedulerModel model,
-            final SimSimpleFairPassiveResource resource,
-            final SimpleWaitingProcess process) {
+    public PassiveResourceTimeoutEvent(final SimuComModel simuComModel, final SchedulerModel model,
+            final SimSimpleFairPassiveResource resource, final SimpleWaitingProcess process) {
         super(model, resource.getName());
         this.resource = resource;
         this.simuComModel = simuComModel;
@@ -49,8 +46,7 @@ public class PassiveResourceTimeoutEvent extends AbstractSimEventDelegator<Simpl
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent#eventRoutine
+     * @see de.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent#eventRoutine
      * (de.uka.ipd.sdq.simucomframework.abstractSimEngine.IEntityDelegate)
      */
     @Override
@@ -64,9 +60,10 @@ public class PassiveResourceTimeoutEvent extends AbstractSimEventDelegator<Simpl
         // Trigger a timeout of the waiting process:
         resource.remove(process);
         process.getProcess().timeout(
-                this.simuComModel.getFailureStatistics().getResourceTimeoutFailureType(
-                        resource.getAssemblyContext().getId(),
-                        resource.getPassiveResourceID()).getId());
+                this.simuComModel
+                        .getFailureStatistics()
+                        .getResourceTimeoutFailureType(resource.getAssemblyContext().getId(),
+                                resource.getPassiveResourceID()).getId());
     }
 
     /**

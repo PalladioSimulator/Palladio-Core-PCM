@@ -38,7 +38,9 @@ public class AbstractSimEngineExtensionHelper {
         for (IExtension extension : ExtensionPointHelper.findExtensions(EXTENSION_POINT_ID)) {
             for (IConfigurationElement e : ExtensionPointHelper.findConfigurationElements(extension, "engine")) {
                 if (e != null) {
-                    names.add(new String[] { e.getAttribute("name"), e.getAttribute("id") });
+                    names.add(new String[] {
+                            e.getAttribute("name"), e.getAttribute("id")
+                    });
                 }
             }
         }
@@ -70,7 +72,7 @@ public class AbstractSimEngineExtensionHelper {
         // could not find an extension for the specified name
         return "";
     }
-    
+
     public static ISimEngineFactory getEngineFactory(String engineId) throws CoreException {
         for (IExtension extension : ExtensionPointHelper.findExtensions(EXTENSION_POINT_ID)) {
             for (IConfigurationElement e : ExtensionPointHelper.findConfigurationElements(extension, "engine")) {

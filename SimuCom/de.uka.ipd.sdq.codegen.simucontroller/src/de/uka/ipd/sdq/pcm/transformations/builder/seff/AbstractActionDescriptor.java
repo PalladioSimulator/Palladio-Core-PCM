@@ -4,9 +4,9 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 
 public abstract class AbstractActionDescriptor {
 
-	public AbstractActionDescriptor() {
-		super();
-	}
+    public AbstractActionDescriptor() {
+        super();
+    }
 
-	public abstract AbstractAction createAction();
+    public abstract AbstractAction createAction();
 }

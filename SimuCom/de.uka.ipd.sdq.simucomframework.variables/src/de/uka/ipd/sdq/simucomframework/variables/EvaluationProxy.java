@@ -21,35 +21,33 @@ import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
  *
  */
 public class EvaluationProxy implements Serializable {
-	
-	/**
-	 *  The stoex proxied by this object
-	 */
-	private String stoex;
-	
-	/**
-	 * The Stackframe under which the stoex is evaluated 
-	 */
-	private SimulatedStackframe<Object> contextFrame;
 
-	public EvaluationProxy (String stoex, SimulatedStackframe<Object> contextFrame)
-	{
-		this.stoex = stoex;
-		this.contextFrame = contextFrame;
-	}
+    /**
+     * The stoex proxied by this object
+     */
+    private String stoex;
 
-	public SimulatedStackframe<Object> getStackFrame() {
-		return contextFrame;
-	}
+    /**
+     * The Stackframe under which the stoex is evaluated
+     */
+    private SimulatedStackframe<Object> contextFrame;
 
-	public String getStoEx() {
-		return stoex;
-	}
+    public EvaluationProxy(String stoex, SimulatedStackframe<Object> contextFrame) {
+        this.stoex = stoex;
+        this.contextFrame = contextFrame;
+    }
 
-	@Override
-	public String toString() {
-		return "EvaluationProxy<"+this.getStoEx()+">";
-	}
-	
-	
+    public SimulatedStackframe<Object> getStackFrame() {
+        return contextFrame;
+    }
+
+    public String getStoEx() {
+        return stoex;
+    }
+
+    @Override
+    public String toString() {
+        return "EvaluationProxy<" + this.getStoEx() + ">";
+    }
+
 }

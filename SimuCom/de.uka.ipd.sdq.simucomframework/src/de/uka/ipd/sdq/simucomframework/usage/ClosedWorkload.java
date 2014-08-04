@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
 /**
  * Class used for executing a closed workload. The class creates as many users as specified and
  * executes them simultaniously
@@ -34,7 +33,7 @@ public class ClosedWorkload implements IWorkloadDriver {
 
     /*
      * (non-Javadoc)
-     *
+     * 
      * @see de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver#run()
      */
     @Override

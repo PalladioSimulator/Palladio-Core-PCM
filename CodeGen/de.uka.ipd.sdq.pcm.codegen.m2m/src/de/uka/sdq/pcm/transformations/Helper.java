@@ -21,7 +21,7 @@ public class Helper {
         URI uri = eObject.eResource().getURI();
         String fragment = eObject.eResource().getURIFragment(eObject);
         URI fullUri = uri.appendFragment(fragment);
-        
+
         return fullUri.toString();
     }
 

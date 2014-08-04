@@ -33,7 +33,7 @@ public class ResourceRepairedEvent extends AbstractSimEventDelegator<ScheduledRe
 
     /*
      * (non-Javadoc)
-     *
+     * 
      * @seede.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent#eventRoutine(de.uka.ipd.sdq.
      * simucomframework.abstractSimEngine.IEntityDelegate)
      */

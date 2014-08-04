@@ -19,7 +19,7 @@ public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactor
     public OpenWorkloadUserFactory(final SimuComModel model, UsageScenario usageScenario) {
         super(model, usageScenario);
     }
-    
+
     /*
      * (non-Javadoc)
      * 

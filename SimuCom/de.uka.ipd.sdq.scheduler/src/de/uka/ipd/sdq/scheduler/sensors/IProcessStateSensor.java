@@ -7,9 +7,9 @@ import de.uka.ipd.sdq.scheduler.processes.PROCESS_STATE;
  */
 public interface IProcessStateSensor {
 
-	/**
-	 * Notifies the sensor about a state change of the process.
-	 */
-	public abstract void update(PROCESS_STATE newState);
+    /**
+     * Notifies the sensor about a state change of the process.
+     */
+    public abstract void update(PROCESS_STATE newState);
 
 }

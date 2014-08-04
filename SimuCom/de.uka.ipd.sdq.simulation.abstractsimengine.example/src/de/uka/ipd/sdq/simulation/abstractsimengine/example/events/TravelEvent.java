@@ -9,22 +9,22 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.example.util.Utils;
 
 public class TravelEvent extends AbstractSimEventDelegator<Bus> {
 
-	public TravelEvent(ISimulationModel model, String name) {
-		super(model, name);
-	}
+    public TravelEvent(ISimulationModel model, String name) {
+        super(model, name);
+    }
 
-	@Override
-	public void eventRoutine(Bus bus) {
-		RouteSegment segment = bus.travel();
+    @Override
+    public void eventRoutine(Bus bus) {
+        RouteSegment segment = bus.travel();
 
-		Utils.log(bus, "Travelling to station " + segment.getTo());
+        Utils.log(bus, "Travelling to station " + segment.getTo());
 
-		double drivingTime = Duration.hours(segment.getDistance() / (double) segment.getAverageSpeed()).toSeconds()
-				.value();
+        double drivingTime = Duration.hours(segment.getDistance() / (double) segment.getAverageSpeed()).toSeconds()
+                .value();
 
-		// wait for the bus to arrive at the next station^
-		ArriveEvent e = new ArriveEvent(drivingTime, this.getModel(), "Arrive Event");
-		e.schedule(bus, drivingTime);		
-	}
+        // wait for the bus to arrive at the next station^
+        ArriveEvent e = new ArriveEvent(drivingTime, this.getModel(), "Arrive Event");
+        e.schedule(bus, drivingTime);
+    }
 
 }

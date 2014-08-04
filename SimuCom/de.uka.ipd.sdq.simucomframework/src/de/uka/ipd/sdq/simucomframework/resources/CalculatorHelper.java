@@ -42,10 +42,10 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 public final class CalculatorHelper {
 
     /** Default EMF factory for measuring points. */
-    private static final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
+    private static final MeasuringpointFactory MEASURINGPOINT_FACTORY = MeasuringpointFactory.eINSTANCE;
 
     /** Default EMF factory for pcm measuring points. */
-    private static final PcmmeasuringpointFactory pcmMeasuringpointFactory = PcmmeasuringpointFactory.eINSTANCE;
+    private static final PcmmeasuringpointFactory PCM_MEASURINGPOINT_FACTORY = PcmmeasuringpointFactory.eINSTANCE;
 
     /**
      * Sets up a {@link WaitingTimeCalculator} for the specified resource. Also a
@@ -252,12 +252,12 @@ public final class CalculatorHelper {
     }
 
     private static MeasuringPoint createMeasuringPoint(final IPassiveResource resource) {
-        final AssemblyPassiveResourceMeasuringPoint mp = pcmMeasuringpointFactory
+        final AssemblyPassiveResourceMeasuringPoint mp = PCM_MEASURINGPOINT_FACTORY
                 .createAssemblyPassiveResourceMeasuringPoint();
         mp.setAssembly(resource.getAssemblyContext());
         mp.setPassiveResource(resource.getResource());
 
-        final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
+        final ResourceURIMeasuringPoint measuringPoint = MEASURINGPOINT_FACTORY.createResourceURIMeasuringPoint();
         measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getResource()));
         measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         return measuringPoint;
@@ -269,12 +269,12 @@ public final class CalculatorHelper {
 
     private static MeasuringPoint createMeasuringPoint(final AbstractScheduledResource scheduledResource,
             final int replicaID) {
-        final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
+        final ResourceURIMeasuringPoint measuringPoint = MEASURINGPOINT_FACTORY.createResourceURIMeasuringPoint();
 
         if (scheduledResource instanceof ScheduledResource) {
             final ScheduledResource resource = (ScheduledResource) scheduledResource;
 
-            final ActiveResourceMeasuringPoint mp = pcmMeasuringpointFactory.createActiveResourceMeasuringPoint();
+            final ActiveResourceMeasuringPoint mp = PCM_MEASURINGPOINT_FACTORY.createActiveResourceMeasuringPoint();
             mp.setActiveResource(resource.getActiveResource());
             mp.setReplicaID(replicaID);
 
@@ -283,7 +283,7 @@ public final class CalculatorHelper {
         } else if (scheduledResource instanceof SimulatedLinkingResource) {
             final SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
 
-            final LinkingResourceMeasuringPoint mp = pcmMeasuringpointFactory.createLinkingResourceMeasuringPoint();
+            final LinkingResourceMeasuringPoint mp = PCM_MEASURINGPOINT_FACTORY.createLinkingResourceMeasuringPoint();
             mp.setLinkingResource(resource.getLinkingResource());
 
             measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getLinkingResource()));

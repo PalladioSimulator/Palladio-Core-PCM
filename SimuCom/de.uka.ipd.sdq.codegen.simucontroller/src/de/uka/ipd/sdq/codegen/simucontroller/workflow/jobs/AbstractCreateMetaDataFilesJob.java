@@ -33,8 +33,7 @@ public abstract class AbstractCreateMetaDataFilesJob {
         super();
     }
 
-    public void execute(final IProgressMonitor monitor) throws JobFailedException,
-    UserCanceledException {
+    public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
         final IProject project = CreatePluginProjectJob.getProject(configuration.getStoragePluginID());
 
         try {
@@ -42,7 +41,7 @@ public abstract class AbstractCreateMetaDataFilesJob {
             createManifestMf(project);
             createBuildProperties(project);
         } catch (final CoreException e) {
-            throw new JobFailedException("Failed to create plugin metadata files",e);
+            throw new JobFailedException("Failed to create plugin metadata files", e);
         }
     }
 
@@ -62,15 +61,13 @@ public abstract class AbstractCreateMetaDataFilesJob {
         baos = new ByteArrayOutputStream();
         out = new PrintStream(baos);
 
-
         writePluginXmlContent(out);
 
         out.close();
 
         final IFile pluginXml = project.getFile(F_PLUGIN);
         if (!pluginXml.exists()) {
-            pluginXml.create(new ByteArrayInputStream(baos.toByteArray()),
-                    true, null);
+            pluginXml.create(new ByteArrayInputStream(baos.toByteArray()), true, null);
         }
     }
 
@@ -90,13 +87,11 @@ public abstract class AbstractCreateMetaDataFilesJob {
 
         final IFile buildProperties = project.getFile(F_BUILD);
         if (!buildProperties.exists()) {
-            buildProperties.create(
-                    new ByteArrayInputStream(baos.toByteArray()), true, null);
+            buildProperties.create(new ByteArrayInputStream(baos.toByteArray()), true, null);
         }
     }
 
     protected abstract void writeBuildPropertiesContent(PrintStream out);
-
 
     private void createManifestMf(final IProject project) throws CoreException {
 
@@ -121,20 +116,17 @@ public abstract class AbstractCreateMetaDataFilesJob {
 
         out.println(StringUtils.join(requiredBundles, ",\n "));
 
-
-
         out.println("Bundle-ActivationPolicy: lazy"); //$NON-NLS-1$
         out.println("Bundle-ClassPath: bin/,");
         out.println(" .");
         out.println("Bundle-RequiredExecutionEnvironment: JavaSE-1.6");
-        //out.println("Export-Package: main");
+        // out.println("Export-Package: main");
 
         out.close();
 
         final IFile manifestMf = project.getFile(F_MANIFEST_FP);
         if (!manifestMf.exists()) {
-            manifestMf.create(new ByteArrayInputStream(baos.toByteArray()),
-                    true, null);
+            manifestMf.create(new ByteArrayInputStream(baos.toByteArray()), true, null);
         }
     }
 

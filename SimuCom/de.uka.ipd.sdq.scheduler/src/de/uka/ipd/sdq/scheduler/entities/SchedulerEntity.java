@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntityDelegator;
 public class SchedulerEntity extends AbstractSimEntityDelegator {
 
     private SchedulerModel model;
-    
+
     protected SchedulerEntity(SchedulerModel model, String name) {
         super(model, name);
         this.model = model;

@@ -69,11 +69,12 @@ public class ModelsAtRuntime {
 
         return fullUri.toString();
     }
-    
+
     /**
      * Returns the URI fragment of a given eObject.
      * 
-     * @param eObject the eObject to look the fragment up for.
+     * @param eObject
+     *            the eObject to look the fragment up for.
      * @return the fragment of the eObject.
      */
     public static String getResourceFragment(final EObject eObject) {

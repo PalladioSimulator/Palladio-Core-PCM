@@ -31,119 +31,115 @@ import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
-public class ApplyConnectorCompletionsJob 
-implements IBlackboardInteractingJob<MDSDBlackboard> {
+public class ApplyConnectorCompletionsJob implements IBlackboardInteractingJob<MDSDBlackboard> {
 
-	private static Logger logger = Logger.getLogger(ApplyConnectorCompletionsJob.class);
-	
-	public static final String COMPLETION_REPOSITORY_PARTITION = "de.uka.ipd.sdq.pcm.completionRepositoryPartition";
-	
-	private MDSDBlackboard blackboard;
-	private AbstractSimulationWorkflowConfiguration configuration;
-		
-	public ApplyConnectorCompletionsJob(AbstractSimulationWorkflowConfiguration configuration) {
-		super();
-		
-		this.configuration = configuration;
-	}
-	
-	public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+    private static Logger logger = Logger.getLogger(ApplyConnectorCompletionsJob.class);
 
-		PCMResourceSetPartition pcmModels = (PCMResourceSetPartition) blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		ResourceSetPartition middlewareRepository = blackboard.getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
-		
-		if(logger.isEnabledFor(Level.INFO)) 
-			logger.info("Create completion repository...");
-		ResourceSetPartition completionRepositoryPartition = new ResourceSetPartition();
-		Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
-		completionRepository.setEntityName("CompletionsRepository");
-		String tempDir = SimuControllerPlugin.getDefault().getStateLocation().append("temp").toOSString();
-		
-//		IProject project = CreatePluginProjectJob.getProject(configuration.getStoragePluginID());
-//		IFolder modelFolder = project.getFolder("model");
-//		URI u = pcmModels.getAllocation().eResource().getURI().trimSegments(1);
-//		u = u.appendSegment("completions.repository");
-//		
-//		
-//		String modelBasePath = modelFolder.getLocation().toOSString();
-//		String tempDir = modelBasePath;
-		
-//		u
-		Resource r = completionRepositoryPartition.getResourceSet().createResource(URI.createFileURI(tempDir));
-		r.getContents().add(completionRepository);
-		this.blackboard.addPartition(COMPLETION_REPOSITORY_PARTITION, completionRepositoryPartition);
-		
-		final PCMAndCompletionModelHolder models = new PCMAndCompletionModelHolder(
-				pcmModels.getResourceTypeRepository(),
-				null,
-				pcmModels.getSystem(),
-				pcmModels.getAllocation(),
-				null,
-				completionRepository,
-				(Repository)middlewareRepository.getResourceSet().getResources().get(0).getContents().get(0)
-				);
-		
-		final Configuration featureConfiguration = pcmModels.getFeatureConfig();
-		
-		new AllInstancesTransformer<ResourceContainer>(
-				ResourceenvironmentPackage.eINSTANCE.getResourceContainer(),
-				models.getAllocation().getTargetResourceEnvironment_Allocation()) {
+    public static final String COMPLETION_REPOSITORY_PARTITION = "de.uka.ipd.sdq.pcm.completionRepositoryPartition";
 
-					@Override
-					protected void transform(ResourceContainer object) {
-						addMiddleware(models, object);
-					}
-			
-		}.transform();
-		
-		if(logger.isEnabledFor(Level.INFO)) 
-			logger.info("Replace connectors with completions...");
-		new AllInstancesTransformer<AssemblyConnector>(
-				CompositionPackage.eINSTANCE.getAssemblyConnector(),
-				models.getSystem()) {
+    private MDSDBlackboard blackboard;
+    private AbstractSimulationWorkflowConfiguration configuration;
 
-					@Override
-					protected void transform(AssemblyConnector connector) {
-						if ( configuration.getSimulateLinkingResources() ) {
-							ConnectorReplacingBuilder replacer = new ConnectorReplacingBuilder(models,connector,featureConfiguration.getDefaultConfig());
-							replacer.build();
-						}
-					}
-			
-		}.transform();
-	}
+    public ApplyConnectorCompletionsJob(AbstractSimulationWorkflowConfiguration configuration) {
+        super();
 
-	/**
-	 * Creates a middleware component instance and allocates it to the given resource container
-	 */
-	private void addMiddleware(PCMAndCompletionModelHolder models, ResourceContainer resContainer) {
-		AssemblyContext ctx = CompositionFactory.eINSTANCE.createAssemblyContext();
-		ctx.setEntityName("AssCtx Middleware "+resContainer.getEntityName());
-		ctx.setEncapsulatedComponent__AssemblyContext(models.getMiddlewareRepository().getComponents__Repository().get(0)); // TODO: Parameterise me!
-		models.getSystem().getAssemblyContexts__ComposedStructure().add(ctx);
-		
-		models.getSystem().getAssemblyContexts__ComposedStructure().add(ctx);
-		AllocationContext allocCtx = AllocationFactory.eINSTANCE.createAllocationContext();
-		allocCtx.setEntityName("AllocCtx Middleware "+resContainer.getEntityName());
-		allocCtx.setAssemblyContext_AllocationContext(ctx);
-		allocCtx.setResourceContainer_AllocationContext(resContainer);
-		models.getAllocation().getAllocationContexts_Allocation().add(allocCtx);
-		
-		if(logger.isEnabledFor(Level.INFO)) 
-			logger.info("Added middleware component >"+ctx.getEncapsulatedComponent__AssemblyContext().getEntityName()+
-				"< to resource container >"+resContainer.getEntityName()+"<");
-	}
+        this.configuration = configuration;
+    }
 
-	public void setBlackboard(MDSDBlackboard blackboard) {
-		this.blackboard = blackboard;
-	}
+    public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 
-	public String getName() {
-		return "Add connector completions job";
-	}
+        PCMResourceSetPartition pcmModels = (PCMResourceSetPartition) blackboard
+                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+        ResourceSetPartition middlewareRepository = blackboard
+                .getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
 
-	public void cleanup(IProgressMonitor monitor)
-			throws CleanupFailedException {
-		// Nothing to do here
-	}
+        if (logger.isEnabledFor(Level.INFO))
+            logger.info("Create completion repository...");
+        ResourceSetPartition completionRepositoryPartition = new ResourceSetPartition();
+        Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
+        completionRepository.setEntityName("CompletionsRepository");
+        String tempDir = SimuControllerPlugin.getDefault().getStateLocation().append("temp").toOSString();
+
+        // IProject project = CreatePluginProjectJob.getProject(configuration.getStoragePluginID());
+        // IFolder modelFolder = project.getFolder("model");
+        // URI u = pcmModels.getAllocation().eResource().getURI().trimSegments(1);
+        // u = u.appendSegment("completions.repository");
+        //
+        //
+        // String modelBasePath = modelFolder.getLocation().toOSString();
+        // String tempDir = modelBasePath;
+
+        // u
+        Resource r = completionRepositoryPartition.getResourceSet().createResource(URI.createFileURI(tempDir));
+        r.getContents().add(completionRepository);
+        this.blackboard.addPartition(COMPLETION_REPOSITORY_PARTITION, completionRepositoryPartition);
+
+        final PCMAndCompletionModelHolder models = new PCMAndCompletionModelHolder(
+                pcmModels.getResourceTypeRepository(), null, pcmModels.getSystem(), pcmModels.getAllocation(), null,
+                completionRepository, (Repository) middlewareRepository.getResourceSet().getResources().get(0)
+                        .getContents().get(0));
+
+        final Configuration featureConfiguration = pcmModels.getFeatureConfig();
+
+        new AllInstancesTransformer<ResourceContainer>(ResourceenvironmentPackage.eINSTANCE.getResourceContainer(),
+                models.getAllocation().getTargetResourceEnvironment_Allocation()) {
+
+            @Override
+            protected void transform(ResourceContainer object) {
+                addMiddleware(models, object);
+            }
+
+        }.transform();
+
+        if (logger.isEnabledFor(Level.INFO))
+            logger.info("Replace connectors with completions...");
+        new AllInstancesTransformer<AssemblyConnector>(CompositionPackage.eINSTANCE.getAssemblyConnector(),
+                models.getSystem()) {
+
+            @Override
+            protected void transform(AssemblyConnector connector) {
+                if (configuration.getSimulateLinkingResources()) {
+                    ConnectorReplacingBuilder replacer = new ConnectorReplacingBuilder(models, connector,
+                            featureConfiguration.getDefaultConfig());
+                    replacer.build();
+                }
+            }
+
+        }.transform();
+    }
+
+    /**
+     * Creates a middleware component instance and allocates it to the given resource container
+     */
+    private void addMiddleware(PCMAndCompletionModelHolder models, ResourceContainer resContainer) {
+        AssemblyContext ctx = CompositionFactory.eINSTANCE.createAssemblyContext();
+        ctx.setEntityName("AssCtx Middleware " + resContainer.getEntityName());
+        ctx.setEncapsulatedComponent__AssemblyContext(models.getMiddlewareRepository().getComponents__Repository()
+                .get(0)); // TODO: Parameterise me!
+        models.getSystem().getAssemblyContexts__ComposedStructure().add(ctx);
+
+        models.getSystem().getAssemblyContexts__ComposedStructure().add(ctx);
+        AllocationContext allocCtx = AllocationFactory.eINSTANCE.createAllocationContext();
+        allocCtx.setEntityName("AllocCtx Middleware " + resContainer.getEntityName());
+        allocCtx.setAssemblyContext_AllocationContext(ctx);
+        allocCtx.setResourceContainer_AllocationContext(resContainer);
+        models.getAllocation().getAllocationContexts_Allocation().add(allocCtx);
+
+        if (logger.isEnabledFor(Level.INFO))
+            logger.info("Added middleware component >"
+                    + ctx.getEncapsulatedComponent__AssemblyContext().getEntityName() + "< to resource container >"
+                    + resContainer.getEntityName() + "<");
+    }
+
+    public void setBlackboard(MDSDBlackboard blackboard) {
+        this.blackboard = blackboard;
+    }
+
+    public String getName() {
+        return "Add connector completions job";
+    }
+
+    public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
+        // Nothing to do here
+    }
 }

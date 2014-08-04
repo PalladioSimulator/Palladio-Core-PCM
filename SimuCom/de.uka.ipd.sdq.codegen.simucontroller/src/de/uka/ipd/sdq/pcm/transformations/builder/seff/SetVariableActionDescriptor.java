@@ -9,27 +9,27 @@ import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 
 public class SetVariableActionDescriptor extends AbstractActionDescriptor {
-	private Collection<VariableUsage> vus;
-	
-	public SetVariableActionDescriptor(Collection<VariableUsage> vus) {
-		super();
-		this.vus = vus;
-	}
+    private Collection<VariableUsage> vus;
 
-	public SetVariableActionDescriptor(VariableUsage vu) {
-		vus = new ArrayList<VariableUsage>();
-		vus.add(vu);
-	}
+    public SetVariableActionDescriptor(Collection<VariableUsage> vus) {
+        super();
+        this.vus = vus;
+    }
 
-	@Override
-	public AbstractAction createAction() {
-		SetVariableAction action = SeffFactory.eINSTANCE.createSetVariableAction();
-		action.setEntityName("ResultSetter");
-		action.getLocalVariableUsages_SetVariableAction().addAll(this.getVariableUsages());
-		return action;
-	}
+    public SetVariableActionDescriptor(VariableUsage vu) {
+        vus = new ArrayList<VariableUsage>();
+        vus.add(vu);
+    }
 
-	protected Collection<? extends VariableUsage> getVariableUsages() {
-		return this.vus;
-	}
+    @Override
+    public AbstractAction createAction() {
+        SetVariableAction action = SeffFactory.eINSTANCE.createSetVariableAction();
+        action.setEntityName("ResultSetter");
+        action.getLocalVariableUsages_SetVariableAction().addAll(this.getVariableUsages());
+        return action;
+    }
+
+    protected Collection<? extends VariableUsage> getVariableUsages() {
+        return this.vus;
+    }
 }

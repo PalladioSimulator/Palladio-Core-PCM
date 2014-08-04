@@ -18,8 +18,7 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
     private String interArrivalTime;
     private final IUserFactory userFactory;
 
-    private static Logger logger = Logger.getLogger(OpenWorkload.class
-            .getName());
+    private static Logger logger = Logger.getLogger(OpenWorkload.class.getName());
 
     /**
      * Counter for usage scenario runs.
@@ -35,8 +34,7 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
      * @param interArrivalTime
      *            The time to wait between leaving a new user to its fate
      */
-    public OpenWorkload(final SimuComModel model, final IUserFactory userFactory,
-            final String interArrivalTime) {
+    public OpenWorkload(final SimuComModel model, final IUserFactory userFactory, final String interArrivalTime) {
         super(model, "OpenWorkloadUserMaturationChamber");
         this.interArrivalTime = interArrivalTime;
         this.userFactory = userFactory;
@@ -64,12 +62,12 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
                 // Count the new user:
                 if (this.getModel().getConfiguration().getSimulateFailures()) {
                     this.getModel().getFailureStatistics().increaseRunCount();
-                    this.getModel().getFailureStatistics().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
+                    this.getModel().getFailureStatistics()
+                            .printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
                 }
-            }
-            catch (final OutOfMemoryError e) {
+            } catch (final OutOfMemoryError e) {
                 // the system is overloaded. stop simulation
-                if(logger.isEnabledFor(Level.INFO)) {
+                if (logger.isEnabledFor(Level.INFO)) {
                     logger.info("Stopping simulation run due to memory constraints.");
                 }
                 getModel().getSimulationControl().stop();
@@ -78,22 +76,23 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 
         // Print failure statistics:
         if (this.getModel().getConfiguration().getSimulateFailures()) {
-            this.getModel().getFailureStatistics().printHandledFailuresStatistics(logger,this.getModel().getSimulationControl().getCurrentSimulationTime());
+            this.getModel()
+                    .getFailureStatistics()
+                    .printHandledFailuresStatistics(logger,
+                            this.getModel().getSimulationControl().getCurrentSimulationTime());
         }
     }
 
     private void waitForNextUser() {
-        final double interArrivalTimeSample = Context.evaluateStatic(
-                interArrivalTime, Double.class);
-        if(logger.isDebugEnabled()) {
-            logger.debug("Waiting for " + interArrivalTimeSample
-                    + " before spawing the next user");
+        final double interArrivalTimeSample = Context.evaluateStatic(interArrivalTime, Double.class);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Waiting for " + interArrivalTimeSample + " before spawing the next user");
         }
         this.hold(interArrivalTimeSample);
     }
 
     private IUser generateUser() {
-        if(logger.isDebugEnabled()) {
+        if (logger.isDebugEnabled()) {
             logger.debug("Spawning New User...");
         }
         final IUser user = userFactory.createUser();

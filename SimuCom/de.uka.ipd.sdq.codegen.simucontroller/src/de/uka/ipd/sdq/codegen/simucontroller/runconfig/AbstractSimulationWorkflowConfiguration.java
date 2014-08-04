@@ -12,27 +12,27 @@ public abstract class AbstractSimulationWorkflowConfiguration extends AbstractCo
 
     /** The configuration of the current launch to work with. */
     private Map<String, Object> attributes = null;
-    
+
     private boolean simulateLinkingResources;
-    
+
     private String featureConfigFile;
 
     public AbstractSimulationWorkflowConfiguration(Map<String, Object> attributes) {
         this.attributes = attributes;
     }
-    
+
     public boolean getSimulateLinkingResources() {
         return simulateLinkingResources;
     }
-    
+
     public void setSimulateLinkingResources(boolean simulateLinkingResources) {
         checkFixed();
         this.simulateLinkingResources = simulateLinkingResources;
         this.setLoadMiddlewareAndCompletionFiles(simulateLinkingResources);
     }
-    
+
     public abstract AbstractSimulationConfig getSimulationConfiguration();
-    
+
     /**
      * Get the configuration of the current launch.
      * 
@@ -41,10 +41,10 @@ public abstract class AbstractSimulationWorkflowConfiguration extends AbstractCo
     public Map<String, Object> getAttributes() {
         return attributes;
     }
-    
+
     /**
-     * @return Returns the filename of the mark model instance containing the
-     *         PCM connector completion configuration
+     * @return Returns the filename of the mark model instance containing the PCM connector
+     *         completion configuration
      */
     public String getFeatureConfigFile() {
         return featureConfigFile;
@@ -60,7 +60,7 @@ public abstract class AbstractSimulationWorkflowConfiguration extends AbstractCo
         checkFixed();
         this.featureConfigFile = featureConfigFile;
     }
-    
+
     /**
      * Call super.getPCMModelFiles and then add my own featureconfig file.
      */
@@ -73,13 +73,13 @@ public abstract class AbstractSimulationWorkflowConfiguration extends AbstractCo
 
         return pcmModelFiles;
     }
-    
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
-    	AbstractSimulationWorkflowConfiguration config = (AbstractSimulationWorkflowConfiguration) super.clone();
-    	config.featureConfigFile = this.featureConfigFile;
-    	config.simulateLinkingResources = this.simulateLinkingResources;
-		return config;
+        AbstractSimulationWorkflowConfiguration config = (AbstractSimulationWorkflowConfiguration) super.clone();
+        config.featureConfigFile = this.featureConfigFile;
+        config.simulateLinkingResources = this.simulateLinkingResources;
+        return config;
     }
-    
+
 }

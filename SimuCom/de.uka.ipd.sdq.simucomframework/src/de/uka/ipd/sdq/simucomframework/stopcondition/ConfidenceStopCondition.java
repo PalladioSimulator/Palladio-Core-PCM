@@ -17,15 +17,15 @@ import de.uka.ipd.sdq.statistics.estimation.ConfidenceInterval;
 import de.uka.ipd.sdq.statistics.estimation.IConfidenceEstimator;
 
 /**
- * Provides a stop condition which determines when to stop based on the
- * confidence interval around a point estimation (e.g. mean).
+ * Provides a stop condition which determines when to stop based on the confidence interval around a
+ * point estimation (e.g. mean).
  *
  * @author Philipp Merkle, Sebastian Lehrig
  *
  */
 public class ConfidenceStopCondition implements SimCondition, IMeasurementSourceListener {
 
-    private static final Logger logger = Logger.getLogger(ConfidenceStopCondition.class);
+    private static final Logger LOGGER = Logger.getLogger(ConfidenceStopCondition.class);
 
     private final SimuComModel model;
 
@@ -53,24 +53,22 @@ public class ConfidenceStopCondition implements SimCondition, IMeasurementSource
      * @param confidenceLevel
      *            the confidence level. Use values between 0 and 1.
      * @param halfWidth
-     *            the relative half width of the target confidence interval. Use
-     *            values between 0 and 1.
+     *            the relative half width of the target confidence interval. Use values between 0
+     *            and 1.
      */
-    public ConfidenceStopCondition(final SimuComModel model,
-            final IBatchAlgorithm batchAlgorithm, final IConfidenceEstimator estimator,
-            final double confidenceLevel, final double halfWidth) {
+    public ConfidenceStopCondition(final SimuComModel model, final IBatchAlgorithm batchAlgorithm,
+            final IConfidenceEstimator estimator, final double confidenceLevel, final double halfWidth) {
         this.model = model;
         this.batchAlgorithm = batchAlgorithm;
         this.estimator = estimator;
         this.confidenceLevel = confidenceLevel;
         this.halfWidth = halfWidth;
 
-        if (model.getConfiguration()
-                .getConfidenceModelElementName() == null){
-            throw new RuntimeException("SimuCom tried to set up a ConfidenceStopCondition, but no usage scenario name was given to measure the confidence for.");
+        if (model.getConfiguration().getConfidenceModelElementName() == null) {
+            throw new RuntimeException(
+                    "SimuCom tried to set up a ConfidenceStopCondition, but no usage scenario name was given to measure the confidence for.");
         }
-        this.usageScenarioName = model.getConfiguration()
-                .getConfidenceModelElementName();
+        this.usageScenarioName = model.getConfiguration().getConfidenceModelElementName();
         this.minBatches = 0;
     }
 
@@ -81,24 +79,22 @@ public class ConfidenceStopCondition implements SimCondition, IMeasurementSource
 
     @Override
     public void newMeasurementAvailable(final Measurement resultTuple) {
-        final Measure<Double, Duration> responseTimeMeasure = resultTuple.getMeasureForMetric(MetricDescriptionConstants.RESPONSE_TIME_METRIC);
+        final Measure<Double, Duration> responseTimeMeasure = resultTuple
+                .getMeasureForMetric(MetricDescriptionConstants.RESPONSE_TIME_METRIC);
         final double responseTime = responseTimeMeasure.doubleValue(SI.SECOND);
 
         batchAlgorithm.offerSample(responseTime);
-        if (batchAlgorithm.hasValidBatches()
-                && batchAlgorithm.getBatchMeans().size() >= minBatches) {
+        if (batchAlgorithm.hasValidBatches() && batchAlgorithm.getBatchMeans().size() >= minBatches) {
             // estimate actual confidence interval
-            final ConfidenceInterval ci = estimator.estimateConfidence(
-                    batchAlgorithm.getBatchMeans(), confidenceLevel);
+            final ConfidenceInterval ci = estimator.estimateConfidence(batchAlgorithm.getBatchMeans(), confidenceLevel);
 
-            if (ci != null){
+            if (ci != null) {
                 // construct target confidence interval
-                final ConfidenceInterval targetCI = new ConfidenceInterval(ci
-                        .getMean(), halfWidth, confidenceLevel);
+                final ConfidenceInterval targetCI = new ConfidenceInterval(ci.getMean(), halfWidth, confidenceLevel);
 
                 if (targetCI.contains(ci)) {
-                    if(logger.isEnabledFor(Level.INFO)) {
-                        logger.info("Requested confidence reached.");
+                    if (LOGGER.isEnabledFor(Level.INFO)) {
+                        LOGGER.info("Requested confidence reached.");
                     }
                     confidenceReached = true;
                     this.confidence = ci;
@@ -108,19 +104,17 @@ public class ConfidenceStopCondition implements SimCondition, IMeasurementSource
                     // actually stops.
                     minBatches = batchAlgorithm.getBatchMeans().size() + 1;
                 } else {
-                    if(logger.isEnabledFor(Level.INFO)) {
-                        logger.info("Requested confidence not yet reached.");
+                    if (LOGGER.isEnabledFor(Level.INFO)) {
+                        LOGGER.info("Requested confidence not yet reached.");
                     }
 
                     // request another batch in order to reduce the confidence
                     // interval's half-width
                     minBatches = batchAlgorithm.getBatchMeans().size() + 1;
                 }
-                if(logger.isEnabledFor(Level.INFO)) {
-                    logger.info("Current confidence interval: Mean " + ci.getMean()
-                            + ", " + confidenceLevel * 100
-                            + "% Confidence Interval " + "[" + ci.getLowerBound()
-                            + "," + ci.getUpperBound() + "]");
+                if (LOGGER.isEnabledFor(Level.INFO)) {
+                    LOGGER.info("Current confidence interval: Mean " + ci.getMean() + ", " + confidenceLevel * 100
+                            + "% Confidence Interval " + "[" + ci.getLowerBound() + "," + ci.getUpperBound() + "]");
                 }
             }
         }

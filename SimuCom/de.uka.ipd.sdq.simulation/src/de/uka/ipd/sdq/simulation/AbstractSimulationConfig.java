@@ -92,13 +92,14 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
             this.randomSeed = getSeedFromConfig(configuration);
 
             this.recorderName = (String) configuration.get(PERSISTENCE_RECORDER_NAME);
-            this.recorderConfigurationFactory = RecorderExtensionHelper.getRecorderConfigurationFactoryForName(this.recorderName);
+            this.recorderConfigurationFactory = RecorderExtensionHelper
+                    .getRecorderConfigurationFactoryForName(this.recorderName);
             this.recorderConfigurationFactory.initialize(configuration);
 
             this.listeners = new ArrayList<ISimulationListener>();
         } catch (final Exception e) {
             LOG.error("Setup of simulation failed");
-            LOG.error("The configuration could not be loaded",e);
+            LOG.error("The configuration could not be loaded", e);
             throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
         }
     }
@@ -162,7 +163,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     public String getNameBase() {
         return nameExperimentRun;
     }
-    
+
     public String getVariationId() {
         return variationId;
     }

@@ -8,35 +8,37 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.transformations.builder.abstractbuilder.AbstractCompositeStructureBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
-public abstract class AbstractConnectorCompletionBuilder 
-extends AbstractCompositeStructureBuilder {
+public abstract class AbstractConnectorCompletionBuilder extends AbstractCompositeStructureBuilder {
 
-	protected AssemblyConnector connectorToReplace;
-	private static long contextID = 0;
+    protected AssemblyConnector connectorToReplace;
+    private static long contextID = 0;
 
-	public AbstractConnectorCompletionBuilder(PCMAndCompletionModelHolder models, AssemblyConnector con, String componentName){
-		super(models, componentName);
-		this.connectorToReplace = con;
-	}
-	
-	@Override
-	protected RepositoryComponent createComponent(String componentName) {
-		Completion completion = CompletionsFactory.eINSTANCE.createCompletion();
-		completion.setEntityName("ConnectorCompletion_"+componentName+getNextCounter() );
-		
-		return completion;
-	}
+    public AbstractConnectorCompletionBuilder(PCMAndCompletionModelHolder models, AssemblyConnector con,
+            String componentName) {
+        super(models, componentName);
+        this.connectorToReplace = con;
+    }
 
-	@Override
-	public void build() {
-		super.build();
-		myOperationProvidedRole = addOperationProvidedRole(connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),"ProvidedRole");
-		myOperationRequiredRole = addOperationRequiredRole(connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),"RequiredRole");
+    @Override
+    protected RepositoryComponent createComponent(String componentName) {
+        Completion completion = CompletionsFactory.eINSTANCE.createCompletion();
+        completion.setEntityName("ConnectorCompletion_" + componentName + getNextCounter());
 
-		myAssemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext(); 
-		myAssemblyContext.setEntityName("CompletionComponentContext"+contextID);
-		contextID++;
-		myAssemblyContext.setEncapsulatedComponent__AssemblyContext(myComponent);
-	}
-	
+        return completion;
+    }
+
+    @Override
+    public void build() {
+        super.build();
+        myOperationProvidedRole = addOperationProvidedRole(connectorToReplace.getRequiredRole_AssemblyConnector()
+                .getRequiredInterface__OperationRequiredRole(), "ProvidedRole");
+        myOperationRequiredRole = addOperationRequiredRole(connectorToReplace.getRequiredRole_AssemblyConnector()
+                .getRequiredInterface__OperationRequiredRole(), "RequiredRole");
+
+        myAssemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext();
+        myAssemblyContext.setEntityName("CompletionComponentContext" + contextID);
+        contextID++;
+        myAssemblyContext.setEncapsulatedComponent__AssemblyContext(myComponent);
+    }
+
 }

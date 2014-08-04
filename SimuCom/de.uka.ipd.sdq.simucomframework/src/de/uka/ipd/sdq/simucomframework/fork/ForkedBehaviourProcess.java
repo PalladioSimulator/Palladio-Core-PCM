@@ -7,8 +7,8 @@ import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 
 /**
- * Base class for ForkBehaviours. Generator creates a specialisation of this and
- * uses it to execute actions in parallel
+ * Base class for ForkBehaviours. Generator creates a specialisation of this and uses it to execute
+ * actions in parallel
  *
  * @author Steffen Becker
  *
@@ -16,10 +16,10 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 
     protected final Context myContext;
-    private   final ISimProcess parentProcess;
+    private final ISimProcess parentProcess;
     protected final String assemblyContextID;
-    private   final boolean isAsync;
-    private   boolean isTerminated = false;
+    private final boolean isAsync;
+    private boolean isTerminated = false;
 
     private static Logger logger = Logger.getLogger(ForkedBehaviourProcess.class.getName());
 
@@ -38,6 +38,7 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 
     /**
      * Factory method for the fork context used in the forked behaviour
+     * 
      * @param myContext
      * @return
      */
@@ -45,7 +46,8 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
         return new ForkContext(myContext, this);
     }
 
-    public ForkedBehaviourProcess(final Context myContext, final String assemblyContextID, final boolean isAsync, final int priority) {
+    public ForkedBehaviourProcess(final Context myContext, final String assemblyContextID, final boolean isAsync,
+            final int priority) {
         this(myContext, assemblyContextID, isAsync);
         setPriority(priority);
     }
@@ -62,8 +64,9 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
         if (!isAsync && !parentProcess.isTerminated() && simulationIsRunning()) {
             parentProcess.scheduleAt(0);
         } else {
-            if(logger.isDebugEnabled()) {
-                logger.debug("Asynch behaviour finished at simtime " + getModel().getSimulationControl().getCurrentSimulationTime());
+            if (logger.isDebugEnabled()) {
+                logger.debug("Asynch behaviour finished at simtime "
+                        + getModel().getSimulationControl().getCurrentSimulationTime());
             }
         }
     }
@@ -73,8 +76,8 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
     }
 
     /**
-     * Template method filled by the generate with the parallel behaviour
-     * specified in the PCM's fork action
+     * Template method filled by the generate with the parallel behaviour specified in the PCM's
+     * fork action
      */
     protected abstract void executeBehaviour();
 
@@ -84,10 +87,8 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
 
     /*
      * (non-Javadoc)
-     *
-     * @see
-     * de.uka.ipd.sdq.simulation.abstractsimengine.SimProcess#isTerminated
-     * ()
+     * 
+     * @see de.uka.ipd.sdq.simulation.abstractsimengine.SimProcess#isTerminated ()
      */
     @Override
     public boolean isTerminated() {

@@ -12,47 +12,49 @@ import de.uka.ipd.sdq.statistics.estimation.SampleMeanEstimator;
 
 /**
  * Helper class to actually perform a simulation run using desmo-j
+ * 
  * @author Steffen Becker, Sebastian Lehrig
  */
 public class ExperimentRunner {
-        
-    private final static Logger LOGGER = 
-		Logger.getLogger(ExperimentRunner.class.getName());
-	
-    private static final double ONE_HUNDERT_PERCENT = 100.0;
-    
-    public static ConfidenceStopCondition confidenceStopCondition = null;
-    
-	/**
-	 * Run the given simulation model until the given simulation time
-	 * is reached
-	 * @param model Simulation model to execute
-	 * @param simTime Maximum simulation time to run the simulation for
-	 * @deprecated Use run(SimuComModel) instead as time is already stored in SimuComModel
-	 */
-	public static double run(SimuComModel model, long simTime) {
-	    if (LOGGER.isDebugEnabled()) {
-	        LOGGER.debug("Setting up experiment runner");
-	    }
-	    setupStopConditions(model);
-	    
-		// measure elapsed time for the simulation
-		double startTime = System.nanoTime();
-		
-		model.getSimulationControl().start();
-		
-		return System.nanoTime() - startTime;
-	}
 
-	/**
-	 * Run the given simulation model until the given simulation time
-	 * is reached
-	 * @param model Simulation model to execute
-	 */
-	public static double run(SimuComModel model) {
-		return run(model,model.getConfiguration().getSimuTime());
-	}
-	
+    private final static Logger LOGGER = Logger.getLogger(ExperimentRunner.class.getName());
+
+    private static final double ONE_HUNDERT_PERCENT = 100.0;
+
+    public static ConfidenceStopCondition confidenceStopCondition = null;
+
+    /**
+     * Run the given simulation model until the given simulation time is reached
+     * 
+     * @param model
+     *            Simulation model to execute
+     * @param simTime
+     *            Maximum simulation time to run the simulation for
+     * @deprecated Use run(SimuComModel) instead as time is already stored in SimuComModel
+     */
+    public static double run(SimuComModel model, long simTime) {
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Setting up experiment runner");
+        }
+        setupStopConditions(model);
+
+        // measure elapsed time for the simulation
+        double startTime = System.nanoTime();
+
+        model.getSimulationControl().start();
+
+        return System.nanoTime() - startTime;
+    }
+
+    /**
+     * Run the given simulation model until the given simulation time is reached
+     * 
+     * @param model
+     *            Simulation model to execute
+     */
+    public static double run(SimuComModel model) {
+        return run(model, model.getConfiguration().getSimuTime());
+    }
 
     private static void setupStopConditions(final SimuComModel model) {
         boolean hasStopCondition = false;
@@ -89,8 +91,8 @@ public class ExperimentRunner {
                 batchAlgorithm = new StaticBatchAlgorithm(batchSize, minNumberOfBatches);
             }
 
-            confidenceStopCondition = new ConfidenceStopCondition(model, batchAlgorithm,
-                    new SampleMeanEstimator(), level, halfWidth);
+            confidenceStopCondition = new ConfidenceStopCondition(model, batchAlgorithm, new SampleMeanEstimator(),
+                    level, halfWidth);
             model.getSimulationControl().addStopCondition(confidenceStopCondition);
             return true;
         } else {

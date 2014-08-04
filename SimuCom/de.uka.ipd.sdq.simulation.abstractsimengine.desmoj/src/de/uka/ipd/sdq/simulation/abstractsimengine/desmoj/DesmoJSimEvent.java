@@ -11,8 +11,7 @@ import desmoj.core.simulator.TimeSpan;
  * @author Steffen Becker
  * @author Philipp Merkle
  */
-public class DesmoJSimEvent<E extends IEntity> extends Event<DesmoJEntity> implements
-ISimEvent<E> {
+public class DesmoJSimEvent<E extends IEntity> extends Event<DesmoJEntity> implements ISimEvent<E> {
 
     private final AbstractSimEventDelegator<E> event;
 

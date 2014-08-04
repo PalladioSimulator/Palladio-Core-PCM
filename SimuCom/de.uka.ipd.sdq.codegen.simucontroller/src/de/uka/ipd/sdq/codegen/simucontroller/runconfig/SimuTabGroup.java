@@ -17,20 +17,20 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
  * @author Roman Andrej
  */
 public class SimuTabGroup extends ExtendableTabGroup {
-    
+
     @Override
     public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
         List<ILaunchConfigurationTab> tabs = new ArrayList<ILaunchConfigurationTab>();
         ILaunchConfigurationTab commonTab = new DebugEnabledCommonTab();
-		tabs.add(new FileNamesInputTab());// Default tab
+        tabs.add(new FileNamesInputTab());// Default tab
         tabs.add(new SimuComConfigurationTab());
         tabs.add(new SimuConfigurationTab());
         for (String workflowExtensionPointId : WorkflowHooks.getAllWorkflowHookIDs()) {
             tabs.addAll(createExtensionTabs(dialog, mode, workflowExtensionPointId));
         }
         tabs.add(new FeatureOptionsTab());
-        //tabs.add(new CipCompletionTab());
-		tabs.add(commonTab);
+        // tabs.add(new CipCompletionTab());
+        tabs.add(commonTab);
         setTabs(tabs.toArray(new ILaunchConfigurationTab[] {}));
     }
 }

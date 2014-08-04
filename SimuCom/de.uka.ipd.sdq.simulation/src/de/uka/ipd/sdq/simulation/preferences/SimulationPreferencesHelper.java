@@ -26,8 +26,8 @@ public class SimulationPreferencesHelper {
                 firstEngineId = engineNamesAndIds[0][1];
             }
         } catch (CoreException e) {
-        	if(logger.isEnabledFor(Level.WARN))
-        		logger.warn("Could not retrieve simulation engine names and ids.", e);
+            if (logger.isEnabledFor(Level.WARN))
+                logger.warn("Could not retrieve simulation engine names and ids.", e);
         }
         return firstEngineId;
     }
@@ -42,15 +42,15 @@ public class SimulationPreferencesHelper {
         try {
             engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(preferredEngineId);
         } catch (CoreException e) {
-        	logger.warn("Could not load preferred simulation engine " + preferredEngineId + ".", e);
-        
-	        // if no factory has been found for the preferred engine, use the default engine
-	        try {
-	            engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(getDefaultEngineId());
-	        } catch (CoreException e2) {
-	        	logger.warn("Could not load default simulation engine " + getDefaultEngineId() + ".", e2);
-	        }
-        
+            logger.warn("Could not load preferred simulation engine " + preferredEngineId + ".", e);
+
+            // if no factory has been found for the preferred engine, use the default engine
+            try {
+                engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(getDefaultEngineId());
+            } catch (CoreException e2) {
+                logger.warn("Could not load default simulation engine " + getDefaultEngineId() + ".", e2);
+            }
+
         }
         return engineFactory;
     }

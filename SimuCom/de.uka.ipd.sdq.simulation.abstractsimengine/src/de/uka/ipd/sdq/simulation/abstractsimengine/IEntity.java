@@ -19,7 +19,7 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
 public interface IEntity {
 
     public static final NullEntity NULL = new NullEntity();
-    
+
     public boolean isScheduled();
 
     public void reschedule(double delay);

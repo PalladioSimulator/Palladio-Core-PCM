@@ -16,14 +16,13 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 /**
- * Represents a step where the types of all possible failure-on-demand
- * occurrences during the simulation are determined.
+ * Represents a step where the types of all possible failure-on-demand occurrences during the
+ * simulation are determined.
  * 
  * @author brosch
  * 
  */
-public class DetermineFailureTypesJob implements
-IBlackboardInteractingJob<MDSDBlackboard> {
+public class DetermineFailureTypesJob implements IBlackboardInteractingJob<MDSDBlackboard> {
 
     /**
      * The blackboard where the PCM model resides.
@@ -46,8 +45,7 @@ IBlackboardInteractingJob<MDSDBlackboard> {
      * @param configuration
      *            the configuration of the workflow
      */
-    public DetermineFailureTypesJob(
-            final AbstractPCMWorkflowRunConfiguration configuration) {
+    public DetermineFailureTypesJob(final AbstractPCMWorkflowRunConfiguration configuration) {
         super();
         this.configuration = configuration;
     }
@@ -55,12 +53,10 @@ IBlackboardInteractingJob<MDSDBlackboard> {
     /*
      * (non-Javadoc)
      * 
-     * @seede.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime.
-     * IProgressMonitor)
+     * @seede.uka.ipd.sdq.workflow.IJob#execute(org.eclipse.core.runtime. IProgressMonitor)
      */
     @Override
-    public void execute(final IProgressMonitor monitor)
-            throws JobFailedException, UserCanceledException {
+    public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 
         // Check for the "simulate failures" option:
         final SimuComWorkflowConfiguration config = (SimuComWorkflowConfiguration) configuration;
@@ -73,11 +69,8 @@ IBlackboardInteractingJob<MDSDBlackboard> {
                 .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 
         // Derive the failure types for the simulation:
-        FailureStatistics.setFailureTypes(
-                helper.getFailureTypes(MarkovEvaluationType.POINTSOFFAILURE,
-                        pcmPartition.getRepositories(), pcmPartition
-                        .getResourceEnvironment(), pcmPartition
-                        .getSystem()));
+        FailureStatistics.setFailureTypes(helper.getFailureTypes(MarkovEvaluationType.POINTSOFFAILURE,
+                pcmPartition.getRepositories(), pcmPartition.getResourceEnvironment(), pcmPartition.getSystem()));
     }
 
     /*
@@ -93,19 +86,16 @@ IBlackboardInteractingJob<MDSDBlackboard> {
     /*
      * (non-Javadoc)
      * 
-     * @seede.uka.ipd.sdq.workflow.IJob#cleanup(org.eclipse.core.runtime.
-     * IProgressMonitor)
+     * @seede.uka.ipd.sdq.workflow.IJob#cleanup(org.eclipse.core.runtime. IProgressMonitor)
      */
     @Override
-    public void cleanup(final IProgressMonitor monitor)
-            throws CleanupFailedException {
+    public void cleanup(final IProgressMonitor monitor) throws CleanupFailedException {
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * de.uka.ipd.sdq.workflow.IBlackboardInteractingJob#setBlackboard(de.uka
+     * @see de.uka.ipd.sdq.workflow.IBlackboardInteractingJob#setBlackboard(de.uka
      * .ipd.sdq.workflow.Blackboard)
      */
     @Override

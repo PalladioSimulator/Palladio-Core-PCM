@@ -6,8 +6,8 @@ import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
- * This class provides auxiliary functionality for capturing
- * reliability-relevant sensor data during the simulation.
+ * This class provides auxiliary functionality for capturing reliability-relevant sensor data during
+ * the simulation.
  * 
  * @author brosch
  * 
@@ -43,8 +43,7 @@ public class ReliabilitySensorHelper {
      * Retrieves a usage-scenario-specific execution result ProbeSet ID.
      * 
      * @param usageScenarioId
-     *            the ID of the PCM model element representing the usage
-     *            scenario
+     *            the ID of the PCM model element representing the usage scenario
      * @return the corresponding ProbeSet ID
      */
     public static String getScenarioProbeSetId(final String usageScenarioId) {
@@ -61,36 +60,32 @@ public class ReliabilitySensorHelper {
      * @param exception
      *            the occurred failure exception (if any)
      * @param simControl
-     *            the simulation control object, keeping the current simulated
-     *            time
+     *            the simulation control object, keeping the current simulated time
      * @param requestContext
      *            the identification of the request context
      */
-    public static synchronized void recordExternalCallResult(
-            final String callName, final String externalCallId,
-            final FailureException exception,
-            final SimuComModel model,
-            final RequestContext requestContext) {
+    public static synchronized void recordExternalCallResult(final String callName, final String externalCallId,
+            final FailureException exception, final SimuComModel model, final RequestContext requestContext) {
         // TODO FIXME
-        //		IProbeStrategy takeTimeStrategy = model.getProbeFrameworkContext()
-        //				.getProbeStrategyRegistry().getProbeStrategy(
-        //						ProbeType.CURRENT_TIME, null);
-        //		IProbeStrategy takeResultStrategy = model.getProbeFrameworkContext()
-        //				.getProbeStrategyRegistry().getProbeStrategy(
-        //						ProbeType.EXECUTION_RESULT, null);
-        //		MarkovFailureType failureType = (exception == null) ? null : exception
-        //				.getFailureType();
-        //		int stateId = FailureStatistics.getInstance().getExecutionResultId(
-        //				failureType);
-        //		int probeSetId = model.getProbeFrameworkContext().obtainProbeSetId(callName);
-        //		BasicMeasurement<?, ? extends Quantity> timeSample = takeTimeStrategy
-        //				.takeSample(EXTERNAL_CALL_RESULT_TIME_PROBE_ID + "/"
-        //						+ probeSetId, model.getSimulationControl());
-        //		BasicMeasurement<?, ? extends Quantity> stateSample = takeResultStrategy
-        //				.takeSample(EXTERNAL_CALL_RESULT_STATE_PROBE_ID + "/"
-        //						+ probeSetId, stateId);
-        //		MeasurementSet sample = ProbeFrameworkUtils.buildProbeSetSample(timeSample,
-        //				stateSample, requestContext, externalCallId, probeSetId);
-        //		model.getProbeFrameworkContext().getSampleBlackboard().addSample(sample);
+        // IProbeStrategy takeTimeStrategy = model.getProbeFrameworkContext()
+        // .getProbeStrategyRegistry().getProbeStrategy(
+        // ProbeType.CURRENT_TIME, null);
+        // IProbeStrategy takeResultStrategy = model.getProbeFrameworkContext()
+        // .getProbeStrategyRegistry().getProbeStrategy(
+        // ProbeType.EXECUTION_RESULT, null);
+        // MarkovFailureType failureType = (exception == null) ? null : exception
+        // .getFailureType();
+        // int stateId = FailureStatistics.getInstance().getExecutionResultId(
+        // failureType);
+        // int probeSetId = model.getProbeFrameworkContext().obtainProbeSetId(callName);
+        // BasicMeasurement<?, ? extends Quantity> timeSample = takeTimeStrategy
+        // .takeSample(EXTERNAL_CALL_RESULT_TIME_PROBE_ID + "/"
+        // + probeSetId, model.getSimulationControl());
+        // BasicMeasurement<?, ? extends Quantity> stateSample = takeResultStrategy
+        // .takeSample(EXTERNAL_CALL_RESULT_STATE_PROBE_ID + "/"
+        // + probeSetId, stateId);
+        // MeasurementSet sample = ProbeFrameworkUtils.buildProbeSetSample(timeSample,
+        // stateSample, requestContext, externalCallId, probeSetId);
+        // model.getProbeFrameworkContext().getSampleBlackboard().addSample(sample);
     }
 }

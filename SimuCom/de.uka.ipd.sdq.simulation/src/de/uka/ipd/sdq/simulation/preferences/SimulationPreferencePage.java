@@ -45,8 +45,8 @@ public class SimulationPreferencePage extends FieldEditorPreferencePage implemen
         try {
             engineNamesAndIds = AbstractSimEngineExtensionHelper.getEngineNamesAndIds();
         } catch (CoreException e) {
-        	if(logger.isEnabledFor(Level.WARN))
-        		logger.warn("Could not retrieve simulation engine names and ids.", e);
+            if (logger.isEnabledFor(Level.WARN))
+                logger.warn("Could not retrieve simulation engine names and ids.", e);
         }
 
         // create field editor

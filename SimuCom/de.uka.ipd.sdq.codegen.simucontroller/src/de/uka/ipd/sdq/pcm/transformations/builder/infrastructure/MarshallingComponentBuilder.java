@@ -6,31 +6,26 @@ import de.uka.ipd.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBui
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.MarshallerComponentSeffBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
-public class MarshallingComponentBuilder extends
-		BasicMiddlewareComponentBuilder {
-	
-	public enum MarshallerSide {
-		CLIENT,
-		SERVER
-	}
+public class MarshallingComponentBuilder extends BasicMiddlewareComponentBuilder {
 
-	private MarshallerSide side;
-	
-	public MarshallingComponentBuilder(
-			PCMAndCompletionModelHolder models, 
-			OperationInterface providedIf,
-			OperationInterface requiredIf, 
-			OperationInterface middlewareInterface,
-			ResourceContainer container,
-			 MarshallerSide side) {
-		super(models, providedIf, requiredIf, middlewareInterface, container, "MarshallingComponent_"+side);
-		this.side = side;
-	}
+    public enum MarshallerSide {
+        CLIENT, SERVER
+    }
 
-	@Override
-	protected DelegatorComponentSeffBuilder getSeffBuilder() {
-		MarshallerComponentSeffBuilder builder = new MarshallerComponentSeffBuilder(getOperationProvidedRole(),getOperationRequiredRole(),getMiddlewareRole(),side);
-		return builder;
-	}
+    private MarshallerSide side;
+
+    public MarshallingComponentBuilder(PCMAndCompletionModelHolder models, OperationInterface providedIf,
+            OperationInterface requiredIf, OperationInterface middlewareInterface, ResourceContainer container,
+            MarshallerSide side) {
+        super(models, providedIf, requiredIf, middlewareInterface, container, "MarshallingComponent_" + side);
+        this.side = side;
+    }
+
+    @Override
+    protected DelegatorComponentSeffBuilder getSeffBuilder() {
+        MarshallerComponentSeffBuilder builder = new MarshallerComponentSeffBuilder(getOperationProvidedRole(),
+                getOperationRequiredRole(), getMiddlewareRole(), side);
+        return builder;
+    }
 
 }

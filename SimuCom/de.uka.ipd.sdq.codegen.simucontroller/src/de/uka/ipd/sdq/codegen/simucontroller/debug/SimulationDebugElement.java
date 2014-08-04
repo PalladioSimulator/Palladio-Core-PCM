@@ -18,79 +18,93 @@ import org.eclipse.emf.common.notify.Notifier;
  *
  */
 public abstract class SimulationDebugElement extends PlatformObject implements IDebugElement, Adapter {
-	
-	protected IDebugTarget myDebugTarget = null;
-	protected ILaunch launch = null;
-	private Notifier adapterTarget;
 
-	public SimulationDebugElement(IDebugTarget myDebugTarget, ILaunch launch) {
-		super();
+    protected IDebugTarget myDebugTarget = null;
+    protected ILaunch launch = null;
+    private Notifier adapterTarget;
 
-		this.myDebugTarget = myDebugTarget;
-		this.launch = launch;
-	}
+    public SimulationDebugElement(IDebugTarget myDebugTarget, ILaunch launch) {
+        super();
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.core.model.IDebugElement#getDebugTarget()
-	 */
-	public IDebugTarget getDebugTarget() {
-		return myDebugTarget;
-	}
+        this.myDebugTarget = myDebugTarget;
+        this.launch = launch;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.core.model.IDebugElement#getLaunch()
-	 */
-	public ILaunch getLaunch() {
-		return launch;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.debug.core.model.IDebugElement#getDebugTarget()
+     */
+    public IDebugTarget getDebugTarget() {
+        return myDebugTarget;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.core.model.IDebugElement#getModelIdentifier()
-	 */
-	public String getModelIdentifier() {
-		return "de.uka.ipd.sdq.pcm.simucom.SimuComDebugModel";
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.debug.core.model.IDebugElement#getLaunch()
+     */
+    public ILaunch getLaunch() {
+        return launch;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
-	 */
-	@SuppressWarnings("unchecked")
-	public Object getAdapter(Class adapter) {
-		if (adapter == IDebugElement.class) {
-			return this;
-		}
-		return super.getAdapter(adapter);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.debug.core.model.IDebugElement#getModelIdentifier()
+     */
+    public String getModelIdentifier() {
+        return "de.uka.ipd.sdq.pcm.simucom.SimuComDebugModel";
+    }
 
-	/**
-	 * Fires a debug event
-	 * 
-	 * @param event the event to be fired
-	 */
-	protected void fireEvent(DebugEvent event) {
-		DebugPlugin.getDefault().fireDebugEventSet(new DebugEvent[] {event});
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.core.runtime.IAdaptable#getAdapter(java.lang.Class)
+     */
+    @SuppressWarnings("unchecked")
+    public Object getAdapter(Class adapter) {
+        if (adapter == IDebugElement.class) {
+            return this;
+        }
+        return super.getAdapter(adapter);
+    }
 
-	/**
-	 * Fires a debug event
-	 * 
-	 * @param event the event to be fired
-	 */
-	protected void fireEvent(Object source, int eventKind) {
-		DebugPlugin.getDefault().fireDebugEventSet(new DebugEvent[] {new DebugEvent(source,eventKind)});
-	}
+    /**
+     * Fires a debug event
+     * 
+     * @param event
+     *            the event to be fired
+     */
+    protected void fireEvent(DebugEvent event) {
+        DebugPlugin.getDefault().fireDebugEventSet(new DebugEvent[] {
+            event
+        });
+    }
 
-	public Notifier getTarget() {
-		return this.adapterTarget;
-	}
+    /**
+     * Fires a debug event
+     * 
+     * @param event
+     *            the event to be fired
+     */
+    protected void fireEvent(Object source, int eventKind) {
+        DebugPlugin.getDefault().fireDebugEventSet(new DebugEvent[] {
+            new DebugEvent(source, eventKind)
+        });
+    }
 
-	public boolean isAdapterForType(Object type) {
-		return true;
-	}
+    public Notifier getTarget() {
+        return this.adapterTarget;
+    }
 
-	public abstract void notifyChanged(Notification notification);
+    public boolean isAdapterForType(Object type) {
+        return true;
+    }
 
-	public void setTarget(Notifier newTarget) {
-		this.adapterTarget = newTarget;
-	}	
+    public abstract void notifyChanged(Notification notification);
+
+    public void setTarget(Notifier newTarget) {
+        this.adapterTarget = newTarget;
+    }
 }

@@ -31,6 +31,7 @@ public abstract class SimulatedProcess implements ISimProcess {
 
     /**
      * Default constructor.
+     * 
      * @param processStrategy
      */
     public SimulatedProcess(final ISimProcessStrategy processStrategy) {
@@ -84,8 +85,8 @@ public abstract class SimulatedProcess implements ISimProcess {
 
     public void suspend() {
         if (this.myProcessState != ProcessState.RUNNING) {
-            throw new IllegalStateException("Tried to suspend non-running process [" + this.getAbstractProcess().getId()
-                    + "]");
+            throw new IllegalStateException("Tried to suspend non-running process ["
+                    + this.getAbstractProcess().getId() + "]");
         }
         if (logger.isDebugEnabled()) {
             logger.debug("Suspending thread [" + this.getAbstractProcess().getId() + "]");
@@ -141,12 +142,12 @@ public abstract class SimulatedProcess implements ISimProcess {
         for (final ISimProcessListener l : listCopy) {
             if (oldState == ProcessState.RUNNING && newState == ProcessState.SUSPENDED) {
                 l.notifySuspending(process);
-            } else if (oldState == ProcessState.SUSPENDED && newState == ProcessState.RUNNING){
+            } else if (oldState == ProcessState.SUSPENDED && newState == ProcessState.RUNNING) {
                 l.notifyResuming(process);
             } else if (newState == ProcessState.TERMINATED) {
                 l.notifyTerminated(process);
             } else {
-                throw new RuntimeException("Unknown state transition triggered. From "+oldState+" to "+newState);
+                throw new RuntimeException("Unknown state transition triggered. From " + oldState + " to " + newState);
             }
         }
     }

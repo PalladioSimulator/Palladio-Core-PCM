@@ -7,74 +7,74 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.example.entities.BusStop;
 
 public class Route {
 
-	private Map<BusStop, RouteSegment> segmentMap;
+    private Map<BusStop, RouteSegment> segmentMap;
 
-	public Route() {
-		this.segmentMap = new HashMap<>();
-	}
+    public Route() {
+        this.segmentMap = new HashMap<>();
+    }
 
-	public void addSegment(BusStop from, BusStop to, int distance, int averageSpeed) {
-		if (this.segmentMap.containsKey(from)) {
-			throw new IllegalStateException("There is already a segement originating from bus stop " + from);
-		}
+    public void addSegment(BusStop from, BusStop to, int distance, int averageSpeed) {
+        if (this.segmentMap.containsKey(from)) {
+            throw new IllegalStateException("There is already a segement originating from bus stop " + from);
+        }
 
-		RouteSegment s = new RouteSegment(from, to, distance, averageSpeed);
-		this.segmentMap.put(from, s);
-	}
-	
-//	public BusStop nextStop(BusStop from) {
-//		return getRouteSegment(from).getTo();
-//	}
-//	
-//	public int distanceToNextStop(BusStop from) {
-//		return getRouteSegment(from).getDistance();
-//	}
-//	
-//	public int averageSpeedToNextStop(BusStop from) {
-//		return getRouteSegment(from).getAverageSpeed();
-//	}
-	
-	public RouteSegment getRouteSegment(BusStop from) {
-		if(!this.segmentMap.containsKey(from)) {
-			throw new IllegalStateException("There is no segment originating from bus stop " + from);
-		}
-		
-		return this.segmentMap.get(from);
-	}
+        RouteSegment s = new RouteSegment(from, to, distance, averageSpeed);
+        this.segmentMap.put(from, s);
+    }
 
-	public class RouteSegment {
+    // public BusStop nextStop(BusStop from) {
+    // return getRouteSegment(from).getTo();
+    // }
+    //
+    // public int distanceToNextStop(BusStop from) {
+    // return getRouteSegment(from).getDistance();
+    // }
+    //
+    // public int averageSpeedToNextStop(BusStop from) {
+    // return getRouteSegment(from).getAverageSpeed();
+    // }
 
-		private BusStop from, to;
+    public RouteSegment getRouteSegment(BusStop from) {
+        if (!this.segmentMap.containsKey(from)) {
+            throw new IllegalStateException("There is no segment originating from bus stop " + from);
+        }
 
-		// distance in kilometers
-		private int distance;
+        return this.segmentMap.get(from);
+    }
 
-		// average speed in kilometers per hour
-		private int averageSpeed;
+    public class RouteSegment {
 
-		public RouteSegment(BusStop from, BusStop to, int distance, int averageSpeed) {
-			this.from = from;
-			this.to = to;
-			this.distance = distance;
-			this.averageSpeed = averageSpeed;
-		}
+        private BusStop from, to;
 
-		public BusStop getFrom() {
-			return from;
-		}
+        // distance in kilometers
+        private int distance;
 
-		public BusStop getTo() {
-			return to;
-		}
+        // average speed in kilometers per hour
+        private int averageSpeed;
 
-		public int getDistance() {
-			return distance;
-		}
+        public RouteSegment(BusStop from, BusStop to, int distance, int averageSpeed) {
+            this.from = from;
+            this.to = to;
+            this.distance = distance;
+            this.averageSpeed = averageSpeed;
+        }
 
-		public int getAverageSpeed() {
-			return averageSpeed;
-		}
+        public BusStop getFrom() {
+            return from;
+        }
 
-	}
+        public BusStop getTo() {
+            return to;
+        }
+
+        public int getDistance() {
+            return distance;
+        }
+
+        public int getAverageSpeed() {
+            return averageSpeed;
+        }
+
+    }
 
 }

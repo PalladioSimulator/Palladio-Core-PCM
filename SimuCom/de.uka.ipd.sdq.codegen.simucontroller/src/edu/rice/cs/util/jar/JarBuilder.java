@@ -1,4 +1,3 @@
-
 /*BEGIN_COPYRIGHT_BLOCK
  *
  * Copyright (c) 2001-2007, JavaPLT group at Rice University (javaplt@rice.edu)
@@ -53,169 +52,194 @@ import org.apache.log4j.Logger;
 
 public class JarBuilder {
 
-  /** Logger for this class.*/
-  private static final Logger logger = Logger.getLogger(JarBuilder.class);
-  private JarOutputStream _output;
+    /** Logger for this class. */
+    private static final Logger logger = Logger.getLogger(JarBuilder.class);
+    private JarOutputStream _output;
 
-  /**
-   * Creates a file file without a manifest
-   *
-   * @param file the file to write the jar to
-   * @throws IOException thrown if the file cannot be opened for writing
-   */
-  public JarBuilder(File file) throws IOException {
-    _output = new JarOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
-  }
-
-  /**
-   * Creates an empty jar file with the given manifest
-   *
-   * @param jar      the file to write the jar to
-   * @param manifest the file that is the manifest for the archive
-   * @throws IOException thrown if either file cannot be opened for reading
-   */
-  public JarBuilder(File jar, File manifest) throws IOException {
-    _output = new JarOutputStream(new BufferedOutputStream(new FileOutputStream(jar)), new Manifest(new FileInputStream(manifest)));
-  }
-
-  /**
-   * Creates an empty jar file with the given manifest
-   *
-   * @param jar      the file to write the jar to
-   * @param manifest the manifest file for the jar
-   * @see ManifestWriter
-   */
-  public JarBuilder(File jar, Manifest manifest) {
-    try {
-      _output = new JarOutputStream(new BufferedOutputStream(new FileOutputStream(jar)), manifest);
-    }
-    catch (IOException e) {
-    	if(logger.isEnabledFor(Level.ERROR)) 
-    		logger.error("Could not create an empty JAR file.", e);
-    }
-  }
-
-  /**
-   * Takes a parent name and a field name and returns the concatenation of them correctly
-   *
-   * @param parent The parent directory
-   * @param name   The name of the file or directory
-   * @return the string concatenation of the parent and the name
-   */
-  private String makeName(String parent, String name) {
-    String sep = "/"; // NOTE: This can be a '/' since it is a path in the jar file itself
-    if( parent.equals("") )
-      return name;
-    if (parent.endsWith(sep))
-      return parent + name;
-    return parent + sep + name;
-  }
-
-  /**
-   * Adds the file to the given path and name
-   *
-   * @param file     the file to be added
-   * @param parent   the directory to the path in which the file is to be added
-   * @param fileName the name of the file in the archive
-   */
-  public void addFile(File file, String parent, String fileName) throws IOException {
-    byte data[] = new byte[2048];
-
-    FileInputStream fi = new FileInputStream(file.getAbsolutePath());
-    BufferedInputStream origin = new BufferedInputStream(fi, 2048);
-
-    JarEntry entry = new JarEntry(makeName(parent, fileName));
-    _output.putNextEntry(entry);
-
-    int count = origin.read(data, 0, 2048);
-    while (count != -1) {
-      _output.write(data, 0, count);
-      count = origin.read(data, 0, 2048);
+    /**
+     * Creates a file file without a manifest
+     *
+     * @param file
+     *            the file to write the jar to
+     * @throws IOException
+     *             thrown if the file cannot be opened for writing
+     */
+    public JarBuilder(File file) throws IOException {
+        _output = new JarOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
     }
 
-    origin.close();
-  }
+    /**
+     * Creates an empty jar file with the given manifest
+     *
+     * @param jar
+     *            the file to write the jar to
+     * @param manifest
+     *            the file that is the manifest for the archive
+     * @throws IOException
+     *             thrown if either file cannot be opened for reading
+     */
+    public JarBuilder(File jar, File manifest) throws IOException {
+        _output = new JarOutputStream(new BufferedOutputStream(new FileOutputStream(jar)), new Manifest(
+                new FileInputStream(manifest)));
+    }
 
-  /** Add the directory into the directory specified by parent
-   *  @param dir the directory to add
-   *  @param parent the path inside the jar that the directory should be added to
-   */
-  public void addDirectoryRecursive(File dir, String parent) {
-    addDirectoryRecursiveHelper(dir, parent, new byte[2048], null);
-  }
+    /**
+     * Creates an empty jar file with the given manifest
+     *
+     * @param jar
+     *            the file to write the jar to
+     * @param manifest
+     *            the manifest file for the jar
+     * @see ManifestWriter
+     */
+    public JarBuilder(File jar, Manifest manifest) {
+        try {
+            _output = new JarOutputStream(new BufferedOutputStream(new FileOutputStream(jar)), manifest);
+        } catch (IOException e) {
+            if (logger.isEnabledFor(Level.ERROR))
+                logger.error("Could not create an empty JAR file.", e);
+        }
+    }
 
-  /**
-   * Add the directory into the directory specified by parent
-   * @param dir the directory to add
-   * @param parent the path inside the jar that the directory should be added to
-   * @param filter the filter used to filter the files
-   */
-  public void addDirectoryRecursive(File dir, String parent, FileFilter filter) {
-    addDirectoryRecursiveHelper(dir, parent, new byte[2048], filter);
-  }
+    /**
+     * Takes a parent name and a field name and returns the concatenation of them correctly
+     *
+     * @param parent
+     *            The parent directory
+     * @param name
+     *            The name of the file or directory
+     * @return the string concatenation of the parent and the name
+     */
+    private String makeName(String parent, String name) {
+        String sep = "/"; // NOTE: This can be a '/' since it is a path in the jar file itself
+        if (parent.equals(""))
+            return name;
+        if (parent.endsWith(sep))
+            return parent + name;
+        return parent + sep + name;
+    }
 
-  /**
-   * Add the contents of a directory that match a filter to the archive
-   * @param dir the directory to add
-   * @param parent the directory to add into
-   * @param buffer a buffer that is 2048 bytes
-   * @param filter the FileFilter to filter the files by
-   * @return true on success, false on failure
-   */
-  private boolean addDirectoryRecursiveHelper(File dir, String parent, byte[] buffer, FileFilter filter) {
-    try {
-      File[] files = dir.listFiles(filter);
-      BufferedInputStream origin = null;
+    /**
+     * Adds the file to the given path and name
+     *
+     * @param file
+     *            the file to be added
+     * @param parent
+     *            the directory to the path in which the file is to be added
+     * @param fileName
+     *            the name of the file in the archive
+     */
+    public void addFile(File file, String parent, String fileName) throws IOException {
+        byte data[] = new byte[2048];
 
-      if( files == null ) // listFiles may return null if there's an IO error
+        FileInputStream fi = new FileInputStream(file.getAbsolutePath());
+        BufferedInputStream origin = new BufferedInputStream(fi, 2048);
+
+        JarEntry entry = new JarEntry(makeName(parent, fileName));
+        _output.putNextEntry(entry);
+
+        int count = origin.read(data, 0, 2048);
+        while (count != -1) {
+            _output.write(data, 0, count);
+            count = origin.read(data, 0, 2048);
+        }
+
+        origin.close();
+    }
+
+    /**
+     * Add the directory into the directory specified by parent
+     * 
+     * @param dir
+     *            the directory to add
+     * @param parent
+     *            the path inside the jar that the directory should be added to
+     */
+    public void addDirectoryRecursive(File dir, String parent) {
+        addDirectoryRecursiveHelper(dir, parent, new byte[2048], null);
+    }
+
+    /**
+     * Add the directory into the directory specified by parent
+     * 
+     * @param dir
+     *            the directory to add
+     * @param parent
+     *            the path inside the jar that the directory should be added to
+     * @param filter
+     *            the filter used to filter the files
+     */
+    public void addDirectoryRecursive(File dir, String parent, FileFilter filter) {
+        addDirectoryRecursiveHelper(dir, parent, new byte[2048], filter);
+    }
+
+    /**
+     * Add the contents of a directory that match a filter to the archive
+     * 
+     * @param dir
+     *            the directory to add
+     * @param parent
+     *            the directory to add into
+     * @param buffer
+     *            a buffer that is 2048 bytes
+     * @param filter
+     *            the FileFilter to filter the files by
+     * @return true on success, false on failure
+     */
+    private boolean addDirectoryRecursiveHelper(File dir, String parent, byte[] buffer, FileFilter filter) {
+        try {
+            File[] files = dir.listFiles(filter);
+            BufferedInputStream origin = null;
+
+            if (files == null) // listFiles may return null if there's an IO error
+                return true;
+            for (int i = 0; i < files.length; i++) {
+                if (files[i].isFile()) {
+                    origin = new BufferedInputStream(new FileInputStream(files[i]), 2048);
+
+                    JarEntry entry = new JarEntry(makeName(parent, files[i].getName()));
+                    _output.putNextEntry(entry);
+
+                    int count;
+                    while ((count = origin.read(buffer, 0, 2048)) != -1) {
+                        _output.write(buffer, 0, count);
+                    }
+                    origin.close();
+                } else if (files[i].isDirectory()) {
+                    addDirectoryRecursiveHelper(files[i], makeName(parent, files[i].getName()), buffer, filter);
+                }
+            }
+        } catch (Exception e) {
+            if (logger.isEnabledFor(Level.ERROR))
+                logger.error("Could not add directory contents to archive.", e);
+        }
         return true;
-      for (int i = 0; i < files.length; i++) {
-        if( files[i].isFile() ) {
-          origin = new BufferedInputStream(new FileInputStream(files[i]), 2048);
+    }
 
-          JarEntry entry = new JarEntry(makeName(parent, files[i].getName()));
-          _output.putNextEntry(entry);
-
-          int count;
-          while((count = origin.read(buffer, 0, 2048)) != -1) {
-            _output.write(buffer, 0, count);
-          }
-          origin.close();
+    /**
+     * Makes a directory in the jar file
+     *
+     * @param parent
+     *            The name of the parent that the directory is to be created in
+     * @param dirName
+     *            The name of the directory to be created
+     * @return Returns true on success, false on failure
+     */
+    public boolean makeDirectory(String parent, String dirName) {
+        JarEntry entry = new JarEntry(makeName(parent, dirName));
+        try {
+            _output.putNextEntry(entry);
+        } catch (IOException e) {
+            return false;
         }
-        else if( files[i].isDirectory() ) {
-          addDirectoryRecursiveHelper(files[i], makeName(parent, files[i].getName()),buffer,filter);
-        }
-      }
-    } catch(Exception e) {
-    	if(logger.isEnabledFor(Level.ERROR)) 
-    		logger.error("Could not add directory contents to archive.", e);
+        return true;
     }
-    return true;
-  }
 
-  /**
-   * Makes a directory in the jar file
-   *
-   * @param parent  The name of the parent that the directory is to be created in
-   * @param dirName The name of the directory to be created
-   * @return Returns true on success, false on failure
-   */
-  public boolean makeDirectory(String parent, String dirName) {
-    JarEntry entry = new JarEntry(makeName(parent, dirName));
-    try {
-      _output.putNextEntry(entry);
+    /**
+     * Close writing on the jar file
+     */
+    public void close() throws IOException {
+        _output.flush();
+        _output.close();
     }
-    catch (IOException e) {
-      return false;
-    }
-    return true;
-  }
-
-  /**
-   * Close writing on the jar file
-   */
-  public void close() throws IOException {
-    _output.flush();
-    _output.close();
-  }
 }

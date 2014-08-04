@@ -11,12 +11,11 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 public class SimDelayResource extends AbstractActiveResource {
 
     // Contains all running processes on the resource (key: process ID)
-    private final Hashtable<String,ISchedulableProcess> running_processes = new Hashtable<String, ISchedulableProcess>();
+    private final Hashtable<String, ISchedulableProcess> running_processes = new Hashtable<String, ISchedulableProcess>();
 
     public SimDelayResource(final SchedulerModel model, final String name, final String id) {
         super(model, -1l, name, id);
     }
-
 
     @Override
     public void start() {
@@ -73,7 +72,6 @@ public class SimDelayResource extends AbstractActiveResource {
         fireStateChange(running_processes.size(), 0);
     }
 
-
     @Override
     public void stop() {
         running_processes.clear();
@@ -84,11 +82,9 @@ public class SimDelayResource extends AbstractActiveResource {
 
     }
 
-
     @Override
     public int getQueueLengthFor(final SchedulerEntity schedulerEntity, final int coreID) {
         return running_processes.size();
     }
-
 
 }

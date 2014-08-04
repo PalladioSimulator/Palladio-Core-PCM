@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
  */
 public class SimulatedLinkingResource extends AbstractScheduledResource {
 
-    private static Logger LOGGER = Logger.getLogger(SimulatedLinkingResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SimulatedLinkingResource.class.getName());
 
     private static long resourceId = 1;
 
@@ -159,7 +159,7 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 
     @Override
     public void deactivateResource() {
-        if (utilizationSet == false) {
+        if (!utilizationSet) {
             // this.utilisationSensor.setTotalResourceDemand(totalDemandedTime,
             // 1);
             utilizationSet = true;

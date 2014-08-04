@@ -15,11 +15,11 @@ import desmoj.core.simulator.TimeSpan;
 public class DesmoJEntity extends Entity implements IEntity {
 
     private AbstractSimEntityDelegator entity;
-    
-	public DesmoJEntity(AbstractSimEntityDelegator entity, DesmoJModel owner, String name) {
-		super(owner, name, false);
-		this.entity = entity;
-	}
+
+    public DesmoJEntity(AbstractSimEntityDelegator entity, DesmoJModel owner, String name) {
+        super(owner, name, false);
+        this.entity = entity;
+    }
 
     @Override
     public void reschedule(double delay) {

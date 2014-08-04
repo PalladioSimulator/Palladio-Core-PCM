@@ -5,8 +5,8 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  * <code>lifeCycle</code> method. in this way, this class supports the so-called process-interaction
  * simulation modelling.
  * <p>
- * By contrast to {@link AbstractSimEventDelegator}s, simulated time may pass while executing the process
- * lifecycle. 
+ * By contrast to {@link AbstractSimEventDelegator}s, simulated time may pass while executing the
+ * process lifecycle.
  * 
  * @author Steffen Becker (this code has been factored out from SimuCom)
  * @author Philipp Merkle
@@ -26,7 +26,7 @@ public interface ISimProcess extends IEntity {
      *            the period of simulated time to wait before this process is activated again.
      */
     public void scheduleAt(double delay);
-    
+
     /**
      * Puts the process asleep and resumes after waiting <code>delay</code> simulated time units.
      * 
@@ -39,9 +39,9 @@ public interface ISimProcess extends IEntity {
      * Returns whether this process has finished its execution.
      */
     public boolean isTerminated();
-    
+
     public void addProcessListener(ISimProcessListener l);
-    
+
     public void removeProcessListener(ISimProcessListener l);
 
 }

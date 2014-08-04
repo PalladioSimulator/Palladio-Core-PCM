@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 /**
  * @author roman
  *
- * The class encapsulates all configuration options for SimuCom.
+ *         The class encapsulates all configuration options for SimuCom.
  */
 public class SimuComConfig extends AbstractSimulationConfig implements Serializable, Cloneable {
     /** Logger of this class. */
@@ -35,7 +35,7 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
     public static final Boolean DEFAULT_USE_CONFIDENCE = false;
     /** Default value for confidence level of the stop condition confidence. */
     public static final Integer DEFAULT_CONFIDENCE_LEVEL = 95;
-    /** Default value for the half width of the stop condition confidence.*/
+    /** Default value for the half width of the stop condition confidence. */
     public static final Integer DEFAULT_CONFIDENCE_HALFWIDTH = 10;
     /** Default value for the automated batch calculation */
     public static final Boolean DEFAULT_CONFIDENCE_USE_AUTOMATIC_BATCHES = true;
@@ -43,8 +43,6 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
     public static final Integer DEFAULT_CONFIDENCE_BATCH_SIZE = 200;
     /** default minimum number of batches, arbitrarily chosen */
     public static final Integer DEFAULT_CONFIDENCE_MIN_NUMBER_OF_BATCHES = 60;
-
-
 
     /** SimuCom configuration tab */
     public static final String SIMULATE_FAILURES = "simulateFailures";
@@ -61,7 +59,7 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
     // SimuCom extensions can also provide extension to the SimuCom configuration.
     // This map stores the extension configurations.
     private final HashMap<String, SimuComConfigExtension> simuComConfigExtensions;
-    
+
     private boolean simulateFailures = false;
     private boolean simulateLinkingResources = false;
     private boolean useConfidence = false;
@@ -69,60 +67,50 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
     private int confidenceHalfWidth = 0;
     private URI confidenceModelElementURI;
     private String confidenceModelElementName;
-    
+
     /* next three are batch algorithm settings */
     private boolean automaticBatches;
     private int batchSize;
     private int minNumberOfBatches;
 
-
-
-
     /**
-     * @param configuration a map which maps configuration option IDs to their values.
-     * The required keys are SimuComConfig.EXPERIMENT_RUN, SimuComConfig.SIMULATION_TIME
-     * SimuComConfig.MAXIMUM_MEASUREMENT_COUNT SimuComConfig.VERBOSE_LOGGING,
-     * SimuComConfig.DATASOURCE_ID. Optional keys are SimuComConfig.SIMULATE_FAILURES,
-     * SimuComConfig.SIMULATE_LINKING_RESOURCES and SimuComConfig.USE_CONFIDENCE. If
-     * SimuComConfig.USE_CONFIDENCE is set to true, you also need to set
-     * SimuComConfig.CONFIDENCE_LEVEL, SimuComConfig.CONFIDENCE_HALFWIDTH,
-     * SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, SimuComConfig.CONFIDENCE_MODELELEMENT_URI
+     * @param configuration
+     *            a map which maps configuration option IDs to their values. The required keys are
+     *            SimuComConfig.EXPERIMENT_RUN, SimuComConfig.SIMULATION_TIME
+     *            SimuComConfig.MAXIMUM_MEASUREMENT_COUNT SimuComConfig.VERBOSE_LOGGING,
+     *            SimuComConfig.DATASOURCE_ID. Optional keys are SimuComConfig.SIMULATE_FAILURES,
+     *            SimuComConfig.SIMULATE_LINKING_RESOURCES and SimuComConfig.USE_CONFIDENCE. If
+     *            SimuComConfig.USE_CONFIDENCE is set to true, you also need to set
+     *            SimuComConfig.CONFIDENCE_LEVEL, SimuComConfig.CONFIDENCE_HALFWIDTH,
+     *            SimuComConfig.CONFIDENCE_MODELELEMENT_NAME,
+     *            SimuComConfig.CONFIDENCE_MODELELEMENT_URI
      *
      */
-    public SimuComConfig(final Map<String,Object> configuration, final boolean debug){
+    public SimuComConfig(final Map<String, Object> configuration, final boolean debug) {
         super(configuration, debug);
         simuComConfigExtensions = new HashMap<String, SimuComConfigExtension>();
         try {
-            if (configuration.containsKey(SIMULATE_FAILURES)){
-                this.simulateFailures = (Boolean)configuration.get(
-                        SIMULATE_FAILURES);
+            if (configuration.containsKey(SIMULATE_FAILURES)) {
+                this.simulateFailures = (Boolean) configuration.get(SIMULATE_FAILURES);
             }
 
-            if (configuration.containsKey(SIMULATE_LINKING_RESOURCES)){
-                this.simulateLinkingResources = (Boolean)configuration.get(
-                        SIMULATE_LINKING_RESOURCES);
+            if (configuration.containsKey(SIMULATE_LINKING_RESOURCES)) {
+                this.simulateLinkingResources = (Boolean) configuration.get(SIMULATE_LINKING_RESOURCES);
             }
 
-            // confidence information is optional in the map. It this.useConfidence defaults to false.
+            // confidence information is optional in the map. It this.useConfidence defaults to
+            // false.
             if (configuration.containsKey(USE_CONFIDENCE)) {
-                this.useConfidence = (Boolean) configuration
-                        .get(USE_CONFIDENCE);
-                this.confidenceLevel = Integer.valueOf((String) configuration
-                        .get(CONFIDENCE_LEVEL));
-                this.confidenceHalfWidth = Integer
-                        .valueOf((String) configuration
-                                .get(CONFIDENCE_HALFWIDTH));
-                this.confidenceModelElementName = (String) configuration
-                        .get(CONFIDENCE_MODELELEMENT_NAME);
-                this.confidenceModelElementURI = URI
-                        .createURI((String) configuration
-                                .get(CONFIDENCE_MODELELEMENT_URI));
+                this.useConfidence = (Boolean) configuration.get(USE_CONFIDENCE);
+                this.confidenceLevel = Integer.valueOf((String) configuration.get(CONFIDENCE_LEVEL));
+                this.confidenceHalfWidth = Integer.valueOf((String) configuration.get(CONFIDENCE_HALFWIDTH));
+                this.confidenceModelElementName = (String) configuration.get(CONFIDENCE_MODELELEMENT_NAME);
+                this.confidenceModelElementURI = URI.createURI((String) configuration.get(CONFIDENCE_MODELELEMENT_URI));
 
                 this.automaticBatches = (Boolean) configuration.get(CONFIDENCE_USE_AUTOMATIC_BATCHES);
-                if (!this.automaticBatches){
-                    //only need batch settings if they are manually defined
-                    this.batchSize = Integer.valueOf((String) configuration
-                            .get(CONFIDENCE_BATCH_SIZE));
+                if (!this.automaticBatches) {
+                    // only need batch settings if they are manually defined
+                    this.batchSize = Integer.valueOf((String) configuration.get(CONFIDENCE_BATCH_SIZE));
                     this.minNumberOfBatches = Integer.valueOf((String) configuration
                             .get(CONFIDENCE_MIN_NUMBER_OF_BATCHES));
 
@@ -171,8 +159,11 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
         return confidenceModelElementURI;
     }
 
-    /**Returns a copy of the instance with a replaced descriptor.
-     * @param descriptor Descriptor of the new instance.
+    /**
+     * Returns a copy of the instance with a replaced descriptor.
+     * 
+     * @param descriptor
+     *            Descriptor of the new instance.
      * @return Copy of the instance.
      */
     public SimuComConfig copy(final ExperimentRunDescriptor descriptor) {
@@ -189,14 +180,15 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
         config.confidenceLevel = this.confidenceLevel;
         config.confidenceModelElementName = new String(this.confidenceModelElementName);
         config.maxMeasurementsCount = this.maxMeasurementsCount;
-        config.nameExperimentRun = new String (this.nameExperimentRun);
+        config.nameExperimentRun = new String(this.nameExperimentRun);
         config.recorderName = new String(this.recorderName);
         config.simulateFailures = this.simulateFailures;
         config.simulateLinkingResources = this.simulateLinkingResources;
         config.simuTime = this.simuTime;
         config.useConfidence = this.useConfidence;
 
-        // Warning: References are used in the following section instead of cloning the objects/arrays.
+        // Warning: References are used in the following section instead of cloning the
+        // objects/arrays.
         config.confidenceModelElementURI = this.confidenceModelElementURI;
         config.descriptor = this.descriptor;
         config.randomNumberGenerator = this.randomNumberGenerator;
@@ -213,7 +205,7 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
         try {
             config = (SimuComConfig) clone();
         } catch (final CloneNotSupportedException e) {
-            if(LOGGER.isEnabledFor(Level.FATAL)) {
+            if (LOGGER.isEnabledFor(Level.FATAL)) {
                 LOGGER.fatal("Could not clone configuration.", e);
             }
         }
@@ -250,6 +242,5 @@ public class SimuComConfig extends AbstractSimulationConfig implements Serializa
         }
         return randomNumberGenerator;
     }
-
 
 }

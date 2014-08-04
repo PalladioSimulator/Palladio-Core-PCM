@@ -117,8 +117,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
     }
 
     private IPassiveResource getSimplePassiveResource(final PassiveResource resource,
-            final AssemblyContext assemblyContext, final SimuComModel simuComModel,
-            final long capacity) {
+            final AssemblyContext assemblyContext, final SimuComModel simuComModel, final long capacity) {
         return new SimSimpleFairPassiveResource(resource, assemblyContext, simuComModel, capacity);
     }
 

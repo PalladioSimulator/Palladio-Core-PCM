@@ -33,7 +33,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
     private final Map<Integer, List<IStateListener>> stateListener;
     private final List<IDemandListener> demandListener;
     private final List<IOverallUtilizationListener> overallUtilizationListener;
-    
+
     private final boolean requiredByContainer;
 
     private final ActiveResouce myResourceStatus;
@@ -51,10 +51,10 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
     // //////////////////
     private boolean isStopped = false;
     private boolean isAvailable = true;
-  
+
     public AbstractScheduledResource(final SimuComModel myModel, final String typeID, final String resourceContainerID,
-            final String resourceTypeID, final String description,
-            final String schedulingStrategyID, final int numberOfInstances, final boolean requiredByContainer) {
+            final String resourceTypeID, final String description, final String schedulingStrategyID,
+            final int numberOfInstances, final boolean requiredByContainer) {
         super(myModel, typeID);
 
         this.description = description;
@@ -63,7 +63,6 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
         this.resourceTypeID = resourceTypeID;
         this.resourceContainerID = resourceContainerID;
         this.requiredByContainer = requiredByContainer;
-        
 
         if (LOGGER.isEnabledFor(Level.INFO)) {
             LOGGER.info("Creating Simulated Active Resource: " + this.getName());

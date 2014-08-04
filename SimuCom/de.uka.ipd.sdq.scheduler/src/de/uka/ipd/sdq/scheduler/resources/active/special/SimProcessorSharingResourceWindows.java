@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.NullEntity;
 
 /**
  * This class is for testing purposes only. It is used for the MASCOTS paper case study.
+ * 
  * @author hauck
  *
  */
@@ -33,32 +34,34 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
             super(model, SimProcessorSharingResourceWindows.class.getName());
         }
 
-
         @Override
         public void eventRoutine(final NullEntity who) {
-            //logger.info(simulator.time() + ": Trying load balancing...");
+            // logger.info(simulator.time() + ": Trying load balancing...");
             final int coreToBalanceTo = getCoreWithShortestQueue();
             final int coreToBalanceFrom = getCoreWithLongestQueue();
-            if ((running_processesPerCore.get(coreToBalanceTo).size() == 0) && (running_processesPerCore.get(coreToBalanceFrom).size() > 0)) {
+            if ((running_processesPerCore.get(coreToBalanceTo).size() == 0)
+                    && (running_processesPerCore.get(coreToBalanceFrom).size() > 0)) {
                 // We have an idle core. Do load balancing.
 
                 // select a random process from the sender core
-                final Hashtable<ISchedulableProcess, Double> runningProcesses = running_processesPerCore.get(coreToBalanceFrom);
-                final ISchedulableProcess[] processes = runningProcesses.keySet().toArray(new ISchedulableProcess[]{});
+                final Hashtable<ISchedulableProcess, Double> runningProcesses = running_processesPerCore
+                        .get(coreToBalanceFrom);
+                final ISchedulableProcess[] processes = runningProcesses.keySet().toArray(new ISchedulableProcess[] {});
 
                 // move random process from sender core to idle core
                 final Random random = new Random();
                 final ISchedulableProcess processToBalance = processes[random.nextInt(processes.length)];
                 final double simTime = getModel().getSimulationControl().getCurrentSimulationTime();
-                if(logger.isEnabledFor(Level.INFO)) {
-                    logger.info(simTime + ": Balancing process: " + processToBalance.getId() + " from core " + coreToBalanceFrom + " to " + coreToBalanceTo);
+                if (logger.isEnabledFor(Level.INFO)) {
+                    logger.info(simTime + ": Balancing process: " + processToBalance.getId() + " from core "
+                            + coreToBalanceFrom + " to " + coreToBalanceTo);
                 }
                 final Double processValue = runningProcesses.get(processToBalance);
                 runningProcesses.remove(processToBalance);
                 putProcessOnCore(processToBalance, processValue, coreToBalanceTo);
 
             } else {
-                //	logger.info(simulator.time() + ": No load balancing needed.");
+                // logger.info(simulator.time() + ": No load balancing needed.");
             }
 
         }
@@ -90,13 +93,13 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
                     // all cores are idle or have no contention
                 } else {
                     // Try load balancing one time unit from now
-                    final DoLoadBalancingEvent event = new DoLoadBalancingEvent(SimProcessorSharingResourceWindows.this
-                            .getModel());
+                    final DoLoadBalancingEvent event = new DoLoadBalancingEvent(
+                            SimProcessorSharingResourceWindows.this.getModel());
                     final double simTime = getModel().getSimulationControl().getCurrentSimulationTime();
-                    event.schedule(IEntity.NULL, simTime+1);
+                    event.schedule(IEntity.NULL, simTime + 1);
                 }
             }
-            //	logger.info(simulator.time() + ": " + last.getId() + " finished");
+            // logger.info(simulator.time() + ": " + last.getId() + " finished");
             // LoggingWrapper.log(last + " finished.");
             scheduleNextEvent();
             last.activate();
@@ -105,45 +108,47 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
     }
 
     private final ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
-    private final ArrayList<Hashtable<ISchedulableProcess,Double>> running_processesPerCore = new ArrayList<Hashtable<ISchedulableProcess, Double>>();
+    private final ArrayList<Hashtable<ISchedulableProcess, Double>> running_processesPerCore = new ArrayList<Hashtable<ISchedulableProcess, Double>>();
     // private Hashtable<ISchedulableProcess,Double> running_processes = new
     // Hashtable<ISchedulableProcess, Double>();
     private double last_time;
     private int coreToUseForInitialLoadBalancing = 0;
 
-    public SimProcessorSharingResourceWindows(final SchedulerModel model, final String name, final String id, final long numberOfCores) {
+    public SimProcessorSharingResourceWindows(final SchedulerModel model, final String name, final String id,
+            final long numberOfCores) {
         super(model, numberOfCores, name, id);
-        for (int j=0; j<numberOfCores; j++) {
+        for (int j = 0; j < numberOfCores; j++) {
             running_processesPerCore.add(new Hashtable<ISchedulableProcess, Double>());
         }
     }
 
-
-
     public void scheduleNextEvent() {
         /**
-         * New: look in all queues, i.e. in all nested running_processes
-         * hashtables, which process is to be scheduled next.
+         * New: look in all queues, i.e. in all nested running_processes hashtables, which process
+         * is to be scheduled next.
          */
         ISchedulableProcess shortest = null;
         Double shortestTime = 0.0;
         for (final Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
             for (final ISchedulableProcess process : running_processes.keySet()) {
-                //	logger.info("Time: " + simulator.time() + ", looking for shortest time: " + process.getId() + " time: " + running_processes.get(process) + ", speed: " + getSpeed(process));
-                if (shortest == null || shortestTime > running_processes.get(process) * getSpeed(process)){
+                // logger.info("Time: " + simulator.time() + ", looking for shortest time: " +
+                // process.getId() + " time: " + running_processes.get(process) + ", speed: " +
+                // getSpeed(process));
+                if (shortest == null || shortestTime > running_processes.get(process) * getSpeed(process)) {
                     shortest = process;
                     shortestTime = running_processes.get(process) * getSpeed(process);
-                    //	logger.info("Shortest: " + shortest.getId() + ", shortest time: " + shortestTime);
+                    // logger.info("Shortest: " + shortest.getId() + ", shortest time: " +
+                    // shortestTime);
                 }
             }
         }
 
         processingFinished.removeEvent();
-        if (shortest!=null){
+        if (shortest != null) {
             // New: calculate time for process
             double time = shortestTime;// * getSpeed(shortest);
             // double time = running_processes.get(shortest) * getSpeed();
-            //	logger.info("Time: " + simulator.time() + ", scheduling event at " + time);
+            // logger.info("Time: " + simulator.time() + ", scheduling event at " + time);
             if (!MathTools.less(0, time)) {
                 time = 0.0;
             }
@@ -152,7 +157,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
     }
 
     private int getCoreOfARunningProcess(final ISchedulableProcess process) {
-        for (int i=0; i<running_processesPerCore.size(); i++) {
+        for (int i = 0; i < running_processesPerCore.size(); i++) {
             final Hashtable<ISchedulableProcess, Double> running_processes = running_processesPerCore.get(i);
             if (running_processes.containsKey(process)) {
                 return i;
@@ -165,7 +170,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
     private int getCoreWithLongestQueue() {
         int coreWithLongestQueue = 0;
         int queueSize = 0;
-        for (int i=0; i<running_processesPerCore.size(); i++) {
+        for (int i = 0; i < running_processesPerCore.size(); i++) {
             if (running_processesPerCore.get(i).size() > queueSize) {
                 queueSize = running_processesPerCore.get(i).size();
                 coreWithLongestQueue = i;
@@ -177,7 +182,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
     private int getCoreWithShortestQueue() {
         int coreWithShortestQueue = -1;
         int queueSize = 0;
-        for (int i=0; i<running_processesPerCore.size(); i++) {
+        for (int i = 0; i < running_processesPerCore.size(); i++) {
             if (coreWithShortestQueue == -1) {
                 queueSize = running_processesPerCore.get(i).size();
                 coreWithShortestQueue = i;
@@ -191,19 +196,18 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
         return coreWithShortestQueue;
     }
 
-
     private void toNow() {
         final double now = getModel().getSimulationControl().getCurrentSimulationTime();
         final double passed_time = now - last_time;
         // logger.info("toNow: " + now + " - " + last_time + " = " +
         // passed_time);
-        if (MathTools.less(0, passed_time)){
+        if (MathTools.less(0, passed_time)) {
             // passed_time /= getSpeed();
             // NEW
             for (final Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
-                for (final Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+                for (final Entry<ISchedulableProcess, Double> e : running_processes.entrySet()) {
                     final double processPassedTime = passed_time / getSpeed(e.getKey());
-                    final double rem =   e.getValue() - processPassedTime;
+                    final double rem = e.getValue() - processPassedTime;
                     // logger.info("toNow " + e.getKey().getId() + ": " +
                     // e.getValue() + " - " + processPassedTime + " = " + rem);
                     e.setValue(rem);
@@ -238,7 +242,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
     @Override
     public void updateDemand(final ISchedulableProcess process, final double demand) {
         for (final Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
-            for (final Entry<ISchedulableProcess,Double> e : running_processes.entrySet()) {
+            for (final Entry<ISchedulableProcess, Double> e : running_processes.entrySet()) {
                 if (e.getKey().equals(process)) {
                     e.setValue(demand);
                     break;
@@ -260,22 +264,19 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
         return speed < 1.0 ? 1.0 : speed;
     }
 
-
     @Override
     public void start() {
     }
-
 
     @Override
     protected void dequeue(final ISchedulableProcess process) {
     }
 
-
     @Override
     protected void doProcessing(final ISchedulableProcess process, final int resourceServiceID, final double demand) {
         toNow();
         LoggingWrapper.log("PS: " + process + " demands " + demand);
-        //logger.info("PS: " + process.getId() + " demands " + demand);
+        // logger.info("PS: " + process.getId() + " demands " + demand);
         final int coreToPutOn = getLastCoreProcessWasRunningOn(process);
         if (coreToPutOn == -1) {
             // This is a new process which has issued demand for the first time.
@@ -284,7 +285,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
             putProcessOnCore(process, demand, coreToUseForInitialLoadBalancing);
             // running_processes.put(process, demand);
             coreToUseForInitialLoadBalancing++;
-            if (coreToUseForInitialLoadBalancing>=getCapacity()) {
+            if (coreToUseForInitialLoadBalancing >= getCapacity()) {
                 // start with first core again next time
                 coreToUseForInitialLoadBalancing = 0;
             }
@@ -305,7 +306,6 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
     protected void enqueue(final ISchedulableProcess process) {
     }
 
-
     @Override
     public void stop() {
 
@@ -320,7 +320,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
         return this.running_processesPerCore.get(coreID).size();
     }
 
-    private final Hashtable<ISchedulableProcess,Integer> all_processes = new Hashtable<ISchedulableProcess, Integer>();
+    private final Hashtable<ISchedulableProcess, Integer> all_processes = new Hashtable<ISchedulableProcess, Integer>();
 
     /**
      * return -1 if a process was not running before, i.e. is a new process.
@@ -340,7 +340,8 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
             all_processes.remove(process);
         }
         all_processes.put(process, core);
-        //logger.info(simulator.time() + ": Putting " + process.getId() + " with demand " + demand + " on core " + core);
+        // logger.info(simulator.time() + ": Putting " + process.getId() + " with demand " + demand
+        // + " on core " + core);
         running_processesPerCore.get(core).put(process, demand);
     }
 

@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public class ScheduledResource extends AbstractScheduledResource {
 
-    private static Logger LOGGER = Logger.getLogger(ScheduledResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ScheduledResource.class.getName());
 
     private final ProcessingResourceSpecification activeResource;
 
@@ -39,12 +39,12 @@ public class ScheduledResource extends AbstractScheduledResource {
                 resourceContainerID, // resourceContainerID
                 activeResource.getActiveResourceType_ActiveResourceSpecification().getId(), // resourceTypeID
                 activeResource.getResourceContainer_ProcessingResourceSpecification().getEntityName() + " ["
-                + activeResource.getActiveResourceType_ActiveResourceSpecification().getEntityName() + "] <"
-                + activeResource.getResourceContainer_ProcessingResourceSpecification().getId() + ">", // description
+                        + activeResource.getActiveResourceType_ActiveResourceSpecification().getEntityName() + "] <"
+                        + activeResource.getResourceContainer_ProcessingResourceSpecification().getId() + ">", // description
                 schedulingStrategyID, // schedulingStrategyID
                 activeResource.getNumberOfReplicas(), // numberOfInstances
                 activeResource.isRequiredByContainer() // requiredByContainer
-                );
+        );
         this.activeResource = activeResource;
         this.processingRate = activeResource.getProcessingRate_ProcessingResourceSpecification().getSpecification();
 
