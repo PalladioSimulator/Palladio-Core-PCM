@@ -35,9 +35,9 @@ public abstract class MarkovSensitivity {
     private static final String LOG_ENTRY_SEPARATOR = "\\";
 
     /**
-     * A LOGGER to give detailed information about the PCM instance transformation.
+     * A logger to give detailed information about the PCM instance transformation.
      */
-    protected Logger logger = null;
+    protected static final Logger LOGGER = Logger.getLogger(MarkovSensitivity.class);
 
     /**
      * A calculator for variations and steps during the sensitivity analysis.
@@ -106,7 +106,6 @@ public abstract class MarkovSensitivity {
      */
     protected MarkovSensitivity(final String name, final SensitivityParameterVariation variation) {
         this.name = name;
-        this.logger = Logger.getLogger(this.getClass().getName());
         if (variation != null) {
             this.variation = variation;
             this.numberOfSteps = calculator.calculateNumberOfSteps(variation);
@@ -169,6 +168,7 @@ public abstract class MarkovSensitivity {
     /**
      * Finalizes the sensitivity analysis.
      */
+    @Override
     public void finalize() {
         try {
             // Do the logging:
@@ -181,7 +181,7 @@ public abstract class MarkovSensitivity {
             logWriter.flush();
             logWriter.close();
         } catch (IOException e) {
-            logger.error("Log file could not be written :" + e.getMessage());
+            LOGGER.error("Log file could not be written :" + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -293,7 +293,7 @@ public abstract class MarkovSensitivity {
 
         // Perform the next step:
         if (!alterModel()) {
-            logger.error("PCM instance could not be successfully altered by Markov sensitivity analysis.");
+            LOGGER.error("PCM instance could not be successfully altered by Markov sensitivity analysis.");
             return null;
         } else {
             return model;
@@ -334,7 +334,7 @@ public abstract class MarkovSensitivity {
             new File(resultLogfile).delete();
             logWriter = new BufferedWriter(new FileWriter(resultLogfile, false));
         } catch (IOException e) {
-            logger.error("Log file could not be initialized :" + e.getMessage());
+            LOGGER.error("Log file could not be initialized :" + e.getMessage());
             e.printStackTrace();
         }
         logContents = getLogHeadings();

@@ -94,7 +94,7 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
         // Retrieve all BranchTransitions in the PCM Repository:
         if (getModel().getUsageModel() == null) {
             // No usage model found!
-            logger.error("No PCM UsageModel found.");
+            LOGGER.error("No PCM UsageModel found.");
             return;
         }
 
@@ -109,7 +109,7 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
             }
         }
         if (branch == null) {
-            logger.error("No Branch with ID \"" + branchId + "\" found.");
+            LOGGER.error("No Branch with ID \"" + branchId + "\" found.");
             return;
         }
 
@@ -122,7 +122,7 @@ public class UsageBranchSensitivity extends MarkovSensitivity {
             }
         }
         if (transition == null) {
-            logger.error("No BranchTransition with associated behaviour ID \"" + behaviourId + "\" found.");
+            LOGGER.error("No BranchTransition with associated behaviour ID \"" + behaviourId + "\" found.");
         }
     }
 

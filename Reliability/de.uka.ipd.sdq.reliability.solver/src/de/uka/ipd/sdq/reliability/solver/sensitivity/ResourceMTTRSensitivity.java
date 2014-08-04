@@ -91,7 +91,7 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
         // Retrieve the PCM resource environment:
         if (getModel().getResourceEnvironment() == null) {
             // No resource environment found!
-            logger.error("No PCM ResourceEnvironment found.");
+            LOGGER.error("No PCM ResourceEnvironment found.");
             return;
         }
 
@@ -107,7 +107,7 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
         }
         if (resourceContainer == null) {
             // No corresponding resource container found!
-            logger.error("Did not find any ResourceContainer with ID \"" + resourceContainerId + "\"");
+            LOGGER.error("Did not find any ResourceContainer with ID \"" + resourceContainerId + "\"");
             return;
         }
 
@@ -121,7 +121,7 @@ public class ResourceMTTRSensitivity extends MarkovSensitivity {
             }
         }
         if (specification == null) {
-            logger.error("Did not find any ProcessingResourceSpecification with ID \"" + processingResourceTypeId
+            LOGGER.error("Did not find any ProcessingResourceSpecification with ID \"" + processingResourceTypeId
                     + "\"");
         }
     }

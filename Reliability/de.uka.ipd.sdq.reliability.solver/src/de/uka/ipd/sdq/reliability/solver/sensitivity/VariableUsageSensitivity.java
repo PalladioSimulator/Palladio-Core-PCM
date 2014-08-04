@@ -143,7 +143,7 @@ public class VariableUsageSensitivity extends MarkovSensitivity {
         List<Repository> repositories = getModel().getRepositories();
         if (repositories.size() == 0) {
             // No repository found!
-            logger.error("No PCM Repositories found.");
+            LOGGER.error("No PCM Repositories found.");
             return;
         }
 
@@ -164,7 +164,7 @@ public class VariableUsageSensitivity extends MarkovSensitivity {
         }
         if (component == null) {
             // No corresponding component found!
-            logger.error("No BasicComponent with ID \"" + elementId + "\" found.");
+            LOGGER.error("No BasicComponent with ID \"" + elementId + "\" found.");
             return;
         }
         elementName = component.getEntityName();
@@ -198,7 +198,7 @@ public class VariableUsageSensitivity extends MarkovSensitivity {
         // Retrieve the PCM usage model:
         if (getModel().getUsageModel() == null) {
             // No usage model found!
-            logger.error("No PCM UsageModel found.");
+            LOGGER.error("No PCM UsageModel found.");
             return;
         }
 
@@ -214,7 +214,7 @@ public class VariableUsageSensitivity extends MarkovSensitivity {
         }
         if (systemCall == null) {
             // No corresponding system call found!
-            logger.error("No EntryLevelSystemCall with ID \"" + elementId + "\" found.");
+            LOGGER.error("No EntryLevelSystemCall with ID \"" + elementId + "\" found.");
             return;
         }
         elementName = systemCall.getEntityName();
@@ -241,7 +241,7 @@ public class VariableUsageSensitivity extends MarkovSensitivity {
             }
         }
         if (variable == null) {
-            logger.error("Did not find any PCMRandomVariable for parameter \"" + parameterName + "."
+            LOGGER.error("Did not find any PCMRandomVariable for parameter \"" + parameterName + "."
                     + characterisationType.getName());
         }
     }

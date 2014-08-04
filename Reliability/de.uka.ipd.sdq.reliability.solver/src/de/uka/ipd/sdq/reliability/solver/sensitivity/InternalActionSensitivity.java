@@ -95,7 +95,7 @@ public class InternalActionSensitivity extends MarkovSensitivity {
         List<Repository> repositories = getModel().getRepositories();
         if (repositories.size() == 0) {
             // No repository found!
-            logger.error("No PCM Repositories found.");
+            LOGGER.error("No PCM Repositories found.");
             return;
         }
 
@@ -116,7 +116,7 @@ public class InternalActionSensitivity extends MarkovSensitivity {
         }
         if (internalAction == null) {
             // No corresponding internal action found!
-            logger.error("Did not find any InternalAction with ID \"" + internalActionId + "\"");
+            LOGGER.error("Did not find any InternalAction with ID \"" + internalActionId + "\"");
             return;
         }
 
@@ -130,7 +130,7 @@ public class InternalActionSensitivity extends MarkovSensitivity {
             }
         }
         if (description == null) {
-            logger.error("Did not find a FailureOccurrenceDescription for FailureType with ID \"" + failureTypeId
+            LOGGER.error("Did not find a FailureOccurrenceDescription for FailureType with ID \"" + failureTypeId
                     + "\"");
         }
     }

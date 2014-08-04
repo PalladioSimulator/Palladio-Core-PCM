@@ -103,7 +103,7 @@ public class ComponentSensitivity extends MarkovSensitivity {
         // Retrieve the involved internal actions:
         List<InternalAction> internalActions = getInternalActions();
         if (internalActions == null) {
-            logger.error("Did not find any InternalActions for BasicComponent \"" + componentName + "\" <ID="
+            LOGGER.error("Did not find any InternalActions for BasicComponent \"" + componentName + "\" <ID="
                     + componentId + ">");
             return;
         }
@@ -129,7 +129,7 @@ public class ComponentSensitivity extends MarkovSensitivity {
         List<Repository> repositories = getModel().getRepositories();
         if (repositories.size() == 0) {
             // No repository found!
-            logger.error("No PCM Repositories found.");
+            LOGGER.error("No PCM Repositories found.");
             return null;
         }
 
@@ -146,7 +146,7 @@ public class ComponentSensitivity extends MarkovSensitivity {
         }
 
         // Nothing found:
-        logger.error("BasicComponent \"" + componentName + "\" <ID=" + componentId + "> not found.");
+        LOGGER.error("BasicComponent \"" + componentName + "\" <ID=" + componentId + "> not found.");
         return null;
     }
 

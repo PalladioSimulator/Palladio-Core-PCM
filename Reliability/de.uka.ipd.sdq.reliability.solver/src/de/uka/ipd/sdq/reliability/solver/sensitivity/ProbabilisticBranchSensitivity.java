@@ -87,7 +87,7 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
         List<Repository> repositories = getModel().getRepositories();
         if (repositories.size() == 0) {
             // No repository found!
-            logger.error("No PCM Repositories found.");
+            LOGGER.error("No PCM Repositories found.");
             return;
         }
 
@@ -104,7 +104,7 @@ public class ProbabilisticBranchSensitivity extends MarkovSensitivity {
             }
         }
         if (transition == null) {
-            logger.error("Did not find any ProbabilisticBranchTransition with ID \"" + transitionId + "\"");
+            LOGGER.error("Did not find any ProbabilisticBranchTransition with ID \"" + transitionId + "\"");
         }
     }
 
