@@ -44,7 +44,9 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
 
     private final TakeExecutionResultProbe resultProbe;
 
-    public enum FailureType { HANDLED, UNHANDLED, TOTAL }
+    public enum FailureType {
+        HANDLED, UNHANDLED, TOTAL
+    }
 
     private final Map<FailureType, Bag<MarkovFailureType>> failureCounter = new HashMap<FailureStatistics.FailureType, Bag<MarkovFailureType>>();
 
@@ -57,16 +59,13 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
     public FailureStatistics() {
         super();
         for (final FailureType t : FailureType.values()) {
-            failureCounter.put(t,new TreeBag<MarkovFailureType>());
+            failureCounter.put(t, new TreeBag<MarkovFailureType>());
         }
-        this.successIdentifier = IdentifierBuilder.
-                newIdentifierBuilder().
-                literal("Success").
-                build();
+        this.successIdentifier = IdentifierBuilder.newIdentifierBuilder().literal("Success").build();
         if (simFailureTypes == null) {
             simFailureTypes = Collections.EMPTY_MAP;
         }
-        resultProbe = new TakeExecutionResultProbe(this,simFailureTypes,successIdentifier);
+        resultProbe = new TakeExecutionResultProbe(this, simFailureTypes, successIdentifier);
     }
 
     public EventProbe<FailureStatistics> getExecutionResultProbe() {
@@ -90,7 +89,6 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
             failedRuns.add(sessionId);
         }
     }
-
 
     /**
      * Retrieves the id of a given execution result.
@@ -320,13 +318,17 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
         logger.warn("- Total simulated time units:           " + simulationTime);
         logger.warn("- Total probability of success:         " + (1 - failedRuns.size() / ((double) runCount)));
         logger.warn("- Failure rate (failures per simulated time unit): " + (failedRuns.size() / simulationTime));
-        logger.warn("- Mean time between failure:            " + (simulationTime / failedRuns.size()) );
+        logger.warn("- Mean time between failure:            " + (simulationTime / failedRuns.size()));
 
         logger.warn("- Total number of faults:               " + getFailureCount(FailureType.TOTAL));
-        logger.warn("- Total probability of fault:           " + (getFailureCount(FailureType.TOTAL) / (double) runCount));
-        logger.warn("- Total probability of no fault:        " + (1 - (getFailureCount(FailureType.TOTAL) / (double) runCount)));
-        logger.warn("- Fault rate (recovered and non-recovered, faults per simulated time unit): " + (getFailureCount(FailureType.TOTAL) / simulationTime));
-        logger.warn("- Mean time between faults (recovered and non-recovered): " + (simulationTime / getFailureCount(FailureType.TOTAL)) );
+        logger.warn("- Total probability of fault:           "
+                + (getFailureCount(FailureType.TOTAL) / (double) runCount));
+        logger.warn("- Total probability of no fault:        "
+                + (1 - (getFailureCount(FailureType.TOTAL) / (double) runCount)));
+        logger.warn("- Fault rate (recovered and non-recovered, faults per simulated time unit): "
+                + (getFailureCount(FailureType.TOTAL) / simulationTime));
+        logger.warn("- Mean time between faults (recovered and non-recovered): "
+                + (simulationTime / getFailureCount(FailureType.TOTAL)));
 
         for (final String failureString : getFailureStringsSorted(simulationTime)) {
             logger.warn(failureString);
@@ -388,8 +390,7 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
     }
 
     /**
-     * FIXME should not be static
-     * Sets the failure types that may occur during the simulation.
+     * FIXME should not be static Sets the failure types that may occur during the simulation.
      * 
      * @param failureTypes
      *            the list of failure types
@@ -399,16 +400,15 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
         // Build failure type mapping:
         simFailureTypes = new HashMap<MarkovFailureType, Identifier>();
         for (final MarkovFailureType failureType : failureTypes) {
-            final Identifier identifier = IdentifierBuilder.
-                    newIdentifierBuilder().
-                    literal(failureType.getName()).
-                    build();
+            final Identifier identifier = IdentifierBuilder.newIdentifierBuilder().literal(failureType.getName())
+                    .build();
             simFailureTypes.put(failureType, identifier);
         }
     }
 
     /**
      * Retrieves the sorted list of recorded failure occurrences.
+     * 
      * @param simulationTime
      * 
      * @return the failure occurrences list
@@ -445,7 +445,8 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
      * 
      * @param logger
      *            The logger to write the statistics to
-     * @param simulationTime The overall simulated time to calculate rates
+     * @param simulationTime
+     *            The overall simulated time to calculate rates
      */
     public void printHandledFailuresStatistics(final Logger logger, final double simulationTime) {
         if (logger.isDebugEnabled()) {
@@ -463,21 +464,28 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
                     logger.debug("---- Handled Failures:");
                     headerPrinted = true;
                 }
-                logger.debug("- " + failureType.getName() + ": Handled " + handledCount + " out of " + totalFailureCount
-                        + " (" + ((double) handledCount) / (totalFailureCount) + ")");
-                logger.debug("  Fault rate (faults per time unit):                 "+(totalFailureCount / simulationTime));
-                logger.debug("  Mean time to fault (time units):                   "+(simulationTime / totalFailureCount));
-                logger.debug("  Non-recoverable fault rate (failures per time unit): "+((totalFailureCount-handledCount) / simulationTime));
-                logger.debug("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (totalFailureCount-handledCount)));
+                logger.debug("- " + failureType.getName() + ": Handled " + handledCount + " out of "
+                        + totalFailureCount + " (" + ((double) handledCount) / (totalFailureCount) + ")");
+                logger.debug("  Fault rate (faults per time unit):                 "
+                        + (totalFailureCount / simulationTime));
+                logger.debug("  Mean time to fault (time units):                   "
+                        + (simulationTime / totalFailureCount));
+                logger.debug("  Non-recoverable fault rate (failures per time unit): "
+                        + ((totalFailureCount - handledCount) / simulationTime));
+                logger.debug("  Mean time to non-recoverable failure (time units):   "
+                        + (simulationTime / (totalFailureCount - handledCount)));
 
                 // aggregate software failures by type
-                if ( failureType instanceof MarkovSoftwareInducedFailureType) {
-                    final MarkovSoftwareInducedFailureType swFailureType = (MarkovSoftwareInducedFailureType)failureType;
+                if (failureType instanceof MarkovSoftwareInducedFailureType) {
+                    final MarkovSoftwareInducedFailureType swFailureType = (MarkovSoftwareInducedFailureType) failureType;
 
-                    SoftwareFailureStatistics softwareFailureStatistics = softwareFailureStatisticsMap.get(swFailureType.getSoftwareFailureId());
-                    if (softwareFailureStatistics == null){
-                        softwareFailureStatistics = new SoftwareFailureStatistics(swFailureType.getSoftwareFailureId(), swFailureType.getSoftwareFailureName());
-                        softwareFailureStatisticsMap.put(swFailureType.getSoftwareFailureId(), softwareFailureStatistics);
+                    SoftwareFailureStatistics softwareFailureStatistics = softwareFailureStatisticsMap
+                            .get(swFailureType.getSoftwareFailureId());
+                    if (softwareFailureStatistics == null) {
+                        softwareFailureStatistics = new SoftwareFailureStatistics(swFailureType.getSoftwareFailureId(),
+                                swFailureType.getSoftwareFailureName());
+                        softwareFailureStatisticsMap.put(swFailureType.getSoftwareFailureId(),
+                                softwareFailureStatistics);
                     }
                     softwareFailureStatistics.addTotalFailureCount(totalFailureCount);
                     softwareFailureStatistics.addHandledCount(handledCount);
@@ -488,19 +496,28 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
             logger.debug("\n---- Handled failures aggregated by software failure type:");
             for (final SoftwareFailureStatistics softwareFailureStatistics : softwareFailureStatisticsMap.values()) {
 
-                logger.debug("- " + softwareFailureStatistics.getName() + "("+softwareFailureStatistics.getId()+") : Handled " + softwareFailureStatistics.getHandledCount() + " out of " + softwareFailureStatistics.getTotalFailureCount()
-                        + " (" + ((double) softwareFailureStatistics.getHandledCount()) / (softwareFailureStatistics.getTotalFailureCount()) + ")");
-                logger.debug("  Fault rate (faults per time unit):                 "+(softwareFailureStatistics.getTotalFailureCount() / simulationTime));
-                logger.debug("  Mean time to fault (time units):                   "+(simulationTime / softwareFailureStatistics.getTotalFailureCount()));
-                logger.debug("  Non-recoverable fault rate (failures per time unit): "+((softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount()) / simulationTime));
-                logger.debug("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount())));
+                logger.debug("- " + softwareFailureStatistics.getName() + "(" + softwareFailureStatistics.getId()
+                        + ") : Handled " + softwareFailureStatistics.getHandledCount() + " out of "
+                        + softwareFailureStatistics.getTotalFailureCount() + " ("
+                        + ((double) softwareFailureStatistics.getHandledCount())
+                        / (softwareFailureStatistics.getTotalFailureCount()) + ")");
+                logger.debug("  Fault rate (faults per time unit):                 "
+                        + (softwareFailureStatistics.getTotalFailureCount() / simulationTime));
+                logger.debug("  Mean time to fault (time units):                   "
+                        + (simulationTime / softwareFailureStatistics.getTotalFailureCount()));
+                logger.debug("  Non-recoverable fault rate (failures per time unit): "
+                        + ((softwareFailureStatistics.getTotalFailureCount() - softwareFailureStatistics
+                                .getHandledCount()) / simulationTime));
+                logger.debug("  Mean time to non-recoverable failure (time units):   "
+                        + (simulationTime / (softwareFailureStatistics.getTotalFailureCount() - softwareFailureStatistics
+                                .getHandledCount())));
             }
         }
 
     }
 }
 
-class SoftwareFailureStatistics{
+class SoftwareFailureStatistics {
     private final String id;
     private final String name;
     private int totalFailureCount = 0;
@@ -518,8 +535,7 @@ class SoftwareFailureStatistics{
         return handledCount;
     }
 
-    public SoftwareFailureStatistics(final String softwareFailureId,
-            final String softwareFailureName) {
+    public SoftwareFailureStatistics(final String softwareFailureId, final String softwareFailureName) {
         this.id = softwareFailureId;
         this.name = softwareFailureName;
     }
@@ -537,6 +553,5 @@ class SoftwareFailureStatistics{
         this.totalFailureCount += totalFailureCount2;
 
     }
-
 
 }

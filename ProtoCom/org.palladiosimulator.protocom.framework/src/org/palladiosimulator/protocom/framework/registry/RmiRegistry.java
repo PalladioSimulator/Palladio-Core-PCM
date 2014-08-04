@@ -18,272 +18,273 @@ import java.util.Scanner;
 import org.palladiosimulator.protocom.framework.experiment.IExperimentManager;
 
 /**
- * RMI registry service for ProtoCom. It can be started on any hardware node of
- * the ProtoCom system.
+ * RMI registry service for ProtoCom. It can be started on any hardware node of the ProtoCom system.
  * 
- * Ports register themselves at this service using their name and assembly
- * context.
+ * Ports register themselves at this service using their name and assembly context.
  * 
- * TODO: Split this class into two parts: One for managing remote connection to 
- * the registry and one for the registry service itself.
+ * TODO: Split this class into two parts: One for managing remote connection to the registry and one
+ * for the registry service itself.
  * 
  * @author zolynski
  * 
  */
 public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Serializable {
 
-	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RmiRegistry.class);
+    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RmiRegistry.class);
 
-	private static final long serialVersionUID = 8964579189837506625L;
+    private static final long serialVersionUID = 8964579189837506625L;
 
-	public static final String LOCALHOST = "localhost";
+    public static final String LOCALHOST = "localhost";
 
-	private static RmiRegistry singleton;
+    private static RmiRegistry singleton;
 
-	/**
-	 * Remote address of RMI registry.
-	 */
-	private static String configuredRemoteAddr = LOCALHOST;
-	
-	/**
-	 * IP Port of RMI registry, default is 1099.
-	 */
-	private static int configuredRegistryPort = Registry.REGISTRY_PORT;
+    /**
+     * Remote address of RMI registry.
+     */
+    private static String configuredRemoteAddr = LOCALHOST;
 
-	/**
-	 * List of all associated experiment managers.
-	 */
-	private List<IExperimentManager> experimentManagers = new LinkedList<IExperimentManager>();
-	
-	/**
-	 * Initializes a new RMI registry.
-	 * 
-	 * @throws RemoteException
-	 */
-	private RmiRegistry() throws RemoteException {
-		// Locate java/sun's RMI registry or create one
-		try {
-			LocateRegistry.createRegistry(configuredRegistryPort);
-			logger.info("Java RMI registry started at port " + configuredRegistryPort);
+    /**
+     * IP Port of RMI registry, default is 1099.
+     */
+    private static int configuredRegistryPort = Registry.REGISTRY_PORT;
 
-		} catch (RemoteException e) {
-			LocateRegistry.getRegistry(configuredRegistryPort);
-			logger.info("Java RMI registry already running at port " + configuredRegistryPort);
-		}
+    /**
+     * List of all associated experiment managers.
+     */
+    private List<IExperimentManager> experimentManagers = new LinkedList<IExperimentManager>();
 
-		// Create registry binding service if it doesn't exist yet
-		try {
-			Naming.lookup("//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY);
+    /**
+     * Initializes a new RMI registry.
+     * 
+     * @throws RemoteException
+     */
+    private RmiRegistry() throws RemoteException {
+        // Locate java/sun's RMI registry or create one
+        try {
+            LocateRegistry.createRegistry(configuredRegistryPort);
+            logger.info("Java RMI registry started at port " + configuredRegistryPort);
 
-			logger.info("RMI binding service already running");
+        } catch (RemoteException e) {
+            LocateRegistry.getRegistry(configuredRegistryPort);
+            logger.info("Java RMI registry already running at port " + configuredRegistryPort);
+        }
 
-		} catch (MalformedURLException e) {			
-		} catch (NotBoundException e) {
-			logger.info("Starting RMI binding service");
+        // Create registry binding service if it doesn't exist yet
+        try {
+            Naming.lookup("//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY);
 
-			try {
-				String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY;
-//				String bindingName = PCM_RMI_REGISTRY;
-				Naming.bind(bindingName, this);
-				
-				logger.info("RMI binding service bound as " + bindingName);
-			} catch (MalformedURLException e2) {
-				logger.error("RMI registry failed: Malformed URL", e2);
-			} catch (AlreadyBoundException e2) {
-				logger.error("RMI registry failed: Registry already bound on this port", e2);
-			}
-			
-			try {
-				String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_EXPERIMENT_MANAGER_REGISTRY;
-				Naming.bind(bindingName, this);
-				
-				logger.info("Experiment Manager service bound as " + bindingName);
-			} catch (MalformedURLException e2) {
-				logger.error("Experiment Manager service failed: Malformed URL", e2);
-			} catch (AlreadyBoundException e2) {
-				logger.error("Experiment Manager service failed: Service already bound on this port", e2);
-			}
-		}
-	}
+            logger.info("RMI binding service already running");
 
-	@Override
-	public void bindPort(String name, Remote portClass) throws RemoteException {
-		String bindingName = "//" + getRemoteAddress() + ":" + getRegistryPort() + "/" + name;
-//		String bindingName = name;
-		logger.info("Binding " + name + " to RMI registry as " + bindingName);
-		try {
-			java.rmi.Naming.rebind(bindingName, portClass);
-		} catch (MalformedURLException e) {
-			logger.error("RMI registry failed", e);
-		}
-	}
+        } catch (MalformedURLException e) {
+        } catch (NotBoundException e) {
+            logger.info("Starting RMI binding service");
 
-	public static void startRegistry() {
-		if (singleton == null) {
-			try {
-				singleton = new RmiRegistry();
-			} catch (RemoteException e) {
-				logger.error("RMI registry failed", e);
-			}
-		}
-	}
+            try {
+                String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/"
+                        + PCM_RMI_REGISTRY;
+                // String bindingName = PCM_RMI_REGISTRY;
+                Naming.bind(bindingName, this);
 
-	/**
-	 * Registers a port to a RMI registry at the given IP. This method remotely calls bindPort. 
-	 * 
-	 * @param registryIP
-	 *            IP of the registry
-	 * @param port
-	 *            instance of the port
-	 * @param portName
-	 *            unique name of the port, using assembly context
-	 */
-	public static void registerPort(String registryIP, int registryPort, java.rmi.Remote component, String componentName) {
+                logger.info("RMI binding service bound as " + bindingName);
+            } catch (MalformedURLException e2) {
+                logger.error("RMI registry failed: Malformed URL", e2);
+            } catch (AlreadyBoundException e2) {
+                logger.error("RMI registry failed: Registry already bound on this port", e2);
+            }
 
-		try {
-			Registry reg = LocateRegistry.getRegistry(registryIP, registryPort);
+            try {
+                String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/"
+                        + PCM_EXPERIMENT_MANAGER_REGISTRY;
+                Naming.bind(bindingName, this);
 
-			logger.info("Located Java RMI Registy at " + registryIP + ":" + registryPort + ", " + reg);
-			
-			org.palladiosimulator.protocom.framework.registry.IRmiRegistry pcmRegistry = null;
+                logger.info("Experiment Manager service bound as " + bindingName);
+            } catch (MalformedURLException e2) {
+                logger.error("Experiment Manager service failed: Malformed URL", e2);
+            } catch (AlreadyBoundException e2) {
+                logger.error("Experiment Manager service failed: Service already bound on this port", e2);
+            }
+        }
+    }
 
-			String bindingName = PCM_RMI_REGISTRY;
-//			String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY;
+    @Override
+    public void bindPort(String name, Remote portClass) throws RemoteException {
+        String bindingName = "//" + getRemoteAddress() + ":" + getRegistryPort() + "/" + name;
+        // String bindingName = name;
+        logger.info("Binding " + name + " to RMI registry as " + bindingName);
+        try {
+            java.rmi.Naming.rebind(bindingName, portClass);
+        } catch (MalformedURLException e) {
+            logger.error("RMI registry failed", e);
+        }
+    }
 
-			while (true) {
-				try {
-					pcmRegistry = (IRmiRegistry) reg.lookup(bindingName);
-					pcmRegistry.bindPort(componentName, component);
-					break;
-				} catch (ServerException e) {
-					logger.error("Server Error: Check marshalling/serialization of your model!", e);
-					break;
-				} catch (RemoteException e) {
-					logger.info("RMI registry (" + bindingName + ") at " + registryIP + ":" + registryPort + " not found. Next attempt in 3 seconds.");
-					Thread.sleep(3000);
-				} catch (NotBoundException e) {
-					logger.info("RMI binding service (" + bindingName + ") at " + registryIP + ":" + registryPort + " not found. Next attempt in 3 seconds.");
-					Thread.sleep(3000);
-				}
-			}
+    public static void startRegistry() {
+        if (singleton == null) {
+            try {
+                singleton = new RmiRegistry();
+            } catch (RemoteException e) {
+                logger.error("RMI registry failed", e);
+            }
+        }
+    }
 
-			logger.info(componentName + " bound in registry");
+    /**
+     * Registers a port to a RMI registry at the given IP. This method remotely calls bindPort.
+     * 
+     * @param registryIP
+     *            IP of the registry
+     * @param port
+     *            instance of the port
+     * @param portName
+     *            unique name of the port, using assembly context
+     */
+    public static void registerPort(String registryIP, int registryPort, java.rmi.Remote component, String componentName) {
 
-		} catch (Exception e) {
-			logger.error(componentName + " err: " + e.getMessage());
-		}
+        try {
+            Registry reg = LocateRegistry.getRegistry(registryIP, registryPort);
 
-	}
+            logger.info("Located Java RMI Registy at " + registryIP + ":" + registryPort + ", " + reg);
 
-	/**
-	 * Returns an IP from an argument string array or LOCALHOST instead
-	 * 
-	 * @param args
-	 * @return
-	 */
-	public static String getIpFromArguments(String[] args) {
-		if (args != null && args.length > 0 && args[0] != null && !args[0].equals("")) {
-			return args[0];
-		}
-		return LOCALHOST;
-	}
+            org.palladiosimulator.protocom.framework.registry.IRmiRegistry pcmRegistry = null;
 
-	/**
-	 * Returns an port number from an argument string array or 1099 instead
-	 * 
-	 * @param args
-	 * @return
-	 */
-	public static int getPortFromArguments(String[] args) {
-		if (args != null && args.length > 1 && args[1] != null && !args[1].equals("")) {
-			return Integer.parseInt(args[1]);
-		}
-		return Registry.REGISTRY_PORT;
-	}
-	
-	/**
-	 * 
-	 * @param name
-	 * @return
-	 */
-	public static Remote lookup(String name) {
-		Remote result = null;
+            String bindingName = PCM_RMI_REGISTRY;
+            // String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/"
+            // + PCM_RMI_REGISTRY;
 
-		logger.info("RMI lookup for: " + name);
+            while (true) {
+                try {
+                    pcmRegistry = (IRmiRegistry) reg.lookup(bindingName);
+                    pcmRegistry.bindPort(componentName, component);
+                    break;
+                } catch (ServerException e) {
+                    logger.error("Server Error: Check marshalling/serialization of your model!", e);
+                    break;
+                } catch (RemoteException e) {
+                    logger.info("RMI registry (" + bindingName + ") at " + registryIP + ":" + registryPort
+                            + " not found. Next attempt in 3 seconds.");
+                    Thread.sleep(3000);
+                } catch (NotBoundException e) {
+                    logger.info("RMI binding service (" + bindingName + ") at " + registryIP + ":" + registryPort
+                            + " not found. Next attempt in 3 seconds.");
+                    Thread.sleep(3000);
+                }
+            }
 
-		if (getRemoteAddress() == null) {
-			logger.error("Remote address of RMI registry not defined.");
-			return null;
-		}
+            logger.info(componentName + " bound in registry");
 
-		String addr = "//" + getRemoteAddress() + ":" + getRegistryPort() + "/" + name;
+        } catch (Exception e) {
+            logger.error(componentName + " err: " + e.getMessage());
+        }
 
-		while (true) {
-			try {
-				result = java.rmi.Naming.lookup(addr);
+    }
 
-			} catch (java.net.MalformedURLException e) {
-				logger.error("Remote URI malformed. This should never happen, strange model names used? (" + addr + ")");
-			} catch (java.rmi.RemoteException e) {
-				logger.error("Error while waiting for system. (" + addr + ")" + e);
-			} catch (java.rmi.NotBoundException e) {
-				logger.info("System missing: " + e.getMessage());
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException innerE) {
-					logger.error("Error while waiting for system. " + e);
-				}
-				continue;
-			}
+    /**
+     * Returns an IP from an argument string array or LOCALHOST instead
+     * 
+     * @param args
+     * @return
+     */
+    public static String getIpFromArguments(String[] args) {
+        if (args != null && args.length > 0 && args[0] != null && !args[0].equals("")) {
+            return args[0];
+        }
+        return LOCALHOST;
+    }
 
-			return result;
-		}
-	}
+    /**
+     * Returns an port number from an argument string array or 1099 instead
+     * 
+     * @param args
+     * @return
+     */
+    public static int getPortFromArguments(String[] args) {
+        if (args != null && args.length > 1 && args[1] != null && !args[1].equals("")) {
+            return Integer.parseInt(args[1]);
+        }
+        return Registry.REGISTRY_PORT;
+    }
 
-	public static String getRemoteAddress() {
-		return configuredRemoteAddr;
-	}
+    /**
+     * 
+     * @param name
+     * @return
+     */
+    public static Remote lookup(String name) {
+        Remote result = null;
 
-	public static void setRemoteAddress(String configuredRemoteAddr) {
-		assert(configuredRemoteAddr != null);
-		RmiRegistry.configuredRemoteAddr = configuredRemoteAddr;
-	}
-	
-	public static int getRegistryPort() {
-		return configuredRegistryPort;
-	}
+        logger.info("RMI lookup for: " + name);
 
-	public static void setRegistryPort(int configuredRegistryPort) {
-		RmiRegistry.configuredRegistryPort = configuredRegistryPort;
-	}
+        if (getRemoteAddress() == null) {
+            logger.error("Remote address of RMI registry not defined.");
+            return null;
+        }
 
-	public static void main(String[] args) {
-		startRegistry();
+        String addr = "//" + getRemoteAddress() + ":" + getRegistryPort() + "/" + name;
 
-		logger.info("RMI registry started on port " + configuredRegistryPort);
+        while (true) {
+            try {
+                result = java.rmi.Naming.lookup(addr);
 
-		// Dirty fix to keep this java process alive...
-		new Thread() {
-			public void run() {
-				Scanner input = new Scanner(System.in);
-				if (input.hasNext()) {
-					input.nextLine();
-				}
-			}
-		}.run();
-	}
+            } catch (java.net.MalformedURLException e) {
+                logger.error("Remote URI malformed. This should never happen, strange model names used? (" + addr + ")");
+            } catch (java.rmi.RemoteException e) {
+                logger.error("Error while waiting for system. (" + addr + ")" + e);
+            } catch (java.rmi.NotBoundException e) {
+                logger.info("System missing: " + e.getMessage());
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException innerE) {
+                    logger.error("Error while waiting for system. " + e);
+                }
+                continue;
+            }
 
-	@Override
-	public void bindExperimentManager(IExperimentManager experimentManager)
-			throws RemoteException {
-		
-		experimentManagers.add(experimentManager);
-		logger.info("Added " + experimentManager.getName() + " to associated experiment managers");
-	}
-	
+            return result;
+        }
+    }
 
-	@Override
-	public List<IExperimentManager> getExperimentManagers() {
-		return experimentManagers;
-	}
+    public static String getRemoteAddress() {
+        return configuredRemoteAddr;
+    }
+
+    public static void setRemoteAddress(String configuredRemoteAddr) {
+        assert (configuredRemoteAddr != null);
+        RmiRegistry.configuredRemoteAddr = configuredRemoteAddr;
+    }
+
+    public static int getRegistryPort() {
+        return configuredRegistryPort;
+    }
+
+    public static void setRegistryPort(int configuredRegistryPort) {
+        RmiRegistry.configuredRegistryPort = configuredRegistryPort;
+    }
+
+    public static void main(String[] args) {
+        startRegistry();
+
+        logger.info("RMI registry started on port " + configuredRegistryPort);
+
+        // Dirty fix to keep this java process alive...
+        new Thread() {
+            public void run() {
+                Scanner input = new Scanner(System.in);
+                if (input.hasNext()) {
+                    input.nextLine();
+                }
+            }
+        }.run();
+    }
+
+    @Override
+    public void bindExperimentManager(IExperimentManager experimentManager) throws RemoteException {
+
+        experimentManagers.add(experimentManager);
+        logger.info("Added " + experimentManager.getName() + " to associated experiment managers");
+    }
+
+    @Override
+    public List<IExperimentManager> getExperimentManagers() {
+        return experimentManagers;
+    }
 }

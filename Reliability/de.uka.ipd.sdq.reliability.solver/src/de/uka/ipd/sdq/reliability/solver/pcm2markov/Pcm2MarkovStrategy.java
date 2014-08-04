@@ -69,7 +69,7 @@ public class Pcm2MarkovStrategy implements SolverStrategy {
     public MarkovTransformationResult getSolvedValue() {
         return (markovResults.size() > 0) ? markovResults.get(0) : null;
     }
-    
+
     public List<MarkovTransformationResult> getAllSolvedValues() {
         return markovResults;
     }

@@ -26,22 +26,20 @@ import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
  * @author brosch
  *
  */
-public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics, Identifier, Dimensionless> implements IFailureStatisticsListener {
+public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics, Identifier, Dimensionless> implements
+        IFailureStatisticsListener {
 
-    public TakeExecutionResultProbe(final FailureStatistics failureStatistics, final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
-        super(failureStatistics,createMetricDescription(simFailureTypes,successIdentifier));
+    public TakeExecutionResultProbe(final FailureStatistics failureStatistics,
+            final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
+        super(failureStatistics, createMetricDescription(simFailureTypes, successIdentifier));
     }
 
-    private static BaseMetricDescription createMetricDescription(final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
-        return TextualBaseMetricDescriptionBuilder.
-                newTextualBaseMetricDescriptionBuilder().
-                name("Execution Result").
-                textualDescription("Enumeration of all failure types which might happen in a reliability simulation").
-                scale(Scale.NOMINAL).
-                dataType(DataType.QUANTITATIVE).
-                identifiers(simFailureTypes.values()).
-                identifiers(successIdentifier).
-                build();
+    private static BaseMetricDescription createMetricDescription(
+            final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
+        return TextualBaseMetricDescriptionBuilder.newTextualBaseMetricDescriptionBuilder().name("Execution Result")
+                .textualDescription("Enumeration of all failure types which might happen in a reliability simulation")
+                .scale(Scale.NOMINAL).dataType(DataType.QUANTITATIVE).identifiers(simFailureTypes.values())
+                .identifiers(successIdentifier).build();
     }
 
     @Override

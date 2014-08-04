@@ -137,8 +137,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
                 continue;
             }
             branchProbabilities.add(transitions.get(i).getBranchProbability());
-            specificMarkovChains
-                    .add(doSwitch(transitions.get(i).getBranchedBehaviour_BranchTransition()));
+            specificMarkovChains.add(doSwitch(transitions.get(i).getBranchedBehaviour_BranchTransition()));
         }
 
         // Initialize the aggregate Markov chain representing the branch:

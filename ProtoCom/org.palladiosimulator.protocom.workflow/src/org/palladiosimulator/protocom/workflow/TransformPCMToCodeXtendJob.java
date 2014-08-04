@@ -31,97 +31,90 @@ import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
+public class TransformPCMToCodeXtendJob extends SequentialBlackboardInteractingJob<MDSDBlackboard> implements IJob,
+        IBlackboardInteractingJob<MDSDBlackboard> {
 
-public class TransformPCMToCodeXtendJob extends
-		SequentialBlackboardInteractingJob<MDSDBlackboard> implements IJob,
-		IBlackboardInteractingJob<MDSDBlackboard> {
+    protected ProtoComGenerationConfiguration configuration;
 
-	protected ProtoComGenerationConfiguration configuration;
+    public TransformPCMToCodeXtendJob(ProtoComGenerationConfiguration configuration) {
+        this.configuration = configuration;
+    }
 
-	public TransformPCMToCodeXtendJob(
-			ProtoComGenerationConfiguration configuration) {
-		this.configuration = configuration;
-	}
+    @Override
+    public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+        // prepare project factory
+        ProtoComProjectFactory.setProjectType(configuration.getCodeGenerationAdvice());
 
-	@Override
-	public void execute(IProgressMonitor monitor) throws JobFailedException,
-			UserCanceledException {
-		// prepare project factory
-		ProtoComProjectFactory.setProjectType(configuration.getCodeGenerationAdvice());
-		
-		// guice configuration
-		CommonConfigurationModule guiceConfiguration = null;		
-		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO) {
-			guiceConfiguration = new JseConfigurationModule();
-		} 
-		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO) {
+        // guice configuration
+        CommonConfigurationModule guiceConfiguration = null;
+        if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO) {
+            guiceConfiguration = new JseConfigurationModule();
+        } else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO) {
             guiceConfiguration = new JseStubConfigurationModule();
-        } 
-		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
-			guiceConfiguration = new JeeConfigurationModule();
-		} 
-		guiceConfiguration.setProjectURI(configuration.getStoragePluginID());
-		Injector injector = Guice.createInjector(guiceConfiguration);
-		
-		// Repository
-		for (int repositoryIndex = 0; repositoryIndex < getRepositoryCount(); repositoryIndex++) {
-			getRepositoryTransformationSlots(repositoryIndex);
-		}
-		
-		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		
-		for (Repository content : pcmPartition.getRepositories()) {
-			injector.getInstance(XRepository.class).setEntity(content).transform();
-		}
-		
-		// System
-		injector.getInstance(XSystem.class).setEntity(pcmPartition.getSystem()).transform();
-		
-		// Allocation
-		injector.getInstance(XAllocation.class).setEntity(pcmPartition.getAllocation()).transform();
+        } else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
+            guiceConfiguration = new JeeConfigurationModule();
+        }
+        guiceConfiguration.setProjectURI(configuration.getStoragePluginID());
+        Injector injector = Guice.createInjector(guiceConfiguration);
 
-		// Resource Environment
-		injector.getInstance(XResourceEnvironment.class).setEntity(pcmPartition.getResourceEnvironment()).transform();
-		
-		// Usage
-		for (UsageScenario scenario : pcmPartition.getUsageModel().getUsageScenario_UsageModel()) {
-			injector.getInstance(XUsageScenario.class).setEntity(scenario).transform();
-		}
-		
-		// compile		
-		for(ProtoComProject p : ProtoComProjectFactory.getCreatedProjects().values()){
-			p.compile();	
-		}
-	}
+        // Repository
+        for (int repositoryIndex = 0; repositoryIndex < getRepositoryCount(); repositoryIndex++) {
+            getRepositoryTransformationSlots(repositoryIndex);
+        }
 
-	@Override
-	public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
-		ProtoComProjectFactory.cleanup();
-	}
+        PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard
+                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 
-	@Override
-	public String getName() {
-		return "Generate ProtoCom Plugin Code";
-	}
+        for (Repository content : pcmPartition.getRepositories()) {
+            injector.getInstance(XRepository.class).setEntity(content).transform();
+        }
 
-	private int getRepositoryCount() {
-		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard
-				.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		return pcmPartition.getRepositories().size();
-	}
+        // System
+        injector.getInstance(XSystem.class).setEntity(pcmPartition.getSystem()).transform();
 
-	/**
-	 * @return Creates a HashMap with all slots required for the transformation
-	 *         of {@link Repository}.
-	 */
-	private HashMap<String, Object> getRepositoryTransformationSlots(
-			int repositoryIndex) {
-		HashMap<String, Object> sC2 = new HashMap<String, Object>();
-		PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard
-				.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		sC2.put("pcmmodel", pcmPartition.getRepositories().get(repositoryIndex));
-		return sC2;
-	}
+        // Allocation
+        injector.getInstance(XAllocation.class).setEntity(pcmPartition.getAllocation()).transform();
 
-	
+        // Resource Environment
+        injector.getInstance(XResourceEnvironment.class).setEntity(pcmPartition.getResourceEnvironment()).transform();
+
+        // Usage
+        for (UsageScenario scenario : pcmPartition.getUsageModel().getUsageScenario_UsageModel()) {
+            injector.getInstance(XUsageScenario.class).setEntity(scenario).transform();
+        }
+
+        // compile
+        for (ProtoComProject p : ProtoComProjectFactory.getCreatedProjects().values()) {
+            p.compile();
+        }
+    }
+
+    @Override
+    public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
+        ProtoComProjectFactory.cleanup();
+    }
+
+    @Override
+    public String getName() {
+        return "Generate ProtoCom Plugin Code";
+    }
+
+    private int getRepositoryCount() {
+        PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard
+                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+        return pcmPartition.getRepositories().size();
+    }
+
+    /**
+     * @return Creates a HashMap with all slots required for the transformation of
+     *         {@link Repository}.
+     */
+    private HashMap<String, Object> getRepositoryTransformationSlots(int repositoryIndex) {
+        HashMap<String, Object> sC2 = new HashMap<String, Object>();
+        PCMResourceSetPartition pcmPartition = (PCMResourceSetPartition) this.myBlackboard
+                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+        sC2.put("pcmmodel", pcmPartition.getRepositories().get(repositoryIndex));
+        return sC2;
+    }
+
 }

@@ -2,32 +2,30 @@ package org.palladiosimulator.protocom.framework;
 
 public class ComponentAllocation {
 
-	private Class<?> componentClass;
-	
-	private String assemblyContext;
+    private Class<?> componentClass;
 
-	public ComponentAllocation(Class<?> componentClass, String assemblyContext) {
-		super();
-		this.componentClass = componentClass;
-		this.assemblyContext = assemblyContext;
-	}
+    private String assemblyContext;
 
-	public Class<?> getComponentClass() {
-		return componentClass;
-	}
+    public ComponentAllocation(Class<?> componentClass, String assemblyContext) {
+        super();
+        this.componentClass = componentClass;
+        this.assemblyContext = assemblyContext;
+    }
 
-	public void setComponentClass(Class<?> componentClass) {
-		this.componentClass = componentClass;
-	}
+    public Class<?> getComponentClass() {
+        return componentClass;
+    }
 
-	public String getAssemblyContext() {
-		return assemblyContext;
-	}
+    public void setComponentClass(Class<?> componentClass) {
+        this.componentClass = componentClass;
+    }
 
-	public void setAssemblyContext(String assemblyContext) {
-		this.assemblyContext = assemblyContext;
-	}
-	
-	
-	
+    public String getAssemblyContext() {
+        return assemblyContext;
+    }
+
+    public void setAssemblyContext(String assemblyContext) {
+        this.assemblyContext = assemblyContext;
+    }
+
 }

@@ -17,28 +17,28 @@ import org.palladiosimulator.protocom.traverse.jsestub.repository.JseStubOperati
 import org.palladiosimulator.protocom.traverse.jsestub.system.JseStubSystem;
 
 /**
- * Google Guice binding for Java Standard Edition Protocom Stubs.
- * This class is not using Xtend as its superclass it not working properly with it.
+ * Google Guice binding for Java Standard Edition Protocom Stubs. This class is not using Xtend as
+ * its superclass it not working properly with it.
  * 
  * @author Sebastian Lehrig
  */
 public class JseStubConfigurationModule extends CommonConfigurationModule {
 
-	@Override
-	protected void configure() {
-		super.configure();
+    @Override
+    protected void configure() {
+        super.configure();
 
-		// Repository
-		bind(XBasicComponent.class).to(JseStubBasicComponent.class);
+        // Repository
+        bind(XBasicComponent.class).to(JseStubBasicComponent.class);
         bind(XCompositeComponent.class).to(JseStubCompositeComponent.class);
         bind(XOperationInterface.class).to(JseStubOperationInterface.class);
         bind(XInfrastructureInterface.class).to(JseStubInfrastructureInterface.class);
         bind(XBasicComponent.class).to(JseStubBasicComponent.class);
         bind(XCollectionDataType.class).to(JseStubCollectionDataType.class);
         bind(XCompositeDataType.class).to(JseStubCompositeDataType.class);
-        
+
         // System
         bind(XSystem.class).to(JseStubSystem.class);
-	}
-	
+    }
+
 }

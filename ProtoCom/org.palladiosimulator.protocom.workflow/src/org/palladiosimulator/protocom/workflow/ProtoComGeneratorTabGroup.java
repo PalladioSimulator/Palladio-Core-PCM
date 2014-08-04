@@ -14,16 +14,17 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ProtocomFileNamesInputTab;
  */
 public class ProtoComGeneratorTabGroup extends AbstractLaunchConfigurationTabGroup {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog, java.lang.String)
-	 */
-	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.
+     * ILaunchConfigurationDialog, java.lang.String)
+     */
+    public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
         ILaunchConfigurationTab commonTab = new DebugEnabledCommonTab();
-		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new ProtocomFileNamesInputTab(),
-				new ProtoComGenerationConfigurationTab(),
-				commonTab
-		};
-		setTabs(tabs);
-	}
+        ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
+                new ProtocomFileNamesInputTab(), new ProtoComGenerationConfigurationTab(), commonTab
+        };
+        setTabs(tabs);
+    }
 }

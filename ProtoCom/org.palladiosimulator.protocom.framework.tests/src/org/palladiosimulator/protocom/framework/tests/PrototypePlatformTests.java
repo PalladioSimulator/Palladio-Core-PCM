@@ -24,7 +24,7 @@ public class PrototypePlatformTests extends TestCase {
     private static final double HDD_PROCESSING_RATE = 1000.0;
     private static final String CALIBRATION_PATH = "../..";
     private static final Logger LOGGER = Logger.getLogger(PrototypePlatformTests.class.getName());
-    
+
     static {
         BasicConfigurator.configure();
     }
@@ -100,8 +100,8 @@ public class PrototypePlatformTests extends TestCase {
         }
         LOGGER.info("There have been " + countOutliers + " outliers out of " + TEST_ITERATIONS + " values for "
                 + unitsToConsume + " workunits.");
-        assertTrue("There have been more than " + TEST_ITERATIONS * OUTLIER_RATIO + " outliers for "
-                + unitsToConsume + " work units: " + countOutliers, countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);
+        assertTrue("There have been more than " + TEST_ITERATIONS * OUTLIER_RATIO + " outliers for " + unitsToConsume
+                + " work units: " + countOutliers, countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);
     }
 
     @Test

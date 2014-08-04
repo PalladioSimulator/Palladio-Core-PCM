@@ -57,7 +57,9 @@ public class LoggingHelper {
 
         // Create a new console:
         MessageConsole console = new MessageConsole(SimuServiceConsoleName, null);
-        ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[] { console });
+        ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[] {
+            console
+        });
         return console;
     }
 

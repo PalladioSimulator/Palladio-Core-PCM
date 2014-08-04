@@ -21,8 +21,8 @@ public final class SystemResourcesUtil {
      * import (Forbidden references), so you might have to change your preferences (Java -> Compiler
      * -> Errors/Warnings -> Forbidden references)
      */
-    private static final com.sun.management.OperatingSystemMXBean OS = 
-            (com.sun.management.OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
+    private static final com.sun.management.OperatingSystemMXBean OS = (com.sun.management.OperatingSystemMXBean) ManagementFactory
+            .getOperatingSystemMXBean();
 
     /**
      * This systems' temp directory. Due to inconsistencies between different systems a file

@@ -15,32 +15,31 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 
 /**
- * This class contains helper methods to serialize and deserialize XML documents
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This class contains helper methods to serialize and deserialize XML documents <!-- begin-user-doc
+ * --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SensitivityXMLProcessor extends XMLProcessor {
 
-	/**
-     * Public constructor to instantiate the helper.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * Public constructor to instantiate the helper. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	public SensitivityXMLProcessor() {
+    public SensitivityXMLProcessor() {
         super((EPackage.Registry.INSTANCE));
         SensitivityPackage.eINSTANCE.eClass();
     }
-	
-	/**
-     * Register for "*" and "xml" file extensions the SensitivityResourceFactoryImpl factory.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * Register for "*" and "xml" file extensions the SensitivityResourceFactoryImpl factory. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	@Override
-	protected Map<String, Resource.Factory> getRegistrations() {
+    @Override
+    protected Map<String, Resource.Factory> getRegistrations() {
         if (registrations == null) {
             super.getRegistrations();
             registrations.put(XML_EXTENSION, new SensitivityResourceFactoryImpl());
@@ -49,4 +48,4 @@ public class SensitivityXMLProcessor extends XMLProcessor {
         return registrations;
     }
 
-} //SensitivityXMLProcessor
+} // SensitivityXMLProcessor

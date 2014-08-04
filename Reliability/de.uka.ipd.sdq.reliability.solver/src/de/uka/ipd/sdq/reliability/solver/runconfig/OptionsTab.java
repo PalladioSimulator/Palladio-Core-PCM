@@ -508,7 +508,9 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
             public void widgetSelected(final SelectionEvent e) {
                 FileDialog fileDiag = new FileDialog(new Shell(), SWT.SAVE);
                 fileDiag.setFilterPath(getDirectoryName(textMarkovModelFile.getText().trim()));
-                fileDiag.setFilterExtensions(new String[] { "*.markov", "*.*" });
+                fileDiag.setFilterExtensions(new String[] {
+                        "*.markov", "*.*"
+                });
                 fileDiag.setFileName(getFileName(textMarkovModelFile.getText().trim()));
                 fileDiag.setOverwrite(true);
                 String modelFile = fileDiag.open();
@@ -663,7 +665,9 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
             public void widgetSelected(final SelectionEvent e) {
                 FileDialog fileDiag = new FileDialog(new Shell(), SWT.SAVE);
                 fileDiag.setFilterPath(getDirectoryName(textLogFile.getText().trim()));
-                fileDiag.setFilterExtensions(new String[] { "*.txt", "*.*" });
+                fileDiag.setFilterExtensions(new String[] {
+                        "*.txt", "*.*"
+                });
                 fileDiag.setFileName(getFileName(textLogFile.getText().trim()));
                 fileDiag.setOverwrite(true);
                 String logFile = fileDiag.open();
@@ -781,7 +785,9 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
             public void widgetSelected(final SelectionEvent e) {
                 FileDialog fileDiag = new FileDialog(new Shell(), SWT.SAVE);
                 fileDiag.setFilterPath(getDirectoryName(textSaveResultsToFile.getText().trim()));
-                fileDiag.setFilterExtensions(new String[] { "*.markovresult", "*.*" });
+                fileDiag.setFilterExtensions(new String[] {
+                        "*.markovresult", "*.*"
+                });
                 fileDiag.setFileName(getFileName(textSaveResultsToFile.getText().trim()));
                 fileDiag.setOverwrite(true);
                 String saveToFile = fileDiag.open();

@@ -1,9 +1,8 @@
 package org.palladiosimulator.protocom.resourcestrategies.activeresource;
 
 /**
- * @author   anne
+ * @author anne
  */
 public enum ResourceTypeEnum {
-	CPU,
-	HDD
+    CPU, HDD
 }

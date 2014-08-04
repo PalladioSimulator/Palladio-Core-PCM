@@ -10,19 +10,19 @@ import java.rmi.RemoteException;
  */
 public interface IExperimentManager extends Remote {
 
-	public static final int EXPERIMENT_MANAGER_MASTER = 1;
-	public static final int EXPERIMENT_MANAGER_SLAVE = 2;
-	
-	/**
-	 * Start a new experiment run.
-	 */
-	public void startNewExperimentRun() throws RemoteException;
-	
-	/**
-	 * Writes the experiment run to the specified DAO source.
-	 */
-	public void writeResultsAndClose() throws RemoteException;
-	
-	public String getName() throws RemoteException;
+    public static final int EXPERIMENT_MANAGER_MASTER = 1;
+    public static final int EXPERIMENT_MANAGER_SLAVE = 2;
+
+    /**
+     * Start a new experiment run.
+     */
+    public void startNewExperimentRun() throws RemoteException;
+
+    /**
+     * Writes the experiment run to the specified DAO source.
+     */
+    public void writeResultsAndClose() throws RemoteException;
+
+    public String getName() throws RemoteException;
 
 }

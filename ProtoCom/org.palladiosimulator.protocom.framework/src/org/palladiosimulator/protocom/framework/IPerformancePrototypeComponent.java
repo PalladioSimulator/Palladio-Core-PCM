@@ -7,6 +7,7 @@ package org.palladiosimulator.protocom.framework;
  * 
  * @author Thomas Zolynski, Sebastian Lehrig
  */
-public interface IPerformancePrototypeComponent extends IComponent{
-	public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame);
+public interface IPerformancePrototypeComponent extends IComponent {
+    public void setComponentFrame(
+            de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame);
 }

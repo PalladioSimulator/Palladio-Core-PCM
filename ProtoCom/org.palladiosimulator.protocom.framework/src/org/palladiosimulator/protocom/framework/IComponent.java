@@ -6,5 +6,5 @@ package org.palladiosimulator.protocom.framework;
  * @author Sebastian Lehrig
  */
 public interface IComponent {
-	public void setContext(Object myContext);
+    public void setContext(Object myContext);
 }

@@ -286,8 +286,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
             // dependencies unsolved (see also Bug 615).
             if (branchProbability > 0.0) {
                 prefixes.add(transitions.get(i).getEntityName() + "[" + transitions.get(i).getId() + "]");
-                specificMarkovChains.add(doSwitch(transitions.get(i)
-                        .getBranchBehaviour_BranchTransition()));
+                specificMarkovChains.add(doSwitch(transitions.get(i).getBranchBehaviour_BranchTransition()));
                 prefixes.remove(prefixes.size() - 1);
             }
         }

@@ -16,128 +16,130 @@ import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>String Parameter Sequence</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>String Parameter Sequence</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.sensitivity.impl.StringParameterSequenceImpl#getStringValues <em>String Values</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.sensitivity.impl.StringParameterSequenceImpl#getStringValues <em>String
+ * Values</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class StringParameterSequenceImpl extends SensitivityParameterVariationImpl implements StringParameterSequence {
-	/**
+    /**
      * The cached value of the '{@link #getStringValues() <em>String Values</em>}' attribute list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getStringValues()
      * @generated
      * @ordered
      */
-	protected EList<String> stringValues;
+    protected EList<String> stringValues;
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	protected StringParameterSequenceImpl() {
+    protected StringParameterSequenceImpl() {
         super();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return SensitivityPackage.Literals.STRING_PARAMETER_SEQUENCE;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	public EList<String> getStringValues() {
+    public EList<String> getStringValues() {
         if (stringValues == null) {
-            stringValues = new EDataTypeEList<String>(String.class, this, SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES);
+            stringValues = new EDataTypeEList<String>(String.class, this,
+                    SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES);
         }
         return stringValues;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-                return getStringValues();
+        case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+            return getStringValues();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-                getStringValues().clear();
-                getStringValues().addAll((Collection<? extends String>)newValue);
-                return;
+        case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+            getStringValues().clear();
+            getStringValues().addAll((Collection<? extends String>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(int featureID) {
         switch (featureID) {
-            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-                getStringValues().clear();
-                return;
+        case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+            getStringValues().clear();
+            return;
         }
         super.eUnset(featureID);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-                return stringValues != null && !stringValues.isEmpty();
+        case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+            return stringValues != null && !stringValues.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-	@Override
-	public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+    public String toString() {
+        if (eIsProxy())
+            return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (stringValues: ");
@@ -146,4 +148,4 @@ public class StringParameterSequenceImpl extends SensitivityParameterVariationIm
         return result.toString();
     }
 
-} //StringParameterSequenceImpl
+} // StringParameterSequenceImpl

@@ -6,15 +6,13 @@
  */
 package de.uka.ipd.sdq.sensitivity;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Double Parameter Variation</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Double Parameter Variation</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
- *     Specifies&nbsp;a variation&nbsp;of&nbsp;a&nbsp;sensitivity parameter of type DOUBLE.
+ * Specifies&nbsp;a variation&nbsp;of&nbsp;a&nbsp;sensitivity parameter of type DOUBLE.
  * </p>
  * <!-- end-model-doc -->
  *

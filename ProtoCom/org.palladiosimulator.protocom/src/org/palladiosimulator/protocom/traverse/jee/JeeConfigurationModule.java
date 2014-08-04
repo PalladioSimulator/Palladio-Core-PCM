@@ -7,18 +7,18 @@ import org.palladiosimulator.protocom.traverse.jee.repository.JeeBasicComponent;
 import org.palladiosimulator.protocom.traverse.jee.system.JeeSystem;
 
 /**
- * Google Guice binding for Java Enterprise Edition Protocom.
- * This class is not using Xtend as its superclass it not working properly with it.
+ * Google Guice binding for Java Enterprise Edition Protocom. This class is not using Xtend as its
+ * superclass it not working properly with it.
  * 
  * @author Daria Giacinto
  */
 public class JeeConfigurationModule extends CommonConfigurationModule {
 
-	@Override
-	protected void configure() {
-		super.configure();
-		bind(XBasicComponent.class).to(JeeBasicComponent.class);
-		bind(XSystem.class).to(JeeSystem.class);
-	}
-	
+    @Override
+    protected void configure() {
+        super.configure();
+        bind(XBasicComponent.class).to(JeeBasicComponent.class);
+        bind(XSystem.class).to(JeeSystem.class);
+    }
+
 }

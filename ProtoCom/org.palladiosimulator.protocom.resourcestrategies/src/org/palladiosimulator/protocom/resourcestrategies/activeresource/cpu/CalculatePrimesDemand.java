@@ -5,63 +5,63 @@ import org.palladiosimulator.protocom.resourcestrategies.activeresource.Resource
 
 public class CalculatePrimesDemand extends AbstractDemandStrategy {
 
-	/** number to start the search with */
-	private final long number = 2;
+    /** number to start the search with */
+    private final long number = 2;
 
-	/**
-	 * Initialize the search for the next given number of primes
-	 */
-	public CalculatePrimesDemand() {
-		super(-3, 0, 3, 100, 100);
-	}
+    /**
+     * Initialize the search for the next given number of primes
+     */
+    public CalculatePrimesDemand() {
+        super(-3, 0, 3, 100, 100);
+    }
 
-	/**
-	 * Search for the next primes.
-	 */
-	private long calculatePrime(double numberNextPrimes) { 
-		
-		boolean isPrime = true;
-		long currentNumber = number;
-		long primesFound = 0;
-		long currentDivisor;
-		long upperBound;
+    /**
+     * Search for the next primes.
+     */
+    private long calculatePrime(double numberNextPrimes) {
 
-		while (primesFound < numberNextPrimes) {
-			// test primality of currentNumber
-			currentDivisor = 2;
-			upperBound = currentNumber / 2;
-			while ((currentDivisor < upperBound) && (isPrime)) {
-				isPrime = currentNumber % currentDivisor != 0;
-				currentDivisor++;
-			}
-			// count primes and continue
-			if (isPrime) {
-				primesFound++;
-			}
-			// prepare for next iteration
-			isPrime = true;
-			currentNumber++;
-		}
-		return currentNumber;
-	}
+        boolean isPrime = true;
+        long currentNumber = number;
+        long primesFound = 0;
+        long currentDivisor;
+        long upperBound;
 
-	@Override
-	public void run(long initial) {
-		calculatePrime(initial);
-	}
+        while (primesFound < numberNextPrimes) {
+            // test primality of currentNumber
+            currentDivisor = 2;
+            upperBound = currentNumber / 2;
+            while ((currentDivisor < upperBound) && (isPrime)) {
+                isPrime = currentNumber % currentDivisor != 0;
+                currentDivisor++;
+            }
+            // count primes and continue
+            if (isPrime) {
+                primesFound++;
+            }
+            // prepare for next iteration
+            isPrime = true;
+            currentNumber++;
+        }
+        return currentNumber;
+    }
 
-	@Override
-	public ResourceTypeEnum getStrategysResource() {
-		return ResourceTypeEnum.CPU;
-	}
+    @Override
+    public void run(long initial) {
+        calculatePrime(initial);
+    }
 
-	@Override
-	public String getName() {
-		return "CalculatePrimes";
-	}
+    @Override
+    public ResourceTypeEnum getStrategysResource() {
+        return ResourceTypeEnum.CPU;
+    }
 
-	@Override
-	public void cleanup() {
-		// Do nothing.
-	}
+    @Override
+    public String getName() {
+        return "CalculatePrimes";
+    }
+
+    @Override
+    public void cleanup() {
+        // Do nothing.
+    }
 }
