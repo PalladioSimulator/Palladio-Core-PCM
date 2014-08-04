@@ -65,7 +65,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	private File configFile = null;
 
 	protected DegreeOfAccuracyEnum degreeOfAccuracy;
-	private static Logger logger = Logger.getLogger(AbstractDemandStrategy.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(AbstractDemandStrategy.class.getName());
 
 	private static final String CALIBRATION_PATH = "../ProtoComCalibration/";
 
@@ -103,7 +103,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 */
 	@Override
 	public void initializeStrategy(DegreeOfAccuracyEnum degree, double initProcessingRate) {
-		logger.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "+degree.name());
+		LOGGER.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "+degree.name());
 		
 		this.degreeOfAccuracy = degree;
 		this.processingRate = Amount.valueOf(initProcessingRate,ProcessingRate.UNIT);
@@ -117,7 +117,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		} else {
 			calibrate();
 		}
-		logger.debug(getName() + " " + getStrategysResource().name() + " strategy initialised");
+		LOGGER.debug(getName() + " " + getStrategysResource().name() + " strategy initialised");
 	}
 
 	/**
@@ -149,14 +149,14 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	@Override
 	public void consume(double demand) {
 		if (calibrationTable == null) {
-			logger.fatal("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
+			LOGGER.fatal("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
 			throw new RuntimeException("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
 		}
 	
 		Amount<Work> demandedWork = Amount.valueOf(demand,Work.UNIT);
 		Amount<Duration> millisec = demandedWork.divide(processingRate).to(SI.SECOND);
-		if (logger.isDebugEnabled()) {
-			logger.debug("Consume called, demand is : " + demandedWork + ", " + millisec);
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Consume called, demand is : " + demandedWork + ", " + millisec);
 		}
 		
 		long[] factors = fillTimeFrame(millisec);
@@ -167,7 +167,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 				run(calibrationTable.getEntry(i).getParameter());
 			}
 		}
-		logger.debug("Demand consumed");
+		LOGGER.debug("Demand consumed");
 	}
 
 	/**
@@ -223,11 +223,11 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		{
 			if(path.mkdirs())
 			{
-			    logger.info("Created Calibration Path "+path);
+			    LOGGER.info("Created Calibration Path "+path);
 			}
 			else
 			{
-			    logger.error("Could not create "+path+". Assure you have the rights to create and write to this folder.");
+			    LOGGER.error("Could not create "+path+". Assure you have the rights to create and write to this folder.");
 			    System.exit(0);
 			}
 		}
@@ -252,7 +252,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 			run(defaultIterationCount);
 		}
 
-		logger.info("The timetable with the corresponding parameters:");
+		LOGGER.info("The timetable with the corresponding parameters:");
 		for (int i = 0; i < calibrationTable.size(); i++) {
 			Amount<Duration> targetTime = Amount.valueOf(1 << i,SI.MILLI(SI.SECOND));
 			long parameter = getRoot(targetTime);
@@ -263,7 +263,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 			}
 			
 			calibrationTable.addEntry(i, targetTime, parameter);
-			logger.info(calibrationTable.getEntry(i));
+			LOGGER.info(calibrationTable.getEntry(i));
 		}
 		calibrationTable.save(configFile);
 	}
@@ -317,20 +317,20 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		Amount<Duration>[] intervalFunctionValues = new Amount[2];
 	    initialiseInterval(targetTime,intervalEndpoints,intervalFunctionValues);
 		if (!hasRoot(intervalFunctionValues[LEFT_ENDPOINT], intervalFunctionValues[RIGHT_ENDPOINT]) || intervalFunctionValues[LEFT_ENDPOINT].isGreaterThan(intervalFunctionValues[RIGHT_ENDPOINT])) { 
-			logger.error("PROBLEM: No root found. Special algorithm"
+			LOGGER.error("PROBLEM: No root found. Special algorithm"
 							+ " without monotonically increasing load !?!");
-			logger.error("f_n_left = "+intervalFunctionValues[LEFT_ENDPOINT]);
-			logger.error("f_n_right = " +intervalFunctionValues[RIGHT_ENDPOINT]);
+			LOGGER.error("f_n_left = "+intervalFunctionValues[LEFT_ENDPOINT]);
+			LOGGER.error("f_n_right = " +intervalFunctionValues[RIGHT_ENDPOINT]);
 			throw new RuntimeException("PROBLEM: No root found. Special algorithm"
 					+ " without monotonically increasing load !?!");
 		} 
 		
-		logger.debug("--- Running bisection method ----");
+		LOGGER.debug("--- Running bisection method ----");
 		Amount<Duration> epsilon = getEpsilon(targetTime);
 		while (Math.abs(intervalEndpoints[LEFT_ENDPOINT]-intervalEndpoints[RIGHT_ENDPOINT]) > 2 && 
 				intervalFunctionValues[RIGHT_ENDPOINT].minus(intervalFunctionValues[LEFT_ENDPOINT]).abs().isLargerThan(epsilon)) {
-			if (logger.isDebugEnabled()) {
-				logger.debug("["+intervalEndpoints[LEFT_ENDPOINT]+", "+intervalEndpoints[RIGHT_ENDPOINT]+"] --> "+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("["+intervalEndpoints[LEFT_ENDPOINT]+", "+intervalEndpoints[RIGHT_ENDPOINT]+"] --> "+
 						"["+formatDuration(intervalFunctionValues[LEFT_ENDPOINT])+", "+formatDuration(intervalFunctionValues[RIGHT_ENDPOINT])+"]");
 			}
 			long intervalMedian = (intervalEndpoints[LEFT_ENDPOINT] + intervalEndpoints[RIGHT_ENDPOINT]) / 2;
@@ -349,8 +349,9 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 	private Amount<Duration> getEpsilon(Amount<Duration> targetTime) {
 		Amount<Duration> result = targetTime.times(0.01d);
-		if (result.to(SI.MILLI(SI.SECOND)).isGreaterThan(ONE_MILLISECOND))
-			return ONE_MILLISECOND;
+		if (result.to(SI.MILLI(SI.SECOND)).isGreaterThan(ONE_MILLISECOND)) {
+            return ONE_MILLISECOND;
+        }
 		return result;
 	}
 
@@ -376,8 +377,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @return n_right with f(n_right) > 0
 	 */
 	private void initialiseInterval(Amount<Duration> targetTime, long[] intervalEndpoints, Amount<Duration>[] intervalFunctionValues) {
-		if (logger.isDebugEnabled()){
-			logger.debug("Find inital interval for target time "+formatDuration(targetTime));
+		if (LOGGER.isDebugEnabled()){
+			LOGGER.debug("Find inital interval for target time "+formatDuration(targetTime));
 		}
 		long z = 0;
 		do {
@@ -386,8 +387,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 			intervalEndpoints[RIGHT_ENDPOINT] = z * defaultIterationCount; 
 			intervalFunctionValues[RIGHT_ENDPOINT] = calcRunTimeFunction(intervalEndpoints[RIGHT_ENDPOINT], targetTime);
 			z = z == 0 ? 1 : z << 1;
-			if (logger.isDebugEnabled()) {
-				logger.debug("["+intervalEndpoints[LEFT_ENDPOINT]+", "+intervalEndpoints[RIGHT_ENDPOINT]+"] --> "+
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("["+intervalEndpoints[LEFT_ENDPOINT]+", "+intervalEndpoints[RIGHT_ENDPOINT]+"] --> "+
 						"["+formatDuration(intervalFunctionValues[LEFT_ENDPOINT])+", "+formatDuration(intervalFunctionValues[RIGHT_ENDPOINT])+"]");
 			}
 		} while (intervalFunctionValues[RIGHT_ENDPOINT].isLessThan(Amount.valueOf(0L, SI.SECOND)));
@@ -432,8 +433,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		long[] approximation = new long[cycles];
 		
 		for (int i = 0; i < cycles; i++) {
-			if (logger.isTraceEnabled()) {
-				logger.trace("Measuring calibration run " + i + " of " + cycles);
+			if (LOGGER.isTraceEnabled()) {
+				LOGGER.trace("Measuring calibration run " + i + " of " + cycles);
 			}
 			long start = System.nanoTime();
 			run(parameter);
@@ -441,7 +442,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		}
 		
 		long mean = mean(approximation);
-		logger.debug("Mean time for parameter " + parameter + " is " + mean);
+		LOGGER.debug("Mean time for parameter " + parameter + " is " + mean);
 		return Amount.valueOf(mean,SI.NANO(SI.SECOND));
 	}
 
@@ -527,8 +528,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 			if (result[i] >= 1) {
 				sum = sum.minus(calibrationEntry.getTargetTime().times(result[i]));
 			}
-			if (logger.isTraceEnabled()) {
-				logger.trace(formatDuration(calibrationEntry.getTargetTime()) + " | "
+			if (LOGGER.isTraceEnabled()) {
+				LOGGER.trace(formatDuration(calibrationEntry.getTargetTime()) + " | "
 						    + calibrationEntry.getParameter() + " | " + result[i] + "|" + formatDuration(sum));
 			}
 		}
@@ -543,28 +544,29 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	public void watchConsume(double demand) {
 		final int repetitionCount = 10;
 		if (calibrationTable == null) {
-			logger.fatal("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
+			LOGGER.fatal("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
 			throw new RuntimeException("No calibration found - STRATEGY HAS TO BE INITIALIZED FIRST!");
 		}
 
 		Amount<Work> demandedWork = Amount.valueOf(demand,Work.UNIT);
 		Amount<Duration> expectedTime = demandedWork.divide(processingRate).to(SI.SECOND);
-		logger.info("Request issued to consume " + demandedWork);
-		logger.info("Expected duration is " + formatDuration(expectedTime));
+		LOGGER.info("Request issued to consume " + demandedWork);
+		LOGGER.info("Expected duration is " + formatDuration(expectedTime));
 		long theTime = System.nanoTime();
 	
 		for (int h = 0; h < repetitionCount; h++) {
 			consume(demand);
 		}
 		Amount<Duration> measuredTime = Amount.valueOf((System.nanoTime() - theTime) / repetitionCount,SI.NANO(SI.SECOND));
-		logger.info("Demand of "+formatDuration(expectedTime)+" consumed at an average value of " + formatDuration(measuredTime)
+		LOGGER.info("Demand of "+formatDuration(expectedTime)+" consumed at an average value of " + formatDuration(measuredTime)
 				+ ". Abs. difference is "+formatDuration(measuredTime.minus(expectedTime).abs()));
 	}
 	
 	@SuppressWarnings("unchecked")
 	public static String formatDuration(Amount<Duration> t) {
-		if (t == null)
-			return "null";
+		if (t == null) {
+            return "null";
+        }
 		
 		Unit<Duration>[] units = new Unit[] {SI.NANO(SI.SECOND), SI.MICRO(SI.SECOND), SI.MILLI(SI.SECOND), SI.SECOND, NonSI.MINUTE, NonSI.HOUR};
 		for (Unit<Duration> u : units) {

@@ -21,8 +21,9 @@ import de.uka.ipd.sdq.simucomframework.variables.functions.MinDeviationFunction;
 import de.uka.ipd.sdq.simucomframework.variables.functions.MinFunction;
 
 public class StoExVisitorTests extends TestCase {
-    private static Logger logger = Logger.getLogger(StoExVisitorTests.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(StoExVisitorTests.class.getName());
 
+    @Override
     public void setUp() {
         IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
         probFunctionFactory.setRandomGenerator(new SimuComDefaultRandomNumberGenerator(new long[] {
@@ -38,7 +39,7 @@ public class StoExVisitorTests extends TestCase {
     }
 
     public void testDoubleOperations() {
-        logger.debug("Running Double Op Test");
+        LOGGER.debug("Running Double Op Test");
         for (int i = 0; i < 2000; i++) {
             double result = (Double) StackContext
                     .evaluateStatic("( ( DoublePDF[ (1.0; 0.02236114450589084) (2.0; 0.04664582832411637) (3.0; 0.10387112286607357) (4.0; 0.1606155325799471) (5.0; 0.20389516710747776) (6.0; 0.18826641019475834) (7.0; 0.11372926184178889) (8.0; 0.06852608800192354) (9.0; 0.02933397451310411) (10.0; 0.017311853811012263) (11.0; 0.009377254147631643) (12.0; 0.008896369319547967) (13.0; 0.004327963452753066) (14.0; 0.005049290694878576) (15.0; 0.0019235393123346958) (16.0; 0.002163981726376533) (17.0; 0.0012022120702091848) ] * 0.04 ) + 0.18 ) * 14");
@@ -106,7 +107,7 @@ public class StoExVisitorTests extends TestCase {
     }
 
     public void testUniIntFunction() {
-        logger.info("UniInt");
+        LOGGER.info("UniInt");
         int[] uiv;
         int min = 1;
         int max = 4;
@@ -134,45 +135,45 @@ public class StoExVisitorTests extends TestCase {
     }
 
     public void testFunctions() {
-        logger.info("UniDouble");
+        LOGGER.info("UniDouble");
         for (int i = 0; i < 2000; i++) {
             double result3 = (Double) StackContext.evaluateStatic("UniDouble(1,4)");
             assertTrue(result3 >= 1 && result3 <= 4);
         }
 
-        logger.info("Norm");
+        LOGGER.info("Norm");
         for (int i = 0; i < 200; i++) {
             double result3 = (Double) StackContext.evaluateStatic("Norm(0,1)");
-            logger.debug(result3);
+            LOGGER.debug(result3);
             assertTrue(result3 >= -5 && result3 <= 5);
         }
-        logger.info("Exp");
+        LOGGER.info("Exp");
         for (int i = 0; i < 200; i++) {
             double result3 = (Double) StackContext.evaluateStatic("Exp(1)");
             assertTrue(result3 >= 0);
         }
-        logger.info("Trunc");
+        LOGGER.info("Trunc");
         int result4 = (Integer) StackContext.evaluateStatic("Trunc(2.5)");
         assertEquals(2, result4);
         result4 = (Integer) StackContext.evaluateStatic("Trunc(2)");
         assertEquals(2, result4);
-        logger.info("Round");
+        LOGGER.info("Round");
         result4 = (Integer) StackContext.evaluateStatic("Round(2.5)");
         assertEquals(3, result4);
         result4 = (Integer) StackContext.evaluateStatic("Round(3)");
         assertEquals(3, result4);
-        logger.info(MinFunction.MIN_FUNCTION_NAME);
+        LOGGER.info(MinFunction.MIN_FUNCTION_NAME);
         assertEquals(2, StackContext.evaluateStatic("Min(2,5)"));
         assertEquals(2.3, StackContext.evaluateStatic("Min(2.3,5.3)"));
-        logger.info(MaxFunction.MAX_FUNCTION_NAME);
+        LOGGER.info(MaxFunction.MAX_FUNCTION_NAME);
         assertEquals(5, StackContext.evaluateStatic("Max(2,5)"));
         assertEquals(5.3, StackContext.evaluateStatic("Max(2.3,5.3)"));
-        logger.info(MinDeviationFunction.MIN_DEVIATION_FUNCTION_NAME);
+        LOGGER.info(MinDeviationFunction.MIN_DEVIATION_FUNCTION_NAME);
         assertEquals(5, StackContext.evaluateStatic("MinDeviation(10, 5.0, 0.1)"));
         assertEquals(4, StackContext.evaluateStatic("MinDeviation(10, 5.0, 0.6)"));
         assertEquals(5.0, StackContext.evaluateStatic("MinDeviation(10.0, 5.0, 0.1)"));
         assertEquals(4.0, StackContext.evaluateStatic("MinDeviation(10.0, 5.0, 0.6)"));
-        logger.info(MaxDeviationFunction.MAX_DEVIATION_FUNCTION_NAME);
+        LOGGER.info(MaxDeviationFunction.MAX_DEVIATION_FUNCTION_NAME);
         assertEquals(15, StackContext.evaluateStatic("MaxDeviation(10, 5.0, 0.1)"));
         assertEquals(16, StackContext.evaluateStatic("MaxDeviation(10, 5.0, 0.6)"));
         assertEquals(15.0, StackContext.evaluateStatic("MaxDeviation(10.0, 5.0, 0.1)"));

@@ -23,7 +23,7 @@ public class PrototypePlatformTests extends TestCase {
     private static final double CPU_PROCESSING_RATE = 1000.0;
     private static final double HDD_PROCESSING_RATE = 1000.0;
     private static final String CALIBRATION_PATH = "../..";
-    private static Logger logger = Logger.getLogger(PrototypePlatformTests.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PrototypePlatformTests.class.getName());
     
     static {
         BasicConfigurator.configure();
@@ -36,12 +36,12 @@ public class PrototypePlatformTests extends TestCase {
         /*
          * This is done by the Strategy Register itself at the moment, but will be needed later.
          */
-        logger.info("Pls pin processor! Press a key when ready.");
+        LOGGER.info("Pls pin processor! Press a key when ready.");
         /*
          * try { System.in.read(); } catch (IOException e) { // TODO Auto-generated catch block
          * e.printStackTrace(); }
          */
-        logger.info("Initialising Testbed");
+        LOGGER.info("Initialising Testbed");
         IDemandStrategy cpuStrategy = new FibonacciDemand();
         cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, CPU_PROCESSING_RATE, CALIBRATION_PATH);
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
@@ -49,7 +49,7 @@ public class PrototypePlatformTests extends TestCase {
         IDemandStrategy hddStrategy = new ReadLargeChunksDemand();
         hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, HDD_PROCESSING_RATE, CALIBRATION_PATH);
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
-        logger.info("Testbed inialised");
+        LOGGER.info("Testbed inialised");
     }
 
     @Test
@@ -88,15 +88,17 @@ public class PrototypePlatformTests extends TestCase {
 
             if (timeConsumptionInSeconds < lowerAcceptanceBound || timeConsumptionInSeconds > upperAcceptanceBound) {
                 countOutliers++;
-                if (timeConsumptionInSeconds < lowerAcceptanceBound)
-                    logger.info("Lower acceptance level not reached in run " + i + ": Time is "
+                if (timeConsumptionInSeconds < lowerAcceptanceBound) {
+                    LOGGER.info("Lower acceptance level not reached in run " + i + ": Time is "
                             + timeConsumptionInSeconds + " and must be higher than " + lowerAcceptanceBound);
-                if (timeConsumptionInSeconds > upperAcceptanceBound)
-                    logger.info("Upper acceptance level not reached in run " + i + ": Time is "
+                }
+                if (timeConsumptionInSeconds > upperAcceptanceBound) {
+                    LOGGER.info("Upper acceptance level not reached in run " + i + ": Time is "
                             + timeConsumptionInSeconds + " and must be lower than " + upperAcceptanceBound);
+                }
             }
         }
-        logger.info("There have been " + countOutliers + " outliers out of " + TEST_ITERATIONS + " values for "
+        LOGGER.info("There have been " + countOutliers + " outliers out of " + TEST_ITERATIONS + " values for "
                 + unitsToConsume + " workunits.");
         assertTrue("There have been more than " + TEST_ITERATIONS * OUTLIER_RATIO + " outliers for "
                 + unitsToConsume + " work units: " + countOutliers, countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);

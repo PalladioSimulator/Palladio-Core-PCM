@@ -11,11 +11,11 @@ import org.apache.log4j.Logger;
 
 public class RunProperties
 {
-	private CommandLine cmdLine;
-	private Options options;
+	private final CommandLine cmdLine;
+	private final Options options;
 	private Properties propertyFile = null;
 	
-	private static Logger logger = org.apache.log4j.Logger.getRootLogger();
+	private static final Logger LOGGER = org.apache.log4j.Logger.getRootLogger();
 	
 	public RunProperties(CommandLine cmdLine, Options options)
 	{
@@ -29,10 +29,10 @@ public class RunProperties
 			try {
 				propertyFile.load(new FileInputStream(cmdLine.getOptionValue("f")));
 			} catch (FileNotFoundException e) {
-				logger.error("Property file could not be found.",e);
+				LOGGER.error("Property file could not be found.",e);
 				propertyFile = null;
 			} catch (IOException e) {
-				logger.debug("Error reading property file.",e);
+				LOGGER.debug("Error reading property file.",e);
 				propertyFile = null;
 			}
 		}
@@ -110,7 +110,9 @@ public class RunProperties
 
 	public boolean hasOption(String opt)
 	{
-		if(hasPropertyInFile(getLongOpt(opt))) return true;
+		if(hasPropertyInFile(getLongOpt(opt))) {
+            return true;
+        }
 		return cmdLine.hasOption(opt);
 	}
 

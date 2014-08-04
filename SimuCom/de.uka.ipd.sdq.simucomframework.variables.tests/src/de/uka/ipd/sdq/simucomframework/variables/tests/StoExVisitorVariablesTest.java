@@ -20,10 +20,11 @@ import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode;
 public class StoExVisitorVariablesTest extends TestCase {
     /** Logger for this class. */
     @SuppressWarnings("unused")
-    private static Logger logger = Logger.getLogger(StoExVisitorTests.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(StoExVisitorTests.class.getName());
     private SimulatedStackframe<Object> stackFrame;
     private ConsoleAppender ca;
 
+    @Override
     public void setUp() {
         PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
         ca = new ConsoleAppender(myLayout);

@@ -45,7 +45,7 @@ public class EMFHelper {
     /**
      * Log4J logging support.
      */
-    private static Logger logger = Logger.getLogger(EMFHelper.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(EMFHelper.class.getName());
 
     /**
      * Retrieves all model elements of a given EMF type under some root element.
@@ -88,7 +88,7 @@ public class EMFHelper {
      */
     public static void saveToXMIFile(final EObject modelToSave, final String fileName) {
 
-        logger.debug("Saving " + modelToSave.toString() + " to " + fileName);
+        LOGGER.debug("Saving " + modelToSave.toString() + " to " + fileName);
 
         // Create a resource set.
         ResourceSet resourceSet = new ResourceSetImpl();
@@ -110,9 +110,9 @@ public class EMFHelper {
                         fileName.substring(0, fileName.indexOf("-")) + "-shortened-" + fileName.hashCode());
             }
         } catch (IOException e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
-        // logger.debug("Saved " + fileURI);
+        // LOGGER.debug("Saved " + fileURI);
     }
 
     /**
@@ -183,10 +183,10 @@ public class EMFHelper {
         try {
             resource = resourceSet.getResource(uri, true);
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
             return null;
         }
-        EObject eObject = (EObject) resource.getContents().iterator().next();
+        EObject eObject = resource.getContents().iterator().next();
         return EcoreUtil.getRootContainer(eObject);
     }
 

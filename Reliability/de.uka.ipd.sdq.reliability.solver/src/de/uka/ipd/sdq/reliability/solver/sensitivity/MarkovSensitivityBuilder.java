@@ -44,7 +44,7 @@ public class MarkovSensitivityBuilder {
     /**
      * A logger to give detailed information about the PCM instance traversal.
      */
-    private static Logger logger = Logger.getLogger(MarkovSensitivityBuilder.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovSensitivityBuilder.class.getName());
 
     /**
      * Creates the sensitivity information.
@@ -75,7 +75,7 @@ public class MarkovSensitivityBuilder {
             return new ComponentSensitivity(parameter.getEntityName(), parameter
                     .getBasicComponent__ComponentReliabilityParameter().getId(), (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -98,7 +98,7 @@ public class MarkovSensitivityBuilder {
             return new FailureTypeSensitivity(parameter.getEntityName(), failureTypeIds,
                     (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -118,7 +118,7 @@ public class MarkovSensitivityBuilder {
                     .getSoftwareInducedFailureType__InternalActionReliabilityParameter().getId(),
                     (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -141,7 +141,7 @@ public class MarkovSensitivityBuilder {
         if (parameter instanceof CombinedSensitivityParameter) {
             result = createMultiSensitivity((CombinedSensitivityParameter) parameter, resultSpecifications, logFileName);
         } else if (parameter instanceof CommunicationLinkReliabilityParameter) {
-            logger.error("Parameter type \"" + parameter.eClass().toString() + "\" not yet supported.");
+            LOGGER.error("Parameter type \"" + parameter.eClass().toString() + "\" not yet supported.");
             return null;
         } else if (parameter instanceof ComponentReliabilityParameter) {
             result = createComponentSensitivity((ComponentReliabilityParameter) parameter);
@@ -168,7 +168,7 @@ public class MarkovSensitivityBuilder {
         } else if (parameter instanceof SoftwareFailureTypesParameter) {
             result = createFailureTypeSensitivity((SoftwareFailureTypesParameter) parameter);
         } else {
-            logger.error("Parameter type \"" + parameter.eClass().toString() + "\" not yet supported.");
+            LOGGER.error("Parameter type \"" + parameter.eClass().toString() + "\" not yet supported.");
             return null;
         }
         result.setLogFileName(logFileName);
@@ -187,7 +187,7 @@ public class MarkovSensitivityBuilder {
         if (variation instanceof DoubleParameterVariation) {
             return new MTTFSensitivity(parameter.getEntityName(), (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -204,7 +204,7 @@ public class MarkovSensitivityBuilder {
         if (variation instanceof DoubleParameterVariation) {
             return new MTTRSensitivity(parameter.getEntityName(), (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -237,7 +237,7 @@ public class MarkovSensitivityBuilder {
         if (variation instanceof DoubleParameterVariation) {
             return new NetworkSensitivity(parameter.getEntityName(), (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -257,7 +257,7 @@ public class MarkovSensitivityBuilder {
                     .getProbabilisticBranchTransition__ProbabilisticBranchParameter().getId(),
                     (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -276,7 +276,7 @@ public class MarkovSensitivityBuilder {
                     .getResourceContainer__ResourceMTTFParameter().getId(), parameter
                     .getProcessingResourceType__ResourceMTTFParameter().getId(), (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -295,7 +295,7 @@ public class MarkovSensitivityBuilder {
                     .getResourceContainer__ResourceMTTRParameter().getId(), parameter
                     .getProcessingResourceType__ResourceMTTRParameter().getId(), (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -312,7 +312,7 @@ public class MarkovSensitivityBuilder {
         if (variation instanceof DoubleParameterVariation) {
             return new SoftwareSensitivity(parameter.getEntityName(), (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -331,7 +331,7 @@ public class MarkovSensitivityBuilder {
                     .getId(), parameter.getScenarioBehaviour__UsageBranchParameter().getId(),
                     (DoubleParameterVariation) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }
@@ -359,7 +359,7 @@ public class MarkovSensitivityBuilder {
                     parameter.getVariableCharacterisationType__VariableUsageParameter(),
                     parameter.getVariableUsageType__VariableUsageParameter(), (StringParameterSequence) variation);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString()
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString()
                     + "\" not supported for parameter type \"" + parameter.eClass().toString() + "\".");
             return null;
         }

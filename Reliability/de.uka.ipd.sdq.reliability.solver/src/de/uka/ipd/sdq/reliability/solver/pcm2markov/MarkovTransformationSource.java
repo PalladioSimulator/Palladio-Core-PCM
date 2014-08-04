@@ -29,23 +29,23 @@ public class MarkovTransformationSource {
     /**
      * A logger to give detailed information about the PCM instance traversal.
      */
-    private static Logger logger = Logger.getLogger(MarkovTransformationSource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovTransformationSource.class.getName());
 
     /**
      * The PCM instance.
      */
-    private PCMInstance model;
+    private final PCMInstance model;
 
     /**
      * The list of descriptors for processing resources.
      */
-    private List<ProcessingResourceDescriptor> resourceDescriptors;
+    private final List<ProcessingResourceDescriptor> resourceDescriptors;
 
     /**
      * The list of descriptors for processing resources which have a failure probability greater
      * than zero.
      */
-    private List<ProcessingResourceDescriptor> unreliableResourceDescriptors;
+    private final List<ProcessingResourceDescriptor> unreliableResourceDescriptors;
 
     /**
      * Initializes a PCMInformationProvider and creates the corresponding resource descriptors.
@@ -100,7 +100,7 @@ public class MarkovTransformationSource {
 
                 // Check the proper MTTF/MTTR specification:
                 if ((resourceMTTF <= 0.0) || (resourceMTTR <= 0.0)) {
-                    logger.warn("Improper MTTF/MTTR specification for resource " + type.getEntityName()
+                    LOGGER.warn("Improper MTTF/MTTR specification for resource " + type.getEntityName()
                             + " in container " + container.getEntityName()
                             + ": Both values should be positive. Assuming that resource is always ok");
                     resourceMTTF = 1.0;
@@ -259,6 +259,7 @@ public class MarkovTransformationSource {
          * failure probabilities.
          */
         Collections.sort(descriptors, new Comparator<ProcessingResourceDescriptor>() {
+            @Override
             public int compare(final ProcessingResourceDescriptor o1, final ProcessingResourceDescriptor o2) {
                 if (o1.getStateProbability(MarkovResourceState.NA) > o2.getStateProbability(MarkovResourceState.NA)) {
                     return -1;

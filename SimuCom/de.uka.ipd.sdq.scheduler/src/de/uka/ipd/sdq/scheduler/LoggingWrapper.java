@@ -5,18 +5,18 @@ import org.apache.log4j.Logger;
 
 public class LoggingWrapper {
 
-    public static Logger logger = Logger.getLogger("Scheduler");
+    public static final Logger LOGGER = Logger.getLogger("Scheduler");
 
     public static void activate() {
-        logger.setLevel(Level.ALL);
+        LOGGER.setLevel(Level.ALL);
     }
 
     public static void deactivate() {
-        logger.setLevel(Level.OFF);
+        LOGGER.setLevel(Level.OFF);
     }
 
     public static void log(String string) {
-        // logger.info(MathTools.round(SchedulingFactory.getUsedSimulator().time(), 0.01) + " " +
+        // LOGGER.info(MathTools.round(SchedulingFactory.getUsedSimulator().time(), 0.01) + " " +
         // string);
     }
 

@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public abstract class AbstractExperiment implements ISimulationControl {
 
-    private final static Logger LOG = Logger.getLogger(AbstractExperiment.class);
+    private static final Logger LOGGER = Logger.getLogger(AbstractExperiment.class);
 
     private final ArrayList<SimCondition> stopConditions = new ArrayList<SimCondition>();
     private final ArrayList<Observer> timeObservers = new ArrayList<Observer>();
@@ -53,14 +53,14 @@ public abstract class AbstractExperiment implements ISimulationControl {
 
         // start the simulator
         final double start = System.nanoTime();
-        if (LOG.isEnabledFor(Level.INFO)) {
-            LOG.info("Starting simulation...");
+        if (LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Starting simulation...");
         }
         startSimulator();
 
         // the simulation has stopped, print a log message
-        if (LOG.isEnabledFor(Level.INFO)) {
-            LOG.info("Simulation terminated. Took " + ((System.nanoTime() - start) / Math.pow(10, 9))
+        if (LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Simulation terminated. Took " + ((System.nanoTime() - start) / Math.pow(10, 9))
                     + " real time seconds.");
         }
     }
@@ -72,8 +72,8 @@ public abstract class AbstractExperiment implements ISimulationControl {
         // to avoid multiple accesses. Setting isRunning to false allows all
         // processes to clean up.
         if (this.isRunning.compareAndSet(true, false)) {
-            if (LOG.isEnabledFor(Level.INFO)) {
-                LOG.info("Simulation stop requested!");
+            if (LOGGER.isEnabledFor(Level.INFO)) {
+                LOGGER.info("Simulation stop requested!");
             }
 
             // This method MUST be called before all resources are deactivated,
@@ -84,8 +84,8 @@ public abstract class AbstractExperiment implements ISimulationControl {
 
             this.model.finalise();
         } else {
-            if (LOG.isEnabledFor(Level.WARN)) {
-                LOG.warn("Tried to stop the simulation, which has already been stopped.");
+            if (LOGGER.isEnabledFor(Level.WARN)) {
+                LOGGER.warn("Tried to stop the simulation, which has already been stopped.");
             }
         }
 
@@ -100,7 +100,7 @@ public abstract class AbstractExperiment implements ISimulationControl {
         notifyTimeObservers();
         for (final SimCondition c : this.stopConditions) {
             if (c.check()) {
-                LOG.debug("Found matching stop condition: " + c.getClass().getCanonicalName());
+                LOGGER.debug("Found matching stop condition: " + c.getClass().getCanonicalName());
                 return true;
             }
         }

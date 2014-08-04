@@ -28,12 +28,12 @@ public class MarkovTransformation {
     /**
      * A logger to give detailed information about the PCM instance transformation.
      */
-    private static Logger logger = Logger.getLogger(MarkovTransformation.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovTransformation.class.getName());
 
     /**
      * Provides functionality to manage failure types.
      */
-    private MarkovFailureTypeHelper helper = new MarkovFailureTypeHelper();
+    private final MarkovFailureTypeHelper helper = new MarkovFailureTypeHelper();
 
     /**
      * Checks whether there exists a next permutation based on the current one (which is given by
@@ -152,7 +152,7 @@ public class MarkovTransformation {
             // solving time limit reached?
             if (System.currentTimeMillis() - startTimeMs >= configuration.getSolvingTimeLimit() * 1000) {
                 // yes, stop condition holds - return true
-                logger.info("Maximal solving time (" + configuration.getSolvingTimeLimit()
+                LOGGER.info("Maximal solving time (" + configuration.getSolvingTimeLimit()
                         + " seconds) reached - stopping!");
                 return true;
             }
@@ -163,7 +163,7 @@ public class MarkovTransformation {
             // maximum number of system states to be evaluated reached?
             if (markovResult.getPhysicalStateEvaluationCount() == configuration.getNumberOfEvaluatedSystemStates()) {
                 // yes, stop condition holds - return true
-                logger.info("Maximal number of evaluated system states ("
+                LOGGER.info("Maximal number of evaluated system states ("
                         + configuration.getNumberOfEvaluatedSystemStates() + ") reached - stopping!");
                 return true;
             }
@@ -174,7 +174,7 @@ public class MarkovTransformation {
             // required number of exact decimal places reached?
             if (markovResult.hasRequiredAccuracy(configuration.getNumberOfExactDecimalPlaces())) {
                 // yes, stop condition holds - return true
-                logger.info("Required number of exact decimal places (" + configuration.getNumberOfExactDecimalPlaces()
+                LOGGER.info("Required number of exact decimal places (" + configuration.getNumberOfExactDecimalPlaces()
                         + ") reached - stopping!");
                 return true;
             }
@@ -194,7 +194,7 @@ public class MarkovTransformation {
      */
     private void runDSolver(final UsageScenario scenario, final MarkovTransformationSource markovSource) {
 
-        logger.debug("Resolving parametric dependencies.");
+        LOGGER.debug("Resolving parametric dependencies.");
         // Record the time consumed for solving parametric dependencies:
         long startTime = System.nanoTime();
 
@@ -207,7 +207,7 @@ public class MarkovTransformation {
         // Let the user know about the time consumed:
         long stopTime = System.nanoTime();
         long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
-        logger.info("Solved parametric dependencies: " + duration + " ms");
+        LOGGER.info("Solved parametric dependencies: " + duration + " ms");
     }
 
     /**
@@ -228,7 +228,7 @@ public class MarkovTransformation {
     private boolean runPcm2Markov(final PCMSolverWorkflowRunConfiguration configuration, final UsageScenario scenario,
             final MarkovTransformationSource markovSource, final MarkovTransformationResult markovResult) {
 
-        logger.debug("Transforming PCM model into analysis model.");
+        LOGGER.debug("Transforming PCM model into analysis model.");
 
         // Declare the result variable:
         boolean approximate = false;
@@ -249,9 +249,9 @@ public class MarkovTransformation {
         // Let the user know about the time consumed:
         long stopTime = System.nanoTime();
         long duration = TimeUnit.NANOSECONDS.toMillis(stopTime - startTime);
-        logger.info("Finished Markov transformation: " + duration + " ms");
+        LOGGER.info("Finished Markov transformation: " + duration + " ms");
         if (configuration.isIterationOverPhysicalSystemStatesEnabled()) {
-            logger.info("Number of evaluated physical system states: " + markovResult.getPhysicalStateEvaluationCount()
+            LOGGER.info("Number of evaluated physical system states: " + markovResult.getPhysicalStateEvaluationCount()
                     + " out of " + markovResult.getNumberOfPhysicalSystemStates());
         }
 
@@ -385,13 +385,13 @@ public class MarkovTransformation {
                 configuration.isMarkovModelReductionEnabled(), configuration.isMarkovModelTracesEnabled());
 
         // Create the Markov Chain instance using the visitor:
-        MarkovChain resultChain = (MarkovChain) visitor.doSwitch(scenario.getScenarioBehaviour_UsageScenario());
+        MarkovChain resultChain = visitor.doSwitch(scenario.getScenarioBehaviour_UsageScenario());
 
         // Display information to the user:
         if (countStates) {
-            logger.info("Number of Markov states per evaluated physical system state:\t"
+            LOGGER.info("Number of Markov states per evaluated physical system state:\t"
                     + resultChain.getStates().size());
-            logger.info("Number of Markov transitions per evaluated physical system state:\t"
+            LOGGER.info("Number of Markov transitions per evaluated physical system state:\t"
                     + resultChain.getTransitions().size());
         }
 
@@ -438,7 +438,7 @@ public class MarkovTransformation {
         } catch (Exception e) {
 
             // The parametric dependencies could not be solved:
-            logger.error("Solving of parametric dependencies caused exception: " + e.getMessage() + " [" + e.getClass()
+            LOGGER.error("Solving of parametric dependencies caused exception: " + e.getMessage() + " [" + e.getClass()
                     + "]");
             e.printStackTrace();
 
@@ -450,7 +450,7 @@ public class MarkovTransformation {
         try {
             approximate = runPcm2Markov(configuration, scenario, markovSource, markovResult);
         } catch (Exception e) {
-            logger.error("PCM 2 Markov transformation caused exception: " + e.getMessage() + " [" + e.getClass() + "]");
+            LOGGER.error("PCM 2 Markov transformation caused exception: " + e.getMessage() + " [" + e.getClass() + "]");
             e.printStackTrace();
         }
 
@@ -502,10 +502,10 @@ public class MarkovTransformation {
         PCMInstance step = sensitivity.getNextModel();
         while (step != null) {
             sensitivityStepCount++;
-            logger.info("Starting sensitivity analysis step " + sensitivityStepCount + "...");
+            LOGGER.info("Starting sensitivity analysis step " + sensitivityStepCount + "...");
             markovResults = runTransformSingle(step, configuration);
             sensitivity.logResults(markovResults);
-            logger.info("Sensitivity analysis step " + sensitivityStepCount + " completed");
+            LOGGER.info("Sensitivity analysis step " + sensitivityStepCount + " completed");
             step = sensitivity.getNextModel();
         }
         sensitivity.finalize();

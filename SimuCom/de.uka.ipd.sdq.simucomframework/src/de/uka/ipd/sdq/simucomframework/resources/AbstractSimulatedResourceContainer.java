@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public abstract class AbstractSimulatedResourceContainer {
 
-    protected final static Logger LOGGER = Logger.getLogger(AbstractSimulatedResourceContainer.class.getName());
+    protected static final Logger LOGGER = Logger.getLogger(AbstractSimulatedResourceContainer.class.getName());
     protected final SimuComModel myModel;
     protected final String myContainerID;
 

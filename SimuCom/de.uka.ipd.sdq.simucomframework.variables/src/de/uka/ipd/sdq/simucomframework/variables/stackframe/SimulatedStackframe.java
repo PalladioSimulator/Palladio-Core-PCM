@@ -29,12 +29,12 @@ public class SimulatedStackframe<T> implements Serializable {
 	 */
     private static final long serialVersionUID = 547392494342021941L;
 
-    private static Logger logger = Logger.getLogger(SimulatedStackframe.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SimulatedStackframe.class.getName());
 
     private SimulatedStackframe<T> parentFrame = null;
 
     // Stackframe: Maps ID->Value
-    private HashMap<String, T> contents = new HashMap<String, T>();
+    private final HashMap<String, T> contents = new HashMap<String, T>();
 
     public SimulatedStackframe(SimulatedStackframe<T> parent) {
         this.parentFrame = parent;
@@ -53,8 +53,9 @@ public class SimulatedStackframe<T> implements Serializable {
      *            The actual value
      */
     public void addValue(String id, T value) {
-        if (logger.isDebugEnabled())
-            logger.debug("Value " + value + " added to stackframe under id " + id);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Value " + value + " added to stackframe under id " + id);
+        }
         contents.put(id, value);
     }
 
@@ -69,10 +70,12 @@ public class SimulatedStackframe<T> implements Serializable {
      *             Is throw if this frame and all parent frames do not contain the id ID
      */
     public T getValue(String id) throws ValueNotInFrameException {
-        if (this.contents.containsKey(id))
+        if (this.contents.containsKey(id)) {
             return this.contents.get(id);
-        if (parentFrame != null)
+        }
+        if (parentFrame != null) {
             return parentFrame.getValue(id);
+        }
         throw new ValueNotInFrameException("Identifier " + id + " not found in stackframe!");
     }
 
@@ -86,8 +89,9 @@ public class SimulatedStackframe<T> implements Serializable {
         for (String key : this.contents.keySet()) {
             copy.addValue(key, contents.get(key));
         }
-        if (parentFrame != null)
+        if (parentFrame != null) {
             copy.setParentFrame(parentFrame.copyFrame());
+        }
         return copy;
     }
 
@@ -110,8 +114,9 @@ public class SimulatedStackframe<T> implements Serializable {
                 result.add(e);
             }
         }
-        if (parentFrame != null)
+        if (parentFrame != null) {
             result.addAll(parentFrame.getContentsRecursive(alreadyFound));
+        }
         return result;
     }
 
@@ -122,11 +127,13 @@ public class SimulatedStackframe<T> implements Serializable {
      *            The frame whose contents will be copied into this frame
      */
     public void addVariables(SimulatedStackframe<T> callResult) {
-        if (logger.isDebugEnabled())
-            logger.debug("Adding " + callResult.getContents().size() + " value(s) to own stackframe");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Adding " + callResult.getContents().size() + " value(s) to own stackframe");
+        }
         for (Entry<String, T> e : callResult.contents.entrySet()) {
-            if (logger.isDebugEnabled())
-                logger.debug("Adding " + e.getKey() + " with " + e.getValue());
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Adding " + e.getKey() + " with " + e.getValue());
+            }
             this.addValue(e.getKey(), e.getValue());
         }
 

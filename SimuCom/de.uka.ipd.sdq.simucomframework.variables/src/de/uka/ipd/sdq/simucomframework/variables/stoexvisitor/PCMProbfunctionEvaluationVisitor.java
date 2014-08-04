@@ -17,9 +17,9 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCacheEntry;
  *
  */
 public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object> {
-    private static Logger logger = Logger.getLogger(PCMProbfunctionEvaluationVisitor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PCMProbfunctionEvaluationVisitor.class.getName());
 
-    private StoExCacheEntry stoexCacheEntry;
+    private final StoExCacheEntry stoexCacheEntry;
 
     public PCMProbfunctionEvaluationVisitor(StoExCacheEntry stoexCacheEntry) {
         this.stoexCacheEntry = stoexCacheEntry;
@@ -29,8 +29,9 @@ public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object>
     public Object caseProbabilityDensityFunction(ProbabilityDensityFunction object) {
         IProbabilityFunction pdf = stoexCacheEntry.getProbFunction(object);
         Object result = drawSample(pdf);
-        if (logger.isDebugEnabled())
-            logger.debug("Draw Sample returned " + result);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Draw Sample returned " + result);
+        }
         return result;
     }
 
@@ -38,18 +39,22 @@ public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object>
     public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
         IProbabilityFunction pdf = stoexCacheEntry.getProbFunction(object);
         Object result = drawSample(pdf);
-        if (logger.isDebugEnabled())
-            logger.debug("Draw Sample returned " + result);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Draw Sample returned " + result);
+        }
         return result;
     }
 
     private Object drawSample(IProbabilityFunction f) {
-        if (f == null)
+        if (f == null) {
             throw new RuntimeException("Probability function in drawSample() must be != null");
-        if (f instanceof IProbabilityMassFunction)
+        }
+        if (f instanceof IProbabilityMassFunction) {
             return ((IProbabilityMassFunction) f).drawSample();
-        if (f instanceof IProbabilityDensityFunction)
+        }
+        if (f instanceof IProbabilityDensityFunction) {
             return ((IProbabilityDensityFunction) f).drawSample();
+        }
         throw new RuntimeException("Should never be here. Unknown Probfunction found!");
     }
 }

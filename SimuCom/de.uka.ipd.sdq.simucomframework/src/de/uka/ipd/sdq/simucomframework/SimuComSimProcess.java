@@ -28,7 +28,7 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
 
     private static AtomicLong sessionID = new AtomicLong(0);
     /** Logger for this class. */
-    protected static Logger logger = Logger.getLogger(SimuComSimProcess.class.getName());
+    protected static final Logger LOGGER = Logger.getLogger(SimuComSimProcess.class.getName());
 
     private Process processStatus = null;
     private SimDelayResource delayResource = null;
@@ -73,8 +73,8 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
         // suspended or resumed again.
         this.addProcessListener(this);
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("Create SimuComSimProcess with id " + getRawId());
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Create SimuComSimProcess with id " + getRawId());
         }
     }
 
@@ -99,8 +99,8 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
      * Clients may override default behaviour, e.g., PassiveResource
      */
     protected void addProcessToSimStatus() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Starting simulation process " + this.getName());
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Starting simulation process " + this.getName());
         }
 
         if (isDebug) {
@@ -178,19 +178,19 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
             String message = e.getMessage();
             message = message == null ? "" : message;
             if (e instanceof IllegalArgumentException && message.contains("Cannot schedule in the past")) {
-                if (logger.isEnabledFor(Level.WARN)) {
-                    logger.warn(
+                if (LOGGER.isEnabledFor(Level.WARN)) {
+                    LOGGER.warn(
                             "Simulation caused an exception because it scheduled in the past. Check your models that you do not have any negative demands, arrival times, or similar",
                             e);
                 }
             } else {
-                if (logger.isEnabledFor(Level.WARN)) {
-                    logger.warn("Simulation caused an exception. Caught it in SimProcess Lifecycle Method", e);
+                if (LOGGER.isEnabledFor(Level.WARN)) {
+                    LOGGER.warn("Simulation caused an exception. Caught it in SimProcess Lifecycle Method", e);
                 }
             }
             getModel().setStatus(SimulationResult.ERROR, e);
-            if (logger.isDebugEnabled()) {
-                logger.debug("Trying to stop simulation now...");
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Trying to stop simulation now...");
             }
             this.getModel().getSimulationControl().stop();
         }
@@ -204,8 +204,8 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
      *
      */
     protected void removeProcessFromSimStatus() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Terminating SimuComSimProcess " + this.getName());
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Terminating SimuComSimProcess " + this.getName());
         }
         if (isDebug) {
             this.getModel().getSimulationStatus().getProcessStatus().getProcesses().remove(processStatus);

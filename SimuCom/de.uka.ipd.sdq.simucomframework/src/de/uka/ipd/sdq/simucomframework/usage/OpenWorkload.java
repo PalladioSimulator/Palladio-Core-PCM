@@ -18,7 +18,7 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
     private String interArrivalTime;
     private final IUserFactory userFactory;
 
-    private static Logger logger = Logger.getLogger(OpenWorkload.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(OpenWorkload.class.getName());
 
     /**
      * Counter for usage scenario runs.
@@ -63,12 +63,12 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
                 if (this.getModel().getConfiguration().getSimulateFailures()) {
                     this.getModel().getFailureStatistics().increaseRunCount();
                     this.getModel().getFailureStatistics()
-                            .printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
+                            .printRunCount(LOGGER, getModel().getSimulationControl().getCurrentSimulationTime());
                 }
             } catch (final OutOfMemoryError e) {
                 // the system is overloaded. stop simulation
-                if (logger.isEnabledFor(Level.INFO)) {
-                    logger.info("Stopping simulation run due to memory constraints.");
+                if (LOGGER.isEnabledFor(Level.INFO)) {
+                    LOGGER.info("Stopping simulation run due to memory constraints.");
                 }
                 getModel().getSimulationControl().stop();
             }
@@ -78,22 +78,22 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
         if (this.getModel().getConfiguration().getSimulateFailures()) {
             this.getModel()
                     .getFailureStatistics()
-                    .printHandledFailuresStatistics(logger,
+                    .printHandledFailuresStatistics(LOGGER,
                             this.getModel().getSimulationControl().getCurrentSimulationTime());
         }
     }
 
     private void waitForNextUser() {
         final double interArrivalTimeSample = Context.evaluateStatic(interArrivalTime, Double.class);
-        if (logger.isDebugEnabled()) {
-            logger.debug("Waiting for " + interArrivalTimeSample + " before spawing the next user");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Waiting for " + interArrivalTimeSample + " before spawing the next user");
         }
         this.hold(interArrivalTimeSample);
     }
 
     private IUser generateUser() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Spawning New User...");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Spawning New User...");
         }
         final IUser user = userFactory.createUser();
         user.startUserLife();

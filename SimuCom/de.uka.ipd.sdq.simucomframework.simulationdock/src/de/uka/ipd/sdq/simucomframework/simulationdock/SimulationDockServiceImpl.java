@@ -29,13 +29,13 @@ public class SimulationDockServiceImpl implements SimulationDockService {
 
     public static final String SIMTIME_TOTAL = "SIMTIMETOTAL";
 
-    protected static Logger logger = Logger.getLogger(SimulationDockServiceImpl.class.getName());
+    protected static final Logger LOGGER = Logger.getLogger(SimulationDockServiceImpl.class.getName());
 
-    private BundleContext context;
-    private String myID = EcoreUtil.generateUUID();
+    private final BundleContext context;
+    private final String myID = EcoreUtil.generateUUID();
     private ServiceTracker service;
-    private ServiceTracker eventService;
-    private EventAdmin eventAdmin;
+    private final ServiceTracker eventService;
+    private final EventAdmin eventAdmin;
 
     private DebugObserver debugObserver;
 
@@ -46,9 +46,10 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         eventService.open();
         eventAdmin = (EventAdmin) eventService.getService();
 
-        logger.addAppender(new ConsoleAppender(new PatternLayout(), ConsoleAppender.SYSTEM_OUT));
-        if (logger.isDebugEnabled())
-            logger.debug("Simulation Dock Started");
+        LOGGER.addAppender(new ConsoleAppender(new PatternLayout(), ConsoleAppender.SYSTEM_OUT));
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Simulation Dock Started");
+        }
     }
 
     @Override
@@ -57,6 +58,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         super.finalize();
     }
 
+    @Override
     public void load(AbstractSimulationConfig config, byte[] simulationBundle, boolean isRemoteRun) {
         sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_BUSY");
 
@@ -80,6 +82,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         }
     }
 
+    @Override
     public void simulate(AbstractSimulationConfig config, byte[] simulationBundle, boolean isRemoteRun) {
 
         try {
@@ -142,8 +145,9 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         } finally {
             if (simulationBundleRef != null) {
                 try {
-                    if (simulationBundleRef.getState() == Bundle.ACTIVE)
+                    if (simulationBundleRef.getState() == Bundle.ACTIVE) {
                         simulationBundleRef.stop();
+                    }
 
                     simulationBundleRef.uninstall();
                 } catch (BundleException e) {
@@ -174,15 +178,19 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         }
     }
 
+    @Override
     public void suspend() {
-        if (debugObserver == null)
+        if (debugObserver == null) {
             throw new IllegalStateException("Suspend only available in debug mode");
+        }
         debugObserver.suspend();
     }
 
+    @Override
     public void resume() {
-        if (debugObserver == null)
+        if (debugObserver == null) {
             throw new IllegalStateException("Suspend only available in debug mode");
+        }
         debugObserver.resume();
     }
 
@@ -212,6 +220,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         return tempFile.getAbsolutePath();
     }
 
+    @Override
     public String getDockId() {
         return myID;
     }
@@ -245,6 +254,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         }
     }
 
+    @Override
     public void stopSimulation() {
         if (service != null && service.getService() != null) {
             ((ISimulationControl) service.getService()).stopSimulation();
@@ -254,12 +264,15 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         }
     }
 
+    @Override
     public void step() {
-        if (debugObserver == null)
+        if (debugObserver == null) {
             throw new IllegalStateException("Stepping only available in debug mode");
+        }
         debugObserver.step();
     }
 
+    @Override
     public SimuComStatus getSimuComStatus() {
         return ((ISimulationControl) service.getService()).getStatus();
     }

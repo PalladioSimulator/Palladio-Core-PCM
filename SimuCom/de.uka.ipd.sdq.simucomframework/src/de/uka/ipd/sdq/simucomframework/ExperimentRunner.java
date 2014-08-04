@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.statistics.estimation.SampleMeanEstimator;
  */
 public class ExperimentRunner {
 
-    private final static Logger LOGGER = Logger.getLogger(ExperimentRunner.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ExperimentRunner.class.getName());
 
     private static final double ONE_HUNDERT_PERCENT = 100.0;
 

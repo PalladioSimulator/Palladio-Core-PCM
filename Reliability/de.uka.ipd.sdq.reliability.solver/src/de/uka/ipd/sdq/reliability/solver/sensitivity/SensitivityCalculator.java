@@ -34,7 +34,7 @@ public class SensitivityCalculator {
     /**
      * Log4J logging support.
      */
-    private static Logger logger = Logger.getLogger(SensitivityCalculator.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(SensitivityCalculator.class.getName());
 
     /**
      * Calculates the current double value from a given parameter variation and step number.
@@ -64,7 +64,7 @@ public class SensitivityCalculator {
             case DIVIDE:
                 return baseValue / sequence.getOffsetValues().get(stepNumber - 1);
             default:
-                logger.error("Double offset type \"" + sequence.getDoubleOffsetType__DoubleOffsetSequence().getName()
+                LOGGER.error("Double offset type \"" + sequence.getDoubleOffsetType__DoubleOffsetSequence().getName()
                         + "\" not yet supported.");
                 return 0.0;
             }
@@ -78,7 +78,7 @@ public class SensitivityCalculator {
                         * (stepNumber - 1);
             }
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString() + "\" not yet supported.");
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString() + "\" not yet supported.");
             return 0.0;
         }
     }
@@ -158,7 +158,7 @@ public class SensitivityCalculator {
         } else if (specification instanceof FailureDimensionResultSpecification) {
             return calculateFailurePotential(result, (FailureDimensionResultSpecification) specification);
         } else {
-            logger.error("Result specification type \"" + specification.eClass().toString() + "\" not yet supported.");
+            LOGGER.error("Result specification type \"" + specification.eClass().toString() + "\" not yet supported.");
             return 0.0;
         }
     }
@@ -186,7 +186,7 @@ public class SensitivityCalculator {
         } else if (variation instanceof StringParameterSequence) {
             return ((StringParameterSequence) variation).getStringValues().size();
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString() + "\" not yet supported.");
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString() + "\" not yet supported.");
             return 0;
         }
     }
@@ -213,7 +213,7 @@ public class SensitivityCalculator {
             case DIVIDE:
                 return "x / " + sequence.getOffsetValues().get(stepNumber - 1).toString();
             default:
-                logger.error("Double offset type \"" + sequence.getDoubleOffsetType__DoubleOffsetSequence().getName()
+                LOGGER.error("Double offset type \"" + sequence.getDoubleOffsetType__DoubleOffsetSequence().getName()
                         + "\" not yet supported.");
                 return null;
             }
@@ -223,7 +223,7 @@ public class SensitivityCalculator {
         } else if (variation instanceof StringParameterSequence) {
             return calculateCurrentStringValue((StringParameterSequence) variation, stepNumber);
         } else {
-            logger.error("Parameter variation type \"" + variation.eClass().toString() + "\" not yet supported.");
+            LOGGER.error("Parameter variation type \"" + variation.eClass().toString() + "\" not yet supported.");
             return null;
         }
     }

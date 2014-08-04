@@ -28,7 +28,7 @@ public class MarkovComparator {
     /**
      * A logger for printing the comparison result.
      */
-    private static Logger logger = Logger.getLogger(MarkovComparator.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovComparator.class.getName());
 
     /**
      * Counts the overall number of changes in chains #1 and #2.
@@ -94,7 +94,7 @@ public class MarkovComparator {
      *            the second chain
      */
     public void compare(final MarkovChain firstChain, final MarkovChain secondChain) {
-        logger.info("Start Markov compare");
+        LOGGER.info("Start Markov compare");
         if (firstName == "") {
             firstName = firstChain.getName();
         }
@@ -105,7 +105,7 @@ public class MarkovComparator {
         compareStates(firstChain.getStates(), secondChain.getStates());
         compareTransitions(firstChain.getTransitions(), secondChain.getTransitions());
         printCompareStatistics(firstChain, secondChain);
-        logger.info("End Markov compare");
+        LOGGER.info("End Markov compare");
     }
 
     /**
@@ -139,7 +139,7 @@ public class MarkovComparator {
      */
     private void compareProperties(final MarkovChain ch1, final MarkovChain ch2) {
         if (!ch1.getName().equals(ch2.getName())) {
-            logger.debug("Chain name changed from \"" + ch1.getName() + "\" to \"" + ch2.getName() + "\"");
+            LOGGER.debug("Chain name changed from \"" + ch1.getName() + "\" to \"" + ch2.getName() + "\"");
         }
     }
 
@@ -160,17 +160,17 @@ public class MarkovComparator {
         boolean labelsEqual = testEquality(st1.getLabels(), st2.getLabels());
 
         if (!typeEquals || !nameEquals || !labelsEqual) {
-            logger.debug("State \"" + st1.getName() + "\" changed:");
+            LOGGER.debug("State \"" + st1.getName() + "\" changed:");
             increaseStatePropertyChangeCount();
             if (!nameEquals) {
-                logger.debug("- mame changed from \"" + st1.getName() + "\" to \"" + st2.getName() + "\"");
+                LOGGER.debug("- mame changed from \"" + st1.getName() + "\" to \"" + st2.getName() + "\"");
             }
             if (!typeEquals) {
-                logger.debug("- type changed from \"" + st1.getType().toString() + "\" to \""
+                LOGGER.debug("- type changed from \"" + st1.getType().toString() + "\" to \""
                         + st2.getType().toString() + "\"");
             }
             if (!labelsEqual) {
-                logger.debug("- labels changed");
+                LOGGER.debug("- labels changed");
             }
         }
     }
@@ -189,13 +189,13 @@ public class MarkovComparator {
         boolean probabilityEquals = (tr1.getProbability() == tr2.getProbability());
 
         if (!nameEquals || !probabilityEquals) {
-            logger.debug("Transition \"" + tr1.getName() + "\" changed:");
+            LOGGER.debug("Transition \"" + tr1.getName() + "\" changed:");
             increaseTransitionPropertyChangeCount();
             if (!nameEquals) {
-                logger.debug("- mame changed from \"" + tr1.getName() + "\" to \"" + tr2.getName() + "\"");
+                LOGGER.debug("- mame changed from \"" + tr1.getName() + "\" to \"" + tr2.getName() + "\"");
             }
             if (!probabilityEquals) {
-                logger.debug("- probability changed from " + tr1.getProbability() + " to " + tr2.getProbability());
+                LOGGER.debug("- probability changed from " + tr1.getProbability() + " to " + tr2.getProbability());
             }
         }
     }
@@ -244,7 +244,7 @@ public class MarkovComparator {
             } else {
 
                 // st1 does not longer exist:
-                logger.debug("State \"" + st1.getName() + "\" deleted");
+                LOGGER.debug("State \"" + st1.getName() + "\" deleted");
                 increaseDeletedStateCount();
 
                 // delete the state:
@@ -259,7 +259,7 @@ public class MarkovComparator {
             State st2 = statesCopy2.get(0);
 
             // st2 is a new state:
-            logger.debug("State \"" + st2.getName() + "\" added");
+            LOGGER.debug("State \"" + st2.getName() + "\" added");
             increaseNewStateCount();
 
             // delete the state:
@@ -311,7 +311,7 @@ public class MarkovComparator {
             } else {
 
                 // tr1 does not longer exist:
-                logger.debug("Transition \"" + tr1.getName() + "\" deleted");
+                LOGGER.debug("Transition \"" + tr1.getName() + "\" deleted");
                 increaseDeletedTransitionCount();
 
                 // delete the state:
@@ -326,7 +326,7 @@ public class MarkovComparator {
             Transition tr2 = transitionsCopy2.get(0);
 
             // tr2 is a new transition:
-            logger.debug("Transition \"" + tr2.getName() + "\" added");
+            LOGGER.debug("Transition \"" + tr2.getName() + "\" added");
             increaseNewTransitionCount();
 
             // delete the state:
@@ -473,37 +473,37 @@ public class MarkovComparator {
         DecimalFormat df2 = new DecimalFormat("00.00");
 
         // Print statistics:
-        logger.info("States chain 1 [" + firstName + "]:");
-        logger.info("- total:     " + df1.format(numberOfStates1));
-        logger.info("- changed:   " + df1.format(numberOfChangedStates1) + " ("
+        LOGGER.info("States chain 1 [" + firstName + "]:");
+        LOGGER.info("- total:     " + df1.format(numberOfStates1));
+        LOGGER.info("- changed:   " + df1.format(numberOfChangedStates1) + " ("
                 + df2.format(percentageOfChangedStates1) + "%)");
-        logger.info("- deleted:   " + df1.format(numberOfDeletedStates1) + " ("
+        LOGGER.info("- deleted:   " + df1.format(numberOfDeletedStates1) + " ("
                 + df2.format(percentageOfDeletedStates1) + "%)");
-        logger.info("- unchanged: " + df1.format(numberOfUnchangedStates1) + " ("
+        LOGGER.info("- unchanged: " + df1.format(numberOfUnchangedStates1) + " ("
                 + df2.format(percentageOfUnchangedStates1) + "%)");
-        logger.info("Transitions chain 1 [" + firstName + "]:");
-        logger.info("- total:     " + df1.format(numberOfTransitions1));
-        logger.info("- changed:   " + df1.format(numberOfChangedTransitions1) + " ("
+        LOGGER.info("Transitions chain 1 [" + firstName + "]:");
+        LOGGER.info("- total:     " + df1.format(numberOfTransitions1));
+        LOGGER.info("- changed:   " + df1.format(numberOfChangedTransitions1) + " ("
                 + df2.format(percentageOfChangedTransitions1) + "%)");
-        logger.info("- deleted:   " + df1.format(numberOfDeletedTransitions1) + " ("
+        LOGGER.info("- deleted:   " + df1.format(numberOfDeletedTransitions1) + " ("
                 + df2.format(percentageOfDeletedTransitions1) + "%)");
-        logger.info("- unchanged: " + df1.format(numberOfUnchangedTransitions1) + " ("
+        LOGGER.info("- unchanged: " + df1.format(numberOfUnchangedTransitions1) + " ("
                 + df2.format(percentageOfUnchangedTransitions1) + "%)");
-        logger.info("States chain 2 [" + secondName + "]:");
-        logger.info("- total:     " + df1.format(numberOfStates2));
-        logger.info("- changed:   " + df1.format(numberOfChangedStates2) + " ("
+        LOGGER.info("States chain 2 [" + secondName + "]:");
+        LOGGER.info("- total:     " + df1.format(numberOfStates2));
+        LOGGER.info("- changed:   " + df1.format(numberOfChangedStates2) + " ("
                 + df2.format(percentageOfChangedStates2) + "%)");
-        logger.info("- added:     " + df1.format(numberOfAddedStates2) + " (" + df2.format(percentageOfAddedStates2)
+        LOGGER.info("- added:     " + df1.format(numberOfAddedStates2) + " (" + df2.format(percentageOfAddedStates2)
                 + "%)");
-        logger.info("- unchanged: " + df1.format(numberOfUnchangedStates2) + " ("
+        LOGGER.info("- unchanged: " + df1.format(numberOfUnchangedStates2) + " ("
                 + df2.format(percentageOfUnchangedStates2) + "%)");
-        logger.info("Transitions chain 2 [" + secondName + "]:");
-        logger.info("- total:     " + df1.format(numberOfTransitions2));
-        logger.info("- changed:   " + df1.format(numberOfChangedTransitions2) + " ("
+        LOGGER.info("Transitions chain 2 [" + secondName + "]:");
+        LOGGER.info("- total:     " + df1.format(numberOfTransitions2));
+        LOGGER.info("- changed:   " + df1.format(numberOfChangedTransitions2) + " ("
                 + df2.format(percentageOfChangedTransitions2) + "%)");
-        logger.info("- added:     " + df1.format(numberOfAddedTransitions2) + " ("
+        LOGGER.info("- added:     " + df1.format(numberOfAddedTransitions2) + " ("
                 + df2.format(percentageOfAddedTransitions2) + "%)");
-        logger.info("- unchanged: " + df1.format(numberOfUnchangedTransitions2) + " ("
+        LOGGER.info("- unchanged: " + df1.format(numberOfUnchangedTransitions2) + " ("
                 + df2.format(percentageOfUnchangedTransitions2) + "%)");
     }
 

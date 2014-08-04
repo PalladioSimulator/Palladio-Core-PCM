@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
  */
 public abstract class AbstractSimulationConfig implements Serializable, ISimulationConfig {
 
-    private final static Logger LOG = Logger.getLogger(AbstractSimulationConfig.class);
+    private static final Logger LOGGER = Logger.getLogger(AbstractSimulationConfig.class);
 
     /** Serialization ID of this class. */
     private static final long serialVersionUID = 891323270372759718L;
@@ -98,8 +98,8 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
 
             this.listeners = new ArrayList<ISimulationListener>();
         } catch (final Exception e) {
-            LOG.error("Setup of simulation failed");
-            LOG.error("The configuration could not be loaded", e);
+            LOGGER.error("Setup of simulation failed");
+            LOGGER.error("The configuration could not be loaded", e);
             throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
         }
     }

@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
  */
 public class SimuComModel extends SchedulerModel {
 
-    protected static Logger logger = Logger.getLogger(SimuComModel.class);
+    protected static final Logger LOGGER = Logger.getLogger(SimuComModel.class);
 
     protected ResourceRegistry resourceRegistry;
     private IWorkloadDriver[] workloadDrivers;
@@ -154,13 +154,13 @@ public class SimuComModel extends SchedulerModel {
                         if (notification.getFeature() == SimucomstatusPackage.eINSTANCE.getProcess_CurrentAction()) {
                             final Process p = (Process) notification.getNotifier();
                             final Action a = (Action) notification.getNewValue();
-                            if (logger.isDebugEnabled()) {
-                                logger.debug("Process " + p.getId() + " changed currentAction to "
+                            if (LOGGER.isDebugEnabled()) {
+                                LOGGER.debug("Process " + p.getId() + " changed currentAction to "
                                         + a.getClass().getName());
                             }
                         }
-                    } else if (logger.isDebugEnabled()) {
-                        logger.debug("Simulation Status Updated");
+                    } else if (LOGGER.isDebugEnabled()) {
+                        LOGGER.debug("Simulation Status Updated");
                     }
                 }
 
@@ -305,8 +305,8 @@ public class SimuComModel extends SchedulerModel {
         this.getResourceRegistry().deactivateAllActiveResources();
         this.getResourceRegistry().deactivateAllPassiveResources();
 
-        if (logger.isEnabledFor(Level.INFO)) {
-            logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime()
+        if (LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Simulation took " + getSimulationControl().getCurrentSimulationTime()
                     + " simulated time units");
         }
 
@@ -314,7 +314,7 @@ public class SimuComModel extends SchedulerModel {
 
         // Print failure statistics:
         if (getConfiguration().getSimulateFailures()) {
-            getFailureStatistics().printFailureStatistics(logger, getSimulationControl().getCurrentSimulationTime());
+            getFailureStatistics().printFailureStatistics(LOGGER, getSimulationControl().getCurrentSimulationTime());
         }
     }
 

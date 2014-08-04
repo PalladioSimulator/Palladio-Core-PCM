@@ -71,7 +71,7 @@ public class CalibrationTable {
 	
 	protected CalibrationEntry[] table;
 	
-	private static Logger logger = Logger.getLogger(AbstractDemandStrategy.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(AbstractDemandStrategy.class.getName());
 	
 	/**
 	 * Private constructor. Used when created by loading an existing calibration table.
@@ -98,7 +98,7 @@ public class CalibrationTable {
 		
 		// tests whether the calibration file exists and can be loaded
 		if (configFile.exists()) {
-			logger.debug("Loaded calibration from '" + configFile + "'");
+			LOGGER.debug("Loaded calibration from '" + configFile + "'");
 
 			calibrationTable = new CalibrationTable();
 			
@@ -108,14 +108,14 @@ public class CalibrationTable {
 				ObjectInputStream o = new ObjectInputStream(fis);
 				calibrationTable.setTable((CalibrationEntry[]) o.readObject());
 			} catch (IOException e) {
-				logger.error("Error while loading " + configFile, e);
+				LOGGER.error("Error while loading " + configFile, e);
 				throw new RuntimeException(e);
 				
 			} catch (ClassNotFoundException e) {
-				logger.error("Error while reading " + configFile, e);
+				LOGGER.error("Error while reading " + configFile, e);
                 throw new RuntimeException(e);
 			} catch (Exception e) {
-				logger.error("Error while reading " + configFile, e);
+				LOGGER.error("Error while reading " + configFile, e);
                 throw new RuntimeException(e);
 
 			} finally {
@@ -127,7 +127,7 @@ public class CalibrationTable {
 			}
 			
 		} else {
-			logger.debug(configFile + " not existing yet");
+			LOGGER.debug(configFile + " not existing yet");
 		}
 		
 		return calibrationTable;
@@ -138,7 +138,7 @@ public class CalibrationTable {
 	 * calibration table. 
 	 */
 	public void save(File configFile) {
-		logger.info("Saving calibration to '" + configFile + "'");
+		LOGGER.info("Saving calibration to '" + configFile + "'");
 		OutputStream fos = null;
 		try {
 			fos = new FileOutputStream(configFile);
@@ -147,7 +147,7 @@ public class CalibrationTable {
 			o.writeObject(table);
 
 		} catch (IOException e) {
-			logger.error("Error while writing calibration data", e);
+			LOGGER.error("Error while writing calibration data", e);
 		} finally {
 			try {
 				fos.close();

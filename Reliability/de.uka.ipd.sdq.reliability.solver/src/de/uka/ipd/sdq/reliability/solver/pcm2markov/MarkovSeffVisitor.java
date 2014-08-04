@@ -65,7 +65,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
     /**
      * A logger to give detailed information about the PCM instance traversal.
      */
-    private static Logger logger = Logger.getLogger(MarkovSeffVisitor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovSeffVisitor.class.getName());
 
     /**
      * The ContextWrapper provides easy access to the decorations of the solved PCM instance.
@@ -75,42 +75,42 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
     /**
      * The degree of distinction between failure types.
      */
-    private MarkovEvaluationType evaluationType;
+    private final MarkovEvaluationType evaluationType;
 
     /**
      * The Markov Builder is used to create Markov Chain instances.
      */
-    private MarkovBuilder markovBuilder;
+    private final MarkovBuilder markovBuilder;
 
     /**
      * Indicates if the Markov Chain reduction is performed during the transformation. If so, then
      * the chain as a whole never exists, because during construction, it is already reduced again.
      */
-    private boolean optimize;
+    private final boolean optimize;
 
     /**
      * The prefix list enables unique naming of all Markov states, which in turn allows to search
      * for differences between two chains.
      */
-    private List<String> prefixes;
+    private final List<String> prefixes;
 
     /**
      * Indicates if the resulting Makov model shall be augmented with tracing information for
      * diagnostic purposes.
      */
-    private boolean recordTraces;
+    private final boolean recordTraces;
 
     /**
      * Indicates if resource states are handled according to the simpler "always ask" strategy,
      * which may yield less accurate results, but avoids iterating over all possible state
      * combinations.
      */
-    private boolean simplifiedStateHandling;
+    private final boolean simplifiedStateHandling;
 
     /**
      * A provider of information about the PCM instance and the corresponding resource descriptors.
      */
-    private MarkovTransformationSource transformationState;
+    private final MarkovTransformationSource transformationState;
 
     /**
      * The constructor.
@@ -197,7 +197,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = action.getEntityName() + "[" + action.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit RecoveryAction: " + name);
+        LOGGER.debug("Visit RecoveryAction: " + name);
 
         // Retrieve the list of RecoveryBlockBehaviours:
         List<RecoveryActionBehaviour> behaviours = action.getRecoveryActionBehaviours__RecoveryAction();
@@ -229,7 +229,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = acquireAction.getEntityName() + "[" + acquireAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit AcquireAction: " + name);
+        LOGGER.debug("Visit AcquireAction: " + name);
 
         // Create a Markov chain for the Acquire action:
         MarkovChain resultChain = markovBuilder.initBasicMarkovChain(prefixes);
@@ -256,7 +256,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = branchAction.getEntityName() + "[" + branchAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit BranchAction: " + name);
+        LOGGER.debug("Visit BranchAction: " + name);
 
         // Determine the inner Markov Chains associated with the branch
         // behaviors:
@@ -286,7 +286,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
             // dependencies unsolved (see also Bug 615).
             if (branchProbability > 0.0) {
                 prefixes.add(transitions.get(i).getEntityName() + "[" + transitions.get(i).getId() + "]");
-                specificMarkovChains.add((MarkovChain) doSwitch(transitions.get(i)
+                specificMarkovChains.add(doSwitch(transitions.get(i)
                         .getBranchBehaviour_BranchTransition()));
                 prefixes.remove(prefixes.size() - 1);
             }
@@ -327,13 +327,13 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = collectionIteratorAction.getEntityName() + "[" + collectionIteratorAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit CollectionIteratorAction: " + name);
+        LOGGER.debug("Visit CollectionIteratorAction: " + name);
 
         // Determine the inner Markov Chain associated with the loop behaviour:
         ArrayList<String> prefixesCopy = new ArrayList<String>();
         prefixesCopy.addAll(prefixes);
         prefixes.clear();
-        MarkovChain specificMarkovChain = (MarkovChain) doSwitch(collectionIteratorAction.getBodyBehaviour_Loop());
+        MarkovChain specificMarkovChain = doSwitch(collectionIteratorAction.getBodyBehaviour_Loop());
         prefixes.addAll(prefixesCopy);
 
         // Get the solved loop probability mass function:
@@ -477,7 +477,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = externalCallAction.getEntityName() + "[" + externalCallAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit ExternalCallAction: " + name);
+        LOGGER.debug("Visit ExternalCallAction: " + name);
 
         // Get a reference to the executing SEFF:
         ServiceEffectSpecification seff = contextWrapper.getNextSEFF(externalCallAction);
@@ -504,7 +504,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         if ((evaluationType != MarkovEvaluationType.SINGLE) && (evaluationType != MarkovEvaluationType.CLASSES)) {
             int retryCount = externalCallAction.getRetryCount();
             if (retryCount < 0) {
-                logger.warn("Retry count of ExternalCallAction \"" + externalCallAction.getEntityName()
+                LOGGER.warn("Retry count of ExternalCallAction \"" + externalCallAction.getEntityName()
                         + "\" is negative. Assuming 0.");
                 retryCount = 0;
             }
@@ -544,7 +544,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
 
         // FIXME: The Reliability solver does not support replication yet
         if (contextWrapperList.size() > 1) {
-            logger.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "
+            LOGGER.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "
                     + call.getEntityName() + " " + call.getId() + " ignoring the others. Results will be inaccurate.");
         } else if (contextWrapperList.size() == 0) {
             throw new RuntimeException("Internal Error: Could not create a Context Wrapper for call "
@@ -682,20 +682,20 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = forkAction.getEntityName() + "[" + forkAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit ForkAction: " + name);
+        LOGGER.debug("Visit ForkAction: " + name);
 
         // Go through the list of forked behaviours that are contained in the
         // fork action. Each behaviour creates its own specific Markov Chain:
         ArrayList<MarkovChain> chains = new ArrayList<MarkovChain>();
         ArrayList<ForkedBehaviour> behaviours = new ArrayList<ForkedBehaviour>();
         for (int i = 0; i < forkAction.getAsynchronousForkedBehaviours_ForkAction().size(); i++) {
-            chains.add((MarkovChain) doSwitch(forkAction.getAsynchronousForkedBehaviours_ForkAction().get(i)));
+            chains.add(doSwitch(forkAction.getAsynchronousForkedBehaviours_ForkAction().get(i)));
             behaviours.add(forkAction.getAsynchronousForkedBehaviours_ForkAction().get(i));
         }
         SynchronisationPoint synch = forkAction.getSynchronisingBehaviours_ForkAction();
         if (synch != null) {
             for (int i = 0; i < synch.getSynchronousForkedBehaviours_SynchronisationPoint().size(); i++) {
-                chains.add((MarkovChain) doSwitch(synch.getSynchronousForkedBehaviours_SynchronisationPoint().get(i)));
+                chains.add(doSwitch(synch.getSynchronousForkedBehaviours_SynchronisationPoint().get(i)));
                 behaviours.add(synch.getSynchronousForkedBehaviours_SynchronisationPoint().get(i));
             }
         }
@@ -733,7 +733,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = internalAction.getEntityName() + "[" + internalAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit InternalAction: " + name);
+        LOGGER.debug("Visit InternalAction: " + name);
 
         // Check for the requested type of analysis:
         MarkovChain resultChain = null;
@@ -855,13 +855,13 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = loopAction.getEntityName() + "[" + loopAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit LoopAction: " + name);
+        LOGGER.debug("Visit LoopAction: " + name);
 
         // Determine the inner Markov Chain associated with the loop behaviour:
         ArrayList<String> prefixesCopy = new ArrayList<String>();
         prefixesCopy.addAll(prefixes);
         prefixes.clear();
-        MarkovChain specificMarkovChain = (MarkovChain) doSwitch(loopAction.getBodyBehaviour_Loop());
+        MarkovChain specificMarkovChain = doSwitch(loopAction.getBodyBehaviour_Loop());
         prefixes.addAll(prefixesCopy);
 
         // Get the solved loop probability mass function:
@@ -916,7 +916,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = releaseAction.getEntityName() + "[" + releaseAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit ReleaseAction: " + name);
+        LOGGER.debug("Visit ReleaseAction: " + name);
 
         // Create a Markov chain for the Release action:
         MarkovChain resultChain = markovBuilder.initBasicMarkovChain(prefixes);
@@ -940,7 +940,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
     public MarkovChain caseResourceDemandingBehaviour(final ResourceDemandingBehaviour behaviour) {
 
         // Logging & naming:
-        logger.debug("Visit ResourceDemandingBehaviour");
+        LOGGER.debug("Visit ResourceDemandingBehaviour");
 
         // Go through the chain of actions that constitute this Behaviour. Each
         // action is expected to create its own specific Markov Chain:
@@ -949,7 +949,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         AbstractAction action = (StartAction) EMFQueryHelper.getObjectByType(behaviour.getSteps_Behaviour(),
                 StartAction.class);
         while (action != null) {
-            MarkovChain specificMarkovChain = (MarkovChain) doSwitch(action);
+            MarkovChain specificMarkovChain = doSwitch(action);
             actions.add(action);
             chains.add(specificMarkovChain);
             action = action.getSuccessor_AbstractAction();
@@ -982,7 +982,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
     public MarkovChain caseResourceDemandingSEFF(final ResourceDemandingSEFF seff) {
 
         // Logging & naming:
-        logger.debug("Visit ResourceDemandingSEFF: [" + seff.getId() + "]");
+        LOGGER.debug("Visit ResourceDemandingSEFF: [" + seff.getId() + "]");
 
         // Consider both the execution of the SEFF itself and the possibility
         // that the executing resource container is unavailable:
@@ -1023,7 +1023,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = setVariableAction.getEntityName() + "[" + setVariableAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit SetVariableAction: " + name);
+        LOGGER.debug("Visit SetVariableAction: " + name);
 
         // Build the Markov chain for the SetVariable action:
         MarkovChain resultChain = markovBuilder.initBasicMarkovChain(prefixes);
@@ -1048,7 +1048,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = startAction.getEntityName() + "[" + startAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit StartAction: " + name);
+        LOGGER.debug("Visit StartAction: " + name);
 
         // Build the Markov chain for the Start action:
         MarkovChain resultChain = markovBuilder.initBasicMarkovChain(prefixes);
@@ -1073,7 +1073,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
         // Logging & naming:
         String name = stopAction.getEntityName() + "[" + stopAction.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit StopAction: " + name);
+        LOGGER.debug("Visit StopAction: " + name);
 
         // Build the Markov chain for the Stop action:
         MarkovChain resultChain = markovBuilder.initBasicMarkovChain(prefixes);
@@ -1123,7 +1123,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
             // Get the current state of the resource:
             MarkovResourceState state = descriptor.getCurrentState();
             if (state == null) {
-                logger.error("Resource state no set for " + descriptor.getType().getName()
+                LOGGER.error("Resource state no set for " + descriptor.getType().getName()
                         + " resource demand. Assume resource state = OK.");
                 continue;
             }
@@ -1220,7 +1220,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
             // Get the descriptor that corresponds to the demand:
             ProcessingResourceDescriptor descriptor = transformationState.getDescriptor(demand, contextWrapper);
             if (descriptor == null) {
-                logger.error("Missing resource description for "
+                LOGGER.error("Missing resource description for "
                         + demand.getRequiredResource_ParametricResourceDemand().getEntityName()
                         + " resource demand. Assume resource state = OK.");
                 continue;
@@ -1261,7 +1261,7 @@ public class MarkovSeffVisitor extends SeffSwitch<MarkovChain> {
             // Get the descriptor that corresponds to the specified resource:
             ProcessingResourceDescriptor descriptor = transformationState.getDescriptor(resource);
             if (descriptor == null) {
-                logger.error("Missing resource description for resource "
+                LOGGER.error("Missing resource description for resource "
                         + resource.getActiveResourceType_ActiveResourceSpecification().getEntityName()
                         + " in container " + resourceContainer.getEntityName() + ". Assume resource state = OK.");
                 continue;

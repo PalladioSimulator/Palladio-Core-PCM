@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.variables.cache;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -31,14 +30,14 @@ import de.uka.ipd.sdq.stoex.Expression;
  *
  */
 public class ProbFunctionCache {
-    private static Logger logger = Logger.getLogger(ProbFunctionCache.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ProbFunctionCache.class.getName());
 
-    private HashMap<EObject, IProbabilityFunction> probFunctions = new HashMap<EObject, IProbabilityFunction>();
+    private final HashMap<EObject, IProbabilityFunction> probFunctions = new HashMap<EObject, IProbabilityFunction>();
 
     /**
      * Polymorphic switch to analyse and store probability functions
      */
-    private ProbfunctionSwitch<Object> probFunctionAnnotator = new ProbfunctionSwitch<Object>() {
+    private final ProbfunctionSwitch<Object> probFunctionAnnotator = new ProbfunctionSwitch<Object>() {
         @Override
         public Object caseBoxedPDF(BoxedPDF object) {
             adjustPDF(object);
@@ -49,8 +48,9 @@ public class ProbFunctionCache {
             } catch (Exception ex) {
                 RuntimeException ex2 = new RuntimeException("PDF not valid: "
                         + new ProbFunctionPrettyPrint().doSwitch(object) + ". Caused by " + ex.getMessage(), ex);
-                if (logger.isEnabledFor(Level.ERROR))
-                    logger.error("PMF not valid!", ex2);
+                if (LOGGER.isEnabledFor(Level.ERROR)) {
+                    LOGGER.error("PMF not valid!", ex2);
+                }
                 throw ex2;
             }
             probFunctions.put(object, pdf);
@@ -75,8 +75,9 @@ public class ProbFunctionCache {
                 // Adjust wrong PDFs
                 double delta = (1 - sum) / countNonZeroContiniousSamples(samples);
                 for (ContinuousSample sample : samples) {
-                    if (sample.getProbability() > 0)
+                    if (sample.getProbability() > 0) {
                         sample.setProbability(sample.getProbability() + delta);
+                    }
                 }
 
                 String sampleStringNew = "...PDF[";
@@ -86,26 +87,31 @@ public class ProbFunctionCache {
                 }
                 sampleStringNew += "]";
 
-                if (logger.isEnabledFor(Level.WARN))
-                    logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!! Was: "
+                if (LOGGER.isEnabledFor(Level.WARN)) {
+                    LOGGER.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!! Was: "
                             + sampleString + ", now is: " + sampleStringNew);
+                }
             }
 
         }
 
         private double countNonZeroContiniousSamples(EList<ContinuousSample> samples) {
             int count = 0;
-            for (ContinuousSample s : samples)
-                if (s.getProbability() > 0)
+            for (ContinuousSample s : samples) {
+                if (s.getProbability() > 0) {
                     count++;
+                }
+            }
             return count;
         }
 
         private double countNonZeroSamples(EList<Sample> samples) {
             int count = 0;
-            for (Sample s : samples)
-                if (s.getProbability() > 0)
+            for (Sample s : samples) {
+                if (s.getProbability() > 0) {
                     count++;
+                }
+            }
             return count;
         }
 
@@ -119,8 +125,9 @@ public class ProbFunctionCache {
             } catch (Exception ex) {
                 RuntimeException ex2 = new RuntimeException("PMF not valid: "
                         + new ProbFunctionPrettyPrint().doSwitch(object), ex);
-                if (logger.isEnabledFor(Level.ERROR))
-                    logger.error("PMF not valid!", ex2);
+                if (LOGGER.isEnabledFor(Level.ERROR)) {
+                    LOGGER.error("PMF not valid!", ex2);
+                }
                 throw ex2;
             }
             probFunctions.put(object, pmf);
@@ -131,17 +138,19 @@ public class ProbFunctionCache {
             // Adjust wrong PMFs
             EList<Sample> samples = object.getSamples();
             double sum = 0;
-            for (Sample sample : (Collection<Sample>) samples) {
+            for (Sample sample : samples) {
                 sum += sample.getProbability();
             }
             if (Math.abs(sum - 1) > 10e-10) {
                 double delta = (1 - sum) / countNonZeroSamples(samples);
-                for (Sample sample : (Collection<Sample>) samples) {
-                    if (sample.getProbability() > 0)
+                for (Sample sample : samples) {
+                    if (sample.getProbability() > 0) {
                         sample.setProbability(sample.getProbability() + delta);
+                    }
                 }
-                if (logger.isEnabledFor(Level.WARN))
-                    logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
+                if (LOGGER.isEnabledFor(Level.WARN)) {
+                    LOGGER.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
+                }
             }
         }
     };

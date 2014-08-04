@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 public class ForkExecutor {
     private final ForkedBehaviourProcess[] forks;
     private final SimuComSimProcess parent;
-    private static Logger logger = Logger.getLogger(ForkExecutor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ForkExecutor.class.getName());
 
     /**
      * Initialise the barrier with the forks to spawn and the parent process which is continoued
@@ -33,8 +33,8 @@ public class ForkExecutor {
      * Execute the child threads in parallel waiting for them to finish
      */
     public void run() {
-        if (logger.isDebugEnabled()) {
-            logger.debug("Running parallel operations");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Running parallel operations");
         }
         double start = parent.getModel().getSimulationControl().getCurrentSimulationTime();
         for (ForkedBehaviourProcess p : forks) {
@@ -43,8 +43,8 @@ public class ForkExecutor {
         while (checkIfRemainingChildrenRun()) {
             parent.passivate();
         }
-        if (logger.isDebugEnabled()) {
-            logger.debug("Forks took: " + (parent.getModel().getSimulationControl().getCurrentSimulationTime() - start));
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Forks took: " + (parent.getModel().getSimulationControl().getCurrentSimulationTime() - start));
         }
     }
 

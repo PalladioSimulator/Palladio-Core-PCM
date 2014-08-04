@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflow
 
 class ProtoComProjectFactory {
 	/** Logger for this class. */
-	private static Logger logger = Logger.getLogger(ProtoComProjectFactory);
+	private static final Logger LOGGER = Logger.getLogger(ProtoComProjectFactory);
 	
 	private static HashMap<String, ProtoComProject> createdProjects = newHashMap;
 	private static AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice projectType;
@@ -108,8 +108,8 @@ class ProtoComProjectFactory {
 	 */
 	private static def void deleteProject(IProgressMonitor monitor, IProject myProject, String projectURI)
 			throws CoreException {
-		if(logger.isEnabledFor(Level.INFO))
-			logger.info("Deleting project " + myProject.getName());
+		if(org.palladiosimulator.protocom.ProtoComProjectFactory.LOGGER.isEnabledFor(Level.INFO))
+			org.palladiosimulator.protocom.ProtoComProjectFactory.LOGGER.info("Deleting project " + myProject.getName());
 
 		myProject.close(monitor);
 		myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT, monitor);

@@ -9,7 +9,6 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.markov.MarkovChain;
 import de.uka.ipd.sdq.markov.State;
 import de.uka.ipd.sdq.markov.StateType;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
@@ -39,7 +38,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
     /**
      * A logger to give detailed information about the PCM instance traversal.
      */
-    private static Logger logger = Logger.getLogger(MarkovUsageModelVisitor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovUsageModelVisitor.class.getName());
 
     /**
      * The ContextWrapper provides easy access to the decorations of the solved PCM instance.
@@ -49,42 +48,42 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
     /**
      * The degree of distinction between failure types.
      */
-    private MarkovEvaluationType evaluationType;
+    private final MarkovEvaluationType evaluationType;
 
     /**
      * The Markov Builder is used to create Markov Chain instances.
      */
-    private MarkovBuilder markovBuilder;
+    private final MarkovBuilder markovBuilder;
 
     /**
      * Indicates if the Markov Chain reduction is performed during the transformation. If so, then
      * the chain as a whole never exists, because during construction, it is already reduced again.
      */
-    private boolean optimize;
+    private final boolean optimize;
 
     /**
      * The prefix list enables unique naming of all Markov states, which in turn allows to search
      * for differences between two chains.
      */
-    private List<String> prefixes;
+    private final List<String> prefixes;
 
     /**
      * Indicates if the resulting Makov model shall be augmented with tracing information for
      * diagnostic purposes.
      */
-    private boolean recordTraces;
+    private final boolean recordTraces;
 
     /**
      * Indicates if resource states are handled according to the simpler "always ask" strategy,
      * which may yield less accurate results, but avoids iterating over all possible state
      * combinations.
      */
-    private boolean simplifiedStateHandling;
+    private final boolean simplifiedStateHandling;
 
     /**
      * The solved PCM instance that serves as an input for the transformation.
      */
-    private MarkovTransformationSource transformationState;
+    private final MarkovTransformationSource transformationState;
 
     /**
      * The constructor.
@@ -126,7 +125,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         // Logging & naming:
         String name = branch.getEntityName() + "[" + branch.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit Branch: " + name);
+        LOGGER.debug("Visit Branch: " + name);
 
         // Determine the branch probabilities and the inner Markov chains
         // associated with the branch behaviors:
@@ -139,7 +138,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
             }
             branchProbabilities.add(transitions.get(i).getBranchProbability());
             specificMarkovChains
-                    .add((MarkovChain) doSwitch(transitions.get(i).getBranchedBehaviour_BranchTransition()));
+                    .add(doSwitch(transitions.get(i).getBranchedBehaviour_BranchTransition()));
         }
 
         // Initialize the aggregate Markov chain representing the branch:
@@ -177,7 +176,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         // Do the logging:
         String name = delay.getEntityName() + "[" + delay.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit Delay: " + name);
+        LOGGER.debug("Visit Delay: " + name);
 
         // Create a Markov chain for the Delay action:
         MarkovChain resultChain = markovBuilder.initBasicMarkovChain(prefixes);
@@ -203,7 +202,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         // Logging & naming:
         String name = call.getEntityName() + "[" + call.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit EntryLevelSystemCall: " + name);
+        LOGGER.debug("Visit EntryLevelSystemCall: " + name);
 
         // Get List of ContextWrappers, one for each called component instance
         List<ContextWrapper> contextWrapperList;
@@ -216,7 +215,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 
         // FIXME: The Reliability solver does not support replication yet
         if (contextWrapperList.size() > 1) {
-            logger.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "
+            LOGGER.error("The Reliability solver only supports one AllocationContext per AssemblyContext. Picking one of the called Allocation contexts for call "
                     + call.getEntityName() + " " + call.getId() + " ignoring the others. Results will be inaccurate.");
         } else if (contextWrapperList.size() == 0) {
             throw new RuntimeException("Internal Error: Could not create a Context Wrapper for call "
@@ -231,7 +230,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         if (seff != null) {
             MarkovSeffVisitor seffVisitor = new MarkovSeffVisitor(transformationState, contextWrapper, prefixes,
                     evaluationType, simplifiedStateHandling, optimize, recordTraces);
-            resultChain = seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
+            resultChain = seffVisitor.doSwitch(seff);
         }
 
         // Naming:
@@ -254,7 +253,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         // Logging & naming:
         String name = loop.getEntityName() + "[" + loop.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit Loop: " + name);
+        LOGGER.debug("Visit Loop: " + name);
 
         // Get the solved loop probability mass function:
         String specification = loop.getLoopIteration_Loop().getSpecification();
@@ -262,7 +261,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         try {
             pmf = ManagedPMF.createFromString(specification);
         } catch (Exception e) {
-            logger.error("Could not create a ManagedPMF from string \"" + specification + "\"");
+            LOGGER.error("Could not create a ManagedPMF from string \"" + specification + "\"");
             return null;
         }
 
@@ -270,7 +269,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         ArrayList<String> prefixesCopy = new ArrayList<String>();
         prefixesCopy.addAll(prefixes);
         prefixes.clear();
-        MarkovChain specificMarkovChain = (MarkovChain) doSwitch(loop.getBodyBehaviour_Loop());
+        MarkovChain specificMarkovChain = doSwitch(loop.getBodyBehaviour_Loop());
         prefixes.addAll(prefixesCopy);
 
         // Initialize the aggregate Markov Chain representing the loop:
@@ -309,7 +308,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         // Logging & naming:
         String name = scenarioBehaviour.getEntityName() + "[" + scenarioBehaviour.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit Scenario Behaviour: " + name);
+        LOGGER.debug("Visit Scenario Behaviour: " + name);
 
         // Go through the chain of actions that constitute this behavior. Each
         // action is expected to create its own specific Markov Chain:
@@ -321,7 +320,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         while (action != null) {
             actions.add(action);
             actionNames.add(action.getEntityName() + "[" + action.getId() + "]");
-            MarkovChain specificMarkovChain = (MarkovChain) doSwitch(action);
+            MarkovChain specificMarkovChain = doSwitch(action);
             chains.add(specificMarkovChain);
             action = action.getSuccessor();
         }
@@ -356,7 +355,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
         // Do the logging:
         String name = start.getEntityName() + "[" + start.getId() + "]";
         prefixes.add(name);
-        logger.debug("Visit Start: " + name);
+        LOGGER.debug("Visit Start: " + name);
 
         // Create a Markov Chain for the Start action:
         MarkovChain resultChain = markovBuilder.initBasicMarkovChain(prefixes);
@@ -380,7 +379,7 @@ public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 
         // Logging & Naming:
         String name = stop.getEntityName() + "[" + stop.getId() + "]";
-        logger.debug("Visit Stop: " + name);
+        LOGGER.debug("Visit Stop: " + name);
         prefixes.add(name);
 
         // Create a Markov chain for the Stop action:

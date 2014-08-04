@@ -33,12 +33,12 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 public class ApplyConnectorCompletionsJob implements IBlackboardInteractingJob<MDSDBlackboard> {
 
-    private static Logger logger = Logger.getLogger(ApplyConnectorCompletionsJob.class);
+    private static final Logger LOGGER = Logger.getLogger(ApplyConnectorCompletionsJob.class);
 
     public static final String COMPLETION_REPOSITORY_PARTITION = "de.uka.ipd.sdq.pcm.completionRepositoryPartition";
 
     private MDSDBlackboard blackboard;
-    private AbstractSimulationWorkflowConfiguration configuration;
+    private final AbstractSimulationWorkflowConfiguration configuration;
 
     public ApplyConnectorCompletionsJob(AbstractSimulationWorkflowConfiguration configuration) {
         super();
@@ -46,6 +46,7 @@ public class ApplyConnectorCompletionsJob implements IBlackboardInteractingJob<M
         this.configuration = configuration;
     }
 
+    @Override
     public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 
         PCMResourceSetPartition pcmModels = (PCMResourceSetPartition) blackboard
@@ -53,8 +54,9 @@ public class ApplyConnectorCompletionsJob implements IBlackboardInteractingJob<M
         ResourceSetPartition middlewareRepository = blackboard
                 .getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
 
-        if (logger.isEnabledFor(Level.INFO))
-            logger.info("Create completion repository...");
+        if (LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Create completion repository...");
+        }
         ResourceSetPartition completionRepositoryPartition = new ResourceSetPartition();
         Repository completionRepository = RepositoryFactory.eINSTANCE.createRepository();
         completionRepository.setEntityName("CompletionsRepository");
@@ -91,8 +93,9 @@ public class ApplyConnectorCompletionsJob implements IBlackboardInteractingJob<M
 
         }.transform();
 
-        if (logger.isEnabledFor(Level.INFO))
-            logger.info("Replace connectors with completions...");
+        if (LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Replace connectors with completions...");
+        }
         new AllInstancesTransformer<AssemblyConnector>(CompositionPackage.eINSTANCE.getAssemblyConnector(),
                 models.getSystem()) {
 
@@ -125,20 +128,24 @@ public class ApplyConnectorCompletionsJob implements IBlackboardInteractingJob<M
         allocCtx.setResourceContainer_AllocationContext(resContainer);
         models.getAllocation().getAllocationContexts_Allocation().add(allocCtx);
 
-        if (logger.isEnabledFor(Level.INFO))
-            logger.info("Added middleware component >"
+        if (LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Added middleware component >"
                     + ctx.getEncapsulatedComponent__AssemblyContext().getEntityName() + "< to resource container >"
                     + resContainer.getEntityName() + "<");
+        }
     }
 
+    @Override
     public void setBlackboard(MDSDBlackboard blackboard) {
         this.blackboard = blackboard;
     }
 
+    @Override
     public String getName() {
         return "Add connector completions job";
     }
 
+    @Override
     public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
         // Nothing to do here
     }

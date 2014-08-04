@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.NullEntity;
  */
 public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 
-    private static Logger logger = Logger.getLogger(SimProcessorSharingResourceLinuxO1.class);
+    private static final Logger LOGGER = Logger.getLogger(SimProcessorSharingResourceLinuxO1.class);
 
     private class DoLoadBalancingEvent extends AbstractSimEventDelegator<NullEntity> {
 
@@ -36,7 +36,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 
         @Override
         public void eventRoutine(final NullEntity who) {
-            // logger.info(simulator.time() + ": Trying load balancing...");
+            // LOGGER.info(simulator.time() + ": Trying load balancing...");
             final int coreToBalanceTo = getCoreWithShortestQueue();
             final int coreToBalanceFrom = getCoreWithLongestQueue();
             if ((running_processesPerCore.get(coreToBalanceFrom).size() - running_processesPerCore.get(coreToBalanceTo)
@@ -53,8 +53,8 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
                 final Random random = new Random();
                 final ISchedulableProcess processToBalance = processes[random.nextInt(processes.length)];
                 final double simTime = getModel().getSimulationControl().getCurrentSimulationTime();
-                if (logger.isEnabledFor(Level.INFO)) {
-                    logger.info(simTime + ": Balancing process: " + processToBalance.getId() + " from core "
+                if (LOGGER.isEnabledFor(Level.INFO)) {
+                    LOGGER.info(simTime + ": Balancing process: " + processToBalance.getId() + " from core "
                             + coreToBalanceFrom + " to " + coreToBalanceTo);
                 }
                 final Double processValue = runningProcesses.get(processToBalance);
@@ -62,7 +62,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
                 putProcessOnCore(processToBalance, processValue, coreToBalanceTo);
 
             } else {
-                // logger.info(simulator.time() + ": No load balancing needed.");
+                // LOGGER.info(simulator.time() + ": No load balancing needed.");
             }
 
         }
@@ -100,7 +100,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
                     event.schedule(IEntity.NULL, simTime + 1);
                 }
             }
-            // logger.info(simulator.time() + ": " + last.getId() + " finished");
+            // LOGGER.info(simulator.time() + ": " + last.getId() + " finished");
             // LoggingWrapper.log(last + " finished.");
             scheduleNextEvent();
             last.activate();
@@ -132,13 +132,13 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
         Double shortestTime = 0.0;
         for (final Hashtable<ISchedulableProcess, Double> running_processes : running_processesPerCore) {
             for (final ISchedulableProcess process : running_processes.keySet()) {
-                // logger.info("Time: " + simulator.time() + ", looking for shortest time: " +
+                // LOGGER.info("Time: " + simulator.time() + ", looking for shortest time: " +
                 // process.getId() + " time: " + running_processes.get(process) + ", speed: " +
                 // getSpeed(process));
                 if (shortest == null || shortestTime > running_processes.get(process) * getSpeed(process)) {
                     shortest = process;
                     shortestTime = running_processes.get(process) * getSpeed(process);
-                    // logger.info("Shortest: " + shortest.getId() + ", shortest time: " +
+                    // LOGGER.info("Shortest: " + shortest.getId() + ", shortest time: " +
                     // shortestTime);
                 }
             }
@@ -149,7 +149,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
             // New: calculate time for process
             double time = shortestTime;// * getSpeed(shortest);
             // double time = running_processes.get(shortest) * getSpeed();
-            // logger.info("Time: " + simulator.time() + ", scheduling event at " + time);
+            // LOGGER.info("Time: " + simulator.time() + ", scheduling event at " + time);
             if (!MathTools.less(0, time)) {
                 time = 0.0;
             }
@@ -164,7 +164,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
                 return i;
             }
         }
-        LoggingWrapper.logger.warn("Core of process not found. Returning core 0.");
+        LoggingWrapper.LOGGER.warn("Core of process not found. Returning core 0.");
         return 0;
     }
 
@@ -200,7 +200,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
     private void toNow() {
         final double now = getModel().getSimulationControl().getCurrentSimulationTime();
         final double passed_time = now - last_time;
-        // logger.info("toNow: " + now + " - " + last_time + " = " +
+        // LOGGER.info("toNow: " + now + " - " + last_time + " = " +
         // passed_time);
         if (MathTools.less(0, passed_time)) {
             // passed_time /= getSpeed();
@@ -209,7 +209,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
                 for (final Entry<ISchedulableProcess, Double> e : running_processes.entrySet()) {
                     final double processPassedTime = passed_time / getSpeed(e.getKey());
                     final double rem = e.getValue() - processPassedTime;
-                    // logger.info("toNow " + e.getKey().getId() + ": " +
+                    // LOGGER.info("toNow " + e.getKey().getId() + ": " +
                     // e.getValue() + " - " + processPassedTime + " = " + rem);
                     e.setValue(rem);
                 }
@@ -277,7 +277,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
     protected void doProcessing(final ISchedulableProcess process, final int resourceServiceID, final double demand) {
         toNow();
         LoggingWrapper.log("PS: " + process + " demands " + demand);
-        // logger.info("PS: " + process.getId() + " demands " + demand);
+        // LOGGER.info("PS: " + process.getId() + " demands " + demand);
 
         final long coreToPutOn = getLastCoreProcessWasRunningOn(process);
         if (coreToPutOn == -1) {
@@ -363,7 +363,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
             all_processes.remove(process);
         }
         all_processes.put(process, core);
-        // logger.info(simulator.time() + ": Putting " + process.getId() + " with demand " + demand
+        // LOGGER.info(simulator.time() + ": Putting " + process.getId() + " with demand " + demand
         // + " on core " + core);
         running_processesPerCore.get((int) core).put(process, demand);
     }

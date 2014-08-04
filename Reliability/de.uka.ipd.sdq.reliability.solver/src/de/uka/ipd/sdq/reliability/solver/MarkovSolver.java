@@ -17,7 +17,7 @@ public class MarkovSolver {
     /**
      * A logger to give detailed information about the PCM instance traversal.
      */
-    private static Logger logger = Logger.getLogger(MarkovSolver.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovSolver.class.getName());
 
     /**
      * The static singleton instance.
@@ -54,7 +54,7 @@ public class MarkovSolver {
     public double[][] solve(MarkovChain markovChain) {
 
         // Do the logging:
-        logger.debug("Solving Markov Chain [" + markovChain.getName() + "]");
+        LOGGER.debug("Solving Markov Chain [" + markovChain.getName() + "]");
 
         // Calculate the transition matrix:
         double[][] transitionMatrix = new double[markovChain.getStates().size()][markovChain.getStates().size()];

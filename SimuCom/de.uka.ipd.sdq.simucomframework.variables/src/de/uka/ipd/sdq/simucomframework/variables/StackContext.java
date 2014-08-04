@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.variables;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Level;
@@ -34,7 +33,7 @@ public class StackContext implements Serializable {
      */
     private VariableMode mode = VariableMode.EXCEPTION_ON_NOT_FOUND;
 
-    private static Logger logger = Logger.getLogger(StackContext.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(StackContext.class.getName());
 
     public StackContext() {
     }
@@ -55,7 +54,7 @@ public class StackContext implements Serializable {
      * @return The value of the StoEx evaluation
      */
     public <T> T evaluate(String string, Class<T> expectedType) {
-        return (T) StackContext.evaluateStatic(string, expectedType, stack.currentStackFrame(), mode);
+        return StackContext.evaluateStatic(string, expectedType, stack.currentStackFrame(), mode);
     }
 
     /**
@@ -79,8 +78,9 @@ public class StackContext implements Serializable {
      * @return The value of the StoEx evaluation
      */
     public Object evaluate(String stoex, SimulatedStackframe<Object> currentFrame) {
-        if (logger.isDebugEnabled())
-            logger.debug("About to evaluate " + stoex);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("About to evaluate " + stoex);
+        }
         StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
         Object result = null;
         try {
@@ -90,8 +90,9 @@ public class StackContext implements Serializable {
             throw new StochasticExpressionEvaluationFailedException("Evaluation of expression " + stoex + " failed.",
                     ex);
         }
-        if (logger.isDebugEnabled())
-            logger.debug("Result " + result);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Result " + result);
+        }
         return result;
     }
 
@@ -116,8 +117,9 @@ public class StackContext implements Serializable {
      * @return The value of the StoEx evaluation
      */
     public static Object evaluateStatic(String stoex, SimulatedStackframe<Object> currentFrame) {
-        if (logger.isDebugEnabled())
-            logger.debug("About to evaluate " + stoex);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("About to evaluate " + stoex);
+        }
         StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
         Object result = null;
         try {
@@ -127,8 +129,9 @@ public class StackContext implements Serializable {
             throw new StochasticExpressionEvaluationFailedException("Evaluation of expression " + stoex + " failed.",
                     ex);
         }
-        if (logger.isDebugEnabled())
-            logger.debug("Result " + result);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Result " + result);
+        }
         return result;
     }
 
@@ -144,8 +147,9 @@ public class StackContext implements Serializable {
      * @return The value of the StoEx evaluation
      */
     public static Object evaluateStatic(String stoex, SimulatedStackframe<Object> currentFrame, VariableMode mode) {
-        if (logger.isDebugEnabled())
-            logger.debug("About to evaluate " + stoex);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("About to evaluate " + stoex);
+        }
         StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
         Object result = null;
         try {
@@ -155,8 +159,9 @@ public class StackContext implements Serializable {
             throw new StochasticExpressionEvaluationFailedException("Evaluation of expression " + stoex + " failed.",
                     ex);
         }
-        if (logger.isDebugEnabled())
-            logger.debug("Result " + result);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Result " + result);
+        }
         return result;
     }
 
@@ -209,8 +214,9 @@ public class StackContext implements Serializable {
     public static <T> T evaluateStatic(String string, Class<T> expectedType, SimulatedStackframe<Object> frame,
             VariableMode mode) {
         Object result = evaluateStatic(string, frame, mode);
-        if (expectedType.isInstance(result))
+        if (expectedType.isInstance(result)) {
             return (T) result;
+        }
         /*
          * Support default (auto-)conversion hierarchy char/byte -> short -> int -> long -> float ->
          * double
@@ -298,8 +304,9 @@ public class StackContext implements Serializable {
         UnsupportedOperationException ex = new UnsupportedOperationException("Evaluation result is of type "
                 + result.getClass().getCanonicalName() + " but expected was " + expectedType.getCanonicalName()
                 + " and no conversion was available...");
-        if (logger.isEnabledFor(Level.ERROR))
-            logger.error("Evaluation of an expression resulted in wrong type!", ex);
+        if (LOGGER.isEnabledFor(Level.ERROR)) {
+            LOGGER.error("Evaluation of an expression resulted in wrong type!", ex);
+        }
         throw ex;
     }
 
@@ -313,7 +320,7 @@ public class StackContext implements Serializable {
      */
     public void evaluateInner(SimulatedStackframe<Object> frame, String variablename) {
         SimulatedStackframe<Object> topmostFrame = this.getStack().currentStackFrame();
-        for (Entry<String, Object> e : (Collection<Entry<String, Object>>) topmostFrame.getContents()) {
+        for (Entry<String, Object> e : topmostFrame.getContents()) {
             if (e.getKey().startsWith(variablename)) {
                 if (e.getValue() instanceof EvaluationProxy) {
                     EvaluationProxy proxy = (EvaluationProxy) e.getValue();

@@ -29,7 +29,7 @@ public class MarkovTransformationResult {
     /**
      * A logger to give detailed information about the PCM instance transformation.
      */
-    private static Logger logger = Logger.getLogger(MarkovTransformationResult.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MarkovTransformationResult.class.getName());
 
     /**
      * Indicates if an approximation scheme shall be used for printing of probabilities.
@@ -39,12 +39,12 @@ public class MarkovTransformationResult {
     /**
      * Configuration options of the transformation.
      */
-    private PCMSolverWorkflowRunConfiguration configuration;
+    private final PCMSolverWorkflowRunConfiguration configuration;
 
     /**
      * Overall failure type probabilities, accumulated over all considered physical system states.
      */
-    private Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities = new HashMap<MarkovFailureType, Double>();
+    private final Map<MarkovFailureType, Double> cumulatedFailureTypeProbabilities = new HashMap<MarkovFailureType, Double>();
 
     /**
      * Overall physical state probability, accumulated over all considered physical system states.
@@ -59,22 +59,22 @@ public class MarkovTransformationResult {
     /**
      * The list of potential failure types.
      */
-    private List<MarkovFailureType> failureTypes;
+    private final List<MarkovFailureType> failureTypes;
 
     /**
      * A helper class providing functionality for Markov chains.
      */
-    private MarkovBuilder markovBuilder;
+    private final MarkovBuilder markovBuilder;
 
     /**
      * Holds state information required during the PCM2MarkovTransformation.
      */
-    private MarkovTransformationSource markovSource;
+    private final MarkovTransformationSource markovSource;
 
     /**
      * Indicates the number of physical system states (which is n^2 for n resources).
      */
-    private long numberOfPhysicalSystemStates;
+    private final long numberOfPhysicalSystemStates;
 
     /**
      * Counts the evaluated physical system states.
@@ -89,7 +89,7 @@ public class MarkovTransformationResult {
     /**
      * The usage scenario which has been evaluated.
      */
-    private UsageScenario scenario;
+    private final UsageScenario scenario;
 
     /**
      * Creates a new Markov results aggregator.
@@ -156,7 +156,7 @@ public class MarkovTransformationResult {
             // The only feasible explanation is a rounding error (which has been
             // observed for certain sample PCM instances):
             double correctedSuccessProbability = (successProbability < 0.5) ? 0.0 : 1.0;
-            logger.warn("Illegal success probability " + successProbability
+            LOGGER.warn("Illegal success probability " + successProbability
                     + " outside [0,1]. Assuming a rounding error. " + "Setting success probability to "
                     + correctedSuccessProbability);
             successProbability = correctedSuccessProbability;
@@ -212,7 +212,7 @@ public class MarkovTransformationResult {
                         f.createNewFile(); // create a new, empty file
                     }
                     out = new BufferedWriter(new FileWriter(filePath, true));
-                    logger.info("Logging results of all Markov transformation runs to: " + filePath);
+                    LOGGER.info("Logging results of all Markov transformation runs to: " + filePath);
                     out.append(getLogHeadings() + System.getProperty("line.separator"));
                     out.flush();
                     out.close();

@@ -21,7 +21,7 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
     private final boolean isAsync;
     private boolean isTerminated = false;
 
-    private static Logger logger = Logger.getLogger(ForkedBehaviourProcess.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ForkedBehaviourProcess.class.getName());
 
     public ForkedBehaviourProcess(final Context myContext, final String assemblyContextID, final boolean isAsync) {
         super(myContext.getModel(), "Forked Behaviour", myContext.getThread().getRequestContext());
@@ -64,8 +64,8 @@ public abstract class ForkedBehaviourProcess extends SimuComSimProcess {
         if (!isAsync && !parentProcess.isTerminated() && simulationIsRunning()) {
             parentProcess.scheduleAt(0);
         } else {
-            if (logger.isDebugEnabled()) {
-                logger.debug("Asynch behaviour finished at simtime "
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Asynch behaviour finished at simtime "
                         + getModel().getSimulationControl().getCurrentSimulationTime());
             }
         }

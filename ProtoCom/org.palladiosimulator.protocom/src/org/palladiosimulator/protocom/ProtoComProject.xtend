@@ -30,7 +30,7 @@ import org.palladiosimulator.protocom.constants.ProtoComConstants
  */
 class ProtoComProject {
 	/** Logger for this class. */
-	private static Logger logger = Logger.getLogger(ProtoComProject)
+	private static final Logger LOGGER = Logger.getLogger(ProtoComProject)
 	
 	private val IProgressMonitor monitor = new NullProgressMonitor()
 	
@@ -79,8 +79,8 @@ class ProtoComProject {
 			throw new JobFailedException(
 					"Tried to create an existing project. Preceeding cleanup failed");
 
-		if(logger.isDebugEnabled())
-			logger.debug("Creating Eclipse workspace project " + iProject.getName());
+		if(org.palladiosimulator.protocom.ProtoComProject.LOGGER.isDebugEnabled())
+			org.palladiosimulator.protocom.ProtoComProject.LOGGER.debug("Creating Eclipse workspace project " + iProject.getName());
 		iProject.create(monitor);
 		iProject.open(monitor);
 		

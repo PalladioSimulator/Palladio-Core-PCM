@@ -11,10 +11,10 @@ import org.apache.log4j.Logger;
  */
 public class PassiveResource {
 
-	private static Logger logger = Logger.getLogger(PassiveResource.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(PassiveResource.class.getName());
 
-	private Semaphore semaphore;
-	private String type;
+	private final Semaphore semaphore;
+	private final String type;
 
 	/**
 	 * Initializes a resource pool with given capacity.
@@ -33,14 +33,14 @@ public class PassiveResource {
 	 * Acquires one resource of this type. Blocks if the current pool is exhausted.
 	 */
 	public void acquire() {
-		if (logger.isDebugEnabled()) {
-			logger.debug("Acquiring " + type);
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("Acquiring " + type);
 		}
 
 		this.semaphore.acquireUninterruptibly();
 
-		if (logger.isDebugEnabled()) {
-			logger.debug(type + " aquired");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(type + " aquired");
 		}
 	}
 
@@ -50,8 +50,8 @@ public class PassiveResource {
 	public void release() {
 		this.semaphore.release();
 
-		if (logger.isDebugEnabled()) {
-			logger.debug(type + " released");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug(type + " released");
 		}
 	}
 

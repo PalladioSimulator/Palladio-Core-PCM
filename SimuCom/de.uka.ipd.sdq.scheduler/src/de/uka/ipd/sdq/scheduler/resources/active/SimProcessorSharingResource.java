@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 public class SimProcessorSharingResource extends AbstractActiveResource {
 
-    private static Logger logger = Logger.getLogger(SimProcessorSharingResource.class);
+    private static final Logger LOGGER = Logger.getLogger(SimProcessorSharingResource.class);
 
     /**
      * The minimum amount of time used for scheduling an event
@@ -135,8 +135,8 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
         for (final Entry<ISchedulableProcess, Double> e : running_processes.entrySet()) {
             if (e.getKey().equals(process)) {
                 if (Double.isNaN(demand)) {
-                    if (logger.isEnabledFor(Level.INFO)) {
-                        logger.info("Specified demand " + demand + "is not a number.");
+                    if (LOGGER.isEnabledFor(Level.INFO)) {
+                        LOGGER.info("Specified demand " + demand + "is not a number.");
                     }
                 }
                 e.setValue(demand);

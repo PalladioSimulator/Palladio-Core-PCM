@@ -28,7 +28,7 @@ public class RunPCMReliabilityAnalysisJob implements IBlackboardInteractingJob<M
     /**
      * Enables log4j logging for this class.
      */
-    private static Logger logger = Logger.getLogger(RunPCMReliabilityAnalysisJob.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(RunPCMReliabilityAnalysisJob.class.getName());
 
     /**
      * Blackboard for passing EMF model resources between jobs in the workflow.
@@ -70,6 +70,7 @@ public class RunPCMReliabilityAnalysisJob implements IBlackboardInteractingJob<M
      * @throws UserCanceledException
      *             indicates that the user has canceled the workflow before completion
      */
+    @Override
     public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 
         // Determine the PCM model parts from the launch configuration:
@@ -79,7 +80,7 @@ public class RunPCMReliabilityAnalysisJob implements IBlackboardInteractingJob<M
 
         // Check the model for being valid:
         if (!currentModel.isValid()) {
-            logger.error("PCM Instance invalid! Check filenames.");
+            LOGGER.error("PCM Instance invalid! Check filenames.");
             return;
         }
 
@@ -93,6 +94,7 @@ public class RunPCMReliabilityAnalysisJob implements IBlackboardInteractingJob<M
         monitor.worked(50);
     }
 
+    @Override
     public String getName() {
         return "Run PCM Reliability Analysis";
     }
@@ -101,6 +103,7 @@ public class RunPCMReliabilityAnalysisJob implements IBlackboardInteractingJob<M
         return strategy;
     }
 
+    @Override
     public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
         // Nothing to do here
     }

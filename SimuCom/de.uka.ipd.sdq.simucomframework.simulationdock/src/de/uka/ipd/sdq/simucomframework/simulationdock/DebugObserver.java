@@ -11,13 +11,13 @@ import de.uka.ipd.sdq.simulation.IStatusObserver;
 
 public class DebugObserver implements IStatusObserver {
 
-    protected static Logger logger = Logger.getLogger(DebugObserver.class.getName());
+    protected static final Logger LOGGER = Logger.getLogger(DebugObserver.class.getName());
 
     private boolean isStepping;
-    private EventAdmin eventAdmin;
-    private SimulationDockService myDock;
+    private final EventAdmin eventAdmin;
+    private final SimulationDockService myDock;
 
-    private Object suspendedBarrier = new Object();
+    private final Object suspendedBarrier = new Object();
     private boolean suspended;
 
     public DebugObserver(EventAdmin eventAdmin, SimulationDockService myDock) {
@@ -58,6 +58,7 @@ public class DebugObserver implements IStatusObserver {
         }
     }
 
+    @Override
     public void updateStatus(int percentDone, double currentSimTime, long measurementsTaken) {
 
         if (this.isStepping) {
@@ -77,8 +78,9 @@ public class DebugObserver implements IStatusObserver {
 
         if (this.suspended) {
             postEvent("de/uka/ipd/sdq/simucomframework/simucomdock/SIM_RESUMED");
-            if (logger.isDebugEnabled())
-                logger.debug("------------------------- Simulation Resumed ----------------------------------");
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("------------------------- Simulation Resumed ----------------------------------");
+            }
         }
     }
 
