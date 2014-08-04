@@ -37,9 +37,9 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 public abstract class AbstractMain {
 
     /**
-     * Root logger of the whole application. Changing its configuration impacts all log output.
+     * Root LOGGER of the whole application. Changing its configuration impacts all log output.
      */
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
+    protected static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getRootLogger();
 
     /**
      * Threads used to simulate users.
@@ -59,9 +59,9 @@ public abstract class AbstractMain {
     protected void run(String[] args) {
         runProps = CommandLineParser.parseCommandLine(args);
         setupLogging();
-        logger.info("Command line read. Logging initialised. Protocom starts its workflow now...");
+        LOGGER.info("Command line read. Logging initialised. Protocom starts its workflow now...");
 
-        logger.info("Reading allocation configuration. Callibrating container if needed");
+        LOGGER.info("Reading allocation configuration. Callibrating container if needed");
         initAllocationStorage();
         AbstractAllocationStorage.initContainer();
 
@@ -75,7 +75,7 @@ public abstract class AbstractMain {
         RmiRegistry.setRemoteAddress(getRMIRegistry());
         RmiRegistry.setRegistryPort(getRMIPort());
 
-        logger.info("Initialising StoEx Cache "
+        LOGGER.info("Initialising StoEx Cache "
                 + (runProps.hasOption('E') ? " - Seed: " + runProps.getOptionValue('E') : ""));
 
         IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
@@ -104,7 +104,7 @@ public abstract class AbstractMain {
     private void handleMenuItem(int itemId) {
         if (itemId == 1) {
             // Start everything in local mode
-            logger.debug("Start: Start everything in local mode");
+            LOGGER.debug("Start: Start everything in local mode");
 
             RmiRegistry.startRegistry();
             AbstractAllocationStorage.setLocalMode(true);
@@ -112,11 +112,11 @@ public abstract class AbstractMain {
             startLocalMode();
         } else if (itemId == 2) {
             // RmiRegistry
-            logger.debug("Start: RmiRegistry");
+            LOGGER.debug("Start: RmiRegistry");
             RmiRegistry.main(null);
         } else if (itemId == 3) {
             // Usage Scenarios
-            logger.debug("Start: Usage Scenarios");
+            LOGGER.debug("Start: Usage Scenarios");
 
             try {
                 ExperimentManager.init(runProps.getOptionValue('n') + " (Usage Scenario)", runProps.getOptionValue('d')
@@ -134,7 +134,7 @@ public abstract class AbstractMain {
             String[][] systems = getSystems();
             for (String[] system : systems) {
                 if (itemId == i) {
-                    logger.debug("Start: System " + system[0]);
+                    LOGGER.debug("Start: System " + system[0]);
                     invokeMethod(getMain(system[0]), getRMIRegistry(), "" + getRMIPort());
                 }
                 i++;
@@ -144,7 +144,7 @@ public abstract class AbstractMain {
             Collection<String> containers = AbstractAllocationStorage.getContainerIds();
             for (String containerId : containers) {
                 if (itemId == i) {
-                    logger.debug("Start: Container " + AbstractAllocationStorage.getContainerName(containerId));
+                    LOGGER.debug("Start: Container " + AbstractAllocationStorage.getContainerName(containerId));
                     AbstractAllocationStorage.setActiveContainer(containerId);
 
                     ExperimentManager.init(
@@ -204,18 +204,18 @@ public abstract class AbstractMain {
 
             try {
 
-                logger.info("Current time: " + new Date());
+                LOGGER.info("Current time: " + new Date());
                 startThreads();
 
                 stop();
 
-                logger.info("Current time: " + new Date());
+                LOGGER.info("Current time: " + new Date());
                 ExperimentManager.getInstance().writeResultsAndClose();
 
             } catch (RuntimeException e) {
                 throw e;
             } catch (RemoteException e) {
-                logger.error("Error when calling remote server.", e);
+                LOGGER.error("Error when calling remote server.", e);
             }
         }
 
@@ -247,7 +247,7 @@ public abstract class AbstractMain {
         Collection<ComponentAllocation> components = AbstractAllocationStorage.getComponents(containerId);
 
         for (ComponentAllocation component : components) {
-            logger.info("Start: Component " + component.getComponentClass().getName() + ", assembly context: "
+            LOGGER.info("Start: Component " + component.getComponentClass().getName() + ", assembly context: "
                     + component.getAssemblyContext());
             invokeMethod(getMain(component.getComponentClass()), getRMIRegistry(), "" + getRMIPort(),
                     component.getAssemblyContext());
@@ -260,7 +260,7 @@ public abstract class AbstractMain {
         try {
             method.invoke(null, (Object) params);
         } catch (Exception e) {
-            logger.error("Failed to run main method", e);
+            LOGGER.error("Failed to run main method", e);
             System.exit(-1);
         }
     }
@@ -273,17 +273,17 @@ public abstract class AbstractMain {
             Class<?> cls = Class.forName(mainClass);
             return cls.getMethod("main", String[].class);
         } catch (Throwable e) {
-            logger.info("Failed to retrieve main class. Falling back to menu mode");
+            LOGGER.info("Failed to retrieve main class. Falling back to menu mode");
         }
         return null;
     }
 
     private void startThreads() {
-        logger.info("Starting workload threads. ");
+        LOGGER.info("Starting workload threads. ");
         if (runProps.hasOption('m')) {
-            logger.info("Taking " + runProps.getOptionValue('m') + " measurements");
+            LOGGER.info("Taking " + runProps.getOptionValue('m') + " measurements");
         } else {
-            logger.info("Request a measurement stop by pressing any key!");
+            LOGGER.info("Request a measurement stop by pressing any key!");
         }
         for (Thread t : threads) {
             t.start();
@@ -291,19 +291,19 @@ public abstract class AbstractMain {
     }
 
     private void setupLogging() {
-        logger.removeAllAppenders();
+        LOGGER.removeAllAppenders();
         PatternLayout layout = new PatternLayout("%d{HH:mm} %-5p [%t]: %m%n");
-        logger.addAppender(new ConsoleAppender(layout));
+        LOGGER.addAppender(new ConsoleAppender(layout));
         if (runProps.hasOption('D')) {
-            logger.setLevel(Level.DEBUG);
+            LOGGER.setLevel(Level.DEBUG);
         } else {
-            logger.setLevel(Level.INFO);
+            LOGGER.setLevel(Level.INFO);
         }
     }
 
     private void stop() {
         if (!runProps.hasOption('m')) {
-            logger.debug("Request Thread stop");
+            LOGGER.debug("Request Thread stop");
             for (Thread t : threads) {
                 ((IStopable) t).requestStop();
             }
@@ -346,12 +346,12 @@ public abstract class AbstractMain {
             try {
                 String acc = runProps.getOptionValue('a').toUpperCase();
                 accuracy = DegreeOfAccuracyEnum.valueOf(acc);
-                logger.info("Using accuracy for calibration: " + acc);
+                LOGGER.info("Using accuracy for calibration: " + acc);
             } catch (IllegalArgumentException e) {
-                logger.warn("Calibration accuracy " + runProps.getOptionValue('a') + " not found! Using MEDIUM instead");
+                LOGGER.warn("Calibration accuracy " + runProps.getOptionValue('a') + " not found! Using MEDIUM instead");
             }
         } else {
-            logger.info("Using default accuracy for calibration: MEDIUM");
+            LOGGER.info("Using default accuracy for calibration: MEDIUM");
         }
 
         return accuracy;

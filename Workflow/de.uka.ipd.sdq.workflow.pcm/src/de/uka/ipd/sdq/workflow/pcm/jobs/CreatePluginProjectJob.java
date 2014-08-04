@@ -29,11 +29,11 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
 public class CreatePluginProjectJob implements IJob {
 
 	/** Logger for this class. */
-	private Logger logger = Logger.getLogger(CreatePluginProjectJob.class);
+	private static final Logger LOGGER = Logger.getLogger(CreatePluginProjectJob.class);
 
-	private boolean deleteProject;
-	private String myProjectId;
-	private boolean overwriteWithoutAsking;
+	private final boolean deleteProject;
+	private final String myProjectId;
+	private final boolean overwriteWithoutAsking;
 
 	public CreatePluginProjectJob(
 			AbstractPCMWorkflowRunConfiguration configuration) {
@@ -50,7 +50,8 @@ public class CreatePluginProjectJob implements IJob {
 	 * @see
 	 * de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#execute()
 	 */
-	public void execute(IProgressMonitor monitor) throws UserCanceledException,
+	@Override
+    public void execute(IProgressMonitor monitor) throws UserCanceledException,
 			JobFailedException {
 		ensurePluginProjectNotExisting(monitor);
 		createContainerPlugin(monitor);
@@ -107,7 +108,8 @@ public class CreatePluginProjectJob implements IJob {
 	 * @see
 	 * de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#getName()
 	 */
-	public String getName() {
+	@Override
+    public String getName() {
 		return "Create Plugin Project";
 	}
 
@@ -117,7 +119,8 @@ public class CreatePluginProjectJob implements IJob {
 	 * @see
 	 * de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#cleanup()
 	 */
-	public void cleanup(IProgressMonitor monitor)
+	@Override
+    public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
 		if (deleteProject) {
 			IProject myProject = getProject(this.myProjectId);
@@ -140,8 +143,9 @@ public class CreatePluginProjectJob implements IJob {
 	 */
 	private void deleteProject(IProgressMonitor monitor, IProject myProject)
 			throws CoreException {
-		if(logger.isEnabledFor(Level.INFO))
-			logger.info("Deleting project " + myProject.getName());
+		if(LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Deleting project " + myProject.getName());
+        }
 
 		myProject.close(monitor);
 		myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT, monitor);
@@ -223,20 +227,23 @@ public class CreatePluginProjectJob implements IJob {
 	private void createFolder(IProject project, IFolder folder)
 			throws CoreException {
 		if (project.isOpen() && !folder.exists()) {
-			if(logger.isDebugEnabled())
-				logger.debug("Creating folder " + folder.getName());
+			if(LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Creating folder " + folder.getName());
+            }
 			folder.create(false, true, null);
 		}
 	}
 
 	private void createProject(IProject project, IProgressMonitor monitor)
 			throws CoreException, JobFailedException {
-		if (project.exists())
-			throw new JobFailedException(
+		if (project.exists()) {
+            throw new JobFailedException(
 					"Tried to create an existing project. Preceeding cleanup failed");
+        }
 
-		if(logger.isDebugEnabled())
-			logger.debug("Creating Eclipse workspace project " + project.getName());
+		if(LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Creating Eclipse workspace project " + project.getName());
+        }
 		project.create(monitor);
 		project.open(monitor);
 	}
@@ -258,7 +265,8 @@ public class CreatePluginProjectJob implements IJob {
 			return myshouldDelete;
 		}
 
-		public void run() {
+		@Override
+        public void run() {
 			String[] options = { "Delete and Continue", "Abort" };
 			MessageDialog dlg = new MessageDialog(PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell(),

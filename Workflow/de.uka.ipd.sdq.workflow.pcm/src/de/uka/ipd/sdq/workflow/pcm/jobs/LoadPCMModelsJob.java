@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
  */
 public class LoadPCMModelsJob extends SequentialBlackboardInteractingJob<MDSDBlackboard>
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
-	private static final Logger logger = Logger.getLogger(LoadPCMModelsJob.class);
+	private static final Logger LOGGER = Logger.getLogger(LoadPCMModelsJob.class);
 	private MDSDBlackboard blackboard;
 	private AbstractPCMWorkflowRunConfiguration configuration = null;
 
@@ -46,22 +46,22 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		ResourceSetPartition eventMiddlewarePartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID);
 
 		// Load the PCM model itself
-		if(logger.isEnabledFor(Level.INFO))
-			logger.info("Loading PCM models");
+		if(LOGGER.isEnabledFor(Level.INFO))
+			LOGGER.info("Loading PCM models");
 		for (String modelFile : configuration.getPCMModelFiles()) {
 			pcmPartition.loadModel(modelFile);
 		}
 		pcmPartition.resolveAllProxies();
 
 		// load the middleware completion
-		if(logger.isEnabledFor(Level.INFO))
-			logger.info("Loading middleware completion models");
+		if(LOGGER.isEnabledFor(Level.INFO))
+			LOGGER.info("Loading middleware completion models");
 		middlewarePartition.loadModel(configuration.getMiddlewareFile());
 		middlewarePartition.resolveAllProxies();
 
 		// load the event middleware repository
-		if(logger.isEnabledFor(Level.INFO))
-			logger.info("Loading event middleware models");
+		if(LOGGER.isEnabledFor(Level.INFO))
+			LOGGER.info("Loading event middleware models");
 		eventMiddlewarePartition.loadModel(configuration.getEventMiddlewareFile());
 		eventMiddlewarePartition.resolveAllProxies();
 	}

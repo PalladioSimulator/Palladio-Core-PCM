@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEngineExtensi
 
 public class SimulationPreferencesHelper {
 
-    private static final Logger logger = Logger.getLogger(SimulationPreferencesHelper.class);
+    private static final Logger LOGGER = Logger.getLogger(SimulationPreferencesHelper.class);
 
     /**
      * Returns the default simulation engine. The default engine is the first entry in the list of
@@ -26,8 +26,8 @@ public class SimulationPreferencesHelper {
                 firstEngineId = engineNamesAndIds[0][1];
             }
         } catch (CoreException e) {
-            if (logger.isEnabledFor(Level.WARN))
-                logger.warn("Could not retrieve simulation engine names and ids.", e);
+            if (LOGGER.isEnabledFor(Level.WARN))
+                LOGGER.warn("Could not retrieve simulation engine names and ids.", e);
         }
         return firstEngineId;
     }
@@ -42,13 +42,13 @@ public class SimulationPreferencesHelper {
         try {
             engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(preferredEngineId);
         } catch (CoreException e) {
-            logger.warn("Could not load preferred simulation engine " + preferredEngineId + ".", e);
+            LOGGER.warn("Could not load preferred simulation engine " + preferredEngineId + ".", e);
 
             // if no factory has been found for the preferred engine, use the default engine
             try {
                 engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(getDefaultEngineId());
             } catch (CoreException e2) {
-                logger.warn("Could not load default simulation engine " + getDefaultEngineId() + ".", e2);
+                LOGGER.warn("Could not load default simulation engine " + getDefaultEngineId() + ".", e2);
             }
 
         }

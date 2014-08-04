@@ -41,7 +41,7 @@ import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
  */
 public class DocksModel extends Observable implements EventHandler {
     /** Logger of this class. */
-    private static final Logger logger = Logger.getLogger(DocksModel.class);
+    private static final Logger LOGGER = Logger.getLogger(DocksModel.class);
 
     /**
      * A hashmap for mapping dock IDs to the respective dock models. Used when events arrive to
@@ -150,8 +150,8 @@ public class DocksModel extends Observable implements EventHandler {
                     rserv = roserv.connect(uri);
                 } catch (Exception e) {
                     String msg = "Unable to connect to remote server ";
-                    if (logger.isEnabledFor(Level.ERROR))
-                        logger.error(msg, e);
+                    if (LOGGER.isEnabledFor(Level.ERROR))
+                        LOGGER.error(msg, e);
                     throw new RuntimeException(msg, e);
                 }
                 // FIXME: Build-Eclipse and local Eclipse have a different opinion which Exceptions
@@ -245,8 +245,8 @@ public class DocksModel extends Observable implements EventHandler {
                 this.addDock((SimulationDockService) context.getService(ref));
             }
         } catch (InvalidSyntaxException e1) {
-            if (logger.isEnabledFor(Level.ERROR))
-                logger.error("Dock model status could not be initializd properly. Invalid filter expression used.", e1);
+            if (LOGGER.isEnabledFor(Level.ERROR))
+                LOGGER.error("Dock model status could not be initializd properly. Invalid filter expression used.", e1);
         }
     }
 

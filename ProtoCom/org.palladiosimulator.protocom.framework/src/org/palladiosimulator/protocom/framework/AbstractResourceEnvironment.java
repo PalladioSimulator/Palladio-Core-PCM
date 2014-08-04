@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
  */
 public class AbstractResourceEnvironment {
 
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
+    protected static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getRootLogger();
 
     /**
      * CPU strategies, names
@@ -72,7 +72,7 @@ public class AbstractResourceEnvironment {
 
                     strategy = (IDemandStrategy) strategiesClasses[i].newInstance();
                 } catch (InstantiationException e) {
-                    logger.error("CPU strategy " + usedStrategy + " can not be instantiated");
+                    LOGGER.error("CPU strategy " + usedStrategy + " can not be instantiated");
                 } catch (IllegalAccessException e) {
                 }
             }
@@ -97,7 +97,7 @@ public class AbstractResourceEnvironment {
         IDemandStrategy strategy = getStrategy(usedStrategy, cpuStrategies, cpuStrategiesClasses);
 
         if (strategy == null) {
-            logger.warn("CPU strategy " + (usedStrategy == null ? "" : usedStrategy)
+            LOGGER.warn("CPU strategy " + (usedStrategy == null ? "" : usedStrategy)
                     + " not found. Using Fibonacci instead");
             strategy = new FibonacciDemand();
         }
@@ -123,7 +123,7 @@ public class AbstractResourceEnvironment {
         IDemandStrategy strategy = getStrategy(usedStrategy, cpuStrategies, cpuStrategiesClasses);
 
         if (strategy == null) {
-            logger.warn("HDD strategy " + (usedStrategy == null ? "" : usedStrategy)
+            LOGGER.warn("HDD strategy " + (usedStrategy == null ? "" : usedStrategy)
                     + " not found. Using LargeChunks instead");
             strategy = new org.palladiosimulator.protocom.resourcestrategies.activeresource.hdd.ReadLargeChunksDemand();
         }
@@ -152,7 +152,7 @@ public class AbstractResourceEnvironment {
         try {
             Thread.sleep(Math.round(delay));
         } catch (InterruptedException e) {
-            logger.error("Interrupted while performing a delay", e);
+            LOGGER.error("Interrupted while performing a delay", e);
         }
     }
 }

@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
 public class LoadMiddlewareConfigurationIntoBlackboardJob 
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
-	private Logger logger = Logger.getLogger(LoadPCMModelsIntoBlackboardJob.class);
+    private static final Logger LOGGER = Logger.getLogger(LoadPCMModelsIntoBlackboardJob.class);
 	
 	public static final String MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.middleware";
 	public static final String EVENT_MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.eventmiddleware";
@@ -30,18 +30,21 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		this.configuration  = config;
 	}
 
-	public void execute(IProgressMonitor monitor) throws JobFailedException,
+	@Override
+    public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		ResourceSetPartition middlewareRepositoryPartition = null;
 		if (!this.blackboard.hasPartition(MIDDLEWARE_PARTITION_ID)) {
-			if(logger.isDebugEnabled())
-				logger.debug("Creating Middleware Repository Partition");
+			if(LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Creating Middleware Repository Partition");
+            }
 			
 			middlewareRepositoryPartition = new ResourceSetPartition();
 			this.blackboard.addPartition(MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
 			
-			if(logger.isDebugEnabled())
-				logger.debug("Initialising Middleware EPackages");
+			if(LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Initialising Middleware EPackages");
+            }
 			middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		} else {
 			middlewareRepositoryPartition = this.blackboard.getPartition(MIDDLEWARE_PARTITION_ID);
@@ -51,14 +54,16 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		// load event middleware 
 		ResourceSetPartition eventMiddlewareRepositoryPartition = null;
 		if (!this.blackboard.hasPartition(EVENT_MIDDLEWARE_PARTITION_ID)) {
-			if(logger.isDebugEnabled())
-				logger.debug("Creating Event Middleware Repository Partition");
+			if(LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Creating Event Middleware Repository Partition");
+            }
 			
 			eventMiddlewareRepositoryPartition = new ResourceSetPartition();
 			this.blackboard.addPartition(EVENT_MIDDLEWARE_PARTITION_ID, eventMiddlewareRepositoryPartition);
 			
-			if(logger.isDebugEnabled())
-				logger.debug("Initialising Event Middleware EPackages");
+			if(LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Initialising Event Middleware EPackages");
+            }
 			eventMiddlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		} else {
 			eventMiddlewareRepositoryPartition = this.blackboard.getPartition(EVENT_MIDDLEWARE_PARTITION_ID);
@@ -68,16 +73,19 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		}
 	}
 
-	public String getName() {
+	@Override
+    public String getName() {
 		return "Load Middleware Configuration into Blackboard";
 	}
 
-	public void cleanup(IProgressMonitor monitor)
+	@Override
+    public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
 		this.blackboard.removePartition(MIDDLEWARE_PARTITION_ID);
 	}
 
-	public void setBlackboard(MDSDBlackboard blackboard) {
+	@Override
+    public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 

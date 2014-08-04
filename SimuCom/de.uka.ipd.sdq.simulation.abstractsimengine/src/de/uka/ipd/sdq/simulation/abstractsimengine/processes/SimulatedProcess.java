@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessListener;
 
 public abstract class SimulatedProcess implements ISimProcess {
 
-    public static final Logger logger = Logger.getLogger(SimulatedProcess.class);
+    public static final Logger LOGGER = Logger.getLogger(SimulatedProcess.class);
 
     /**
      * Current state of this process
@@ -43,13 +43,13 @@ public abstract class SimulatedProcess implements ISimProcess {
         final Runnable myRunnable = new Runnable() {
             @Override
             public void run() {
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Starting sim process [ID: " + getAbstractProcess().getId() + "]");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Starting sim process [ID: " + getAbstractProcess().getId() + "]");
                 }
                 actions();
                 // SSJSimProcess.this.processStrategy = null;
-                if (logger.isDebugEnabled()) {
-                    logger.debug("Sim process ended [ID: " + getAbstractProcess().getId() + "]");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Sim process ended [ID: " + getAbstractProcess().getId() + "]");
                 }
             }
         };
@@ -88,8 +88,8 @@ public abstract class SimulatedProcess implements ISimProcess {
             throw new IllegalStateException("Tried to suspend non-running process ["
                     + this.getAbstractProcess().getId() + "]");
         }
-        if (logger.isDebugEnabled()) {
-            logger.debug("Suspending thread [" + this.getAbstractProcess().getId() + "]");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Suspending thread [" + this.getAbstractProcess().getId() + "]");
         }
 
         // notify listeners of the imminent suspend
@@ -108,8 +108,8 @@ public abstract class SimulatedProcess implements ISimProcess {
             throw new IllegalStateException("Tried to resume thread which was not suspended ["
                     + this.getAbstractProcess().getId() + "]");
         }
-        if (logger.isDebugEnabled()) {
-            logger.debug("Resuming thread [" + this.getAbstractProcess().getId() + "]");
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Resuming thread [" + this.getAbstractProcess().getId() + "]");
         }
 
         // resume this process

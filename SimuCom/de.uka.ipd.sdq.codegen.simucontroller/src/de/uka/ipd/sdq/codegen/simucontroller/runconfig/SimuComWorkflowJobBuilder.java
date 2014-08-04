@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder;
  */
 public class SimuComWorkflowJobBuilder extends PCMWorkflowJobBuilder {
     /** Logger for this class. */
-    private static final Logger logger = Logger.getLogger(SimuComWorkflowJobBuilder.class);
+    private static final Logger LOGGER = Logger.getLogger(SimuComWorkflowJobBuilder.class);
 
     /** Debug listener for created SimuCom job. */
     private IDebugListener listener;
@@ -41,8 +41,8 @@ public class SimuComWorkflowJobBuilder extends PCMWorkflowJobBuilder {
         try {
             return new SensitivityAnalysisJob((SimuComWorkflowConfiguration) config, listener);
         } catch (CoreException e) {
-            if (logger.isEnabledFor(Level.ERROR))
-                logger.error("Core exception occured when building SensitivityAnalysisJob.", e);
+            if (LOGGER.isEnabledFor(Level.ERROR))
+                LOGGER.error("Core exception occured when building SensitivityAnalysisJob.", e);
             return null;
         }
     }

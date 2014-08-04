@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
  */
 public class MaxFunction implements IFunction {
     /** Logger for this class. */
-    private static final Logger logger = Logger.getLogger(MaxFunction.class);
+    private static final Logger LOGGER = Logger.getLogger(MaxFunction.class);
 
     /** Name used in the stochastic expression for this function. */
     public static final String MAX_FUNCTION_NAME = "Max";
@@ -63,8 +63,8 @@ public class MaxFunction implements IFunction {
         } else if (parameters.get(0) instanceof Float || parameters.get(1) instanceof Float) {
             return Math.max((Float) parameters.get(0), (Float) parameters.get(1));
         } else if (parameters.get(0) instanceof String) {
-            if (logger.isDebugEnabled())
-                logger.debug("String/Enum-based parameter was provided to Max Function. The parameter will be returned directly.");
+            if (LOGGER.isDebugEnabled())
+                LOGGER.debug("String/Enum-based parameter was provided to Max Function. The parameter will be returned directly.");
             return parameters.get(0);
         } else {
             throw new IllegalArgumentException(

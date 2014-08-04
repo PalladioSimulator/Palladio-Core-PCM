@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.util.AbstractSimEngineExtensi
  */
 public class SimulationPreferencePage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 
-    private static final Logger logger = Logger.getLogger(SimulationPreferencePage.class);
+    private static final Logger LOGGER = Logger.getLogger(SimulationPreferencePage.class);
 
     /** the id for the simulation engine preference **/
     public static final String PREFERENCE_SIMULATION_ENGINE_ID = "simulationEngineField";
@@ -45,8 +45,8 @@ public class SimulationPreferencePage extends FieldEditorPreferencePage implemen
         try {
             engineNamesAndIds = AbstractSimEngineExtensionHelper.getEngineNamesAndIds();
         } catch (CoreException e) {
-            if (logger.isEnabledFor(Level.WARN))
-                logger.warn("Could not retrieve simulation engine names and ids.", e);
+            if (LOGGER.isEnabledFor(Level.WARN))
+                LOGGER.warn("Could not retrieve simulation engine names and ids.", e);
         }
 
         // create field editor

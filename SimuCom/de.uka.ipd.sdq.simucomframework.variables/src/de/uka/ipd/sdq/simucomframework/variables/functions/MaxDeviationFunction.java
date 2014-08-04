@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public class MaxDeviationFunction implements IFunction {
     /** Logger for this class. */
-    private static final Logger logger = Logger.getLogger(MaxDeviationFunction.class);
+    private static final Logger LOGGER = Logger.getLogger(MaxDeviationFunction.class);
 
     /** Name used in the stochastic expression for this function. */
     public static final String MAX_DEVIATION_FUNCTION_NAME = "MaxDeviation";
@@ -108,8 +108,8 @@ public class MaxDeviationFunction implements IFunction {
                 return Double.valueOf(Math.ceil(val + val * rel));
             }
         } else if (value instanceof String) {
-            if (logger.isDebugEnabled())
-                logger.debug("String/Enum-based parameter was provided to MaxDeviation function. The parameter will be returned directly.");
+            if (LOGGER.isDebugEnabled())
+                LOGGER.debug("String/Enum-based parameter was provided to MaxDeviation function. The parameter will be returned directly.");
             return value;
         } else {
             throw new IllegalArgumentException("Unsupported type of value argument experienced.");

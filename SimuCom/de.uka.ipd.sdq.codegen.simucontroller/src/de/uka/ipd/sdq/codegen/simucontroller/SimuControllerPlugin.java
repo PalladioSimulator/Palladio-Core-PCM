@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewer;
  */
 public class SimuControllerPlugin extends AbstractUIPlugin {
     /** Logger for this class. */
-    private static final Logger logger = Logger.getLogger(SimuControllerPlugin.class);
+    private static final Logger LOGGER = Logger.getLogger(SimuControllerPlugin.class);
 
     // The plug-in ID
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.codegen.simucontroller";
@@ -83,13 +83,13 @@ public class SimuControllerPlugin extends AbstractUIPlugin {
                             try {
                                 Thread.sleep(50);
                             } catch (InterruptedException e) {
-                                if (logger.isEnabledFor(Level.WARN))
-                                    logger.warn("Waiting for initalization was aborted unexpectedly.", e);
+                                if (LOGGER.isEnabledFor(Level.WARN))
+                                    LOGGER.warn("Waiting for initalization was aborted unexpectedly.", e);
                             }
                         }
                     } catch (BundleException e) {
-                        if (logger.isEnabledFor(Level.ERROR))
-                            logger.error("Error while starting the OSGI bundle occured.", e);
+                        if (LOGGER.isEnabledFor(Level.ERROR))
+                            LOGGER.error("Error while starting the OSGI bundle occured.", e);
                     }
                 }
             }

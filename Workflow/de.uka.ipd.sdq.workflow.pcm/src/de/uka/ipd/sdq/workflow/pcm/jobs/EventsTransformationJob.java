@@ -38,7 +38,7 @@ public class EventsTransformationJob
 	implements IBlackboardInteractingJob<MDSDBlackboard> {
 
 	/** Logger for this class. */
-	private Logger logger = Logger.getLogger(EventsTransformationJob.class);
+    private static final Logger LOGGER = Logger.getLogger(EventsTransformationJob.class);
 	
 	/** Path to the qvto transformation script */
 	protected static final String TRANSFORMATION_SCRIPT = "platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto";
@@ -49,7 +49,7 @@ public class EventsTransformationJob
 	private MDSDBlackboard blackboard;
 	
 	/** SimuCom configuration to be used in this job */
-	private AbstractPCMWorkflowRunConfiguration configuration;
+	private final AbstractPCMWorkflowRunConfiguration configuration;
 		
 	/**
 	 * Constructor providing access to the SimuCom workflow specific configuration.. 
@@ -61,7 +61,8 @@ public class EventsTransformationJob
 		this.configuration = configuration;
 	}
 
-	public void execute(IProgressMonitor monitor) throws JobFailedException,
+	@Override
+    public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		
 		// get the models to work with
@@ -69,7 +70,7 @@ public class EventsTransformationJob
 		
 		if(checkEventGroups(modelLocations))
 		{
-			logger.info("Skipping Event Transformation: No EventGroup was found");
+			LOGGER.info("Skipping Event Transformation: No EventGroup was found");
 			return;
 		}
 		
@@ -95,10 +96,12 @@ public class EventsTransformationJob
 		try {
 			job.execute(monitor);
 		} catch(JobFailedException e) {
-			if(logger.isEnabledFor(Level.ERROR))
-				logger.error("Failed to perform Event Transformation: "+e.getMessage());
-			if(logger.isEnabledFor(Level.INFO))
-				logger.info("Trying to continue processing");
+			if(LOGGER.isEnabledFor(Level.ERROR)) {
+                LOGGER.error("Failed to perform Event Transformation: "+e.getMessage());
+            }
+			if(LOGGER.isEnabledFor(Level.INFO)) {
+                LOGGER.info("Trying to continue processing");
+            }
 		}
 		
 		// add the event middleware model to the blackboard
@@ -128,12 +131,14 @@ public class EventsTransformationJob
 				ResourceSetPartition partition = blackboard.getPartition(loc.getPartitionID());
 				List<EObject> contents = partition.getContents(modelId);
 				Repository repo = (Repository) EcoreUtil.getObjectByType(contents, RepositoryPackage.eINSTANCE.getRepository());
-				if(repo == null)
-					continue;
+				if(repo == null) {
+                    continue;
+                }
 				
 				Object eventgroup = EcoreUtil.getObjectByType(repo.getInterfaces__Repository(), RepositoryPackage.eINSTANCE.getEventGroup());
-				if(eventgroup != null)
-					skipQVTO = false;
+				if(eventgroup != null) {
+                    skipQVTO = false;
+                }
 			}
 			
 		}
@@ -212,15 +217,18 @@ public class EventsTransformationJob
 		}
 	}
 
-	public void setBlackboard(MDSDBlackboard blackboard) {
+	@Override
+    public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 
-	public String getName() {
+	@Override
+    public String getName() {
 		return "Add event transformation job";
 	}
 
-	public void cleanup(IProgressMonitor monitor)
+	@Override
+    public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
 		// Nothing to do for the roll back
 	}	

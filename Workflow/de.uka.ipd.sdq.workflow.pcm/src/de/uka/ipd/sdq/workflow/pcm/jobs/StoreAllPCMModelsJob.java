@@ -28,7 +28,7 @@ public class StoreAllPCMModelsJob implements IJob,
 	IBlackboardInteractingJob<MDSDBlackboard> {
 
 	/** The logger for this class */
-	private static final Logger logger = Logger.getLogger(StoreAllPCMModelsJob.class);
+	private static final Logger LOGGER = Logger.getLogger(StoreAllPCMModelsJob.class);
 
 	/** The blackboard to interact with */
 	private MDSDBlackboard blackboard = null;
@@ -44,29 +44,34 @@ public class StoreAllPCMModelsJob implements IJob,
 	/**
 	 * Execute this job and create the model copy.
 	 */
-	public void execute(IProgressMonitor monitor) throws JobFailedException,
+	@Override
+    public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 
 		PCMResourceSetPartition partition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		try {
 			partition.storeAllResources();
 		} catch (IOException e) {
-			if(logger.isEnabledFor(Level.ERROR))
-				logger.error("unable to store all resources",e);
+			if(LOGGER.isEnabledFor(Level.ERROR)) {
+                LOGGER.error("unable to store all resources",e);
+            }
 			throw new JobFailedException("Unable to store all Resources",e);
 		}
 	}
 
-	public String getName() {
+	@Override
+    public String getName() {
 		return "Update working copy of models";
 	}
 
-	public void cleanup(IProgressMonitor monitor)
+	@Override
+    public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
 		// nothing to clean up
 	}
 
-	public void setBlackboard(MDSDBlackboard blackboard) {
+	@Override
+    public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 

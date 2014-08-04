@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 
 public class DockStatusViewer extends Composite implements Observer {
     /** Logger for this class. */
-    private static final Logger logger = Logger.getLogger(DockStatusViewer.class);
+    private static final Logger LOGGER = Logger.getLogger(DockStatusViewer.class);
 
     private Image idleImage;
     private DockModel model;
@@ -200,7 +200,7 @@ public class DockStatusViewer extends Composite implements Observer {
                     PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().bringToTop(viewer);
                     viewer.setFocus();
                 } catch (PartInitException e) {
-                    logger.warn("Could not show SimuDockView and set focus to it.", e);
+                    LOGGER.warn("Could not show SimuDockView and set focus to it.", e);
                 }
             }
 

@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
  *
  */
 public abstract class AbstractScenarioThread extends Thread implements IStopable {
-    protected org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(AbstractScenarioThread.class);
+    protected static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getLogger(AbstractScenarioThread.class);
 
     private static AtomicLong measurementTotalCount = null;
     protected long maxMeasurementCount = -1;
@@ -31,7 +31,7 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
 
     protected String scenarioName;
 
-    private TimeSpanSensor timeSpanSensor;
+    private final TimeSpanSensor timeSpanSensor;
 
     static {
         /**
@@ -63,21 +63,22 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
         if (runProps.hasOption("u")) {
             warmupRuns = Integer.parseInt(runProps.getOptionValue('u'));
         }
-        logger.info("Warmup - Cyles: " + warmupRuns);
+        LOGGER.info("Warmup - Cyles: " + warmupRuns);
         for (int i = 0; i < warmupRuns; i++) {
-            logger.info("Warmup started, cycle: " + i);
+            LOGGER.info("Warmup started, cycle: " + i);
             getScenarioRunner(runProps).run();
         }
-        logger.info("Warmup finished");
+        LOGGER.info("Warmup finished");
 
         // reset number of measurements to 0
         measurementTotalCount = new AtomicLong(0);
 
     }
 
+    @Override
     public void run() {
         while (shouldContinue) {
-            logger.debug("Starting my scenario");
+            LOGGER.debug("Starting my scenario");
 
             try {
                 runAndMeasureUsageScenarioIteration();
@@ -101,19 +102,20 @@ public abstract class AbstractScenarioThread extends Thread implements IStopable
         double measuredTimeSpan = (now - start) / Math.pow(10, 9);
 
         experimentRun.addTimeSpanMeasurement(timeSpanSensor, now / Math.pow(10, 9), measuredTimeSpan);
-        logger.debug("Finished my scenario");
+        LOGGER.debug("Finished my scenario");
 
         long value = measurementTotalCount.incrementAndGet();
-        logger.debug("Execution of scenario iteration no " + value + " took: " + measuredTimeSpan + " seconds");
+        LOGGER.debug("Execution of scenario iteration no " + value + " took: " + measuredTimeSpan + " seconds");
 
         if (maxMeasurementCount > 0 && value >= maxMeasurementCount && shouldContinue) {
-            logger.info("Reached maximum measurement count");
+            LOGGER.info("Reached maximum measurement count");
             shouldContinue = false;
 
         }
 
     }
 
+    @Override
     public void requestStop() {
         shouldContinue = false;
     }

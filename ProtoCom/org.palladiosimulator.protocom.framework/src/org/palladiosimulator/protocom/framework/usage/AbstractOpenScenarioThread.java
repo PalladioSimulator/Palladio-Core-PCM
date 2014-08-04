@@ -33,17 +33,17 @@ public abstract class AbstractOpenScenarioThread extends AbstractScenarioThread 
 
         new Thread() {
             public void run() {
-                if (logger.isDebugEnabled()) {
-                    logger.debug("New Thread: Open Scenario (" + scenarioName + "), interarrival time: "
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("New Thread: Open Scenario (" + scenarioName + "), interarrival time: "
                             + interarrivalTime);
-                    logger.debug("Starting my scenario");
+                    LOGGER.debug("Starting my scenario");
                 }
 
                 long start = System.nanoTime();
                 getScenarioRunner(runProps).run();
                 takeScenarioMeasurement(start);
 
-                logger.debug("Finished my scenario");
+                LOGGER.debug("Finished my scenario");
             }
         }.start();
 

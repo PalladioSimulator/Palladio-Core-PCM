@@ -47,9 +47,9 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
     /**
-     * This class' logger
+     * This class' LOGGER
      */
-    private static final Logger logger = Logger.getLogger(PCMStoExEvaluationVisitor.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PCMStoExEvaluationVisitor.class.getName());
 
     /**
      * Subvisitor to evaluate probability functions inside the visited stoex
@@ -107,7 +107,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
             }
         } catch (ValueNotInFrameException e) {
             if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
-                logger.error("Value should be in stackframe, but it is not!", e);
+                LOGGER.error("Value should be in stackframe, but it is not!", e);
             }
         }
         if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
@@ -118,7 +118,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
             RuntimeException re = new RuntimeException(
                     "Architecture specification incomplete. Stackframe is missing id " + variableID
                             + "\nAvailable IDs are " + availableIDs);
-            logger.error("Value not found in specification", re);
+            LOGGER.error("Value not found in specification", re);
             throw re;
         } else if (mode == VariableMode.RETURN_NULL_ON_NOT_FOUND) {
             return null;
@@ -133,7 +133,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
                 return false;
             RuntimeException re = new RuntimeException(
                     "Architecture specification incomplete. Stackframe is missing id " + variableID);
-            logger.error("Value not found in specification", re);
+            LOGGER.error("Value not found in specification", re);
             throw re;
         }
     }

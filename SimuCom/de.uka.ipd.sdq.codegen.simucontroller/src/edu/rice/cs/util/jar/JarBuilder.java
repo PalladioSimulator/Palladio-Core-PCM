@@ -53,7 +53,7 @@ import org.apache.log4j.Logger;
 public class JarBuilder {
 
     /** Logger for this class. */
-    private static final Logger logger = Logger.getLogger(JarBuilder.class);
+    private static final Logger LOGGER = Logger.getLogger(JarBuilder.class);
     private JarOutputStream _output;
 
     /**
@@ -96,8 +96,8 @@ public class JarBuilder {
         try {
             _output = new JarOutputStream(new BufferedOutputStream(new FileOutputStream(jar)), manifest);
         } catch (IOException e) {
-            if (logger.isEnabledFor(Level.ERROR))
-                logger.error("Could not create an empty JAR file.", e);
+            if (LOGGER.isEnabledFor(Level.ERROR))
+                LOGGER.error("Could not create an empty JAR file.", e);
         }
     }
 
@@ -210,8 +210,8 @@ public class JarBuilder {
                 }
             }
         } catch (Exception e) {
-            if (logger.isEnabledFor(Level.ERROR))
-                logger.error("Could not add directory contents to archive.", e);
+            if (LOGGER.isEnabledFor(Level.ERROR))
+                LOGGER.error("Could not add directory contents to archive.", e);
         }
         return true;
     }

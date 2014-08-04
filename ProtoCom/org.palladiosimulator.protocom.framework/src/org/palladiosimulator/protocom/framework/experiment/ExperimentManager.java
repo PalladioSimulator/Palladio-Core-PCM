@@ -33,7 +33,7 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
 
     private static final long serialVersionUID = 4939697784092741922L;
 
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
+    protected static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getRootLogger();
 
     /**
      * Stores whether this ExperimentManager is a master or slave. The master ExperimentManager is
@@ -81,7 +81,7 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
      */
     public static ExperimentRun addExperimentRun() {
         if (singleton.exp == null) {
-            logger.error("Experiment not set");
+            LOGGER.error("Experiment not set");
             throw new RuntimeErrorException(null, "Experiment not set");
         }
 
@@ -108,7 +108,7 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
      */
     public static void takeMeasurement(long start, ExperimentRun experimentRun, TimeSpanSensor timeSpanSensor) {
 
-        logger.info("Take measurement of " + timeSpanSensor.getSensorName());
+        LOGGER.info("Take measurement of " + timeSpanSensor.getSensorName());
 
         long now = System.nanoTime();
         double measuredTimeSpan = (now - start) / Math.pow(10, 9);
@@ -162,7 +162,7 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
         ExperimentRun experimentRun = null;
 
         while (it.hasNext()) {
-            experimentRun = (ExperimentRun) it.next();
+            experimentRun = it.next();
         }
 
         return experimentRun;
@@ -177,7 +177,7 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
 
         if (!checkDirectory(directory)) {
             String error = "Unable to find data directory. Ensure data directory exists and is writeable";
-            logger.error(error);
+            LOGGER.error(error);
             throw new RuntimeException(error);
         }
 
@@ -197,15 +197,15 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
             IRmiRegistry registry = (IRmiRegistry) org.palladiosimulator.protocom.framework.registry.RmiRegistry
                     .lookup(IRmiRegistry.PCM_EXPERIMENT_MANAGER_REGISTRY);
             try {
-                logger.info("Register experiment manager for " + experimentName);
+                LOGGER.info("Register experiment manager for " + experimentName);
                 registry.bindExperimentManager(singleton);
             } catch (RemoteException e) {
-                logger.error("Failed to register experiment manager", e);
+                LOGGER.error("Failed to register experiment manager", e);
             }
         }
 
         singleton.setExperiment(singleton.datasource.createExperimentDAO().addExperiment(experimentName));
-        logger.info("Created data source at event time " + (System.nanoTime() / Math.pow(10, 9)));
+        LOGGER.info("Created data source at event time " + (System.nanoTime() / Math.pow(10, 9)));
 
     }
 
@@ -233,8 +233,8 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
 
     @Override
     public void writeResultsAndClose() throws RemoteException {
-        logger.info("Storing results for " + this.experimentName);
-        logger.info("Current time: " + new Date());
+        LOGGER.info("Storing results for " + this.experimentName);
+        LOGGER.info("Current time: " + new Date());
 
         datasource.store();
 
@@ -243,11 +243,11 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
-            logger.error("Failed to persist measurements", e);
+            LOGGER.error("Failed to persist measurements", e);
             System.exit(-1);
         }
 
-        logger.info("...Done!");
+        LOGGER.info("...Done!");
 
         if (remoteType == EXPERIMENT_MANAGER_MASTER) {
             datasource.finalizeAndClose();
@@ -257,19 +257,19 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
 
             try {
                 for (IExperimentManager manager : registry.getExperimentManagers()) {
-                    logger.info("Send finalizeAndClose to slave " + manager);
+                    LOGGER.info("Send finalizeAndClose to slave " + manager);
                     manager.writeResultsAndClose();
                 }
             } catch (RemoteException e) {
-                logger.error("Failed to contact slave experiment managers", e);
+                LOGGER.error("Failed to contact slave experiment managers", e);
             }
         }
     }
 
     @Override
     public void startNewExperimentRun() throws RemoteException {
-        logger.info("Received startNewExperimentRun");
-        logger.info("Current time: " + new Date());
+        LOGGER.info("Received startNewExperimentRun");
+        LOGGER.info("Current time: " + new Date());
 
         createExperimentRun();
 
@@ -279,11 +279,11 @@ public class ExperimentManager extends UnicastRemoteObject implements IExperimen
 
             try {
                 for (IExperimentManager manager : registry.getExperimentManagers()) {
-                    logger.info("Send startNewExperimentRun to slave " + manager);
+                    LOGGER.info("Send startNewExperimentRun to slave " + manager);
                     manager.startNewExperimentRun();
                 }
             } catch (RemoteException e) {
-                logger.error("Failed to contact slave experiment managers", e);
+                LOGGER.error("Failed to contact slave experiment managers", e);
             }
         }
     }

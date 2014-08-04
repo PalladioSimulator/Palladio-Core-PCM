@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
  */
 public class MinDeviationFunction implements IFunction {
     /** Logger for this class. */
-    private static final Logger logger = Logger.getLogger(MinDeviationFunction.class);
+    private static final Logger LOGGER = Logger.getLogger(MinDeviationFunction.class);
 
     /** Name used in the stochastic expression for this function. */
     public static final String MIN_DEVIATION_FUNCTION_NAME = "MinDeviation";
@@ -64,8 +64,8 @@ public class MinDeviationFunction implements IFunction {
     public Object evaluate(List<Object> parameters) {
         Object value = parameters.get(0);
         if (value instanceof String) {
-            if (logger.isDebugEnabled())
-                logger.debug("String/Enum-based parameter was provided to MinDeviation Function. The parameter will be directly returned.");
+            if (LOGGER.isDebugEnabled())
+                LOGGER.debug("String/Enum-based parameter was provided to MinDeviation Function. The parameter will be directly returned.");
             return value;
         }
         Double abs = (Double) parameters.get(1);

@@ -12,7 +12,7 @@ import org.apache.commons.cli.ParseException;
  * @url{https://sdqweb.ipd.kit.edu/wiki/ProtoCom for parameter descriptions.
  */
 public class CommandLineParser {
-    protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
+    protected static final org.apache.log4j.Logger LOGGER = org.apache.log4j.Logger.getRootLogger();
 
     public static RunProperties parseCommandLine(String[] arguments) {
         RunProperties runProps = null;
@@ -23,7 +23,7 @@ public class CommandLineParser {
         try {
             runProps = new RunProperties(new GnuParser().parse(o, arguments), o);
         } catch (ParseException e) {
-            logger.error("Unable to start execution\n" + e.getMessage() + "\n");
+            LOGGER.error("Unable to start execution\n" + e.getMessage() + "\n");
             parserError = true;
         }
 
