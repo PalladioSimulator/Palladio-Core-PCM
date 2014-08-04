@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 public class AccuracyInfluenceSEFFTransformationStrategyMinimum extends
 		AbstractAccuracyInfluenceSEFFTransformationStrategy {
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(AccuracyInfluenceSEFFTransformationStrategyMinimum.class);
+	private static final Logger LOGGER = Logger.getLogger(AccuracyInfluenceSEFFTransformationStrategyMinimum.class);
 
 	/** Transformation of the specification of {@link PCMRandomVariable} for the minimum of a precision. */
 	private final PCMRandomVariableSpecificationAccuracyMinimumTrafo randomVariableMinimumTrafo = new PCMRandomVariableSpecificationAccuracyMinimumTrafo();
@@ -125,7 +125,7 @@ public class AccuracyInfluenceSEFFTransformationStrategyMinimum extends
 		// Call Parameters
 		if (!(precision.getDefaultPrecisionCallParameter() instanceof NoPrecision)) {
 			String msg = "A ResourceDemand has no parameters. The default precision for call parameters must be set to NoPrecision.";
-			logger.error(msg);
+			LOGGER.error(msg);
 			throw new IllegalArgumentException(msg);
 		}
 	}

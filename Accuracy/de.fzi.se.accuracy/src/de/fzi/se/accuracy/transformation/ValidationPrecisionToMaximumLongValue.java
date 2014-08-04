@@ -19,7 +19,7 @@ import static java.lang.Math.*;
 public class ValidationPrecisionToMaximumLongValue extends
 		QualityAnnotationSwitch<Long> {
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(PCMRandomVariableSpecificationAccuracyMinimumTrafo.class);
+	private static final Logger LOGGER = Logger.getLogger(PCMRandomVariableSpecificationAccuracyMinimumTrafo.class);
 
 	/** Absolute value used to calculate the maximal value. */
 	private Long absoluteValue;
@@ -63,7 +63,7 @@ public class ValidationPrecisionToMaximumLongValue extends
 	private void checkAbsoluteValue() {
 		if (absoluteValue == null) {
 			String msg = "You have to set the absolute value before invoking doSwitch(). Note: The absolute value is reset after an execution of doSwitch() to prevent accidental re-use.";
-			logger.error(msg);
+			LOGGER.error(msg);
 			throw new IllegalArgumentException(msg);
 		}
 	}

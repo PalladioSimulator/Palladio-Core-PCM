@@ -40,7 +40,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 public class AccuracyInfluenceSEFFTransformationStrategyMaximum extends
 		AbstractAccuracyInfluenceSEFFTransformationStrategy {
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(AccuracyInfluenceSEFFTransformationStrategyMaximum.class);
+	private static final Logger LOGGER = Logger.getLogger(AccuracyInfluenceSEFFTransformationStrategyMaximum.class);
 
 	/** Copier for EMF elements. */
 	private EcoreCopierCreatingNewIds copier = new EcoreCopierCreatingNewIds();
@@ -92,7 +92,7 @@ public class AccuracyInfluenceSEFFTransformationStrategyMaximum extends
 				eca.setSuccessor_AbstractAction(finalSuccessor);
 			} else {
 				String msg = "Impossible control flow in implemenation. Correct implemenatation.";
-				logger.fatal(msg);
+				LOGGER.fatal(msg);
 				throw new IllegalArgumentException(msg);
 			}
 		}
@@ -130,7 +130,7 @@ public class AccuracyInfluenceSEFFTransformationStrategyMaximum extends
 				ica.setSuccessor_AbstractAction(finalSuccessor);
 			} else {
 				String msg = "Impossible control flow in implemenation. Correct implemenatation.";
-				logger.fatal(msg);
+				LOGGER.fatal(msg);
 				throw new IllegalArgumentException(msg);
 			}
 		}
@@ -178,7 +178,7 @@ public class AccuracyInfluenceSEFFTransformationStrategyMaximum extends
 		// Call Parameters
 		if (!(precision.getDefaultPrecisionCallParameter() instanceof NoPrecision)) {
 			String msg = "A ResourceDemand has no parameters. The default precision for call parameters must be set to NoPrecision.";
-			logger.error(msg);
+			LOGGER.error(msg);
 			throw new IllegalArgumentException(msg);
 		}
 	}

@@ -57,7 +57,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 public abstract class AbstractAccuracyInfluenceSEFFTransformationStrategy extends
 SeffSwitch<Boolean> {
     /** Logger for this class. */
-    private static final Logger logger = Logger
+    private static final Logger LOGGER = Logger
             .getLogger(AbstractAccuracyInfluenceSEFFTransformationStrategy.class);
 
     /** List of available quality annotations. */
@@ -190,7 +190,7 @@ SeffSwitch<Boolean> {
             final ServiceEffectSpecification object) {
         correspondingQualityLookup = null;
         final String msg = "The provided ServiceEffectSpecification type " + object + " is not supported by the implementation.";
-        logger.error(msg);
+        LOGGER.error(msg);
         issues.add(new SeverityAndIssue(SeverityEnum.ERROR, msg, object));
         return true;
     }
@@ -246,7 +246,7 @@ SeffSwitch<Boolean> {
                     + rdseff.getBasicComponent_ServiceEffectSpecification()
                     .getId()
                     + ". The correct one could not be identified. The annotation with id " + returnedAnnotation.getId() + " is used.";
-            logger.warn(msg);
+            LOGGER.warn(msg);
             issues.add(new SeverityAndIssue(SeverityEnum.WARNING, msg, rdseff));
         }
         return returnedAnnotation;
@@ -327,7 +327,7 @@ SeffSwitch<Boolean> {
     private void ensurePrecisionExists(final REPrecision precision) {
         if (precision == null) {
             final String msg = "Could not determine a precision for the SEFF. Make sure a quality annotation exists for each SEFF of the system and that a precision is provided at least for each category.";
-            logger.error(msg);
+            LOGGER.error(msg);
             throw new IllegalArgumentException(msg);
         }
     }

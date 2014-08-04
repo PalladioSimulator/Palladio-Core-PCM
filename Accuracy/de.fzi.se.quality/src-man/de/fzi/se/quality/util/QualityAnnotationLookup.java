@@ -40,7 +40,7 @@ import de.uka.ipd.sdq.pcm.seff.BranchAction;
  */
 public class QualityAnnotationLookup {
 	/** Logger for this class. */
-	public static final Logger logger = Logger.getLogger(QualityAnnotationLookup.class.getCanonicalName());
+	public static final Logger LOGGER = Logger.getLogger(QualityAnnotationLookup.class.getCanonicalName());
 
 	/** The quality annotation which is used for lookups. */
 	private QualityAnnotation qualityAnnotation;
@@ -314,7 +314,7 @@ public class QualityAnnotationLookup {
 			}
 		} else {
 			String msg = "Could not find a RE Precision for the category " + category + ". Add an RE Precision for this category.";
-			logger.severe(msg);
+			LOGGER.severe(msg);
 			throw new IllegalArgumentException(msg);
 		}
 		return current;
@@ -362,7 +362,7 @@ public class QualityAnnotationLookup {
 			}
 		} else {
 			String msg = "Could not find a RE Precision for the category " + category + ". Add an RE Precision for this category.";
-			logger.severe(msg);
+			LOGGER.severe(msg);
 			throw new IllegalArgumentException(msg);
 		}
 		return current;

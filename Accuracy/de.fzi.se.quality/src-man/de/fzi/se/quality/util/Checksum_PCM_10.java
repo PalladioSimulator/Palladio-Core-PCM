@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
  */
 public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 	/** Logger for this class. */
-	public static final Logger logger = Logger.getLogger(Checksum_PCM_10.class.getCanonicalName());
+	public static final Logger LOGGER = Logger.getLogger(Checksum_PCM_10.class.getCanonicalName());
 	/** Identifier for version 1.0 of the PCM checksum calculation algorithm. */
 	public static final String CHECKSUM_PCM_10_IDENTIFIER = "PCM 1.0";
 	/**

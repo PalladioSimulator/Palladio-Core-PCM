@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.reliability.solver.sensitivity.MarkovSensitivity;
 public class MarkovTransformation {
 
     /**
-     * A logger to give detailed information about the PCM instance transformation.
+     * A LOGGER to give detailed information about the PCM instance transformation.
      */
     private static final Logger LOGGER = Logger.getLogger(MarkovTransformation.class.getName());
 

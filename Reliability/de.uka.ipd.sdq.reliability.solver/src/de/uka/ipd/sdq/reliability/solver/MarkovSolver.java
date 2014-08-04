@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.markov.Transition;
 public class MarkovSolver {
 
     /**
-     * A logger to give detailed information about the PCM instance traversal.
+     * A LOGGER to give detailed information about the PCM instance traversal.
      */
     private static final Logger LOGGER = Logger.getLogger(MarkovSolver.class.getName());
 

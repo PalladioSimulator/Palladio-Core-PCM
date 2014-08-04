@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.reliability.core.helper.EMFHelper;
 public class MarkovComparator {
 
     /**
-     * A logger for printing the comparison result.
+     * A LOGGER for printing the comparison result.
      */
     private static final Logger LOGGER = Logger.getLogger(MarkovComparator.class.getName());
 

@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.stoex.util.StoexSwitch;
  */
 public class PCMUtil {
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(PCMUtil.class.getCanonicalName());
+	private static final Logger LOGGER = Logger.getLogger(PCMUtil.class.getCanonicalName());
 	
 	/**Returns the qualified name for the number of elements in a collection.
 	 * @param parameter The collection parameter.
@@ -44,7 +44,7 @@ public class PCMUtil {
 	public static String getQualifiedCollectionNoE(Parameter parameter) {
 		if (! (parameter.getDataType__Parameter() instanceof CollectionDataType)) {
 			String msg = "Requested number of elements for a parameter which is not a collection data type and does not have a definition of number of elements.";
-			logger.severe(msg);
+			LOGGER.severe(msg);
 			throw new IllegalArgumentException(msg);
 		}
 		return parameter.getParameterName() + "." + VariableCharacterisationType.NUMBER_OF_ELEMENTS;
@@ -151,7 +151,7 @@ public class PCMUtil {
 			}
 		}
 		String msg = "The model was not valid. A ResourceDemandingBehavior must contain exactly one StartAction. That StartAction must not contain a predecessor. Fix the model.";
-		logger.severe(msg);
+		LOGGER.severe(msg);
 		throw new IllegalArgumentException(msg);
 	}
 
@@ -244,7 +244,7 @@ public class PCMUtil {
 			@Override
 			public String caseDataType(DataType object) {
 				String msg = "Unknown data type experienced. eType was: " + object.eClass().getName();
-				logger.severe(msg);
+				LOGGER.severe(msg);
 				throw new IllegalArgumentException(msg);
 			}
 		}.doSwitch(dataType);

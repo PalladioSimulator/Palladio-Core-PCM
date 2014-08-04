@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
 public class MarkovUsageModelVisitor extends UsagemodelSwitch<MarkovChain> {
 
     /**
-     * A logger to give detailed information about the PCM instance traversal.
+     * A LOGGER to give detailed information about the PCM instance traversal.
      */
     private static final Logger LOGGER = Logger.getLogger(MarkovUsageModelVisitor.class.getName());
 

@@ -38,7 +38,7 @@ public class TransformPCMForAccuracyInfluenceAnalysisJob extends SequentialBlack
 		IBlackboardInteractingJob<MDSDBlackboard> {
 
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(TransformPCMForAccuracyInfluenceAnalysisJob.class);
+	private static final Logger LOGGER = Logger.getLogger(TransformPCMForAccuracyInfluenceAnalysisJob.class);
 
 	/** Workflow configuration used by this job.*/
 	private AbstractPCMWorkflowRunConfiguration configuration;
@@ -82,14 +82,14 @@ public class TransformPCMForAccuracyInfluenceAnalysisJob extends SequentialBlack
 			String msg = "The handling of the accuracy influence strategy "
 					+ configuration.getAccuracyInformationModelFile()
 					+ " provided in the configuration is not implemented.";
-			logger.fatal(msg);
+			LOGGER.fatal(msg);
 			throw new IllegalArgumentException(msg);
 		}
 		for (ServiceEffectSpecification seff : allocatedSEFFs) {
 			accuracyInfluenceSEFFtransformator.doSwitch(seff);
 		}
 		if (configuration.getAccuracyInfluenceIssueReceivingJob() == null) {
-			logger.warn("No job was specified to receive issues occured during accuracy influence analysis. There will be no notifications about warnings or errors.");
+			LOGGER.warn("No job was specified to receive issues occured during accuracy influence analysis. There will be no notifications about warnings or errors.");
 		} else {
 			configuration.getAccuracyInfluenceIssueReceivingJob().addIssues(accuracyInfluenceSEFFtransformator.getIssues());
 		}
@@ -115,7 +115,7 @@ public class TransformPCMForAccuracyInfluenceAnalysisJob extends SequentialBlack
 			BasicComponent basicComponent = (BasicComponent) repositoryComponent;
 			addElementsToList(composedSEFFs, basicComponent.getServiceEffectSpecifications__BasicComponent());
 		} else {
-			logger.warn("Could not process the provided repository component " + repositoryComponent.getEntityName() + " with id " + repositoryComponent.getId() + ". The component type is not supported by the implementation.");
+			LOGGER.warn("Could not process the provided repository component " + repositoryComponent.getEntityName() + " with id " + repositoryComponent.getId() + ". The component type is not supported by the implementation.");
 		}
 		return composedSEFFs;
 	}

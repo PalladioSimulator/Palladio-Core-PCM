@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.IIssueReceiver;
 public class ShowAccuracyInfluenceAnalysisErrorsJob
 implements IJob, IIssueReceiver {
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(ShowAccuracyInfluenceAnalysisErrorsJob.class);
+	private static final Logger LOGGER = Logger.getLogger(ShowAccuracyInfluenceAnalysisErrorsJob.class);
 
 	/**	Run configuration. */
 	private final AbstractWorkflowBasedRunConfiguration configuration;
@@ -36,9 +36,9 @@ implements IJob, IIssueReceiver {
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		if (issues.size() > 0) {
-			logger.warn("Found validation problems in the models");
+			LOGGER.warn("Found validation problems in the models");
 			displayValidationErrors(issues);
-			logger.warn("Continuing workflow, ignoring model validation issues");
+			LOGGER.warn("Continuing workflow, ignoring model validation issues");
 		}
 
 	}

@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 public class MarkovTransformationSource {
 
     /**
-     * A logger to give detailed information about the PCM instance traversal.
+     * A LOGGER to give detailed information about the PCM instance traversal.
      */
     private static final Logger LOGGER = Logger.getLogger(MarkovTransformationSource.class.getName());
 

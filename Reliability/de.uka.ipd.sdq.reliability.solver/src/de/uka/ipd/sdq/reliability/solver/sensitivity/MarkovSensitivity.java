@@ -35,7 +35,7 @@ public abstract class MarkovSensitivity {
     private static final String LOG_ENTRY_SEPARATOR = "\\";
 
     /**
-     * A logger to give detailed information about the PCM instance transformation.
+     * A LOGGER to give detailed information about the PCM instance transformation.
      */
     protected Logger logger = null;
 

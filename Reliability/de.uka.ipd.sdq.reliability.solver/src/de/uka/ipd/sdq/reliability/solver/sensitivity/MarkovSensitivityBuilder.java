@@ -42,7 +42,7 @@ import de.uka.ipd.sdq.sensitivity.VariableUsageParameter;
 public class MarkovSensitivityBuilder {
 
     /**
-     * A logger to give detailed information about the PCM instance traversal.
+     * A LOGGER to give detailed information about the PCM instance traversal.
      */
     private static final Logger LOGGER = Logger.getLogger(MarkovSensitivityBuilder.class.getName());
 

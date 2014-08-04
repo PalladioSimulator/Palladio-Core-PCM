@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 public class PCMRandomVariableSpecificationAccuracyMaximumTrafo extends
 		QualityAnnotationSwitch<Boolean> {
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(PCMRandomVariableSpecificationAccuracyMaximumTrafo.class);
+	private static final Logger LOGGER = Logger.getLogger(PCMRandomVariableSpecificationAccuracyMaximumTrafo.class);
 
 	/** The variable modified by the transformation when {@link #doSwitch(org.eclipse.emf.ecore.EObject)} is called. */
 	private PCMRandomVariable modifiedVariable;
@@ -51,7 +51,7 @@ public class PCMRandomVariableSpecificationAccuracyMaximumTrafo extends
 		checkModifiedVariable();
 		if (upperLimit == null) {
 			String msg = "Dynamic type inference of specificaitons to determine maximal value is not implemented (yet).";
-			logger.error(msg);
+			LOGGER.error(msg);
 			throw new IllegalArgumentException(msg);
 		} else {
 			modifiedVariable.setSpecification(upperLimit);
@@ -90,7 +90,7 @@ public class PCMRandomVariableSpecificationAccuracyMaximumTrafo extends
 	public Boolean casePrecision(Precision object) {
 		checkModifiedVariable();
 		String msg = "The handling of the provided Precision " + object + " is not implemented.";
-		logger.error(msg);
+		LOGGER.error(msg);
 		reset();
 		throw new IllegalArgumentException(msg);
 	}
@@ -101,7 +101,7 @@ public class PCMRandomVariableSpecificationAccuracyMaximumTrafo extends
 	private void checkModifiedVariable() {
 		if (modifiedVariable == null) {
 			String msg = "You have to set the modified variable before invoking doSwitch(). Note: The modified variable is reset after an execution of doSwitch() to prevent accidental transformations of the same variable.";
-			logger.error(msg);
+			LOGGER.error(msg);
 			throw new IllegalArgumentException(msg);
 		}
 	}
