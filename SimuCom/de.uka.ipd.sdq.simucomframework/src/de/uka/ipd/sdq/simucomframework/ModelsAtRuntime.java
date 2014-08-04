@@ -65,9 +65,18 @@ public class ModelsAtRuntime {
      */
     public static String getResourceURI(final EObject eObject) {
         final URI uri = eObject.eResource().getURI();
-        final String fragment = eObject.eResource().getURIFragment(eObject);
-        final URI fullUri = uri.appendFragment(fragment);
+        final URI fullUri = uri.appendFragment(getResourceFragment(eObject));
 
         return fullUri.toString();
+    }
+    
+    /**
+     * Returns the URI fragment of a given eObject.
+     * 
+     * @param eObject the eObject to look the fragment up for.
+     * @return the fragment of the eObject.
+     */
+    public static String getResourceFragment(final EObject eObject) {
+        return eObject.eResource().getURIFragment(eObject);
     }
 }
