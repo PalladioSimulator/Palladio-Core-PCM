@@ -12,8 +12,7 @@ import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Delay Resource</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Delay Resource</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
@@ -21,22 +20,22 @@ import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
  * @generated
  */
 public class DelayResourceImpl extends ActiveResourceImpl implements DelayResource {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DelayResourceImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected DelayResourceImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EClass eStaticClass() {
-		return ResourceModelPackage.Literals.DELAY_RESOURCE;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected EClass eStaticClass() {
+        return ResourceModelPackage.Literals.DELAY_RESOURCE;
+    }
 
-} //DelayResourceImpl
+} // DelayResourceImpl

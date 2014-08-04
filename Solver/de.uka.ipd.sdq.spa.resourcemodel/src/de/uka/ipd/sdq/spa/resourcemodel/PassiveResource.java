@@ -6,10 +6,8 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel;
 
-
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Passive Resource</b></em>'.
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Passive Resource</b></em>'.
  * <!-- end-user-doc -->
  *
  *

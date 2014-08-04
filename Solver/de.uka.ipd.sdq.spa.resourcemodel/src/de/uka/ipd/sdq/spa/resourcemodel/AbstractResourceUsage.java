@@ -9,9 +9,8 @@ package de.uka.ipd.sdq.spa.resourcemodel;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Abstract Resource Usage</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '
+ * <em><b>Abstract Resource Usage</b></em>'. <!-- end-user-doc -->
  *
  *
  * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getAbstractResourceUsage()
