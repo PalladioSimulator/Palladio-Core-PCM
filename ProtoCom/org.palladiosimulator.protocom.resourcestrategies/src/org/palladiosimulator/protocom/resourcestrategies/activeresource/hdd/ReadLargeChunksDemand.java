@@ -56,11 +56,11 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
     private final File fileDirectory;
 
     /** Stores some files sorted by size for fast access */
-    private List<File> files = new LinkedList<File>();
-    private List<File> cleanupFiles = new LinkedList<File>();
+    private final List<File> files = new LinkedList<File>();
+    private final List<File> cleanupFiles = new LinkedList<File>();
     private Iterator<File> iterator = null;
 
-    private static final Logger logger = Logger.getLogger(ReadLargeChunksDemand.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ReadLargeChunksDemand.class.getName());
 
     public ReadLargeChunksDemand() {
         this(SystemResourcesUtil.TEMP_DIR, DEFAULT_MAX_FILE_SIZE);
@@ -95,7 +95,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
 
     @Override
     protected void run(long load) {
-        logger.debug("Consume HDD demand of: " + load);
+        LOGGER.debug("Consume HDD demand of: " + load);
         try {
             long remainingLoad = load;
             do {
@@ -105,18 +105,18 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
                 byte[] byteArray = new byte[(int) consume];
                 int success = fis.read(byteArray);
                 fis.close();
-                logger.trace("Adjusted demand consumed: " + success);
+                LOGGER.trace("Adjusted demand consumed: " + success);
 
                 remainingLoad -= success;
             } while (remainingLoad > 0);
         } catch (FileNotFoundException e) {
-            logger.error("HDD demand strategy failed", e);
+            LOGGER.error("HDD demand strategy failed", e);
             System.exit(-1);
         } catch (IOException e) {
-            logger.error("HDD demand strategy failed", e);
+            LOGGER.error("HDD demand strategy failed", e);
             System.exit(-1);
         }
-        logger.debug("Complete HDD demand consumed");
+        LOGGER.debug("Complete HDD demand consumed");
     }
 
     /**
@@ -130,8 +130,9 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
         assert this.files.size() > 0;
         assert iterator != null;
 
-        if (!iterator.hasNext()) // Reset the file iterator at the end
+        if (!iterator.hasNext()) {
             iterator = this.files.iterator();
+        }
 
         return iterator.next();
     }
@@ -154,25 +155,26 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
     }
 
     private void preInitHDDStrategy() {
-        if (this.files.size() > 0)
+        if (this.files.size() > 0) {
             return; // Already pre-init done
+        }
 
-        logger.debug("Pre-Initialising strategy reading from " + this.fileDirectory);
+        LOGGER.debug("Pre-Initialising strategy reading from " + this.fileDirectory);
         if (!fileDirectory.exists()) {
-            logger.info("Directory given for reading files does not exist. Trying to prepare one");
+            LOGGER.info("Directory given for reading files does not exist. Trying to prepare one");
             try {
                 createFileDirectory();
                 writeTestFiles();
-                logger.info("Wrote files to be read.");
+                LOGGER.info("Wrote files to be read.");
             } catch (IOException e) {
-                logger.error("Failed creating files for HDD strategy. Maybe missing permission?", e);
+                LOGGER.error("Failed creating files for HDD strategy. Maybe missing permission?", e);
                 System.exit(-1);
             }
         } else if (fileDirectory.isDirectory()) {
-            logger.info("Reading file list from " + fileDirectory.getAbsolutePath());
+            LOGGER.info("Reading file list from " + fileDirectory.getAbsolutePath());
             initialiseFileList(fileDirectory);
         } else {
-            logger.error("There already is a file at " + fileDirectory.getAbsolutePath());
+            LOGGER.error("There already is a file at " + fileDirectory.getAbsolutePath());
         }
 
         // The strategy could not be initialised as there are no files to read
@@ -180,26 +182,26 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
         if (this.files.isEmpty()) {
             try {
                 writeTestFiles();
-                logger.debug("Wrote files to be read.");
+                LOGGER.debug("Wrote files to be read.");
             } catch (IOException e) {
-                logger.error("Failed reading files for HDD strategy", e);
+                LOGGER.error("Failed reading files for HDD strategy", e);
                 System.exit(-1);
             }
         }
 
         if (this.files.size() < 1) {
-            logger.error("The strategy could not be initialised as there are no files to read.");
+            LOGGER.error("The strategy could not be initialised as there are no files to read.");
             System.exit(-1);
         } else {
             this.iterator = this.files.iterator();
-            logger.info("HDD Strategy initialised with " + files.size() + " files in folder "
+            LOGGER.info("HDD Strategy initialised with " + files.size() + " files in folder "
                     + fileDirectory.getAbsolutePath());
         }
     }
 
     private void createFileDirectory() throws IOException {
         if (!fileDirectory.mkdirs()) {
-            logger.error("File directory could not be created during initialisation.");
+            LOGGER.error("File directory could not be created during initialisation.");
             throw new IOException("Directory for files store could not be created");
         }
     }
@@ -208,7 +210,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
         long neededSize = this.numberOfFiles * DEFAULT_MAX_FILE_SIZE;
         long tmpSize = SystemResourcesUtil.getFreeTempDirectorySize();
         if (neededSize > tmpSize) {
-            logger.error("The required storage space for calibration exceeds the free space in "
+            LOGGER.error("The required storage space for calibration exceeds the free space in "
                     + SystemResourcesUtil.TEMP_DIR.getAbsolutePath());
             System.exit(-1);
         }
@@ -235,10 +237,10 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
     private void initialiseFileList(File files) {
         File[] childFiles = files.listFiles();
 
-        if (childFiles != null) // childFiles may be null, if we do not have a
-                                // permission for a directory
-        {
-            logger.debug("Found " + childFiles.length + " files in the first directory(" + files.getAbsolutePath()
+        if (childFiles != null) {
+            // childFiles may be null, if we do not have a
+            // permission for a directory
+            LOGGER.debug("Found " + childFiles.length + " files in the first directory(" + files.getAbsolutePath()
                     + ").");
             for (File file : childFiles) {
 
@@ -248,7 +250,7 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
                     if (file.length() >= this.maxFileSize) {
                         this.files.add(file);
                     } else {
-                        logger.debug("File is too small: " + file.getAbsolutePath() + ". We skip it...");
+                        LOGGER.debug("File is too small: " + file.getAbsolutePath() + ". We skip it...");
                     }
                 }
             }
@@ -259,15 +261,17 @@ public class ReadLargeChunksDemand extends AbstractDemandStrategy implements IDe
         return maxFileSize;
     }
 
+    @Override
     public String getName() {
         return "Read Large Chunks";
     }
 
+    @Override
     public void cleanup() {
         for (File file : cleanupFiles) {
-            logger.debug("Trying to delete file " + file.getName());
+            LOGGER.debug("Trying to delete file " + file.getName());
             if (!file.delete()) {
-                logger.error("Failed to delete file " + file.getName());
+                LOGGER.error("Failed to delete file " + file.getName());
             }
         }
     }

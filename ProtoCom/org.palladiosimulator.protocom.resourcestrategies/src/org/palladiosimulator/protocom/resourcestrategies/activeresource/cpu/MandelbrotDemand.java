@@ -5,8 +5,8 @@ import org.palladiosimulator.protocom.resourcestrategies.activeresource.Resource
 
 public class MandelbrotDemand extends AbstractDemandStrategy {
 
-    private int BAILOUT = 16;
-    private int MAX_ITERATIONS = 1000;
+    private static final int BAILOUT = 16;
+    private static final int MAX_ITERATIONS = 1000;
 
     public MandelbrotDemand() {
         super(-2, 0, 2, 40, 20);
@@ -25,17 +25,19 @@ public class MandelbrotDemand extends AbstractDemandStrategy {
             float zi2 = zi * zi;
             zr = zr2 - zi2 + cr;
             zi = temp + temp + ci;
-            if (zi2 + zr2 > BAILOUT)
+            if (zi2 + zr2 > BAILOUT) {
                 return i;
-            if (i > MAX_ITERATIONS)
+            }
+            if (i > MAX_ITERATIONS) {
                 return 0;
+            }
         }
     }
 
     private void drawMandelbrot(long init) {
         // Date d1 = new Date();
         int n = (int) init;
-        float m = (float) n;
+        float m = n;
         int x, y;
         for (y = -n; y < n; y++) {
             // System.out.print("\n");

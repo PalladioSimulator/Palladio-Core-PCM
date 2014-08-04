@@ -9,9 +9,11 @@ import org.palladiosimulator.protocom.resourcestrategies.activeresource.Resource
 
 public class SortArrayDemand extends AbstractDemandStrategy {
 
+    private static final int DEFAULT_ARRAY_SIZE = 1024 * 1024; // Default: 1M Values
+
     private double[] values = null;
 
-    private int ARRAY_SIZE = 1024 * 1024; // Default: 1M Values
+    private final int arraySize;
 
     /**
      * always use the same seed for the random values to reduce the variability of the sorting
@@ -21,8 +23,8 @@ public class SortArrayDemand extends AbstractDemandStrategy {
 
     public SortArrayDemand(int arraySize) {
         super(-3, 0, 3, 10000, 50);
-        ARRAY_SIZE = arraySize;
-        values = new double[ARRAY_SIZE];
+        this.arraySize = arraySize;
+        values = new double[this.arraySize];
         Random r = new Random(SEED);
         for (int i = 0; i < values.length; i++) {
             values[i] = r.nextDouble();
@@ -30,19 +32,14 @@ public class SortArrayDemand extends AbstractDemandStrategy {
     }
 
     public SortArrayDemand() {
-        super(-3, 0, 3, 10000, 50);
-        values = new double[ARRAY_SIZE];
-        Random r = new Random(SEED);
-        for (int i = 0; i < values.length; i++) {
-            values[i] = r.nextDouble();
-        }
+        this(DEFAULT_ARRAY_SIZE);
     }
 
     private void sortArray(int amountOfNumbers) {
-        int iterations = amountOfNumbers / ARRAY_SIZE;
-        int rest = amountOfNumbers % ARRAY_SIZE;
+        int iterations = amountOfNumbers / this.arraySize;
+        int rest = amountOfNumbers % this.arraySize;
         for (int i = 0; i < iterations; i++) {
-            double[] lotsOfDoubles = getArray(ARRAY_SIZE);
+            double[] lotsOfDoubles = getArray(this.arraySize);
             Arrays.sort(lotsOfDoubles);
         }
         double[] lotsOfDoubles = getArray(rest);
@@ -71,7 +68,7 @@ public class SortArrayDemand extends AbstractDemandStrategy {
     @Override
     protected String getCalibrationFileName() {
         return getCalibrationPath() + "/" + getName() + "_" + CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_"
-                + ARRAY_SIZE + "_" + this.degreeOfAccuracy.name() + ".ser";
+                + this.arraySize + "_" + this.degreeOfAccuracy.name() + ".ser";
     }
 
     @Override
