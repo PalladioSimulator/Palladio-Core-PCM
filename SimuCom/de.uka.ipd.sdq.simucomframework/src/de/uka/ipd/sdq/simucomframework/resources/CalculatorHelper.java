@@ -251,6 +251,14 @@ public final class CalculatorHelper {
                 control)));
     }
 
+    /**
+     * FIXME Assemblies are non-unique if assembled in two composite structures. Checking for the
+     * path from system to assembled component Would be required to uniquely identify such
+     * assemblies. [Lehrig]
+     * 
+     * @param resource
+     * @return
+     */
     private static MeasuringPoint createMeasuringPoint(final IPassiveResource resource) {
         final AssemblyPassiveResourceMeasuringPoint mp = PCM_MEASURINGPOINT_FACTORY
                 .createAssemblyPassiveResourceMeasuringPoint();
