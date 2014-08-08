@@ -68,12 +68,12 @@ public final class CalculatorHelper {
 
             @Override
             public void request(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement(new RequestContext(process.getId()));
             }
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe) startStopProbes.get(1)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(1)).takeMeasurement(new RequestContext(process.getId()));
             }
 
             @Override
@@ -255,7 +255,7 @@ public final class CalculatorHelper {
      * FIXME Assemblies are non-unique if assembled in two composite structures. Checking for the
      * path from system to assembled component Would be required to uniquely identify such
      * assemblies. [Lehrig]
-     * 
+     *
      * @param resource
      * @return
      */
