@@ -25,7 +25,7 @@ public class RemoteRegistry extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static HashMap<String, RegistryEntry> registeredObjects;
-	private static final ObjectMapper mapper = new ObjectMapper();
+	private static final ObjectMapper MAPPER = new ObjectMapper();
 	
 	@Override
 	public void init() throws ServletException {
@@ -41,7 +41,7 @@ public class RemoteRegistry extends HttpServlet {
 		String json = "";
 		
 		try {
-			json = mapper.writeValueAsString(object);
+			json = MAPPER.writeValueAsString(object);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
@@ -60,7 +60,7 @@ public class RemoteRegistry extends HttpServlet {
 		RegistryEntry entry = null;
 		
 		try {
-			entry = mapper.readValue(entryString, RegistryEntry.class);
+			entry = MAPPER.readValue(entryString, RegistryEntry.class);
 			
 			if (registeredObjects.containsKey(entry.getName())) {
 				response.setError(Response.ALREADY_EXISTS);
@@ -130,13 +130,9 @@ public class RemoteRegistry extends HttpServlet {
 			
 			if (action.equals("register")) {
 				result = register(request.getParameter("entry"));
-			}
-				
-			if (action.equals("unregister")) {
+			} else if (action.equals("unregister")) {
 				result = unregister(request.getParameter("name"));
-			}
-				
-			if (action.equals("lookup")) {
+			} else if (action.equals("lookup")) {
 				result = lookup(request.getParameter("name"));
 			}
 		

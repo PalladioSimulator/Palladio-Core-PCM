@@ -7,7 +7,7 @@ import java.util.HashMap;
  * It is used to transfer references of components and systems to their respective ports. 
  * @author Christian Klaussner
  */
-public class LocalComponentRegistry {
+public final class LocalComponentRegistry {
 	private static LocalComponentRegistry instance;
 	
 	private HashMap<String, Object> components;
@@ -24,7 +24,10 @@ public class LocalComponentRegistry {
 	 * @return the component registry instance
 	 */
 	public static LocalComponentRegistry getInstance() {
-		if (instance == null) instance = new LocalComponentRegistry();
+		if (instance == null) {
+			instance = new LocalComponentRegistry();
+		}
+		
 		return instance;
 	}
 	

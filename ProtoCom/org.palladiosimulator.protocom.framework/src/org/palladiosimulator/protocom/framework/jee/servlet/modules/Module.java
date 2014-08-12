@@ -70,14 +70,14 @@ public abstract class Module {
 	/**
 	 * Starts the module.
 	 * @param location the location of the module
-	 * @return the response of the operation
+	 * @throws ModuleStartException when the module could not be started
 	 */
 	public abstract void startModule(String location) throws ModuleStartException;
 	
 	/**
 	 * Converts the module-specific data to JSON.
 	 * @param json the JSON generator to write to
-	 * @throws IOException
+	 * @throws IOException when the JSON data could not be written to the generator
 	 */
 	protected void writeJson(JsonGenerator json) throws IOException {
 	}

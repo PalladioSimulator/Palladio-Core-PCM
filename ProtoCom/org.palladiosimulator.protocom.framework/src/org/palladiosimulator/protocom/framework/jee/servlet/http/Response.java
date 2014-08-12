@@ -13,7 +13,7 @@ public class Response {
 	public static final int INVALID = 2;
 	public static final int FAILED = 3;
 	
-	protected static final ObjectMapper mapper = new ObjectMapper();
+	protected static final ObjectMapper MAPPER = new ObjectMapper();
 	
 	protected int error;
 	
@@ -55,7 +55,7 @@ public class Response {
 		String json = "";
 		
 		try {
-			json = mapper.writeValueAsString(this);
+			json = MAPPER.writeValueAsString(this);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}

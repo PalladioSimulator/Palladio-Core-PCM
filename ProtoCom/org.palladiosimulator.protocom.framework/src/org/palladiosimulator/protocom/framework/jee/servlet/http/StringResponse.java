@@ -49,7 +49,7 @@ public class StringResponse extends Response {
 		StringResponse result = null;
 		
 		try {
-			result = mapper.readValue(serialized, StringResponse.class);
+			result = MAPPER.readValue(serialized, StringResponse.class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

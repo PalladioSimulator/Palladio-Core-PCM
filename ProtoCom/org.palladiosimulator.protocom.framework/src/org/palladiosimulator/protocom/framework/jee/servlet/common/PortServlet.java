@@ -16,6 +16,7 @@ import org.palladiosimulator.protocom.framework.jee.servlet.registry.RemoteCall;
 
 /**
  * The PortServlet class is the common base class for ports.
+ * @param <T> the type of the component of the port
  * @author Christian Klaussner
  */
 public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
@@ -26,8 +27,9 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 	
 	/**
 	 * Starts the port and registers it.
-	 * @return true if the port was started successfully, otherwise false
-	 * @throws ModuleStartException
+	 * @param componentId identifier of the started component
+	 * @param assemblyContext assembly context of the started component
+	 * @throws ModuleStartException when the module could not be started
 	 */
 	public void start(String componentId, String assemblyContext) throws ModuleStartException {
 	}

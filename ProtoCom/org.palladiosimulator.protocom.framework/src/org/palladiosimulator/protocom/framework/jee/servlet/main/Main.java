@@ -37,9 +37,21 @@ public abstract class Main extends HttpServlet {
 		moduleList = new ModuleList();
 	}
 	
+	/**
+	 * Gets the name and class name of the system.
+	 * @return an array containing the name and class name of the system
+	 */
 	protected abstract String[] getSystem();
+	
+	/**
+	 * Initializes the allocation storage.
+	 */
 	protected abstract void initAllocationStorage();
 	
+	/**
+	 * Adds a module to the list of startable modules.
+	 * @param module the module to add
+	 */
 	protected void addModule(Module module) {
 		moduleList.add(module);
 	}
@@ -93,6 +105,7 @@ public abstract class Main extends HttpServlet {
 	
 	/**
 	 * Updates the location URL of the registry.
+	 * @param location the location of the registry
 	 * @return the response of the operation
 	 */
 	private Response updateRegistryLocation(String location) {
@@ -166,21 +179,13 @@ public abstract class Main extends HttpServlet {
 			
 			if (action.equals("getLog")) {
 				result = getLog(getIntParameter(request, "base"));
-			}
-				
-			else if (action.equals("updateRegistryLocation")) {
+			} else if (action.equals("updateRegistryLocation")) {
 				result = updateRegistryLocation(request.getParameter("location"));
-			}
-				
-			else if (action.equals("getRegistryLocation")) {
+			} else if (action.equals("getRegistryLocation")) {
 				result = getRegistryLocation();
-			}
-				
-			else if (action.equals("startModule")) {
+			} else if (action.equals("startModule")) {
 				result = startModule(request.getParameter("id"));
-			}
-				
-			else if (action.equals("getModules")) {
+			} else if (action.equals("getModules")) {
 				result = getModules();
 			}
 			

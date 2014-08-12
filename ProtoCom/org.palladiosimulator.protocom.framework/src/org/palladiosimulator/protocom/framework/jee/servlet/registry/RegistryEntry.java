@@ -55,7 +55,7 @@ public class RegistryEntry {
 	
 	/**
 	 * Sets the interfaces of the registered object.
-	 * @param iface the interfaces of the registered object
+	 * @param interfaces the interfaces of the registered object
 	 */
 	public void setInterfaces(Class<?>[] interfaces) {
 		this.interfaces = interfaces;

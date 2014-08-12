@@ -14,7 +14,7 @@ import org.palladiosimulator.protocom.framework.jee.servlet.http.StringResponse;
  * 
  * @author Christian Klaussner
  */
-public class Registry {
+public final class Registry {
 	private static Registry instance;
 	private static String location;
 	
@@ -29,7 +29,10 @@ public class Registry {
 	 * @return the registry instance
 	 */
 	public static Registry getInstance() {
-		if (instance == null) instance = new Registry();
+		if (instance == null) {
+			instance = new Registry();
+		}
+		
 		return instance;
 	}
 	
@@ -44,10 +47,10 @@ public class Registry {
 	/**
 	 * Registers the specified object in the registry.
 	 * @param name the name under which the object is registered
-	 * @param iface the interface of the object
+	 * @param interfaces the interfaces of the object
 	 * @param location the location part of the object's URL
 	 * @param path the path part of the object's URL
-	 * @throws RegistryException
+	 * @throws RegistryException when the object could not be registered
 	 */
 	public void register(String name, Class<?>[] interfaces, String location, String path)
 			throws RegistryException {
@@ -69,7 +72,7 @@ public class Registry {
 	/**
 	 * Removes the specified object from the registry.
 	 * @param name the name of the object to remove
-	 * @throws RegistryException
+	 * @throws RegistryException when the object could not be unregistered
 	 */
 	public void unregister(String name) throws RegistryException {
 		ArrayList<Parameter> params = new ArrayList<Parameter>(2);
@@ -89,7 +92,7 @@ public class Registry {
 	 * Returns a stub for an object with the specified name.
 	 * @param name the name under which the object is registered
 	 * @return a stub for the object
-	 * @throws RegistryException
+	 * @throws RegistryException when the object was not registered
 	 */
 	public Object lookup(String name) throws RegistryException {
 		ArrayList<Parameter> params = new ArrayList<Parameter>(2);

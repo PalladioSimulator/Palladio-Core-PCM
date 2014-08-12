@@ -13,7 +13,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
  * The Log singleton provides methods for logging messages.
  * @author Christian Klaussner
  */
-public class Log {
+public final class Log {
 	private static Log log;
 	
 	private LinkedList<String> infoMessages;
@@ -32,7 +32,10 @@ public class Log {
 	 * @return the log instance
 	 */
 	public static Log getInstance() {
-		if (log == null) log = new Log();
+		if (log == null) {
+			log = new Log();
+		}
+		
 		return log;
 	}
 	
@@ -54,6 +57,8 @@ public class Log {
 		case ERROR:
 			logMessage.append(" ERROR ");
 			break;
+			
+		default:
 		}
 		
 		logMessage.append(message);
@@ -100,8 +105,8 @@ public class Log {
 	 * @param message the message to add to the log
 	 */
 	public static void info(String message) {
-		Log log = Log.getInstance();
-		log.addMessage(MessageType.INFO, message);
+		Log logInstance = Log.getInstance();
+		logInstance.addMessage(MessageType.INFO, message);
 	}
 	
 	/**
@@ -109,7 +114,7 @@ public class Log {
 	 * @param message the message to add to the log
 	 */
 	public static void error(String message) {
-		Log log = Log.getInstance();
-		log.addMessage(MessageType.ERROR, message);
+		Log logInstance = Log.getInstance();
+		logInstance.addMessage(MessageType.ERROR, message);
 	}
 }

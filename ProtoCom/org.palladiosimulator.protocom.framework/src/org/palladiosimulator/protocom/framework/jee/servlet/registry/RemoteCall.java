@@ -12,11 +12,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Christian Klaussner
  */
 public class RemoteCall {
-	private static final ObjectMapper mapper;
+	private static final ObjectMapper MAPPER;
 	
 	static {
-		mapper = new ObjectMapper();
-		mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+		MAPPER = new ObjectMapper();
+		MAPPER.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 	}
 	
 	private String name;
@@ -63,16 +63,24 @@ public class RemoteCall {
 	
 	/**
 	 * Sets the formal parameter types of the method.
-	 * @param parameters an array containing the formal parameters of the method
+	 * @param formalTypes an array containing the formal parameters of the method
 	 */
 	public void setFormalTypes(Class<?>[] formalTypes) {
 		this.formalTypes = formalTypes;
 	}
 	
+	/**
+	 * Gets the actual parameter types of the method.
+	 * @return an array containing the actual parameter types of the method
+	 */
 	public Class<?>[] getActualTypes() {
 		return actualTypes;
 	}
 	
+	/**
+	 * Sets the actual parameter types of the method.
+	 * @param actualTypes an array containing the actual parameter types
+	 */
 	public void setActualTypes(Class<?>[] actualTypes) {
 		this.actualTypes = actualTypes;
 	}
@@ -111,7 +119,7 @@ public class RemoteCall {
 	 */
 	public String toJson() {
 		try {
-			return mapper.writeValueAsString(this);
+			return MAPPER.writeValueAsString(this);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
@@ -126,12 +134,12 @@ public class RemoteCall {
 	 */
 	public static RemoteCall fromJson(String serialized) {
 		try {
-			RemoteCall call = mapper.readValue(serialized, RemoteCall.class);
+			RemoteCall call = MAPPER.readValue(serialized, RemoteCall.class);
 			
 			if (call.getArguments() != null) {
 				for (int i = 0; i < call.arguments.length; i++) {
 					if (call.arguments[i] instanceof LinkedHashMap<?, ?>) {
-						call.arguments[i] = mapper.convertValue(call.arguments[i], call.actualTypes[i]);
+						call.arguments[i] = MAPPER.convertValue(call.arguments[i], call.actualTypes[i]);
 					}
 				}
 			}
