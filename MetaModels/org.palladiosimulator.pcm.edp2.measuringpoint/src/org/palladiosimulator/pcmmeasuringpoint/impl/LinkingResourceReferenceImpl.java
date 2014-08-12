@@ -2,37 +2,37 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Linking Resource Reference</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Linking Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceReferenceImpl#getLinkingResource <em>Linking Resource</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceReferenceImpl#getLinkingResource
+ * <em>Linking Resource</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class LinkingResourceReferenceImpl extends MinimalEObjectImpl.Container implements LinkingResourceReference {
+public abstract class LinkingResourceReferenceImpl extends MinimalEObjectImpl.Container implements
+LinkingResourceReference {
     /**
      * The cached value of the '{@link #getLinkingResource() <em>Linking Resource</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #getLinkingResource()
      * @generated
      * @ordered
@@ -40,8 +40,8 @@ public abstract class LinkingResourceReferenceImpl extends MinimalEObjectImpl.Co
     protected LinkingResource linkingResource;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected LinkingResourceReferenceImpl() {
@@ -49,8 +49,8 @@ public abstract class LinkingResourceReferenceImpl extends MinimalEObjectImpl.Co
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -59,100 +59,110 @@ public abstract class LinkingResourceReferenceImpl extends MinimalEObjectImpl.Co
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public LinkingResource getLinkingResource() {
-        if (linkingResource != null && linkingResource.eIsProxy()) {
-            InternalEObject oldLinkingResource = (InternalEObject)linkingResource;
-            linkingResource = (LinkingResource)eResolveProxy(oldLinkingResource);
-            if (linkingResource != oldLinkingResource) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, oldLinkingResource, linkingResource));
-            }
-        }
-        return linkingResource;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public LinkingResource basicGetLinkingResource() {
-        return linkingResource;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setLinkingResource(LinkingResource newLinkingResource) {
-        LinkingResource oldLinkingResource = linkingResource;
-        linkingResource = newLinkingResource;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, oldLinkingResource, linkingResource));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public LinkingResource getLinkingResource() {
+        if (this.linkingResource != null && ((EObject) this.linkingResource).eIsProxy()) {
+            final InternalEObject oldLinkingResource = (InternalEObject) this.linkingResource;
+            this.linkingResource = (LinkingResource) this.eResolveProxy(oldLinkingResource);
+            if (this.linkingResource != oldLinkingResource) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+                            PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, oldLinkingResource,
+                            this.linkingResource));
+                }
+            }
+        }
+        return this.linkingResource;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public LinkingResource basicGetLinkingResource() {
+        return this.linkingResource;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setLinkingResource(final LinkingResource newLinkingResource) {
+        final LinkingResource oldLinkingResource = this.linkingResource;
+        this.linkingResource = newLinkingResource;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, oldLinkingResource,
+                    this.linkingResource));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
-                if (resolve) return getLinkingResource();
-                return basicGetLinkingResource();
+        case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
+            if (resolve) {
+                return this.getLinkingResource();
+            }
+            return this.basicGetLinkingResource();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
-                setLinkingResource((LinkingResource)newValue);
-                return;
+        case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
+            this.setLinkingResource((LinkingResource) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
-                setLinkingResource((LinkingResource)null);
-                return;
+        case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
+            this.setLinkingResource((LinkingResource) null);
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
-                return linkingResource != null;
+        case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
+            return this.linkingResource != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //LinkingResourceReferenceImpl
+} // LinkingResourceReferenceImpl

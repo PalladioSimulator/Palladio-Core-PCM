@@ -2,186 +2,152 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
 import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringPointItemProvider;
-
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
 /**
- * This is the item provider adapter for a {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ *
  * @generated
  */
-public class SubSystemOperationMeasuringPointItemProvider
-    extends MeasuringPointItemProvider
-    implements
-        IEditingDomainItemProvider,
-        IStructuredItemContentProvider,
-        ITreeItemContentProvider,
-        IItemLabelProvider,
-        IItemPropertySource {
+public class SubSystemOperationMeasuringPointItemProvider extends MeasuringPointItemProvider {
     /**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
-    public SubSystemOperationMeasuringPointItemProvider(AdapterFactory adapterFactory) {
+    public SubSystemOperationMeasuringPointItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
     /**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addSubsystemPropertyDescriptor(object);
-            addRolePropertyDescriptor(object);
-            addOperationSignaturePropertyDescriptor(object);
+            this.addSubsystemPropertyDescriptor(object);
+            this.addRolePropertyDescriptor(object);
+            this.addOperationSignaturePropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Subsystem feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This adds a property descriptor for the Subsystem feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
-    protected void addSubsystemPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_SubSystemReference_subsystem_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_SubSystemReference_subsystem_feature", "_UI_SubSystemReference_type"),
-                 PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
+    protected void addSubsystemPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors
+                .add(this.createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory)
+                .getRootAdapterFactory(), this.getResourceLocator(), this
+                .getString("_UI_SubSystemReference_subsystem_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_SubSystemReference_subsystem_feature",
+                        "_UI_SubSystemReference_type"),
+                        PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, true, false, true, null,
+                        null, null));
     }
 
     /**
-     * This adds a property descriptor for the Role feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This adds a property descriptor for the Role feature. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
-    protected void addRolePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_OperationReference_role_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_OperationReference_role_feature", "_UI_OperationReference_type"),
-                 PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
+    protected void addRolePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_OperationReference_role_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_OperationReference_role_feature",
+                        "_UI_OperationReference_type"), PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE,
+                true, false, true, null, null, null));
     }
 
     /**
-     * This adds a property descriptor for the Operation Signature feature.
-     * <!-- begin-user-doc -->
+     * This adds a property descriptor for the Operation Signature feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     *
      * @generated
      */
-    protected void addOperationSignaturePropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_OperationReference_operationSignature_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_OperationReference_operationSignature_feature", "_UI_OperationReference_type"),
-                 PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
+    protected void addOperationSignaturePropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_OperationReference_operationSignature_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_OperationReference_operationSignature_feature",
+                        "_UI_OperationReference_type"),
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, false, true, null,
+                null, null));
     }
 
     /**
-     * This returns SubSystemOperationMeasuringPoint.gif.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This returns SubSystemOperationMeasuringPoint.gif. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
      * @generated
      */
     @Override
-    public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/SubSystemOperationMeasuringPoint"));
+    public Object getImage(final Object object) {
+        return this.overlayImage(object,
+                this.getResourceLocator().getImage("full/obj16/SubSystemOperationMeasuringPoint"));
     }
 
     /**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
      * @generated
      */
     @Override
-    public String getText(Object object) {
-        return getString("_UI_SubSystemOperationMeasuringPoint_type");
+    public String getText(final Object object) {
+        return this.getString("_UI_SubSystemOperationMeasuringPoint_type");
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
+     * . <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
         super.notifyChanged(notification);
     }
 
     /**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
+     * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
     }
 
     /**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
     @Override

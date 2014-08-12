@@ -2,37 +2,37 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Passive Resource Reference</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Passive Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.PassiveResourceReferenceImpl#getPassiveResource <em>Passive Resource</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.PassiveResourceReferenceImpl#getPassiveResource
+ * <em>Passive Resource</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public abstract class PassiveResourceReferenceImpl extends MinimalEObjectImpl.Container implements PassiveResourceReference {
+public abstract class PassiveResourceReferenceImpl extends MinimalEObjectImpl.Container implements
+PassiveResourceReference {
     /**
      * The cached value of the '{@link #getPassiveResource() <em>Passive Resource</em>}' reference.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #getPassiveResource()
      * @generated
      * @ordered
@@ -40,8 +40,8 @@ public abstract class PassiveResourceReferenceImpl extends MinimalEObjectImpl.Co
     protected PassiveResource passiveResource;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected PassiveResourceReferenceImpl() {
@@ -49,8 +49,8 @@ public abstract class PassiveResourceReferenceImpl extends MinimalEObjectImpl.Co
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -59,100 +59,110 @@ public abstract class PassiveResourceReferenceImpl extends MinimalEObjectImpl.Co
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public PassiveResource getPassiveResource() {
-        if (passiveResource != null && passiveResource.eIsProxy()) {
-            InternalEObject oldPassiveResource = (InternalEObject)passiveResource;
-            passiveResource = (PassiveResource)eResolveProxy(oldPassiveResource);
-            if (passiveResource != oldPassiveResource) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, oldPassiveResource, passiveResource));
-            }
-        }
-        return passiveResource;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public PassiveResource basicGetPassiveResource() {
-        return passiveResource;
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setPassiveResource(PassiveResource newPassiveResource) {
-        PassiveResource oldPassiveResource = passiveResource;
-        passiveResource = newPassiveResource;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, oldPassiveResource, passiveResource));
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public PassiveResource getPassiveResource() {
+        if (this.passiveResource != null && ((EObject) this.passiveResource).eIsProxy()) {
+            final InternalEObject oldPassiveResource = (InternalEObject) this.passiveResource;
+            this.passiveResource = (PassiveResource) this.eResolveProxy(oldPassiveResource);
+            if (this.passiveResource != oldPassiveResource) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+                            PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, oldPassiveResource,
+                            this.passiveResource));
+                }
+            }
+        }
+        return this.passiveResource;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public PassiveResource basicGetPassiveResource() {
+        return this.passiveResource;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setPassiveResource(final PassiveResource newPassiveResource) {
+        final PassiveResource oldPassiveResource = this.passiveResource;
+        this.passiveResource = newPassiveResource;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, oldPassiveResource,
+                    this.passiveResource));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
-                if (resolve) return getPassiveResource();
-                return basicGetPassiveResource();
+        case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
+            if (resolve) {
+                return this.getPassiveResource();
+            }
+            return this.basicGetPassiveResource();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
-                setPassiveResource((PassiveResource)newValue);
-                return;
+        case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
+            this.setPassiveResource((PassiveResource) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
-                setPassiveResource((PassiveResource)null);
-                return;
+        case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
+            this.setPassiveResource((PassiveResource) null);
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
-            case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
-                return passiveResource != null;
+        case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
+            return this.passiveResource != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //PassiveResourceReferenceImpl
+} // PassiveResourceReferenceImpl

@@ -2,31 +2,14 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
-
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataPackage;
-
 import org.palladiosimulator.edp2.models.Repository.RepositoryPackage;
-
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
-
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint;
@@ -45,128 +28,133 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
 
+import de.uka.ipd.sdq.pcm.PcmPackage;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Package</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ *
  * @generated
  */
 public class PcmmeasuringpointPackageImpl extends EPackageImpl implements PcmmeasuringpointPackage {
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass assemblyOperationMeasuringPointEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass assemblyPassiveResourceMeasuringPointEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass activeResourceMeasuringPointEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass systemOperationMeasuringPointEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass operationReferenceEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass assemblyReferenceEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass systemReferenceEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass passiveResourceReferenceEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass activeResourceReferenceEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass linkingResourceMeasuringPointEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass linkingResourceReferenceEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass subSystemOperationMeasuringPointEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass subSystemReferenceEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass usageScenarioMeasuringPointEClass = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private EClass usageScenarioReferenceEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
-     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-     * package URI value.
-     * <p>Note: the correct way to create the package is via the static
-     * factory method {@link #init init()}, which also performs
-     * initialization of the package, or returns the registered package,
-     * if one already exists.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
+     * value.
+     * <p>
+     * Note: the correct way to create the package is via the static factory method {@link #init
+     * init()}, which also performs initialization of the package, or returns the registered
+     * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#eNS_URI
      * @see #init()
@@ -177,29 +165,35 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private static boolean isInited = false;
 
     /**
-     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-     * 
-     * <p>This method is used to initialize {@link PcmmeasuringpointPackage#eINSTANCE} when that field is accessed.
-     * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
+     * upon which it depends.
+     *
+     * <p>
+     * This method is used to initialize {@link PcmmeasuringpointPackage#eINSTANCE} when that field
+     * is accessed. Clients should not invoke it directly. Instead, they should simply access that
+     * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
      * @generated
      */
     public static PcmmeasuringpointPackage init() {
-        if (isInited) return (PcmmeasuringpointPackage)EPackage.Registry.INSTANCE.getEPackage(PcmmeasuringpointPackage.eNS_URI);
+        if (isInited) {
+            return (PcmmeasuringpointPackage) EPackage.Registry.INSTANCE.getEPackage(PcmmeasuringpointPackage.eNS_URI);
+        }
 
         // Obtain or create and register package
-        PcmmeasuringpointPackageImpl thePcmmeasuringpointPackage = (PcmmeasuringpointPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof PcmmeasuringpointPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new PcmmeasuringpointPackageImpl());
+        final PcmmeasuringpointPackageImpl thePcmmeasuringpointPackage = (PcmmeasuringpointPackageImpl) (EPackage.Registry.INSTANCE
+                .get(eNS_URI) instanceof PcmmeasuringpointPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+                        : new PcmmeasuringpointPackageImpl());
 
         isInited = true;
 
@@ -218,405 +212,479 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         // Mark meta-data to indicate it can't be changed
         thePcmmeasuringpointPackage.freeze();
 
-  
         // Update the registry and return the package
         EPackage.Registry.INSTANCE.put(PcmmeasuringpointPackage.eNS_URI, thePcmmeasuringpointPackage);
         return thePcmmeasuringpointPackage;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getAssemblyOperationMeasuringPoint() {
-        return assemblyOperationMeasuringPointEClass;
+        return this.assemblyOperationMeasuringPointEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getAssemblyPassiveResourceMeasuringPoint() {
-        return assemblyPassiveResourceMeasuringPointEClass;
+        return this.assemblyPassiveResourceMeasuringPointEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getActiveResourceMeasuringPoint() {
-        return activeResourceMeasuringPointEClass;
+        return this.activeResourceMeasuringPointEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getSystemOperationMeasuringPoint() {
-        return systemOperationMeasuringPointEClass;
+        return this.systemOperationMeasuringPointEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getOperationReference() {
-        return operationReferenceEClass;
+        return this.operationReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getOperationReference_Role() {
-        return (EReference)operationReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.operationReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getOperationReference_OperationSignature() {
-        return (EReference)operationReferenceEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.operationReferenceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getAssemblyReference() {
-        return assemblyReferenceEClass;
+        return this.assemblyReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getAssemblyReference_Assembly() {
-        return (EReference)assemblyReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.assemblyReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getSystemReference() {
-        return systemReferenceEClass;
+        return this.systemReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getSystemReference_System() {
-        return (EReference)systemReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.systemReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getPassiveResourceReference() {
-        return passiveResourceReferenceEClass;
+        return this.passiveResourceReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getPassiveResourceReference_PassiveResource() {
-        return (EReference)passiveResourceReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.passiveResourceReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getActiveResourceReference() {
-        return activeResourceReferenceEClass;
+        return this.activeResourceReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getActiveResourceReference_ActiveResource() {
-        return (EReference)activeResourceReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.activeResourceReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EAttribute getActiveResourceReference_ReplicaID() {
-        return (EAttribute)activeResourceReferenceEClass.getEStructuralFeatures().get(1);
+        return (EAttribute) this.activeResourceReferenceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getLinkingResourceMeasuringPoint() {
-        return linkingResourceMeasuringPointEClass;
+        return this.linkingResourceMeasuringPointEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getLinkingResourceReference() {
-        return linkingResourceReferenceEClass;
+        return this.linkingResourceReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getLinkingResourceReference_LinkingResource() {
-        return (EReference)linkingResourceReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.linkingResourceReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getSubSystemOperationMeasuringPoint() {
-        return subSystemOperationMeasuringPointEClass;
+        return this.subSystemOperationMeasuringPointEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getSubSystemReference() {
-        return subSystemReferenceEClass;
+        return this.subSystemReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getSubSystemReference_Subsystem() {
-        return (EReference)subSystemReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.subSystemReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getUsageScenarioMeasuringPoint() {
-        return usageScenarioMeasuringPointEClass;
+        return this.usageScenarioMeasuringPointEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EClass getUsageScenarioReference() {
-        return usageScenarioReferenceEClass;
+        return this.usageScenarioReferenceEClass;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EReference getUsageScenarioReference_UsageScenario() {
-        return (EReference)usageScenarioReferenceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.usageScenarioReferenceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public PcmmeasuringpointFactory getPcmmeasuringpointFactory() {
-        return (PcmmeasuringpointFactory)getEFactoryInstance();
+        return (PcmmeasuringpointFactory) this.getEFactoryInstance();
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private boolean isCreated = false;
 
     /**
-     * Creates the meta-model objects for the package.  This method is
-     * guarded to have no affect on any invocation but its first.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Creates the meta-model objects for the package. This method is guarded to have no affect on
+     * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public void createPackageContents() {
-        if (isCreated) return;
-        isCreated = true;
+        if (this.isCreated) {
+            return;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        assemblyOperationMeasuringPointEClass = createEClass(ASSEMBLY_OPERATION_MEASURING_POINT);
+        this.assemblyOperationMeasuringPointEClass = this.createEClass(ASSEMBLY_OPERATION_MEASURING_POINT);
 
-        assemblyPassiveResourceMeasuringPointEClass = createEClass(ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT);
+        this.assemblyPassiveResourceMeasuringPointEClass = this.createEClass(ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT);
 
-        activeResourceMeasuringPointEClass = createEClass(ACTIVE_RESOURCE_MEASURING_POINT);
+        this.activeResourceMeasuringPointEClass = this.createEClass(ACTIVE_RESOURCE_MEASURING_POINT);
 
-        systemOperationMeasuringPointEClass = createEClass(SYSTEM_OPERATION_MEASURING_POINT);
+        this.systemOperationMeasuringPointEClass = this.createEClass(SYSTEM_OPERATION_MEASURING_POINT);
 
-        operationReferenceEClass = createEClass(OPERATION_REFERENCE);
-        createEReference(operationReferenceEClass, OPERATION_REFERENCE__ROLE);
-        createEReference(operationReferenceEClass, OPERATION_REFERENCE__OPERATION_SIGNATURE);
+        this.operationReferenceEClass = this.createEClass(OPERATION_REFERENCE);
+        this.createEReference(this.operationReferenceEClass, OPERATION_REFERENCE__ROLE);
+        this.createEReference(this.operationReferenceEClass, OPERATION_REFERENCE__OPERATION_SIGNATURE);
 
-        assemblyReferenceEClass = createEClass(ASSEMBLY_REFERENCE);
-        createEReference(assemblyReferenceEClass, ASSEMBLY_REFERENCE__ASSEMBLY);
+        this.assemblyReferenceEClass = this.createEClass(ASSEMBLY_REFERENCE);
+        this.createEReference(this.assemblyReferenceEClass, ASSEMBLY_REFERENCE__ASSEMBLY);
 
-        systemReferenceEClass = createEClass(SYSTEM_REFERENCE);
-        createEReference(systemReferenceEClass, SYSTEM_REFERENCE__SYSTEM);
+        this.systemReferenceEClass = this.createEClass(SYSTEM_REFERENCE);
+        this.createEReference(this.systemReferenceEClass, SYSTEM_REFERENCE__SYSTEM);
 
-        passiveResourceReferenceEClass = createEClass(PASSIVE_RESOURCE_REFERENCE);
-        createEReference(passiveResourceReferenceEClass, PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE);
+        this.passiveResourceReferenceEClass = this.createEClass(PASSIVE_RESOURCE_REFERENCE);
+        this.createEReference(this.passiveResourceReferenceEClass, PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE);
 
-        activeResourceReferenceEClass = createEClass(ACTIVE_RESOURCE_REFERENCE);
-        createEReference(activeResourceReferenceEClass, ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE);
-        createEAttribute(activeResourceReferenceEClass, ACTIVE_RESOURCE_REFERENCE__REPLICA_ID);
+        this.activeResourceReferenceEClass = this.createEClass(ACTIVE_RESOURCE_REFERENCE);
+        this.createEReference(this.activeResourceReferenceEClass, ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE);
+        this.createEAttribute(this.activeResourceReferenceEClass, ACTIVE_RESOURCE_REFERENCE__REPLICA_ID);
 
-        linkingResourceMeasuringPointEClass = createEClass(LINKING_RESOURCE_MEASURING_POINT);
+        this.linkingResourceMeasuringPointEClass = this.createEClass(LINKING_RESOURCE_MEASURING_POINT);
 
-        linkingResourceReferenceEClass = createEClass(LINKING_RESOURCE_REFERENCE);
-        createEReference(linkingResourceReferenceEClass, LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE);
+        this.linkingResourceReferenceEClass = this.createEClass(LINKING_RESOURCE_REFERENCE);
+        this.createEReference(this.linkingResourceReferenceEClass, LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE);
 
-        subSystemOperationMeasuringPointEClass = createEClass(SUB_SYSTEM_OPERATION_MEASURING_POINT);
+        this.subSystemOperationMeasuringPointEClass = this.createEClass(SUB_SYSTEM_OPERATION_MEASURING_POINT);
 
-        subSystemReferenceEClass = createEClass(SUB_SYSTEM_REFERENCE);
-        createEReference(subSystemReferenceEClass, SUB_SYSTEM_REFERENCE__SUBSYSTEM);
+        this.subSystemReferenceEClass = this.createEClass(SUB_SYSTEM_REFERENCE);
+        this.createEReference(this.subSystemReferenceEClass, SUB_SYSTEM_REFERENCE__SUBSYSTEM);
 
-        usageScenarioMeasuringPointEClass = createEClass(USAGE_SCENARIO_MEASURING_POINT);
+        this.usageScenarioMeasuringPointEClass = this.createEClass(USAGE_SCENARIO_MEASURING_POINT);
 
-        usageScenarioReferenceEClass = createEClass(USAGE_SCENARIO_REFERENCE);
-        createEReference(usageScenarioReferenceEClass, USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO);
+        this.usageScenarioReferenceEClass = this.createEClass(USAGE_SCENARIO_REFERENCE);
+        this.createEReference(this.usageScenarioReferenceEClass, USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private boolean isInitialized = false;
 
     /**
-     * Complete the initialization of the package and its meta-model.  This
-     * method is guarded to have no affect on any invocation but its first.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Complete the initialization of the package and its meta-model. This method is guarded to have
+     * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public void initializePackageContents() {
-        if (isInitialized) return;
-        isInitialized = true;
+        if (this.isInitialized) {
+            return;
+        }
+        this.isInitialized = true;
 
         // Initialize package
-        setName(eNAME);
-        setNsPrefix(eNS_PREFIX);
-        setNsURI(eNS_URI);
+        this.setName(eNAME);
+        this.setNsPrefix(eNS_PREFIX);
+        this.setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        MeasuringpointPackage theMeasuringpointPackage = (MeasuringpointPackage)EPackage.Registry.INSTANCE.getEPackage(MeasuringpointPackage.eNS_URI);
-        de.uka.ipd.sdq.pcm.repository.RepositoryPackage theRepositoryPackage_1 = (de.uka.ipd.sdq.pcm.repository.RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.eNS_URI);
-        CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
-        SystemPackage theSystemPackage = (SystemPackage)EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
-        ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI);
-        SubsystemPackage theSubsystemPackage = (SubsystemPackage)EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI);
-        UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage)EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI);
+        final MeasuringpointPackage theMeasuringpointPackage = (MeasuringpointPackage) EPackage.Registry.INSTANCE
+                .getEPackage(MeasuringpointPackage.eNS_URI);
+        final de.uka.ipd.sdq.pcm.repository.RepositoryPackage theRepositoryPackage_1 = (de.uka.ipd.sdq.pcm.repository.RepositoryPackage) EPackage.Registry.INSTANCE
+                .getEPackage(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.eNS_URI);
+        final CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
+                .getEPackage(CompositionPackage.eNS_URI);
+        final SystemPackage theSystemPackage = (SystemPackage) EPackage.Registry.INSTANCE
+                .getEPackage(SystemPackage.eNS_URI);
+        final ResourceenvironmentPackage theResourceenvironmentPackage = (ResourceenvironmentPackage) EPackage.Registry.INSTANCE
+                .getEPackage(ResourceenvironmentPackage.eNS_URI);
+        final SubsystemPackage theSubsystemPackage = (SubsystemPackage) EPackage.Registry.INSTANCE
+                .getEPackage(SubsystemPackage.eNS_URI);
+        final UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage) EPackage.Registry.INSTANCE
+                .getEPackage(UsagemodelPackage.eNS_URI);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
-        assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
-        assemblyOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
-        assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getPassiveResourceReference());
-        assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        activeResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        activeResourceMeasuringPointEClass.getESuperTypes().add(this.getActiveResourceReference());
-        systemOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
-        systemOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        systemOperationMeasuringPointEClass.getESuperTypes().add(this.getSystemReference());
-        linkingResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        linkingResourceMeasuringPointEClass.getESuperTypes().add(this.getLinkingResourceReference());
-        subSystemOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        subSystemOperationMeasuringPointEClass.getESuperTypes().add(this.getSubSystemReference());
-        subSystemOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
-        usageScenarioMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        usageScenarioMeasuringPointEClass.getESuperTypes().add(this.getUsageScenarioReference());
+        this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
+        this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
+        this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
+        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getPassiveResourceReference());
+        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(
+                theMeasuringpointPackage.getMeasuringPoint());
+        this.activeResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.activeResourceMeasuringPointEClass.getESuperTypes().add(this.getActiveResourceReference());
+        this.systemOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
+        this.systemOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.systemOperationMeasuringPointEClass.getESuperTypes().add(this.getSystemReference());
+        this.linkingResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.linkingResourceMeasuringPointEClass.getESuperTypes().add(this.getLinkingResourceReference());
+        this.subSystemOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.subSystemOperationMeasuringPointEClass.getESuperTypes().add(this.getSubSystemReference());
+        this.subSystemOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
+        this.usageScenarioMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.usageScenarioMeasuringPointEClass.getESuperTypes().add(this.getUsageScenarioReference());
 
         // Initialize classes and features; add operations and parameters
-        initEClass(assemblyOperationMeasuringPointEClass, AssemblyOperationMeasuringPoint.class, "AssemblyOperationMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.assemblyOperationMeasuringPointEClass, AssemblyOperationMeasuringPoint.class,
+                "AssemblyOperationMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(assemblyPassiveResourceMeasuringPointEClass, AssemblyPassiveResourceMeasuringPoint.class, "AssemblyPassiveResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.assemblyPassiveResourceMeasuringPointEClass, AssemblyPassiveResourceMeasuringPoint.class,
+                "AssemblyPassiveResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(activeResourceMeasuringPointEClass, ActiveResourceMeasuringPoint.class, "ActiveResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.activeResourceMeasuringPointEClass, ActiveResourceMeasuringPoint.class,
+                "ActiveResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(systemOperationMeasuringPointEClass, SystemOperationMeasuringPoint.class, "SystemOperationMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.systemOperationMeasuringPointEClass, SystemOperationMeasuringPoint.class,
+                "SystemOperationMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(operationReferenceEClass, OperationReference.class, "OperationReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getOperationReference_Role(), theRepositoryPackage_1.getRole(), null, "role", null, 1, 1, OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEReference(getOperationReference_OperationSignature(), theRepositoryPackage_1.getOperationSignature(), null, "operationSignature", null, 1, 1, OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.operationReferenceEClass, OperationReference.class, "OperationReference", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getOperationReference_Role(), theRepositoryPackage_1.getRole(), null, "role", null, 1,
+                1, OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEReference(this.getOperationReference_OperationSignature(),
+                theRepositoryPackage_1.getOperationSignature(), null, "operationSignature", null, 1, 1,
+                OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(assemblyReferenceEClass, AssemblyReference.class, "AssemblyReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getAssemblyReference_Assembly(), theCompositionPackage.getAssemblyContext(), null, "assembly", null, 1, 1, AssemblyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.assemblyReferenceEClass, AssemblyReference.class, "AssemblyReference", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getAssemblyReference_Assembly(), theCompositionPackage.getAssemblyContext(), null,
+                "assembly", null, 1, 1, AssemblyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(systemReferenceEClass, SystemReference.class, "SystemReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getSystemReference_System(), theSystemPackage.getSystem(), null, "system", null, 1, 1, SystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.systemReferenceEClass, SystemReference.class, "SystemReference", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getSystemReference_System(), theSystemPackage.getSystem(), null, "system", null, 1, 1,
+                SystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(passiveResourceReferenceEClass, PassiveResourceReference.class, "PassiveResourceReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getPassiveResourceReference_PassiveResource(), theRepositoryPackage_1.getPassiveResource(), null, "passiveResource", null, 1, 1, PassiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.passiveResourceReferenceEClass, PassiveResourceReference.class,
+                "PassiveResourceReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getPassiveResourceReference_PassiveResource(),
+                theRepositoryPackage_1.getPassiveResource(), null, "passiveResource", null, 1, 1,
+                PassiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(activeResourceReferenceEClass, ActiveResourceReference.class, "ActiveResourceReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getActiveResourceReference_ActiveResource(), theResourceenvironmentPackage.getProcessingResourceSpecification(), null, "activeResource", null, 1, 1, ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-        initEAttribute(getActiveResourceReference_ReplicaID(), ecorePackage.getEInt(), "replicaID", "0", 1, 1, ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.activeResourceReferenceEClass, ActiveResourceReference.class, "ActiveResourceReference",
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getActiveResourceReference_ActiveResource(),
+                theResourceenvironmentPackage.getProcessingResourceSpecification(), null, "activeResource", null, 1, 1,
+                ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEAttribute(this.getActiveResourceReference_ReplicaID(), this.ecorePackage.getEInt(), "replicaID", "0",
+                1, 1, ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(linkingResourceMeasuringPointEClass, LinkingResourceMeasuringPoint.class, "LinkingResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.linkingResourceMeasuringPointEClass, LinkingResourceMeasuringPoint.class,
+                "LinkingResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(linkingResourceReferenceEClass, LinkingResourceReference.class, "LinkingResourceReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getLinkingResourceReference_LinkingResource(), theResourceenvironmentPackage.getLinkingResource(), null, "linkingResource", null, 1, 1, LinkingResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.linkingResourceReferenceEClass, LinkingResourceReference.class,
+                "LinkingResourceReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getLinkingResourceReference_LinkingResource(),
+                theResourceenvironmentPackage.getLinkingResource(), null, "linkingResource", null, 1, 1,
+                LinkingResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(subSystemOperationMeasuringPointEClass, SubSystemOperationMeasuringPoint.class, "SubSystemOperationMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.subSystemOperationMeasuringPointEClass, SubSystemOperationMeasuringPoint.class,
+                "SubSystemOperationMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(subSystemReferenceEClass, SubSystemReference.class, "SubSystemReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getSubSystemReference_Subsystem(), theSubsystemPackage.getSubSystem(), null, "subsystem", null, 1, 1, SubSystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.subSystemReferenceEClass, SubSystemReference.class, "SubSystemReference", IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getSubSystemReference_Subsystem(), theSubsystemPackage.getSubSystem(), null,
+                "subsystem", null, 1, 1, SubSystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        initEClass(usageScenarioMeasuringPointEClass, UsageScenarioMeasuringPoint.class, "UsageScenarioMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.usageScenarioMeasuringPointEClass, UsageScenarioMeasuringPoint.class,
+                "UsageScenarioMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        initEClass(usageScenarioReferenceEClass, UsageScenarioReference.class, "UsageScenarioReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getUsageScenarioReference_UsageScenario(), theUsagemodelPackage.getUsageScenario(), null, "usageScenario", null, 1, 1, UsageScenarioReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+        this.initEClass(this.usageScenarioReferenceEClass, UsageScenarioReference.class, "UsageScenarioReference",
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getUsageScenarioReference_UsageScenario(), theUsagemodelPackage.getUsageScenario(),
+                null, "usageScenario", null, 1, 1, UsageScenarioReference.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
-        createResource(eNS_URI);
+        this.createResource(eNS_URI);
     }
 
-} //PcmmeasuringpointPackageImpl
+} // PcmmeasuringpointPackageImpl
