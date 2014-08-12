@@ -14,5 +14,5 @@ public enum TypeEnum
 	ANY_PMF,
 	CONTINOUS_PROBFUNCTION,
 	AUX_FUNCTION,
-	ANY
+	ANY  // Any numeric? (not probability function?)
 }

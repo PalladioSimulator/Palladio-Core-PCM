@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsExce
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
@@ -115,23 +116,23 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Performs compare operations.
 	 */
 	@Override
-    public Object caseCompareExpression(CompareExpression expr){
+	public Object caseCompareExpression(CompareExpression expr){
 		String opName = expr.getOperation().getName();
 		CompareOperation op;
 		if (opName.equals("GREATER")) {
-            op = new GreaterOperation();
+			op = new GreaterOperation();
         } else if(opName.equals("EQUALS")) {
-            op = new EqualsOperation();
+			op = new EqualsOperation();
         } else if(opName.equals("LESS")) {
-            op = new LessOperation();
+			op = new LessOperation();
         } else if(opName.equals("NOTEQUAL")) {
-            op = new NotEqualOperation();
+			op = new NotEqualOperation();
         } else if(opName.equals("GREATEREQUAL")) {
-            op = new GreaterEqualOperation();
+			op = new GreaterEqualOperation();
         } else if(opName.equals("LESSEQUAL")) {
-            op = new LessEqualOperation();
+			op = new LessEqualOperation();
         } else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 		
 		Expression left = (Expression) doSwitch(expr.getLeft());
@@ -144,16 +145,16 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Performs logical operations (AND, OR).
 	 */
 	@Override
-    public Object caseBooleanOperatorExpression(BooleanOperatorExpression expr) {
+	public Object caseBooleanOperatorExpression(BooleanOperatorExpression expr) {
 
 		String opName = expr.getOperation().getName();
 		LogicalOperation op;
 		if (opName.equals("AND")) {
-            op = new AndOperation();
+			op = new AndOperation();
         } else if(opName.equals("OR")) {
-            op = new OrOperation();
+			op = new OrOperation();
         } else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 
 		Expression left = (Expression) doSwitch(expr.getLeft());
@@ -166,15 +167,15 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Performs term operations (ADD, SUB)
 	 */
 	@Override
-    public Object caseTermExpression(TermExpression expr) {
+	public Object caseTermExpression(TermExpression expr) {
 		String opName = expr.getOperation().getName();
 		TermProductOperation op;
 		if (opName.equals("ADD")) {
-            op = new AddOperation();
+			op = new AddOperation();
         } else if (opName.equals("SUB")) {
-            op = new SubOperation();
+			op = new SubOperation();
         } else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 
 		Expression left = (Expression) doSwitch(expr.getLeft());
@@ -188,17 +189,17 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Performs product operations (MULT, DIV, MOD).
 	 */
 	@Override
-    public Object caseProductExpression(ProductExpression expr) {
+	public Object caseProductExpression(ProductExpression expr) {
 		String opName = expr.getOperation().getName();
 		TermProductOperation op;
 		if (opName.equals("MULT")) {
-            op = new MultOperation();
+			op = new MultOperation();
         } else if (opName.equals("DIV")) {
-            op = new DivOperation();
+			op = new DivOperation();
         } else if (opName.equals("MOD")) {
-            op = new ModOperation();
+			op = new ModOperation();
         } else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 
 		Expression left = (Expression) doSwitch(expr.getLeft());
@@ -243,16 +244,16 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			resultPMFLiteral.setFunction_ProbabilityFunctionLiteral(resultPMF);
 			return resultPMFLiteral;
 		} else {
-            // any probability functions involved are not supported:
+			// any probability functions involved are not supported:
 			throw new UnsupportedOperationException();
-        }
+	}
 	}
 
 	/** 
 	 * Forwards the visitor to the inner expression within the parenthesis.
 	 */
 	@Override
-    public Object caseParenthesis(Parenthesis parenthesis) {
+	public Object caseParenthesis(Parenthesis parenthesis) {
 		Expression child = (Expression)doSwitch(parenthesis.getInnerExpression());
 		return child;
 	}
@@ -262,7 +263,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * PCM Solver to handle variables in stochastic expressions.
 	 */
 	@Override
-    public Object caseVariable(Variable var){
+	public Object caseVariable(Variable var){
 		// Cannot handle variables! Use inheritance to add this.
 		return var;
 	}
@@ -271,7 +272,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Creates a BoolPMF for the given BoolLiteral.
 	 */
 	@Override
-    public Object caseBoolLiteral(BoolLiteral bl) {
+	public Object caseBoolLiteral(BoolLiteral bl) {
 		EqualsOperation eo = new EqualsOperation();
 		IProbabilityMassFunction iPMF = null;
 		if (bl.isValue()){
@@ -286,7 +287,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Just returns the given int literal.
 	 */
 	@Override
-    public Object caseIntLiteral(IntLiteral il) {
+	public Object caseIntLiteral(IntLiteral il) {
 		return il;
 	}
 
@@ -294,7 +295,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Just returns the given double literal.
 	 */
 	@Override
-    public Object caseDoubleLiteral(DoubleLiteral dl) {
+	public Object caseDoubleLiteral(DoubleLiteral dl) {
 		return dl;
 	}
 
@@ -309,7 +310,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Just returns the given probfunction literal.
 	 */
 	@Override
-    public Object caseProbabilityFunctionLiteral(
+	public Object caseProbabilityFunctionLiteral(
 			ProbabilityFunctionLiteral probFuncLit) {
 		return probFuncLit;
 	}
@@ -318,23 +319,29 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	 * Performs a power operation (only for constants).
 	 */
 	@Override
-    public Object casePowerExpression(PowerExpression expr) {
+	public Object casePowerExpression(PowerExpression expr) {
 		Expression base = (Expression) doSwitch(expr.getBase());
 		Expression exponent = (Expression) doSwitch(expr.getExponent());
-		
-		double baseValue = getDoubleFromNumericLiteral(base);
-		double exponentValue = getDoubleFromNumericLiteral(exponent);
-		
-		DoubleLiteral doubleLiteral = StoexFactory.eINSTANCE.createDoubleLiteral();
-		doubleLiteral.setValue(Math.pow(baseValue, exponentValue));
-		
-		return doubleLiteral;
+
+		try {
+			double baseValue = getDoubleFromNumericLiteral(base);
+			double exponentValue = getDoubleFromNumericLiteral(exponent);
+
+			DoubleLiteral doubleLiteral = StoexFactory.eINSTANCE.createDoubleLiteral();
+			doubleLiteral.setValue(Math.pow(baseValue, exponentValue));
+
+			return doubleLiteral;
+
+		} catch (UnsupportedOperationException e){
+			throw new UnsupportedOperationException("Cannot calculate power expression "+expr.toString()+" because either the base or the exponent cannot be cast to a double. Underlying reason: ", e);
+		}
+
 	}
 	
 	@Override
-	public ProbabilityFunctionLiteral caseFunctionLiteral(FunctionLiteral object) {
+	public Atom caseFunctionLiteral(FunctionLiteral object) {
 		for (Expression e : object.getParameters_FunctionLiteral()) {
-            doSwitch(e);
+			doSwitch(e);
         }
 		
 		List<Expression> parameterList = new ArrayList<Expression>();
@@ -364,12 +371,28 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 				} else if (solvedParam instanceof DoubleLiteral) {
 						IntLiteral intLit = StoexFactory.eINSTANCE.createIntLiteral();
 						intLit.setValue((int)Math.round(((DoubleLiteral)solvedParam).getValue()));
-				} else {
-                    throw new ExpressionSolvingFailedException("Function Trunc is only supported supported for a DoublePDF or a single double parameter!", object);
-                }
+						return intLit;
+				} else
+					throw new ExpressionSolvingFailedException("Function Trunc is only supported supported for a DoublePDF or a single double parameter!", object);
+			} else {
+				throw new ExpressionSolvingFailedException("Function Trunc is only supported supported for a single double parameter!", object);
+			}
+		}  else if (object.getId().equals("Round")){
+			// Round must only have one parameter
+			if (object.getParameters_FunctionLiteral().size() == 1){
+				Expression solvedParam = parameterList.get(0);
+				//Parameter for Round must can be a DoubleLiteral 
+				if (solvedParam instanceof DoubleLiteral) {
+						IntLiteral intLit = StoexFactory.eINSTANCE.createIntLiteral();
+						intLit.setValue((int)Math.round(((DoubleLiteral)solvedParam).getValue()));
+						return intLit;
+				} else
+					throw new ExpressionSolvingFailedException("Function Round is only supported supported for a single double parameter!", object);
+			} else {
+				throw new ExpressionSolvingFailedException("Function Round is only supported supported for a single double parameter!", object);
 			}
 		} else {
-            throw new UnsupportedOperationException("Function "+object.getId()+" not supported!");
+			throw new UnsupportedOperationException(this.getClass().getName()+": Function "+object.getId()+" not supported!");
         }
 		return null;
 	}
@@ -484,8 +507,8 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			DoubleLiteral doubleLiteral = (DoubleLiteral)base;
 			return doubleLiteral.getValue();
 		} else {
-            throw new UnsupportedOperationException();
-        }
+			throw new UnsupportedOperationException("The value "+base+ " cannot be cast to an Integer or Double.");
+		}
 	}
 
 	/**
@@ -499,28 +522,28 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		IProbabilityMassFunction iPMF = null;
 
 		if (isIntDouble(left) && isIntDouble(right)) {
-            iPMF = op.compare(extractDoubleFromLiteral(left),
+			iPMF = op.compare(extractDoubleFromLiteral(left),
 					extractDoubleFromLiteral(right));
         } else if (isProbFunc(left) && isIntDouble(right)) {
-            iPMF = op.compare(extractIPMFFromLiteral(left),
+			iPMF = op.compare(extractIPMFFromLiteral(left),
 					extractDoubleFromLiteral(right));
         } else if (isIntDouble(left) && isProbFunc(right)) {
-            iPMF = op.compare(extractDoubleFromLiteral(left),
+			iPMF = op.compare(extractDoubleFromLiteral(left),
 					extractIPMFFromLiteral(right));
         } else if (isProbFunc(left) && isProbFunc(right)) {
-            iPMF = op.compare(extractIPMFFromLiteral(left),
+			iPMF = op.compare(extractIPMFFromLiteral(left),
 					extractIPMFFromLiteral(right));
         } else if (isString(left) && isString(right)) {
-            iPMF = op.compare(extractStringFromLiteral(left),
+			iPMF = op.compare(extractStringFromLiteral(left),
 					extractStringFromLiteral(right));
         } else if (isString(left) && isProbFunc(right)) {
-            iPMF = op.compare(extractStringFromLiteral(left),
+			iPMF = op.compare(extractStringFromLiteral(left),
 					extractIPMFFromLiteral(right));
         } else if (isString(right) && isProbFunc(left)) {
-            iPMF = op.compare(extractStringFromLiteral(right),
+			iPMF = op.compare(extractStringFromLiteral(right),
 					extractIPMFFromLiteral(left));
         } else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 		
 		return createLiteralForIPMF(iPMF);
@@ -530,10 +553,10 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			LogicalOperation op) {
 		IProbabilityMassFunction iPMF = null;
 		if (isProbFunc(left) && isProbFunc(right)) {
-            iPMF = op.evaluate(extractIPMFFromLiteral(left),
+			iPMF = op.evaluate(extractIPMFFromLiteral(left),
 					extractIPMFFromLiteral(right));
         } else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 		
 		return createLiteralForIPMF(iPMF);
@@ -572,8 +595,8 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 				//both are double, or one is int, the other double. 
 				exprType = TypeEnum.DOUBLE;
 			} else {
-                throw new UnsupportedComputationException(right, left, op, exprType);
-            }
+				throw new UnsupportedComputationException(right, left, op, exprType);
+		}
 		}
 		
 		switch (exprType) {
@@ -604,7 +627,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 					&& right instanceof ProbabilityFunctionLiteral) {
 				return handle(extractIPMFFromLiteral(left),extractIPMFFromLiteral(right), op);
 			} else {
-                throw new UnsupportedComputationException(right, left, op, exprType);
+				throw new UnsupportedComputationException(right, left, op, exprType);
             }
 		case DOUBLE_PMF:
 			if (left instanceof NumericLiteral && right instanceof NumericLiteral) {
@@ -619,7 +642,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 				&& right instanceof ProbabilityFunctionLiteral){
 				return handle(extractIPMFFromLiteral(left), extractIPMFFromLiteral(right), op);
 			} else {
-                throw new UnsupportedComputationException(right, left, op, exprType);
+				throw new UnsupportedComputationException(right, left, op, exprType);
             }
 		case DOUBLE_PDF:
 			if (left instanceof ProbabilityFunctionLiteral){
@@ -630,7 +653,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 				} else if (right instanceof ProbabilityFunctionLiteral){
 					return handle(extractIPDFFromLiteral(left),extractIPDFFromLiteral(right), op);
 				} else {
-                    throw new UnsupportedComputationException(right, left, op, exprType);
+					throw new UnsupportedComputationException(right, left, op, exprType);
                 }
 			} else if (right instanceof ProbabilityFunctionLiteral){
 				if (left instanceof IntLiteral){
@@ -638,10 +661,10 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 				} else if (left instanceof DoubleLiteral){
 					return handle(extractIPDFFromLiteral(right), extractDoubleFromLiteral(left), op);
 				} else {
-                    throw new UnsupportedComputationException(right, left, op, exprType);
+					throw new UnsupportedComputationException(right, left, op, exprType);
                 }
 			} else {
-                throw new UnsupportedComputationException(right, left, op, exprType);
+				throw new UnsupportedComputationException(right, left, op, exprType);
             }
 		case CONTINOUS_PROBFUNCTION:
 			if (left instanceof FunctionLiteral){
@@ -715,7 +738,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		} else if (probFunc instanceof ProbabilityDensityFunction){
 			return TypeEnum.DOUBLE_PDF;
 		} else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 		
 	}
