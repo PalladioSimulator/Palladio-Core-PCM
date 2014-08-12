@@ -59,7 +59,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * Result of a compare expression is always of type BOOL_PMF.
 	 */
 	@Override
-    public Object caseCompareExpression(CompareExpression expr){
+	public Object caseCompareExpression(CompareExpression expr){
 		doSwitch(expr.getLeft());
 		doSwitch(expr.getRight());
 
@@ -72,7 +72,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * DOUBLE_PMF, ANY_PMF, DOUBLE_PDF depending on the operands.
 	 */
 	@Override
-    public Object caseProductExpression(ProductExpression expr){
+	public Object caseProductExpression(ProductExpression expr){
 		TypeEnum leftType = getTypeOfChild(expr.getLeft());
 		TypeEnum rightType = getTypeOfChild(expr.getRight());
 
@@ -84,7 +84,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			this.typeAnnotation.put(expr, TypeEnum.INT_PMF);
 		}
         else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
 		//LOGGER.debug(expr.getOperation().toString());
         }
 
@@ -96,7 +96,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * as the power operation is only allowed on NUMBERs, not PMFs.
 	 */
 	@Override
-    public Object casePowerExpression(PowerExpression expr) {
+	public Object casePowerExpression(PowerExpression expr) {
 		doSwitch(expr.getBase());
 		doSwitch(expr.getExponent());
 
@@ -106,9 +106,12 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		if (isNumeric(baseType) && isNumeric(exponentType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE);
 		} else {
-            throw new UnsupportedOperationException("Power expression is not supported fo non-numeric base or exponent");
-        }
-
+			// this is not right, as the outcome could also be a probability function. 
+			// However, those are not supported yet for the power expression, so there will be an error raised later.   
+			typeAnnotation.put(expr, TypeEnum.ANY);
+			//	throw new UnsupportedOperationException("Power expression is not supported fo non-numeric base or exponent");
+		}
+			
 		return expr;
 	}
 	
@@ -142,7 +145,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * DOUBLE_PMF, ANY_PMF, DOUBLE_PDF depending on the operands.
 	 */
 	@Override
-    public Object caseTermExpression(TermExpression expr){
+	public Object caseTermExpression(TermExpression expr){
 		TypeEnum leftType = getTypeOfChild(expr.getLeft());
 		TypeEnum rightType = getTypeOfChild(expr.getRight());
 
@@ -151,7 +154,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			// may result in ints or doubles
 			inferIntAndDouble(expr, leftType, rightType);
 		} else {
-            throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException();
         }
 		LOGGER.debug(expr.getOperation().toString());
 
@@ -162,7 +165,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * Infers the type of a probability function literal.
 	 */
 	@Override
-    public Object caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral pfl){
+	public Object caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral pfl){
 		ProbabilityFunction pf = pfl.getFunction_ProbabilityFunctionLiteral();
 		if (pf instanceof ProbabilityMassFunction){
 			ProbabilityMassFunction pmf = (ProbabilityMassFunction)pf;
@@ -191,7 +194,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * Infers the type of an int literal to INT.
 	 */
 	@Override
-    public Object caseIntLiteral(IntLiteral il){
+	public Object caseIntLiteral(IntLiteral il){
 		typeAnnotation.put(il, TypeEnum.INT);
 		return il;
 	}
@@ -200,7 +203,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * Infers the type of an double literal to DOUBLE.
 	 */
 	@Override
-    public Object caseDoubleLiteral(DoubleLiteral dl){
+	public Object caseDoubleLiteral(DoubleLiteral dl){
 		typeAnnotation.put(dl, TypeEnum.DOUBLE);
 		return dl;
 	}
@@ -216,7 +219,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * {@link ExpressionSolveVisitor#extractIPMFFromLiteral} needs to be adjusted, too.
 	 */
 	@Override
-    public Object caseVariable(Variable var){
+	public Object caseVariable(Variable var){
 		//LOGGER.debug("Found variable: " + var.getId_Variable());
 		if (var instanceof CharacterisedVariable) {
 			CharacterisedVariable chVar = (CharacterisedVariable) var;
@@ -240,7 +243,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * Infers the type of an bool literal to BOOL.
 	 */
 	@Override
-    public Object caseBoolLiteral(BoolLiteral bl) {
+	public Object caseBoolLiteral(BoolLiteral bl) {
 		typeAnnotation.put(bl, TypeEnum.BOOL);
 		return bl;
 	}
@@ -249,7 +252,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * Infers the type of an parenthesis to its inner encapsulated expression.
 	 */
 	@Override
-    public Object caseParenthesis(Parenthesis parenthesis) {
+	public Object caseParenthesis(Parenthesis parenthesis) {
 		TypeEnum type = getTypeOfChild(parenthesis.getInnerExpression());
 		typeAnnotation.put(parenthesis, type);
 		return parenthesis;
@@ -287,7 +290,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		Expression childExpr = (Expression)doSwitch(expr);
 		TypeEnum type = typeAnnotation.get(childExpr);
 		if (type == null) {
-            throw new TypeInferenceFailedException(expr);
+			throw new TypeInferenceFailedException(expr);
         }
 		return type;
 	}
@@ -360,7 +363,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	@Override
 	public Object caseFunctionLiteral(FunctionLiteral object) {
 		for (Expression e : object.getParameters_FunctionLiteral()) {
-            doSwitch(e);
+			doSwitch(e);
         }
 
 		if (object.getId().equals(ProbfunctionHelper.UNIDOUBLE)) {
@@ -404,7 +407,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		} else if (object.getId().equals(ProbfunctionHelper.BINOM)) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		} else {
-            throw new UnsupportedOperationException("Function "+object.getId()+" not supported!");
+			throw new UnsupportedOperationException(this.getClass().getName()+": Function "+object.getId()+" not supported!");
         }
 		return object;
 	}
