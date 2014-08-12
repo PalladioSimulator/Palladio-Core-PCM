@@ -52,4 +52,7 @@ abstract class PojoClass<E extends Entity> extends ConceptMapping<E> implements 
 		
 	}
 	
+	override annotations() {
+	}
+	
 }

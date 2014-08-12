@@ -74,4 +74,7 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 	override projectName() {
 	}
 	
+	override annotations() {
+	}
+	
 }

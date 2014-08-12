@@ -58,5 +58,9 @@ class JavaEEIIOPClass <E extends Entity> extends ConceptMapping<E> implements IJ
 		JavaNames::fqnJavaEEBasicComponentProjectName(pcmEntity)
 	}
 	
+	override annotations() {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
 	
 }

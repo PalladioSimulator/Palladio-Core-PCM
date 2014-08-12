@@ -18,43 +18,46 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 	override constructors() {
 		provider.constructors
 	}
+	
+	override annotations() {
+		provider.annotations
+	}
 
 	override def String header() {
 		'''
-			package «packageName»;
-			
-			public class «compilationUnitName» «IF superClass != null»extends «superClass»«ENDIF» «implementedClasses»
-		'''
+		package «packageName»;
+		
+		«IF annotations != null && !annotations.empty»
+			«FOR a : annotations SEPARATOR '\n'»«a.generate»«ENDFOR»
+		«ENDIF»
+		public class «compilationUnitName»«IF superClass != null» extends «superClass»«ENDIF»«implementedClasses»'''
 	}
 
 	override body() {
-		'''		
-			«FOR field : fields»
-				«field(field)»
-			«ENDFOR»
-			
-			«FOR constructor : constructors»
+		'''
+		«FOR field : fields AFTER '\n'»
+			«field(field)»
+		«ENDFOR»
+		«IF !constructors.empty»	
+			«FOR constructor : constructors SEPARATOR '\n'»
 				«constructor(constructor)»
 			«ENDFOR»
 			
-			«FOR method : methods»
-				«method(method)»
-			«ENDFOR»
-			
+		«ENDIF»
+		«FOR method : methods SEPARATOR '\n'»
+			«method(method)»
+		«ENDFOR»
 		'''
 	}
 	
 
 	def field(IJField field) {
-		'''
-		«field.visibility» «field.type» «field.name»;
-		'''
+		'''«field.visibility»«IF field.staticModifier» static«ENDIF»«IF field.finalModifier» final«ENDIF» «field.type» «field.name»«IF field.initialization != null» = «field.initialization»«ENDIF»;'''
 	}
 	
 	def constructor(IJMethod method) {
 		'''
-		«method.visibilityModifier» «compilationUnitName»(«method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»
-		{
+		«method.visibilityModifier» «compilationUnitName»(«method.parameters») «IF method.throwsType != null»throws «method.throwsType» «ENDIF»{
 			«method.body»
 		}
 		'''
@@ -62,16 +65,10 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 	
 	def method(IJMethod method) {
 		'''
-		«method.visibilityModifier» «method.staticModifier» «method.returnType» «method.name»(«method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»
-		«IF method.body != null»
-		{
+		«FOR a : method.annotations SEPARATOR '\n'»«a.generate»«ENDFOR»
+		«method.visibilityModifier»«IF method.isStatic» «method.staticModifier»«ENDIF» «method.returnType» «method.name»(«method.parameters»)«IF method.throwsType != null» throws «method.throwsType»«ENDIF»«IF method.body != null» {
 			«method.body»
-		}
-		«ELSE»
-		;
-		«ENDIF»
-
+		}«ELSE»;«ENDIF»
 		'''
 	}
-
 }

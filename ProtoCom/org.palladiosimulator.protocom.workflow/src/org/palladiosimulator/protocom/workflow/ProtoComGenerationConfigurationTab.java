@@ -191,7 +191,8 @@ public class ProtoComGenerationConfigurationTab extends AbstractConfigurationTab
         comboModelToTextTarget.setItems(new String[] {
                 ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_SE_RMI,
                 ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_SE_RMI_STUBS,
-                ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_EE_EJB
+                ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_EE_EJB, 
+                ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_EE_SERVLET
         });
         comboModelToTextTarget.setSize(350, 50);
         comboModelToTextTarget.addModifyListener(modifyListener);

@@ -12,6 +12,7 @@ import org.palladiosimulator.protocom.traverse.framework.resourceenvironment.XRe
 import org.palladiosimulator.protocom.traverse.framework.system.XSystem;
 import org.palladiosimulator.protocom.traverse.framework.usage.XUsageScenario;
 import org.palladiosimulator.protocom.traverse.jee.JeeConfigurationModule;
+import org.palladiosimulator.protocom.traverse.jeeservlet.JeeServletConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jse.JseConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jsestub.JseStubConfigurationModule;
 
@@ -53,7 +54,10 @@ public class TransformPCMToCodeXtendJob extends SequentialBlackboardInteractingJ
             guiceConfiguration = new JseStubConfigurationModule();
         } else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
             guiceConfiguration = new JeeConfigurationModule();
+        } else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.SERVLET) {
+        	guiceConfiguration = new JeeServletConfigurationModule();
         }
+        
         guiceConfiguration.setProjectURI(configuration.getStoragePluginID());
         Injector injector = Guice.createInjector(guiceConfiguration);
 
