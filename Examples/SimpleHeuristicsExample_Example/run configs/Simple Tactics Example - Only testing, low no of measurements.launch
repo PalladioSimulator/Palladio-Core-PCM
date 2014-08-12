@@ -14,6 +14,7 @@
 <stringAttribute key="Configured objectives with values" value=""/>
 <booleanAttribute key="Consider QML bounds" value="false"/>
 <stringAttribute key="Decrease processing rate factor" value="0.25"/>
+<stringAttribute key="EDP2RepositoryID" value=""/>
 <stringAttribute key="Evaluation Mode" value="EXACT_NUMBER"/>
 <intAttribute key="Exact number of survivors" value="1"/>
 <stringAttribute key="Increase processing rate factor" value="0.25"/>
@@ -77,7 +78,7 @@
 <stringAttribute key="convValue" value="0.001"/>
 <stringAttribute key="costFile" value="platform:/resource/Simple Tactics Example/default.cost"/>
 <stringAttribute key="crossover rate" value="0.5"/>
-<intAttribute key="datasourceID" value="0"/>
+<intAttribute key="datasourceID" value="2"/>
 <intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
 <stringAttribute key="designDecisionFile" value="platform:/resource/Simple Tactics Example/simpleexample.designdecision"/>
 <booleanAttribute key="designDecisionsOnly" value="false"/>
@@ -106,9 +107,9 @@
 <booleanAttribute key="markovModelTracesEnabled" value="false"/>
 <booleanAttribute key="markovStatistics" value="false"/>
 <intAttribute key="maxDomain" value="256"/>
-<stringAttribute key="maxIterations" value="2"/>
+<stringAttribute key="maxIterations" value="3"/>
 <stringAttribute key="maximum" value=""/>
-<stringAttribute key="maximumMeasurementCount" value="100"/>
+<stringAttribute key="maximumMeasurementCount" value="1000"/>
 <stringAttribute key="minimum" value=""/>
 <stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
 <stringAttribute key="number of DSE iterations" value=""/>
@@ -129,7 +130,7 @@
 <stringAttribute key="saveFileDefault" value=""/>
 <booleanAttribute key="saveResultsToFileEnabled" value="false"/>
 <stringAttribute key="search method" value="Evolutionary search"/>
-<stringAttribute key="simTime" value="1500"/>
+<stringAttribute key="simTime" value="1500000000"/>
 <booleanAttribute key="simulateAccuracy" value="false"/>
 <booleanAttribute key="simulateFailures" value="false"/>
 <booleanAttribute key="simulateLinkingResources" value="false"/>
@@ -146,5 +147,6 @@
 <booleanAttribute key="useConfidenceStopCondition" value="false"/>
 <booleanAttribute key="useFixedSeed" value="false"/>
 <stringAttribute key="variable" value=""/>
+<stringAttribute key="variationId" value="Default Variation"/>
 <booleanAttribute key="verboseLogging" value="false"/>
 </launchConfiguration>
