@@ -1,7 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -13,7 +14,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
     public OpenWorkloadUserFactory(final SimuComModel model, final String usageScenarioURI) {
-        this(model, (UsageScenario) ModelsAtRuntime.loadModel(usageScenarioURI));
+        this(model, (UsageScenario) EMFLoadHelper.loadModel(usageScenarioURI));
     }
 
     public OpenWorkloadUserFactory(final SimuComModel model, UsageScenario usageScenario) {

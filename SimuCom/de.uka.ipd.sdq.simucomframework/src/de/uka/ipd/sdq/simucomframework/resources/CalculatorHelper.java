@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Arrays;
 import java.util.List;
 
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
@@ -23,7 +24,6 @@ import org.palladiosimulator.probeframework.probes.TriggeredProbeList;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
-import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 import de.uka.ipd.sdq.simucomframework.probes.TakePassiveResourceStateProbe;
@@ -266,7 +266,7 @@ public final class CalculatorHelper {
         mp.setPassiveResource(resource.getResource());
 
         final ResourceURIMeasuringPoint measuringPoint = MEASURINGPOINT_FACTORY.createResourceURIMeasuringPoint();
-        measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getResource()));
+        measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getResource()));
         measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         return measuringPoint;
     }
@@ -286,7 +286,7 @@ public final class CalculatorHelper {
             mp.setActiveResource(resource.getActiveResource());
             mp.setReplicaID(replicaID);
 
-            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getActiveResource()));
+            measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getActiveResource()));
             measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         } else if (scheduledResource instanceof SimulatedLinkingResource) {
             final SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
@@ -294,7 +294,7 @@ public final class CalculatorHelper {
             final LinkingResourceMeasuringPoint mp = PCM_MEASURINGPOINT_FACTORY.createLinkingResourceMeasuringPoint();
             mp.setLinkingResource(resource.getLinkingResource());
 
-            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI(resource.getLinkingResource()));
+            measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getLinkingResource()));
             measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         } else {
             throw new IllegalArgumentException("Unknown variant of AbstractScheduledResource");

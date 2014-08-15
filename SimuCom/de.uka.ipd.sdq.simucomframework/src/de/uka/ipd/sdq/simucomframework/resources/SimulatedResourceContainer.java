@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Level;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
-import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -78,7 +78,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 
     public void addActiveResource(final String activeResourceURI, final String[] providedInterfaceIds,
             final String resourceContainerID, final String schedulingStrategyID) {
-        final ProcessingResourceSpecification activeResource = (ProcessingResourceSpecification) ModelsAtRuntime
+        final ProcessingResourceSpecification activeResource = (ProcessingResourceSpecification) EMFLoadHelper
                 .loadModel(activeResourceURI);
         final ScheduledResource r = new ScheduledResource(activeResource, myModel, resourceContainerID,
                 schedulingStrategyID);

@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.simucomframework;
 
 import java.util.HashMap;
 
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
+
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
@@ -124,7 +126,7 @@ public abstract class Context extends StackContext {
 
     public IPassiveResource getPassiveRessourceInContext(final String resourceURI,
             final AssemblyContext assemblyContext, AbstractSimulatedResourceContainer resourceContainer, long capacity) {
-        final PassiveResource resource = (PassiveResource) ModelsAtRuntime.loadModel(resourceURI);
+        final PassiveResource resource = (PassiveResource) EMFLoadHelper.loadModel(resourceURI);
         IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContext.getId() + resource.getId());
 
         if (pr == null) {

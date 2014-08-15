@@ -1,7 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -14,7 +15,7 @@ public abstract class ClosedWorkloadUserFactory extends AbstractWorkloadUserFact
     private final String thinkTime;
 
     public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec, final String usageScenarioURI) {
-        this(model, thinkTimeSpec, (UsageScenario) ModelsAtRuntime.loadModel(usageScenarioURI));
+        this(model, thinkTimeSpec, (UsageScenario) EMFLoadHelper.loadModel(usageScenarioURI));
     }
 
     public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec,

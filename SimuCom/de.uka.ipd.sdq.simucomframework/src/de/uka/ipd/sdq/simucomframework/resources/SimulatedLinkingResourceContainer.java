@@ -5,8 +5,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -23,7 +24,7 @@ public class SimulatedLinkingResourceContainer extends AbstractSimulatedResource
     }
 
     public void addActiveResource(final String linkingResourceURI, final String resourceContainerID) {
-        final LinkingResource linkingResource = (LinkingResource) ModelsAtRuntime.loadModel(linkingResourceURI);
+        final LinkingResource linkingResource = (LinkingResource) EMFLoadHelper.loadModel(linkingResourceURI);
         final SimulatedLinkingResource r = new SimulatedLinkingResource(linkingResource, myModel, resourceContainerID);
         activeResources.put(linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
                 .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification().getId(), r);
