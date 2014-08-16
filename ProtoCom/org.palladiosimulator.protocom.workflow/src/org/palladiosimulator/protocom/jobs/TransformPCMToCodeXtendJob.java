@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.workflow;
+package org.palladiosimulator.protocom.jobs;
 
 import java.util.HashMap;
 
@@ -15,6 +15,7 @@ import org.palladiosimulator.protocom.traverse.jee.JeeConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jeeservlet.JeeServletConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jse.JseConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jsestub.JseStubConfigurationModule;
+import org.palladiosimulator.protocom.workflow.ProtoComGenerationConfiguration;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

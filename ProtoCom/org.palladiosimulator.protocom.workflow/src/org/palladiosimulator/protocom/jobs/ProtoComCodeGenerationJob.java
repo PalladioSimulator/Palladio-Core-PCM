@@ -1,6 +1,7 @@
-package org.palladiosimulator.protocom.workflow;
+package org.palladiosimulator.protocom.jobs;
 
 import org.eclipse.core.runtime.CoreException;
+import org.palladiosimulator.protocom.workflow.ProtoComGenerationConfiguration;
 
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
