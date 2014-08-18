@@ -56,7 +56,7 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 	«EXPAND PassiveResourceDecls FOR this»
 	
 	public «this.javaName()» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
-		this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel(assemblyContextURI);
+		this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel(assemblyContextURI);
 		this.model = model;
 		
 		«EXPAND InitCalculatorsTM FOR this»
