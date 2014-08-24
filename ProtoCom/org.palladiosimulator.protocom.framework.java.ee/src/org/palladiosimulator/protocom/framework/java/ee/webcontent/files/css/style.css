@@ -1,0 +1,167 @@
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	outline: 0;
+}
+
+body {
+	padding: 30px 0;
+	color: #505050;
+	background: #e6f0ff;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+/* Headings */
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #dcdcdc;
+	margin-bottom: 15px;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+/* Lists */
+
+ul {
+	list-style: none;
+}
+
+/* Tables */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th {
+	padding: 8px;
+	border-bottom: 1px solid #dcdcdc;
+	background: #f0f0f0;
+	text-align: left;
+}
+
+td {
+	padding: 8px;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+tbody tr:hover {
+	background: #f0f5ff;
+}
+
+tr button {
+	color: #4691d2;
+}
+
+/* Forms and Buttons */
+
+input {
+	padding: 5px;
+	border: 1px solid #dcdcdc;
+	color: inherit;
+	font: inherit;
+}
+
+button {
+	color: inherit;
+	background: none;
+	font: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+button.disabled {
+	color: #cccccc;
+	cursor: default;
+}
+
+/* Main */
+
+#main {
+	/* Hide at startup. */
+	display: none;
+	
+	width: 600px;
+	margin: auto;
+}
+
+.box {
+	padding: 10px 15px 15px;
+	margin-top: 20px;
+	background: white;
+}
+
+/* Header */
+
+#header {
+	height: 55px;
+	border-top: 6px solid #4691d2;
+	background: white;
+	line-height: 55px;
+}
+
+#header .subtitle {
+	margin-left: 10px;
+	font-size: 20px;
+	font-weight: normal;
+}
+
+#header #logo {
+	float: left;
+	width: 60px;
+	height: 55px;
+	margin-right: 15px;
+	background: url("../img/palladio.png") #4691d2 no-repeat;
+	background-position: 50% 40%;
+}
+
+/* Registry */
+
+#registry .input {
+	width: 558px;
+}
+
+#registry .note {
+	margin-top: 10px;
+	color: #aaaaaa;
+	font-style: italic;
+}
+
+/* Modules */
+
+#modules .state-column {
+	width: 20%;
+}
+
+#modules .actions-column {
+	width: 18%;
+}
+
+#modules .started {
+	color: #00b400;
+}
+
+/* Log */
+
+#log #messages {
+	display: block;
+	width: 558px;
+	height: 180px;
+	padding: 5px;
+	border: 1px solid #dcdcdc;
+	margin: auto;
+	resize: none;
+	color: inherit;
+	font-family: monospace;
+	font-size: inherit;
+	overflow-x: scroll;
+	white-space: pre;
+	word-wrap: normal;
+}
