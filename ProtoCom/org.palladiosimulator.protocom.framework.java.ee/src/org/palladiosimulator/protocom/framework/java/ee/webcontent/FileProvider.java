@@ -16,6 +16,7 @@ public class FileProvider {
 	public static final int CSS = 0, IMG = 1, JS = 2, JSP = 3, LIB = 4;
 
 	private final String[] cssFiles = {
+		"font-awesome.min.css",
 		"style.css"
 	};
 
@@ -24,8 +25,17 @@ public class FileProvider {
 	};
 
 	private final String[] jsFiles = {
-		"jquery-2.1.1.min.js",
-		"underscore-1.6.0.min.js"
+		"lib/backbone-1.1.2.min.js",
+		"lib/jquery-2.1.1.min.js",
+		"lib/underscore-1.6.0.min.js",
+		"calibration.js",
+		"code.js",
+		"log.js",
+		"modules.js",
+		"options.js",
+		"registry.js",
+		"results.js",
+		"scenarios.js"
 	};
 
 	private final String[] jspFiles = {
@@ -34,6 +44,7 @@ public class FileProvider {
 	};
 
 	private final String[] libFiles = {
+		"asm-3.1.jar",
 		"commons-io-2.4.jar",
 		"commons-logging-1.1.3.jar",
 		"httpclient-4.1.3.jar",
@@ -41,9 +52,11 @@ public class FileProvider {
 		"jackson-annotations-2.2.3.jar",
 		"jackson-core-2.2.3.jar",
 		"jackson-databind-2.2.3.jar",
+		"jersey-bundle-1.8.jar",
+		"jsr311-api-1.1.jar",
 		"jstl-1.2.jar",
-		"org.palladiosimulator.protocom.framework.java.ee.jar"
-		// "org.palladiosimulator.protocom.resourcestrategies.jar"
+		"org.palladiosimulator.protocom.framework.java.ee.jar",
+		"org.palladiosimulator.protocom.resourcestrategies.jar"
 	};
 
 	private final String[][] files = {

@@ -9,3 +9,5 @@ Export-Package: org.palladiosimulator.protocom.framework.java.ee,
  org.palladiosimulator.protocom.framework.java.ee.webcontent,
  org.palladiosimulator.protocom.framework.java.ee.webcontent.files
 Bundle-Vendor: palladiosimulator.org
+Require-Bundle: org.palladiosimulator.protocom.resourcestrategies,
+ org.apache.log4j
