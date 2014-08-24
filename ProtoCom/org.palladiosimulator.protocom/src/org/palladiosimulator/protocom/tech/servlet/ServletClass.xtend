@@ -6,7 +6,7 @@ import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.tech.ConceptMapping
 
 class ServletClass<E extends Entity> extends ConceptMapping<E> implements IJClass {
-	protected val frameworkBase = "org.palladiosimulator.protocom.framework.jee.servlet"
+	protected val frameworkBase = "org.palladiosimulator.protocom.framework.java.ee"
 	
 	new(E pcmEntity) {
 		super(pcmEntity)

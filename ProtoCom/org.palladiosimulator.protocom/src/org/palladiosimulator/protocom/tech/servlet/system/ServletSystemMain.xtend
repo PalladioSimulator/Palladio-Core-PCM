@@ -13,7 +13,7 @@ class ServletSystemMain extends ServletClass<System> {
 	}	
 	
 	override superClass() {
-		"org.palladiosimulator.protocom.framework.jee.servlet.main.Main"
+		'''«frameworkBase».main.Main'''
 	}
 	
 	override annotations() {

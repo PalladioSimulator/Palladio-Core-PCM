@@ -14,7 +14,7 @@ import org.palladiosimulator.protocom.lang.java.util.PcmProtoAction
  * @author Thomas Zolynski, Sebastian Lehrig
  */
 class PcmServletProtoAction extends PcmProtoAction {
-	protected val frameworkBase = "org.palladiosimulator.protocom.framework.jee.servlet"
+	protected val frameworkBase = "org.palladiosimulator.protocom.framework.java.ee"
 	
 	/**
 	 * ExternalCallAction calls a remote service.

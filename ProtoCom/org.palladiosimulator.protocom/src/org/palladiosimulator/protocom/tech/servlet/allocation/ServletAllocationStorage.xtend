@@ -6,14 +6,14 @@ import org.palladiosimulator.protocom.lang.java.impl.JMethod
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 
 class ServletAllocationStorage extends ServletClass<Allocation> {
-	protected val frameworkBase = "org.palladiosimulator.protocom.framework.jee.servlet"
+	protected val frameworkBase = "org.palladiosimulator.protocom.framework.java.ee"
 	
 	new(Allocation pcmEntity) {
 		super(pcmEntity)
 	}
 	
 	override superClass() {
-		"org.palladiosimulator.protocom.framework.AbstractAllocationStorage"
+		'''«frameworkBase».legacy.AbstractAllocationStorage'''
 	}
 	
 	override packageName() {

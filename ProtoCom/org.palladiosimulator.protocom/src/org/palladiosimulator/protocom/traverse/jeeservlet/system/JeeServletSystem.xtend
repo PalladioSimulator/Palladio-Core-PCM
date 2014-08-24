@@ -1,7 +1,6 @@
 package org.palladiosimulator.protocom.traverse.jeeservlet.system
 
 import java.net.URL
-import org.palladiosimulator.protocom.framework.jee.servlet.webcontent.FileProvider
 import org.palladiosimulator.protocom.lang.CopiedFile
 import org.palladiosimulator.protocom.lang.java.impl.JClass
 import org.palladiosimulator.protocom.lang.xml.impl.Classpath
@@ -15,6 +14,7 @@ import org.palladiosimulator.protocom.traverse.framework.system.XSystem
 import org.palladiosimulator.protocom.tech.servlet.repository.ServletComposedStructurePortClass
 import org.palladiosimulator.protocom.tech.servlet.repository.ServletComposedStructureInterface
 import org.palladiosimulator.protocom.lang.java.impl.JInterface
+import org.palladiosimulator.protocom.framework.java.ee.webcontent.FileProvider
 
 class JeeServletSystem extends XSystem {
 	val fileProvider = new FileProvider

@@ -5,7 +5,7 @@ import org.palladiosimulator.protocom.lang.java.IJClass
 import org.palladiosimulator.protocom.tech.ConceptMapping
 
 class ServletResourceEnvironment extends ConceptMapping<ResourceEnvironment> implements IJClass {
-	protected val frameworkBase = "org.palladiosimulator.protocom.framework.jee.servlet"
+	protected val frameworkBase = "org.palladiosimulator.protocom.framework.java.ee"
 	
 	new(ResourceEnvironment pcmEntity) {
 		super(pcmEntity)
