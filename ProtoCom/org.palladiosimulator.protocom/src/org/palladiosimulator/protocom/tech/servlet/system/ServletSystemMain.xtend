@@ -17,7 +17,7 @@ class ServletSystemMain extends ServletClass<System> {
 	}
 	
 	override annotations() {
-		#[new JAnnotation().withName("javax.servlet.annotation.WebServlet").withValues(#['''urlPatterns = "", loadOnStartup = 0'''])]
+		#[new JAnnotation().withName("javax.servlet.annotation.WebServlet").withValues(#['''urlPatterns = "/oldmain", loadOnStartup = 0'''])]
 	}
 	
 	override compilationUnitName() {
