@@ -2,10 +2,11 @@ package org.palladiosimulator.protocom.framework.java.ee.legacy.strategies;
 
 import java.util.HashMap;
 
-import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
-import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
-import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;
-import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.FibonacciDemand;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.FibonacciDemand;
+
 
 public class StrategiesRegistry {
 

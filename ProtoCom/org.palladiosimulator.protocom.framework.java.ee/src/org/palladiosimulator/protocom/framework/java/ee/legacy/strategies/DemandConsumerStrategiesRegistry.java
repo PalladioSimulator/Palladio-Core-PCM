@@ -2,8 +2,9 @@ package org.palladiosimulator.protocom.framework.java.ee.legacy.strategies;
 
 import java.util.HashMap;
 
-import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
-import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
+
 
 public final class DemandConsumerStrategiesRegistry {
 
