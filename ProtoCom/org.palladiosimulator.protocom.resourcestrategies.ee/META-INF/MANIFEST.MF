@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ProtoCom Resourcestrategies
+Bundle-SymbolicName: org.palladiosimulator.protocom.resourcestrategies.ee
+Bundle-Version: 1.0.0
+Bundle-Vendor: palladiosimulator.org
+Require-Bundle: org.apache.log4j,
+ org.jscience,
+ org.apache.commons.math
+Export-Package: org.palladiosimulator.protocom.resourcestrategies.ee.activeresource,
+ org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu,
+ org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.hdd,
+ org.palladiosimulator.protocom.resourcestrategies.ee.passiveresource
