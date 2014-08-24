@@ -18,7 +18,7 @@ import org.jscience.physics.amount.Amount;
 /**
  * Struct to represent a single entry in the calibration table of the load generators. It is a tuple
  * <TargetTime, Parameter>
- * 
+ *
  * @author Steffen Becker, Thomas Zolynski, Sebastian Lehrig
  *
  */
@@ -30,7 +30,7 @@ class CalibrationEntry implements Serializable {
 
     /**
      * Constructor
-     * 
+     *
      * @param targetTime
      *            The time (in ms) which the workload generator should run and generate load for the
      *            given parameter
@@ -66,7 +66,7 @@ class CalibrationEntry implements Serializable {
 
 /**
  * Class representing the calibration table. Stores a collection of calibration entries.
- * 
+ *
  * @author Tobias Denker, Anne Koziolek, Steffen Becker, Thomas Zolynski, Sebastian Lehrig
  */
 public class CalibrationTable {
@@ -87,7 +87,7 @@ public class CalibrationTable {
 
     /**
      * Constructor. New calibration table with given size.
-     * 
+     *
      * @param tableSize
      *            size of the calibration table
      */
@@ -97,7 +97,7 @@ public class CalibrationTable {
 
     /**
      * Loads calibration from config file
-     * 
+     *
      * @return The loaded calibration file or null if the file could not be loaded
      */
     public static CalibrationTable load(File configFile) {
@@ -169,7 +169,7 @@ public class CalibrationTable {
 
     /**
      * Returns the calibration entry for given number.
-     * 
+     *
      * @param entryNumber
      * @return
      */
@@ -179,7 +179,7 @@ public class CalibrationTable {
 
     /**
      * Creates a new calibration entry.
-     * 
+     *
      * @param entryNumber
      *            entry number (position in table)
      * @param targetTime
@@ -191,7 +191,7 @@ public class CalibrationTable {
 
     /**
      * Returns the size of the calibration table.
-     * 
+     *
      * @return
      */
     public int size() {

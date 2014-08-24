@@ -53,10 +53,11 @@ public class FileProvider {
 		"jackson-core-2.2.3.jar",
 		"jackson-databind-2.2.3.jar",
 		"jersey-bundle-1.8.jar",
+		"jscience.jar",
 		"jsr311-api-1.1.jar",
 		"jstl-1.2.jar",
 		"org.palladiosimulator.protocom.framework.java.ee.jar",
-		"org.palladiosimulator.protocom.resourcestrategies.jar"
+		"org.palladiosimulator.protocom.resourcestrategies.ee.jar"
 	};
 
 	private final String[][] files = {

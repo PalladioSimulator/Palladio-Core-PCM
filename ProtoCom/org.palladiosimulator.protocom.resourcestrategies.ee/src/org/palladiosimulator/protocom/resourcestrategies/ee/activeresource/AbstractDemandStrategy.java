@@ -17,11 +17,11 @@ import org.jscience.physics.amount.Amount;
 
 /**
  * Abstract superclass of all active demand strategies.
- * 
+ *
  * c.f.: Steffen Becker, Tobias Dencker, and Jens Happe. Model-Driven Generation of Performance
  * Prototypes. In Performance Evaluation: Metrics, Models and Benchmarks (SIPEW 2008), volume 5119
  * of Lecture Notes in Computer Science, pages 79-98. Springer-Verlag Berlin Heidelberg, 2008.
- * 
+ *
  * @author Tobias Denker, Anne Koziolek, Steffen Becker, Thomas Zolynski, Sebastian Lehrig
  */
 public abstract class AbstractDemandStrategy implements IDemandStrategy {
@@ -63,6 +63,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     private Amount<ProcessingRate> processingRate;
 
     private File configFile = null;
+    private ICalibrationListener listener;
 
     protected DegreeOfAccuracyEnum degreeOfAccuracy;
     private static final Logger LOGGER = Logger.getLogger(AbstractDemandStrategy.class.getName());
@@ -83,7 +84,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     /**
      * Constructor. Configures a demand strategy with low, medium and high modifier, as well as
      * number of standard and warm-up cycles
-     * 
+     *
      * @param low
      *            accuracy modifier for low precision calibration
      * @param medium
@@ -118,14 +119,16 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
         this.processingRate = Amount.valueOf(initProcessingRate, ProcessingRate.UNIT);
         this.configFile = new File(getCalibrationFileName());
 
-        CalibrationTable loadedCalibration = CalibrationTable.load(configFile);
+        /*CalibrationTable loadedCalibration = CalibrationTable.load(configFile);
 
         if (loadedCalibration != null) {
             calibrationTable = loadedCalibration;
 
         } else {
             calibrate();
-        }
+        }*/
+
+        calibrate();
         LOGGER.debug(getName() + " " + getStrategysResource().name() + " strategy initialised");
     }
 
@@ -180,7 +183,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * Template method to return the real hardware resource type simulated by this strategy
-     * 
+     *
      * @see org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy#getStrategysResource()
      */
     @Override
@@ -188,7 +191,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * Template method to return the name of this strategy
-     * 
+     *
      * @see org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy#getName()
      */
     @Override
@@ -197,7 +200,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     /**
      * Returns the name of the file used to store the calibration table Filename depends on
      * paramters of this class
-     * 
+     *
      * @return The calibration table file name
      */
     protected String getCalibrationFileName() {
@@ -207,7 +210,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * Query the calibration path from the properties of this object
-     * 
+     *
      * @return The file system path used to load and store the calibration data, or the current
      *         working directory if it is not set
      */
@@ -242,12 +245,16 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * Template method. This starts running the strategy with the parameter load
-     * 
+     *
      * @param load
      *            Complexity parameter. Algorithm should take longer if parameter is larger, i.e.,
      *            ideally run(a) < run(b) <==> a < b
      */
     protected abstract void run(long load);
+
+    public void setCalibrationListener(ICalibrationListener listener) {
+    	this.listener = listener;
+    }
 
     /**
      * Create a new calibration table for this host by measuring the execution times of our
@@ -260,6 +267,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
             run(defaultIterationCount);
         }
 
+        System.out.println("warmup finished");
+
         LOGGER.info("The timetable with the corresponding parameters:");
         for (int i = 0; i < calibrationTable.size(); i++) {
             Amount<Duration> targetTime = Amount.valueOf(1 << i, SI.MILLI(SI.SECOND));
@@ -270,19 +279,24 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
                 targetTime = recalibrate(parameter, i);
             }
 
+            if (listener != null) {
+            	float progress = (float) i / (calibrationTable.size() - 1);
+            	listener.progressChanged(progress);
+            }
+
             calibrationTable.addEntry(i, targetTime, parameter);
             LOGGER.info(calibrationTable.getEntry(i));
         }
-        calibrationTable.save(configFile);
+        //calibrationTable.save(configFile);
     }
 
     /**
      * Iteratively approximates the best input value to reach a specified execution time. Let the
      * result of this method be parameter. Then this method determines a parameter, s.t.
      * exec_alg(parameter) = targetTime
-     * 
+     *
      * The accepted tolerance is one millisecond.
-     * 
+     *
      * @param targetTime
      *            target time in milliseconds
      * @return exec_alg^(-1)(targetTime)
@@ -296,9 +310,9 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      * Iteratively approximates the best input value to reach a specified execution time. Let the
      * result of this method be parameter. Then this method determines a parameter, s.t.
      * exec_alg(parameter) = targetTime
-     * 
+     *
      * The accepted tolerance is one millisecond.
-     * 
+     *
      * @param targetTime
      *            target time in milliseconds
      * @param numberOfRepetitions
@@ -319,7 +333,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * Mathematical root finding algorithm. Calculation based on bisection method.
-     * 
+     *
      * @param targetTime
      * @return root
      */
@@ -384,7 +398,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * The initial value of f(n_right) has to be greater than 0.
-     * 
+     *
      * @param targetTime
      * @return n_right with f(n_right) > 0
      */
@@ -410,7 +424,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * Checks whether there is a root (Nullstelle) between the two function values
-     * 
+     *
      * @param f_n_left
      *            Left interval end point function value
      * @param f_n_right
@@ -424,7 +438,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     /**
      * Derives a function f(n) = exec_alg(n) - targetTime, whose root is at targetTime, i.e,
      * f(targetTime) = 0
-     * 
+     *
      * @param parameter
      * @param targetTime
      * @return
@@ -438,7 +452,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      * algorithm run time depends on the targetTime. For small targetTime several approximation
      * cycles are executed and their mean is returned. For larger targetTime just a single cycle is
      * executed.
-     * 
+     *
      * @param parameter
      *            characterising parameter of the load generating algorithm
      * @param targetTime
@@ -467,7 +481,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     /**
      * Calculates mean value of array p. If p has more than five elements, the lowest and highest
      * 'length / OUTLIER_RATE' are removed.
-     * 
+     *
      * @param p
      *            array of numbers
      * @return mean value
@@ -486,7 +500,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     /**
      * Returns number of iterations to calculate the mean from. It is aimed at being reverse
      * proportional to the targetTime.
-     * 
+     *
      * For long target times only one cycle will be executed. Example: MEDIUM accuracy: Exponent =
      * DEFAULT_ACCURACY (8) + 0 = 8 TargetTime >= 2^8 => len = 1 < 2^8 => len = 2^8/TargetTime
      *
@@ -503,7 +517,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     /**
      * Maps an accuracy (LOW, MEDIUM, HIGH) to the values specified during the configuration (in the
      * constructor).
-     * 
+     *
      * @return accuracy modifier
      */
     private int getAccuracyValue() {
@@ -529,7 +543,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      * Computes a vector of (scaling) factors for each entry in the calibration table. These factors
      * give the number of repetitions of each of the calibration entries to reach a given target
      * time. Use greedy strategy to fill time frame with smaller run times
-     * 
+     *
      * @param millisec
      *            The target time to factorise
      * @return An array of scaling factors for the calibration table entries
@@ -556,7 +570,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     /**
      * Consumes demands (only used for testing purpose!)
-     * 
+     *
      * @param demand
      */
     @Deprecated

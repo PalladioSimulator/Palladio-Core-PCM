@@ -101,7 +101,6 @@
 			</div>
 
 			<div class="note">
-				Calibrating CPU Strategy – Last Run: 11ms
 			</div>
 		</script>
 

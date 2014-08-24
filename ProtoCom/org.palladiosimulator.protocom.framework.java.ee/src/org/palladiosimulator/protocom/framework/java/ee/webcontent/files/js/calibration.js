@@ -22,8 +22,10 @@ var App = (function($, App) {
 
 			connection.onmessage = function(e) {
 				var data = JSON.parse(e.data);
+				
 				self.$el.find('.bar').width(data.progress + '%');
-
+				self.$el.find('.note').text(data.message);
+				
 				if (data.progress == 100) {
 					setTimeout(function() {
 						App.updateView();

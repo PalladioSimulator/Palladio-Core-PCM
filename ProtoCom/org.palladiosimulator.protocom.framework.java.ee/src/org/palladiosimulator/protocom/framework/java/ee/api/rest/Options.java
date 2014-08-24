@@ -16,6 +16,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
 import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.FibonacciDemand;
 
 /**
  *
@@ -29,6 +32,36 @@ class CalibrationThreadFactory implements ThreadFactory {
 		thread.setDaemon(true);
 
 		return thread;
+	}
+}
+
+/**
+ *
+ * @author Christian Klaussner
+ */
+class Calibrator implements Runnable, ICalibrationListener {
+	private ServletContext context;
+
+	public Calibrator(ServletContext context) {
+		this.context = context;
+	}
+
+	@Override
+	public void progressChanged(float progress) {
+		int percent = (int) (progress * 100.0f);
+		String message = "Calibrating CPU Strategy: " + percent + "%";
+
+		CalibrationSocket.update(percent, message);
+	}
+
+	@Override
+	public void run() {
+		FibonacciDemand strategy = new FibonacciDemand();
+
+		strategy.setCalibrationListener(this);
+		strategy.initializeStrategy(DegreeOfAccuracyEnum.LOW, 1.0);
+
+		context.setAttribute("status", "started");
 	}
 }
 
@@ -66,7 +99,9 @@ public class Options {
 
 		context.setAttribute("status", "calibrating");
 
-		executor.submit(new Runnable() {
+		executor.submit(new Calibrator(context));
+
+		/*executor.submit(new Runnable() {
 
 			@Override
 			public void run() {
@@ -91,7 +126,7 @@ public class Options {
 					CalibrationSocket.update(progress);
 				}
 			}
-		});
+		});*/
 
 		try {
 			// TODO: Validate input
@@ -99,7 +134,5 @@ public class Options {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		//context.setAttribute("status", "started");
 	}
 }
