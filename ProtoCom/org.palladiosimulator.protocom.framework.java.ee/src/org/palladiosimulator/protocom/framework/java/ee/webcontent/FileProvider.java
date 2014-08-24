@@ -13,11 +13,19 @@ import java.util.List;
  * @author Christian Klaussner
  */
 public class FileProvider {
-	public static final int CSS = 0, IMG = 1, JS = 2, JSP = 3, LIB = 4;
+	public static final int CSS = 0, FONTS = 1, IMG = 2, JS = 3, JSP = 4, LIB = 5;
 
 	private final String[] cssFiles = {
 		"font-awesome.min.css",
 		"style.css"
+	};
+
+	private final String[] fontFiles = {
+		"fontawesome-webfont.eot",
+		"fontawesome-webfont.svg",
+		"fontawesome-webfont.ttf",
+		"fontawesome-webfont.woff",
+		"FontAwesome.otf"
 	};
 
 	private final String[] imgFiles = {
@@ -62,6 +70,7 @@ public class FileProvider {
 
 	private final String[][] files = {
 		cssFiles,
+		fontFiles,
 		imgFiles,
 		jsFiles,
 		jspFiles,
@@ -70,6 +79,7 @@ public class FileProvider {
 
 	private final String[] filePaths = {
 		"css",
+		"fonts",
 		"img",
 		"js",
 		"jsp",

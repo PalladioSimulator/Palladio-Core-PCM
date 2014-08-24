@@ -64,6 +64,7 @@ class JeeServletSystem extends XSystem {
 		
 		// Copy WebContent files.
 		copyFiles("css", FileProvider.CSS);
+		copyFiles("fonts", FileProvider.FONTS);
 		copyFiles("img", FileProvider.IMG);
 		copyFiles("js", FileProvider.JS);
 		copyFiles("", FileProvider.JSP);
