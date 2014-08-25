@@ -1,5 +1,6 @@
 package org.palladiosimulator.protocom.resourcestrategies.ee.activeresource;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -72,7 +73,7 @@ class CalibrationEntry implements Serializable {
 public class CalibrationTable {
 
     /** Default number of tuples <targetTime, parameter> to store in the calibration table */
-    public static final int DEFAULT_CALIBRATION_TABLE_SIZE = 11;
+    public static final int DEFAULT_CALIBRATION_TABLE_SIZE = 6;
 
     protected CalibrationEntry[] table;
 
@@ -161,6 +162,23 @@ public class CalibrationTable {
             } catch (Exception e) {
             }
         }
+    }
+
+    public byte[] toBinary() {
+    	ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+    	try {
+	    	ObjectOutputStream stream = new ObjectOutputStream(out);
+	    	stream.writeObject(table);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+
+    	return out.toByteArray();
+    }
+
+    public static CalibrationTable fromBinary(byte[] binary) {
+    	return null;
     }
 
     private void setTable(CalibrationEntry[] table) {

@@ -6,7 +6,7 @@ public interface IDemandStrategy {
 
     /**
      * Initialize the strategy and perform necessary calibrations
-     * 
+     *
      * @param degreeOfAccuracy
      *            The degree of accuracy used for calibration: HIGH, MEDIUM, LOW WARNING: The use of
      *            HIGH can result in a significant increase in the execution time
@@ -17,7 +17,7 @@ public interface IDemandStrategy {
 
     /**
      * Initialize the strategy and perform necessary calibrations
-     * 
+     *
      * @param degreeOfAccuracy
      *            The degree of accuracy used for calibration: HIGH, MEDIUM, LOW WARNING: The use of
      *            HIGH can result in a significant increase in the execution time
@@ -31,7 +31,7 @@ public interface IDemandStrategy {
     /**
      * Consume a resource according to its demand & processing rate(specified in initaliseStrategy)
      * WARNING: initializeStrategy() has to be run first
-     * 
+     *
      * @param demand
      *            [units] The demand to consume
      */
@@ -39,19 +39,22 @@ public interface IDemandStrategy {
 
     /**
      * Do not use default properties, but set properties externally.
-     * 
+     *
      * @param properties
      */
     void setProperties(Properties properties);
 
     /**
      * Get the resource this strategy is able to simulate
-     * 
+     *
      * @return The resource type we can simulate
      */
     ResourceTypeEnum getStrategysResource();
 
     String getName();
+
+    void setCalibrationListener(ICalibrationListener listener);
+    CalibrationTable calibrate();
 
     /**
      * Do cleanup work.

@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -221,9 +221,9 @@ public class Storage implements IStorage {
 	}
 
 	@Override
-	public List<String> getFiles(String path) throws IOException {
+	public Set<String> getFiles(String path) throws IOException {
 		Folder folder;
-		List<String> files;
+		Set<String> files;
 
 		try {
 			folder = (Folder) session.getObjectByPath(checkPath(path));
@@ -231,7 +231,7 @@ public class Storage implements IStorage {
 			throw new IOException("Folder does not exist");
 		}
 
-		files = new LinkedList<String>();
+		files = new HashSet<String>();
 
 		for (CmisObject object : folder.getChildren()) {
 			if (object instanceof Document) {
@@ -240,5 +240,11 @@ public class Storage implements IStorage {
 		}
 
 		return files;
+	}
+
+	@Override
+	public void deleteFile(String path) {
+		CmisObject object = session.getObjectByPath(checkPath(path));
+		object.delete();
 	}
 }

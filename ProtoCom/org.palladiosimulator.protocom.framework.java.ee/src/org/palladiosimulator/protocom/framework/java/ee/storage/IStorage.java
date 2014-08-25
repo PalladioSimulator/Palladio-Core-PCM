@@ -2,7 +2,7 @@ package org.palladiosimulator.protocom.framework.java.ee.storage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -50,8 +50,14 @@ public interface IStorage {
 	/**
 	 *
 	 * @param path
-	 * @return
 	 * @throws IOException
 	 */
-	List<String> getFiles(String path) throws IOException;
+	Set<String> getFiles(String path) throws IOException;
+
+	/**
+	 *
+	 * @param path
+	 * @throws IOException
+	 */
+	void deleteFile(String path);
 }

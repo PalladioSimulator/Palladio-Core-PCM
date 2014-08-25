@@ -115,6 +115,10 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
         LOGGER.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "
                 + degree.name());
 
+        /*if (!isCalibrated()) {
+        	throw new StrategyNotCalibratedException();
+        }*/
+
         this.degreeOfAccuracy = degree;
         this.processingRate = Amount.valueOf(initProcessingRate, ProcessingRate.UNIT);
         this.configFile = new File(getCalibrationFileName());
@@ -128,7 +132,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
             calibrate();
         }*/
 
-        calibrate();
+        //calibrate();
         LOGGER.debug(getName() + " " + getStrategysResource().name() + " strategy initialised");
     }
 
@@ -256,18 +260,22 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     	this.listener = listener;
     }
 
+    public boolean isCalibrated() {
+    	return calibrationTable != null;
+    }
+
     /**
      * Create a new calibration table for this host by measuring the execution times of our
      * algorithm and creating an according calibration table
      */
-    private void calibrate() {
+    public CalibrationTable calibrate() {
         this.calibrationTable = new CalibrationTable();
+
+        System.out.println("starting calibration");
 
         for (int i = 0; i < warmUpCycles; i++) {
             run(defaultIterationCount);
         }
-
-        System.out.println("warmup finished");
 
         LOGGER.info("The timetable with the corresponding parameters:");
         for (int i = 0; i < calibrationTable.size(); i++) {
@@ -288,6 +296,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
             LOGGER.info(calibrationTable.getEntry(i));
         }
         //calibrationTable.save(configFile);
+
+        return calibrationTable;
     }
 
     /**
