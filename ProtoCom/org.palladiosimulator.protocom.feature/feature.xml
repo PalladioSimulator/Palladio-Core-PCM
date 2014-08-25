@@ -7,8 +7,7 @@
 
    <description url="http://palladiosimulator.org">
       Code generator for PCM models for QoS performance prototypes
-or code stubs for Java SE (RMI) and Java EE (EJB)
-implementations.
+or code stubs for Java SE (RMI) implementations.
    </description>
 
    <copyright>
@@ -215,12 +214,6 @@ Each party waives its rights to a jury trial in any resulting
 litigation.
    </license>
 
-   <url>
-      <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
-      <discovery label="ProbeFramework Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
-      <discovery label="EDP2 Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
-   </url>
-
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
@@ -230,7 +223,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="com.google.inject" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.generator" version="2.5.3" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcm" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm" version="3.6.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.protocom" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.debug.core" version="3.5.0" match="greaterOrEqual"/>
@@ -241,10 +234,9 @@ litigation.
       <import plugin="org.apache.commons.cli"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="javax.servlet" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.jscience"/>
       <import plugin="org.apache.commons.math"/>
-      <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
-      <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
       <import plugin="org.eclipse.xtext.builder" version="2.5.3" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui" version="2.5.3" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.ui.shared" version="2.5.3" match="greaterOrEqual"/>
@@ -260,9 +252,10 @@ litigation.
       <import plugin="org.eclipse.wst.common.project.facet.core" version="1.4.300" match="greaterOrEqual"/>
       <import plugin="org.eclipse.wst.validation" version="1.2.501" match="greaterOrEqual"/>
       <import plugin="org.objectweb.asm" version="3.3.1" match="greaterOrEqual"/>
-      <import feature="org.eclipse.xtend.sdk" version="2.4.3.v201309030823" match="greaterOrEqual"/>
-      <import plugin="edu.kit.ipd.sdq.mdsd.profiles" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jst.j2ee" version="1.1.710" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.protocom.framework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.protocom.framework.java.ee" version="1.0.0" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtend.sdk" version="2.4.3.v201309030823" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -281,13 +274,6 @@ litigation.
 
    <plugin
          id="org.palladiosimulator.protocom.resourcestrategies"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.simucomframework.variables"
          download-size="0"
          install-size="0"
          version="0.0.0"
