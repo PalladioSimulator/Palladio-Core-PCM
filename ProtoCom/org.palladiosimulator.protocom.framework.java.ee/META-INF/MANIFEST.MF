@@ -13,5 +13,5 @@ Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
  org.palladiosimulator.protocom.resourcestrategies.ee;bundle-version="1.0.0",
  javax.servlet;bundle-version="3.0.0",
  com.sap.ecm.api;bundle-version="0.9.67",
- org.apache.chemistry.opencmis.chemistry-opencmis-osgi-client;bundle-version="0.11.0",
- javax.websocket;bundle-version="1.0.0"
+ javax.websocket;bundle-version="1.0.0",
+ org.apache.chemistry.opencmis;bundle-version="1.0.0"
