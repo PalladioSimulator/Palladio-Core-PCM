@@ -1,16 +1,20 @@
 var App = (function($, App) {
-	
+
 	var Scenario = Backbone.Model.extend({
-		// urlRoot: 'scenarios', 
+		// urlRoot: 'scenarios',
 
 		defaults: {
-			name: 'Default Scenario', 
+			name: 'Default Scenario',
 			url: '#'
+		},
+
+		initialize: function() {
+			this.set('url', 'api/scenarios/' + this.get('id'));
 		}
 	});
 
 	var ScenarioView = Backbone.View.extend({
-		tagName: 'tr', 
+		tagName: 'tr',
 
 		render: function() {
 			var template = _.template($('#template-scenario').html());
@@ -21,8 +25,8 @@ var App = (function($, App) {
 	});
 
 	var ScenarioCollection = Backbone.Collection.extend({
-		model: Scenario, 
-		url: 'api/scenarios', 
+		model: Scenario,
+		url: 'api/scenarios',
 
 		initialize: function() {
 			this.fetch();
@@ -30,22 +34,22 @@ var App = (function($, App) {
 	});
 
 	App.ScenariosBoxView = Backbone.View.extend({
-		tagName: 'div', 
-		id: 'scenarios', 
-		className: 'box', 
+		tagName: 'div',
+		id: 'scenarios',
+		className: 'box',
 
 		initialize: function() {
 			this.collection = new ScenarioCollection;
 
 			this.collection.on('add', this.renderScenario, this);
-		}, 
+		},
 
 		render: function() {
 			var template = _.template($('#template-scenarios-box').html());
 			this.$el.append(template());
 
 			return this;
-		}, 
+		},
 
 		renderScenario: function(model, collection, options) {
 			var view = new ScenarioView({model: model});
