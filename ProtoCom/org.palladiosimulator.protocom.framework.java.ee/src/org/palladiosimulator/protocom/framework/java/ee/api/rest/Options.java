@@ -183,42 +183,63 @@ public class Options {
 		executor = Executors.newFixedThreadPool(1, factory);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
-	public String getOptions() {
+	public Response getOptions() {
 		Storage storage = new Storage();
 
-		/*try {
-			return storage.readFileAsString("options.json");
-		} catch (FileNotFoundException e) {
-			return "{}";
-		}*/
+		String optionsJson;
+		String[] files;
 
 		try {
-			String json = storage.readFileAsString("options.json");
-			OptionsData options = (OptionsData) JsonHelper.fromJson(json, OptionsData.class);
-
-			options.setCalibrated(new String[] {"low.cpu.fibonacci"});
-
-			return JsonHelper.toJson(options);
+			optionsJson = storage.readFileAsString("options.json");
 		} catch (FileNotFoundException e) {
-			return "{}";
-		}
-	}
-
-	@POST
-	public Response setOptions(String data) {
-		Storage storage = new Storage();
-		Set<String> files;
-
-		try {
-			files = storage.getFiles("calibration");
-		} catch (IOException e) {
 			e.printStackTrace();
 			return Response.serverError().build();
 		}
 
-		if (files.contains("low.cpu.fibonacci") && files.contains("low.hdd.largeChunks")) {
+		try {
+			Set<String> calibrated = storage.getFiles("calibration");
+			files = calibrated.toArray(new String[0]);
+		} catch (IOException e) {
+			// Calibration folder does not exist yet.
+			files = new String[0];
+		}
+
+		OptionsData options = (OptionsData) JsonHelper.fromJson(optionsJson, OptionsData.class);
+		options.setCalibrated(files);
+
+		return Response.ok(JsonHelper.toJson(options)).build();
+	}
+
+	/**
+	 *
+	 * @param data
+	 * @return
+	 */
+	@POST
+	public Response setOptions(String data) {
+		Storage storage = new Storage();
+		boolean isCalibrated;
+
+		try {
+			Set<String> files = storage.getFiles("calibration");
+
+			if (files.contains("low.cpu.fibonacci") && files.contains("low.hdd.largeChunks")) {
+				isCalibrated = true;
+			} else {
+				isCalibrated = false;
+			}
+		} catch (IOException e) {
+			// Calibration folder does not exist yet.
+			isCalibrated = false;
+		}
+
+		if (isCalibrated) {
 			context.setAttribute("status", "started");
 		} else {
 			context.setAttribute("status", "calibrating");

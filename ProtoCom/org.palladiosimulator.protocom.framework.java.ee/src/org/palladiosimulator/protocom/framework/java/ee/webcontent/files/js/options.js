@@ -12,20 +12,7 @@ var App = (function($, App) {
 			cpuStrategy: 'fibonacci',
 			hddStrategy: 'largeChunks',
 			accuracy: 'medium',
-			calibrated: {
-				'low': {
-					'cpuStrategy': [],
-					'hddStrategy': [],
-				},
-				'medium': {
-					'cpuStrategy': [],
-					'hddStrategy': [],
-				},
-				'high': {
-					'cpuStrategy': [],
-					'hddStrategy': [],
-				}
-			}
+			calibrated: []
 		},
 
 		toJSON: function(options) {
@@ -80,12 +67,25 @@ var App = (function($, App) {
 			var hddStrategy = this.$el.find('select[name="hddStrategy"]').val();
 			var accuracy = this.$el.find('select[name="accuracy"]').val();
 
-			var status = this.model.get('calibrated')[accuracy];
+			/*var status = this.model.get('calibrated')[accuracy];
 
 			var cpu = status.cpuStrategy;
 			var hdd = status.hddStrategy;
 
 			if (_.contains(cpu, cpuStrategy) && _.contains(hdd, hddStrategy)) {
+				this.$el.find('.warning').hide();
+				this.$el.find('.confirm').text('Confirm');
+			} else {
+				this.$el.find('.warning').show();
+				this.$el.find('.confirm').text('Confirm & Calibrate');
+			}*/
+
+			var cpuId = accuracy + '.cpu.' + cpuStrategy;
+			var hddId = accuracy + '.hdd.' + hddStrategy;
+
+			var calibrated = this.model.get('calibrated');
+
+			if (_.contains(calibrated, cpuId) && _.contains(calibrated, hddId)) {
 				this.$el.find('.warning').hide();
 				this.$el.find('.confirm').text('Confirm');
 			} else {
