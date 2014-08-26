@@ -12,6 +12,7 @@
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="FeatureModel" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="WorkflowEngine" failOnError="false"/>
   <rm:locator pattern="^org\.rosuda\..*" searchPathRef="thirdparty" failOnError="false" />
+  <rm:locator pattern="^org\.apache\..*" searchPathRef="thirdparty" failOnError="false" />
   <rm:locator pattern="^org\.eclipse\.m2m\..*" searchPathRef="m2m" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.gmf\..*" searchPathRef="m2m" failOnError="false"/>
   <rm:locator pattern="^de\.ikv\.medini\.qvt\..*" searchPathRef="mediniqvt" failOnError="false"/>
