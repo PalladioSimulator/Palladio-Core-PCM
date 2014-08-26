@@ -22,7 +22,7 @@ PCM Core build.
       <discovery label="Guava" url="http://guava-osgi.googlecode.com/svn/trunk/repository"/>
       <discovery label="Eclipse TMF Xtext" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases"/>
       <discovery label="Eclipse M2T Xpand" url="http://download.eclipse.org/modeling/m2t/xpand/updates/releases"/>
-      <discovery label="Eclipse Orbit" url="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
+      <discovery label="Eclipse Orbit" url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
       <discovery label="Eclipse EMF" url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
       <discovery label="Luna" url="http://download.eclipse.org/releases/luna"/>
       <discovery label="Third Party Wrapper" url="http://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly"/>
