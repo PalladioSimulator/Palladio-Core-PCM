@@ -57,7 +57,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 public class OperationSignatureImpl extends SignatureImpl implements OperationSignature {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -66,7 +66,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * The cached value of the '{@link #getParameters__OperationSignature()
      * <em>Parameters Operation Signature</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getParameters__OperationSignature()
      * @generated
      * @ordered
@@ -77,7 +77,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * The cached value of the '{@link #getReturnType__OperationSignature()
      * <em>Return Type Operation Signature</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getReturnType__OperationSignature()
      * @generated
      * @ordered
@@ -86,7 +86,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationSignatureImpl() {
@@ -95,7 +95,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -105,53 +105,59 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public OperationInterface getInterface__OperationSignature() {
-        if (eContainerFeatureID() != RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE)
+        if (this.eContainerFeatureID() != RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE) {
             return null;
-        return (OperationInterface) eInternalContainer();
+        }
+        return (OperationInterface) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    public NotificationChain basicSetInterface__OperationSignature(OperationInterface newInterface__OperationSignature,
-            NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newInterface__OperationSignature,
+    public NotificationChain basicSetInterface__OperationSignature(
+            final OperationInterface newInterface__OperationSignature, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newInterface__OperationSignature,
                 RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setInterface__OperationSignature(OperationInterface newInterface__OperationSignature) {
-        if (newInterface__OperationSignature != eInternalContainer()
-                || (eContainerFeatureID() != RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE && newInterface__OperationSignature != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newInterface__OperationSignature))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    public void setInterface__OperationSignature(final OperationInterface newInterface__OperationSignature) {
+        if (newInterface__OperationSignature != this.eInternalContainer()
+                || (this.eContainerFeatureID() != RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE && newInterface__OperationSignature != null)) {
+            if (EcoreUtil.isAncestor(this, newInterface__OperationSignature)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newInterface__OperationSignature != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newInterface__OperationSignature != null) {
                 msgs = ((InternalEObject) newInterface__OperationSignature).eInverseAdd(this,
                         RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE,
                         OperationInterface.class, msgs);
-            msgs = basicSetInterface__OperationSignature(newInterface__OperationSignature, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetInterface__OperationSignature(newInterface__OperationSignature, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE,
                     newInterface__OperationSignature, newInterface__OperationSignature));
+        }
     }
 
     /**
@@ -159,7 +165,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * {@link #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Parameter Names Have To Be Unique For ASignature</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -173,7 +179,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * {@link #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Parameter Names Have To Be Unique For ASignature</em>}' invariant operation. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -183,18 +189,19 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean ParameterNamesHaveToBeUniqueForASignature(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean ParameterNamesHaveToBeUniqueForASignature(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.OPERATION_SIGNATURE);
             try {
                 PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -205,8 +212,12 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
                         RepositoryValidator.OPERATION_SIGNATURE__PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] { "ParameterNamesHaveToBeUniqueForASignature",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                                new Object[] {
+                                        "ParameterNamesHaveToBeUniqueForASignature",
+                                        EObjectValidator.getObjectLabel(this, context)
+                                }), new Object[] {
+                    this
+                }));
             }
             return false;
         }
@@ -215,109 +226,113 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public DataType getReturnType__OperationSignature() {
-        if (returnType__OperationSignature != null && ((EObject) returnType__OperationSignature).eIsProxy()) {
-            InternalEObject oldReturnType__OperationSignature = (InternalEObject) returnType__OperationSignature;
-            returnType__OperationSignature = (DataType) eResolveProxy(oldReturnType__OperationSignature);
-            if (returnType__OperationSignature != oldReturnType__OperationSignature) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.returnType__OperationSignature != null && ((EObject) this.returnType__OperationSignature).eIsProxy()) {
+            final InternalEObject oldReturnType__OperationSignature = (InternalEObject) this.returnType__OperationSignature;
+            this.returnType__OperationSignature = (DataType) this.eResolveProxy(oldReturnType__OperationSignature);
+            if (this.returnType__OperationSignature != oldReturnType__OperationSignature) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             RepositoryPackage.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE,
-                            oldReturnType__OperationSignature, returnType__OperationSignature));
+                            oldReturnType__OperationSignature, this.returnType__OperationSignature));
+                }
             }
         }
-        return returnType__OperationSignature;
+        return this.returnType__OperationSignature;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public DataType basicGetReturnType__OperationSignature() {
-        return returnType__OperationSignature;
+        return this.returnType__OperationSignature;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setReturnType__OperationSignature(DataType newReturnType__OperationSignature) {
-        DataType oldReturnType__OperationSignature = returnType__OperationSignature;
-        returnType__OperationSignature = newReturnType__OperationSignature;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setReturnType__OperationSignature(final DataType newReturnType__OperationSignature) {
+        final DataType oldReturnType__OperationSignature = this.returnType__OperationSignature;
+        this.returnType__OperationSignature = newReturnType__OperationSignature;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE,
-                    oldReturnType__OperationSignature, returnType__OperationSignature));
+                    oldReturnType__OperationSignature, this.returnType__OperationSignature));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<Parameter> getParameters__OperationSignature() {
-        if (parameters__OperationSignature == null) {
-            parameters__OperationSignature = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this,
-                    RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE,
+        if (this.parameters__OperationSignature == null) {
+            this.parameters__OperationSignature = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class,
+                    this, RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE,
                     RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER);
         }
-        return parameters__OperationSignature;
+        return this.parameters__OperationSignature;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetInterface__OperationSignature((OperationInterface) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetInterface__OperationSignature((OperationInterface) otherEnd, msgs);
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getParameters__OperationSignature()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameters__OperationSignature())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
-            return basicSetInterface__OperationSignature(null, msgs);
+            return this.basicSetInterface__OperationSignature(null, msgs);
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
-            return ((InternalEList<?>) getParameters__OperationSignature()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getParameters__OperationSignature()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE, OperationInterface.class,
                     msgs);
         }
@@ -326,42 +341,43 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
-            return getInterface__OperationSignature();
+            return this.getInterface__OperationSignature();
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
-            return getParameters__OperationSignature();
+            return this.getParameters__OperationSignature();
         case RepositoryPackage.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE:
-            if (resolve)
-                return getReturnType__OperationSignature();
-            return basicGetReturnType__OperationSignature();
+            if (resolve) {
+                return this.getReturnType__OperationSignature();
+            }
+            return this.basicGetReturnType__OperationSignature();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
-            setInterface__OperationSignature((OperationInterface) newValue);
+            this.setInterface__OperationSignature((OperationInterface) newValue);
             return;
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
-            getParameters__OperationSignature().clear();
-            getParameters__OperationSignature().addAll((Collection<? extends Parameter>) newValue);
+            this.getParameters__OperationSignature().clear();
+            this.getParameters__OperationSignature().addAll((Collection<? extends Parameter>) newValue);
             return;
         case RepositoryPackage.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE:
-            setReturnType__OperationSignature((DataType) newValue);
+            this.setReturnType__OperationSignature((DataType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -369,20 +385,20 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
-            setInterface__OperationSignature((OperationInterface) null);
+            this.setInterface__OperationSignature((OperationInterface) null);
             return;
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
-            getParameters__OperationSignature().clear();
+            this.getParameters__OperationSignature().clear();
             return;
         case RepositoryPackage.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE:
-            setReturnType__OperationSignature((DataType) null);
+            this.setReturnType__OperationSignature((DataType) null);
             return;
         }
         super.eUnset(featureID);
@@ -390,18 +406,18 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
-            return getInterface__OperationSignature() != null;
+            return this.getInterface__OperationSignature() != null;
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
-            return parameters__OperationSignature != null && !parameters__OperationSignature.isEmpty();
+            return this.parameters__OperationSignature != null && !this.parameters__OperationSignature.isEmpty();
         case RepositoryPackage.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE:
-            return returnType__OperationSignature != null;
+            return this.returnType__OperationSignature != null;
         }
         return super.eIsSet(featureID);
     }
@@ -409,7 +425,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

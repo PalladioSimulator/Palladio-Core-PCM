@@ -49,7 +49,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The default value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}
      * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getRepositoryDescription()
      * @generated
      * @ordered
@@ -67,7 +67,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getRepositoryDescription()
      * @generated
      * @ordered
@@ -77,7 +77,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getComponents__Repository() <em>Components Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getComponents__Repository()
      * @generated
      * @ordered
@@ -87,7 +87,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInterfaces__Repository()
      * @generated
      * @ordered
@@ -98,7 +98,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      * The cached value of the '{@link #getFailureTypes__Repository()
      * <em>Failure Types Repository</em>}' containment reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getFailureTypes__Repository()
      * @generated
      * @ordered
@@ -108,7 +108,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getDataTypes__Repository() <em>Data Types Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getDataTypes__Repository()
      * @generated
      * @ordered
@@ -117,7 +117,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RepositoryImpl() {
@@ -126,7 +126,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,182 +136,186 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public String getRepositoryDescription() {
-        return repositoryDescription;
+        return this.repositoryDescription;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setRepositoryDescription(String newRepositoryDescription) {
-        String oldRepositoryDescription = repositoryDescription;
-        repositoryDescription = newRepositoryDescription;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION,
-                    oldRepositoryDescription, repositoryDescription));
+    public void setRepositoryDescription(final String newRepositoryDescription) {
+        final String oldRepositoryDescription = this.repositoryDescription;
+        this.repositoryDescription = newRepositoryDescription;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION, oldRepositoryDescription,
+                    this.repositoryDescription));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<RepositoryComponent> getComponents__Repository() {
-        if (components__Repository == null) {
-            components__Repository = new EObjectContainmentWithInverseEList<RepositoryComponent>(
+        if (this.components__Repository == null) {
+            this.components__Repository = new EObjectContainmentWithInverseEList<RepositoryComponent>(
                     RepositoryComponent.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
                     RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT);
         }
-        return components__Repository;
+        return this.components__Repository;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<FailureType> getFailureTypes__Repository() {
-        if (failureTypes__Repository == null) {
-            failureTypes__Repository = new EObjectContainmentWithInverseEList<FailureType>(FailureType.class, this,
-                    RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY,
+        if (this.failureTypes__Repository == null) {
+            this.failureTypes__Repository = new EObjectContainmentWithInverseEList<FailureType>(FailureType.class,
+                    this, RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY,
                     ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE);
         }
-        return failureTypes__Repository;
+        return this.failureTypes__Repository;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<DataType> getDataTypes__Repository() {
-        if (dataTypes__Repository == null) {
-            dataTypes__Repository = new EObjectContainmentWithInverseEList<DataType>(DataType.class, this,
+        if (this.dataTypes__Repository == null) {
+            this.dataTypes__Repository = new EObjectContainmentWithInverseEList<DataType>(DataType.class, this,
                     RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE);
         }
-        return dataTypes__Repository;
+        return this.dataTypes__Repository;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<Interface> getInterfaces__Repository() {
-        if (interfaces__Repository == null) {
-            interfaces__Repository = new EObjectContainmentWithInverseEList<Interface>(Interface.class, this,
+        if (this.interfaces__Repository == null) {
+            this.interfaces__Repository = new EObjectContainmentWithInverseEList<Interface>(Interface.class, this,
                     RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY,
                     RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE);
         }
-        return interfaces__Repository;
+        return this.interfaces__Repository;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getComponents__Repository()).basicAdd(otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getComponents__Repository()).basicAdd(
+                    otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getInterfaces__Repository()).basicAdd(otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInterfaces__Repository()).basicAdd(
+                    otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getFailureTypes__Repository()).basicAdd(
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getFailureTypes__Repository()).basicAdd(
                     otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getDataTypes__Repository()).basicAdd(otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getDataTypes__Repository()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return ((InternalEList<?>) getComponents__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getComponents__Repository()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return ((InternalEList<?>) getInterfaces__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getInterfaces__Repository()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return ((InternalEList<?>) getFailureTypes__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getFailureTypes__Repository()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return ((InternalEList<?>) getDataTypes__Repository()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getDataTypes__Repository()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            return getRepositoryDescription();
+            return this.getRepositoryDescription();
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return getComponents__Repository();
+            return this.getComponents__Repository();
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return getInterfaces__Repository();
+            return this.getInterfaces__Repository();
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return getFailureTypes__Repository();
+            return this.getFailureTypes__Repository();
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return getDataTypes__Repository();
+            return this.getDataTypes__Repository();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            setRepositoryDescription((String) newValue);
+            this.setRepositoryDescription((String) newValue);
             return;
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            getComponents__Repository().clear();
-            getComponents__Repository().addAll((Collection<? extends RepositoryComponent>) newValue);
+            this.getComponents__Repository().clear();
+            this.getComponents__Repository().addAll((Collection<? extends RepositoryComponent>) newValue);
             return;
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            getInterfaces__Repository().clear();
-            getInterfaces__Repository().addAll((Collection<? extends Interface>) newValue);
+            this.getInterfaces__Repository().clear();
+            this.getInterfaces__Repository().addAll((Collection<? extends Interface>) newValue);
             return;
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            getFailureTypes__Repository().clear();
-            getFailureTypes__Repository().addAll((Collection<? extends FailureType>) newValue);
+            this.getFailureTypes__Repository().clear();
+            this.getFailureTypes__Repository().addAll((Collection<? extends FailureType>) newValue);
             return;
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            getDataTypes__Repository().clear();
-            getDataTypes__Repository().addAll((Collection<? extends DataType>) newValue);
+            this.getDataTypes__Repository().clear();
+            this.getDataTypes__Repository().addAll((Collection<? extends DataType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -319,26 +323,26 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            setRepositoryDescription(REPOSITORY_DESCRIPTION_EDEFAULT);
+            this.setRepositoryDescription(REPOSITORY_DESCRIPTION_EDEFAULT);
             return;
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            getComponents__Repository().clear();
+            this.getComponents__Repository().clear();
             return;
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            getInterfaces__Repository().clear();
+            this.getInterfaces__Repository().clear();
             return;
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            getFailureTypes__Repository().clear();
+            this.getFailureTypes__Repository().clear();
             return;
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            getDataTypes__Repository().clear();
+            this.getDataTypes__Repository().clear();
             return;
         }
         super.eUnset(featureID);
@@ -346,40 +350,41 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-            return REPOSITORY_DESCRIPTION_EDEFAULT == null ? repositoryDescription != null
-                    : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(repositoryDescription);
+            return REPOSITORY_DESCRIPTION_EDEFAULT == null ? this.repositoryDescription != null
+            : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(this.repositoryDescription);
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return components__Repository != null && !components__Repository.isEmpty();
+            return this.components__Repository != null && !this.components__Repository.isEmpty();
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return interfaces__Repository != null && !interfaces__Repository.isEmpty();
+            return this.interfaces__Repository != null && !this.interfaces__Repository.isEmpty();
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return failureTypes__Repository != null && !failureTypes__Repository.isEmpty();
+            return this.failureTypes__Repository != null && !this.failureTypes__Repository.isEmpty();
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return dataTypes__Repository != null && !dataTypes__Repository.isEmpty();
+            return this.dataTypes__Repository != null && !this.dataTypes__Repository.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (repositoryDescription: ");
-        result.append(repositoryDescription);
+        result.append(this.repositoryDescription);
         result.append(')');
         return result.toString();
     }

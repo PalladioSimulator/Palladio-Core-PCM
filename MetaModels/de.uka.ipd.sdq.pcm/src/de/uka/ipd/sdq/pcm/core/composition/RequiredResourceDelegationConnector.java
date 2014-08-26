@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 public interface RequiredResourceDelegationConnector extends DelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the ' <em>Assembly Context Required Resource Delegation Connector</em>'
      *         reference.
      * @see #setAssemblyContext__RequiredResourceDelegationConnector(AssemblyContext)
@@ -62,7 +62,7 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
      * <em>Assembly Context Required Resource Delegation Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Assembly Context Required Resource Delegation Connector</em> ' reference.
@@ -80,7 +80,7 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Inner Required Role Required Resource Delegation Connector</em> ' reference.
      * @see #setInnerRequiredRole__RequiredResourceDelegationConnector(ResourceRequiredRole)
@@ -95,7 +95,7 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector
      * <em>Inner Required Role Required Resource Delegation Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Inner Required Role Required Resource Delegation Connector</em> ' reference.
@@ -113,7 +113,7 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Outer Required Role Required Resource Delegation Connector</em> ' reference.
      * @see #setOuterRequiredRole__RequiredResourceDelegationConnector(ResourceRequiredRole)
@@ -128,7 +128,7 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
      * <em>Outer Required Role Required Resource Delegation Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Outer Required Role Required Resource Delegation Connector</em> ' reference.

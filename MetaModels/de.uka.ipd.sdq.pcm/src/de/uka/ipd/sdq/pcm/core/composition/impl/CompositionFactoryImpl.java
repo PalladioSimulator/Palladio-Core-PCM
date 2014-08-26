@@ -31,30 +31,30 @@ import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CompositionFactoryImpl extends EFactoryImpl implements CompositionFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static CompositionFactory init() {
         try {
-            CompositionFactory theCompositionFactory = (CompositionFactory) EPackage.Registry.INSTANCE
+            final CompositionFactory theCompositionFactory = (CompositionFactory) EPackage.Registry.INSTANCE
                     .getEFactory(CompositionPackage.eNS_URI);
             if (theCompositionFactory != null) {
                 return theCompositionFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new CompositionFactoryImpl();
@@ -62,7 +62,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CompositionFactoryImpl() {
@@ -71,42 +71,42 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-            return (EObject) createResourceRequiredDelegationConnector();
+            return this.createResourceRequiredDelegationConnector();
         case CompositionPackage.EVENT_CHANNEL:
-            return (EObject) createEventChannel();
+            return this.createEventChannel();
         case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR:
-            return (EObject) createEventChannelSourceConnector();
+            return this.createEventChannelSourceConnector();
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR:
-            return (EObject) createEventChannelSinkConnector();
+            return this.createEventChannelSinkConnector();
         case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR:
-            return (EObject) createProvidedDelegationConnector();
+            return this.createProvidedDelegationConnector();
         case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR:
-            return (EObject) createRequiredDelegationConnector();
+            return this.createRequiredDelegationConnector();
         case CompositionPackage.ASSEMBLY_CONNECTOR:
-            return (EObject) createAssemblyConnector();
+            return this.createAssemblyConnector();
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR:
-            return (EObject) createAssemblyEventConnector();
+            return this.createAssemblyEventConnector();
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR:
-            return (EObject) createSourceDelegationConnector();
+            return this.createSourceDelegationConnector();
         case CompositionPackage.SINK_DELEGATION_CONNECTOR:
-            return (EObject) createSinkDelegationConnector();
+            return this.createSinkDelegationConnector();
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            return (EObject) createAssemblyInfrastructureConnector();
+            return this.createAssemblyInfrastructureConnector();
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
-            return (EObject) createProvidedInfrastructureDelegationConnector();
+            return this.createProvidedInfrastructureDelegationConnector();
         case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
-            return (EObject) createRequiredInfrastructureDelegationConnector();
+            return this.createRequiredInfrastructureDelegationConnector();
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-            return (EObject) createRequiredResourceDelegationConnector();
+            return this.createRequiredResourceDelegationConnector();
         case CompositionPackage.ASSEMBLY_CONTEXT:
-            return (EObject) createAssemblyContext();
+            return this.createAssemblyContext();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -114,182 +114,182 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ProvidedDelegationConnector createProvidedDelegationConnector() {
-        ProvidedDelegationConnectorImpl providedDelegationConnector = new ProvidedDelegationConnectorImpl();
+        final ProvidedDelegationConnectorImpl providedDelegationConnector = new ProvidedDelegationConnectorImpl();
         return providedDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AssemblyContext createAssemblyContext() {
-        AssemblyContextImpl assemblyContext = new AssemblyContextImpl();
+        final AssemblyContextImpl assemblyContext = new AssemblyContextImpl();
         return assemblyContext;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public RequiredDelegationConnector createRequiredDelegationConnector() {
-        RequiredDelegationConnectorImpl requiredDelegationConnector = new RequiredDelegationConnectorImpl();
+        final RequiredDelegationConnectorImpl requiredDelegationConnector = new RequiredDelegationConnectorImpl();
         return requiredDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AssemblyConnector createAssemblyConnector() {
-        AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
+        final AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
         return assemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector() {
-        ResourceRequiredDelegationConnectorImpl resourceRequiredDelegationConnector = new ResourceRequiredDelegationConnectorImpl();
+        final ResourceRequiredDelegationConnectorImpl resourceRequiredDelegationConnector = new ResourceRequiredDelegationConnectorImpl();
         return resourceRequiredDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EventChannel createEventChannel() {
-        EventChannelImpl eventChannel = new EventChannelImpl();
+        final EventChannelImpl eventChannel = new EventChannelImpl();
         return eventChannel;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AssemblyEventConnector createAssemblyEventConnector() {
-        AssemblyEventConnectorImpl assemblyEventConnector = new AssemblyEventConnectorImpl();
+        final AssemblyEventConnectorImpl assemblyEventConnector = new AssemblyEventConnectorImpl();
         return assemblyEventConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SourceDelegationConnector createSourceDelegationConnector() {
-        SourceDelegationConnectorImpl sourceDelegationConnector = new SourceDelegationConnectorImpl();
+        final SourceDelegationConnectorImpl sourceDelegationConnector = new SourceDelegationConnectorImpl();
         return sourceDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SinkDelegationConnector createSinkDelegationConnector() {
-        SinkDelegationConnectorImpl sinkDelegationConnector = new SinkDelegationConnectorImpl();
+        final SinkDelegationConnectorImpl sinkDelegationConnector = new SinkDelegationConnectorImpl();
         return sinkDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AssemblyInfrastructureConnector createAssemblyInfrastructureConnector() {
-        AssemblyInfrastructureConnectorImpl assemblyInfrastructureConnector = new AssemblyInfrastructureConnectorImpl();
+        final AssemblyInfrastructureConnectorImpl assemblyInfrastructureConnector = new AssemblyInfrastructureConnectorImpl();
         return assemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public RequiredInfrastructureDelegationConnector createRequiredInfrastructureDelegationConnector() {
-        RequiredInfrastructureDelegationConnectorImpl requiredInfrastructureDelegationConnector = new RequiredInfrastructureDelegationConnectorImpl();
+        final RequiredInfrastructureDelegationConnectorImpl requiredInfrastructureDelegationConnector = new RequiredInfrastructureDelegationConnectorImpl();
         return requiredInfrastructureDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ProvidedInfrastructureDelegationConnector createProvidedInfrastructureDelegationConnector() {
-        ProvidedInfrastructureDelegationConnectorImpl providedInfrastructureDelegationConnector = new ProvidedInfrastructureDelegationConnectorImpl();
+        final ProvidedInfrastructureDelegationConnectorImpl providedInfrastructureDelegationConnector = new ProvidedInfrastructureDelegationConnectorImpl();
         return providedInfrastructureDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public RequiredResourceDelegationConnector createRequiredResourceDelegationConnector() {
-        RequiredResourceDelegationConnectorImpl requiredResourceDelegationConnector = new RequiredResourceDelegationConnectorImpl();
+        final RequiredResourceDelegationConnectorImpl requiredResourceDelegationConnector = new RequiredResourceDelegationConnectorImpl();
         return requiredResourceDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EventChannelSinkConnector createEventChannelSinkConnector() {
-        EventChannelSinkConnectorImpl eventChannelSinkConnector = new EventChannelSinkConnectorImpl();
+        final EventChannelSinkConnectorImpl eventChannelSinkConnector = new EventChannelSinkConnectorImpl();
         return eventChannelSinkConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EventChannelSourceConnector createEventChannelSourceConnector() {
-        EventChannelSourceConnectorImpl eventChannelSourceConnector = new EventChannelSourceConnectorImpl();
+        final EventChannelSourceConnectorImpl eventChannelSourceConnector = new EventChannelSourceConnectorImpl();
         return eventChannelSourceConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public CompositionPackage getCompositionPackage() {
-        return (CompositionPackage) getEPackage();
+        return (CompositionPackage) this.getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

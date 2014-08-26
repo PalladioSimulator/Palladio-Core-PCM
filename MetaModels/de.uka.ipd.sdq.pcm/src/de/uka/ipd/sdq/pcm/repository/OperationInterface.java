@@ -33,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
 public interface OperationInterface extends Interface {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public interface OperationInterface extends Interface {
      * <em>Interface Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
      * begin-model-doc --> This property represents the set of signatures of which the interface
      * consists. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Signatures Operation Interface</em>' containment reference
      *         list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationInterface_Signatures__OperationInterface()
@@ -59,7 +59,7 @@ public interface OperationInterface extends Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

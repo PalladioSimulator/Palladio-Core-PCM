@@ -16,13 +16,13 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * from classical queueing theory [123]. The specified workloads can directly be used in queueing
  * networks or easily be mapped to markings in stochastic Petri nets. Workloads can either be open
  * or closed.
- * 
+ *
  * The algorithms used to analyse queueing networks differ depending on whether open or closed
  * workloads are modelled [123]. Some special queueing networks can only be analysed given a
  * particular workload type (open or closed). Notice, that it is possible to specify a usage model
  * with open workload usage scenarios and closed workload usage scenarios at the same time. Open and
  * closed workloads can be executed in parallel when analysing the model.
- * 
+ *
  * [123] E. Lazowska, J. Zahorjan, G. Graham, and K. Sevcik, Quantitative System Performance.
  * Prentice Hall, 1984. <!-- end-model-doc -->
  *
@@ -42,7 +42,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface Workload extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public interface Workload extends EStereotypableObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Usage Scenario Workload</em>' container reference.
      * @see #setUsageScenario_Workload(UsageScenario)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getWorkload_UsageScenario_Workload()
@@ -72,7 +72,7 @@ public interface Workload extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload
      * <em>Usage Scenario Workload</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Usage Scenario Workload</em>' container reference.
      * @see #getUsageScenario_Workload()

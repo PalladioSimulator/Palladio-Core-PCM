@@ -18,30 +18,30 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static AllocationFactory init() {
         try {
-            AllocationFactory theAllocationFactory = (AllocationFactory) EPackage.Registry.INSTANCE
+            final AllocationFactory theAllocationFactory = (AllocationFactory) EPackage.Registry.INSTANCE
                     .getEFactory(AllocationPackage.eNS_URI);
             if (theAllocationFactory != null) {
                 return theAllocationFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new AllocationFactoryImpl();
@@ -49,7 +49,7 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AllocationFactoryImpl() {
@@ -58,16 +58,16 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case AllocationPackage.ALLOCATION_CONTEXT:
-            return (EObject) createAllocationContext();
+            return this.createAllocationContext();
         case AllocationPackage.ALLOCATION:
-            return (EObject) createAllocation();
+            return this.createAllocation();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -75,39 +75,39 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AllocationContext createAllocationContext() {
-        AllocationContextImpl allocationContext = new AllocationContextImpl();
+        final AllocationContextImpl allocationContext = new AllocationContextImpl();
         return allocationContext;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Allocation createAllocation() {
-        AllocationImpl allocation = new AllocationImpl();
+        final AllocationImpl allocation = new AllocationImpl();
         return allocation;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AllocationPackage getAllocationPackage() {
-        return (AllocationPackage) getEPackage();
+        return (AllocationPackage) this.getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

@@ -50,7 +50,7 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 public class BasicComponentImpl extends ImplementationComponentTypeImpl implements BasicComponent {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
      * The cached value of the ' {@link #getServiceEffectSpecifications__BasicComponent()
      * <em>Service Effect Specifications Basic Component</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getServiceEffectSpecifications__BasicComponent()
      * @generated
      * @ordered
@@ -70,7 +70,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
      * The cached value of the '{@link #getPassiveResource_BasicComponent()
      * <em>Passive Resource Basic Component</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getPassiveResource_BasicComponent()
      * @generated
      * @ordered
@@ -79,7 +79,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BasicComponentImpl() {
@@ -88,7 +88,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -98,40 +98,40 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent() {
-        if (serviceEffectSpecifications__BasicComponent == null) {
-            serviceEffectSpecifications__BasicComponent = new EObjectContainmentWithInverseEList<ServiceEffectSpecification>(
+        if (this.serviceEffectSpecifications__BasicComponent == null) {
+            this.serviceEffectSpecifications__BasicComponent = new EObjectContainmentWithInverseEList<ServiceEffectSpecification>(
                     ServiceEffectSpecification.class, this,
                     RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
                     SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION);
         }
-        return serviceEffectSpecifications__BasicComponent;
+        return this.serviceEffectSpecifications__BasicComponent;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<PassiveResource> getPassiveResource_BasicComponent() {
-        if (passiveResource_BasicComponent == null) {
-            passiveResource_BasicComponent = new EObjectContainmentWithInverseEList<PassiveResource>(
+        if (this.passiveResource_BasicComponent == null) {
+            this.passiveResource_BasicComponent = new EObjectContainmentWithInverseEList<PassiveResource>(
                     PassiveResource.class, this, RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT,
                     RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE);
         }
-        return passiveResource_BasicComponent;
+        return this.passiveResource_BasicComponent;
     }
 
     /**
      * The cached OCL expression body for the '
      * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Seff Type Used Twice</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -144,7 +144,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
      * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Seff Type Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -153,18 +153,18 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean NoSeffTypeUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean NoSeffTypeUsedTwice(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.BASIC_COMPONENT);
             try {
                 NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -172,8 +172,11 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE, EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic", new Object[] { "NoSeffTypeUsedTwice",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                                "_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "NoSeffTypeUsedTwice", EObjectValidator.getObjectLabel(this, context)
+                                }), new Object[] {
+                    this
+                }));
             }
             return false;
         }
@@ -182,72 +185,75 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getServiceEffectSpecifications__BasicComponent())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getServiceEffectSpecifications__BasicComponent()).basicAdd(otherEnd, msgs);
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getPassiveResource_BasicComponent()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getPassiveResource_BasicComponent())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-            return ((InternalEList<?>) getServiceEffectSpecifications__BasicComponent()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getServiceEffectSpecifications__BasicComponent()).basicRemove(otherEnd,
+                    msgs);
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-            return ((InternalEList<?>) getPassiveResource_BasicComponent()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getPassiveResource_BasicComponent()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-            return getServiceEffectSpecifications__BasicComponent();
+            return this.getServiceEffectSpecifications__BasicComponent();
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-            return getPassiveResource_BasicComponent();
+            return this.getPassiveResource_BasicComponent();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-            getServiceEffectSpecifications__BasicComponent().clear();
-            getServiceEffectSpecifications__BasicComponent().addAll(
+            this.getServiceEffectSpecifications__BasicComponent().clear();
+            this.getServiceEffectSpecifications__BasicComponent().addAll(
                     (Collection<? extends ServiceEffectSpecification>) newValue);
             return;
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-            getPassiveResource_BasicComponent().clear();
-            getPassiveResource_BasicComponent().addAll((Collection<? extends PassiveResource>) newValue);
+            this.getPassiveResource_BasicComponent().clear();
+            this.getPassiveResource_BasicComponent().addAll((Collection<? extends PassiveResource>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -255,17 +261,17 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-            getServiceEffectSpecifications__BasicComponent().clear();
+            this.getServiceEffectSpecifications__BasicComponent().clear();
             return;
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-            getPassiveResource_BasicComponent().clear();
+            this.getPassiveResource_BasicComponent().clear();
             return;
         }
         super.eUnset(featureID);
@@ -273,17 +279,17 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-            return serviceEffectSpecifications__BasicComponent != null
-                    && !serviceEffectSpecifications__BasicComponent.isEmpty();
+            return this.serviceEffectSpecifications__BasicComponent != null
+            && !this.serviceEffectSpecifications__BasicComponent.isEmpty();
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-            return passiveResource_BasicComponent != null && !passiveResource_BasicComponent.isEmpty();
+            return this.passiveResource_BasicComponent != null && !this.passiveResource_BasicComponent.isEmpty();
         }
         return super.eIsSet(featureID);
     }

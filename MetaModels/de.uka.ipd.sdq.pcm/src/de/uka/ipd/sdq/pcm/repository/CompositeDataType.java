@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 public interface CompositeDataType extends Entity, DataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public interface CompositeDataType extends Entity, DataType {
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the parent type in the inheritance hierarchy. Null if there is no parent. <!-- end-model-doc
      * -->
-     * 
+     *
      * @return the value of the '<em>Parent Type Composite Data Type</em>' reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeDataType_ParentType_CompositeDataType()
      * @model ordered="false"
@@ -62,7 +62,7 @@ public interface CompositeDataType extends Entity, DataType {
      * <em>Composite Data Type Inner Declaration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * --> <!-- begin-model-doc --> This property represents the internals, i.e., named items, each
      * of a data type, forming this composite data type. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Inner Declaration Composite Data Type</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeDataType_InnerDeclaration_CompositeDataType()

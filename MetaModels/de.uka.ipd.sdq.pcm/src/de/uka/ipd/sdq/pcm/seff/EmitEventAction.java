@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 public interface EmitEventAction extends AbstractAction, CallAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +49,7 @@ public interface EmitEventAction extends AbstractAction, CallAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Event Type Emit Event Action</em>' reference.
      * @see #setEventType__EmitEventAction(EventType)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getEmitEventAction_EventType__EmitEventAction()
@@ -63,7 +63,7 @@ public interface EmitEventAction extends AbstractAction, CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getEventType__EmitEventAction
      * <em>Event Type Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Event Type Emit Event Action</em>' reference.
      * @see #getEventType__EmitEventAction()
@@ -79,7 +79,7 @@ public interface EmitEventAction extends AbstractAction, CallAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Source Role Emit Event Action</em>' reference.
      * @see #setSourceRole__EmitEventAction(SourceRole)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getEmitEventAction_SourceRole__EmitEventAction()
@@ -93,7 +93,7 @@ public interface EmitEventAction extends AbstractAction, CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction
      * <em>Source Role Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Source Role Emit Event Action</em>' reference.
      * @see #getSourceRole__EmitEventAction()

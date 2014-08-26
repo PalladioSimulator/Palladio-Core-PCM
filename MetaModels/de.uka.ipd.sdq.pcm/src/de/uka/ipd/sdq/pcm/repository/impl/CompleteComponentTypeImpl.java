@@ -42,7 +42,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 public class CompleteComponentTypeImpl extends RepositoryComponentImpl implements CompleteComponentType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * The cached value of the '{@link #getParentProvidesComponentTypes()
      * <em>Parent Provides Component Types</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getParentProvidesComponentTypes()
      * @generated
      * @ordered
@@ -60,7 +60,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompleteComponentTypeImpl() {
@@ -69,7 +69,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -79,17 +79,17 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<ProvidesComponentType> getParentProvidesComponentTypes() {
-        if (parentProvidesComponentTypes == null) {
-            parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(
+        if (this.parentProvidesComponentTypes == null) {
+            this.parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(
                     ProvidesComponentType.class, this,
                     RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
         }
-        return parentProvidesComponentTypes;
+        return this.parentProvidesComponentTypes;
     }
 
     /**
@@ -97,7 +97,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -123,7 +123,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -133,35 +133,38 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public boolean AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
             try {
                 AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType",
+                                EObjectValidator.getObjectLabel(this, context)
+                        }), new Object[] {
+                            this
+                        }));
             }
             return false;
         }
@@ -173,7 +176,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #providedInterfacesHaveToConformToProvidedType2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provided Interfaces Have To Conform To Provided Type2</em>}' operation. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #providedInterfacesHaveToConformToProvidedType2(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -210,7 +213,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #providedInterfacesHaveToConformToProvidedType2(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provided Interfaces Have To Conform To Provided Type2</em>}' invariant operation. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #providedInterfacesHaveToConformToProvidedType2(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -220,19 +223,19 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean providedInterfacesHaveToConformToProvidedType2(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    public boolean providedInterfacesHaveToConformToProvidedType2(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
             try {
                 PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -241,14 +244,18 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "providedInterfacesHaveToConformToProvidedType2",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] {
+                                        "providedInterfacesHaveToConformToProvidedType2",
+                                        EObjectValidator.getObjectLabel(this, context)
+                                }), new Object[] {
+                            this
+                        }));
             }
             return false;
         }
@@ -257,30 +264,30 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            return getParentProvidesComponentTypes();
+            return this.getParentProvidesComponentTypes();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            getParentProvidesComponentTypes().clear();
-            getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>) newValue);
+            this.getParentProvidesComponentTypes().clear();
+            this.getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -288,14 +295,14 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            getParentProvidesComponentTypes().clear();
+            this.getParentProvidesComponentTypes().clear();
             return;
         }
         super.eUnset(featureID);
@@ -303,14 +310,14 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
+            return this.parentProvidesComponentTypes != null && !this.parentProvidesComponentTypes.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -318,7 +325,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

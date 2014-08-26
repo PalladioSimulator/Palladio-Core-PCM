@@ -14,12 +14,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -32,14 +27,13 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +41,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceDemandingSEFFItemProvider(final AdapterFactory adapterFactory) {
@@ -57,7 +51,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +68,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
     /**
      * This adds a property descriptor for the Seff Type ID feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSeffTypeIDPropertyDescriptor(final Object object) {
@@ -90,7 +84,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
     /**
      * This adds a property descriptor for the Described Service SEFF feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addDescribedService__SEFFPropertyDescriptor(final Object object) {
@@ -110,7 +104,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,14 +113,14 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
             this.childrenFeatures
-                    .add(SeffPackage.Literals.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS);
+            .add(SeffPackage.Literals.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -139,7 +133,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
 
     /**
      * This returns ResourceDemandingSEFF.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -150,7 +144,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -164,7 +158,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -186,7 +180,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -257,7 +251,7 @@ public class ResourceDemandingSEFFItemProvider extends IdentifierItemProvider im
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

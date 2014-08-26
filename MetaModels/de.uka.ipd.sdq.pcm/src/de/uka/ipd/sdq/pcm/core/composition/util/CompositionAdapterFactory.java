@@ -36,28 +36,28 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage
  * @generated
  */
 public class CompositionAdapterFactory extends AdapterFactoryImpl {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static CompositionPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CompositionAdapterFactory() {
@@ -70,12 +70,12 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     * 
+     *
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -88,132 +88,134 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompositionSwitch<Adapter> modelSwitch = new CompositionSwitch<Adapter>() {
         @Override
-        public Adapter caseDelegationConnector(DelegationConnector object) {
-            return createDelegationConnectorAdapter();
+        public Adapter caseDelegationConnector(final DelegationConnector object) {
+            return CompositionAdapterFactory.this.createDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseConnector(Connector object) {
-            return createConnectorAdapter();
+        public Adapter caseConnector(final Connector object) {
+            return CompositionAdapterFactory.this.createConnectorAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(ComposedStructure object) {
-            return createComposedStructureAdapter();
+        public Adapter caseComposedStructure(final ComposedStructure object) {
+            return CompositionAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseResourceRequiredDelegationConnector(ResourceRequiredDelegationConnector object) {
-            return createResourceRequiredDelegationConnectorAdapter();
+        public Adapter caseResourceRequiredDelegationConnector(final ResourceRequiredDelegationConnector object) {
+            return CompositionAdapterFactory.this.createResourceRequiredDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseEventChannel(EventChannel object) {
-            return createEventChannelAdapter();
+        public Adapter caseEventChannel(final EventChannel object) {
+            return CompositionAdapterFactory.this.createEventChannelAdapter();
         }
 
         @Override
-        public Adapter caseEventChannelSourceConnector(EventChannelSourceConnector object) {
-            return createEventChannelSourceConnectorAdapter();
+        public Adapter caseEventChannelSourceConnector(final EventChannelSourceConnector object) {
+            return CompositionAdapterFactory.this.createEventChannelSourceConnectorAdapter();
         }
 
         @Override
-        public Adapter caseEventChannelSinkConnector(EventChannelSinkConnector object) {
-            return createEventChannelSinkConnectorAdapter();
+        public Adapter caseEventChannelSinkConnector(final EventChannelSinkConnector object) {
+            return CompositionAdapterFactory.this.createEventChannelSinkConnectorAdapter();
         }
 
         @Override
-        public Adapter caseProvidedDelegationConnector(ProvidedDelegationConnector object) {
-            return createProvidedDelegationConnectorAdapter();
+        public Adapter caseProvidedDelegationConnector(final ProvidedDelegationConnector object) {
+            return CompositionAdapterFactory.this.createProvidedDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredDelegationConnector(RequiredDelegationConnector object) {
-            return createRequiredDelegationConnectorAdapter();
+        public Adapter caseRequiredDelegationConnector(final RequiredDelegationConnector object) {
+            return CompositionAdapterFactory.this.createRequiredDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyConnector(AssemblyConnector object) {
-            return createAssemblyConnectorAdapter();
+        public Adapter caseAssemblyConnector(final AssemblyConnector object) {
+            return CompositionAdapterFactory.this.createAssemblyConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyEventConnector(AssemblyEventConnector object) {
-            return createAssemblyEventConnectorAdapter();
+        public Adapter caseAssemblyEventConnector(final AssemblyEventConnector object) {
+            return CompositionAdapterFactory.this.createAssemblyEventConnectorAdapter();
         }
 
         @Override
-        public Adapter caseSourceDelegationConnector(SourceDelegationConnector object) {
-            return createSourceDelegationConnectorAdapter();
+        public Adapter caseSourceDelegationConnector(final SourceDelegationConnector object) {
+            return CompositionAdapterFactory.this.createSourceDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseSinkDelegationConnector(SinkDelegationConnector object) {
-            return createSinkDelegationConnectorAdapter();
+        public Adapter caseSinkDelegationConnector(final SinkDelegationConnector object) {
+            return CompositionAdapterFactory.this.createSinkDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyInfrastructureConnector(AssemblyInfrastructureConnector object) {
-            return createAssemblyInfrastructureConnectorAdapter();
+        public Adapter caseAssemblyInfrastructureConnector(final AssemblyInfrastructureConnector object) {
+            return CompositionAdapterFactory.this.createAssemblyInfrastructureConnectorAdapter();
         }
 
         @Override
-        public Adapter caseProvidedInfrastructureDelegationConnector(ProvidedInfrastructureDelegationConnector object) {
-            return createProvidedInfrastructureDelegationConnectorAdapter();
+        public Adapter caseProvidedInfrastructureDelegationConnector(
+                final ProvidedInfrastructureDelegationConnector object) {
+            return CompositionAdapterFactory.this.createProvidedInfrastructureDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredInfrastructureDelegationConnector(RequiredInfrastructureDelegationConnector object) {
-            return createRequiredInfrastructureDelegationConnectorAdapter();
+        public Adapter caseRequiredInfrastructureDelegationConnector(
+                final RequiredInfrastructureDelegationConnector object) {
+            return CompositionAdapterFactory.this.createRequiredInfrastructureDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredResourceDelegationConnector(RequiredResourceDelegationConnector object) {
-            return createRequiredResourceDelegationConnectorAdapter();
+        public Adapter caseRequiredResourceDelegationConnector(final RequiredResourceDelegationConnector object) {
+            return CompositionAdapterFactory.this.createRequiredResourceDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyContext(AssemblyContext object) {
-            return createAssemblyContextAdapter();
+        public Adapter caseAssemblyContext(final AssemblyContext object) {
+            return CompositionAdapterFactory.this.createAssemblyContextAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return CompositionAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return CompositionAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return CompositionAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return CompositionAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -222,7 +224,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Provided Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector
      * @generated
@@ -237,7 +239,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
      * @generated
@@ -252,7 +254,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Required Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector
      * @generated
@@ -267,7 +269,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
      * @generated
@@ -282,7 +284,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Required Delegation Connector</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector
      * @generated
@@ -297,7 +299,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel
      * @generated
@@ -312,7 +314,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Assembly Event Connector</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector
      * @generated
@@ -327,7 +329,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Source Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector
      * @generated
@@ -342,7 +344,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Sink Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector
      * @generated
@@ -357,7 +359,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector
      * @generated
@@ -372,7 +374,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Required Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector
      * @generated
@@ -387,7 +389,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Provided Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector
      * @generated
@@ -402,7 +404,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Required Resource Delegation Connector</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector
      * @generated
@@ -417,7 +419,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector
      * @generated
@@ -432,7 +434,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Event Channel Source Connector</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector
      * @generated
@@ -447,7 +449,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
      * @generated
@@ -461,7 +463,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -476,7 +478,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
      * @generated
@@ -490,7 +492,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.Entity
      * @generated
@@ -505,7 +507,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.Connector
      * @generated
@@ -520,7 +522,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
      * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.DelegationConnector
      * @generated
@@ -532,7 +534,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @generated
      */

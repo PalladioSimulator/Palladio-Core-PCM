@@ -29,7 +29,7 @@ package de.uka.ipd.sdq.pcm.repository;
 public interface OperationRequiredRole extends RequiredRole {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +38,7 @@ public interface OperationRequiredRole extends RequiredRole {
      * Returns the value of the ' <em><b>Required Interface Operation Required Role</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This
      * property represents the interfaces that is required by this role. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the ' <em>Required Interface Operation Required Role</em>' reference.
      * @see #setRequiredInterface__OperationRequiredRole(OperationInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationRequiredRole_RequiredInterface__OperationRequiredRole()
@@ -52,7 +52,7 @@ public interface OperationRequiredRole extends RequiredRole {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
      * <em>Required Interface Operation Required Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Required Interface Operation Required Role</em>'
      *            reference.

@@ -22,8 +22,8 @@ import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
  * the probability that it returns successfully. For reliability prediction, the PCMRandomVariable
  * specified in its superclass SpecifiedQoSAnnotation must evaluate to a real number between 0 and
  * 1.
- * 
- * 
+ *
+ *
  * <!-- end-model-doc -->
  *
  * <p>
@@ -42,7 +42,7 @@ import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
 public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -62,7 +62,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em> '
      *         containment reference list.
@@ -76,7 +76,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -90,7 +90,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -104,7 +104,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

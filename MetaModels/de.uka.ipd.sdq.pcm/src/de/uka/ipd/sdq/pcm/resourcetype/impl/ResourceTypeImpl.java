@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -50,7 +49,7 @@ import de.uka.ipd.sdq.units.UnitsPackage;
 public abstract class ResourceTypeImpl extends EntityImpl implements ResourceType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -60,7 +59,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      * {@link #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * <em>Resource Provided Roles Resource Interface Providing Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @generated
      * @ordered
@@ -69,7 +68,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceTypeImpl() {
@@ -78,7 +77,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +87,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     @Override
@@ -102,10 +101,10 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    public NotificationChain basicSetUnit(Unit newUnit, NotificationChain msgs) {
+    public NotificationChain basicSetUnit(final Unit newUnit, final NotificationChain msgs) {
         // TODO: implement this method to set the contained 'Unit' containment reference
         // -> this method is automatically invoked to keep the containment relationship in synch
         // -> do not modify other features
@@ -117,7 +116,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     public Unit basicGetUnit() {
@@ -130,7 +129,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     public void setUnit(final Unit newUnit) {
@@ -141,120 +140,128 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<ResourceProvidedRole> getResourceProvidedRoles__ResourceInterfaceProvidingEntity() {
-        if (resourceProvidedRoles__ResourceInterfaceProvidingEntity == null) {
-            resourceProvidedRoles__ResourceInterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ResourceProvidedRole>(
+        if (this.resourceProvidedRoles__ResourceInterfaceProvidingEntity == null) {
+            this.resourceProvidedRoles__ResourceInterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ResourceProvidedRole>(
                     ResourceProvidedRole.class, this,
                     ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
                     EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE);
         }
-        return resourceProvidedRoles__ResourceInterfaceProvidingEntity;
+        return this.resourceProvidedRoles__ResourceInterfaceProvidingEntity;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceRepository getResourceRepository_ResourceType() {
-        if (eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE)
+        if (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE) {
             return null;
-        return (ResourceRepository) eInternalContainer();
+        }
+        return (ResourceRepository) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetResourceRepository_ResourceType(
-            ResourceRepository newResourceRepository_ResourceType, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newResourceRepository_ResourceType,
+            final ResourceRepository newResourceRepository_ResourceType, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newResourceRepository_ResourceType,
                 ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setResourceRepository_ResourceType(ResourceRepository newResourceRepository_ResourceType) {
-        if (newResourceRepository_ResourceType != eInternalContainer()
-                || (eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE && newResourceRepository_ResourceType != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newResourceRepository_ResourceType))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    public void setResourceRepository_ResourceType(final ResourceRepository newResourceRepository_ResourceType) {
+        if (newResourceRepository_ResourceType != this.eInternalContainer()
+                || (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE && newResourceRepository_ResourceType != null)) {
+            if (EcoreUtil.isAncestor(this, newResourceRepository_ResourceType)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newResourceRepository_ResourceType != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newResourceRepository_ResourceType != null) {
                 msgs = ((InternalEObject) newResourceRepository_ResourceType).eInverseAdd(this,
                         ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
                         ResourceRepository.class, msgs);
-            msgs = basicSetResourceRepository_ResourceType(newResourceRepository_ResourceType, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetResourceRepository_ResourceType(newResourceRepository_ResourceType, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE,
                     newResourceRepository_ResourceType, newResourceRepository_ResourceType));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetResourceRepository_ResourceType((ResourceRepository) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetResourceRepository_ResourceType((ResourceRepository) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            return basicSetUnit(null, msgs);
+            return this.basicSetUnit(null, msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<?>) getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicRemove(
+            return ((InternalEList<?>) this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicRemove(
                     otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
-            return basicSetResourceRepository_ResourceType(null, msgs);
+            return this.basicSetResourceRepository_ResourceType(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
                     ResourceRepository.class, msgs);
         }
@@ -263,41 +270,41 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            return getUnit();
+            return this.getUnit();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return getResourceProvidedRoles__ResourceInterfaceProvidingEntity();
+            return this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
-            return getResourceRepository_ResourceType();
+            return this.getResourceRepository_ResourceType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            setUnit((Unit) newValue);
+            this.setUnit((Unit) newValue);
             return;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
-            getResourceProvidedRoles__ResourceInterfaceProvidingEntity().addAll(
+            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
+            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().addAll(
                     (Collection<? extends ResourceProvidedRole>) newValue);
             return;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
-            setResourceRepository_ResourceType((ResourceRepository) newValue);
+            this.setResourceRepository_ResourceType((ResourceRepository) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -305,20 +312,20 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            setUnit((Unit) null);
+            this.setUnit((Unit) null);
             return;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
+            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
             return;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
-            setResourceRepository_ResourceType((ResourceRepository) null);
+            this.setResourceRepository_ResourceType((ResourceRepository) null);
             return;
         }
         super.eUnset(featureID);
@@ -326,30 +333,30 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            return getUnit() != null;
+            return this.getUnit() != null;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return resourceProvidedRoles__ResourceInterfaceProvidingEntity != null
-                    && !resourceProvidedRoles__ResourceInterfaceProvidingEntity.isEmpty();
+            return this.resourceProvidedRoles__ResourceInterfaceProvidingEntity != null
+            && !this.resourceProvidedRoles__ResourceInterfaceProvidingEntity.isEmpty();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
-            return getResourceRepository_ResourceType() != null;
+            return this.getResourceRepository_ResourceType() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
         if (baseClass == UnitCarryingElement.class) {
             switch (derivedFeatureID) {
             case ResourcetypePackage.RESOURCE_TYPE__UNIT:
@@ -371,11 +378,11 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
         if (baseClass == UnitCarryingElement.class) {
             switch (baseFeatureID) {
             case UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT:

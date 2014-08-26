@@ -65,62 +65,62 @@ import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ResourcetypePackageImpl extends EPackageImpl implements ResourcetypePackage {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceSignatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass processingResourceTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceRepositoryEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass schedulingPolicyEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass communicationLinkResourceTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceInterfaceEClass = null;
@@ -133,7 +133,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#eNS_URI
      * @see #init()
@@ -145,7 +145,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static boolean isInited = false;
@@ -153,25 +153,26 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
      * upon which it depends.
-     * 
+     *
      * <p>
      * This method is used to initialize {@link ResourcetypePackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
      * @generated
      */
     public static ResourcetypePackage init() {
-        if (isInited)
+        if (isInited) {
             return (ResourcetypePackage) EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
+        }
 
         // Obtain or create and register package
-        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                : new ResourcetypePackageImpl());
+                        : new ResourcetypePackageImpl());
 
         isInited = true;
 
@@ -181,60 +182,63 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
+        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
-        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
+        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
+        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
+        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
+        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
+        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
+        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
+        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
+        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
+        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
+        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
+        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
+        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+                        .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
+        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
+                        .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
         // Create package meta-data objects
         theResourcetypePackage.createPackageContents();
@@ -290,207 +294,207 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EClass getResourceSignature() {
-        return resourceSignatureEClass;
+        return this.resourceSignatureEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceSignature_Parameter__ResourceSignature() {
-        return (EReference) resourceSignatureEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.resourceSignatureEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EAttribute getResourceSignature_ResourceServiceId() {
-        return (EAttribute) resourceSignatureEClass.getEStructuralFeatures().get(1);
+        return (EAttribute) this.resourceSignatureEClass.getEStructuralFeatures().get(1);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceSignature_ResourceInterface__ResourceSignature() {
-        return (EReference) resourceSignatureEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.resourceSignatureEClass.getEStructuralFeatures().get(2);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EClass getProcessingResourceType() {
-        return processingResourceTypeEClass;
+        return this.processingResourceTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType() {
-        return (EReference) processingResourceTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.processingResourceTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EClass getResourceType() {
-        return resourceTypeEClass;
+        return this.resourceTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceType_ResourceRepository_ResourceType() {
-        return (EReference) resourceTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.resourceTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EClass getResourceRepository() {
-        return resourceRepositoryEClass;
+        return this.resourceRepositoryEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceRepository_ResourceInterfaces__ResourceRepository() {
-        return (EReference) resourceRepositoryEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.resourceRepositoryEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceRepository_SchedulingPolicies__ResourceRepository() {
-        return (EReference) resourceRepositoryEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.resourceRepositoryEClass.getEStructuralFeatures().get(1);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceRepository_AvailableResourceTypes_ResourceRepository() {
-        return (EReference) resourceRepositoryEClass.getEStructuralFeatures().get(2);
+        return (EReference) this.resourceRepositoryEClass.getEStructuralFeatures().get(2);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EClass getSchedulingPolicy() {
-        return schedulingPolicyEClass;
+        return this.schedulingPolicyEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getSchedulingPolicy_ResourceRepository__SchedulingPolicy() {
-        return (EReference) schedulingPolicyEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.schedulingPolicyEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EClass getCommunicationLinkResourceType() {
-        return communicationLinkResourceTypeEClass;
+        return this.communicationLinkResourceTypeEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType() {
-        return (EReference) communicationLinkResourceTypeEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.communicationLinkResourceTypeEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EClass getResourceInterface() {
-        return resourceInterfaceEClass;
+        return this.resourceInterfaceEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceInterface_ResourceRepository__ResourceInterface() {
-        return (EReference) resourceInterfaceEClass.getEStructuralFeatures().get(0);
+        return (EReference) this.resourceInterfaceEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EReference getResourceInterface_ResourceSignatures__ResourceInterface() {
-        return (EReference) resourceInterfaceEClass.getEStructuralFeatures().get(1);
+        return (EReference) this.resourceInterfaceEClass.getEStructuralFeatures().get(1);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourcetypeFactory getResourcetypeFactory() {
-        return (ResourcetypeFactory) getEFactoryInstance();
+        return (ResourcetypeFactory) this.getEFactoryInstance();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isCreated = false;
@@ -498,47 +502,51 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void createPackageContents() {
-        if (isCreated)
+        if (this.isCreated) {
             return;
-        isCreated = true;
+        }
+        this.isCreated = true;
 
         // Create classes and their features
-        resourceSignatureEClass = createEClass(RESOURCE_SIGNATURE);
-        createEReference(resourceSignatureEClass, RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE);
-        createEAttribute(resourceSignatureEClass, RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID);
-        createEReference(resourceSignatureEClass, RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE);
+        this.resourceSignatureEClass = this.createEClass(RESOURCE_SIGNATURE);
+        this.createEReference(this.resourceSignatureEClass, RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE);
+        this.createEAttribute(this.resourceSignatureEClass, RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID);
+        this.createEReference(this.resourceSignatureEClass, RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE);
 
-        processingResourceTypeEClass = createEClass(PROCESSING_RESOURCE_TYPE);
-        createEReference(processingResourceTypeEClass,
+        this.processingResourceTypeEClass = this.createEClass(PROCESSING_RESOURCE_TYPE);
+        this.createEReference(this.processingResourceTypeEClass,
                 PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE);
 
-        resourceTypeEClass = createEClass(RESOURCE_TYPE);
-        createEReference(resourceTypeEClass, RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE);
+        this.resourceTypeEClass = this.createEClass(RESOURCE_TYPE);
+        this.createEReference(this.resourceTypeEClass, RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE);
 
-        resourceRepositoryEClass = createEClass(RESOURCE_REPOSITORY);
-        createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY);
-        createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY);
-        createEReference(resourceRepositoryEClass, RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY);
+        this.resourceRepositoryEClass = this.createEClass(RESOURCE_REPOSITORY);
+        this.createEReference(this.resourceRepositoryEClass,
+                RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY);
+        this.createEReference(this.resourceRepositoryEClass,
+                RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY);
+        this.createEReference(this.resourceRepositoryEClass,
+                RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY);
 
-        schedulingPolicyEClass = createEClass(SCHEDULING_POLICY);
-        createEReference(schedulingPolicyEClass, SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
+        this.schedulingPolicyEClass = this.createEClass(SCHEDULING_POLICY);
+        this.createEReference(this.schedulingPolicyEClass, SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
 
-        communicationLinkResourceTypeEClass = createEClass(COMMUNICATION_LINK_RESOURCE_TYPE);
-        createEReference(communicationLinkResourceTypeEClass,
+        this.communicationLinkResourceTypeEClass = this.createEClass(COMMUNICATION_LINK_RESOURCE_TYPE);
+        this.createEReference(this.communicationLinkResourceTypeEClass,
                 COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE);
 
-        resourceInterfaceEClass = createEClass(RESOURCE_INTERFACE);
-        createEReference(resourceInterfaceEClass, RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE);
-        createEReference(resourceInterfaceEClass, RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE);
+        this.resourceInterfaceEClass = this.createEClass(RESOURCE_INTERFACE);
+        this.createEReference(this.resourceInterfaceEClass, RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE);
+        this.createEReference(this.resourceInterfaceEClass, RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isInitialized = false;
@@ -546,118 +554,121 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void initializePackageContents() {
-        if (isInitialized)
+        if (this.isInitialized) {
             return;
-        isInitialized = true;
+        }
+        this.isInitialized = true;
 
         // Initialize package
-        setName(eNAME);
-        setNsPrefix(eNS_PREFIX);
-        setNsURI(eNS_URI);
+        this.setName(eNAME);
+        this.setNsPrefix(eNS_PREFIX);
+        this.setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
-        RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
+                .getEPackage(EntityPackage.eNS_URI);
+        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI);
-        ReliabilityPackage theReliabilityPackage = (ReliabilityPackage) EPackage.Registry.INSTANCE
+        final ReliabilityPackage theReliabilityPackage = (ReliabilityPackage) EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI);
-        UnitsPackage theUnitsPackage = (UnitsPackage) EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
+        final UnitsPackage theUnitsPackage = (UnitsPackage) EPackage.Registry.INSTANCE
+                .getEPackage(UnitsPackage.eNS_URI);
 
         // Create type parameters
 
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        resourceSignatureEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        processingResourceTypeEClass.getESuperTypes().add(this.getResourceType());
-        resourceTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        resourceTypeEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
-        resourceTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
-        schedulingPolicyEClass.getESuperTypes().add(theEntityPackage.getEntity());
-        communicationLinkResourceTypeEClass.getESuperTypes().add(this.getResourceType());
-        resourceInterfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.resourceSignatureEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.processingResourceTypeEClass.getESuperTypes().add(this.getResourceType());
+        this.resourceTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.resourceTypeEClass.getESuperTypes().add(theUnitsPackage.getUnitCarryingElement());
+        this.resourceTypeEClass.getESuperTypes().add(theEntityPackage.getResourceInterfaceProvidingEntity());
+        this.schedulingPolicyEClass.getESuperTypes().add(theEntityPackage.getEntity());
+        this.communicationLinkResourceTypeEClass.getESuperTypes().add(this.getResourceType());
+        this.resourceInterfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
         // Initialize classes and features; add operations and parameters
-        initEClass(resourceSignatureEClass, ResourceSignature.class, "ResourceSignature", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getResourceSignature_Parameter__ResourceSignature(), theRepositoryPackage.getParameter(),
-                theRepositoryPackage.getParameter_ResourceSignature__Parameter(), "parameter__ResourceSignature", null,
-                0, -1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEAttribute(getResourceSignature_ResourceServiceId(), ecorePackage.getEInt(), "resourceServiceId", null, 1,
-                1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        initEReference(getResourceSignature_ResourceInterface__ResourceSignature(), this.getResourceInterface(),
-                this.getResourceInterface_ResourceSignatures__ResourceInterface(),
+        this.initEClass(this.resourceSignatureEClass, ResourceSignature.class, "ResourceSignature", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getResourceSignature_Parameter__ResourceSignature(),
+                theRepositoryPackage.getParameter(), theRepositoryPackage.getParameter_ResourceSignature__Parameter(),
+                "parameter__ResourceSignature", null, 0, -1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEAttribute(this.getResourceSignature_ResourceServiceId(), this.ecorePackage.getEInt(),
+                "resourceServiceId", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getResourceSignature_ResourceInterface__ResourceSignature(),
+                this.getResourceInterface(), this.getResourceInterface_ResourceSignatures__ResourceInterface(),
                 "resourceInterface__ResourceSignature", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(processingResourceTypeEClass, ProcessingResourceType.class, "ProcessingResourceType", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType(),
-                theReliabilityPackage.getHardwareInducedFailureType(),
-                theReliabilityPackage
-                        .getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType(),
+        this.initEClass(this.processingResourceTypeEClass, ProcessingResourceType.class, "ProcessingResourceType",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType(),
+                theReliabilityPackage.getHardwareInducedFailureType(), theReliabilityPackage
+                .getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType(),
                 "hardwareInducedFailureType__ProcessingResourceType", null, 0, 1, ProcessingResourceType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(resourceTypeEClass, ResourceType.class, "ResourceType", IS_ABSTRACT, !IS_INTERFACE,
+        this.initEClass(this.resourceTypeEClass, ResourceType.class, "ResourceType", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getResourceType_ResourceRepository_ResourceType(), this.getResourceRepository(),
+        this.initEReference(this.getResourceType_ResourceRepository_ResourceType(), this.getResourceRepository(),
                 this.getResourceRepository_AvailableResourceTypes_ResourceRepository(),
                 "resourceRepository_ResourceType", null, 1, 1, ResourceType.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(resourceRepositoryEClass, ResourceRepository.class, "ResourceRepository", !IS_ABSTRACT,
+        this.initEClass(this.resourceRepositoryEClass, ResourceRepository.class, "ResourceRepository", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getResourceRepository_ResourceInterfaces__ResourceRepository(), this.getResourceInterface(),
-                this.getResourceInterface_ResourceRepository__ResourceInterface(),
+        this.initEReference(this.getResourceRepository_ResourceInterfaces__ResourceRepository(),
+                this.getResourceInterface(), this.getResourceInterface_ResourceRepository__ResourceInterface(),
                 "resourceInterfaces__ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
-        initEReference(getResourceRepository_SchedulingPolicies__ResourceRepository(), this.getSchedulingPolicy(),
-                this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(),
+        this.initEReference(this.getResourceRepository_SchedulingPolicies__ResourceRepository(),
+                this.getSchedulingPolicy(), this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(),
                 "schedulingPolicies__ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
-        initEReference(getResourceRepository_AvailableResourceTypes_ResourceRepository(), this.getResourceType(),
-                this.getResourceType_ResourceRepository_ResourceType(), "availableResourceTypes_ResourceRepository",
-                null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEReference(this.getResourceRepository_AvailableResourceTypes_ResourceRepository(),
+                this.getResourceType(), this.getResourceType_ResourceRepository_ResourceType(),
+                "availableResourceTypes_ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
 
-        initEClass(schedulingPolicyEClass, SchedulingPolicy.class, "SchedulingPolicy", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getSchedulingPolicy_ResourceRepository__SchedulingPolicy(), this.getResourceRepository(),
-                this.getResourceRepository_SchedulingPolicies__ResourceRepository(),
+        this.initEClass(this.schedulingPolicyEClass, SchedulingPolicy.class, "SchedulingPolicy", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(),
+                this.getResourceRepository(), this.getResourceRepository_SchedulingPolicies__ResourceRepository(),
                 "resourceRepository__SchedulingPolicy", null, 1, 1, SchedulingPolicy.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(communicationLinkResourceTypeEClass, CommunicationLinkResourceType.class,
+        this.initEClass(this.communicationLinkResourceTypeEClass, CommunicationLinkResourceType.class,
                 "CommunicationLinkResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType(),
-                theReliabilityPackage.getNetworkInducedFailureType(),
-                theReliabilityPackage
-                        .getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType(),
+        this.initEReference(this
+                .getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType(),
+                theReliabilityPackage.getNetworkInducedFailureType(), theReliabilityPackage
+                .getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType(),
                 "networkInducedFailureType__CommunicationLinkResourceType", null, 0, 1,
                 CommunicationLinkResourceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        initEClass(resourceInterfaceEClass, ResourceInterface.class, "ResourceInterface", !IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
-        initEReference(getResourceInterface_ResourceRepository__ResourceInterface(), this.getResourceRepository(),
-                this.getResourceRepository_ResourceInterfaces__ResourceRepository(),
+        this.initEClass(this.resourceInterfaceEClass, ResourceInterface.class, "ResourceInterface", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getResourceInterface_ResourceRepository__ResourceInterface(),
+                this.getResourceRepository(), this.getResourceRepository_ResourceInterfaces__ResourceRepository(),
                 "resourceRepository__ResourceInterface", null, 1, 1, ResourceInterface.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
-        initEReference(getResourceInterface_ResourceSignatures__ResourceInterface(), this.getResourceSignature(),
-                this.getResourceSignature_ResourceInterface__ResourceSignature(),
+        this.initEReference(this.getResourceInterface_ResourceSignatures__ResourceInterface(),
+                this.getResourceSignature(), this.getResourceSignature_ResourceInterface__ResourceSignature(),
                 "resourceSignatures__ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);

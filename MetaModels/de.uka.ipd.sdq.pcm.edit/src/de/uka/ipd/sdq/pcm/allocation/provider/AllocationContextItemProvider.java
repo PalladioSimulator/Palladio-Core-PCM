@@ -11,12 +11,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
@@ -25,14 +20,13 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class AllocationContextItemProvider extends EntityItemProvider implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AllocationContextItemProvider extends EntityItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +34,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AllocationContextItemProvider(final AdapterFactory adapterFactory) {
@@ -50,7 +44,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +62,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
     /**
      * This adds a property descriptor for the Resource Container Allocation Context feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addResourceContainer_AllocationContextPropertyDescriptor(final Object object) {
@@ -85,24 +79,24 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
     /**
      * This adds a property descriptor for the Assembly Context Allocation Context feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addAssemblyContext_AllocationContextPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_AllocationContext_assemblyContext_AllocationContext_feature"), this
-                        .getString("_UI_PropertyDescriptor_description",
+                .getString("_UI_PropertyDescriptor_description",
                                 "_UI_AllocationContext_assemblyContext_AllocationContext_feature",
                                 "_UI_AllocationContext_type"),
-                AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, true, false, true,
-                null, null, null));
+                        AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, true, false, true,
+                        null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Event Channel Allocation Context feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addEventChannel__AllocationContextPropertyDescriptor(final Object object) {
@@ -117,7 +111,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
 
     /**
      * This returns AllocationContext.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -128,7 +122,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -142,7 +136,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -154,7 +148,7 @@ public class AllocationContextItemProvider extends EntityItemProvider implements
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

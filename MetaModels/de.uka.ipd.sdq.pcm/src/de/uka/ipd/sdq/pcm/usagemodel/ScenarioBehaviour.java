@@ -19,19 +19,19 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * <!-- begin-model-doc --> A ScenarioBehaviour specifies possible sequences of executing services
  * provided by the system. It contains a set of AbstractUserActions, each referencing a predecessor
  * and successor (except the first and last action), thereby forming a sequence of actions.
- * 
+ *
  * See the AbstractAction documentation for why it is advantageous to model control flow in this
  * way, as the same principle is used in the RDSEFF language.
- * 
+ *
  * Concrete user actions of the usage model are: - Branch - Loop - EntryLevelSystemCall - Delay -
  * Start - Stop
- * 
+ *
  * So far, ScenarioBehaviours do not include forks in the user flow (i.e., splitting the flow with
  * an AND semantic), as it is assumed that users always act sequentially.
- * 
+ *
  * As there are no random variables depending on other variables in the usage model, there are no
  * equivalent actions to GuardedBranchTransitions or CollectionIteratorActions.
- * 
+ *
  * <!-- end-model-doc -->
  *
  * <p>
@@ -55,7 +55,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 public interface ScenarioBehaviour extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -71,7 +71,7 @@ public interface ScenarioBehaviour extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Actions Scenario Behaviour</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Actions_ScenarioBehaviour()
      * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
@@ -82,7 +82,7 @@ public interface ScenarioBehaviour extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -95,7 +95,7 @@ public interface ScenarioBehaviour extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -108,7 +108,7 @@ public interface ScenarioBehaviour extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -130,7 +130,7 @@ public interface ScenarioBehaviour extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Transition Scenario Behaviour</em>' container reference.
      * @see #setBranchTransition_ScenarioBehaviour(BranchTransition)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_BranchTransition_ScenarioBehaviour()
@@ -145,7 +145,7 @@ public interface ScenarioBehaviour extends Entity {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
      * <em>Branch Transition Scenario Behaviour</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Transition Scenario Behaviour</em>' container
      *            reference.
@@ -164,7 +164,7 @@ public interface ScenarioBehaviour extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Loop Scenario Behaviour</em>' container reference.
      * @see #setLoop_ScenarioBehaviour(Loop)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Loop_ScenarioBehaviour()
@@ -179,7 +179,7 @@ public interface ScenarioBehaviour extends Entity {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
      * <em>Loop Scenario Behaviour</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Loop Scenario Behaviour</em>' container reference.
      * @see #getLoop_ScenarioBehaviour()
@@ -197,7 +197,7 @@ public interface ScenarioBehaviour extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Usage Scenario Senario Behaviour</em>' container reference.
      * @see #setUsageScenario_SenarioBehaviour(UsageScenario)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_UsageScenario_SenarioBehaviour()
@@ -212,7 +212,7 @@ public interface ScenarioBehaviour extends Entity {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
      * <em>Usage Scenario Senario Behaviour</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Usage Scenario Senario Behaviour</em>' container
      *            reference.

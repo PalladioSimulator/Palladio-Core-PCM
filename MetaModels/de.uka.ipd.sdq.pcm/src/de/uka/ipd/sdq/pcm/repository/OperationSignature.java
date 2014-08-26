@@ -36,7 +36,7 @@ import org.eclipse.emf.common.util.EList;
 public interface OperationSignature extends Signature {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public interface OperationSignature extends Signature {
      * <em>Signatures Operation Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
      * begin-model-doc --> This property represents the interface that contains the method with this
      * signature. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Interface Operation Signature</em>' container reference.
      * @see #setInterface__OperationSignature(OperationInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationSignature_Interface__OperationSignature()
@@ -64,7 +64,7 @@ public interface OperationSignature extends Signature {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getInterface__OperationSignature
      * <em>Interface Operation Signature</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Interface Operation Signature</em>' container reference.
      * @see #getInterface__OperationSignature()
@@ -74,7 +74,7 @@ public interface OperationSignature extends Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -89,7 +89,7 @@ public interface OperationSignature extends Signature {
      * Returns the value of the '<em><b>Return Type Operation Signature</b></em> ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the return type of the corresponding method. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Return Type Operation Signature</em>' reference.
      * @see #setReturnType__OperationSignature(DataType)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationSignature_ReturnType__OperationSignature()
@@ -103,7 +103,7 @@ public interface OperationSignature extends Signature {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getReturnType__OperationSignature
      * <em>Return Type Operation Signature</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Return Type Operation Signature</em>' reference.
      * @see #getReturnType__OperationSignature()
@@ -119,7 +119,7 @@ public interface OperationSignature extends Signature {
      * <em>Operation Signature Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
      * begin-model-doc --> This property represents the list of parameters of the corresponding
      * method. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameters Operation Signature</em>' containment reference
      *         list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationSignature_Parameters__OperationSignature()

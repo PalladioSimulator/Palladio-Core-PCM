@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 public class CollectionIteratorActionImpl extends AbstractLoopActionImpl implements CollectionIteratorAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +41,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
      * The cached value of the '{@link #getParameter_CollectionIteratorAction()
      * <em>Parameter Collection Iterator Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getParameter_CollectionIteratorAction()
      * @generated
      * @ordered
@@ -50,7 +50,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CollectionIteratorActionImpl() {
@@ -59,7 +59,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,74 +69,79 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Parameter getParameter_CollectionIteratorAction() {
-        if (parameter_CollectionIteratorAction != null && ((EObject) parameter_CollectionIteratorAction).eIsProxy()) {
-            InternalEObject oldParameter_CollectionIteratorAction = (InternalEObject) parameter_CollectionIteratorAction;
-            parameter_CollectionIteratorAction = (Parameter) eResolveProxy(oldParameter_CollectionIteratorAction);
-            if (parameter_CollectionIteratorAction != oldParameter_CollectionIteratorAction) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.parameter_CollectionIteratorAction != null
+                && ((EObject) this.parameter_CollectionIteratorAction).eIsProxy()) {
+            final InternalEObject oldParameter_CollectionIteratorAction = (InternalEObject) this.parameter_CollectionIteratorAction;
+            this.parameter_CollectionIteratorAction = (Parameter) this
+                    .eResolveProxy(oldParameter_CollectionIteratorAction);
+            if (this.parameter_CollectionIteratorAction != oldParameter_CollectionIteratorAction) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
-                            oldParameter_CollectionIteratorAction, parameter_CollectionIteratorAction));
+                            oldParameter_CollectionIteratorAction, this.parameter_CollectionIteratorAction));
+                }
             }
         }
-        return parameter_CollectionIteratorAction;
+        return this.parameter_CollectionIteratorAction;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Parameter basicGetParameter_CollectionIteratorAction() {
-        return parameter_CollectionIteratorAction;
+        return this.parameter_CollectionIteratorAction;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setParameter_CollectionIteratorAction(Parameter newParameter_CollectionIteratorAction) {
-        Parameter oldParameter_CollectionIteratorAction = parameter_CollectionIteratorAction;
-        parameter_CollectionIteratorAction = newParameter_CollectionIteratorAction;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setParameter_CollectionIteratorAction(final Parameter newParameter_CollectionIteratorAction) {
+        final Parameter oldParameter_CollectionIteratorAction = this.parameter_CollectionIteratorAction;
+        this.parameter_CollectionIteratorAction = newParameter_CollectionIteratorAction;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
-                    oldParameter_CollectionIteratorAction, parameter_CollectionIteratorAction));
+                    oldParameter_CollectionIteratorAction, this.parameter_CollectionIteratorAction));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-            if (resolve)
-                return getParameter_CollectionIteratorAction();
-            return basicGetParameter_CollectionIteratorAction();
+            if (resolve) {
+                return this.getParameter_CollectionIteratorAction();
+            }
+            return this.basicGetParameter_CollectionIteratorAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-            setParameter_CollectionIteratorAction((Parameter) newValue);
+            this.setParameter_CollectionIteratorAction((Parameter) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -144,14 +149,14 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-            setParameter_CollectionIteratorAction((Parameter) null);
+            this.setParameter_CollectionIteratorAction((Parameter) null);
             return;
         }
         super.eUnset(featureID);
@@ -159,14 +164,14 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-            return parameter_CollectionIteratorAction != null;
+            return this.parameter_CollectionIteratorAction != null;
         }
         return super.eIsSet(featureID);
     }

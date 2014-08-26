@@ -12,12 +12,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -29,15 +24,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class CompositeComponentItemProvider extends ComposedProvidingRequiringEntityItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-        IItemPropertySource {
+public class CompositeComponentItemProvider extends ComposedProvidingRequiringEntityItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +38,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CompositeComponentItemProvider(final AdapterFactory adapterFactory) {
@@ -55,7 +48,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +65,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
     /**
      * This adds a property descriptor for the Parent Complete Component Types feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addParentCompleteComponentTypesPropertyDescriptor(final Object object) {
@@ -89,7 +82,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
     /**
      * This adds a property descriptor for the Component Type feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addComponentTypePropertyDescriptor(final Object object) {
@@ -98,8 +91,8 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
                 this.getString("_UI_ImplementationComponentType_componentType_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_ImplementationComponentType_componentType_feature",
                         "_UI_ImplementationComponentType_type"),
-                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -108,7 +101,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +116,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,7 +129,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
 
     /**
      * This returns CompositeComponent.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +140,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -161,7 +154,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -182,7 +175,7 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -191,9 +184,9 @@ public class CompositeComponentItemProvider extends ComposedProvidingRequiringEn
 
         newChildDescriptors
                 .add(this
-                        .createChildParameter(
-                                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
-                                ParameterFactory.eINSTANCE.createVariableUsage()));
+                .createChildParameter(
+                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+                        ParameterFactory.eINSTANCE.createVariableUsage()));
     }
 
 }

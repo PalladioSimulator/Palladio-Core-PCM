@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  * QoSAnnotations provide a first perforamnce (or reliability) abstraction of the services offered
  * by a component using the SpecifiedQoSAnnotation. They furthermore define the output parameters of
  * the services without describing its internal behviour.
- * 
+ *
  * Notes: - Should the association of QoSAnnotations to services not be in the class QoSAnnotation
  * instead of SpecifiedQoSAnnotation and SpecifiedOutputParameterAbstraction separately? <!--
  * end-model-doc -->
@@ -51,7 +51,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 public interface QoSAnnotations extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,7 +69,7 @@ public interface QoSAnnotations extends Entity {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations()
@@ -90,7 +90,7 @@ public interface QoSAnnotations extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>System Qo SAnnotations</em>' container reference.
      * @see #setSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System)
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_System_QoSAnnotations()
@@ -105,7 +105,7 @@ public interface QoSAnnotations extends Entity {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations
      * <em>System Qo SAnnotations</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>System Qo SAnnotations</em>' container reference.
      * @see #getSystem_QoSAnnotations()
@@ -125,7 +125,7 @@ public interface QoSAnnotations extends Entity {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations()
@@ -137,7 +137,7 @@ public interface QoSAnnotations extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

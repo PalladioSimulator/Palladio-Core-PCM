@@ -50,10 +50,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * @generated
  */
 public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjectImpl implements
-        ServiceEffectSpecification {
+ServiceEffectSpecification {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +61,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
     /**
      * The default value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSeffTypeID()
      * @generated
      * @ordered
@@ -71,7 +71,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
     /**
      * The cached value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSeffTypeID()
      * @generated
      * @ordered
@@ -81,7 +81,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
     /**
      * The cached value of the '{@link #getDescribedService__SEFF() <em>Described Service SEFF</em>}
      * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getDescribedService__SEFF()
      * @generated
      * @ordered
@@ -90,7 +90,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ServiceEffectSpecificationImpl() {
@@ -99,7 +99,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -109,121 +109,132 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public String getSeffTypeID() {
-        return seffTypeID;
+        return this.seffTypeID;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setSeffTypeID(String newSeffTypeID) {
-        String oldSeffTypeID = seffTypeID;
-        seffTypeID = newSeffTypeID;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, oldSeffTypeID, seffTypeID));
+    public void setSeffTypeID(final String newSeffTypeID) {
+        final String oldSeffTypeID = this.seffTypeID;
+        this.seffTypeID = newSeffTypeID;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, oldSeffTypeID, this.seffTypeID));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Signature getDescribedService__SEFF() {
-        if (describedService__SEFF != null && ((EObject) describedService__SEFF).eIsProxy()) {
-            InternalEObject oldDescribedService__SEFF = (InternalEObject) describedService__SEFF;
-            describedService__SEFF = (Signature) eResolveProxy(oldDescribedService__SEFF);
-            if (describedService__SEFF != oldDescribedService__SEFF) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.describedService__SEFF != null && ((EObject) this.describedService__SEFF).eIsProxy()) {
+            final InternalEObject oldDescribedService__SEFF = (InternalEObject) this.describedService__SEFF;
+            this.describedService__SEFF = (Signature) this.eResolveProxy(oldDescribedService__SEFF);
+            if (this.describedService__SEFF != oldDescribedService__SEFF) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
-                            oldDescribedService__SEFF, describedService__SEFF));
+                            oldDescribedService__SEFF, this.describedService__SEFF));
+                }
             }
         }
-        return describedService__SEFF;
+        return this.describedService__SEFF;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Signature basicGetDescribedService__SEFF() {
-        return describedService__SEFF;
+        return this.describedService__SEFF;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setDescribedService__SEFF(Signature newDescribedService__SEFF) {
-        Signature oldDescribedService__SEFF = describedService__SEFF;
-        describedService__SEFF = newDescribedService__SEFF;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setDescribedService__SEFF(final Signature newDescribedService__SEFF) {
+        final Signature oldDescribedService__SEFF = this.describedService__SEFF;
+        this.describedService__SEFF = newDescribedService__SEFF;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF,
-                    describedService__SEFF));
+                    this.describedService__SEFF));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public BasicComponent getBasicComponent_ServiceEffectSpecification() {
-        if (eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION)
+        if (this.eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION) {
             return null;
-        return (BasicComponent) eInternalContainer();
+        }
+        return (BasicComponent) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetBasicComponent_ServiceEffectSpecification(
-            BasicComponent newBasicComponent_ServiceEffectSpecification, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newBasicComponent_ServiceEffectSpecification,
+            final BasicComponent newBasicComponent_ServiceEffectSpecification, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newBasicComponent_ServiceEffectSpecification,
                 SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setBasicComponent_ServiceEffectSpecification(BasicComponent newBasicComponent_ServiceEffectSpecification) {
-        if (newBasicComponent_ServiceEffectSpecification != eInternalContainer()
-                || (eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION && newBasicComponent_ServiceEffectSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newBasicComponent_ServiceEffectSpecification))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    public void setBasicComponent_ServiceEffectSpecification(
+            final BasicComponent newBasicComponent_ServiceEffectSpecification) {
+        if (newBasicComponent_ServiceEffectSpecification != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION && newBasicComponent_ServiceEffectSpecification != null)) {
+            if (EcoreUtil.isAncestor(this, newBasicComponent_ServiceEffectSpecification)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newBasicComponent_ServiceEffectSpecification != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newBasicComponent_ServiceEffectSpecification != null) {
                 msgs = ((InternalEObject) newBasicComponent_ServiceEffectSpecification).eInverseAdd(this,
                         RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
                         BasicComponent.class, msgs);
-            msgs = basicSetBasicComponent_ServiceEffectSpecification(newBasicComponent_ServiceEffectSpecification, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetBasicComponent_ServiceEffectSpecification(newBasicComponent_ServiceEffectSpecification,
+                    msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
                     newBasicComponent_ServiceEffectSpecification, newBasicComponent_ServiceEffectSpecification));
+        }
     }
 
     /**
@@ -231,7 +242,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -249,7 +260,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -259,35 +270,38 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    public boolean ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION);
             try {
                 REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                SeffValidator.DIAGNOSTIC_SOURCE,
-                                SeffValidator.SERVICE_EFFECT_SPECIFICATION__REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        SeffValidator.DIAGNOSTIC_SOURCE,
+                        SeffValidator.SERVICE_EFFECT_SPECIFICATION__REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole",
+                                EObjectValidator.getObjectLabel(this, context)
+                        }), new Object[] {
+                            this
+                        }));
             }
             return false;
         }
@@ -296,44 +310,46 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetBasicComponent_ServiceEffectSpecification((BasicComponent) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetBasicComponent_ServiceEffectSpecification((BasicComponent) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
-            return basicSetBasicComponent_ServiceEffectSpecification(null, msgs);
+            return this.basicSetBasicComponent_ServiceEffectSpecification(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
                     BasicComponent.class, msgs);
         }
@@ -342,40 +358,41 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
-            return getSeffTypeID();
+            return this.getSeffTypeID();
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
-            if (resolve)
-                return getDescribedService__SEFF();
-            return basicGetDescribedService__SEFF();
+            if (resolve) {
+                return this.getDescribedService__SEFF();
+            }
+            return this.basicGetDescribedService__SEFF();
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
-            return getBasicComponent_ServiceEffectSpecification();
+            return this.getBasicComponent_ServiceEffectSpecification();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
-            setSeffTypeID((String) newValue);
+            this.setSeffTypeID((String) newValue);
             return;
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
-            setDescribedService__SEFF((Signature) newValue);
+            this.setDescribedService__SEFF((Signature) newValue);
             return;
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
-            setBasicComponent_ServiceEffectSpecification((BasicComponent) newValue);
+            this.setBasicComponent_ServiceEffectSpecification((BasicComponent) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -383,20 +400,20 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
-            setSeffTypeID(SEFF_TYPE_ID_EDEFAULT);
+            this.setSeffTypeID(SEFF_TYPE_ID_EDEFAULT);
             return;
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
-            setDescribedService__SEFF((Signature) null);
+            this.setDescribedService__SEFF((Signature) null);
             return;
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
-            setBasicComponent_ServiceEffectSpecification((BasicComponent) null);
+            this.setBasicComponent_ServiceEffectSpecification((BasicComponent) null);
             return;
         }
         super.eUnset(featureID);
@@ -404,35 +421,37 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
-            return SEFF_TYPE_ID_EDEFAULT == null ? seffTypeID != null : !SEFF_TYPE_ID_EDEFAULT.equals(seffTypeID);
+            return SEFF_TYPE_ID_EDEFAULT == null ? this.seffTypeID != null : !SEFF_TYPE_ID_EDEFAULT
+                    .equals(this.seffTypeID);
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
-            return describedService__SEFF != null;
+            return this.describedService__SEFF != null;
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
-            return getBasicComponent_ServiceEffectSpecification() != null;
+            return this.getBasicComponent_ServiceEffectSpecification() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (seffTypeID: ");
-        result.append(seffTypeID);
+        result.append(this.seffTypeID);
         result.append(')');
         return result.toString();
     }
@@ -440,7 +459,7 @@ public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjec
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -34,14 +33,14 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredRoleImpl() {
@@ -50,7 +49,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -60,95 +59,103 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public InterfaceRequiringEntity getRequiringEntity_RequiredRole() {
-        if (eContainerFeatureID() != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE)
+        if (this.eContainerFeatureID() != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE) {
             return null;
-        return (InterfaceRequiringEntity) eInternalContainer();
+        }
+        return (InterfaceRequiringEntity) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRequiringEntity_RequiredRole(
-            InterfaceRequiringEntity newRequiringEntity_RequiredRole, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newRequiringEntity_RequiredRole,
+            final InterfaceRequiringEntity newRequiringEntity_RequiredRole, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newRequiringEntity_RequiredRole,
                 RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setRequiringEntity_RequiredRole(InterfaceRequiringEntity newRequiringEntity_RequiredRole) {
-        if (newRequiringEntity_RequiredRole != eInternalContainer()
-                || (eContainerFeatureID() != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE && newRequiringEntity_RequiredRole != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newRequiringEntity_RequiredRole))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    public void setRequiringEntity_RequiredRole(final InterfaceRequiringEntity newRequiringEntity_RequiredRole) {
+        if (newRequiringEntity_RequiredRole != this.eInternalContainer()
+                || (this.eContainerFeatureID() != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE && newRequiringEntity_RequiredRole != null)) {
+            if (EcoreUtil.isAncestor(this, newRequiringEntity_RequiredRole)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newRequiringEntity_RequiredRole != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newRequiringEntity_RequiredRole != null) {
                 msgs = ((InternalEObject) newRequiringEntity_RequiredRole).eInverseAdd(this,
                         EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
                         InterfaceRequiringEntity.class, msgs);
-            msgs = basicSetRequiringEntity_RequiredRole(newRequiringEntity_RequiredRole, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetRequiringEntity_RequiredRole(newRequiringEntity_RequiredRole, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE, newRequiringEntity_RequiredRole,
                     newRequiringEntity_RequiredRole));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetRequiringEntity_RequiredRole((InterfaceRequiringEntity) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetRequiringEntity_RequiredRole((InterfaceRequiringEntity) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
-            return basicSetRequiringEntity_RequiredRole(null, msgs);
+            return this.basicSetRequiringEntity_RequiredRole(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
                     InterfaceRequiringEntity.class, msgs);
         }
@@ -157,28 +164,28 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
-            return getRequiringEntity_RequiredRole();
+            return this.getRequiringEntity_RequiredRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
-            setRequiringEntity_RequiredRole((InterfaceRequiringEntity) newValue);
+            this.setRequiringEntity_RequiredRole((InterfaceRequiringEntity) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -186,14 +193,14 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
-            setRequiringEntity_RequiredRole((InterfaceRequiringEntity) null);
+            this.setRequiringEntity_RequiredRole((InterfaceRequiringEntity) null);
             return;
         }
         super.eUnset(featureID);
@@ -201,14 +208,14 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
-            return getRequiringEntity_RequiredRole() != null;
+            return this.getRequiringEntity_RequiredRole() != null;
         }
         return super.eIsSet(featureID);
     }

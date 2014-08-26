@@ -15,30 +15,30 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnn
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliabilityFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static QosReliabilityFactory init() {
         try {
-            QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory) EPackage.Registry.INSTANCE
+            final QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosReliabilityPackage.eNS_URI);
             if (theQosReliabilityFactory != null) {
                 return theQosReliabilityFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosReliabilityFactoryImpl();
@@ -46,7 +46,7 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QosReliabilityFactoryImpl() {
@@ -55,14 +55,14 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION:
-            return (EObject) createSpecifiedReliabilityAnnotation();
+            return this.createSpecifiedReliabilityAnnotation();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -70,28 +70,28 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SpecifiedReliabilityAnnotation createSpecifiedReliabilityAnnotation() {
-        SpecifiedReliabilityAnnotationImpl specifiedReliabilityAnnotation = new SpecifiedReliabilityAnnotationImpl();
+        final SpecifiedReliabilityAnnotationImpl specifiedReliabilityAnnotation = new SpecifiedReliabilityAnnotationImpl();
         return specifiedReliabilityAnnotation;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public QosReliabilityPackage getQosReliabilityPackage() {
-        return (QosReliabilityPackage) getEPackage();
+        return (QosReliabilityPackage) this.getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

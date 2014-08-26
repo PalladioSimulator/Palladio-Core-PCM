@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -40,7 +39,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
 public class BranchTransitionImpl extends EStereotypableObjectImpl implements BranchTransition {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +47,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
     /**
      * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -58,7 +57,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
     /**
      * The cached value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -69,7 +68,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
      * The cached value of the '{@link #getBranchedBehaviour_BranchTransition()
      * <em>Branched Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getBranchedBehaviour_BranchTransition()
      * @generated
      * @ordered
@@ -78,7 +77,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BranchTransitionImpl() {
@@ -87,7 +86,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -97,182 +96,199 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public double getBranchProbability() {
-        return branchProbability;
+        return this.branchProbability;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setBranchProbability(double newBranchProbability) {
-        double oldBranchProbability = branchProbability;
-        branchProbability = newBranchProbability;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY, oldBranchProbability, branchProbability));
+    public void setBranchProbability(final double newBranchProbability) {
+        final double oldBranchProbability = this.branchProbability;
+        this.branchProbability = newBranchProbability;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY, oldBranchProbability,
+                    this.branchProbability));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Branch getBranch_BranchTransition() {
-        if (eContainerFeatureID() != UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION)
+        if (this.eContainerFeatureID() != UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION) {
             return null;
-        return (Branch) eInternalContainer();
+        }
+        return (Branch) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    public NotificationChain basicSetBranch_BranchTransition(Branch newBranch_BranchTransition, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newBranch_BranchTransition,
+    public NotificationChain basicSetBranch_BranchTransition(final Branch newBranch_BranchTransition,
+            NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newBranch_BranchTransition,
                 UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setBranch_BranchTransition(Branch newBranch_BranchTransition) {
-        if (newBranch_BranchTransition != eInternalContainer()
-                || (eContainerFeatureID() != UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION && newBranch_BranchTransition != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newBranch_BranchTransition))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    public void setBranch_BranchTransition(final Branch newBranch_BranchTransition) {
+        if (newBranch_BranchTransition != this.eInternalContainer()
+                || (this.eContainerFeatureID() != UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION && newBranch_BranchTransition != null)) {
+            if (EcoreUtil.isAncestor(this, newBranch_BranchTransition)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newBranch_BranchTransition != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newBranch_BranchTransition != null) {
                 msgs = ((InternalEObject) newBranch_BranchTransition).eInverseAdd(this,
                         UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH, Branch.class, msgs);
-            msgs = basicSetBranch_BranchTransition(newBranch_BranchTransition, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetBranch_BranchTransition(newBranch_BranchTransition, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION, newBranch_BranchTransition,
                     newBranch_BranchTransition));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ScenarioBehaviour getBranchedBehaviour_BranchTransition() {
-        return branchedBehaviour_BranchTransition;
+        return this.branchedBehaviour_BranchTransition;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetBranchedBehaviour_BranchTransition(
-            ScenarioBehaviour newBranchedBehaviour_BranchTransition, NotificationChain msgs) {
-        ScenarioBehaviour oldBranchedBehaviour_BranchTransition = branchedBehaviour_BranchTransition;
-        branchedBehaviour_BranchTransition = newBranchedBehaviour_BranchTransition;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+            final ScenarioBehaviour newBranchedBehaviour_BranchTransition, NotificationChain msgs) {
+        final ScenarioBehaviour oldBranchedBehaviour_BranchTransition = this.branchedBehaviour_BranchTransition;
+        this.branchedBehaviour_BranchTransition = newBranchedBehaviour_BranchTransition;
+        if (this.eNotificationRequired()) {
+            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION,
                     oldBranchedBehaviour_BranchTransition, newBranchedBehaviour_BranchTransition);
-            if (msgs == null)
+            if (msgs == null) {
                 msgs = notification;
-            else
+            } else {
                 msgs.add(notification);
+            }
         }
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setBranchedBehaviour_BranchTransition(ScenarioBehaviour newBranchedBehaviour_BranchTransition) {
-        if (newBranchedBehaviour_BranchTransition != branchedBehaviour_BranchTransition) {
+    public void setBranchedBehaviour_BranchTransition(final ScenarioBehaviour newBranchedBehaviour_BranchTransition) {
+        if (newBranchedBehaviour_BranchTransition != this.branchedBehaviour_BranchTransition) {
             NotificationChain msgs = null;
-            if (branchedBehaviour_BranchTransition != null)
-                msgs = ((InternalEObject) branchedBehaviour_BranchTransition).eInverseRemove(this,
+            if (this.branchedBehaviour_BranchTransition != null) {
+                msgs = ((InternalEObject) this.branchedBehaviour_BranchTransition).eInverseRemove(this,
                         UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR,
                         ScenarioBehaviour.class, msgs);
-            if (newBranchedBehaviour_BranchTransition != null)
+            }
+            if (newBranchedBehaviour_BranchTransition != null) {
                 msgs = ((InternalEObject) newBranchedBehaviour_BranchTransition).eInverseAdd(this,
                         UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR,
                         ScenarioBehaviour.class, msgs);
-            msgs = basicSetBranchedBehaviour_BranchTransition(newBranchedBehaviour_BranchTransition, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetBranchedBehaviour_BranchTransition(newBranchedBehaviour_BranchTransition, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION,
                     newBranchedBehaviour_BranchTransition, newBranchedBehaviour_BranchTransition));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetBranch_BranchTransition((Branch) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetBranch_BranchTransition((Branch) otherEnd, msgs);
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
-            if (branchedBehaviour_BranchTransition != null)
-                msgs = ((InternalEObject) branchedBehaviour_BranchTransition)
+            if (this.branchedBehaviour_BranchTransition != null) {
+                msgs = ((InternalEObject) this.branchedBehaviour_BranchTransition)
                         .eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                                 - UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION, null, msgs);
-            return basicSetBranchedBehaviour_BranchTransition((ScenarioBehaviour) otherEnd, msgs);
+            }
+            return this.basicSetBranchedBehaviour_BranchTransition((ScenarioBehaviour) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
-            return basicSetBranch_BranchTransition(null, msgs);
+            return this.basicSetBranch_BranchTransition(null, msgs);
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
-            return basicSetBranchedBehaviour_BranchTransition(null, msgs);
+            return this.basicSetBranchedBehaviour_BranchTransition(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
-            return eInternalContainer().eInverseRemove(this, UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH,
+            return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH,
                     Branch.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
@@ -280,38 +296,38 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            return getBranchProbability();
+            return this.getBranchProbability();
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
-            return getBranch_BranchTransition();
+            return this.getBranch_BranchTransition();
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
-            return getBranchedBehaviour_BranchTransition();
+            return this.getBranchedBehaviour_BranchTransition();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            setBranchProbability((Double) newValue);
+            this.setBranchProbability((Double) newValue);
             return;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
-            setBranch_BranchTransition((Branch) newValue);
+            this.setBranch_BranchTransition((Branch) newValue);
             return;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
-            setBranchedBehaviour_BranchTransition((ScenarioBehaviour) newValue);
+            this.setBranchedBehaviour_BranchTransition((ScenarioBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -319,20 +335,20 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
+            this.setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
             return;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
-            setBranch_BranchTransition((Branch) null);
+            this.setBranch_BranchTransition((Branch) null);
             return;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
-            setBranchedBehaviour_BranchTransition((ScenarioBehaviour) null);
+            this.setBranchedBehaviour_BranchTransition((ScenarioBehaviour) null);
             return;
         }
         super.eUnset(featureID);
@@ -340,35 +356,36 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
-            return branchProbability != BRANCH_PROBABILITY_EDEFAULT;
+            return this.branchProbability != BRANCH_PROBABILITY_EDEFAULT;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
-            return getBranch_BranchTransition() != null;
+            return this.getBranch_BranchTransition() != null;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
-            return branchedBehaviour_BranchTransition != null;
+            return this.branchedBehaviour_BranchTransition != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (branchProbability: ");
-        result.append(branchProbability);
+        result.append(this.branchProbability);
         result.append(')');
         return result.toString();
     }

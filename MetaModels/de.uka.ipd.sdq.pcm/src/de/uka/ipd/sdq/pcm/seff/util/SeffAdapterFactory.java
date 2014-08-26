@@ -46,28 +46,28 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage
  * @generated
  */
 public class SeffAdapterFactory extends AdapterFactoryImpl {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static SeffPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffAdapterFactory() {
@@ -80,12 +80,12 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     * 
+     *
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -98,182 +98,182 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SeffSwitch<Adapter> modelSwitch = new SeffSwitch<Adapter>() {
         @Override
-        public Adapter caseStopAction(StopAction object) {
-            return createStopActionAdapter();
+        public Adapter caseStopAction(final StopAction object) {
+            return SeffAdapterFactory.this.createStopActionAdapter();
         }
 
         @Override
-        public Adapter caseAbstractInternalControlFlowAction(AbstractInternalControlFlowAction object) {
-            return createAbstractInternalControlFlowActionAdapter();
+        public Adapter caseAbstractInternalControlFlowAction(final AbstractInternalControlFlowAction object) {
+            return SeffAdapterFactory.this.createAbstractInternalControlFlowActionAdapter();
         }
 
         @Override
-        public Adapter caseAbstractAction(AbstractAction object) {
-            return createAbstractActionAdapter();
+        public Adapter caseAbstractAction(final AbstractAction object) {
+            return SeffAdapterFactory.this.createAbstractActionAdapter();
         }
 
         @Override
-        public Adapter caseResourceDemandingBehaviour(ResourceDemandingBehaviour object) {
-            return createResourceDemandingBehaviourAdapter();
+        public Adapter caseResourceDemandingBehaviour(final ResourceDemandingBehaviour object) {
+            return SeffAdapterFactory.this.createResourceDemandingBehaviourAdapter();
         }
 
         @Override
-        public Adapter caseAbstractLoopAction(AbstractLoopAction object) {
-            return createAbstractLoopActionAdapter();
+        public Adapter caseAbstractLoopAction(final AbstractLoopAction object) {
+            return SeffAdapterFactory.this.createAbstractLoopActionAdapter();
         }
 
         @Override
-        public Adapter caseAbstractBranchTransition(AbstractBranchTransition object) {
-            return createAbstractBranchTransitionAdapter();
+        public Adapter caseAbstractBranchTransition(final AbstractBranchTransition object) {
+            return SeffAdapterFactory.this.createAbstractBranchTransitionAdapter();
         }
 
         @Override
-        public Adapter caseBranchAction(BranchAction object) {
-            return createBranchActionAdapter();
+        public Adapter caseBranchAction(final BranchAction object) {
+            return SeffAdapterFactory.this.createBranchActionAdapter();
         }
 
         @Override
-        public Adapter caseCallAction(CallAction object) {
-            return createCallActionAdapter();
+        public Adapter caseCallAction(final CallAction object) {
+            return SeffAdapterFactory.this.createCallActionAdapter();
         }
 
         @Override
-        public Adapter caseStartAction(StartAction object) {
-            return createStartActionAdapter();
+        public Adapter caseStartAction(final StartAction object) {
+            return SeffAdapterFactory.this.createStartActionAdapter();
         }
 
         @Override
-        public Adapter caseServiceEffectSpecification(ServiceEffectSpecification object) {
-            return createServiceEffectSpecificationAdapter();
+        public Adapter caseServiceEffectSpecification(final ServiceEffectSpecification object) {
+            return SeffAdapterFactory.this.createServiceEffectSpecificationAdapter();
         }
 
         @Override
-        public Adapter caseResourceDemandingSEFF(ResourceDemandingSEFF object) {
-            return createResourceDemandingSEFFAdapter();
+        public Adapter caseResourceDemandingSEFF(final ResourceDemandingSEFF object) {
+            return SeffAdapterFactory.this.createResourceDemandingSEFFAdapter();
         }
 
         @Override
-        public Adapter caseResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour object) {
-            return createResourceDemandingInternalBehaviourAdapter();
+        public Adapter caseResourceDemandingInternalBehaviour(final ResourceDemandingInternalBehaviour object) {
+            return SeffAdapterFactory.this.createResourceDemandingInternalBehaviourAdapter();
         }
 
         @Override
-        public Adapter caseReleaseAction(ReleaseAction object) {
-            return createReleaseActionAdapter();
+        public Adapter caseReleaseAction(final ReleaseAction object) {
+            return SeffAdapterFactory.this.createReleaseActionAdapter();
         }
 
         @Override
-        public Adapter caseLoopAction(LoopAction object) {
-            return createLoopActionAdapter();
+        public Adapter caseLoopAction(final LoopAction object) {
+            return SeffAdapterFactory.this.createLoopActionAdapter();
         }
 
         @Override
-        public Adapter caseForkAction(ForkAction object) {
-            return createForkActionAdapter();
+        public Adapter caseForkAction(final ForkAction object) {
+            return SeffAdapterFactory.this.createForkActionAdapter();
         }
 
         @Override
-        public Adapter caseForkedBehaviour(ForkedBehaviour object) {
-            return createForkedBehaviourAdapter();
+        public Adapter caseForkedBehaviour(final ForkedBehaviour object) {
+            return SeffAdapterFactory.this.createForkedBehaviourAdapter();
         }
 
         @Override
-        public Adapter caseSynchronisationPoint(SynchronisationPoint object) {
-            return createSynchronisationPointAdapter();
+        public Adapter caseSynchronisationPoint(final SynchronisationPoint object) {
+            return SeffAdapterFactory.this.createSynchronisationPointAdapter();
         }
 
         @Override
-        public Adapter caseExternalCallAction(ExternalCallAction object) {
-            return createExternalCallActionAdapter();
+        public Adapter caseExternalCallAction(final ExternalCallAction object) {
+            return SeffAdapterFactory.this.createExternalCallActionAdapter();
         }
 
         @Override
-        public Adapter caseCallReturnAction(CallReturnAction object) {
-            return createCallReturnActionAdapter();
+        public Adapter caseCallReturnAction(final CallReturnAction object) {
+            return SeffAdapterFactory.this.createCallReturnActionAdapter();
         }
 
         @Override
-        public Adapter caseProbabilisticBranchTransition(ProbabilisticBranchTransition object) {
-            return createProbabilisticBranchTransitionAdapter();
+        public Adapter caseProbabilisticBranchTransition(final ProbabilisticBranchTransition object) {
+            return SeffAdapterFactory.this.createProbabilisticBranchTransitionAdapter();
         }
 
         @Override
-        public Adapter caseAcquireAction(AcquireAction object) {
-            return createAcquireActionAdapter();
+        public Adapter caseAcquireAction(final AcquireAction object) {
+            return SeffAdapterFactory.this.createAcquireActionAdapter();
         }
 
         @Override
-        public Adapter caseCollectionIteratorAction(CollectionIteratorAction object) {
-            return createCollectionIteratorActionAdapter();
+        public Adapter caseCollectionIteratorAction(final CollectionIteratorAction object) {
+            return SeffAdapterFactory.this.createCollectionIteratorActionAdapter();
         }
 
         @Override
-        public Adapter caseGuardedBranchTransition(GuardedBranchTransition object) {
-            return createGuardedBranchTransitionAdapter();
+        public Adapter caseGuardedBranchTransition(final GuardedBranchTransition object) {
+            return SeffAdapterFactory.this.createGuardedBranchTransitionAdapter();
         }
 
         @Override
-        public Adapter caseSetVariableAction(SetVariableAction object) {
-            return createSetVariableActionAdapter();
+        public Adapter caseSetVariableAction(final SetVariableAction object) {
+            return SeffAdapterFactory.this.createSetVariableActionAdapter();
         }
 
         @Override
-        public Adapter caseInternalCallAction(InternalCallAction object) {
-            return createInternalCallActionAdapter();
+        public Adapter caseInternalCallAction(final InternalCallAction object) {
+            return SeffAdapterFactory.this.createInternalCallActionAdapter();
         }
 
         @Override
-        public Adapter caseEmitEventAction(EmitEventAction object) {
-            return createEmitEventActionAdapter();
+        public Adapter caseEmitEventAction(final EmitEventAction object) {
+            return SeffAdapterFactory.this.createEmitEventActionAdapter();
         }
 
         @Override
-        public Adapter caseInternalAction(InternalAction object) {
-            return createInternalActionAdapter();
+        public Adapter caseInternalAction(final InternalAction object) {
+            return SeffAdapterFactory.this.createInternalActionAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return SeffAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return SeffAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return SeffAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseFailureHandlingEntity(FailureHandlingEntity object) {
-            return createFailureHandlingEntityAdapter();
+        public Adapter caseFailureHandlingEntity(final FailureHandlingEntity object) {
+            return SeffAdapterFactory.this.createFailureHandlingEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return SeffAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -281,7 +281,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Stop Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.StopAction
      * @generated
@@ -296,7 +296,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Internal Control Flow Action</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction
      * @generated
@@ -310,7 +310,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Action</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.AbstractAction
      * @generated
@@ -325,7 +325,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Demanding Behaviour</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
      * @generated
@@ -340,7 +340,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction
      * @generated
@@ -355,7 +355,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
      * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
      * @generated
@@ -369,7 +369,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Branch Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.BranchAction
      * @generated
@@ -383,7 +383,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Start Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.StartAction
      * @generated
@@ -398,7 +398,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
      * @generated
@@ -413,7 +413,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Demanding Internal Behaviour</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour
      * @generated
@@ -427,7 +427,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Release Action</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ReleaseAction
      * @generated
@@ -441,7 +441,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Loop Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.LoopAction
      * @generated
@@ -455,7 +455,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Internal Action</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.InternalAction
      * @generated
@@ -469,7 +469,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Fork Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ForkAction
      * @generated
@@ -484,7 +484,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ForkedBehaviour
      * @generated
@@ -499,7 +499,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint
      * @generated
@@ -514,7 +514,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction
      * @generated
@@ -529,7 +529,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.CallReturnAction
      * @generated
@@ -543,7 +543,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Call Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.CallAction
      * @generated
@@ -558,7 +558,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Failure Handling Entity</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
      * @generated
@@ -573,7 +573,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Probabilistic Branch Transition</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition
      * @generated
@@ -587,7 +587,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Acquire Action</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.AcquireAction
      * @generated
@@ -602,7 +602,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
      * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
      * @generated
@@ -617,7 +617,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition
      * @generated
@@ -632,7 +632,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.SetVariableAction
      * @generated
@@ -647,7 +647,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.InternalCallAction
      * @generated
@@ -662,7 +662,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.EmitEventAction
      * @generated
@@ -677,7 +677,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Service Effect Specification</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
      * @generated
@@ -691,7 +691,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -706,7 +706,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
      * @generated
@@ -720,7 +720,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.Entity
      * @generated
@@ -732,7 +732,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @generated
      */

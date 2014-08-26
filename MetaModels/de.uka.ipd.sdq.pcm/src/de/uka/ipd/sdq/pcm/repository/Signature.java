@@ -78,7 +78,7 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
 public interface Signature extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -88,7 +88,7 @@ public interface Signature extends Entity {
      * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ExceptionType}. <!--
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the list of exceptions declared by this signature. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Exceptions Signature</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Exceptions__Signature()
      * @model containment="true" ordered="false"
@@ -107,7 +107,7 @@ public interface Signature extends Entity {
      * Optional&nbsp;specification&nbsp;of&nbsp;failure
      * &nbsp;types&nbsp;that&nbsp;can&nbsp;happen&nbsp
      * ;on&nbsp;execution&nbsp;of&nbsp;the&nbsp;specified&nbsp;service. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Failure Type</em>' reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_FailureType()
      * @model ordered="false"

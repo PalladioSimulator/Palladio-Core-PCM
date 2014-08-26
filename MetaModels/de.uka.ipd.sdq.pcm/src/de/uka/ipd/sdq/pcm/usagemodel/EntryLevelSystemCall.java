@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
  * variables characterising the input parameters like NUMBER_OF_ELEMENTS can not depend on other
  * variables in the usage model. They have to be composed from literals only including literals
  * describing random variables having a certain fixed distribution.
- * 
+ *
  * TODO Anne: Constraint that ensures that the referred signature is contained in the interface
  * referenced by the ProvidedRole (see Diagram) <!-- end-model-doc -->
  *
@@ -62,7 +62,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 public interface EntryLevelSystemCall extends AbstractUserAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -78,7 +78,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Input Parameter Usages Entry Level System Call</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall()
@@ -95,7 +95,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Priority</em>' attribute.
      * @see #setPriority(int)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_Priority()
@@ -107,7 +107,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getPriority
      * <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Priority</em>' attribute.
      * @see #getPriority()
@@ -117,7 +117,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -131,7 +131,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -151,7 +151,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Provided Role Entry Level System Call</em>' reference.
      * @see #setProvidedRole_EntryLevelSystemCall(OperationProvidedRole)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall()
@@ -165,7 +165,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall
      * <em>Provided Role Entry Level System Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Provided Role Entry Level System Call</em>' reference.
      * @see #getProvidedRole_EntryLevelSystemCall()
@@ -181,7 +181,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Operation Signature Entry Level System Call</em>' reference.
      * @see #setOperationSignature__EntryLevelSystemCall(OperationSignature)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall()
@@ -195,7 +195,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall
      * <em>Operation Signature Entry Level System Call</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Operation Signature Entry Level System Call</em>'
      *            reference.
@@ -215,7 +215,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Output Parameter Usages Entry Level System Call</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall()

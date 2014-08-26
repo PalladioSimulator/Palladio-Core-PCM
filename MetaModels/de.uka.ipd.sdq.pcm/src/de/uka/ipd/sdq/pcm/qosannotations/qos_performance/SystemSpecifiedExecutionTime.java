@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * performance analysts to specify the response time (distribution) of services called at the system
  * boundaries. This allows abstracting from the system externals and restricts the focus to the
  * software architecture under consideration.
- * 
+ *
  * Note: - That's the starting point for Performance-Kennlinien I guess... <!-- end-model-doc -->
  *
  *
@@ -28,14 +28,14 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 public interface SystemSpecifiedExecutionTime extends SpecifiedExecutionTime {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

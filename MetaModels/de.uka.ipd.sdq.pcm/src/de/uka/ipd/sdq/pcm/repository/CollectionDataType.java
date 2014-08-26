@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
 public interface CollectionDataType extends Entity, DataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +38,7 @@ public interface CollectionDataType extends Entity, DataType {
      * Returns the value of the '<em><b>Inner Type Collection Data Type</b></em> ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the type of items contained in the collection data type. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Inner Type Collection Data Type</em>' reference.
      * @see #setInnerType_CollectionDataType(DataType)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCollectionDataType_InnerType_CollectionDataType()
@@ -52,7 +52,7 @@ public interface CollectionDataType extends Entity, DataType {
      * {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerType_CollectionDataType
      * <em>Inner Type Collection Data Type</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Inner Type Collection Data Type</em>' reference.
      * @see #getInnerType_CollectionDataType()

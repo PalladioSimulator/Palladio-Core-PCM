@@ -13,12 +13,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -31,14 +26,13 @@ import de.uka.ipd.sdq.stoex.provider.VariableItemProvider;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
-public class CharacterisedVariableItemProvider extends VariableItemProvider implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CharacterisedVariableItemProvider extends VariableItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -46,7 +40,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CharacterisedVariableItemProvider(final AdapterFactory adapterFactory) {
@@ -56,7 +50,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +66,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
     /**
      * This adds a property descriptor for the Characterisation Type feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addCharacterisationTypePropertyDescriptor(final Object object) {
@@ -87,7 +81,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
 
     /**
      * This returns CharacterisedVariable.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -98,7 +92,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +107,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -131,7 +125,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -142,7 +136,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider impl
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

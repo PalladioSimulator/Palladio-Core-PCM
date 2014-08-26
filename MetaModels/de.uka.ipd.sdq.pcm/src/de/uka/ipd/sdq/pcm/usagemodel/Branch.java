@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * contains a nested ScenarioBehaviour, which a user executes once this branch transition is chosen.
  * After execution of the complete nested ScenarioBehaviour, the next action in the user flow after
  * the Branch is its successor action.
- * 
+ *
  * A constraint ensures that all branchProbabilities of the included BranchTransitions sum up to 1.
  * <!-- end-model-doc -->
  *
@@ -38,7 +38,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Branch extends AbstractUserAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public interface Branch extends AbstractUserAction {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Transitions Branch</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranch_BranchTransitions_Branch()
      * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
@@ -65,7 +65,7 @@ public interface Branch extends AbstractUserAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

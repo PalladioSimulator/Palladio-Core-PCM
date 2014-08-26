@@ -13,12 +13,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
@@ -31,15 +26,13 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
-public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-        IItemPropertySource {
+public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +40,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceDemandingBehaviourItemProvider(final AdapterFactory adapterFactory) {
@@ -57,7 +50,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -75,7 +68,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +82,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -102,7 +95,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
 
     /**
      * This returns ResourceDemandingBehaviour.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +106,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -127,7 +120,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +138,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -212,7 +205,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

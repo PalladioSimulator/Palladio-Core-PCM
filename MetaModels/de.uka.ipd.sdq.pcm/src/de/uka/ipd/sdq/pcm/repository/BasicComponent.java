@@ -40,7 +40,7 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 public interface BasicComponent extends ImplementationComponentType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public interface BasicComponent extends ImplementationComponentType {
      * <em>Basic Component Service Effect Specification</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc --> <!-- begin-model-doc --> This property contains the service effect
      * specification for services provided by this basic component. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the ' <em>Service Effect Specifications Basic Component</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ServiceEffectSpecifications__BasicComponent()
@@ -73,7 +73,7 @@ public interface BasicComponent extends ImplementationComponentType {
      * <em>Basic Component Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the passive resources, e.g., semaphores,
      * that are owned by this basic component. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Passive Resource Basic Component</em>' containment reference
      *         list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_PassiveResource_BasicComponent()
@@ -85,7 +85,7 @@ public interface BasicComponent extends ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

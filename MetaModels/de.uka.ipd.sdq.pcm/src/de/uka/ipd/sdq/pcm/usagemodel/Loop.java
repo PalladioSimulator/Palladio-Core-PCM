@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 public interface Loop extends AbstractUserAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public interface Loop extends AbstractUserAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Loop Iteration Loop</em>' containment reference.
      * @see #setLoopIteration_Loop(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getLoop_LoopIteration_Loop()
@@ -61,7 +61,7 @@ public interface Loop extends AbstractUserAction {
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getLoopIteration_Loop
      * <em>Loop Iteration Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Loop Iteration Loop</em>' containment reference.
      * @see #getLoopIteration_Loop()
@@ -79,7 +79,7 @@ public interface Loop extends AbstractUserAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Body Behaviour Loop</em>' containment reference.
      * @see #setBodyBehaviour_Loop(ScenarioBehaviour)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getLoop_BodyBehaviour_Loop()
@@ -93,7 +93,7 @@ public interface Loop extends AbstractUserAction {
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Body Behaviour Loop</em>' containment reference.
      * @see #getBodyBehaviour_Loop()

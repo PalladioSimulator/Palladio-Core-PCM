@@ -29,7 +29,7 @@ package de.uka.ipd.sdq.pcm.repository;
 public interface OperationProvidedRole extends ProvidedRole {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -39,7 +39,7 @@ public interface OperationProvidedRole extends ProvidedRole {
      * reference. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This
      * property represents the corresponding interface that is provided by this role. <!--
      * end-model-doc -->
-     * 
+     *
      * @return the value of the ' <em>Provided Interface Operation Provided Role</em>' reference.
      * @see #setProvidedInterface__OperationProvidedRole(OperationInterface)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getOperationProvidedRole_ProvidedInterface__OperationProvidedRole()
@@ -53,7 +53,7 @@ public interface OperationProvidedRole extends ProvidedRole {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole#getProvidedInterface__OperationProvidedRole
      * <em>Provided Interface Operation Provided Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Provided Interface Operation Provided Role</em>'
      *            reference.

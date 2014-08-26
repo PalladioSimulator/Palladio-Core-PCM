@@ -38,14 +38,14 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CompositionItemProviderAdapterFactory extends CompositionAdapterFactory implements
         ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +53,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComposedAdapterFactory parentAdapterFactory;
@@ -61,14 +61,14 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +77,14 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CompositionItemProviderAdapterFactory() {
@@ -99,7 +99,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProvidedDelegationConnectorItemProvider providedDelegationConnectorItemProvider;
@@ -108,7 +108,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +124,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyConnectorItemProvider assemblyConnectorItemProvider;
@@ -132,7 +132,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredDelegationConnectorItemProvider requiredDelegationConnectorItemProvider;
@@ -157,7 +157,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -173,7 +173,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceRequiredDelegationConnectorItemProvider resourceRequiredDelegationConnectorItemProvider;
@@ -182,7 +182,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -199,7 +199,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventChannelItemProvider eventChannelItemProvider;
@@ -207,7 +207,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -223,7 +223,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyEventConnectorItemProvider assemblyEventConnectorItemProvider;
@@ -232,7 +232,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -248,7 +248,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SinkDelegationConnectorItemProvider sinkDelegationConnectorItemProvider;
@@ -257,7 +257,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -273,7 +273,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyInfrastructureConnectorItemProvider assemblyInfrastructureConnectorItemProvider;
@@ -282,7 +282,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -298,7 +298,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredInfrastructureDelegationConnectorItemProvider requiredInfrastructureDelegationConnectorItemProvider;
@@ -307,7 +307,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -324,7 +324,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProvidedInfrastructureDelegationConnectorItemProvider providedInfrastructureDelegationConnectorItemProvider;
@@ -333,7 +333,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -350,7 +350,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredResourceDelegationConnectorItemProvider requiredResourceDelegationConnectorItemProvider;
@@ -359,7 +359,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -376,7 +376,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventChannelSinkConnectorItemProvider eventChannelSinkConnectorItemProvider;
@@ -385,7 +385,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -401,7 +401,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventChannelSourceConnectorItemProvider eventChannelSourceConnectorItemProvider;
@@ -410,7 +410,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -426,7 +426,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SourceDelegationConnectorItemProvider sourceDelegationConnectorItemProvider;
@@ -435,7 +435,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -451,7 +451,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyContextItemProvider assemblyContextItemProvider;
@@ -459,7 +459,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -474,7 +474,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -485,7 +485,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -495,7 +495,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -506,7 +506,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This implementation substitutes the factory itself as the key for the adapter. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -516,7 +516,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -533,7 +533,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -542,7 +542,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -552,7 +552,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -562,7 +562,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -572,7 +572,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -583,7 +583,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -598,7 +598,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

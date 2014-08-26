@@ -35,8 +35,8 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * ;makes&nbsp;the&nbsp;concrete&nbsp;resources&nbsp;replaceable&nbsp;to&nbsp;answer&nbsp
  * ;sizing&nbsp;questions.<br />
  * The&nbsp;demand
- * 's&nbsp;unit&nbsp;is&nbsp;equal&nbsp;for&nbsp;all&nbsp;ProcessingResourceSpecifications&nbsp;referencin
- * g<br />
+ * 's&nbsp;unit&nbsp;is&nbsp;equal&nbsp;for&nbsp;all&nbsp;ProcessingResourceSpecifications&nbsp;referenc
+ * i n g<br />
  * the&nbsp;same&nbsp;ProcessingResourceType.&nbsp;It&nbsp;can&nbsp;for&nbsp;example&nbsp;be&nbsp;
  * "WorkUnits"<br />
  * for&nbsp;CPUs&nbsp;[Smi02]&nbsp;or&nbsp;"BytesRead"&nbsp;for&nbsp;hard&nbsp;disks.&nbsp;Each&nbsp
@@ -80,8 +80,8 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * the&nbsp;list&nbsp;the&nbsp;algorithm&nbsp;shall&nbsp;sort,&nbsp;which&nbsp;is&nbsp;an&nbsp;input
  * &nbsp;parameter&nbsp;of&nbsp;the&nbsp;service.&nbsp;If&nbsp;the&nbsp;current<br />
  * characterisation&nbsp;of&nbsp;the&nbsp;list
- * 's&nbsp;length&nbsp;is&nbsp;100&nbsp;(as&nbsp;the&nbsp;modelled&nbsp;usage&nbsp;profile),&nbsp;analysis&nbsp;tool
- * s<br />
+ * 's&nbsp;length&nbsp;is&nbsp;100&nbsp;(as&nbsp;the&nbsp;modelled&nbsp;usage&nbsp;profile),&nbsp;analysis&nbsp;to
+ * o l s<br />
  * derive&nbsp;1002&nbsp;&nbsp;2000&nbsp;&nbsp;12000&nbsp;WorkUnits&nbsp;from&nbsp;the&nbsp;
  * specification,&nbsp;thus&nbsp;resolving&nbsp;the&nbsp;usage<br />
  * profile&nbsp;dependency.&nbsp;If&nbsp;the&nbsp;CPU&nbsp;ProcessingResourceSpecification&nbsp;the&
@@ -134,7 +134,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface ParametricResourceDemand extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -149,7 +149,7 @@ public interface ParametricResourceDemand extends EStereotypableObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Specification Parameteric Resource Demand</em>' containment
      *         reference.
      * @see #setSpecification_ParametericResourceDemand(PCMRandomVariable)
@@ -166,7 +166,7 @@ public interface ParametricResourceDemand extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand
      * <em>Specification Parameteric Resource Demand</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the ' <em>Specification Parameteric Resource Demand</em>'
      *            containment reference.
@@ -183,7 +183,7 @@ public interface ParametricResourceDemand extends EStereotypableObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Resource Parametric Resource Demand</em>' reference.
      * @see #setRequiredResource_ParametricResourceDemand(ProcessingResourceType)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_RequiredResource_ParametricResourceDemand()
@@ -197,7 +197,7 @@ public interface ParametricResourceDemand extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand
      * <em>Required Resource Parametric Resource Demand</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Required Resource Parametric Resource Demand</em>'
      *            reference.
@@ -216,7 +216,7 @@ public interface ParametricResourceDemand extends EStereotypableObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Action Parametric Resource Demand</em>' container reference.
      * @see #setAction_ParametricResourceDemand(AbstractInternalControlFlowAction)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Action_ParametricResourceDemand()
@@ -231,7 +231,7 @@ public interface ParametricResourceDemand extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
      * <em>Action Parametric Resource Demand</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Action Parametric Resource Demand</em>' container
      *            reference.
@@ -242,7 +242,7 @@ public interface ParametricResourceDemand extends EStereotypableObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

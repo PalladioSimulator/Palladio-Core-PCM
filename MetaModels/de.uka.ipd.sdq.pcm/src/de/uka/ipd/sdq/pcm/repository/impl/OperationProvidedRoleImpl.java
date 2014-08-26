@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements OperationProvidedRole {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +41,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
      * The cached value of the '{@link #getProvidedInterface__OperationProvidedRole()
      * <em>Provided Interface Operation Provided Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getProvidedInterface__OperationProvidedRole()
      * @generated
      * @ordered
@@ -50,7 +50,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationProvidedRoleImpl() {
@@ -59,7 +59,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,76 +69,80 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public OperationInterface getProvidedInterface__OperationProvidedRole() {
-        if (providedInterface__OperationProvidedRole != null
-                && ((EObject) providedInterface__OperationProvidedRole).eIsProxy()) {
-            InternalEObject oldProvidedInterface__OperationProvidedRole = (InternalEObject) providedInterface__OperationProvidedRole;
-            providedInterface__OperationProvidedRole = (OperationInterface) eResolveProxy(oldProvidedInterface__OperationProvidedRole);
-            if (providedInterface__OperationProvidedRole != oldProvidedInterface__OperationProvidedRole) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.providedInterface__OperationProvidedRole != null
+                && ((EObject) this.providedInterface__OperationProvidedRole).eIsProxy()) {
+            final InternalEObject oldProvidedInterface__OperationProvidedRole = (InternalEObject) this.providedInterface__OperationProvidedRole;
+            this.providedInterface__OperationProvidedRole = (OperationInterface) this
+                    .eResolveProxy(oldProvidedInterface__OperationProvidedRole);
+            if (this.providedInterface__OperationProvidedRole != oldProvidedInterface__OperationProvidedRole) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE,
-                            oldProvidedInterface__OperationProvidedRole, providedInterface__OperationProvidedRole));
+                            oldProvidedInterface__OperationProvidedRole, this.providedInterface__OperationProvidedRole));
+                }
             }
         }
-        return providedInterface__OperationProvidedRole;
+        return this.providedInterface__OperationProvidedRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationInterface basicGetProvidedInterface__OperationProvidedRole() {
-        return providedInterface__OperationProvidedRole;
+        return this.providedInterface__OperationProvidedRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void setProvidedInterface__OperationProvidedRole(
-            OperationInterface newProvidedInterface__OperationProvidedRole) {
-        OperationInterface oldProvidedInterface__OperationProvidedRole = providedInterface__OperationProvidedRole;
-        providedInterface__OperationProvidedRole = newProvidedInterface__OperationProvidedRole;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            final OperationInterface newProvidedInterface__OperationProvidedRole) {
+        final OperationInterface oldProvidedInterface__OperationProvidedRole = this.providedInterface__OperationProvidedRole;
+        this.providedInterface__OperationProvidedRole = newProvidedInterface__OperationProvidedRole;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE,
-                    oldProvidedInterface__OperationProvidedRole, providedInterface__OperationProvidedRole));
+                    oldProvidedInterface__OperationProvidedRole, this.providedInterface__OperationProvidedRole));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
-            if (resolve)
-                return getProvidedInterface__OperationProvidedRole();
-            return basicGetProvidedInterface__OperationProvidedRole();
+            if (resolve) {
+                return this.getProvidedInterface__OperationProvidedRole();
+            }
+            return this.basicGetProvidedInterface__OperationProvidedRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
-            setProvidedInterface__OperationProvidedRole((OperationInterface) newValue);
+            this.setProvidedInterface__OperationProvidedRole((OperationInterface) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -146,14 +150,14 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
-            setProvidedInterface__OperationProvidedRole((OperationInterface) null);
+            this.setProvidedInterface__OperationProvidedRole((OperationInterface) null);
             return;
         }
         super.eUnset(featureID);
@@ -161,14 +165,14 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
-            return providedInterface__OperationProvidedRole != null;
+            return this.providedInterface__OperationProvidedRole != null;
         }
         return super.eIsSet(featureID);
     }

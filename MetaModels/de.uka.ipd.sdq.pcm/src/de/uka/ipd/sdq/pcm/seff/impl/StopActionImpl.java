@@ -32,14 +32,14 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class StopActionImpl extends AbstractInternalControlFlowActionImpl implements StopAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StopActionImpl() {
@@ -48,7 +48,7 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
      * {@link #StopActionSuccessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Stop Action Successor Must Not Be Defined</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #StopActionSuccessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -73,7 +73,7 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
      * {@link #StopActionSuccessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Stop Action Successor Must Not Be Defined</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #StopActionSuccessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -83,18 +83,19 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean StopActionSuccessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean StopActionSuccessorMustNotBeDefined(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.STOP_ACTION);
             try {
                 STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -103,11 +104,14 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.STOP_ACTION__STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED, EcorePlugin.INSTANCE
-                                .getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "StopActionSuccessorMustNotBeDefined",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                        .getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] {
+                                        "StopActionSuccessorMustNotBeDefined",
+                                        EObjectValidator.getObjectLabel(this, context)
+                                }), new Object[] {
+                    this
+                }));
             }
             return false;
         }
@@ -117,7 +121,7 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

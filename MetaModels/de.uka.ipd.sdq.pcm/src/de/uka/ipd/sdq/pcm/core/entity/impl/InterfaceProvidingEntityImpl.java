@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements InterfaceProvidingEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
      * The cached value of the ' {@link #getProvidedRoles_InterfaceProvidingEntity()
      * <em>Provided Roles Interface Providing Entity</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getProvidedRoles_InterfaceProvidingEntity()
      * @generated
      * @ordered
@@ -54,7 +54,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InterfaceProvidingEntityImpl() {
@@ -63,7 +63,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,76 +73,78 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<ProvidedRole> getProvidedRoles_InterfaceProvidingEntity() {
-        if (providedRoles_InterfaceProvidingEntity == null) {
-            providedRoles_InterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ProvidedRole>(
+        if (this.providedRoles_InterfaceProvidingEntity == null) {
+            this.providedRoles_InterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ProvidedRole>(
                     ProvidedRole.class, this,
                     EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
                     RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
         }
-        return providedRoles_InterfaceProvidingEntity;
+        return this.providedRoles_InterfaceProvidingEntity;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getProvidedRoles_InterfaceProvidingEntity())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<?>) getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return getProvidedRoles_InterfaceProvidingEntity();
+            return this.getProvidedRoles_InterfaceProvidingEntity();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            getProvidedRoles_InterfaceProvidingEntity().clear();
-            getProvidedRoles_InterfaceProvidingEntity().addAll((Collection<? extends ProvidedRole>) newValue);
+            this.getProvidedRoles_InterfaceProvidingEntity().clear();
+            this.getProvidedRoles_InterfaceProvidingEntity().addAll((Collection<? extends ProvidedRole>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -150,14 +152,14 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            getProvidedRoles_InterfaceProvidingEntity().clear();
+            this.getProvidedRoles_InterfaceProvidingEntity().clear();
             return;
         }
         super.eUnset(featureID);
@@ -165,14 +167,15 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-            return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
+            return this.providedRoles_InterfaceProvidingEntity != null
+                    && !this.providedRoles_InterfaceProvidingEntity.isEmpty();
         }
         return super.eIsSet(featureID);
     }

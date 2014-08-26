@@ -48,10 +48,10 @@ import de.uka.ipd.sdq.pcm.reliability.util.ReliabilityValidator;
  * @generated
  */
 public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceDescriptionImpl implements
-        ExternalFailureOccurrenceDescription {
+ExternalFailureOccurrenceDescription {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -60,7 +60,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
      * The cached value of the ' {@link #getFailureType__ExternalFailureOccurrenceDescription()
      * <em>Failure Type External Failure Occurrence Description</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getFailureType__ExternalFailureOccurrenceDescription()
      * @generated
      * @ordered
@@ -69,7 +69,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExternalFailureOccurrenceDescriptionImpl() {
@@ -78,7 +78,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,116 +88,125 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SpecifiedReliabilityAnnotation getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription() {
-        if (eContainerFeatureID() != ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION)
+        if (this.eContainerFeatureID() != ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION) {
             return null;
-        return (SpecifiedReliabilityAnnotation) eInternalContainer();
+        }
+        return (SpecifiedReliabilityAnnotation) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
-            SpecifiedReliabilityAnnotation newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription,
+            final SpecifiedReliabilityAnnotation newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription,
             NotificationChain msgs) {
-        msgs = eBasicSetContainer(
-                (InternalEObject) newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription,
-                ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
-                msgs);
+        msgs = this
+                .eBasicSetContainer(
+                        (InternalEObject) newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription,
+                        ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
-            SpecifiedReliabilityAnnotation newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription) {
-        if (newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != eInternalContainer()
-                || (eContainerFeatureID() != ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION && newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != null)) {
-            if (EcoreUtil.isAncestor(this,
-                    (EObject) newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            final SpecifiedReliabilityAnnotation newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription) {
+        if (newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != this.eInternalContainer()
+                || (this.eContainerFeatureID() != ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION && newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != null)) {
+            if (EcoreUtil.isAncestor(this, newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != null) {
                 msgs = ((InternalEObject) newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription)
                         .eInverseAdd(
                                 this,
                                 QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION,
                                 SpecifiedReliabilityAnnotation.class, msgs);
-            msgs = basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
+            }
+            msgs = this.basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
                     newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription, msgs);
-            if (msgs != null)
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
                     newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription,
                     newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public FailureType getFailureType__ExternalFailureOccurrenceDescription() {
-        if (failureType__ExternalFailureOccurrenceDescription != null
-                && ((EObject) failureType__ExternalFailureOccurrenceDescription).eIsProxy()) {
-            InternalEObject oldFailureType__ExternalFailureOccurrenceDescription = (InternalEObject) failureType__ExternalFailureOccurrenceDescription;
-            failureType__ExternalFailureOccurrenceDescription = (FailureType) eResolveProxy(oldFailureType__ExternalFailureOccurrenceDescription);
-            if (failureType__ExternalFailureOccurrenceDescription != oldFailureType__ExternalFailureOccurrenceDescription) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(
+        if (this.failureType__ExternalFailureOccurrenceDescription != null
+                && ((EObject) this.failureType__ExternalFailureOccurrenceDescription).eIsProxy()) {
+            final InternalEObject oldFailureType__ExternalFailureOccurrenceDescription = (InternalEObject) this.failureType__ExternalFailureOccurrenceDescription;
+            this.failureType__ExternalFailureOccurrenceDescription = (FailureType) this
+                    .eResolveProxy(oldFailureType__ExternalFailureOccurrenceDescription);
+            if (this.failureType__ExternalFailureOccurrenceDescription != oldFailureType__ExternalFailureOccurrenceDescription) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
                             oldFailureType__ExternalFailureOccurrenceDescription,
-                            failureType__ExternalFailureOccurrenceDescription));
+                            this.failureType__ExternalFailureOccurrenceDescription));
+                }
             }
         }
-        return failureType__ExternalFailureOccurrenceDescription;
+        return this.failureType__ExternalFailureOccurrenceDescription;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public FailureType basicGetFailureType__ExternalFailureOccurrenceDescription() {
-        return failureType__ExternalFailureOccurrenceDescription;
+        return this.failureType__ExternalFailureOccurrenceDescription;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void setFailureType__ExternalFailureOccurrenceDescription(
-            FailureType newFailureType__ExternalFailureOccurrenceDescription) {
-        FailureType oldFailureType__ExternalFailureOccurrenceDescription = failureType__ExternalFailureOccurrenceDescription;
-        failureType__ExternalFailureOccurrenceDescription = newFailureType__ExternalFailureOccurrenceDescription;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(
+            final FailureType newFailureType__ExternalFailureOccurrenceDescription) {
+        final FailureType oldFailureType__ExternalFailureOccurrenceDescription = this.failureType__ExternalFailureOccurrenceDescription;
+        this.failureType__ExternalFailureOccurrenceDescription = newFailureType__ExternalFailureOccurrenceDescription;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
                     oldFailureType__ExternalFailureOccurrenceDescription,
-                    failureType__ExternalFailureOccurrenceDescription));
+                    this.failureType__ExternalFailureOccurrenceDescription));
+        }
     }
 
     /**
@@ -205,7 +214,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
      * {@link #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For External Failure Occurrence Description</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -218,7 +227,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
      * {@link #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For External Failure Occurrence Description</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -228,35 +237,38 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    public boolean NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(ReliabilityPackage.Literals.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
             try {
                 NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                ReliabilityValidator.DIAGNOSTIC_SOURCE,
-                                ReliabilityValidator.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        ReliabilityValidator.DIAGNOSTIC_SOURCE,
+                        ReliabilityValidator.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription",
+                                EObjectValidator.getObjectLabel(this, context)
+                        }), new Object[] {
+                            this
+                        }));
             }
             return false;
         }
@@ -265,16 +277,17 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
                     (SpecifiedReliabilityAnnotation) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -282,28 +295,30 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(null, msgs);
+            return this.basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return eInternalContainer()
+            return this
+                    .eInternalContainer()
                     .eInverseRemove(
                             this,
                             QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION,
@@ -314,35 +329,36 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription();
+            return this.getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription();
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            if (resolve)
-                return getFailureType__ExternalFailureOccurrenceDescription();
-            return basicGetFailureType__ExternalFailureOccurrenceDescription();
+            if (resolve) {
+                return this.getFailureType__ExternalFailureOccurrenceDescription();
+            }
+            return this.basicGetFailureType__ExternalFailureOccurrenceDescription();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription((SpecifiedReliabilityAnnotation) newValue);
+            this.setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription((SpecifiedReliabilityAnnotation) newValue);
             return;
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            setFailureType__ExternalFailureOccurrenceDescription((FailureType) newValue);
+            this.setFailureType__ExternalFailureOccurrenceDescription((FailureType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -350,17 +366,17 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription((SpecifiedReliabilityAnnotation) null);
+            this.setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription((SpecifiedReliabilityAnnotation) null);
             return;
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            setFailureType__ExternalFailureOccurrenceDescription((FailureType) null);
+            this.setFailureType__ExternalFailureOccurrenceDescription((FailureType) null);
             return;
         }
         super.eUnset(featureID);
@@ -368,16 +384,16 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription() != null;
+            return this.getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription() != null;
         case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return failureType__ExternalFailureOccurrenceDescription != null;
+            return this.failureType__ExternalFailureOccurrenceDescription != null;
         }
         return super.eIsSet(featureID);
     }

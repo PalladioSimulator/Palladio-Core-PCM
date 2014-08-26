@@ -15,7 +15,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * containment of ScenarioBehaviours in in the branches of a Branch action. It is a separate meta
  * class because it has the additional attribute branchProbability that specifies how probably it is
  * that the references ScenarioBehaviour is executed in the Branch action.
- * 
+ *
  * See also Branch. <!-- end-model-doc -->
  *
  * <p>
@@ -38,7 +38,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface BranchTransition extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface BranchTransition extends EStereotypableObject {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Probability</em>' attribute.
      * @see #setBranchProbability(double)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_BranchProbability()
@@ -64,7 +64,7 @@ public interface BranchTransition extends EStereotypableObject {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability
      * <em>Branch Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Probability</em>' attribute.
      * @see #getBranchProbability()
@@ -82,7 +82,7 @@ public interface BranchTransition extends EStereotypableObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Branch Transition</em>' container reference.
      * @see #setBranch_BranchTransition(Branch)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_Branch_BranchTransition()
@@ -97,7 +97,7 @@ public interface BranchTransition extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
      * <em>Branch Branch Transition</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Branch Transition</em>' container reference.
      * @see #getBranch_BranchTransition()
@@ -115,7 +115,7 @@ public interface BranchTransition extends EStereotypableObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branched Behaviour Branch Transition</em>' containment
      *         reference.
      * @see #setBranchedBehaviour_BranchTransition(ScenarioBehaviour)
@@ -132,7 +132,7 @@ public interface BranchTransition extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
      * <em>Branched Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branched Behaviour Branch Transition</em>' containment
      *            reference.

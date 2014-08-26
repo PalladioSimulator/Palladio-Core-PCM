@@ -12,12 +12,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -29,15 +24,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class ImplementationComponentTypeItemProvider extends RepositoryComponentItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-        IItemPropertySource {
+public class ImplementationComponentTypeItemProvider extends RepositoryComponentItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +38,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ImplementationComponentTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -55,7 +48,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +65,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This adds a property descriptor for the Parent Complete Component Types feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addParentCompleteComponentTypesPropertyDescriptor(final Object object) {
@@ -89,7 +82,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This adds a property descriptor for the Component Type feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addComponentTypePropertyDescriptor(final Object object) {
@@ -98,8 +91,8 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
                 this.getString("_UI_ImplementationComponentType_componentType_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_ImplementationComponentType_componentType_feature",
                         "_UI_ImplementationComponentType_type"),
-                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -108,7 +101,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +116,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +130,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -151,7 +144,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +165,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,9 +174,9 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
 
         newChildDescriptors
                 .add(this
-                        .createChildParameter(
-                                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
-                                ParameterFactory.eINSTANCE.createVariableUsage()));
+                .createChildParameter(
+                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+                        ParameterFactory.eINSTANCE.createVariableUsage()));
     }
 
 }

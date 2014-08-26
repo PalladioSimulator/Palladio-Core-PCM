@@ -12,12 +12,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
@@ -28,14 +23,13 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -43,7 +37,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyEventConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -53,7 +47,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +66,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This adds a property descriptor for the Sink Role Assembly Event Connector feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSinkRole__AssemblyEventConnectorPropertyDescriptor(final Object object) {
@@ -89,16 +83,16 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This adds a property descriptor for the Source Role Assembly Event Connector feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSourceRole__AssemblyEventConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_AssemblyEventConnector_sourceRole__AssemblyEventConnector_feature"), this
-                        .getString("_UI_PropertyDescriptor_description",
-                                "_UI_AssemblyEventConnector_sourceRole__AssemblyEventConnector_feature",
-                                "_UI_AssemblyEventConnector_type"),
+                .getString("_UI_PropertyDescriptor_description",
+                        "_UI_AssemblyEventConnector_sourceRole__AssemblyEventConnector_feature",
+                        "_UI_AssemblyEventConnector_type"),
                 CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR, true,
                 false, true, null, null, null));
     }
@@ -106,16 +100,16 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This adds a property descriptor for the Sink Assembly Context Assembly Event Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSinkAssemblyContext__AssemblyEventConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_AssemblyEventConnector_sinkAssemblyContext__AssemblyEventConnector_feature"), this
-                        .getString("_UI_PropertyDescriptor_description",
-                                "_UI_AssemblyEventConnector_sinkAssemblyContext__AssemblyEventConnector_feature",
-                                "_UI_AssemblyEventConnector_type"),
+                .getString("_UI_PropertyDescriptor_description",
+                        "_UI_AssemblyEventConnector_sinkAssemblyContext__AssemblyEventConnector_feature",
+                        "_UI_AssemblyEventConnector_type"),
                 CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
                 true, false, true, null, null, null));
     }
@@ -123,7 +117,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This adds a property descriptor for the Source Assembly Context Assembly Event Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSourceAssemblyContext__AssemblyEventConnectorPropertyDescriptor(final Object object) {
@@ -143,7 +137,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -158,7 +152,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +165,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
 
     /**
      * This returns AssemblyEventConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -182,7 +176,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -196,7 +190,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -214,7 +208,7 @@ public class AssemblyEventConnectorItemProvider extends ConnectorItemProvider im
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

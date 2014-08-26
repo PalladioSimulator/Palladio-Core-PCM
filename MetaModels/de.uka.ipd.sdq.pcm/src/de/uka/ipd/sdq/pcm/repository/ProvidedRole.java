@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 public interface ProvidedRole extends Role {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +41,7 @@ public interface ProvidedRole extends Role {
      * <em>Provided Roles Interface Providing Entity</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc --> <!-- begin-model-doc --> This property represents the providing entity that
      * is providing the interface associated with this role. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Providing Entity Provided Role</em>' container reference.
      * @see #setProvidingEntity_ProvidedRole(InterfaceProvidingEntity)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidedRole_ProvidingEntity_ProvidedRole()
@@ -57,7 +57,7 @@ public interface ProvidedRole extends Role {
      * {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
      * <em>Providing Entity Provided Role</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Providing Entity Provided Role</em>' container
      *            reference.

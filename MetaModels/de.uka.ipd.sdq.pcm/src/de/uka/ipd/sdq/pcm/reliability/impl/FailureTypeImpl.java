@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.reliability.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -35,14 +34,14 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public abstract class FailureTypeImpl extends EntityImpl implements FailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected FailureTypeImpl() {
@@ -51,7 +50,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,123 +60,131 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Repository getRepository__FailureType() {
-        if (eContainerFeatureID() != ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE)
+        if (this.eContainerFeatureID() != ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE) {
             return null;
-        return (Repository) eInternalContainer();
+        }
+        return (Repository) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    public NotificationChain basicSetRepository__FailureType(Repository newRepository__FailureType,
+    public NotificationChain basicSetRepository__FailureType(final Repository newRepository__FailureType,
             NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newRepository__FailureType,
+        msgs = this.eBasicSetContainer((InternalEObject) newRepository__FailureType,
                 ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setRepository__FailureType(Repository newRepository__FailureType) {
-        if (newRepository__FailureType != eInternalContainer()
-                || (eContainerFeatureID() != ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE && newRepository__FailureType != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newRepository__FailureType))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    public void setRepository__FailureType(final Repository newRepository__FailureType) {
+        if (newRepository__FailureType != this.eInternalContainer()
+                || (this.eContainerFeatureID() != ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE && newRepository__FailureType != null)) {
+            if (EcoreUtil.isAncestor(this, newRepository__FailureType)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newRepository__FailureType != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newRepository__FailureType != null) {
                 msgs = ((InternalEObject) newRepository__FailureType).eInverseAdd(this,
                         RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY, Repository.class, msgs);
-            msgs = basicSetRepository__FailureType(newRepository__FailureType, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetRepository__FailureType(newRepository__FailureType, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE, newRepository__FailureType,
                     newRepository__FailureType));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetRepository__FailureType((Repository) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetRepository__FailureType((Repository) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
-            return basicSetRepository__FailureType(null, msgs);
+            return this.basicSetRepository__FailureType(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
-            return eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY,
-                    Repository.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY, Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
-            return getRepository__FailureType();
+            return this.getRepository__FailureType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
-            setRepository__FailureType((Repository) newValue);
+            this.setRepository__FailureType((Repository) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -185,14 +192,14 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
-            setRepository__FailureType((Repository) null);
+            this.setRepository__FailureType((Repository) null);
             return;
         }
         super.eUnset(featureID);
@@ -200,14 +207,14 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
-            return getRepository__FailureType() != null;
+            return this.getRepository__FailureType() != null;
         }
         return super.eIsSet(featureID);
     }

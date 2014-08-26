@@ -11,12 +11,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector;
@@ -25,15 +20,13 @@ import de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConne
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class RequiredInfrastructureDelegationConnectorItemProvider extends DelegationConnectorItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-        IItemPropertySource {
+public class RequiredInfrastructureDelegationConnectorItemProvider extends DelegationConnectorItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +34,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public RequiredInfrastructureDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -51,7 +44,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,7 +62,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds a property descriptor for the Inner Required Role Required Infrastructure
      * Delegation Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addInnerRequiredRole__RequiredInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
@@ -89,7 +82,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds a property descriptor for the Outer Required Role Required Infrastructure
      * Delegation Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOuterRequiredRole__RequiredInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
@@ -109,7 +102,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds a property descriptor for the Assembly Context Required Infrastructure Delegation
      * Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addAssemblyContext__RequiredInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
@@ -129,7 +122,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This returns RequiredInfrastructureDelegationConnector.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +134,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -156,7 +149,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +161,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

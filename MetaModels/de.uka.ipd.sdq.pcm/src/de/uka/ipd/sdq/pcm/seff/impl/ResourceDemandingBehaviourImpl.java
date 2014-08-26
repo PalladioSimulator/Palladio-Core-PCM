@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -57,7 +56,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements ResourceDemandingBehaviour {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -65,7 +64,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
     /**
      * The cached value of the '{@link #getSteps_Behaviour() <em>Steps Behaviour</em>}' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSteps_Behaviour()
      * @generated
      * @ordered
@@ -74,7 +73,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingBehaviourImpl() {
@@ -83,7 +82,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -93,130 +92,146 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour() {
-        if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR)
+        if (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR) {
             return null;
-        return (AbstractLoopAction) eInternalContainer();
+        }
+        return (AbstractLoopAction) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
-            AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newAbstractLoopAction_ResourceDemandingBehaviour,
+            final AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newAbstractLoopAction_ResourceDemandingBehaviour,
                 SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void setAbstractLoopAction_ResourceDemandingBehaviour(
-            AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
-        if (newAbstractLoopAction_ResourceDemandingBehaviour != eInternalContainer()
-                || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newAbstractLoopAction_ResourceDemandingBehaviour))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            final AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
+        if (newAbstractLoopAction_ResourceDemandingBehaviour != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, newAbstractLoopAction_ResourceDemandingBehaviour)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newAbstractLoopAction_ResourceDemandingBehaviour != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newAbstractLoopAction_ResourceDemandingBehaviour != null) {
                 msgs = ((InternalEObject) newAbstractLoopAction_ResourceDemandingBehaviour).eInverseAdd(this,
                         SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, AbstractLoopAction.class, msgs);
-            msgs = basicSetAbstractLoopAction_ResourceDemandingBehaviour(
+            }
+            msgs = this.basicSetAbstractLoopAction_ResourceDemandingBehaviour(
                     newAbstractLoopAction_ResourceDemandingBehaviour, msgs);
-            if (msgs != null)
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
                     newAbstractLoopAction_ResourceDemandingBehaviour, newAbstractLoopAction_ResourceDemandingBehaviour));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
-        if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR)
+        if (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR) {
             return null;
-        return (AbstractBranchTransition) eInternalContainer();
+        }
+        return (AbstractBranchTransition) this.eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
-            AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour,
-                SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR, msgs);
+            final AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour,
+            NotificationChain msgs) {
+        msgs = this
+                .eBasicSetContainer(
+                        (InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour,
+                        SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                        msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void setAbstractBranchTransition_ResourceDemandingBehaviour(
-            AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
-        if (newAbstractBranchTransition_ResourceDemandingBehaviour != eInternalContainer()
-                || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject) newAbstractBranchTransition_ResourceDemandingBehaviour))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            final AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
+        if (newAbstractBranchTransition_ResourceDemandingBehaviour != this.eInternalContainer()
+                || (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, newAbstractBranchTransition_ResourceDemandingBehaviour)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newAbstractBranchTransition_ResourceDemandingBehaviour != null)
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newAbstractBranchTransition_ResourceDemandingBehaviour != null) {
                 msgs = ((InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour).eInverseAdd(this,
                         SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                         AbstractBranchTransition.class, msgs);
-            msgs = basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
+            }
+            msgs = this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
                     newAbstractBranchTransition_ResourceDemandingBehaviour, msgs);
-            if (msgs != null)
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
                     newAbstractBranchTransition_ResourceDemandingBehaviour,
                     newAbstractBranchTransition_ResourceDemandingBehaviour));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<AbstractAction> getSteps_Behaviour() {
-        if (steps_Behaviour == null) {
-            steps_Behaviour = new EObjectContainmentWithInverseEList<AbstractAction>(AbstractAction.class, this,
+        if (this.steps_Behaviour == null) {
+            this.steps_Behaviour = new EObjectContainmentWithInverseEList<AbstractAction>(AbstractAction.class, this,
                     SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                     SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION);
         }
-        return steps_Behaviour;
+        return this.steps_Behaviour;
     }
 
     /**
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -228,7 +243,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -237,18 +252,18 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean ExactlyOneStopAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
             try {
                 EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -256,8 +271,11 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION, EcorePlugin.INSTANCE
-                                .getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStopAction",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                        .getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "ExactlyOneStopAction", EObjectValidator.getObjectLabel(this, context)
+                        }), new Object[] {
+                    this
+                }));
             }
             return false;
         }
@@ -268,7 +286,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -280,7 +298,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -289,18 +307,18 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    public boolean ExactlyOneStartAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
             try {
                 EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -308,8 +326,11 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION, EcorePlugin.INSTANCE
-                                .getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStartAction",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                        .getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "ExactlyOneStartAction", EObjectValidator.getObjectLabel(this, context)
+                        }), new Object[] {
+                    this
+                }));
             }
             return false;
         }
@@ -321,7 +342,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -334,7 +355,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -344,35 +365,38 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
             try {
                 EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (ParserException pe) {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                SeffValidator.DIAGNOSTIC_SOURCE,
-                                SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        SeffValidator.DIAGNOSTIC_SOURCE,
+                        SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor",
+                                EObjectValidator.getObjectLabel(this, context)
+                        }), new Object[] {
+                            this
+                        }));
             }
             return false;
         }
@@ -381,59 +405,63 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) otherEnd, msgs);
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) otherEnd,
-                    msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
+                    (AbstractBranchTransition) otherEnd, msgs);
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSteps_Behaviour()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getSteps_Behaviour()).basicAdd(otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return basicSetAbstractLoopAction_ResourceDemandingBehaviour(null, msgs);
+            return this.basicSetAbstractLoopAction_ResourceDemandingBehaviour(null, msgs);
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return basicSetAbstractBranchTransition_ResourceDemandingBehaviour(null, msgs);
+            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(null, msgs);
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return ((InternalEList<?>) getSteps_Behaviour()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getSteps_Behaviour()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-                    AbstractLoopAction.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, AbstractLoopAction.class, msgs);
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
                     AbstractBranchTransition.class, msgs);
         }
@@ -442,40 +470,40 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractLoopAction_ResourceDemandingBehaviour();
+            return this.getAbstractLoopAction_ResourceDemandingBehaviour();
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractBranchTransition_ResourceDemandingBehaviour();
+            return this.getAbstractBranchTransition_ResourceDemandingBehaviour();
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return getSteps_Behaviour();
+            return this.getSteps_Behaviour();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) newValue);
+            this.setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) newValue);
             return;
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) newValue);
+            this.setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) newValue);
             return;
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
-            getSteps_Behaviour().clear();
-            getSteps_Behaviour().addAll((Collection<? extends AbstractAction>) newValue);
+            this.getSteps_Behaviour().clear();
+            this.getSteps_Behaviour().addAll((Collection<? extends AbstractAction>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -483,20 +511,20 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) null);
+            this.setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) null);
             return;
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) null);
+            this.setAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) null);
             return;
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
-            getSteps_Behaviour().clear();
+            this.getSteps_Behaviour().clear();
             return;
         }
         super.eUnset(featureID);
@@ -504,18 +532,18 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractLoopAction_ResourceDemandingBehaviour() != null;
+            return this.getAbstractLoopAction_ResourceDemandingBehaviour() != null;
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return getAbstractBranchTransition_ResourceDemandingBehaviour() != null;
+            return this.getAbstractBranchTransition_ResourceDemandingBehaviour() != null;
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
-            return steps_Behaviour != null && !steps_Behaviour.isEmpty();
+            return this.steps_Behaviour != null && !this.steps_Behaviour.isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -523,7 +551,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

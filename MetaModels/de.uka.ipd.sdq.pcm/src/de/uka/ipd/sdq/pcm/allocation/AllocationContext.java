@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 public interface AllocationContext extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public interface AllocationContext extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Container Allocation Context</em>' reference.
      * @see #setResourceContainer_AllocationContext(ResourceContainer)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext_ResourceContainer_AllocationContext()
@@ -70,7 +70,7 @@ public interface AllocationContext extends Entity {
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
      * <em>Resource Container Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Container Allocation Context</em>' reference.
      * @see #getResourceContainer_AllocationContext()
@@ -86,7 +86,7 @@ public interface AllocationContext extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Context Allocation Context</em>' reference.
      * @see #setAssemblyContext_AllocationContext(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext_AssemblyContext_AllocationContext()
@@ -100,7 +100,7 @@ public interface AllocationContext extends Entity {
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
      * <em>Assembly Context Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Assembly Context Allocation Context</em>' reference.
      * @see #getAssemblyContext_AllocationContext()
@@ -118,7 +118,7 @@ public interface AllocationContext extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Allocation Allocation Context</em>' container reference.
      * @see #setAllocation_AllocationContext(Allocation)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext_Allocation_AllocationContext()
@@ -134,7 +134,7 @@ public interface AllocationContext extends Entity {
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
      * <em>Allocation Allocation Context</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Allocation Allocation Context</em>' container reference.
      * @see #getAllocation_AllocationContext()
@@ -150,7 +150,7 @@ public interface AllocationContext extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Event Channel Allocation Context</em>' reference.
      * @see #setEventChannel__AllocationContext(EventChannel)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext_EventChannel__AllocationContext()
@@ -164,7 +164,7 @@ public interface AllocationContext extends Entity {
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
      * <em>Event Channel Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Event Channel Allocation Context</em>' reference.
      * @see #getEventChannel__AllocationContext()
@@ -174,7 +174,7 @@ public interface AllocationContext extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

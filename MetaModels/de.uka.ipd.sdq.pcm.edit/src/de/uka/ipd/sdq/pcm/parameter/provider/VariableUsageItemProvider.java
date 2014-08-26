@@ -30,14 +30,14 @@ import de.uka.ipd.sdq.stoex.StoexFactory;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class VariableUsageItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
         IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public VariableUsageItemProvider(final AdapterFactory adapterFactory) {
@@ -55,7 +55,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
+            .add(ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
             this.childrenFeatures.add(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE);
         }
         return this.childrenFeatures;
@@ -89,7 +89,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This returns VariableUsage.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -167,7 +167,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * internal structure. We refer to such components as basic components, since they form the basic
  * building blocks of a software architecture. On the other hand, developers can use existing
  * components to assemble new, composite components.
- * 
+ *
  * TODO: ? Possibly add constraint that the VariableUsages must have unique names within one
  * component. Maybe this constraint can even be added to the VariableUsage in general (for each
  * containment of VariableUsages, each name inside must be unique, for example). <!-- end-model-doc
@@ -52,7 +52,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 public interface ImplementationComponentType extends RepositoryComponent {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -66,7 +66,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parent Complete Component Types</em>' reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ParentCompleteComponentTypes()
      * @model ordered="false"
@@ -82,7 +82,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * --> <!-- begin-model-doc --> This property specified the variables of the component that are
      * to be initialized using the assembly context to parametrize the component. <!-- end-model-doc
      * -->
-     * 
+     *
      * @return the value of the ' <em>Component Parameter Usage Implementation Component Type</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType()
@@ -100,7 +100,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Component Type</em>' attribute.
      * @see de.uka.ipd.sdq.pcm.repository.ComponentType
      * @see #setComponentType(ComponentType)
@@ -114,7 +114,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentType
      * <em>Component Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Component Type</em>' attribute.
      * @see de.uka.ipd.sdq.pcm.repository.ComponentType
@@ -125,7 +125,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -138,7 +138,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -151,7 +151,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -164,7 +164,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -177,7 +177,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

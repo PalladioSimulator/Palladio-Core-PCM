@@ -26,18 +26,18 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
  * ComposedProvidingRequiringEntity to have a unique means for expressing the inner composition of
  * an entity (here: System). Also it allows using the same editor etc. being applied to
  * ComposedProvidingRequiringEntity and thus also being useful for System.
- * 
+ *
  * A system consists of an assembly and is itself referenced by an allocation (only a System can be
  * allocated). The first specifies how the components are connected with other components, the
  * latter specifies how the components and connectors are mapped to the resource environment
  * (hardware and middleware). From a structural point of view, Systems can be seen as special kind
  * of CompositeComponents. Systems are not supposed to be reused as components are. The are assumed
  * to be coupled by using special techniques for system integration.
- * 
+ *
  * A System has provided and required roles like a composite component. Only a system's provided
  * role can be accessed from the usage profile. Only a system's required roles can have QOS
  * annotations.
- * 
+ *
  * Like SubSystems, Systems are white-box entities for the Software Architect and also for the
  * System Deployer. Thus, a System Deployer can and must allocate inner components of a System
  * individually. <!-- end-model-doc -->
@@ -57,7 +57,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 public interface System extends Entity, ComposedProvidingRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -72,7 +72,7 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
      * properties at the system boundary level for required services. For example, for a required
      * service it can be specified that its response time is fixed "3 ms". See the QoS Annotations
      * package for more details. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Qos Annotations System</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem_QosAnnotations_System()
      * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations
@@ -83,7 +83,7 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

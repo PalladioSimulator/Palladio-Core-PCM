@@ -41,7 +41,7 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
 public interface Repository extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,7 +50,7 @@ public interface Repository extends Entity {
      * Returns the value of the '<em><b>Repository Description</b></em>' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents a
      * description of the repository. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Repository Description</em>' attribute.
      * @see #setRepositoryDescription(String)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_RepositoryDescription()
@@ -63,7 +63,7 @@ public interface Repository extends Entity {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryDescription
      * <em>Repository Description</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Repository Description</em>' attribute.
      * @see #getRepositoryDescription()
@@ -79,7 +79,7 @@ public interface Repository extends Entity {
      * <em>Repository Repository Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the provides component types stored in the
      * repository. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Components Repository</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Components__Repository()
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
@@ -99,7 +99,7 @@ public interface Repository extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Failure Types Repository</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_FailureTypes__Repository()
      * @see de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType
@@ -116,7 +116,7 @@ public interface Repository extends Entity {
      * <em>Repository Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
      * begin-model-doc --> This property represents the data types stored in the repository. <!--
      * end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Data Types Repository</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_DataTypes__Repository()
      * @see de.uka.ipd.sdq.pcm.repository.DataType#getRepository__DataType
@@ -133,7 +133,7 @@ public interface Repository extends Entity {
      * <em>Repository Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
      * begin-model-doc --> This property represents the interfaces stored in the repository. <!--
      * end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Interfaces Repository</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Interfaces__Repository()
      * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface

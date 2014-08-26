@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 public class DelayImpl extends AbstractUserActionImpl implements Delay {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +41,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * The cached value of the '{@link #getTimeSpecification_Delay()
      * <em>Time Specification Delay</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getTimeSpecification_Delay()
      * @generated
      * @ordered
@@ -50,7 +50,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected DelayImpl() {
@@ -59,7 +59,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,113 +69,121 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public PCMRandomVariable getTimeSpecification_Delay() {
-        return timeSpecification_Delay;
+        return this.timeSpecification_Delay;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    public NotificationChain basicSetTimeSpecification_Delay(PCMRandomVariable newTimeSpecification_Delay,
+    public NotificationChain basicSetTimeSpecification_Delay(final PCMRandomVariable newTimeSpecification_Delay,
             NotificationChain msgs) {
-        PCMRandomVariable oldTimeSpecification_Delay = timeSpecification_Delay;
-        timeSpecification_Delay = newTimeSpecification_Delay;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+        final PCMRandomVariable oldTimeSpecification_Delay = this.timeSpecification_Delay;
+        this.timeSpecification_Delay = newTimeSpecification_Delay;
+        if (this.eNotificationRequired()) {
+            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
                     UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, oldTimeSpecification_Delay,
                     newTimeSpecification_Delay);
-            if (msgs == null)
+            if (msgs == null) {
                 msgs = notification;
-            else
+            } else {
                 msgs.add(notification);
+            }
         }
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setTimeSpecification_Delay(PCMRandomVariable newTimeSpecification_Delay) {
-        if (newTimeSpecification_Delay != timeSpecification_Delay) {
+    public void setTimeSpecification_Delay(final PCMRandomVariable newTimeSpecification_Delay) {
+        if (newTimeSpecification_Delay != this.timeSpecification_Delay) {
             NotificationChain msgs = null;
-            if (timeSpecification_Delay != null)
-                msgs = ((InternalEObject) timeSpecification_Delay).eInverseRemove(this,
+            if (this.timeSpecification_Delay != null) {
+                msgs = ((InternalEObject) this.timeSpecification_Delay).eInverseRemove(this,
                         CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, PCMRandomVariable.class, msgs);
-            if (newTimeSpecification_Delay != null)
+            }
+            if (newTimeSpecification_Delay != null) {
                 msgs = ((InternalEObject) newTimeSpecification_Delay).eInverseAdd(this,
                         CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, PCMRandomVariable.class, msgs);
-            msgs = basicSetTimeSpecification_Delay(newTimeSpecification_Delay, msgs);
-            if (msgs != null)
+            }
+            msgs = this.basicSetTimeSpecification_Delay(newTimeSpecification_Delay, msgs);
+            if (msgs != null) {
                 msgs.dispatch();
-        } else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY,
-                    newTimeSpecification_Delay, newTimeSpecification_Delay));
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, newTimeSpecification_Delay,
+                    newTimeSpecification_Delay));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            if (timeSpecification_Delay != null)
-                msgs = ((InternalEObject) timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            if (this.timeSpecification_Delay != null) {
+                msgs = ((InternalEObject) this.timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
-            return basicSetTimeSpecification_Delay((PCMRandomVariable) otherEnd, msgs);
+            }
+            return this.basicSetTimeSpecification_Delay((PCMRandomVariable) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            return basicSetTimeSpecification_Delay(null, msgs);
+            return this.basicSetTimeSpecification_Delay(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            return getTimeSpecification_Delay();
+            return this.getTimeSpecification_Delay();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            setTimeSpecification_Delay((PCMRandomVariable) newValue);
+            this.setTimeSpecification_Delay((PCMRandomVariable) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -183,14 +191,14 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            setTimeSpecification_Delay((PCMRandomVariable) null);
+            this.setTimeSpecification_Delay((PCMRandomVariable) null);
             return;
         }
         super.eUnset(featureID);
@@ -198,14 +206,14 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
-            return timeSpecification_Delay != null;
+            return this.timeSpecification_Delay != null;
         }
         return super.eIsSet(featureID);
     }

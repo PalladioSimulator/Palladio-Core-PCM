@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  * interface. Due to the inherent need of an interface to abstract the behaviour of the software
  * entity not in all cases there is sufficient information provided to use or implement an interface
  * in an unambiquious way.
- * 
+ *
  * Interfaces can exist on their own, i.e., without any entity requesting or implementing the
  * specified functionality. Two roles can be identified a software entity can take relative to an
  * interface. Any entity can either claim to implement the functionality specified in an interface
@@ -55,7 +55,7 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
 public interface Interface extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -65,7 +65,7 @@ public interface Interface extends Entity {
      * list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}. <!--
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the interfaces from which this interface directly inherits. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Parent Interfaces Interface</em>' reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_ParentInterfaces__Interface()
      * @model ordered="false"
@@ -79,7 +79,7 @@ public interface Interface extends Entity {
      * begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This property represents
      * the protocol bound to this interfaces, i.e., the way, in the sense of the order, the services
      * of this interfaces are allowed to be called. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Protocols Interface</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Protocols__Interface()
      * @model containment="true" ordered="false"
@@ -96,7 +96,7 @@ public interface Interface extends Entity {
      * <em>Interface Required Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> documentation of required variable characterisations <!--
      * end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Characterisations</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
      * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
@@ -112,7 +112,7 @@ public interface Interface extends Entity {
      * <em>Interfaces Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
      * begin-model-doc --> This property represents the repository where this interface is stored.
      * <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Repository Interface</em>' container reference.
      * @see #setRepository__Interface(Repository)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Repository__Interface()
@@ -127,7 +127,7 @@ public interface Interface extends Entity {
      * {@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface
      * <em>Repository Interface</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Repository Interface</em>' container reference.
      * @see #getRepository__Interface()
@@ -137,7 +137,7 @@ public interface Interface extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

@@ -38,7 +38,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
 public class UsageModelImpl extends EStereotypableObjectImpl implements UsageModel {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
      * The cached value of the '{@link #getUsageScenario_UsageModel()
      * <em>Usage Scenario Usage Model</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getUsageScenario_UsageModel()
      * @generated
      * @ordered
@@ -57,7 +57,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
     /**
      * The cached value of the '{@link #getUserData_UsageModel() <em>User Data Usage Model</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getUserData_UsageModel()
      * @generated
      * @ordered
@@ -66,7 +66,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UsageModelImpl() {
@@ -75,7 +75,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -85,101 +85,103 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<UserData> getUserData_UsageModel() {
-        if (userData_UsageModel == null) {
-            userData_UsageModel = new EObjectContainmentWithInverseEList<UserData>(UserData.class, this,
+        if (this.userData_UsageModel == null) {
+            this.userData_UsageModel = new EObjectContainmentWithInverseEList<UserData>(UserData.class, this,
                     UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL,
                     UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA);
         }
-        return userData_UsageModel;
+        return this.userData_UsageModel;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EList<UsageScenario> getUsageScenario_UsageModel() {
-        if (usageScenario_UsageModel == null) {
-            usageScenario_UsageModel = new EObjectContainmentWithInverseEList<UsageScenario>(UsageScenario.class, this,
-                    UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL,
+        if (this.usageScenario_UsageModel == null) {
+            this.usageScenario_UsageModel = new EObjectContainmentWithInverseEList<UsageScenario>(UsageScenario.class,
+                    this, UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL,
                     UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO);
         }
-        return usageScenario_UsageModel;
+        return this.usageScenario_UsageModel;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getUsageScenario_UsageModel()).basicAdd(
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUsageScenario_UsageModel()).basicAdd(
                     otherEnd, msgs);
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getUserData_UsageModel()).basicAdd(otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUserData_UsageModel()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
-            return ((InternalEList<?>) getUsageScenario_UsageModel()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getUsageScenario_UsageModel()).basicRemove(otherEnd, msgs);
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
-            return ((InternalEList<?>) getUserData_UsageModel()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getUserData_UsageModel()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
-            return getUsageScenario_UsageModel();
+            return this.getUsageScenario_UsageModel();
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
-            return getUserData_UsageModel();
+            return this.getUserData_UsageModel();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
-            getUsageScenario_UsageModel().clear();
-            getUsageScenario_UsageModel().addAll((Collection<? extends UsageScenario>) newValue);
+            this.getUsageScenario_UsageModel().clear();
+            this.getUsageScenario_UsageModel().addAll((Collection<? extends UsageScenario>) newValue);
             return;
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
-            getUserData_UsageModel().clear();
-            getUserData_UsageModel().addAll((Collection<? extends UserData>) newValue);
+            this.getUserData_UsageModel().clear();
+            this.getUserData_UsageModel().addAll((Collection<? extends UserData>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -187,17 +189,17 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
-            getUsageScenario_UsageModel().clear();
+            this.getUsageScenario_UsageModel().clear();
             return;
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
-            getUserData_UsageModel().clear();
+            this.getUserData_UsageModel().clear();
             return;
         }
         super.eUnset(featureID);
@@ -205,16 +207,16 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
-            return usageScenario_UsageModel != null && !usageScenario_UsageModel.isEmpty();
+            return this.usageScenario_UsageModel != null && !this.usageScenario_UsageModel.isEmpty();
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
-            return userData_UsageModel != null && !userData_UsageModel.isEmpty();
+            return this.userData_UsageModel != null && !this.userData_UsageModel.isEmpty();
         }
         return super.eIsSet(featureID);
     }

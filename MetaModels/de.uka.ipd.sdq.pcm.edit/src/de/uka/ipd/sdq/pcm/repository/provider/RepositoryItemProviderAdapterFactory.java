@@ -38,14 +38,14 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFactory implements
         ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +53,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComposedAdapterFactory parentAdapterFactory;
@@ -61,14 +61,14 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +77,14 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public RepositoryItemProviderAdapterFactory() {
@@ -99,7 +99,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.Repository} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RepositoryItemProvider repositoryItemProvider;
@@ -107,7 +107,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.Repository}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredCharacterisationItemProvider requiredCharacterisationItemProvider;
@@ -131,7 +131,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.Parameter} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ParameterItemProvider parameterItemProvider;
@@ -155,7 +155,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.Parameter}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationInterface} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationInterfaceItemProvider operationInterfaceItemProvider;
@@ -179,7 +179,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationInterface}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -195,7 +195,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationSignatureItemProvider operationSignatureItemProvider;
@@ -203,7 +203,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationSignature}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -219,7 +219,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.ExceptionType} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExceptionTypeItemProvider exceptionTypeItemProvider;
@@ -227,7 +227,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ExceptionType}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -243,7 +243,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationRequiredRoleItemProvider operationRequiredRoleItemProvider;
@@ -251,7 +251,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -267,7 +267,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.SinkRole} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SinkRoleItemProvider sinkRoleItemProvider;
@@ -275,7 +275,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.SinkRole}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -291,7 +291,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.EventGroup} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventGroupItemProvider eventGroupItemProvider;
@@ -299,7 +299,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.EventGroup}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -315,7 +315,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.EventType} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventTypeItemProvider eventTypeItemProvider;
@@ -323,7 +323,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.EventType}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -339,7 +339,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.SourceRole} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SourceRoleItemProvider sourceRoleItemProvider;
@@ -347,7 +347,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.SourceRole}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -363,7 +363,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureProvidedRoleItemProvider infrastructureProvidedRoleItemProvider;
@@ -372,7 +372,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -388,7 +388,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BasicComponentItemProvider basicComponentItemProvider;
@@ -396,7 +396,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.BasicComponent}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -412,7 +412,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompleteComponentTypeItemProvider completeComponentTypeItemProvider;
@@ -420,7 +420,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -436,7 +436,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProvidesComponentTypeItemProvider providesComponentTypeItemProvider;
@@ -444,7 +444,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -460,7 +460,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationProvidedRoleItemProvider operationProvidedRoleItemProvider;
@@ -468,7 +468,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -484,7 +484,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PassiveResourceItemProvider passiveResourceItemProvider;
@@ -492,7 +492,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -508,7 +508,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompositeDataTypeItemProvider compositeDataTypeItemProvider;
@@ -516,7 +516,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -532,7 +532,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InnerDeclarationItemProvider innerDeclarationItemProvider;
@@ -540,7 +540,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -556,7 +556,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureSignatureItemProvider infrastructureSignatureItemProvider;
@@ -564,7 +564,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -580,7 +580,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureRequiredRoleItemProvider infrastructureRequiredRoleItemProvider;
@@ -589,7 +589,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -605,7 +605,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureInterfaceItemProvider infrastructureInterfaceItemProvider;
@@ -613,7 +613,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -629,7 +629,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompositeComponentItemProvider compositeComponentItemProvider;
@@ -637,7 +637,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -653,7 +653,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PrimitiveDataTypeItemProvider primitiveDataTypeItemProvider;
@@ -661,7 +661,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -677,7 +677,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CollectionDataTypeItemProvider collectionDataTypeItemProvider;
@@ -685,7 +685,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -700,7 +700,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -711,7 +711,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -721,7 +721,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -732,7 +732,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This implementation substitutes the factory itself as the key for the adapter. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -742,7 +742,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -759,7 +759,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -768,7 +768,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -778,7 +778,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -788,7 +788,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -798,7 +798,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -809,7 +809,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -824,7 +824,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

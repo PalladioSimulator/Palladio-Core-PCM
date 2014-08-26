@@ -57,7 +57,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface ServiceEffectSpecification extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -70,7 +70,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Seff Type ID</em>' attribute.
      * @see #setSeffTypeID(String)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_SeffTypeID()
@@ -83,7 +83,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID
      * <em>Seff Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Seff Type ID</em>' attribute.
      * @see #getSeffTypeID()
@@ -99,7 +99,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Described Service SEFF</em>' reference.
      * @see #setDescribedService__SEFF(Signature)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_DescribedService__SEFF()
@@ -112,7 +112,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
      * <em>Described Service SEFF</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Described Service SEFF</em>' reference.
      * @see #getDescribedService__SEFF()
@@ -130,7 +130,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Basic Component Service Effect Specification</em>' container
      *         reference.
      * @see #setBasicComponent_ServiceEffectSpecification(BasicComponent)
@@ -147,7 +147,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
      * <em>Basic Component Service Effect Specification</em>}' container reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the ' <em>Basic Component Service Effect Specification</em>'
      *            container reference.
@@ -158,7 +158,7 @@ public interface ServiceEffectSpecification extends EStereotypableObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

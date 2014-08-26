@@ -30,7 +30,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface NamedElement extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -43,7 +43,7 @@ public interface NamedElement extends EStereotypableObject {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Entity Name</em>' attribute.
      * @see #setEntityName(String)
      * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement_EntityName()
@@ -55,7 +55,7 @@ public interface NamedElement extends EStereotypableObject {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName
      * <em>Entity Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Entity Name</em>' attribute.
      * @see #getEntityName()

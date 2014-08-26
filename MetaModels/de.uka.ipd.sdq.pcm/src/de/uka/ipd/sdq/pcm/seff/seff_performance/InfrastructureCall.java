@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
 public interface InfrastructureCall extends CallAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public interface InfrastructureCall extends CallAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Signature Infrastructure Call</em>' reference.
      * @see #setSignature__InfrastructureCall(InfrastructureSignature)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_Signature__InfrastructureCall()
@@ -71,7 +71,7 @@ public interface InfrastructureCall extends CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getSignature__InfrastructureCall
      * <em>Signature Infrastructure Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Signature Infrastructure Call</em>' reference.
      * @see #getSignature__InfrastructureCall()
@@ -89,7 +89,7 @@ public interface InfrastructureCall extends CallAction {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Number Of Calls Infrastructure Call</em>' containment
      *         reference.
      * @see #setNumberOfCalls__InfrastructureCall(PCMRandomVariable)
@@ -106,7 +106,7 @@ public interface InfrastructureCall extends CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall
      * <em>Number Of Calls Infrastructure Call</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Number Of Calls Infrastructure Call</em>' containment
      *            reference.
@@ -125,7 +125,7 @@ public interface InfrastructureCall extends CallAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Action Infrastructure Call</em>' container reference.
      * @see #setAction__InfrastructureCall(AbstractInternalControlFlowAction)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_Action__InfrastructureCall()
@@ -141,7 +141,7 @@ public interface InfrastructureCall extends CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall
      * <em>Action Infrastructure Call</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Action Infrastructure Call</em>' container reference.
      * @see #getAction__InfrastructureCall()
@@ -157,7 +157,7 @@ public interface InfrastructureCall extends CallAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Role Infrastructure Call</em>' reference.
      * @see #setRequiredRole__InfrastructureCall(InfrastructureRequiredRole)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_RequiredRole__InfrastructureCall()
@@ -171,7 +171,7 @@ public interface InfrastructureCall extends CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall
      * <em>Required Role Infrastructure Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Required Role Infrastructure Call</em>' reference.
      * @see #getRequiredRole__InfrastructureCall()
@@ -181,7 +181,7 @@ public interface InfrastructureCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -194,7 +194,7 @@ public interface InfrastructureCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -207,7 +207,7 @@ public interface InfrastructureCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

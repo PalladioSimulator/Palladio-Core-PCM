@@ -17,30 +17,30 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerformanceFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static SeffPerformanceFactory init() {
         try {
-            SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory) EPackage.Registry.INSTANCE
+            final SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SeffPerformancePackage.eNS_URI);
             if (theSeffPerformanceFactory != null) {
                 return theSeffPerformanceFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffPerformanceFactoryImpl();
@@ -48,7 +48,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffPerformanceFactoryImpl() {
@@ -57,18 +57,18 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL:
-            return (EObject) createInfrastructureCall();
+            return this.createInfrastructureCall();
         case SeffPerformancePackage.RESOURCE_CALL:
-            return (EObject) createResourceCall();
+            return this.createResourceCall();
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND:
-            return (EObject) createParametricResourceDemand();
+            return this.createParametricResourceDemand();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -76,50 +76,50 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public InfrastructureCall createInfrastructureCall() {
-        InfrastructureCallImpl infrastructureCall = new InfrastructureCallImpl();
+        final InfrastructureCallImpl infrastructureCall = new InfrastructureCallImpl();
         return infrastructureCall;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceCall createResourceCall() {
-        ResourceCallImpl resourceCall = new ResourceCallImpl();
+        final ResourceCallImpl resourceCall = new ResourceCallImpl();
         return resourceCall;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ParametricResourceDemand createParametricResourceDemand() {
-        ParametricResourceDemandImpl parametricResourceDemand = new ParametricResourceDemandImpl();
+        final ParametricResourceDemandImpl parametricResourceDemand = new ParametricResourceDemandImpl();
         return parametricResourceDemand;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SeffPerformancePackage getSeffPerformancePackage() {
-        return (SeffPerformancePackage) getEPackage();
+        return (SeffPerformancePackage) this.getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

@@ -12,12 +12,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
@@ -27,14 +22,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationSignature}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class OperationSignatureItemProvider extends SignatureItemProvider implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class OperationSignatureItemProvider extends SignatureItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +36,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationSignatureItemProvider(final AdapterFactory adapterFactory) {
@@ -52,7 +46,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,14 +62,14 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
     /**
      * This adds a property descriptor for the Return Type Operation Signature feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addReturnType__OperationSignaturePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
                 .add(this.createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory)
-                        .getRootAdapterFactory(), this.getResourceLocator(), this
-                        .getString("_UI_OperationSignature_returnType__OperationSignature_feature"),
+                .getRootAdapterFactory(), this.getResourceLocator(), this
+                .getString("_UI_OperationSignature_returnType__OperationSignature_feature"),
                         this.getString("_UI_PropertyDescriptor_description",
                                 "_UI_OperationSignature_returnType__OperationSignature_feature",
                                 "_UI_OperationSignature_type"),
@@ -89,7 +83,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -103,7 +97,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +110,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
 
     /**
      * This returns OperationSignature.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -127,7 +121,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +135,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +153,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider implem
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

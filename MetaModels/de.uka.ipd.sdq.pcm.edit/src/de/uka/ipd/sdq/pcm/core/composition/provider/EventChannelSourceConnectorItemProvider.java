@@ -11,12 +11,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
@@ -25,15 +20,13 @@ import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
-public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvider implements
-        IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-        IItemPropertySource {
+public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +34,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EventChannelSourceConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -51,7 +44,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,16 +62,16 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This adds a property descriptor for the Source Role Event Channel Source Role feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSourceRole__EventChannelSourceRolePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature"), this
-                        .getString("_UI_PropertyDescriptor_description",
-                                "_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature",
-                                "_UI_EventChannelSourceConnector_type"),
+                .getString("_UI_PropertyDescriptor_description",
+                        "_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature",
+                        "_UI_EventChannelSourceConnector_type"),
                 CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE,
                 true, false, true, null, null, null));
     }
@@ -86,7 +79,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This adds a property descriptor for the Assembly Context Event Channel Source Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addAssemblyContext__EventChannelSourceConnectorPropertyDescriptor(final Object object) {
@@ -105,7 +98,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This adds a property descriptor for the Event Channel Event Channel Source Connector feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addEventChannel__EventChannelSourceConnectorPropertyDescriptor(final Object object) {
@@ -123,7 +116,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
 
     /**
      * This returns EventChannelSourceConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +127,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +141,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -160,7 +153,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

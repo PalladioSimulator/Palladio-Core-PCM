@@ -53,8 +53,8 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
  * &nbsp;respectively.&nbsp;VariableUsages&nbsp;for&nbsp;input&nbsp;parameters&nbsp
  * ;may&nbsp;only&nbsp
  * ;reference&nbsp;IN&nbsp;or&nbsp;INOUT&nbsp;parameters&nbsp;of&nbsp;the&nbsp;call
- * 's&nbsp;referenced&nbsp;signature.&nbsp;The&nbsp;random&nbsp;variable&nbsp;characterisation&nbsp;inside&nbsp;such&nbsp;a&nbsp;VariableUsage&nbsp;may&nbsp;be&nbsp;constants,&nbsp;probability&nbsp;distribution&nbsp;functions,&nbsp;or&nbsp;include&nbsp;a&nbsp;stochastic&nbsp;expression&nbsp;involving&nbsp;for&nbsp;example&nbsp;arithmetic&nbsp;operations.&nbsp;The&nbsp;latter&nbsp;models&nbsp;a&nbsp;dependency&nbsp;between&nbsp;the&nbsp;current&nbsp;service's&nbsp;own&nbsp;input&nbsp;parameters&nbsp;and&nbsp;the&nbsp;input&nbsp;parameters&nbsp;of&nbsp;the&nbsp;required&nbsp;service
- * . <!-- end-model-doc -->
+ * 's&nbsp;referenced&nbsp;signature.&nbsp;The&nbsp;random&nbsp;variable&nbsp;characterisation&nbsp;inside&nbsp;such&nbsp;a&nbsp;VariableUsage&nbsp;may&nbsp;be&nbsp;constants,&nbsp;probability&nbsp;distribution&nbsp;functions,&nbsp;or&nbsp;include&nbsp;a&nbsp;stochastic&nbsp;expression&nbsp;involving&nbsp;for&nbsp;example&nbsp;arithmetic&nbsp;operations.&nbsp;The&nbsp;latter&nbsp;models&nbsp;a&nbsp;dependency&nbsp;between&nbsp;the&nbsp;current&nbsp;service's&nbsp;own&nbsp;input&nbsp;parameters&nbsp;and&nbsp;the&nbsp;input&nbsp;parameters&nbsp;of&nbsp;the&nbsp;required&nbsp;servi
+ * c e . <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
@@ -74,7 +74,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 public interface ExternalCallAction extends AbstractAction, CallReturnAction, FailureHandlingEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -87,7 +87,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Called Service External Service</em>' reference.
      * @see #setCalledService_ExternalService(OperationSignature)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_CalledService_ExternalService()
@@ -101,7 +101,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
      * {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService
      * <em>Called Service External Service</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Called Service External Service</em>' reference.
      * @see #getCalledService_ExternalService()
@@ -117,7 +117,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Role External Service</em>' reference.
      * @see #setRole_ExternalService(OperationRequiredRole)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_Role_ExternalService()
@@ -130,7 +130,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService
      * <em>Role External Service</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Role External Service</em>' reference.
      * @see #getRole_ExternalService()
@@ -143,7 +143,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
      * <!-- end-user-doc --> <!-- begin-model-doc --> Specifies&nbsp;the&nbsp;number of&nbsp;retries
      * this ExternalCallAction shoul be re-executed&nbsp; in case of failure occurence. <!--
      * end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Retry Count</em>' attribute.
      * @see #setRetryCount(int)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_RetryCount()
@@ -155,7 +155,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRetryCount
      * <em>Retry Count</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Retry Count</em>' attribute.
      * @see #getRetryCount()
@@ -165,13 +165,13 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * <pre id="comment_text_0" class="bz_comment_text">
      * check if the signature
      * (declared in calledService_ExternalService attribute) belongs to the role
      * (declared in role_ExternalService attribute)
      * </pre>
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -184,7 +184,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

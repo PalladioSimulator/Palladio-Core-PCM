@@ -38,14 +38,14 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implements ComposeableAdapterFactory,
         IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +53,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComposedAdapterFactory parentAdapterFactory;
@@ -61,14 +61,14 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +77,14 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffItemProviderAdapterFactory() {
@@ -98,7 +98,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.StopAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StopActionItemProvider stopActionItemProvider;
@@ -106,7 +106,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.StopAction}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingBehaviourItemProvider resourceDemandingBehaviourItemProvider;
@@ -130,7 +130,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BranchActionItemProvider branchActionItemProvider;
@@ -153,7 +153,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.BranchAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.StartAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StartActionItemProvider startActionItemProvider;
@@ -176,7 +176,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.StartAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -192,7 +192,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingSEFFItemProvider resourceDemandingSEFFItemProvider;
@@ -200,7 +200,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -216,7 +216,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingInternalBehaviourItemProvider resourceDemandingInternalBehaviourItemProvider;
@@ -225,7 +225,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ReleaseAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ReleaseActionItemProvider releaseActionItemProvider;
@@ -250,7 +250,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ReleaseAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -265,7 +265,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.LoopAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected LoopActionItemProvider loopActionItemProvider;
@@ -273,7 +273,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.LoopAction}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -289,7 +289,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.InternalAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InternalActionItemProvider internalActionItemProvider;
@@ -297,7 +297,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.InternalAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -312,7 +312,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ForkAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ForkActionItemProvider forkActionItemProvider;
@@ -320,7 +320,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ForkAction}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -336,7 +336,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ForkedBehaviourItemProvider forkedBehaviourItemProvider;
@@ -344,7 +344,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -360,7 +360,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SynchronisationPointItemProvider synchronisationPointItemProvider;
@@ -368,7 +368,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -384,7 +384,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExternalCallActionItemProvider externalCallActionItemProvider;
@@ -392,7 +392,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -408,7 +408,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.CallReturnAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CallReturnActionItemProvider callReturnActionItemProvider;
@@ -416,7 +416,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.CallReturnAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -432,7 +432,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProbabilisticBranchTransitionItemProvider probabilisticBranchTransitionItemProvider;
@@ -440,7 +440,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -456,7 +456,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.AcquireAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AcquireActionItemProvider acquireActionItemProvider;
@@ -464,7 +464,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.AcquireAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -480,7 +480,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CollectionIteratorActionItemProvider collectionIteratorActionItemProvider;
@@ -488,7 +488,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -504,7 +504,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected GuardedBranchTransitionItemProvider guardedBranchTransitionItemProvider;
@@ -512,7 +512,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -528,7 +528,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SetVariableActionItemProvider setVariableActionItemProvider;
@@ -536,7 +536,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -552,7 +552,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.InternalCallAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InternalCallActionItemProvider internalCallActionItemProvider;
@@ -560,7 +560,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.InternalCallAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -576,7 +576,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EmitEventActionItemProvider emitEventActionItemProvider;
@@ -584,7 +584,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -599,7 +599,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -610,7 +610,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -620,7 +620,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -631,7 +631,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This implementation substitutes the factory itself as the key for the adapter. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -641,7 +641,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -658,7 +658,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -667,7 +667,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -677,7 +677,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -687,7 +687,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -697,7 +697,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -708,7 +708,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -723,7 +723,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

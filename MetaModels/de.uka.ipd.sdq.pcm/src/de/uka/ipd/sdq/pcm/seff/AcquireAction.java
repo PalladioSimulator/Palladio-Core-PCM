@@ -73,7 +73,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -86,7 +86,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Passiveresource Acquire Action</em>' reference.
      * @see #setPassiveresource_AcquireAction(PassiveResource)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAcquireAction_Passiveresource_AcquireAction()
@@ -100,7 +100,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
      * {@link de.uka.ipd.sdq.pcm.seff.AcquireAction#getPassiveresource_AcquireAction
      * <em>Passiveresource Acquire Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Passiveresource Acquire Action</em>' reference.
      * @see #getPassiveresource_AcquireAction()
@@ -146,7 +146,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
      * de.uka.ipd.sdq.simucomframework.resources.SimSimpleFairPassiveResource.
      * </p>
      * <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Timeout</em>' attribute.
      * @see #setTimeout(boolean)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAcquireAction_Timeout()
@@ -158,7 +158,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.AcquireAction#isTimeout
      * <em>Timeout</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Timeout</em>' attribute.
      * @see #isTimeout()
@@ -178,7 +178,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
      * the "timeout" attribute for further information).
      * </p>
      * <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Timeout Value</em>' attribute.
      * @see #setTimeoutValue(double)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAcquireAction_TimeoutValue()
@@ -190,7 +190,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.AcquireAction#getTimeoutValue
      * <em>Timeout Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Timeout Value</em>' attribute.
      * @see #getTimeoutValue()
@@ -200,7 +200,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
