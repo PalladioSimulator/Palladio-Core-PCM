@@ -1,17 +1,16 @@
 var App = (function($, App) {
 
 	var Module = Backbone.Model.extend({
-		// urlRoot: 'modules', 
+		// urlRoot: 'modules',
 
 		defaults: {
-			id: 0, 
-			name: 'Module', 
+			name: 'Module',
 			started: false
 		}
 	});
 
 	var ModuleView = Backbone.View.extend({
-		tagName: 'tr', 
+		tagName: 'tr',
 
 		render: function() {
 			var template = _.template($('#template-module').html());
@@ -22,8 +21,8 @@ var App = (function($, App) {
 	});
 
 	var ModuleCollection = Backbone.Collection.extend({
-		model: Module, 
-		url: 'api/modules', 
+		model: Module,
+		url: 'api/modules',
 
 		initialize: function() {
 			this.fetch();
@@ -31,22 +30,22 @@ var App = (function($, App) {
 	});
 
 	App.ModuleCollectionView = Backbone.View.extend({
-		tagName: 'div', 
-		id: 'modules', 
-		className: 'box', 
+		tagName: 'div',
+		id: 'modules',
+		className: 'box',
 
 		initialize: function() {
 			this.collection = new ModuleCollection;
 
 			this.collection.on('add', this.renderModule, this);
-		}, 
+		},
 
 		render: function() {
 			var template = _.template($('#template-modules-box').html());
 			this.$el.append(template());
 
 			return this;
-		}, 
+		},
 
 		renderModule: function(model, collection, options) {
 			var view = new ModuleView({model: model});

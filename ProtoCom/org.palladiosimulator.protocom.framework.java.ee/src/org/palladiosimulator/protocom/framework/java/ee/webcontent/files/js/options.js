@@ -56,7 +56,6 @@ var App = (function($, App) {
 
 			this.model.save(null, {
 				success: function(model, response) {
-					console.log('updating view');
 					App.updateView();
 				}
 			});

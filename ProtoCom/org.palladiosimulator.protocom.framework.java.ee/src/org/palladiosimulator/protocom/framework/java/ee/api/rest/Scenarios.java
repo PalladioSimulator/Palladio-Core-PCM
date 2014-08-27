@@ -1,13 +1,8 @@
 package org.palladiosimulator.protocom.framework.java.ee.api.rest;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.Enumeration;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -19,6 +14,7 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.io.IOUtils;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.IUsageScenario;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.Prototype;
 
 import com.sun.jersey.core.header.ContentDisposition;
 
@@ -28,51 +24,6 @@ import com.sun.jersey.core.header.ContentDisposition;
  */
 @Path("/scenarios")
 public class Scenarios {
-	private static List<IUsageScenario> scenarios = loadScenarios();
-
-	/**
-	 *
-	 * @param className
-	 * @return
-	 */
-	private static IUsageScenario scenarioFromClass(String className) {
-		String name = "usagescenarios." + className.substring(0, className.lastIndexOf('.'));
-
-		try {
-			return (IUsageScenario) Class.forName(name).newInstance();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	/**
-	 *
-	 * @return
-	 */
-	private static List<IUsageScenario> loadScenarios() {
-		List<IUsageScenario> results = new LinkedList<IUsageScenario>();
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-
-		try {
-			Enumeration<URL> resources = classLoader.getResources("/usagescenarios");
-
-			if (resources.hasMoreElements()) {
-				File folder = new File(resources.nextElement().getFile());
-
-				for (File file : folder.listFiles()) {
-					if (file.isFile()) {
-						results.add(scenarioFromClass(file.getName()));
-					}
-				}
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		return results;
-	}
 
 	/**
 	 *
@@ -80,7 +31,9 @@ public class Scenarios {
 	 * @return
 	 */
 	private static IUsageScenario getScenario(String id) {
-		for (IUsageScenario scenario : scenarios) {
+		Prototype prototype = Prototype.getInstance();
+
+		for (IUsageScenario scenario : prototype.getUsageScenarios()) {
 			if (scenario.getId().equals(id)) {
 				return scenario;
 			}
@@ -96,7 +49,8 @@ public class Scenarios {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getScenarios() {
-		return Response.ok(JsonHelper.toJson(scenarios)).build();
+		Prototype prototype = Prototype.getInstance();
+		return Response.ok(JsonHelper.toJson(prototype.getUsageScenarios())).build();
 	}
 
 	/**
