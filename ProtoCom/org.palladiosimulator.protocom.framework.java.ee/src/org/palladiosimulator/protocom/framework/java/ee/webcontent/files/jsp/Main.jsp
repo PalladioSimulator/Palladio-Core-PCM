@@ -173,7 +173,7 @@
 		<script type="text/template" id="template-scenario">
 			<td>{{- name }}</td>
 			<td class="last">
-				<a href={{ url }}><i class="fa fa-cloud-download fa-fw"></i> JMX</a>
+				<a href={{ url }} download><i class="fa fa-cloud-download fa-fw"></i> JMX</a>
 			</td>
 		</script>
 
