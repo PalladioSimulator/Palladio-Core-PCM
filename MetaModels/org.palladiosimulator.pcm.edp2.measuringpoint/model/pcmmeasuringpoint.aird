@@ -9,6 +9,7 @@
   <models xmi:type="ecore:EPackage" href="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#/"/>
   <models xmi:type="ecore:EPackage" href="platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#/"/>
+  <models xmi:type="ecore:EPackage" href="platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.ecore#/"/>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_VI2cIC39EeSk2Y1TajxCFg" initialized="true">
     <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_VOOrYC39EeSk2Y1TajxCFg" name="pcmmeasuringpoint class diagram">
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_VOX1UC39EeSk2Y1TajxCFg" source="GMF_DIAGRAMS">
