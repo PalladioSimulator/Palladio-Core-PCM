@@ -12,6 +12,10 @@ import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
+import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
+import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
@@ -149,6 +153,26 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseUsageScenarioReference(final UsageScenarioReference object) {
             return PcmmeasuringpointAdapterFactory.this.createUsageScenarioReferenceAdapter();
+        }
+
+        @Override
+        public Adapter caseEntryLevelSystemCallMeasuringPoint(final EntryLevelSystemCallMeasuringPoint object) {
+            return PcmmeasuringpointAdapterFactory.this.createEntryLevelSystemCallMeasuringPointAdapter();
+        }
+
+        @Override
+        public Adapter caseExternalCallActionMeasuringPoint(final ExternalCallActionMeasuringPoint object) {
+            return PcmmeasuringpointAdapterFactory.this.createExternalCallActionMeasuringPointAdapter();
+        }
+
+        @Override
+        public Adapter caseExternalCallActionReference(final ExternalCallActionReference object) {
+            return PcmmeasuringpointAdapterFactory.this.createExternalCallActionReferenceAdapter();
+        }
+
+        @Override
+        public Adapter caseEntryLevelSystemCallReference(final EntryLevelSystemCallReference object) {
+            return PcmmeasuringpointAdapterFactory.this.createEntryLevelSystemCallReferenceAdapter();
         }
 
         @Override
@@ -397,6 +421,66 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createUsageScenarioReferenceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint
+     * <em>Entry Level System Call Measuring Point</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint
+     * @generated
+     */
+    public Adapter createEntryLevelSystemCallMeasuringPointAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint
+     * <em>External Call Action Measuring Point</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint
+     * @generated
+     */
+    public Adapter createExternalCallActionMeasuringPointAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference
+     * <em>External Call Action Reference</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference
+     * @generated
+     */
+    public Adapter createExternalCallActionReferenceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference
+     * <em>Entry Level System Call Reference</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference
+     * @generated
+     */
+    public Adapter createEntryLevelSystemCallReferenceAdapter() {
         return null;
     }
 

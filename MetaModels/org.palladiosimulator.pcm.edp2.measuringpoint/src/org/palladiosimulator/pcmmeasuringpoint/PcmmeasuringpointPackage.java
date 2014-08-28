@@ -587,6 +587,126 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int USAGE_SCENARIO_REFERENCE_FEATURE_COUNT = 1;
 
     /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
+     * <em>Entry Level System Call Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getEntryLevelSystemCallMeasuringPoint()
+     * @generated
+     */
+    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT = 15;
+
+    /**
+     * The feature id for the '<em><b>Entry Level System Call</b></em>' reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>Entry Level System Call Measuring Point</em>'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
+     * <em>External Call Action Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getExternalCallActionMeasuringPoint()
+     * @generated
+     */
+    int EXTERNAL_CALL_ACTION_MEASURING_POINT = 16;
+
+    /**
+     * The feature id for the '<em><b>External Call</b></em>' reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+
+    /**
+     * The number of structural features of the '<em>External Call Action Measuring Point</em>'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_CALL_ACTION_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl
+     * <em>External Call Action Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getExternalCallActionReference()
+     * @generated
+     */
+    int EXTERNAL_CALL_ACTION_REFERENCE = 17;
+
+    /**
+     * The feature id for the '<em><b>External Call</b></em>' reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL = 0;
+
+    /**
+     * The number of structural features of the '<em>External Call Action Reference</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_CALL_ACTION_REFERENCE_FEATURE_COUNT = 1;
+
+    /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl
+     * <em>Entry Level System Call Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getEntryLevelSystemCallReference()
+     * @generated
+     */
+    int ENTRY_LEVEL_SYSTEM_CALL_REFERENCE = 18;
+
+    /**
+     * The feature id for the '<em><b>Entry Level System Call</b></em>' reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL = 0;
+
+    /**
+     * The number of structural features of the '<em>Entry Level System Call Reference</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ENTRY_LEVEL_SYSTEM_CALL_REFERENCE_FEATURE_COUNT = 1;
+
+    /**
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint
      * <em>Assembly Operation Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -874,6 +994,76 @@ public interface PcmmeasuringpointPackage extends EPackage {
     EReference getUsageScenarioReference_UsageScenario();
 
     /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint
+     * <em>Entry Level System Call Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @return the meta object for class '<em>Entry Level System Call Measuring Point</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint
+     * @generated
+     */
+    EClass getEntryLevelSystemCallMeasuringPoint();
+
+    /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint
+     * <em>External Call Action Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @return the meta object for class '<em>External Call Action Measuring Point</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint
+     * @generated
+     */
+    EClass getExternalCallActionMeasuringPoint();
+
+    /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference
+     * <em>External Call Action Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>External Call Action Reference</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference
+     * @generated
+     */
+    EClass getExternalCallActionReference();
+
+    /**
+     * Returns the meta object for the reference '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference#getExternalCall
+     * <em>External Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference '<em>External Call</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference#getExternalCall()
+     * @see #getExternalCallActionReference()
+     * @generated
+     */
+    EReference getExternalCallActionReference_ExternalCall();
+
+    /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference
+     * <em>Entry Level System Call Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Entry Level System Call Reference</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference
+     * @generated
+     */
+    EClass getEntryLevelSystemCallReference();
+
+    /**
+     * Returns the meta object for the reference '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference#getEntryLevelSystemCall
+     * <em>Entry Level System Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference '<em>Entry Level System Call</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference#getEntryLevelSystemCall()
+     * @see #getEntryLevelSystemCallReference()
+     * @generated
+     */
+    EReference getEntryLevelSystemCallReference_EntryLevelSystemCall();
+
+    /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -1151,6 +1341,72 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * @generated
          */
         EReference USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO = eINSTANCE.getUsageScenarioReference_UsageScenario();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
+         * <em>Entry Level System Call Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getEntryLevelSystemCallMeasuringPoint()
+         * @generated
+         */
+        EClass ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT = eINSTANCE.getEntryLevelSystemCallMeasuringPoint();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
+         * <em>External Call Action Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getExternalCallActionMeasuringPoint()
+         * @generated
+         */
+        EClass EXTERNAL_CALL_ACTION_MEASURING_POINT = eINSTANCE.getExternalCallActionMeasuringPoint();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl
+         * <em>External Call Action Reference</em>}' class. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getExternalCallActionReference()
+         * @generated
+         */
+        EClass EXTERNAL_CALL_ACTION_REFERENCE = eINSTANCE.getExternalCallActionReference();
+
+        /**
+         * The meta object literal for the '<em><b>External Call</b></em>' reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL = eINSTANCE
+                .getExternalCallActionReference_ExternalCall();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl
+         * <em>Entry Level System Call Reference</em>}' class. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getEntryLevelSystemCallReference()
+         * @generated
+         */
+        EClass ENTRY_LEVEL_SYSTEM_CALL_REFERENCE = eINSTANCE.getEntryLevelSystemCallReference();
+
+        /**
+         * The meta object literal for the '<em><b>Entry Level System Call</b></em>' reference
+         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE
+                .getEntryLevelSystemCallReference_EntryLevelSystemCall();
 
     }
 

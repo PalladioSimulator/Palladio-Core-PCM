@@ -11,6 +11,10 @@ import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
+import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
+import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
@@ -244,6 +248,50 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE: {
             final UsageScenarioReference usageScenarioReference = (UsageScenarioReference) theEObject;
             T result = this.caseUsageScenarioReference(usageScenarioReference);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT: {
+            final EntryLevelSystemCallMeasuringPoint entryLevelSystemCallMeasuringPoint = (EntryLevelSystemCallMeasuringPoint) theEObject;
+            T result = this.caseEntryLevelSystemCallMeasuringPoint(entryLevelSystemCallMeasuringPoint);
+            if (result == null) {
+                result = this.caseMeasuringPoint(entryLevelSystemCallMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.caseEntryLevelSystemCallReference(entryLevelSystemCallMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT: {
+            final ExternalCallActionMeasuringPoint externalCallActionMeasuringPoint = (ExternalCallActionMeasuringPoint) theEObject;
+            T result = this.caseExternalCallActionMeasuringPoint(externalCallActionMeasuringPoint);
+            if (result == null) {
+                result = this.caseMeasuringPoint(externalCallActionMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.caseExternalCallActionReference(externalCallActionMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_REFERENCE: {
+            final ExternalCallActionReference externalCallActionReference = (ExternalCallActionReference) theEObject;
+            T result = this.caseExternalCallActionReference(externalCallActionReference);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE: {
+            final EntryLevelSystemCallReference entryLevelSystemCallReference = (EntryLevelSystemCallReference) theEObject;
+            T result = this.caseEntryLevelSystemCallReference(entryLevelSystemCallReference);
             if (result == null) {
                 result = this.defaultCase(theEObject);
             }
@@ -491,6 +539,71 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseUsageScenarioReference(final UsageScenarioReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Entry Level System Call Measuring Point</em>'. <!-- begin-user-doc --> This
+     * implementation returns null; returning a non-null result will terminate the switch. <!--
+     * end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Entry Level System Call Measuring Point</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEntryLevelSystemCallMeasuringPoint(final EntryLevelSystemCallMeasuringPoint object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>External Call Action Measuring Point</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>External Call Action Measuring Point</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExternalCallActionMeasuringPoint(final ExternalCallActionMeasuringPoint object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>External Call Action Reference</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>External Call Action Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseExternalCallActionReference(final ExternalCallActionReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Entry Level System Call Reference</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Entry Level System Call Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEntryLevelSystemCallReference(final EntryLevelSystemCallReference object) {
         return null;
     }
 

@@ -84,6 +84,24 @@ public interface PcmmeasuringpointFactory extends EFactory {
     UsageScenarioMeasuringPoint createUsageScenarioMeasuringPoint();
 
     /**
+     * Returns a new object of class '<em>Entry Level System Call Measuring Point</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Entry Level System Call Measuring Point</em>'.
+     * @generated
+     */
+    EntryLevelSystemCallMeasuringPoint createEntryLevelSystemCallMeasuringPoint();
+
+    /**
+     * Returns a new object of class '<em>External Call Action Measuring Point</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>External Call Action Measuring Point</em>'.
+     * @generated
+     */
+    ExternalCallActionMeasuringPoint createExternalCallActionMeasuringPoint();
+
+    /**
      * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the package supported by this factory.

@@ -246,6 +246,57 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     }
 
     /**
+     * This keeps track of the one adapter used for all
+     * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected EntryLevelSystemCallMeasuringPointItemProvider entryLevelSystemCallMeasuringPointItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createEntryLevelSystemCallMeasuringPointAdapter() {
+        if (this.entryLevelSystemCallMeasuringPointItemProvider == null) {
+            this.entryLevelSystemCallMeasuringPointItemProvider = new EntryLevelSystemCallMeasuringPointItemProvider(
+                    this);
+        }
+
+        return this.entryLevelSystemCallMeasuringPointItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected ExternalCallActionMeasuringPointItemProvider externalCallActionMeasuringPointItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createExternalCallActionMeasuringPointAdapter() {
+        if (this.externalCallActionMeasuringPointItemProvider == null) {
+            this.externalCallActionMeasuringPointItemProvider = new ExternalCallActionMeasuringPointItemProvider(this);
+        }
+
+        return this.externalCallActionMeasuringPointItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -368,6 +419,12 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
         }
         if (this.usageScenarioMeasuringPointItemProvider != null) {
             this.usageScenarioMeasuringPointItemProvider.dispose();
+        }
+        if (this.entryLevelSystemCallMeasuringPointItemProvider != null) {
+            this.entryLevelSystemCallMeasuringPointItemProvider.dispose();
+        }
+        if (this.externalCallActionMeasuringPointItemProvider != null) {
+            this.externalCallActionMeasuringPointItemProvider.dispose();
         }
     }
 

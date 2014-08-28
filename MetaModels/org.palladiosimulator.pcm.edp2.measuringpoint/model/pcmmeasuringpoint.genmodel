@@ -42,5 +42,13 @@
     <genClasses image="false" ecoreClass="pcmmeasuringpoint.ecore#//UsageScenarioReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pcmmeasuringpoint.ecore#//UsageScenarioReference/usageScenario"/>
     </genClasses>
+    <genClasses ecoreClass="pcmmeasuringpoint.ecore#//EntryLevelSystemCallMeasuringPoint"/>
+    <genClasses ecoreClass="pcmmeasuringpoint.ecore#//ExternalCallActionMeasuringPoint"/>
+    <genClasses image="false" ecoreClass="pcmmeasuringpoint.ecore#//ExternalCallActionReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pcmmeasuringpoint.ecore#//ExternalCallActionReference/externalCall"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="pcmmeasuringpoint.ecore#//EntryLevelSystemCallReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pcmmeasuringpoint.ecore#//EntryLevelSystemCallReference/entryLevelSystemCall"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

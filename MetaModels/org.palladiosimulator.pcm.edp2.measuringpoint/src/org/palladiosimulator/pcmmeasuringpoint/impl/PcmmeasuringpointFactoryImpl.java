@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
@@ -72,6 +74,10 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
             return this.createSubSystemOperationMeasuringPoint();
         case PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT:
             return this.createUsageScenarioMeasuringPoint();
+        case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT:
+            return this.createEntryLevelSystemCallMeasuringPoint();
+        case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT:
+            return this.createExternalCallActionMeasuringPoint();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -152,6 +158,28 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
     public UsageScenarioMeasuringPoint createUsageScenarioMeasuringPoint() {
         final UsageScenarioMeasuringPointImpl usageScenarioMeasuringPoint = new UsageScenarioMeasuringPointImpl();
         return usageScenarioMeasuringPoint;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EntryLevelSystemCallMeasuringPoint createEntryLevelSystemCallMeasuringPoint() {
+        final EntryLevelSystemCallMeasuringPointImpl entryLevelSystemCallMeasuringPoint = new EntryLevelSystemCallMeasuringPointImpl();
+        return entryLevelSystemCallMeasuringPoint;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ExternalCallActionMeasuringPoint createExternalCallActionMeasuringPoint() {
+        final ExternalCallActionMeasuringPointImpl externalCallActionMeasuringPoint = new ExternalCallActionMeasuringPointImpl();
+        return externalCallActionMeasuringPoint;
     }
 
     /**

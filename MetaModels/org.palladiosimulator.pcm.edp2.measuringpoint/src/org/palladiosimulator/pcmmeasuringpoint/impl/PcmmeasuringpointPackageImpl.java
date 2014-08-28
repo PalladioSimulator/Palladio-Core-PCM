@@ -15,6 +15,10 @@ import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
+import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
+import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
@@ -31,6 +35,7 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
 import de.uka.ipd.sdq.pcm.PcmPackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -145,6 +150,34 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
      * @generated
      */
     private EClass usageScenarioReferenceEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass entryLevelSystemCallMeasuringPointEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass externalCallActionMeasuringPointEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass externalCallActionReferenceEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass entryLevelSystemCallReferenceEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -473,6 +506,66 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
      * @generated
      */
     @Override
+    public EClass getEntryLevelSystemCallMeasuringPoint() {
+        return this.entryLevelSystemCallMeasuringPointEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getExternalCallActionMeasuringPoint() {
+        return this.externalCallActionMeasuringPointEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getExternalCallActionReference() {
+        return this.externalCallActionReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getExternalCallActionReference_ExternalCall() {
+        return (EReference) this.externalCallActionReferenceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getEntryLevelSystemCallReference() {
+        return this.entryLevelSystemCallReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getEntryLevelSystemCallReference_EntryLevelSystemCall() {
+        return (EReference) this.entryLevelSystemCallReferenceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public PcmmeasuringpointFactory getPcmmeasuringpointFactory() {
         return (PcmmeasuringpointFactory) this.getEFactoryInstance();
     }
@@ -536,6 +629,17 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
         this.usageScenarioReferenceEClass = this.createEClass(USAGE_SCENARIO_REFERENCE);
         this.createEReference(this.usageScenarioReferenceEClass, USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO);
+
+        this.entryLevelSystemCallMeasuringPointEClass = this.createEClass(ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT);
+
+        this.externalCallActionMeasuringPointEClass = this.createEClass(EXTERNAL_CALL_ACTION_MEASURING_POINT);
+
+        this.externalCallActionReferenceEClass = this.createEClass(EXTERNAL_CALL_ACTION_REFERENCE);
+        this.createEReference(this.externalCallActionReferenceEClass, EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL);
+
+        this.entryLevelSystemCallReferenceEClass = this.createEClass(ENTRY_LEVEL_SYSTEM_CALL_REFERENCE);
+        this.createEReference(this.entryLevelSystemCallReferenceEClass,
+                ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL);
     }
 
     /**
@@ -577,6 +681,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
                 .getEPackage(SubsystemPackage.eNS_URI);
         final UsagemodelPackage theUsagemodelPackage = (UsagemodelPackage) EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI);
+        final SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 
         // Create type parameters
 
@@ -602,6 +707,11 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.subSystemOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(this.getUsageScenarioReference());
+        this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes()
+                .add(theMeasuringpointPackage.getMeasuringPoint());
+        this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes().add(this.getEntryLevelSystemCallReference());
+        this.externalCallActionMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.externalCallActionMeasuringPointEClass.getESuperTypes().add(this.getExternalCallActionReference());
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.assemblyOperationMeasuringPointEClass, AssemblyOperationMeasuringPoint.class,
@@ -682,6 +792,25 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.initEReference(this.getUsageScenarioReference_UsageScenario(), theUsagemodelPackage.getUsageScenario(),
                 null, "usageScenario", null, 1, 1, UsageScenarioReference.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.entryLevelSystemCallMeasuringPointEClass, EntryLevelSystemCallMeasuringPoint.class,
+                "EntryLevelSystemCallMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        this.initEClass(this.externalCallActionMeasuringPointEClass, ExternalCallActionMeasuringPoint.class,
+                "ExternalCallActionMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        this.initEClass(this.externalCallActionReferenceEClass, ExternalCallActionReference.class,
+                "ExternalCallActionReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getExternalCallActionReference_ExternalCall(), theSeffPackage.getExternalCallAction(),
+                null, "externalCall", null, 1, 1, ExternalCallActionReference.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.entryLevelSystemCallReferenceEClass, EntryLevelSystemCallReference.class,
+                "EntryLevelSystemCallReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getEntryLevelSystemCallReference_EntryLevelSystemCall(),
+                theUsagemodelPackage.getEntryLevelSystemCall(), null, "entryLevelSystemCall", null, 1, 1,
+                EntryLevelSystemCallReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource
         this.createResource(eNS_URI);
