@@ -1,5 +1,12 @@
 package org.palladiosimulator.protocom.framework.java.ee.prototype;
 
+import java.util.LinkedList;
+import java.util.List;
+
+/**
+ *
+ * @author Christian Klaussner
+ */
 public final class Prototype {
 	private static Prototype instance;
 
@@ -43,15 +50,44 @@ public final class Prototype {
 		this.system = system;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public System getSystem() {
 		return system;
 	}
 
+	/**
+	 *
+	 * @param allocations
+	 */
 	public void setAllocations(Allocation[] allocations) {
 		this.allocations = allocations;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public Allocation[] getAllocations() {
 		return allocations;
+	}
+
+	/**
+	 * Gets the allocations for the specified container.
+	 * @param containerId
+	 * @return
+	 */
+	public Allocation[] getAllocations(String containerId) {
+		List<Allocation> list = new LinkedList<Allocation>();
+
+		for (Allocation allocation : allocations) {
+			if (allocation.getContainerId().equals(containerId)) {
+				list.add(allocation);
+			}
+		}
+
+		return list.toArray(new Allocation[0]);
 	}
 }

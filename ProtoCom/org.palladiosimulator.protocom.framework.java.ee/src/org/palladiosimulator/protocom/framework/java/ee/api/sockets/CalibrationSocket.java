@@ -1,6 +1,5 @@
 package org.palladiosimulator.protocom.framework.java.ee.api.sockets;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
@@ -16,13 +15,23 @@ import javax.websocket.server.ServerEndpoint;
 
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 
-@ServerEndpoint("/sock/calibration")
-public class CalibrationSocket {
+/**
+ *
+ * @author Christian Klaussner
+ */
+@ServerEndpoint("/ws/calibration")
+public class CalibrationSocket extends WebSocket {
 	private static Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
 
 	private static int lastProgress;
 	private static String lastMessage;
 
+	/**
+	 *
+	 * @param progress
+	 * @param message
+	 * @return
+	 */
 	private static String buildPayload(int progress, String message) {
 		Map<String, Object> data = new HashMap<String, Object>();
 
@@ -32,21 +41,21 @@ public class CalibrationSocket {
 		return JsonHelper.toJson(data);
 	}
 
+	/**
+	 *
+	 * @param progress
+	 * @param message
+	 */
 	public static void update(int progress, String message) {
 		progress = Math.max(0, Math.min(100, progress));
 
 		lastProgress = progress;
 		lastMessage = message;
 
-		try {
-			String payload = buildPayload(progress, message);
+		String payload = buildPayload(progress, message);
 
-			for (Session session : sessions) {
-				// String json = "{\"progress\":" + progress + "}";
-				session.getBasicRemote().sendText(payload);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
+		for (Session session : sessions) {
+			send(session, payload);
 		}
 	}
 
@@ -54,12 +63,8 @@ public class CalibrationSocket {
 	public void onOpen(Session session, EndpointConfig config) {
 		sessions.add(session);
 
-		try {
-			String payload = buildPayload(lastProgress, lastMessage);
-			session.getBasicRemote().sendText(payload);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String payload = buildPayload(lastProgress, lastMessage);
+		send(session, payload);
 	}
 
 	@OnClose
@@ -69,7 +74,5 @@ public class CalibrationSocket {
 
 	@OnError
 	public void onError(Session session, Throwable t) {
-		// FIXME: Tomcat throws a SocketException before onOpen is called. Ignore for now.
-		// t.printStackTrace();
 	}
 }

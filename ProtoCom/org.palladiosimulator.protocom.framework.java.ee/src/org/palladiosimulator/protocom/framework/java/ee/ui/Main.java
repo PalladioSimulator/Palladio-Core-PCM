@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.palladiosimulator.protocom.framework.java.ee.registry.Registry;
+
 @WebServlet("")
 public abstract class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,6 +23,8 @@ public abstract class Main extends HttpServlet {
 	public Main() {
 		super();
 		initPrototype();
+
+		Registry.setLocation("http://localhost:8080/DevPrototype");
 	}
 
 	@Override

@@ -2,11 +2,10 @@ package org.palladiosimulator.protocom.framework.java.ee.modules;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
 
 import org.palladiosimulator.protocom.framework.java.ee.common.Log;
-import org.palladiosimulator.protocom.framework.java.ee.legacy.AbstractAllocationStorage;
-import org.palladiosimulator.protocom.framework.java.ee.legacy.ComponentAllocation;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.Allocation;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.Prototype;
 
 /**
  * A ContainerModule represents a PCM resource container and its assigned components.
@@ -31,16 +30,18 @@ public class ContainerModule extends Module {
 
 		Log.info("Start container '" + getName() + "'");
 
-		Collection<ComponentAllocation> components = AbstractAllocationStorage.getComponents(getId());
 
-		for (ComponentAllocation component : components) {
-			Log.info("Start component '" + component.getComponentClass().getSimpleName() + "'");
+		Allocation[] allocations = Prototype.getInstance().getAllocations(getId());
+
+		for (Allocation allocation : allocations) {
+
+			Log.info("Start component '" + allocation.getComponentClass().getSimpleName() + "'");
 
 			try {
 				Class<?>[] types = {String.class, String.class};
-				Object[] arguments = {location, component.getAssemblyContext()};
+				Object[] arguments = {location, allocation.getAssemblyContext()};
 
-				Constructor<?> constructor = component.getComponentClass().getConstructor(types);
+				Constructor<?> constructor = allocation.getComponentClass().getConstructor(types);
 				constructor.newInstance(arguments);
 
 			} catch (NoSuchMethodException e) {

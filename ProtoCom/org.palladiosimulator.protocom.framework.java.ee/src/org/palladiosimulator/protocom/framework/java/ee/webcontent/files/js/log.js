@@ -15,13 +15,23 @@ var App = (function($, App) {
 		},
 
 		start: function() {
-			var url = 'ws://' + location.host + location.pathname + 'sock/log';
+			//var url = 'ws://' + location.host + location.pathname + 'sock/log';
+			var url = 'ws://' + location.host + location.pathname + 'ws/log';
+			console.log(url);
 
 			var connection = new WebSocket(url);
 			var self = this;
 
 			connection.onmessage = function(e) {
-				var data = JSON.parse(e.data);
+				//var data = JSON.parse(e.data);
+				//console.log(e);
+
+				var log = $('#log #messages');
+
+				log.append(e.data);
+				log.append('\n');
+
+				log.scrollTop(log[0].scrollHeight - log.height());
 			}
 
 			connection.onerror = function(e) {

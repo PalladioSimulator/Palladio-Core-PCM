@@ -58,7 +58,7 @@ public class Files {
 	public void deleteCalibration() {
 		Storage storage = new Storage();
 
-		storage.deleteFile("calibration/cpu.ser");
-		storage.deleteFile("calibration/hdd.ser");
+		storage.deleteFile("calibration/low.cpu.fibonacci");
+		storage.deleteFile("calibration/low.hdd.largeChunks");
 	}
 }

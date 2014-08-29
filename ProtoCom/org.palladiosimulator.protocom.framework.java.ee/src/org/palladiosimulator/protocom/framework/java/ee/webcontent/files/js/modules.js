@@ -1,8 +1,6 @@
 var App = (function($, App) {
 
 	var Module = Backbone.Model.extend({
-		// urlRoot: 'modules',
-
 		defaults: {
 			name: 'Module',
 			started: false
@@ -12,11 +10,19 @@ var App = (function($, App) {
 	var ModuleView = Backbone.View.extend({
 		tagName: 'tr',
 
+		events: {
+			'click .start': 'start'
+		},
+
 		render: function() {
 			var template = _.template($('#template-module').html());
 			this.$el.append(template(this.model.toJSON()));
 
 			return this;
+		},
+
+		start: function() {
+			$.get('api/modules/' + this.model.get('id') + '/start');
 		}
 	});
 

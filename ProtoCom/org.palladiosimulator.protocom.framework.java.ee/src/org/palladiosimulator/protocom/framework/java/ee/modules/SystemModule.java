@@ -12,16 +12,15 @@ import org.palladiosimulator.protocom.framework.java.ee.registry.RegistryExcepti
  */
 public class SystemModule extends Module {
 	private String className;
-	
+
 	/**
 	 * Constructs a new SystemModule object.
-	 * @param id the ID of the system
 	 * @param name the display name of the system
 	 * @param className the class name of the system
 	 */
-	public SystemModule(String id, String name, String className) {
-		super(id, name, true);
-		
+	public SystemModule(String name, String className) {
+		super("0", name, true);
+
 		this.className = className;
 	}
 
@@ -31,18 +30,18 @@ public class SystemModule extends Module {
 			Log.error("System '" + getName() + "' already started");
 			throw new ModuleStartException();
 		}
-		
+
 		Log.info("Start system '" + getName() + "'");
-		
+
 		try {
 			Class<?> systemClass = Class.forName(className);
-			
+
 			Class<?>[] types = {String.class, String.class};
 			Object[] arguments = {location, getId()};
-			
+
 			Constructor<?> constructor = systemClass.getConstructor(types);
 			constructor.newInstance(arguments);
-			
+
 		} catch (InvocationTargetException e) {
 			if (e.getCause() instanceof RegistryException) {
 				Log.error("Failed to look up components in registry");
@@ -53,7 +52,7 @@ public class SystemModule extends Module {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		setStarted(true);
 	}
 }
