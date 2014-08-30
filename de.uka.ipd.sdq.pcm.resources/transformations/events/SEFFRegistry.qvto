@@ -1,0 +1,75 @@
+modeltype PCM_ALLOC uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0';
+modeltype PCM_REP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0';
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0';
+modeltype PCM_SYS uses 'http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0';
+modeltype PCM_RES_ENV uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0';
+modeltype PCM_RES_TYPE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0';
+modeltype PCM_USAGE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0';
+modeltype PCM_FEATURE_CONF uses 'http://sdq.ipd.uka.de/FeatureConfig/2.0';
+modeltype PCM_FEATURE_MOD uses 'http://sdq.ipd.uka.de/FeatureModel/2.0';
+modeltype PCM_COMP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0';
+
+/**
+ * Transformation library for a global seff registry
+ *
+ * @author Benjamin Klatt
+ */
+library SEFFRegistry;
+
+
+/** 
+ * A registry for seffs.
+ * This will link components and signatures with the corresponding seffs.
+ *
+ * Note: In the QVTO specification there is a datatype named Dictionary that should 
+ *			be used for such a purpose, but this is not available yet in the 
+ *			eclipse qvto implementation, yet.
+ * 
+ * [component.id+signature.id => ResourceDemandingSEFF]
+ *
+ * Refer to getCombinedIdentifier() for more detailes about the key generation
+ */	
+property seffRegistry : Set(Tuple(key:String,seff:ResourceDemandingSEFF)) = Set{};
+
+/**
+ * Register a seff
+ * @param component 	The component to use in the identifier
+ * @param signature		The signature to use in the identifier
+ * @param seff		The ResourceDemandingSEFF to register
+ */
+helper SEFFRegistry_registerSEFF(	component : BasicComponent, 
+							signature : OperationSignature,
+							seff : ResourceDemandingSEFF){
+	var registryKey : String = SEFFRegistry_getCombinedIdentifier(component,signature);
+	var entry : Tuple(key:String,seff:ResourceDemandingSEFF) = Tuple {
+		key = registryKey,
+		seff = seff
+	};
+	seffRegistry += Set{entry};
+	return;
+}
+
+
+/**
+ * Find a seff in the seff registry
+ * @param component 	The component to use in the identifier
+ * @param signature		The signature to use in the identifier
+ * @return The ResourceDemandingSEFF found in the registry
+ */
+query SEFFRegistry_findSEFF(	component : BasicComponent, 
+						signature : OperationSignature) : ResourceDemandingSEFF {	
+		var searchKey : String = SEFFRegistry_getCombinedIdentifier(component,signature);
+		return seffRegistry->selectOne(s|s.key = searchKey).seff;
+}
+
+
+/**
+ * Get the combined identifier for a component and signature pair.
+ *
+ * @param component 	The component to use in the identifier
+ * @param signature		The signature to use in the identifier
+ * @return The identifier build from the combined element ids
+ */
+helper SEFFRegistry_getCombinedIdentifier(component : BasicComponent,signature : OperationSignature) : String {
+	return component.id + signature.id; 
+}

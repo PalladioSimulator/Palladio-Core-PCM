@@ -1,0 +1,154 @@
+import Commons;
+import SEFFUtil;
+import SEFFRegistry;
+
+modeltype PCM_ALLOC uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0';
+modeltype PCM_REP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0';
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0';
+modeltype PCM_SYS uses 'http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0';
+modeltype PCM_RES_ENV uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0';
+modeltype PCM_RES_TYPE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0';
+modeltype PCM_USAGE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0';
+modeltype PCM_FEATURE_CONF uses 'http://sdq.ipd.uka.de/FeatureConfig/2.0';
+modeltype PCM_FEATURE_MOD uses 'http://sdq.ipd.uka.de/FeatureModel/2.0';
+modeltype PCM_CORE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0';
+modeltype PCM_COMP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0';
+modeltype PCM_ENTITY uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0';
+modeltype PCM_PARAM uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0';
+modeltype PCM_STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/1.0';
+
+/**
+ * Library with helpers to handle the EventDistribution compontent
+ *
+ * The operations in this section are all about the creation and 
+ * management of the EventDistribution elements
+ *
+ * @author Benjamin Klatt
+ */
+library EventDistribution;
+
+
+/**
+ * Create the Event Distribution context.
+ * 
+ * This method creates the basic component and triggers the 
+ * deployment of the component on the same assembly as the source component.
+ *
+ * It returns the assembly context to provide more information
+ * then the component definition itself.
+ *
+ * @param sourceRole 				The original SourceRole this event distribution is about
+ * @param predecessorRequiredRole 	The required role to connect this component with
+ * @param system 					The system the new elements should be placed in
+ * @param allocation 				The allocation context to deploy this component
+ * @param resourceContainer 		The resource container of the new component
+ * @param predecessorAssemblyContext The predecessor component to connect with
+ * @return The new EventDristribution deployed and connected to the predecessor.
+ */
+helper EventDistribution_create(	sourceRole : SourceRole, 
+									predecessorRequiredRole : OperationRequiredRole,
+									inout system : System,
+									allocation : Allocation,
+									resourceContainers : OrderedSet(ResourceContainer),
+									predecessorAssemblyContext : AssemblyContext) : AssemblyContext {
+
+	// find the first available resource container
+	// we assume there is at least one
+	var resourceContainer : ResourceContainer = null;
+	resourceContainers->forEach(container){
+		if(resourceContainer = null)
+		then {
+			resourceContainer := container;
+		} endif;
+	};
+
+	// create the component
+	var component : BasicComponent = EventDistribution_createComponent(sourceRole,predecessorRequiredRole);
+	
+	// this component provides only one role so we can pick this
+	var providedRole : OperationProvidedRole = component.providedRoles_InterfaceProvidingEntity
+												->select(opr|opr.oclIsTypeOf(OperationProvidedRole))
+												->oclAsType(OperationProvidedRole)
+												->any(true);
+	
+																	
+	// Connector and Context
+	var assemblyConnector := Commons_deployAndConnect(	providedRole,
+															predecessorRequiredRole,
+															predecessorAssemblyContext,
+															system,
+															allocation,
+															resourceContainer);
+								
+	return assemblyConnector.providingAssemblyContext_AssemblyConnector;
+}
+
+/**
+ * Create the event distribution component in the repository.
+ *
+ * Only the provided role will be added.
+ * The required roles respectively the according fork behaviours with the external calls
+ * to the required roles will be added later on per connected sink.
+ *
+ * @param sourceRole	The source role this component is about
+ * @param predecessorRequiredRole	The required role this component should be able to servce
+ * @return the prepared basic component
+ */
+helper EventDistribution_createComponent (	sourceRole : SourceRole,
+									predecessorRequiredRole : OperationRequiredRole) : BasicComponent {
+	
+	// create basic component
+	var basicComponent : BasicComponent = Commons_createBasicComponent('EventDistribution'+sourceRole.entityName+Commons_getUniqueElementNameSuffix(),
+															sourceRole.eventGroup__SourceRole.repository__Interface);
+															
+	var interfaceToProvide := predecessorRequiredRole.requiredInterface__OperationRequiredRole;
+
+
+	// create provided role
+	var providedRole : OperationProvidedRole = Commons_createOperationProvidedRole('RequiredRole'+basicComponent.entityName,
+																						basicComponent,
+																						interfaceToProvide);
+	basicComponent.providedRoles_InterfaceProvidingEntity += providedRole->asSet();
+	
+	// create seffs
+	basicComponent.serviceEffectSpecifications__BasicComponent := interfaceToProvide.signatures__OperationInterface
+																	->SEFFUtil_createBasicSEFFWithForkAction(basicComponent);	
+
+	return basicComponent;
+}
+
+
+/**
+ * Add a distribution path to the event distribution component.
+ * This includes a new fork behaviour in each seff for the interface as well as 
+ * a new required role that is called from each fork behaviour.
+ *
+ * @param assemblyContext 	The assembly context of the EventDistribution to adopt
+ * @param interface			The interface of the communication path
+ * @return The new OperationRequiredRole that is triggered by the event distribution
+ */
+helper EventDistribution_addSinkRequiredRole(	assemblyContext : AssemblyContext ,
+												interface : OperationInterface) : OperationRequiredRole {
+		
+	var component := assemblyContext.encapsulatedComponent__AssemblyContext->oclAsType(BasicComponent)->any(true);	
+	
+	var requiredRole := Commons_createOperationRequiredRole(	'RequiredOperationRole'+interface.entityName+Commons_getUniqueElementNameSuffix(),
+																	component,
+																	interface);
+													
+	interface.signatures__OperationInterface->forEach(signature){
+		
+		var seff := component.serviceEffectSpecifications__BasicComponent->any(s|s.describedService__SEFF = signature);
+		
+		// get the distribution fork. We assume there is only one in the seff.
+		var distributionFork : ForkAction = seff
+								->oclAsType(ResourceDemandingSEFF)
+								.steps_Behaviour
+								->select(a|a.oclIsTypeOf(ForkAction))
+								->oclAsType(ForkAction)
+								->any(true);
+		distributionFork.asynchronousForkedBehaviours_ForkAction += SEFFUtil_createForkBehaviour(requiredRole,signature);
+	};
+	
+	return requiredRole;
+}
