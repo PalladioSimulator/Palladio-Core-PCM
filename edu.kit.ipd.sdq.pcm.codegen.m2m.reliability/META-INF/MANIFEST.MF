@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Reliability
+Bundle-SymbolicName: edu.kit.ipd.sdq.pcm.codegen.m2m.reliability;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
+ de.uka.ipd.sdq.pcm.codegen.m2m;bundle-version="3.1.0",
+ de.uka.ipd.sdq.workflow.launchconfig,
+ org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.swt;bundle-version="3.7.1",
+ org.eclipse.debug.ui;bundle-version="3.7.101",
+ de.uka.ipd.sdq.codegen.simucontroller;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simucomframework;bundle-version="1.0.0"
+Export-Package: edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.jobs
