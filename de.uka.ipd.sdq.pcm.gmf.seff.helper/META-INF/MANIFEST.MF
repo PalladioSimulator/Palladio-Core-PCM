@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SEFF Diagram Edit Helper Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.seff.helper;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.seff.helper.SEFFHelperPlugin
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.gmf.runtime.common.core,
+ org.eclipse.gmf.runtime.common.ui,
+ org.eclipse.gmf.runtime.emf.commands.core,
+ org.eclipse.gmf.runtime.emf.core,
+ org.eclipse.gmf.runtime.emf.type.core,
+ de.uka.ipd.sdq.pcm,
+ de.uka.ipd.sdq.pcmbench.ui,
+ de.uka.ipd.sdq.dialogs,
+ org.eclipse.gmf.runtime.diagram.ui,
+ de.uka.ipd.sdq.pcm.gmf.seff,
+ de.uka.ipd.sdq.pcm.gmf.repository,
+ org.eclipse.emf.edit.ui,
+ de.uka.ipd.sdq.pcm.stochasticexpressions,
+ de.uka.ipd.sdq.stoex.analyser,
+ de.uka.ipd.sdq.pcm.dialogs,
+ org.palladiosimulator.pcm.pcmstoex.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
