@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated pcmmeasuringpoint -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.pcmmeasuringpoint.presentation.PcmmeasuringpointModelWizardID"
+            name="%_UI_PcmmeasuringpointModelWizard_label"
+            class="org.palladiosimulator.pcmmeasuringpoint.presentation.PcmmeasuringpointModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PcmmeasuringpointModelFile.gif">
+         <description>%_UI_PcmmeasuringpointModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated pcmmeasuringpoint -->
+      <editor
+            id="org.palladiosimulator.pcmmeasuringpoint.presentation.PcmmeasuringpointEditorID"
+            name="%_UI_PcmmeasuringpointEditor_label"
+            icon="icons/full/obj16/PcmmeasuringpointModelFile.gif"
+            extensions="pcmmeasuringpoint"
+            class="org.palladiosimulator.pcmmeasuringpoint.presentation.PcmmeasuringpointEditor"
+            contributorClass="org.palladiosimulator.pcmmeasuringpoint.presentation.PcmmeasuringpointActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
