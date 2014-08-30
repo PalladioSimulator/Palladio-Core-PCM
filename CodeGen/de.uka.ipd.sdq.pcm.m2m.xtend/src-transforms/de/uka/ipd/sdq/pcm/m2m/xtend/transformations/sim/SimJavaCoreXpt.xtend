@@ -80,14 +80,18 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	
 	
 	def componentConstructor(RepositoryComponent rc) '''
-		private static org.apache.log4j.Logger logger = 
+		private static final org.apache.log4j.Logger logger = 
 				org.apache.log4j.Logger.getLogger(de.uka.ipd.sdq.simucomframework.model.SimuComModel.class.getName());
 				
+		/** Default EMF factory for measuring points. */
+		private static final org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory measuringpointFactory = org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory.eINSTANCE;
+	
 		
-		private String assemblyContextID = null;
+		private de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext = null;
+		private final java.util.Map<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>> startStopProbes = new java.util.HashMap<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>>();
 		
-		public String getAssemblyContextID() {
-			return assemblyContextID;
+		public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getAssemblyContext() {
+			return this.assemblyContext;
 		}
 		
 		private de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
@@ -98,8 +102,8 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 		
 		«rc.passiveResourceDecls»
 		
-		public «rc.javaName()» (String assemblyContextID, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
-			this.assemblyContextID = assemblyContextID;
+		public «rc.javaName()» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+			this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel(assemblyContextURI);
 			this.model = model;
 			
 			«rc.initCalculatorsTM»
@@ -110,22 +114,22 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	'''
 	
 	def dispatch passiveResourceDecls(BasicComponent bc) '''
-		// Initialise this component's passive resources
+		// Initialize this component's passive resources
 		«FOR pr : bc.passiveResource_BasicComponent»
 			de.uka.ipd.sdq.scheduler.IPassiveResource pr_«pr.id.javaVariableName()» = null;
 		«ENDFOR»
 	'''
 	
 	def componentHelperMethodsDeclaration(InterfaceProvidingEntity ipe) '''
-	 public String getAssemblyContextID();
+	 public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getAssemblyContext();
 	'''
 	
 	def dispatch interfaceHelperMethodsDeclaration(OperationInterface oi) '''
-	 public String getComponentAssemblyContextID();
+	 public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext();
 	'''
 	
 	def dispatch interfaceHelperMethodsDeclaration(InfrastructureInterface ii) '''
-	 public String getComponentAssemblyContextID();
+	 public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext();
 	'''
 	
 //	«REM»Template Method for the calculator initialization«ENDREM»
@@ -137,13 +141,13 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	def containerAvailabilityCheck(OperationSignature os) '''
 		// Simulate a failure if one or multiple of the processing resources
 		// required by the executing resource container are currently unavailable:
-		de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer container = ctx.findResource(assemblyContextID);
+		de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer container = ctx.findResource(this.assemblyContext.getId());
 		java.util.List<de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource> failedResources = container.getFailedResources();
 		if(failedResources.size() > 0){
 			double randValue = ctx.getModel().getConfiguration().getRandomGenerator().random();
 			int index = (int)Math.floor(randValue * failedResources.size());
-			de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(de.uka.ipd.sdq.reliability.core.FailureStatistics
-					.getInstance().getInternalHardwareFailureType(
+			de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
+				this.getModel(),this.getModel().getFailureStatistics().getInternalHardwareFailureType(
 							container.getResourceContainerID(),
 							failedResources.get(index).getResourceTypeId()));
 		}

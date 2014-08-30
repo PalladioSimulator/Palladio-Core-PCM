@@ -191,7 +191,7 @@ class SimCallsXpt extends CallsXpt {
 			«val triesVar = javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature())»
 « /* TODO: ->> am ende richtig übersetzen */»
 					«externalCall.catchFailureExceptions(id)»
-			«val callName = "Call "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+(call as ExternalCallAction).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+(call as ExternalCallAction).id+">"»
+			«val callName = "Call "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+(call as ExternalCallAction).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+(call as ExternalCallAction).id+">"»
 			de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.recordExternalCallResult(
 				"«callName»",
 				"«externalCall.id»",
@@ -210,8 +210,8 @@ class SimCallsXpt extends CallsXpt {
 
 				// If the failure-on-demand occurrence is handled,
 				// update the failure statistics accordingly:
-				de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseHandledFailureCounter(
-					failureException_«id».getFailureType()); //count handled failure
+				this.getModel().getFailureStatistics().increaseFailureCounter(
+		de.uka.ipd.sdq.reliability.core.FailureStatistics.FailureType.HANDLED, failureException_«id».getFailureType()); //count handled failure
 
 			} else {
 
@@ -250,8 +250,8 @@ class SimCallsXpt extends CallsXpt {
 					de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer fromContainer = null;
 					de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
 					try {
-						fromContainer = ctx.findResource(this.assemblyContextID);
-						toContainer = ctx.findResource(«prefix»getComponentAssemblyContextID());
+						fromContainer = ctx.findResource(this.assemblyContext.getId());
+						toContainer = ctx.findResource(«prefix»getComponentAssemblyContext().getId());
 					} catch (de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound exception) {
 						// If the call is system external, no target resource container will be found.
 					}
@@ -274,7 +274,7 @@ class SimCallsXpt extends CallsXpt {
 							} catch(de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException valueNotInFrameException) {
 								demand = 0.0;
 							}
-							linkingContainer.loadActiveResource(ctx.getThread(), fromContainer.getResourceContainerID(), linkingContainer.getLinkingResourceTypeName(), demand);
+							linkingContainer.loadActiveResource(ctx.getThread(), fromContainer.getResourceContainerID(), linkingContainer.getLinkingResourceTypeId(), demand);
 						} else {
 							throw new RuntimeException("A component on the resource container with id "+fromContainer.getResourceContainerID()+" calls a component on resource container with id "+toContainer.getResourceContainerID()+", but there is no linking resource between the containers! Add a LinkingResource or change the component allocation.");
 						}

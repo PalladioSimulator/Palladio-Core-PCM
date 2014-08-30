@@ -84,11 +84,6 @@ class SimUsageXpt extends UsageXpt {
 					return new ResourceEnvironment();
 				}
 				
-				@Override
-				protected void setupCalculators(de.uka.ipd.sdq.simucomframework.SimuComConfig config) {
-					«FOR us : _this.usageScenario_UsageModel»«us.initCalculatorsTM»«ENDFOR»
-				}
-				
 			}
 		'''
 
@@ -136,6 +131,11 @@ class SimUsageXpt extends UsageXpt {
 			public class «_this.javaName()» 
 			implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 			{
+				/** Default EMF factory for measuring points. */
+				private final org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory measuringpointFactory = org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory.eINSTANCE;
+	
+				private static java.util.Map<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>> startStopProbes = null;
+				
 				«FOR pr : _this.querySystemCalls.map[providedRole_EntryLevelSystemCall].toSet»«pr.systemMemberVar»«ENDFOR»
 				
 				// Workaround to specify and retrieve the priority for a system call
@@ -152,11 +152,18 @@ class SimUsageXpt extends UsageXpt {
 				
 				
 	
-				
 				private de.uka.ipd.sdq.simucomframework.Context ctx = null;
+				private de.uka.ipd.sdq.simucomframework.model.SimuComModel simuComModel;
+				private de.uka.ipd.sdq.simucomframework.model.SimuComModel getModel() {
+					return this.simuComModel;
+				}
 				«_this.usageScenarioConstructor(a)»
 				
 				«_this.scenarioBehaviour_UsageScenario.scenarioRunner(_this)»
+				
+				private void setupCalculators() {
+					«_this.initCalculatorsTM»
+				}
 			}
 		'''
 		
@@ -165,20 +172,15 @@ class SimUsageXpt extends UsageXpt {
 	
 	def scenarioRunner(ScenarioBehaviour _this, UsageScenario us) '''
 		public void scenarioRunner(de.uka.ipd.sdq.simucomframework.SimuComSimProcess thread) {
-			
+		
 			// Store our thread in the context. The thread is used later to suspend execution in case
 			// of waiting at a resource
 			ctx.setSimProcess(thread);
+		
+			// Here comes the usage scenario code...
+			«_this.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActions»
 			
-			«us.entityName.startResponseTimeMeasurementTM»
-			{
-								
-				// Here comes the usage scenario code...
-				«_this.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActions»
-				
-			}
-			«us.entityName.endResponseTimeMeasurementTM»
-			
+		
 			// A run through this usage model is complete
 			// The counter for main measurements is incremented by the SimuComSimProcess.internalLifeCycle that called this  
 			// ctx.getModel().increaseMainMeasurementsCount();
@@ -200,9 +202,8 @@ class SimUsageXpt extends UsageXpt {
 			.map[it as System]
 			.uniqueSystemList»
 		de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
-			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«FOR system : systemList SEPARATOR ","»«system.systemVariableParameter»«ENDFOR»),
-			«_this.population»,
-			"«u.id»")
+			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(), "«u.entityName.javaString()»",«FOR system : systemList SEPARATOR ","»«system.systemVariableParameter»«ENDFOR»),
+			«_this.population»)
 	'''
 	
 	def systemVariableParameter(System _this) '''
@@ -219,9 +220,8 @@ class SimUsageXpt extends UsageXpt {
 			.map[it as System]
 			.uniqueSystemList»
 		de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
-			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«FOR system : systemList SEPARATOR ","»«system.systemVariableParameter»«ENDFOR»),
-			"«_this.interArrivalTime_OpenWorkload.specification.specificationString()»",
-			"«u.id»")
+			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(), "«u.entityName.javaString()»",«FOR system : systemList SEPARATOR ","»«system.systemVariableParameter»«ENDFOR»),
+			"«_this.interArrivalTime_OpenWorkload.specification.specificationString()»")
 	'''
 	
 	def usageScenarioConstructor(UsageScenario _this, Allocation a) '''
@@ -233,6 +233,10 @@ class SimUsageXpt extends UsageXpt {
 			ctx = new «a.fqnAllocationContext()»(model);
 			ctx.getStack().createAndPushNewStackFrame();
 			«_this.usageScenarioConstructorContextInit(a)»
+			if (startStopProbes == null) {
+			    startStopProbes = new java.util.HashMap<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>>();
+				setupCalculators();
+			}
 		}
 	'''
 	

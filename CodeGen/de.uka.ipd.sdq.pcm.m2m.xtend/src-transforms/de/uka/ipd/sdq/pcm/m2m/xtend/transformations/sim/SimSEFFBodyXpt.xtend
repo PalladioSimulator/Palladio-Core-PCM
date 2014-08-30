@@ -56,6 +56,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	@Inject extension SimAccuracyInfluenceExt
 	@Inject extension SimJavaCoreXpt
 	@Inject extension SimAccuracyXpt
+	@Inject extension SimMeasuringPointExt
 	
 	// ----------------------------
 	// SimuCom templates for parts of a SEFF
@@ -106,7 +107,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	
 	def raiseInternalSoftwareFailure(SoftwareInducedFailureType sift, String internalActionId) '''
 		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
-			de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().getInternalSoftwareFailureType(
+			this.getModel(),this.getModel().getFailureStatistics().getInternalSoftwareFailureType(
 				"«sift.id»", "«internalActionId»"));
 	'''
 	
@@ -147,26 +148,36 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	'''
 	
 	override action(AcquireAction aa) '''
-		// Acquire «aa.passiveresource_AcquireAction»
-		{
-			//TODO Here, a resource demand of 0 is issued to a hard-coded resource "CPU"
-			double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("0",Double.class));
-			ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"CPU",demand);
-		}
-		if (pr_«aa.passiveresource_AcquireAction.id.javaVariableName()» == null) {
-			// Initialise Resource First...
-			pr_«aa.passiveresource_AcquireAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(this.assemblyContextID, "«aa.passiveresource_AcquireAction.entityName»", "«aa.passiveresource_AcquireAction.id»", ctx.findResource(assemblyContextID), (Integer)ctx.evaluate("«aa.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()»",Integer.class));
-		}
-		pr_«aa.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread(), 1, «aa.timeout», «aa.timeoutValue»);
+			// Acquire «aa.passiveresource_AcquireAction»
+	{
+	  //TODO Here, a resource demand of 0 is issued to a hard-coded resource "CPU" (ID = "_oro4gG3fEdy4YaaT-RYrLQ")
+	double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("0", Double.class));
+	ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(), "_oro4gG3fEdy4YaaT-RYrLQ", demand);
+	}
+	if (pr_«aa.passiveresource_AcquireAction.id.javaVariableName()» == null) {
+		// Initialize Resource First...
+		pr_«aa.passiveresource_AcquireAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(
+			"«aa.passiveresource_AcquireAction.getResourceURI()»",
+			this.assemblyContext,
+			ctx.findResource(this.assemblyContext.getId()),
+			(Integer)ctx.evaluate("«aa.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()»", Integer.class)
+		);
+	}
+	pr_«aa.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread(), 1, «aa.timeout», «aa.timeoutValue»);
 	'''
 	
 	override action(ReleaseAction ra) '''
-		// Release «ra.passiveResource_ReleaseAction»
-		if (pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
-			// Initialise Resource First...
-			pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(this.assemblyContextID, "«ra.passiveResource_ReleaseAction.entityName»", "«ra.passiveResource_ReleaseAction.id»", ctx.findResource(assemblyContextID), (Integer)ctx.evaluate("«ra.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()»",Integer.class));
-		}
-		pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()».release(ctx.getThread(), 1);
+	// Release «ra.passiveResource_ReleaseAction»
+	if (pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
+		// Initialize Resource First...
+		pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(
+			"«ra.passiveResource_ReleaseAction.getResourceURI()»",
+			this.assemblyContext,
+			ctx.findResource(this.assemblyContext.getId()),
+			(Integer)ctx.evaluate("«ra.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()»",Integer.class)
+		);
+	}
+	pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()».release(ctx.getThread(), 1);
 	'''
 	
 	override action(StartAction sa) '''
@@ -211,43 +222,43 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	'''
 	
 	override action(ForkAction fa) '''
-		{
-			de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
-				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{
-				«FOR f : fa.asynchronousForkedBehaviours_ForkAction SEPARATOR ","»
-					new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,true, ctx.getThread().getPriority()){
+	{
+		de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
+			new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{
+			«FOR f : fa.asynchronousForkedBehaviours_ForkAction SEPARATOR ","»
+				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx, this.assemblyContext.getId(), true, ctx.getThread().getPriority()){
+					public void executeBehaviour() {
+						try {
+							«f.steps_Behaviour.findStart()»
+						} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
+							if (ctx.getModel().getConfig().getSimulateFailures()) {
+								ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
+							}
+						}
+					}
+				}
+			«ENDFOR»
+			«IF (fa.asynchronousForkedBehaviours_ForkAction.size > 0)»
+			,
+			«ENDIF»
+			«IF (fa.synchronisingBehaviours_ForkAction != null)»
+				«FOR f: fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR ","»
+					new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx, this.assemblyContext.getId(), false){
 						public void executeBehaviour() {
 							try {
-								«f.steps_Behaviour.findStart().actionsAsCalls»
+								«f.steps_Behaviour.findStart()»
 							} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 								if (ctx.getModel().getConfig().getSimulateFailures()) {
-									de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
+									ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
 								}
 							}
 						}
 					}
 				«ENDFOR»
-				«IF fa.asynchronousForkedBehaviours_ForkAction.size > 0»
-				,
-				«ENDIF»
-				«IF fa.synchronisingBehaviours_ForkAction != null»
-					«FOR f : fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR ","»
-						new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID,false){
-							public void executeBehaviour() {
-								try {
-									«f.steps_Behaviour.findStart().actionsAsCalls»
-								} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
-									if (ctx.getModel().getConfig().getSimulateFailures()) {
-										de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
-									}
-								}
-							}
-						}
-					«ENDFOR»
-				«ENDIF»
-				};
-			new de.uka.ipd.sdq.simucomframework.fork.ForkExecutor(ctx.getThread(),forks).run();
-		}
+			«ENDIF»
+			};
+		new de.uka.ipd.sdq.simucomframework.fork.ForkExecutor(ctx.getThread(),forks).run();
+	}
 	'''
 	
 	override action(DelegatingExternalCallAction deca) '''

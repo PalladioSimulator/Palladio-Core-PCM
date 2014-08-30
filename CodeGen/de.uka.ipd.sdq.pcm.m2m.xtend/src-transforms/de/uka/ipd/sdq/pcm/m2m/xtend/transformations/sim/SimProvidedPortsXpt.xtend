@@ -75,39 +75,39 @@ class SimProvidedPortsXpt extends ProvidedPortsXpt {
 	'''
 	
 	def dispatch componentPortHelperMethods(OperationProvidedRole opr) '''
-		     public String getComponentAssemblyContextID() {
-		     	return this.myComponent.getAssemblyContextID();
-		     }
+		public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+		return this.myComponent.getAssemblyContext();
+		}
 	'''
 	
 	def dispatch componentPortHelperMethods(InfrastructureProvidedRole ipr) '''
-		     public String getComponentAssemblyContextID() {
-		     	return this.myComponent.getAssemblyContextID();
-		     }
+		  public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+		  return this.myComponent.getAssemblyContext();
+		  }
 	'''
 	
 	def dispatch composedComponentPortHelperMethods(OperationInterface oi) '''
-		     public String getComponentAssemblyContextID() {
-		     	return this.myInnerPort.getComponentAssemblyContextID();
-		     }
+	    public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+	    return this.myInnerPort.getComponentAssemblyContext();
+	    }
 	'''
 	
 	def dispatch composedComponentPortHelperMethods(InfrastructureInterface ii) '''
-		     public String getComponentAssemblyContextID() {
-		     	return this.myInnerPort.getComponentAssemblyContextID();
-		     }
+	     public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+	     	return this.myInnerPort.getComponentAssemblyContext();
+	     }
 	'''
 	
 	def dispatch dummyComponentPortHelperMethod(OperationInterface oi) '''
-				public String getComponentAssemblyContextID() {
-					return "";
-				}
+		public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+				return null;
+			}
 	'''
 	
 	def dispatch dummyComponentPortHelperMethod(InfrastructureInterface ii) '''
-				public String getComponentAssemblyContextID() {
-					return "";
-				}
+		public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+				return null;
+			}
 	'''
 	
 	// overwrite template methods

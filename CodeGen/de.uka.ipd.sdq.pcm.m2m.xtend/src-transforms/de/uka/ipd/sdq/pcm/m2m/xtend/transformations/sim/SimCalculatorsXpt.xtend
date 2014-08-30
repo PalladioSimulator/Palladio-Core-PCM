@@ -78,7 +78,7 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 	'''
 
 	def dispatch String setupCalculators(ExternalCallAction action) '''
-		// Old: "Call "+this.calledService_ExternalService.interface__OperationSignature.entityName+"."+this.calledService_ExternalService.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+ this.id +">"
+		// Old: "Call "+this.calledService_ExternalService.interface__OperationSignature.entityName+"."+this.calledService_ExternalService.javaSignature()+" <AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+ this.id +">"
 		«val callName = externalCallActionDescription(action.calledService_ExternalService, action)»
 			// ExternalCallAction «action.entityName» («action.id»)
 			«callName.setupCalculatorResponseTime("start" + callName, "end" + callName)»

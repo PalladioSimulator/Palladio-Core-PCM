@@ -13,9 +13,8 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
+import de.uka.ipd.sdq.pcm.transformations.Helper
 import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
-
-import static de.uka.ipd.sdq.pcm.transformations.Helper.*
 
 @ModelIn(#[
 	"completions.NetworkDemandParametricResourceDemand",
@@ -30,6 +29,7 @@ import static de.uka.ipd.sdq.pcm.transformations.Helper.*
 ])
 class SimResourcesXpt extends ResourcesXpt {
 	@Inject extension JavaNamesExt
+	@Inject extension SimMeasuringPointExt
 	
 	@Inject M2TFileSystemAccess fsa
 	
@@ -41,14 +41,14 @@ class SimResourcesXpt extends ResourcesXpt {
 	def dispatch resourceDemand(ParametricResourceDemand prd) '''
 	    {
 	      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«prd.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-	      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«prd.requiredResource_ParametricResourceDemand.entityName»",demand);
+	      ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(),"«prd.requiredResource_ParametricResourceDemand.id»",demand);
 	    }
 	'''
 	
 	def dispatch resourceDemand(NetworkDemandParametricResourceDemand ndprd) '''
 	    {
 	      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«ndprd.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-	      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«ndprd.requiredCommunicationLinkResource_ParametricResourceDemand.entityName»",demand);
+	      ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(),"«ndprd.requiredCommunicationLinkResource_ParametricResourceDemand.id»",demand);
 	    }
 	'''
 	
@@ -99,12 +99,12 @@ class SimResourcesXpt extends ResourcesXpt {
    	 	
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«rc.numberOfCalls__ResourceCall.specification.specificationString()»",Double.class));
       if(parameterMap.size()>=1){
-      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«rc.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«rc.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
+      	ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(),"«rc.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«rc.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
       }else{
-      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«rc.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«rc.signature__ResourceCall.resourceServiceId»,demand);     	
+      	ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(),"«rc.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«rc.signature__ResourceCall.resourceServiceId»,demand);     	
       }
      
-   }
+   } 
 	'''
 	
 	// ----------------------------
@@ -233,14 +233,8 @@ class SimResourcesXpt extends ResourcesXpt {
 	
 	def linkingResourceAdd(CommunicationLinkResourceSpecification clrs) '''
 		rc.addActiveResource(
-		    "«clrs.linkingResource_CommunicationLinkResourceSpecification.id»",
-			"«clrs.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
-			rc.getResourceContainerID(),
-			"«clrs.communicationLinkResourceType_CommunicationLinkResourceSpecification.id»",
-			"«(clrs.eContainer as LinkingResource).entityName.specificationString()» [«clrs.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«(clrs.eContainer as LinkingResource).id»>",
-			"«clrs.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
-			"«clrs.latency_CommunicationLinkResourceSpecification.specification.specificationString()»",
-			«clrs.failureProbability»);
+		    "«clrs.linkingResource_CommunicationLinkResourceSpecification.getResourceURI()»",
+		rc.getResourceContainerID());
 	'''
 	
 	def nestedResourceContainerAdd(ResourceContainer rc) '''
@@ -260,22 +254,15 @@ class SimResourcesXpt extends ResourcesXpt {
 			«var counter0 = 0»
 			«FOR resProvRole : prs.activeResourceType_ActiveResourceSpecification.resourceProvidedRoles__ResourceInterfaceProvidingEntity»
 				«prs.activeResourceType_ActiveResourceSpecification.id.javaVariableName()»_provInterfaces[«counter0»] = "«resProvRole.providedResourceInterface__ResourceProvidedRole.entityName.javaString()»";
-				«toEmptyString((counter0 = counter0 + 1))»
+				«Helper::toEmptyString(counter0 = counter0 + 1)»
 			«ENDFOR»
 		«ENDIF»
 		rc.addActiveResource(
-			"«prs.activeResourceType_ActiveResourceSpecification.entityName»",
-			«prs.activeResourceType_ActiveResourceSpecification.id.javaVariableName()»_provInterfaces,
-			rc.getResourceContainerID(),
-			"«prs.activeResourceType_ActiveResourceSpecification.id»",
-			"«(prs.eContainer as ResourceContainer).entityName.specificationString()» [«prs.activeResourceType_ActiveResourceSpecification.entityName»] <«(prs.eContainer as ResourceContainer).id»>",
-			"«prs.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
-			«prs.MTTF»,
-			«prs.MTTR»,
-			"TODO: unit!",
-			«prs.schedulingStrategy(prs.eContainer as ResourceContainer)»,
-			«prs.numberOfReplicas»,
-			«prs.requiredByContainer»);
+		"«prs.getResourceURI()»",
+		«prs.activeResourceType_ActiveResourceSpecification.id.javaVariableName()»_provInterfaces,
+		rc.getResourceContainerID(),
+			«prs.schedulingStrategy(prs.eContainer as ResourceContainer)»
+			);
 	'''
 	
 	def schedulingStrategy(ProcessingResourceSpecification prs, ResourceContainer container) '''

@@ -182,7 +182,7 @@ abstract class SEFFBodyXpt {
 				// Mark the original exception as handled (even if the
 				// handling alternative fails itself, this will be a new
 				// failure, and the original failure is counted as handled):
-				de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseHandledFailureCounter(failureException_«id».getFailureType());
+				ctx.getModel().getFailureStatistics().increaseFailureCounter(de.uka.ipd.sdq.reliability.core.FailureStatistics.FailureType.HANDLED, failureException_«id».getFailureType());
 				failureException_«id» = null;
 		
 				«behaviour.recoveryActionAlternative»

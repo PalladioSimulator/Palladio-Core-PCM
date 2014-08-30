@@ -110,20 +110,20 @@ class SimDummiesXpt extends DummiesXpt {
 	
 	def dispatch raiseFailure(SoftwareInducedFailureType sift, String roleId, String signatureId) '''
 		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
-			de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().getExternalSoftwareFailureType(
-				"«sift.id»", "«roleId»", "«signatureId»"));
+		this.getModel(),this.getModel().getFailureStatistics().getExternalSoftwareFailureType(
+			"«sift.id»", "«roleId»", "«signatureId»"));
 	'''
 	
 	def dispatch raiseFailure(HardwareInducedFailureType hift, String roleId, String signatureId) '''
-		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
-			de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().getExternalHardwareFailureType(
-			    "«hift.processingResourceType__HardwareInducedFailureType.id»", "«roleId»", "«signatureId»"));
+		    de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
+		this.getModel(),this.getModel().getFailureStatistics().getExternalHardwareFailureType(
+		    "«hift.processingResourceType__HardwareInducedFailureType.id»", "«roleId»", "«signatureId»"));
 	'''
 	
 	def dispatch raiseFailure(NetworkInducedFailureType nift, String roleId, String signatureId) '''
 		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
-			de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().getExternalNetworkFailureType(
-				"«nift.communicationLinkResourceType__NetworkInducedFailureType.id»", "«roleId»", "«signatureId»"));
+		this.getModel(),this.getModel().getFailureStatistics().getExternalNetworkFailureType(
+			"«nift.communicationLinkResourceType__NetworkInducedFailureType.id»", "«roleId»", "«signatureId»"));
 	'''
 	
 	// overwrite template methods

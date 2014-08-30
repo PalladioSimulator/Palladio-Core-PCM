@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.helper;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -13,15 +12,19 @@ public class M2TFileSystemAccess {
 		this.rootDirectory = rootDirectory;
 	}
 	
-	public void generateFile(String fileName, CharSequence contents) {
-		//fileName = fileName + "_xtend";
-		
+	public void generateFile(String fileName, CharSequence contents) {		
 		Path p = Paths.get(rootDirectory, fileName);
-
+		
 		System.out.println("WRITING FILE: " + p.toAbsolutePath());
 		File newFile = p.toFile();
 		
 		try {
+			//Create source folder if it does not exist yet
+			File rootFile = Paths.get(rootDirectory).toFile();
+			if (!rootFile.exists()) {
+				rootFile.mkdirs();
+			}
+			
 			if (newFile.exists())
 				newFile.delete();
 			

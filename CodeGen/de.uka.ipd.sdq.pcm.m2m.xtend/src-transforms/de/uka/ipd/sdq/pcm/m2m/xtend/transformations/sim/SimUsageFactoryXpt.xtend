@@ -23,6 +23,7 @@ class SimUsageFactoryXpt {
 	
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext 
+	@Inject extension SimMeasuringPointExt
 	
 	@Inject extension SimUsageXpt
 	
@@ -71,11 +72,11 @@ class SimUsageFactoryXpt {
 			.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole]
 			.map[it as System]
 			.uniqueSystemList»
-		private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
+		private final de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
 		«FOR system : systemList»
 		private «system.fqn()» my«system.javaName()» = null;
 		«ENDFOR»
-		public «_this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«FOR system : systemList SEPARATOR ","»«system.systemVariableDecl»«ENDFOR»){
+		public «_this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model, String usageID, «FOR system : systemList SEPARATOR ","»«system.systemVariableDecl»«ENDFOR»){
 			«_this.workload_UsageScenario.factoryConstructor»
 			this.model = model;
 			«FOR system : systemList»
@@ -90,10 +91,10 @@ class SimUsageFactoryXpt {
 	'''
 	
 	def dispatch String factoryConstructor(ClosedWorkload _this) '''
-		super(model,"«_this.thinkTime_ClosedWorkload.specification.specificationString()»");
+		super(model, "«_this.thinkTime_ClosedWorkload.specification.specificationString()»", "«_this.usageScenario_Workload.getResourceURI()»");
 	'''
 	
 	def dispatch String factoryConstructor(OpenWorkload _this) '''
-		super(model);
+		super(model, "«_this.usageScenario_Workload.getResourceURI()»");
 	'''
 }

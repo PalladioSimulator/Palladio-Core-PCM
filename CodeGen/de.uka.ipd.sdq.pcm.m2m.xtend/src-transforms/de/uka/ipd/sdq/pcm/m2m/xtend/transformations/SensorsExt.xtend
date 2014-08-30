@@ -27,14 +27,14 @@ class SensorsExt {
 
 	def String externalCallActionDescription(OperationSignature os, Object call) {
 		"Call "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+
-			(call as EObject).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+
+			(call as EObject).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+
 			(call as ExternalCallAction).id+">";
 	}
 	
 	def String internalActionDescription(InfrastructureSignature os, Object call) {
 		"Call "+os.infrastructureInterface__InfrastructureSignature.entityName+"."+
 		os.javaSignature()+" <Component: "+(call as EObject).findContainerComponent().entityName+
-		", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+(call as InternalAction).id+">";
+		", AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+(call as InternalAction).id+">";
 	}
 	 
 	def String entryLevelSystemCallActionDescription(OperationSignature os, Object call) {
@@ -58,11 +58,11 @@ class SensorsExt {
 	
 	def String seffDescription(OperationSignature os, RepositoryComponent component) { 
 		"SEFF "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+
-		component.entityName+", AssemblyCtx: \"+this.assemblyContextID+\">";
+		component.entityName+", AssemblyCtx: \"+this.assemblyContext.getId()+\">";
 	}
 	  
 	def String seffDescription(InfrastructureSignature os, RepositoryComponent component) { 
 		"SEFF "+os.infrastructureInterface__InfrastructureSignature.entityName+"."+os.javaSignature()+
-	  " <Component: "+component.entityName+", AssemblyCtx: \"+this.assemblyContextID+\">";
+	  " <Component: "+component.entityName+", AssemblyCtx: \"+this.assemblyContext.getId()+\">";
 	}
 }

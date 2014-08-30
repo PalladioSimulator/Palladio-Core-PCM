@@ -32,7 +32,7 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 		context.setUserData(this.myContext.getUserData());
 		  
 		«IF ac.encapsulatedComponent__AssemblyContext instanceof BasicComponent»
-		//Initialise Component Parameters
+		//Initialize Component Parameters
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = 
 			new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 		«FOR pu : ac.configParameterUsages__AssemblyContext»
@@ -44,18 +44,18 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 		«ENDFOR»
 		
 		// possibly overwrite some with user data if this AssemblyContext is meant
-		this.myContext.getUserData().overwriteParametersForAssemblyContext(my«ac.javaName()».getAssemblyContextID(), componentStackFrame);
+		this.myContext.getUserData().overwriteParametersForAssemblyContext(my«ac.javaName()».getAssemblyContext().getId(), componentStackFrame);
 		
 		my«ac.javaName()».setComponentFrame(componentStackFrame);
 		«ENDIF»
 	'''
 	
 	def composedPREConstructorStart(ComposedProvidingRequiringEntity cpre) '''
-		private String assemblyContextID = "";
+		private de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext = null;
 		
-		public String getAssemblyContextID() {
-			return assemblyContextID;
-		}
+	public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getAssemblyContext() {
+		return this.assemblyContext;
+	}	
 		
 		private de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
 		
@@ -68,13 +68,13 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 		public «cpre.className()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 		this.model = model; 
 		«ELSE»
-		public «cpre.className()» (String assemblyContextID, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+		public «cpre.className()» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 		    /* The assembly context contains this Assembly Context's id plus potentially Assembly Context's ids of its parents in the system. */
-			this.assemblyContextID = assemblyContextID;
+			this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel(assemblyContextURI);
 			
 			this.model = model;
 					
-			logger.info("Creating composed structure «cpre.entityName» with AssemblyContextID " + assemblyContextID);
+			logger.info("Creating composed structure «cpre.entityName» with AssemblyContextID " + assemblyContext.getId());
 		«ENDIF»
 «««		Do not close curly brace here.
 	'''
@@ -93,10 +93,11 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 	override componentConstructorParametersTM(AssemblyContext obj) {
 		if ((obj.parentStructure__AssemblyContext instanceof CompositeComponent)
 		  ||(obj.parentStructure__AssemblyContext instanceof SubSystem)
-		  ||(obj.parentStructure__AssemblyContext instanceof Completion))
-			'''"«obj.id»" + this.assemblyContextID'''
+		  ||(obj.parentStructure__AssemblyContext instanceof Completion)
+		  ||(obj.parentStructure__AssemblyContext instanceof System))
+			'''"«obj.id»" + this.assemblyContext.getId()'''
 		else
-			'''"«obj.id»"'''
+			'''this.assemblyContext'''
 	}
 	
 	override childMemberVarInitTM(AssemblyContext context) {
