@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.reliability.solver.runconfig.PCMSolverReliabilityLaunchConfigurationDelegate"
+            id="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+            name="PCM Solver Reliability"
+            modes="run, debug">
+      </launchConfigurationType>
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/relsolver.ico"
+	        configTypeID="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTypeImage.PCMSolver.Reliability">
+	    </launchConfigurationTypeImage>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType.Reliability"
+	        class="de.uka.ipd.sdq.reliability.solver.runconfig.PCMSolverReliabilityTabGroup"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.PCMSolver.Reliability">
+	    </launchConfigurationTabGroup>
+	</extension>
+ <extension
+       point="org.eclipse.ui.popupMenus">
+    <objectContribution
+          id="de.uka.ipd.sdq.reliability.solver.markov"
+          nameFilter="*.markov"
+          objectClass="org.eclipse.core.resources.IFile">
+       <menu
+             id="de.uka.ipd.sdq.reliability.solver.menu"
+             label="PCM Reliability Solver"
+             path="additions">
+          <separator
+                name="markov">
+          </separator>
+       </menu>
+       <action
+             class="de.uka.ipd.sdq.reliability.solver.popup.actions.CompareAction"
+             enablesFor="2"
+             id="de.uka.ipd.sdq.reliability.solver.newAction"
+             label="Markov Comparison..."
+             menubarPath="de.uka.ipd.sdq.reliability.solver.menu/markov">
+       </action>
+    </objectContribution>
+ </extension>
+   <extension point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.reliability.solver.visualisation.MarkovResultEditor"
+               extensions="markovresult"
+               icon="icons/relsolver.ico"
+               id="de.uka.ipd.sdq.reliability.solver.pcm2markov.MarkovResultEditor"
+               name="Markov Analysis Results">
+         </editor>
+   </extension>
+</plugin>
