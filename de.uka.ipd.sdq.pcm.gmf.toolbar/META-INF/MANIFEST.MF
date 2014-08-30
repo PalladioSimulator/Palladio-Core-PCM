@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Toolbar Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.toolbar;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
+ de.uka.ipd.sdq.pcm.gmf.allocation,
+ de.uka.ipd.sdq.pcm.gmf.seff,
+ de.uka.ipd.sdq.pcm.gmf.usage,
+ de.uka.ipd.sdq.pcm.gmf.repository,
+ de.uka.ipd.sdq.pcm.gmf.composite,
+ de.uka.ipd.sdq.pcm.editor
+Bundle-Vendor: sdq.ipd.uka.de
+Import-Package: de.uka.ipd.sdq.pcm.gmf.resource.part
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
