@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://fzi.de/PalladioComponentModel/Quality/0.2"
+            class="de.fzi.se.quality.QualityPackage"
+            genModel="model/Quality.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="quality"
+            class="de.fzi.se.quality.util.QualityResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://fzi.de/PalladioComponentModel/Quality/QualityAnnotation/0.2"
+            class="de.fzi.se.quality.qualityannotation.QualityAnnotationPackage"
+            genModel="model/Quality.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="qualityannotation"
+            class="de.fzi.se.quality.qualityannotation.util.QualityAnnotationResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://fzi.de/PalladioComponentModel/Quality/Parameters/0.2"
+            class="de.fzi.se.quality.parameters.ParametersPackage"
+            genModel="model/Quality.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="parameters"
+            class="de.fzi.se.quality.parameters.util.ParametersResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://fzi.de/PalladioComponentModel/Quality/Parameters/PCM/0.2"
+            class="de.fzi.se.quality.parameters.pcm.PCMPackage"
+            genModel="model/Quality.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="quality_parameters_pcm"
+            class="de.fzi.se.quality.parameters.pcm.util.PCMResourceFactoryImpl"/>
+   </extension>
+
+</plugin>
