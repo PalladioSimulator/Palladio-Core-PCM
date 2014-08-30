@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<!--
+Copyright 2007, SDQ, IPD, University of Karlsruhe
+-->
+<plugin>
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.usage.custom.providers.CustomPalladioComponentModelEditPartProvider">
+         <Priority name="Low"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="PCM Usage Model"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2004,3014,3001,3002,3003,3012,3013,3005,3007,3008,3009,3010,3017,3015,3016"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value="4002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5017,5004,5012,5005,5007,5018,5019,5013,5014,5015,5016"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7012,7013,7002,7011,7005,7009,7008"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
+      </editpartProvider>
+   </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
+      <layoutProvider
+            class="de.uka.ipd.sdq.pcm.gmf.usage.custom.layout.UsageDefaultLayoutProvider">
+         <Priority
+               name="High">
+         </Priority>
+      </layoutProvider>
+   </extension>
+</plugin>
