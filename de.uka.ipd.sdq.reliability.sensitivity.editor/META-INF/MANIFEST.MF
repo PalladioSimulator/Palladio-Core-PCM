@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EMF Editor Plug-in for PCM Markov Sensitivity Model
+Bundle-SymbolicName: de.uka.ipd.sdq.reliability.sensitivity.editor;singleton:=true
+Bundle-Version: 3.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: de.uka.ipd.sdq.sensitivity.presentation.SensitivityEditorPlugin$Implementation
+Bundle-Vendor: sdq.ipd.uka.de
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.sensitivity.presentation
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.core.resources;visibility:=reexport,
+ de.uka.ipd.sdq.reliability.sensitivity.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport,
+ org.eclipse.ui.ide;visibility:=reexport,
+ de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
+ de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
+ de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
+ de.uka.ipd.sdq.units.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy
