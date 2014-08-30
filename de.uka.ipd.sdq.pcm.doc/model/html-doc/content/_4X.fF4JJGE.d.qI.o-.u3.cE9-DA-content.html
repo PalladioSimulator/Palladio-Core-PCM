@@ -1,0 +1,506 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>repository - UML-Dokumentation</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<meta name="description" content="Inhalt für ImplementationComponentType">
+<link rel="stylesheet" type="text/css" href="WebPublish.css">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">repository - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#constraintsTable" title="Integritätsbedingungen">Integritätsbedingungen</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName">repository</span>
+<br>
+<span class="ElementTitle">Klasse ImplementationComponentType</span>
+<p>
+<a name="documentationSection"></a>This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type. The specification of</br>the internal structure depends on the way the component is realised. In general, components can either be implemented from the scratch or composed out of other components. In the first case, the implemented behaviour of each provided service needs to be specified with a service effect specification (SEFF) to describe the component’s abstract internal structure. We refer to such components as basic components, since they form the basic building blocks of a software architecture. On the other hand, developers can use existing components to assemble new, composite components.</p>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3"><a name="attributeSummary">Attribute</a></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; CompleteComponentType </td><td><a title="pcm::repository::ImplementationComponentType::parentCompleteComponentTypes" href="#_.t30.wMZ.fEE.d.q.w.q.s.vROV.l.o.jA"><img border="0" src="../images/1829048994_icon.png" alt="parentCompleteComponentTypes"></a>&nbsp;<a title="pcm::repository::ImplementationComponentType::parentCompleteComponentTypes" href="#_.t30.wMZ.fEE.d.q.w.q.s.vROV.l.o.jA">parentCompleteComponentTypes</a></td><td></td>
+</tr>
+<tr>
+<td class="packagedElementType">&lt;Class&gt; VariableUsage </td><td><a title="pcm::repository::ImplementationComponentType::componentParameterUsage_ImplementationComponentType" href="#_6Z.o.o.wU.pHE.d.y.yN.sX.l.b1.tN.s.w"><img border="0" src="../images/1090855041_icon.png" alt="componentParameterUsage_ImplementationComponentType"></a>&nbsp;<a title="pcm::repository::ImplementationComponentType::componentParameterUsage_ImplementationComponentType" href="#_6Z.o.o.wU.pHE.d.y.yN.sX.l.b1.tN.s.w">componentParameterUsage_ImplementationComponentType</a></td><td>
+<p>
+<a name="documentationSection"></a>This property specified the variables of the component that are to be initialized using the assembly context to parametrize the component.</p>
+</td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <a title="pcm::repository::RepositoryComponent" href="_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g-content.html"><img border="0" src="../images/285548010_icon.png" alt="pcm::repository::RepositoryComponent"></a>&nbsp;<a title="pcm::repository::RepositoryComponent" href="_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g-content.html">pcm::repository::RepositoryComponent</a></td>
+</tr>
+<tr>
+<td><a title="pcm::repository::RepositoryComponent::repository_RepositoryComponent" href="_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g-content.html#_.g.o_D.g.p.cYE.d.q38OE.oBK_B.yQ"><img border="0" src="../images/1090855041_icon.png" alt="repository_RepositoryComponent"></a>&nbsp;<a title="pcm::repository::RepositoryComponent::repository_RepositoryComponent" href="_.rG.a6.kKBZE.d24B.v0.x9CNK.p.g-content.html#_.g.o_D.g.p.cYE.d.q38OE.oBK_B.yQ">repository_RepositoryComponent</a></td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="pcm::core::entity::InterfaceProvidingEntity">&nbsp;pcm::core::entity::InterfaceProvidingEntity</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="providedRoles_InterfaceProvidingEntity">&nbsp;providedRoles_InterfaceProvidingEntity</td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="pcm::core::entity::InterfaceRequiringEntity">&nbsp;pcm::core::entity::InterfaceRequiringEntity</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="requiredRoles_InterfaceRequiringEntity">&nbsp;requiredRoles_InterfaceRequiringEntity</td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="pcm::core::entity::ResourceInterfaceRequiringEntity">&nbsp;pcm::core::entity::ResourceInterfaceRequiringEntity</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="resourceRequiredRoles_ResourceInterfaceRequiringEntity">&nbsp;resourceRequiredRoles_ResourceInterfaceRequiringEntity</td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="identifier::Identifier">&nbsp;identifier::Identifier</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="id">&nbsp;id</td>
+</tr>
+</table>
+<p></p>
+<table class="SummaryTable" border="1">
+<tr>
+<td class="SummaryTitle" colspan="3">Attribute vererbt von <img border="0" src="../images/285548010_icon.png" alt="pcm::core::entity::NamedElement">&nbsp;pcm::core::entity::NamedElement</td>
+</tr>
+<tr>
+<td><img border="0" src="../images/1090855041_icon.png" alt="entityName">&nbsp;entityName</td>
+</tr>
+</table>
+<br>
+<a name="propertiesTable">
+<p class="LargeTitle">Eigenschaften:</p>
+</a>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Classifier Behavior</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Abstract</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Active</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">ImplementationComponentType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; repository</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; repository</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Package</b></td><td class="PropertyValue"><a href="_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g-content.html">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; repository</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::repository::ImplementationComponentType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Representation</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<p></p>
+<table class="DetailsTable">
+<tr>
+<td class="DetailsTitle" colspan="2"><a name="attributeDetail">Details für Attribute</a></td>
+</tr>
+</table>
+<span class="ListItem">
+<br>
+<img src="../images/1090855041_icon.png" alt="">&nbsp;<a name="_6Z.o.o.wU.pHE.d.y.yN.sX.l.b1.tN.s.w">componentParameterUsage_ImplementationComponentType</a></span>
+<pre>Public&nbsp;&lt;Class&gt; VariableUsage componentParameterUsage_ImplementationComponentType</pre>
+<dl>
+<dd>
+<p>
+<a name="documentationSection"></a>This property specified the variables of the component that are to be initialized using the assembly context to parametrize the component.</p>
+</dd>
+<dt>
+<a name="attributeConstraintsTable_6Z.o.o.wU.pHE.d.y.yN.sX.l.b1.tN.s.w"><b>Integritätsbedingungen:</b></a>
+</dt>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">Composite</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue"><a href="_6Z.o.o.wE.pHE.d.y.yN.sX.l.b1.tN.s.w-content.html">&lt;Association&gt; A_componentParameterUsage_ImplementationComponentType_implementationComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue"><a href="_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html">&lt;Class&gt; ImplementationComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue"><a href="_6Z.o.o.w0.pHE.d.y.yN.sX.l.b1.tN.s.w-content.html">&lt;Literal Integer&gt; 0</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">componentParameterUsage_ImplementationComponentType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html">&lt;Class&gt; ImplementationComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html">&lt;Class&gt; ImplementationComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::repository::ImplementationComponentType::componentParameterUsage_ImplementationComponentType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue"><a href="_G.mAWYOQSE.d.q.eH_WIC9QR.e.w-content.html">&lt;Class&gt; VariableUsage</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue"><a href="_6Z.o.o.xE.pHE.d.y.yN.sX.l.b1.tN.s.w-content.html">&lt;Literal Unlimited Natural&gt; *</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<span class="ListItem">
+<br>
+<img src="../images/1829048994_icon.png" alt="">&nbsp;<a name="_.t30.wMZ.fEE.d.q.w.q.s.vROV.l.o.jA">parentCompleteComponentTypes</a></span>
+<pre>Private&nbsp;&lt;Class&gt; CompleteComponentType parentCompleteComponentTypes</pre>
+<dl>
+<dd></dd>
+<dt>
+<a name="attributeConstraintsTable_.t30.wMZ.fEE.d.q.w.q.s.vROV.l.o.jA"><b>Integritätsbedingungen:</b></a>
+</dt>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table class="PropertiesTable" cellpadding="4" cellspacing="0" border="1">
+<tr>
+<td class="PropertyName"><b>Aggregation</b></td><td class="PropertyValue">None</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association</b></td><td class="PropertyValue"><a href="_.t30.wMJ.fEE.d.q.w.q.s.vROV.l.o.jA-content.html">&lt;Association&gt; &lt;&lt;impl-conforms&gt;&gt;</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Association End</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Class</b></td><td class="PropertyValue"><a href="_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html">&lt;Class&gt; ImplementationComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Datatype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Default Value</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Composite</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Derived Union</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Ordered</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Read Only</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Static</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Unique</b></td><td class="PropertyValue">true</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower</b></td><td class="PropertyValue">0</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Lower Value</b></td><td class="PropertyValue"><a href="_.t30.wM5.fEE.d.q.w.q.s.vROV.l.o.jA-content.html">&lt;Literal Integer&gt; 0</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Multiplicity</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">parentCompleteComponentTypes</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue"><a href="_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html">&lt;Class&gt; ImplementationComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Opposite</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue"><a href="_4X.fF4JJGE.d.qI.o-.u3.cE9-DA-content.html">&lt;Class&gt; ImplementationComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Association</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::repository::ImplementationComponentType::parentCompleteComponentTypes</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Type</b></td><td class="PropertyValue"><a href="_0S.k.e8JJGE.d.qI.o-.u3.cE9-DA-content.html">&lt;Class&gt; CompleteComponentType</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper</b></td><td class="PropertyValue">*</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Upper Value</b></td><td class="PropertyValue"><a href="_.t30.wNJ.fEE.d.q.w.q.s.vROV.l.o.jA-content.html">&lt;Literal Unlimited Natural&gt; *</a></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Private</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p></p>
+<table class="DetailsTable" border="1">
+<tr>
+<td class="DetailsTitle" colspan="2"><a name="constraintsTable">Integritätsbedingungen</a></td>
+</tr>
+<p>
+<tr class="ClassTableEntry">
+<td>RequiredInterfacesHaveToConformToCompleteType</td><td>-- ImplementationTypes required Interfaces have to be a subset&#13;
+-- of CompleteComponentType required Interfaces #&#13;
+--&#13;
+-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#13;
+--&#13;
+-- Recursive Query for parent Interface IDs&#13;
+-- see "lpar2005.pdf" (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#13;
+--let parentInterfaces : Bag(Interface) =&#13;
+--	self.parentCompleteComponentTypes-&gt;iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |&#13;
+--		acc1-&gt;union(pt.requiredRoles-&gt;iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |&#13;
+--			acc2-&gt;union(r.requiredInterface.parentInterface-&gt;asBag()) -- asBag required to allow Set operations #&#13;
+--		))&#13;
+--	) in&#13;
+--let anchestorInterfaces : Bag(Interface) =&#13;
+--	self.parentCompleteComponentTypes-&gt;iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |&#13;
+--		acc3-&gt;union(pt.requiredRoles-&gt;iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |&#13;
+--			acc4-&gt;union(r.requiredInterface.parentInterface-&gt;asBag()) -- asBag required to allow Set operations #&#13;
+--		))&#13;
+--	)-&gt;union( -- union with anchestors found in former recursion #&#13;
+--		self.parentCompleteComponentTypes-&gt;iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |&#13;
+--			acc5-&gt;union(pt.requiredRoles-&gt;iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |&#13;
+--				acc6-&gt;union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#13;
+--			))&#13;
+--		)&#13;
+--	) in&#13;
+-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #&#13;
+--anchestorInterfaces.identifier.id-&gt;includesAll(&#13;
+--	self.requiredRoles-&gt;iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |&#13;
+--		acc7-&gt;union(p.requiredInterface.identifier.id-&gt;asBag())&#13;
+--	)	&#13;
+--)&#13;
+true</td>
+</tr>
+</p>
+<p>
+<tr class="ClassTableEntry">
+<td>providedInterfacesHaveToConformToCompleteType</td><td>-- ### EXACT COPY FROM ABOVE ###&#13;
+-- ImplementationComponentTypes provided Interfaces have to be a superset&#13;
+-- of CompleteComponentType provided Interfaces #&#13;
+--&#13;
+-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#13;
+--&#13;
+-- Recursive Query for parent Interface IDs&#13;
+-- see "lpar2005.pdf" (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#13;
+--let parentInterfaces : Bag(Interface) =&#13;
+--	self.providedRoles-&gt;iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#13;
+--		acc2-&gt;union(r.providedInterface.parentInterface-&gt;asBag()) -- asBag required to allow Set operations #&#13;
+--	) in&#13;
+--let anchestorInterfaces : Bag(Interface) =&#13;
+--	self.providedRoles-&gt;iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#13;
+--		acc4-&gt;union(r.providedInterface.parentInterface-&gt;asBag()) -- asBag required to allow Set operations #&#13;
+--	)-&gt;union( -- union with anchestors found in former recursion #&#13;
+--		self.providedRoles-&gt;iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#13;
+--			acc6-&gt;union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#13;
+--		)&#13;
+--	) in&#13;
+	-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#13;
+--	anchestorInterfaces.identifier.id-&gt;includesAll(&#13;
+--		self.parentProvidesComponentTypes-&gt;iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#13;
+--			pt.providedRoles-&gt;iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#13;
+--				acc2-&gt;union(r.providedInterface.identifier.id-&gt;asBag()) -- asBag required to allow Set operations #&#13;
+--			)&#13;
+--		)&#13;
+--	)&#13;
+true</td>
+</tr>
+</p>
+</table>
+<hr>
+<br>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">Übersicht</a></td><td class="NavBarMainLink"><a href="_.wQ.r8YC.h8E.d.u.e7.o.eC4NTCG.g-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_B.d.lGMC.h9E.d.u.e7.o.eC4NTCG.g-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">repository - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#attributeSummary" title="Attribute">Attribute</a></span><span class="BookMarkElements"><a href="#constraintsTable" title="Integritätsbedingungen">Integritätsbedingungen</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#attributeDetail" title="Attribute">Attribute</a></span></td>
+</tr>
+</table>
+</body>
+</html>

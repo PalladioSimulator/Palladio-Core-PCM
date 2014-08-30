@@ -1,0 +1,34 @@
+import uml;
+
+List[String] getDiagrams(uml::Package p) : 
+	JAVA JavaRSAHelper.getDiagrams(org.eclipse.uml2.uml.Package)
+;
+
+String decodeFileName(String fileName) :
+	JAVA JavaRSAHelper.removeAllDotsExceptTheLast(java.lang.String)
+;
+
+String convertHtmlToPlaintext(String input) :
+	JAVA JavaRSAHelper.convertHtmlToPlaintext(java.lang.String)
+;
+
+String fullName(NamedElement e) :
+	if (e != null && e.eContainer != null) then ((NamedElement)e.eContainer).fullName() + "::" + e.name.toString() else e.name;
+
+String fullIndex(NamedElement e) :
+	if (e != null && e.eContainer != null) then ((NamedElement)e.eContainer).fullName() + "!" + e.name.toString() else e.name;
+ 
+ String saveLatexString(String s) :
+    if (s == null || s.trim() == "") then
+    	"TODO: This model element is missing its documentation. Please fix the source model!"
+    else
+    	s.replaceAll("\\_","\\\\_").replaceAll("\\&","\\\\&").replaceAll("\\#","\\\\#");
+    
+String toString(uml::String s) :
+	s;
+	
+//Integer toInt(uml::UnlimitedNatural i) :
+//	i;	
+	
+Integer toInt(uml::Integer i) :
+	i;	
