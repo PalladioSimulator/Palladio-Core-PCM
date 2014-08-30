@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Palladio Simulation
+Bundle-SymbolicName: de.uka.ipd.sdq.simulation;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.simulation.Activator
+Bundle-Vendor: edu.kit.ipd.sdq
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.palladiosimulator.recorderframework;bundle-version="2.0.1",
+ org.palladiosimulator.probeframework;bundle-version="2.0.0",
+ de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0",
+ de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simucomframework.simucomstatus;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Export-Package: de.uka.ipd.sdq.simulation,
+ de.uka.ipd.sdq.simulation.preferences
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
