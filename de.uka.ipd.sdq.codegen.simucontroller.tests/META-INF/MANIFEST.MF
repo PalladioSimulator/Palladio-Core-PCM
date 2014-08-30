@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.uka.ipd.sdq.codegen.simucontroller.tests
+Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.junit,
+ de.uka.ipd.sdq.simucomframework,
+ org.palladiosimulator.recorderframework.sensorframework;bundle-version="2.0.1",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
+ org.palladiosimulator.recorderframework;bundle-version="2.0.1"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
