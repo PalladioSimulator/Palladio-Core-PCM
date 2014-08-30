@@ -1,0 +1,257 @@
+import core::entity;
+import repository;
+import seff;
+import system;
+import pcm::subsystem;
+import core::composition;
+import usagemodel;
+import parameter;
+import stoex;
+import completions;
+import emf;
+import seff::seff_performance;
+import seff::seff_reliability;
+
+findStart(List[AbstractAction] actions) :
+   actions.typeSelect(StartAction).first();
+
+// select Connectors only, no DelegationConnectors
+connectors(ComposedStructure s) :
+   s.connectors__ComposedStructure.reject(connector|DelegationConnector.isInstance(connector));
+
+test(Connector conn, AssemblyContext ctx, RequiredRole r):
+	{}; // This should never be called
+
+test(AssemblyConnector c, AssemblyContext ctx, RequiredRole r):
+   c.requiredRole_AssemblyConnector.id == r.id && c.requiringAssemblyContext_AssemblyConnector.id == ctx.id;
+
+test(AssemblyInfrastructureConnector c, AssemblyContext ctx, InfrastructureRequiredRole r):
+	c.requiredRole__AssemblyInfrastructureConnector.id == r.id && c.requiringAssemblyContext__AssemblyInfrastructureConnector.id == ctx.id;
+
+test(AssemblyEventConnector c, AssemblyContext ctx, SinkRole r):
+	c.sinkRole__AssemblyEventConnector.id == r && c.sourceAssemblyContext__AssemblyEventConnector.id == ctx.id;
+
+hasConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   connectors(s).select(con|test(con,ctx,r)).size == 1;
+
+getConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   connectors(s).select(con|test(con,ctx,r)).get(0);
+
+hasProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) :
+   s.connectors__ComposedStructure.typeSelect(ProvidedDelegationConnector).select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).size == 1;
+
+getProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) :
+   s.connectors__ComposedStructure.typeSelect(ProvidedDelegationConnector).select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).get(0);
+
+hasRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   s.connectors__ComposedStructure.typeSelect(RequiredDelegationConnector).select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).size == 1;
+
+getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
+   s.connectors__ComposedStructure.typeSelect(RequiredDelegationConnector).select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).get(0);
+
+hasProvidedInfrastructureDelegationConnector(ComposedStructure s, InfrastructureProvidedRole p):
+	s.connectors__ComposedStructure.typeSelect(ProvidedDelegationConnector).select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).size == 1;
+
+getProvidedInfrastructureDelegationConnector(ComposedStructure s, InfrastructureProvidedRole p):
+	s.connectors__ComposedStructure.typeSelect(ProvidedDelegationConnector).select(dc|dc.outerProvidedRole_ProvidedDelegationConnector == p).get(0);
+
+hasRequiredInfrastructureDelegationConnector(ComposedStructure s, InfrastructureRequiredRole r):
+	s.connectors__ComposedStructure.typeSelect(RequiredDelegationConnector).select(dc|dc.innerRequiredRole_RequiredDelegationConnector == r).size == 1;
+
+getRequiredInfrastructureDelegationConnector(ComposedStructure s, InfrastructureRequiredRole r):
+	s.connectors__ComposedStructure.typeSelect(RequiredDelegationConnector).select(dc|dc.innerRequiredRole_RequiredDelegationConnector == r).get(0);
+
+List[EntryLevelSystemCall] querySytemCallsInLoops(ScenarioBehaviour scenBe):
+	scenBe.actions_ScenarioBehaviour.typeSelect(Loop).collect(l|querySystemCalls(l.bodyBehaviour_Loop)).flatten();
+
+List[EntryLevelSystemCall] querySytemCallsInBraches(ScenarioBehaviour scenBe):
+	scenBe.actions_ScenarioBehaviour.typeSelect(Branch).collect(b|b.branchTransitions_Branch.branchedBehaviour_BranchTransition.querySystemCalls()).flatten();
+
+List[EntryLevelSystemCall] querySystemCalls(ScenarioBehaviour scenBe) :
+  scenBe.actions_ScenarioBehaviour.typeSelect(EntryLevelSystemCall).
+  union(scenBe.querySytemCallsInLoops()).
+  union(scenBe.querySytemCallsInBraches());
+
+Set[System] getSystemsFromCalls(Collection[EntryLevelSystemCall] calls) :
+	calls.collect(c|(System)c.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole).toSet();
+
+querySystemCalls(UsageScenario us) :
+  querySystemCalls(us.scenarioBehaviour_UsageScenario);
+
+getID(VariableReference vr) :
+  vr.referenceName;
+
+getID(AbstractNamedReference nsr):
+  'this is never called';
+
+getID(NamespaceReference nsr):
+  nsr.referenceName + '.' + nsr.innerReference_NamespaceReference.getID();
+
+parameterUsageLHS(VariableUsage vu) :
+  vu.namedReference__VariableUsage.getID();
+
+isInnerReference(VariableReference vr) :
+  vr.referenceName == "INNER";
+
+isInnerReference(AbstractNamedReference nsr):
+  false;
+
+isInnerReference(NamespaceReference nsr):
+  nsr.referenceName == "INNER" || nsr.innerReference_NamespaceReference.isInnerReference();
+
+collectRepositories(System s):
+  s.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext.collectRepositories().
+  	union(s.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).collectRepositories()).
+  	union(s.requiredRoles_InterfaceRequiringEntity.typeSelect(OperationRequiredRole).collectRepositories()).
+  	union(s.requiredRoles_InterfaceRequiringEntity.typeSelect(InfrastructureRequiredRole).collectRepositories()).
+  	union(s.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole).collectRepositories()).toSet();
+
+collectRepositories(OperationProvidedRole pr):
+	pr.providedInterface__OperationProvidedRole.repository__Interface;
+
+collectRepositories(InfrastructureProvidedRole pr):
+	pr.providedInterface__InfrastructureProvidedRole.repository__Interface;
+
+collectRepositories(OperationRequiredRole rr):
+	rr.requiredInterface__OperationRequiredRole.repository__Interface;
+
+collectRepositories(InfrastructureRequiredRole rr):
+	rr.requiredInterface__InfrastructureRequiredRole.repository__Interface;
+
+collectRepositories(RepositoryComponent pct):
+	pct.repository__RepositoryComponent;
+
+collectRepositories(CompositeComponent cc):
+	cc.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext.collectRepositories().addAll(
+		{cc.repository__RepositoryComponent});
+
+collectRepositories(InterfaceProvidingRequiringEntity pct):
+	null;
+
+hasSEFF(Signature service, RepositoryComponent c):
+	!BasicComponent.isInstance(c) ? false : ((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).size > 0;
+
+getSEFF(Signature service, RepositoryComponent c):
+	((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).get(0);
+
+getAllCompletions(ComposedStructure s):
+	s.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext.typeSelect(Completion).
+		 union(s.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext.
+		 		select(comp|comp != null && ComposedStructure.isInstance(comp) && !Completion.isInstance(comp)).
+		 		typeSelect(ComposedStructure).collect(cs|cs.getAllCompletions()));
+
+AbstractAction findStopAction(AbstractAction a):
+	StopAction.isInstance(a) ? a : (a.successor_AbstractAction != null ? findStopAction(a.successor_AbstractAction) : null);
+
+AbstractUserAction findStop(AbstractUserAction a):
+	Stop.isInstance(a) ? a : (a.successor != null ? findStop(a.successor) : null);
+
+List[InterfaceProvidingEntity] getProvidingEntities(List[ProvidedRole] pr) :
+	getProvidingEntitiesRecursive(pr,0);
+
+List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] pr, int i) :
+	i < pr.size
+		? (getProvidingEntitiesRecursive(pr,i+1).contains(pr.get(i).providingEntity_ProvidedRole) ? getProvidingEntitiesRecursive(pr,i+1) : getProvidingEntitiesRecursive(pr,i+1).union({pr.get(i).providingEntity_ProvidedRole}) )
+		: {};
+
+BasicComponent findContainerComponent(EObject o) :
+	BasicComponent.isInstance(o) ? o : o.eContainer.findContainerComponent();
+
+List[System] uniqueSystemList(List[System] s) :
+	recursiveList(s,{},0);
+
+List[System] recursiveList(List[System] s, List[System] result, int pos):
+	pos < s.size ? (result.contains(s.get(pos)) ? recursiveList(s,result,pos+1) : recursiveList(s,(List[System])result.union({s.get(pos)}).toList(),pos+1)) : result;
+
+String getParentSubsystemsIdConcatenationFor(System s, ComposedStructure toMatch):
+	s.getParentIdConcatenationFor(toMatch).split(" ").last();
+
+// Polymorphic switch: Execute getParentIdConcatenationFor for SubSystems and Systems.
+private String getParentIdConcatenationFor(RepositoryComponent s, ComposedStructure toMatch):
+    "";
+
+private String getParentIdConcatenationFor(System s, ComposedStructure toMatch):
+	s.getSystemParentIdConcatenationFor(toMatch);
+
+private String getParentIdConcatenationFor(SubSystem s, ComposedStructure toMatch):
+    s.getSystemParentIdConcatenationFor(toMatch);
+
+private String getSystemParentIdConcatenationFor(ComposedStructure s, ComposedStructure toMatch):
+    s.assemblyContexts__ComposedStructure.collect(ac | ac.encapsulatedComponent__AssemblyContext.matchID(toMatch)+ac.id).selectFirst(s|s.contains(toMatch.id));
+
+private String matchID(RepositoryComponent s, ComposedStructure toMatch):
+    s.id.contains(toMatch.id) ? toMatch.id+" " : s.getParentIdConcatenationFor(toMatch);
+
+// recursive query for ExternalCallActions within a RD-SEFF
+List[ExternalCallAction] queryExternalCallActions(AbstractAction a, List[ExternalCallAction] result):
+	a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+
+List[ExternalCallAction] queryExternalCallActions(ExternalCallAction a, List[ExternalCallAction] result):
+	a.successor_AbstractAction != null ? result.add(a) : result ->
+	a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+
+List[ExternalCallAction] queryExternalCallActions(BranchAction a, List[ExternalCallAction] result):
+	queryExternalCallActions(a.branches_Branch, result)
+			-> a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+
+List[ExternalCallAction] queryExternalCallActions(List[AbstractBranchTransition] list, List[ExternalCallAction] result):
+	list.size > 0 ? (queryExternalCallActions(list.first().branchBehaviour_BranchTransition.steps_Behaviour.findStart(), result)
+					-> queryExternalCallActions(list.withoutFirst(), result)) : result;
+
+List[ExternalCallAction] queryExternalCallActions(AbstractLoopAction a, List[ExternalCallAction] result):
+	queryExternalCallActions(a.bodyBehaviour_Loop.steps_Behaviour.findStart(), result)
+			-> a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+
+List[ExternalCallAction] queryExternalCallActions(ForkAction a, List[ExternalCallAction] result):
+	queryExternalCallActionsForkedBehaviour(a.asynchronousForkedBehaviours_ForkAction, result)
+			 -> (a.synchronisingBehaviours_ForkAction != null ? queryExternalCallActions(a.synchronisingBehaviours_ForkAction, result) : {})
+			-> a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
+
+List[ExternalCallAction] queryExternalCallActions(SynchronisationPoint p, List[ExternalCallAction] result):
+	queryExternalCallActionsForkedBehaviour(p.synchronousForkedBehaviours_SynchronisationPoint, result);
+
+List[ExternalCallAction] queryExternalCallActionsForkedBehaviour(List[ForkedBehaviour] list, List[ExternalCallAction] result):
+	list.size > 0 ? (queryExternalCallActions(list.first(), result)
+					-> queryExternalCallActionsForkedBehaviour(list.withoutFirst(), result)) : result;
+
+List[ExternalCallAction] queryExternalCallActions(ForkedBehaviour b, List[ExternalCallAction] result):
+	queryExternalCallActions(b.steps_Behaviour.findStart(), result);
+
+// recursive query for InternalActions within a RD-SEFF
+List[InternalAction] queryInternalActions(AbstractAction a, List[InternalAction] result):
+	a.successor_AbstractAction != null ? queryInternalActions(a.successor_AbstractAction, result) : result;
+
+List[InternalAction] queryInternalActions(InternalAction a, List[InternalAction] result):
+	a.successor_AbstractAction != null ? queryInternalActions(a.successor_AbstractAction, result.add(a).toList()) : result;
+
+List[InternalAction] queryInternalActions(BranchAction a, List[InternalAction] result):
+	queryInternalActions(a.branches_Branch, result)
+			-> a.successor_AbstractAction != null ? queryInternalActions(a.successor_AbstractAction, result) : result;
+
+List[InternalAction] queryInternalActions(List[AbstractBranchTransition] list, List[InternalAction] result):
+	list.size > 0 ? (queryInternalActions(list.first().branchBehaviour_BranchTransition.steps_Behaviour.findStart(), result)
+					-> queryInternalActions(list.withoutFirst(), result)) : result;
+
+List[InternalAction] queryInternalActions(AbstractLoopAction a, List[InternalAction] result):
+	queryInternalActions(a.bodyBehaviour_Loop.steps_Behaviour.findStart(), result)
+			-> a.successor_AbstractAction != null ? queryInternalActions(a.successor_AbstractAction, result) : result;
+
+List[InternalAction] queryInternalActions(ForkAction a, List[InternalAction] result):
+	queryInternalActionsForkedBehaviour(a.asynchronousForkedBehaviours_ForkAction, result)
+			 -> (a.synchronisingBehaviours_ForkAction != null ? queryInternalActions(a.synchronisingBehaviours_ForkAction, result) : {})
+			-> a.successor_AbstractAction != null ? queryInternalActions(a.successor_AbstractAction, result) : result;
+
+List[InternalAction] queryInternalActions(SynchronisationPoint p, List[InternalAction] result):
+	queryInternalActionsForkedBehaviour(p.synchronousForkedBehaviours_SynchronisationPoint, result);
+
+List[InternalAction] queryInternalActionsForkedBehaviour(List[ForkedBehaviour] list, List[InternalAction] result):
+	list.size > 0 ? (queryInternalActions(list.first(), result)
+					-> queryInternalActionsForkedBehaviour(list.withoutFirst(), result)) : result;
+
+List[InternalAction] queryInternalActions(ForkedBehaviour b, List[InternalAction] result):
+	queryInternalActions(b.steps_Behaviour.findStart(), result);
+
+
+ResourceDemandingSEFF getRdseff(AbstractAction action) : JAVA
+	de.uka.sdq.pcm.transformations.Helper.getRdseff(de.uka.ipd.sdq.pcm.seff.AbstractAction)
+	;

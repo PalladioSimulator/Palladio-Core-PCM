@@ -1,0 +1,70 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sim::measuringPoint»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+//------------------------------------
+// Generate a factory which can generate closed 
+// or open workload users for simucom
+//------------------------------------
+«DEFINE UsageScenarioFactory FOR UsageScenario»
+	«LET this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+		«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + "Factory.java"»
+			package «this.implementationPackage()»;
+			public class «this.javaName()+"Factory"» 
+			extends «EXPAND UsageFactoryBaseClass FOR this.workload_UsageScenario»
+			{
+				«EXPAND FactoryConstructor FOR this»
+				
+				public de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner createScenarioRunner() {
+					return new «this.implementationPackage()+"."+this.javaName()»(model,«EXPAND m2t_transforms::sim::usage::SystemVariableParameter FOREACH systemList SEPARATOR ","»);
+				}
+			}
+		«ENDFILE»
+	«ENDLET»
+«ENDDEFINE» 
+
+«DEFINE UsageFactoryBaseClass FOR Workload»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"»
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR ClosedWorkload»
+de.uka.ipd.sdq.simucomframework.usage.ClosedWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR OpenWorkload»
+de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR UsageScenario»
+	«LET this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
+		private final de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
+		«FOREACH systemList AS system»
+		private «system.fqn()» my«system.javaName()» = null;
+		«ENDFOREACH»
+		public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model, String usageID, «EXPAND m2t_transforms::sim::usage::SystemVariableDecl FOREACH systemList SEPARATOR ","»){
+			«EXPAND FactoryConstructor FOR this.workload_UsageScenario»
+			this.model = model;
+			«FOREACH systemList AS system»
+			this.my«system.javaName()» = my«system.javaName()»; 
+			«ENDFOREACH»
+		}
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR Workload»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"»
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR ClosedWorkload»
+	super(model, "«this.thinkTime_ClosedWorkload.specification.specificationString()»", "«this.usageScenario_Workload.getResourceURI()»");
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR OpenWorkload»
+	super(model, "«this.usageScenario_Workload.getResourceURI()»");
+«ENDDEFINE»

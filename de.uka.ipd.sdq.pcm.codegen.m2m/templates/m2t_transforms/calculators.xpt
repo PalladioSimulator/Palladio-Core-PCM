@@ -1,0 +1,39 @@
+«EXTENSION m2t_transforms::pcm»
+«IMPORT usagemodel»
+«IMPORT seff»
+
+«DEFINE SetupCalculatorResponseTime(String startProbeSetId, String endProbeSetId) FOR String»
+	{
+		java.util.List<org.palladiosimulator.probeframework.probes.Probe> probes = 
+			java.util.Arrays.asList(
+				(org.palladiosimulator.probeframework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()),
+				(org.palladiosimulator.probeframework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()));
+		
+		// TODO get rid of StringMeasuringPoint and use a more concrete one.
+		org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint mp = measuringpointFactory.createStringMeasuringPoint();
+		mp.setMeasuringPoint("«this»");
+
+		getModel().getProbeFrameworkContext().getCalculatorFactory().buildResponseTimeCalculator(mp,probes);
+		this.startStopProbes.put("«this»",probes);
+	}
+«ENDDEFINE»
+
+«DEFINE SetupCalculatorExecutionResult FOR UsageScenario»
+// TODO: FIXME
+//	getModel().getProbeFrameworkContext().registerCalculator(
+//		"«this.entityName»/«this.id»/ExecutionResult",
+//		getModel().getProbeFrameworkContext().getCalculatorFactory().buildExecutionResultCalculator(
+//			"UsageScenario «this.entityName» <«this.id»>", 
+//			getModel().getProbeFrameworkContext().obtainProbeSetId(
+//				de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.getScenarioProbeSetId(
+//					"«this.id»"))));
+«ENDDEFINE»
+
+«DEFINE SetupCalculatorExecutionResult(String callName) FOR ExternalCallAction»
+// TODO: FIXME
+//	getModel().getProbeFrameworkContext().registerCalculator(
+//		"«this.entityName»/«this.id»/ExecutionResult",
+//		getModel().getProbeFrameworkContext().getCalculatorFactory().buildExecutionResultCalculator(
+//			"«callName»", 
+//			getModel().getProbeFrameworkContext().obtainProbeSetId("«callName»")));
+«ENDDEFINE»

@@ -1,0 +1,86 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT core::entity»
+«IMPORT core::composition»
+«IMPORT completions»
+
+«DEFINE PortDelegationDelegatingCall FOR OperationSignature»
+	return myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
+	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+«ENDDEFINE»
+
+«DEFINE PortDelegationDelegatingCall FOR InfrastructureSignature»
+	return myComponent.«this.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower()»_«this.javaSignature()»(
+	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+«ENDDEFINE»
+
+«DEFINE ComposedStructurePortDelegationDelegatingCall(ComposedProvidingRequiringEntity cs) FOR OperationSignature»
+	//logger.debug("Entering port of composed structure «cs.entityName»");
+	«EXPAND PrePortCode FOR cs»
+	«EXPAND m2t_transforms::java_core::ReturnTypeTM FOR this» result = myInnerPort.«this.javaSignature()»(
+	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+	«EXPAND PostPortCode FOR cs»
+	return result;
+«ENDDEFINE»
+
+«DEFINE ComposedStructurePortDelegationDelegatingCall(ComposedProvidingRequiringEntity cs) FOR InfrastructureSignature»
+	//logger.debug("Entering port of composed structure «cs.entityName»");
+	«EXPAND PrePortCode FOR cs»
+	«EXPAND m2t_transforms::java_core::ReturnTypeTM FOR this» result = myInnerPort.«this.javaSignature()»(
+	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+	«EXPAND PostPortCode FOR cs»
+	return result;
+«ENDDEFINE»
+
+«DEFINE PrePortCode FOR ComposedProvidingRequiringEntity»
+«ENDDEFINE»
+
+«DEFINE PrePortCode FOR Completion»
+	ctx.setEvaluationMode(de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode.RETURN_DEFAULT_ON_NOT_FOUND);
+«ENDDEFINE»
+
+«DEFINE PostPortCode FOR ComposedProvidingRequiringEntity»
+«ENDDEFINE»
+
+«DEFINE PostPortCode FOR Completion»
+	ctx.setEvaluationMode(de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode.EXCEPTION_ON_NOT_FOUND);
+«ENDDEFINE»
+
+«DEFINE ComponentPortHelperMethods FOR OperationProvidedRole»
+	     public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+	     	return this.myComponent.getAssemblyContext();
+	     }
+«ENDDEFINE»
+
+«DEFINE ComponentPortHelperMethods FOR InfrastructureProvidedRole»
+	     public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+	     	return this.myComponent.getAssemblyContext();
+	     }
+«ENDDEFINE»
+
+«DEFINE ComposedComponentPortHelperMethods FOR OperationInterface»
+	     public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+	     	return this.myInnerPort.getComponentAssemblyContext();
+	     }
+«ENDDEFINE»
+
+«DEFINE ComposedComponentPortHelperMethods FOR InfrastructureInterface»
+	     public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+	     	return this.myInnerPort.getComponentAssemblyContext();
+	     }
+«ENDDEFINE»
+
+«DEFINE DummyComponentPortHelperMethod FOR OperationInterface»
+			public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+				return null;
+			}
+«ENDDEFINE»
+
+«DEFINE DummyComponentPortHelperMethod FOR InfrastructureInterface»
+			public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext() {
+				return null;
+			}
+«ENDDEFINE»

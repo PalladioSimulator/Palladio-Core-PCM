@@ -1,0 +1,137 @@
+<workflow>
+
+	<property file='./workflows/codegen.properties'/>
+	<property file='${propertyFile}'/>
+	
+	<component class="oaw.emf.XmiReader">
+		<modelFile value="${usageFile}"/>
+		<outputSlot value="pcmmodel"/>
+	</component>
+ 	
+ 	<component class="oaw.emf.XmiReader">
+		<modelFile value="${allocationFile}"/>
+		<outputSlot value="allocation"/>
+	</component>
+	   
+	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
+		<fileEncoding value="ISO-8859-1"/>
+	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
+		</metaModel>	    
+		<metaModel id="stoex.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.seff.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.SeffPackage"/>
+		</metaModel>	    
+	    <metaModel id="pcm.seff.seff_performance.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage"/>
+		</metaModel>	    
+		<metaModel id="pcm.resourcetype.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage"/>
+		</metaModel>
+		<metaModel id="pcm.system.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.system.SystemPackage"/>
+		</metaModel>
+		<metaModel id="pcm.allocation.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.reliability.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
+		</metaModel>
+		<metaModel id="pcm.usagemodel.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
+		</metaModel>
+		<metaModel id="pcm.resourceenvironment.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
+		</metaModel>		
+		<metaModel id="pcm.parameter.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>		
+		<metaModel id="pcm.qosannotations.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"/>
+		</metaModel>
+		<metaModel id="completions.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
+		</metaModel>
+		<expand value="m2t_transforms::usage::UsageModel(allocation) FOR pcmmodel"/>
+			<outlet path="${clientOutpath}" />
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
+				<configFile value="org.eclipse.jdt.core.prefs"/>
+			</beautifier>
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+		<!-- protected regions configuration -->
+		<prSrcPaths value="${clientOutpath}"/>
+        <prExcludes value=".svn"/>		
+	</component>	
+
+	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
+		<advices value="${aop_templates}"/>
+	</component>	
+
+	<component id="generator-build" class="oaw.xpand2.Generator" skipOnErrors="true">
+		<fileEncoding value="ISO-8859-1"/>
+	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.core.entity.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
+		</metaModel>	    
+		<metaModel id="stoex.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.seff.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.SeffPackage"/>
+		</metaModel>	    
+	    <metaModel id="pcm.seff.seff_performance.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.seff_performance.Seff_performancePackage"/>
+		</metaModel>	    
+		<metaModel id="pcm.resourcetpye.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage"/>
+		</metaModel>
+		<metaModel id="pcm.system.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.system.SystemPackage"/>
+		</metaModel>
+		<metaModel id="pcm.allocation.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"/>
+		</metaModel>
+	    <metaModel id="pcm.reliability.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.CorePackage"/>
+		</metaModel>
+		<metaModel id="pcm.usagemodel.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
+		</metaModel>
+		<metaModel id="pcm.resourceenvironment.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
+		</metaModel>		
+		<metaModel id="pcm.parameter.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>		
+		<metaModel id="pcm.qosannotations.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"/>
+		</metaModel>
+		<metaModel id="completions.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
+		</metaModel>		
+		<expand value="m2t_transforms::build::BuildScripts FOR pcmmodel"/>
+			<outlet path="${clientOutpath}" />
+			<outlet path="${earOutpath}" name="EAR" />
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
+				<configFile value="org.eclipse.jdt.core.prefs"/>
+			</beautifier>
+			<beautifier class="org.openarchitectureware.xpand2.output.XmlBeautifier" />
+		<!-- protected regions configuration -->
+		<prSrcPaths value="${clientOutpath}"/>
+        <prExcludes value=".svn"/>		
+	</component>	
+
+</workflow>
