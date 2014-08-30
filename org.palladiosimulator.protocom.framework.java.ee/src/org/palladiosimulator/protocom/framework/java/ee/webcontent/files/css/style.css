@@ -1,0 +1,256 @@
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
+	outline: 0;
+}
+
+body {
+	padding: 30px 0;
+	color: #505050;
+	background: #e6f0ff;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+/* Headings */
+
+h1 {
+	font-size: 24px;
+}
+
+h2 {
+	padding-bottom: 5px;
+	border-bottom: 1px solid #dcdcdc;
+	margin-bottom: 15px;
+	font-size: 18px;
+	font-weight: normal;
+}
+
+/* Lists */
+
+ul {
+	list-style: none;
+}
+
+/* Tables */
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th {
+	padding: 8px;
+	border-bottom: 1px solid #dcdcdc;
+	background: #f0f0f0;
+	text-align: left;
+}
+
+td {
+	padding: 8px;
+	border-bottom: 1px solid #dcdcdc;
+}
+
+th.last, td.last {
+	text-align: right;
+}
+
+tbody tr:hover {
+	background: #f0f5ff;
+}
+
+/* Forms and Dialog Elements */
+
+input {
+	padding: 5px;
+	border: 1px solid #dcdcdc;
+	color: inherit;
+	font: inherit;
+}
+
+td button, a {
+	color: #4691d2;
+	background: none;
+	font: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+td button.disabled {
+	color: #cccccc;
+	cursor: default;
+}
+
+button.confirm {
+	padding: 6px;
+	float: right;
+	color: white;
+	background: #4691d2;
+	font: inherit;
+	cursor: pointer;
+}
+
+.actions {
+	padding-top: 10px;
+	border-top: 1px solid #dcdcdc;
+	margin-top: 15px;
+	overflow: hidden;
+}
+
+.progress {
+	box-sizing: border-box;
+	border: 1px solid #4691d2;
+	width: 100%;
+	height: 30px;
+}
+
+.progress .bar {
+	width: 0%;
+	height: 100%;
+	background: #4691d2;
+}
+
+.note {
+	margin-top: 10px;
+	color: #999999;
+}
+
+/* Main */
+
+#main {
+	width: 600px;
+	margin: auto;
+}
+
+.box {
+	padding: 10px 15px 15px;
+	margin-top: 20px;
+	background: white;
+	overflow: hidden;
+}
+
+.warning {
+	color: #ffbb00;
+}
+
+/* Header */
+
+#header {
+	height: 55px;
+	border-top: 6px solid #4691d2;
+	background: white;
+	line-height: 55px;
+}
+
+#header .subtitle {
+	margin-left: 10px;
+	font-size: 20px;
+	font-weight: normal;
+}
+
+#header #logo {
+	float: left;
+	width: 60px;
+	height: 55px;
+	margin-right: 15px;
+	background: url("../img/palladio.png") #4691d2 no-repeat;
+	background-position: 50% 40%;
+}
+
+/* Options */
+
+#options .option {
+	height: 24px;
+	margin-bottom: 6px;
+}
+
+#options label {
+	line-height: 24px;
+}
+
+#options input {
+	padding: 3px;
+}
+
+#options select {
+	border: 1px solid #dcdcdc;
+	color: inherit;
+	background: white;
+}
+
+#options input, select {
+	box-sizing: border-box;
+	width: 350px;
+	height: 24px;
+	float: right;
+}
+
+#options .warning {
+	float: left;
+	line-height: 28px;
+}
+
+/* Registry */
+
+#registry .input {
+	width: 558px;
+}
+
+/* Modules */
+
+#modules .state-column {
+	width: 15%;
+}
+
+#modules .actions-column {
+	width: 18%;
+}
+
+#modules .started {
+	color: #00b400;
+}
+
+/* Scenarios */
+
+#scenarios .download-column {
+	width: 18%;
+}
+
+/* Results */
+
+#results .download-column {
+	width: 18%;
+}
+
+#results .date-column {
+	width: 30%;
+}
+
+#results td .delete {
+	display: none;
+	margin-left: 2px;
+	color: crimson;
+}
+
+#results td:hover .delete {
+	display: inline;
+}
+
+/* Log */
+
+#log #messages {
+	display: block;
+	width: 558px;
+	height: 180px;
+	padding: 5px;
+	border: 1px solid #dcdcdc;
+	margin: auto;
+	resize: none;
+	color: inherit;
+	font-family: monospace;
+	font-size: inherit;
+	overflow-x: scroll;
+	white-space: pre;
+	word-wrap: normal;
+}
