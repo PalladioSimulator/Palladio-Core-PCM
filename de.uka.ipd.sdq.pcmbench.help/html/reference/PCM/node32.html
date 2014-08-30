@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Hierarchy - Vertical Composition</TITLE>
+<META NAME="description" CONTENT="Hierarchy - Vertical Composition">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node30.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html803"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html797"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html791"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html799"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html801"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html804"
+  HREF="node33.html">Allocation</A>
+<B> Up:</B> <A NAME="tex2html798"
+  HREF="node30.html">Context Influences</A>
+<B> Previous:</B> <A NAME="tex2html792"
+  HREF="node31.html">System (Assembly) - Horizontal</A>
+ &nbsp; <B>  <A NAME="tex2html800"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html802"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION00352020000000000000"></A>
+<A NAME="sec:Context:Hierarchy"></A>
+<BR>
+Hierarchy - Vertical Composition
+</H4>
+Related to the system, another important part of the context is the hierarchy in which a component is used. In figure&nbsp;<A HREF="#fig:context:Hierarchy">2.10</A>, a composite component (<TT>BillingManager</TT>) is depicted which has been designed to create bills and store each one in a single PDF (Portable Document Format) file. The component is additionally supposed to write a summary of all the created bills as PDF file. Hence, the component <TT>PDFCreator</TT> is used in two different places. Notice however, that this kind of usage is usually unknown to the creators of the outer composite component. For them, the inner component (<TT>BillCreator</TT>) is a black box. They do not know the internal details and, hence, the usage of the inner <TT>PDFCreator</TT> is hidden.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:context:Hierarchy"></A><A NAME="769"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.10:</STRONG>
+Component hierarchy.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+  WIDTH="597" HEIGHT="269" ALIGN="BOTTOM" BORDER="0"
+ SRC="./Hierarchy.gif"
+ ALT="Image Hierarchy">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+In this case, the <TT>PDFCreator</TT> component is used in different contexts on different hierarchy levels. Note, that this only makes sense if the underlying component model supports hierarchical components at all. Considering parametric contracts, both components might offer different characteristics (QoS, functions offered, etc.). Additionally, they are <I>used</I> differently in their contexts. The <TT>PDFCreator</TT> of the inner component produces bills with less pages than the summary PDF file created by the outer <TT>PDFCreator</TT>.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html803"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html797"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html791"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html799"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html801"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html804"
+  HREF="node33.html">Allocation</A>
+<B> Up:</B> <A NAME="tex2html798"
+  HREF="node30.html">Context Influences</A>
+<B> Previous:</B> <A NAME="tex2html792"
+  HREF="node31.html">System (Assembly) - Horizontal</A>
+ &nbsp; <B>  <A NAME="tex2html800"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html802"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

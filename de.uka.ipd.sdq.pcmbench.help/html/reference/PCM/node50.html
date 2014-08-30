@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Signatures</TITLE>
+<META NAME="description" CONTENT="Signatures">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node51.html">
+<LINK REL="previous" HREF="node49.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node51.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1190"
+  HREF="node51.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1184"
+  HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1178"
+  HREF="node49.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1186"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1188"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1191"
+  HREF="node51.html">Protocols</A>
+<B> Up:</B> <A NAME="tex2html1185"
+  HREF="node49.html">Interfaces</A>
+<B> Previous:</B> <A NAME="tex2html1179"
+  HREF="node49.html">Interfaces</A>
+ &nbsp; <B>  <A NAME="tex2html1187"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1189"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00412100000000000000"></A>
+<A NAME="sec:Component_Developer:Signatures"></A><A NAME="1305"></A>
+<BR>
+Signatures
+</H3>
+
+<FONT COLOR="#009900"><I>stable</I></FONT>
+<BR>
+Every service of an interface has a unique signature, like <TT>void doSomething(int a)</TT>. A PCM signature is comparable to a method signature in programming languages like C#, Java or the OMG IDL [<A
+ HREF="node177.html#Object2004">16</A>, p. 3-1 and following]. It contains:
+
+<P>
+
+<UL>
+<LI>A type of the return value or <TT>void</TT> (no return value)
+</LI>
+<LI>An identifier naming the service
+</LI>
+<LI>An ordered set of parameters (0..*). Each parameter is a tuple of a datatype and an identifier (which is unique across the parameters). Additionally, the modifiers <TT>in</TT>, <TT>out</TT>, and <TT>inout</TT> (with its OMG IDL semantics, cf. [<A
+ HREF="node177.html#Object2004">16</A>], chapter 3) can be used for parameters.
+</LI>
+<LI>An unordered set of exceptions, which can be thrown.
+</LI>
+</UL>
+
+<P>
+A signature has to be unique for an interface through the tupel (identifier, order of parameters). 
+
+<P>
+An interface has a list of 1..* signatures (interfaces associate 1..* signatures, not the other way around). A signature is assigned to exactly one interface. However different interfaces can define the same signatures.  If for example <TT>void doIt()</TT> is defined for interface <TT>A</TT> and <TT>B</TT>, <TT>void doIt()</TT> is not identical (cf. section&nbsp;<A HREF="node109.html#sec:Differentiation_of_Provided_Interfaces">3.2.5.7</A>).
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1190"
+  HREF="node51.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1184"
+  HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1178"
+  HREF="node49.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1186"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1188"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1191"
+  HREF="node51.html">Protocols</A>
+<B> Up:</B> <A NAME="tex2html1185"
+  HREF="node49.html">Interfaces</A>
+<B> Previous:</B> <A NAME="tex2html1179"
+  HREF="node49.html">Interfaces</A>
+ &nbsp; <B>  <A NAME="tex2html1187"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1189"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>
