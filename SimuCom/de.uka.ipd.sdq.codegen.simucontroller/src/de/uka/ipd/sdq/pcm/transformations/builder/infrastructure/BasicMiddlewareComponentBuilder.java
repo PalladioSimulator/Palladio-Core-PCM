@@ -8,34 +8,34 @@ import de.uka.ipd.sdq.pcm.transformations.builder.seff.DelegatorComponentSeffBui
 import de.uka.ipd.sdq.pcm.transformations.builder.seff.MiddlewareComponentSeffBuilder;
 import de.uka.ipd.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
-public class BasicMiddlewareComponentBuilder extends BasicComponentBuilder
-		implements IMiddlewareInteractingComponentBuilder {
+public class BasicMiddlewareComponentBuilder extends BasicComponentBuilder implements
+        IMiddlewareInteractingComponentBuilder {
 
-	protected OperationInterface middleware;
-	private OperationRequiredRole myRequiredMiddlewareInterface;
+    protected OperationInterface middleware;
+    private OperationRequiredRole myRequiredMiddlewareInterface;
 
+    public BasicMiddlewareComponentBuilder(PCMAndCompletionModelHolder models, OperationInterface providedIf,
+            OperationInterface requiredIf, OperationInterface middlewareInterface, ResourceContainer container,
+            String componentName) {
+        super(models, providedIf, requiredIf, container, componentName);
 
-	public BasicMiddlewareComponentBuilder(PCMAndCompletionModelHolder models,
-			OperationInterface providedIf, OperationInterface requiredIf, OperationInterface middlewareInterface,
-			ResourceContainer container, String componentName) {
-		super(models, providedIf, requiredIf, container, componentName);
-		
-		middleware = middlewareInterface;
-	}
+        middleware = middlewareInterface;
+    }
 
-	@Override
-	public void build() {
-		myRequiredMiddlewareInterface = addOperationRequiredRole(middleware,"Middleware");
-		super.build();
-	}
+    @Override
+    public void build() {
+        myRequiredMiddlewareInterface = addOperationRequiredRole(middleware, "Middleware");
+        super.build();
+    }
 
-	@Override
-	protected DelegatorComponentSeffBuilder getSeffBuilder(){
-		return new MiddlewareComponentSeffBuilder(getOperationProvidedRole(),getOperationRequiredRole(),getMiddlewareRole());
-	}
-	
-	public OperationRequiredRole getMiddlewareRole() {
-		return myRequiredMiddlewareInterface;
-	}
+    @Override
+    protected DelegatorComponentSeffBuilder getSeffBuilder() {
+        return new MiddlewareComponentSeffBuilder(getOperationProvidedRole(), getOperationRequiredRole(),
+                getMiddlewareRole());
+    }
+
+    public OperationRequiredRole getMiddlewareRole() {
+        return myRequiredMiddlewareInterface;
+    }
 
 }

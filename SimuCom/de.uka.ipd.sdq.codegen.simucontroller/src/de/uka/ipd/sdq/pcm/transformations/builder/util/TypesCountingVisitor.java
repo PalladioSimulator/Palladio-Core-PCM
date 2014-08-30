@@ -28,11 +28,11 @@ public class TypesCountingVisitor extends RepositorySwitch<String> {
 	public String caseCollectionDataType(CollectionDataType object) {
 	    String innerStoEx = this.doSwitch(object.getInnerType_CollectionDataType());
 	    if (innerStoEx != null) {
-	    	if (innerStoEx.equals("1")){
+	    	if (innerStoEx.equals("1")) {
 	    		return getPrefix() + ".NUMBER_OF_ELEMENTS";
 	    	} else {
-	    		//TODO: use sum instead for correct stochastic processing!
-	    		return getPrefix() + ".NUMBER_OF_ELEMENTS * ("+innerStoEx+")";
+	    		// TODO: use sum instead for correct stochastic processing!
+	    		return getPrefix() + ".NUMBER_OF_ELEMENTS * (" + innerStoEx + ")";
 	    	}
 	    } else
 	    	return null;
@@ -41,9 +41,9 @@ public class TypesCountingVisitor extends RepositorySwitch<String> {
 	private String getPrefix() {
 		String result = "";
 		for (String s : prefixes) {
-			result += s +".";
+			result += s + ".";
 		}
-		return result.substring(0, result.length()-1);
+		return result.substring(0, result.length() - 1);
 	}
 
 	@Override

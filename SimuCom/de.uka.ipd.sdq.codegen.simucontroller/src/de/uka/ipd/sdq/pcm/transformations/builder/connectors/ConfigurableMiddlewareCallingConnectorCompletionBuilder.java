@@ -8,50 +8,42 @@ import de.uka.ipd.sdq.pcm.transformations.builder.infrastructure.MiddlewareCalli
 import de.uka.ipd.sdq.pcm.transformations.builder.util.PCMAndCompletionModelHolder;
 
 public class ConfigurableMiddlewareCallingConnectorCompletionBuilder extends
-		AbstractClientServerConnectorCompletionBuilder {
+        AbstractClientServerConnectorCompletionBuilder {
 
-	private String clientSideBeforeCall;
-	private String clientSideAfterCall;
-	private String serverSideBeforeCall;
-	private String serverSideAfterCall;
+    private String clientSideBeforeCall;
+    private String clientSideAfterCall;
+    private String serverSideBeforeCall;
+    private String serverSideAfterCall;
 
-	public ConfigurableMiddlewareCallingConnectorCompletionBuilder(
-			PCMAndCompletionModelHolder models, AssemblyConnector connector,
-			ResourceContainer fromResourceContainer,
-			ResourceContainer toResourceContainer,
-			IComponentBuilder innerBuilder,
-			String clientSideBeforeCall, String serverSideBeforeCall,
-			String serverSideAfterCall, String clientSideAfterCall) {
-		super(models, connector, fromResourceContainer, toResourceContainer, innerBuilder, "ConfigurableMiddlewareCallingConnectorCompletion");
-		this.clientSideBeforeCall = clientSideBeforeCall;
-		this.clientSideAfterCall = clientSideAfterCall;
-		this.serverSideBeforeCall = serverSideBeforeCall;
-		this.serverSideAfterCall = serverSideAfterCall;
-	}
+    public ConfigurableMiddlewareCallingConnectorCompletionBuilder(PCMAndCompletionModelHolder models,
+            AssemblyConnector connector, ResourceContainer fromResourceContainer,
+            ResourceContainer toResourceContainer, IComponentBuilder innerBuilder, String clientSideBeforeCall,
+            String serverSideBeforeCall, String serverSideAfterCall, String clientSideAfterCall) {
+        super(models, connector, fromResourceContainer, toResourceContainer, innerBuilder,
+                "ConfigurableMiddlewareCallingConnectorCompletion");
+        this.clientSideBeforeCall = clientSideBeforeCall;
+        this.clientSideAfterCall = clientSideAfterCall;
+        this.serverSideBeforeCall = serverSideBeforeCall;
+        this.serverSideAfterCall = serverSideAfterCall;
+    }
 
-	@Override
-	protected IMiddlewareInteractingComponentBuilder createClientSideBuilder() {
-		MiddlewareCallingComponentBuilder builder = new MiddlewareCallingComponentBuilder
-				(myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
-				this.middlewareInterface,
-				this.fromResourceContainer,
-				clientSideBeforeCall,
-				clientSideAfterCall);
-		return builder;
-	}
+    @Override
+    protected IMiddlewareInteractingComponentBuilder createClientSideBuilder() {
+        MiddlewareCallingComponentBuilder builder = new MiddlewareCallingComponentBuilder(myModels,
+                this.connectorToReplace.getRequiredRole_AssemblyConnector()
+                        .getRequiredInterface__OperationRequiredRole(), this.connectorToReplace
+                        .getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+                this.middlewareInterface, this.fromResourceContainer, clientSideBeforeCall, clientSideAfterCall);
+        return builder;
+    }
 
-	@Override
-	protected IMiddlewareInteractingComponentBuilder createServerSideBuilder() {
-		MiddlewareCallingComponentBuilder builder = new MiddlewareCallingComponentBuilder
-				(myModels, 
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
-				this.connectorToReplace.getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
-				this.middlewareInterface,
-				this.toResourceContainer,
-				serverSideBeforeCall,
-				serverSideAfterCall);
-		return builder;
-	}
+    @Override
+    protected IMiddlewareInteractingComponentBuilder createServerSideBuilder() {
+        MiddlewareCallingComponentBuilder builder = new MiddlewareCallingComponentBuilder(myModels,
+                this.connectorToReplace.getRequiredRole_AssemblyConnector()
+                        .getRequiredInterface__OperationRequiredRole(), this.connectorToReplace
+                        .getRequiredRole_AssemblyConnector().getRequiredInterface__OperationRequiredRole(),
+                this.middlewareInterface, this.toResourceContainer, serverSideBeforeCall, serverSideAfterCall);
+        return builder;
+    }
 }

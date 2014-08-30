@@ -2,8 +2,7 @@ package de.uka.ipd.sdq.pcm.transformations.builder.seff;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 
-public class StaticInternalActionDescriptor 
-extends AbstractInternalActionDescriptor {
+public class StaticInternalActionDescriptor extends AbstractInternalActionDescriptor {
 
 	private String demand;
 

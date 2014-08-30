@@ -17,73 +17,81 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMLaunchConfiguration
 import de.uka.ipd.sdq.workflow.pcm.configurations.PCMWorkflowConfigurationBuilder;
 
 /**
- * The class adapts defined functionality in the AbstractMDSDLaunchConfigurationDelegate for
- * SimuCom Framework.
+ * The class adapts defined functionality in the AbstractMDSDLaunchConfigurationDelegate for SimuCom
+ * Framework.
  *
  */
-public class SimuComWorkflowLauncher extends
-		AbstractPCMLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
+public class SimuComWorkflowLauncher extends AbstractPCMLaunchConfigurationDelegate<SimuComWorkflowConfiguration> {
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @seede.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#
-	 * creataAttributesGetMethods(org.eclipse.debug.core.ILaunchConfiguration)
-	 */
-	@Override
-	protected SimuComWorkflowConfiguration deriveConfiguration(
-			ILaunchConfiguration configuration, String mode)
-			throws CoreException {
-		SimuComWorkflowConfiguration config = new SimuComWorkflowConfiguration(configuration.getAttributes());
+    /*
+     * (non-Javadoc)
+     * 
+     * @seede.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#
+     * creataAttributesGetMethods(org.eclipse.debug.core.ILaunchConfiguration)
+     */
+    @Override
+    protected SimuComWorkflowConfiguration deriveConfiguration(ILaunchConfiguration configuration, String mode)
+            throws CoreException {
+        SimuComWorkflowConfiguration config = new SimuComWorkflowConfiguration(configuration.getAttributes());
 
-		AbstractWorkflowConfigurationBuilder builder;
-		builder = new PCMWorkflowConfigurationBuilder(configuration, mode);
-		builder.fillConfiguration(config);
+        AbstractWorkflowConfigurationBuilder builder;
+        builder = new PCMWorkflowConfigurationBuilder(configuration, mode);
+        builder.fillConfiguration(config);
 
-		builder = new SimuComLaunchConfigurationBasedConfigBuilder(
-				configuration, mode);
-		builder.fillConfiguration(config);
+        builder = new SimuComLaunchConfigurationBasedConfigBuilder(configuration, mode);
+        builder.fillConfiguration(config);
 
-		return config;
-	}
+        return config;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractMDSDLaunchConfigurationDelegate#setupLogging(org.apache.log4j.Level)
-	 */
-	@Override
-	protected ArrayList<LoggerAppenderStruct> setupLogging(Level logLevel) throws CoreException {
-		ArrayList<LoggerAppenderStruct> loggerList = super.setupLogging(logLevel);
-		loggerList.add(setupLogger("de.uka.ipd.sdq.codegen", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("de.uka.ipd.sdq.simucomframework", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("de.uka.ipd.sdq.workflow.mdsd.emf.qvtr", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("de.uka.ipd.sdq.statistics", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("de.uka.ipd.sdq.probespec.framework", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("de.uka.ipd.sdq.pipesandfilters.framework", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("de.uka.ipd.sdq.pcm.transformations", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("de.uka.ipd.sdq.simulation", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("edu.kit.ipd.sdq.pcm.simulation.scheduler", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
-		loggerList.add(setupLogger("Scheduler", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));		
-		
-		return loggerList;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractMDSDLaunchConfigurationDelegate#
+     * setupLogging(org.apache.log4j.Level)
+     */
+    @Override
+    protected ArrayList<LoggerAppenderStruct> setupLogging(Level logLevel) throws CoreException {
+        ArrayList<LoggerAppenderStruct> loggerList = super.setupLogging(logLevel);
+        loggerList.add(setupLogger("de.uka.ipd.sdq.codegen", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN
+                : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("de.uka.ipd.sdq.simucomframework", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("de.uka.ipd.sdq.workflow.mdsd.emf.qvtr", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("de.uka.ipd.sdq.statistics", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("org.palladiosimulator.probeframework", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("org.palladiosimulator.recorderframework", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("de.uka.ipd.sdq.pcm.transformations", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("de.uka.ipd.sdq.simulation", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("edu.kit.ipd.sdq.pcm.simulation.scheduler", logLevel,
+                Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN : SHORT_LOG_PATTERN));
+        loggerList.add(setupLogger("Scheduler", logLevel, Level.DEBUG == logLevel ? DETAILED_LOG_PATTERN
+                : SHORT_LOG_PATTERN));
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @seede.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate#
-	 * createRunCompositeJob
-	 * (de.uka.ipd.sdq.codegen.runconfig.AttributesGetMethods)
-	 */
-	@Override
-	protected IJob createWorkflowJob(SimuComWorkflowConfiguration config,
-			final ILaunch launch) throws CoreException {
-		IDebugListener listener = null;
+        return loggerList;
+    }
 
-		if (config.isDebug()) {
-			listener = new SimulationDebugListener(launch);
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @seede.uka.ipd.sdq.codegen.runconfig.LaunchConfigurationDelegate# createRunCompositeJob
+     * (de.uka.ipd.sdq.codegen.runconfig.AttributesGetMethods)
+     */
+    @Override
+    protected IJob createWorkflowJob(SimuComWorkflowConfiguration config, final ILaunch launch) throws CoreException {
+        IDebugListener listener = null;
 
-		SimuComWorkflowJobBuilder jobBuilder = new SimuComWorkflowJobBuilder(listener);
-		return new AccuracyInfluenceAnalysisJob(config, jobBuilder);
-	}
+        if (config.isDebug()) {
+            listener = new SimulationDebugListener(launch);
+        }
+
+        SimuComWorkflowJobBuilder jobBuilder = new SimuComWorkflowJobBuilder(listener);
+        return new AccuracyInfluenceAnalysisJob(config, jobBuilder);
+    }
 }

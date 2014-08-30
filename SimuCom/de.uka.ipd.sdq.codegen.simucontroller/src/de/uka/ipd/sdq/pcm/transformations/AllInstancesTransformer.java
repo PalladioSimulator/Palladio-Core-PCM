@@ -15,33 +15,30 @@ import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 
 public abstract class AllInstancesTransformer<T> {
 
-	private EObject rootNode;
-	private EClassifier eClass;
+    private EObject rootNode;
+    private EClassifier eClass;
 
-	public AllInstancesTransformer(EClassifier eClass, EObject rootNode) {
-		super();
-		this.rootNode = rootNode;
-		this.eClass = eClass;
-	}
+    public AllInstancesTransformer(EClassifier eClass, EObject rootNode) {
+        super();
+        this.rootNode = rootNode;
+        this.eClass = eClass;
+    }
 
-	@SuppressWarnings("unchecked")
-	public void transform() throws JobFailedException {
-		OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
+    @SuppressWarnings("unchecked")
+    public void transform() throws JobFailedException {
+        OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
 
-		try {
-			Set<EObject> result = (Set<EObject>) new SELECT(
-				    new FROM(rootNode),
-				    new WHERE(new BooleanOCLCondition<EClassifier, EClass, EObject>(
-				    	ocl.getEnvironment(),
-				        "true",
-				        eClass))).getEObjects();
-			for(EObject eObject : result) {
-        		transform((T)eObject);
-			}
-    	} catch (Exception ex) {
-			throw new JobFailedException("Transformation failed",ex);
-    	}
-	}
+        try {
+            Set<EObject> result = (Set<EObject>) new SELECT(new FROM(rootNode), new WHERE(
+                    new BooleanOCLCondition<EClassifier, EClass, EObject>(ocl.getEnvironment(), "true", eClass)))
+                    .getEObjects();
+            for (EObject eObject : result) {
+                transform((T) eObject);
+            }
+        } catch (Exception ex) {
+            throw new JobFailedException("Transformation failed", ex);
+        }
+    }
 
-	protected abstract void transform(T object);
+    protected abstract void transform(T object);
 }

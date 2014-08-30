@@ -98,6 +98,16 @@ public class XtendTransformPCMToCodeJob extends
 		// 1. Generate all repositories
 		// private static final String REPOSITORY_ROOT_EXPAND_EXPRESSION =
 		// "m2t_transforms::repository::Root FOR pcmmodel";
+		
+        final GlobalVarDef[] globalVars = new GlobalVarDef[1];
+        globalVars[0] = new GlobalVarDef();
+        globalVars[0].setName(GLOBAL_VARIABLE_NAME_QUALITY_ANNOTATION_REPOSITORY);
+        if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
+            globalVars[0].setValue(SLOT_NAME_QUALITY_ANNOTATION_MODEL);
+        } else {
+            globalVars[0].setValue("null");
+        }
+		
 		for (int repositoryIndex = 0; repositoryIndex < getRepositoryCount(); repositoryIndex++) {
 			java.lang.System.out
 					.println(getRepositoryTransformationSlots(repositoryIndex));
@@ -241,8 +251,8 @@ public class XtendTransformPCMToCodeJob extends
 	}
 
 	private HashMap<String, Object> getCompletionRepositorySlots() {
-		HashMap<String, Object> sC2 = new HashMap<String, Object>();
-		ResourceSetPartition completionRepositoryPartition = this.myBlackboard
+		final HashMap<String, Object> sC2 = new HashMap<String, Object>();
+		final ResourceSetPartition completionRepositoryPartition = this.myBlackboard
 				.getPartition(ApplyConnectorCompletionsJob.COMPLETION_REPOSITORY_PARTITION);
 
 		sC2.put("pcmmodel", completionRepositoryPartition.getResourceSet()

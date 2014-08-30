@@ -15,6 +15,6 @@ import de.uka.ipd.sdq.workflow.extension.AbstractWorkflowExtensionConfigurationB
  */
 public abstract class SimuComExtensionConfigurationBuilder extends AbstractWorkflowExtensionConfigurationBuilder {
 	
-	public abstract SimuComConfigExtension deriveSimuComConfigExtension(Map<String,Object> configuration);
+	public abstract SimuComConfigExtension deriveSimuComConfigExtension(Map<String, Object> configuration);
 	
 }

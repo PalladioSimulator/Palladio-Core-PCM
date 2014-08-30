@@ -8,6 +8,8 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflo
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
 import de.uka.ipd.sdq.workflow.extension.AbstractExtendableJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
+import de.uka.ipd.sdq.workflow.pcm.jobs.CreateWorkingCopyOfModelsJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.EventsTransformationJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
@@ -22,7 +24,8 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
  * @author Philipp Merkle
  * 
  */
-public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflowConfiguration> extends AbstractExtendableJob<MDSDBlackboard> {
+public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflowConfiguration> extends
+        AbstractExtendableJob<MDSDBlackboard> {
 
     protected IDebugListener debugListener = null;
 
@@ -32,43 +35,49 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
     }
 
     public AbstractSimulationJob(C configuration) throws CoreException {
-        this(configuration,null);
+        this(configuration, null);
     }
 
     public AbstractSimulationJob(C configuration, IDebugListener listener, boolean loadModels) throws CoreException {
         super(false);
 
-        if (listener == null && configuration.isDebug())
+        if (listener == null && configuration.isDebug()) {
             throw new IllegalArgumentException("Debug listener has to be non-null for debug runs");
+        }
         this.debugListener = listener;
 
         // Stage Preparation
+        // 0. Create plug-in project for simulation
+        this.add(new CreatePluginProjectJob(configuration));
+
         // 1. Load PCM Models into memory
         if (loadModels == true) {
             this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
+            this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
         }
-        this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
+        // store models in temporary eclipse plug-in
+        this.add(new CreateWorkingCopyOfModelsJob(configuration));
 
         // 2. Validate PCM Models
         this.addJob(new ValidatePCMModelsJob(configuration));
-        
+
         // All Workflow extension jobs with the extension hook id
         // WORKFLOW_ID_AFTER_LOAD_VALIDATE
-        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE,configuration);
+        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE, configuration);
 
         // -- Stage Model modification
         // 3.1 Modification for AccuracyInfluenceAnalysis
         if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
             this.add(new TransformPCMForAccuracyInfluenceAnalysisJob(configuration));
         }
-        
+
         // 3.2 Modifications for SensitivityAnalysis
-        if(configuration.isSensitivityAnalysisEnabled()){
+        if (configuration.isSensitivityAnalysisEnabled()) {
             this.add(new TransformPCMForSensitivityAnalysisJob(configuration));
         }
 
         // 4. Apply Completions
-        //this.add(new CompletionJob(configuration));
+        // this.add(new CompletionJob(configuration));
 
         // 5. Transform Event Model Elements
         this.add(new EventsTransformationJob(configuration));
@@ -84,7 +93,7 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
 
         this.addSimulatorSpecificJobs(configuration);
     }
-    
+
     protected abstract void addSimulatorSpecificJobs(C configuration);
-    
+
 }

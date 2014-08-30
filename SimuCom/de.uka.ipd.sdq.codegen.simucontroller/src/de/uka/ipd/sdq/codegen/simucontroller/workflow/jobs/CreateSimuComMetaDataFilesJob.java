@@ -5,66 +5,55 @@ import java.io.PrintStream;
 import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
-public class CreateSimuComMetaDataFilesJob extends
-		AbstractCreateMetaDataFilesJob implements IJob {
+public class CreateSimuComMetaDataFilesJob extends AbstractCreateMetaDataFilesJob implements IJob {
 
-	public CreateSimuComMetaDataFilesJob(
-			final AbstractCodeGenerationWorkflowRunConfiguration configuration) {
-		super();
+    public CreateSimuComMetaDataFilesJob(final AbstractCodeGenerationWorkflowRunConfiguration configuration) {
+        super();
 
-		this.configuration = configuration;
-	}
+        this.configuration = configuration;
+    }
 
-	@Override
-	protected void writePluginXmlContent(final PrintStream out) {
-		out.println("<?xml version='1.0'?>"); //$NON-NLS-1$
-		out.println("<plugin>"); //$NON-NLS-1$
-		out.println("   <extension"); //$NON-NLS-1$
-		out.println("         point=\"de.uka.ipd.sdq.simucomframework.controller\">"); //$NON-NLS-1$
-		out.println("      <actionDelegate"); //$NON-NLS-1$
-		out.println("            class=\"main.SimuComControl\""); //$NON-NLS-1$
-		out.println("            id=\"de.uka.ipd.sdq.codegen.simucominstance.actionDelegate\">"); //$NON-NLS-1$
-		out.println("      </actionDelegate>"); //$NON-NLS-1$
-		out.println("   </extension>"); //$NON-NLS-1$
-		out.println("</plugin>"); //$NON-NLS-1$
-	}
+    @Override
+    protected void writePluginXmlContent(final PrintStream out) {
+        out.println("<?xml version='1.0'?>"); //$NON-NLS-1$
+        out.println("<plugin>"); //$NON-NLS-1$
+        out.println("   <extension"); //$NON-NLS-1$
+        out.println("         point=\"de.uka.ipd.sdq.simucomframework.controller\">"); //$NON-NLS-1$
+        out.println("      <actionDelegate"); //$NON-NLS-1$
+        out.println("            class=\"main.SimuComControl\""); //$NON-NLS-1$
+        out.println("            id=\"de.uka.ipd.sdq.codegen.simucominstance.actionDelegate\">"); //$NON-NLS-1$
+        out.println("      </actionDelegate>"); //$NON-NLS-1$
+        out.println("   </extension>"); //$NON-NLS-1$
+        out.println("</plugin>"); //$NON-NLS-1$
+    }
 
-	@Override
-	protected void writeBuildPropertiesContent(final PrintStream out) {
-		out.println("output.. = bin/"); //$NON-NLS-1$
-		out.println("source.. = src/"); //$NON-NLS-1$
-		out.println("bin.includes = plugin.xml,\\"); //$NON-NLS-1$
-		out.println("				META-INF/,\\"); //$NON-NLS-1$
-		out.println("				."); //$NON-NLS-1$
-	}
+    @Override
+    protected void writeBuildPropertiesContent(final PrintStream out) {
+        out.println("output.. = bin/"); //$NON-NLS-1$
+        out.println("source.. = src/"); //$NON-NLS-1$
+        out.println("bin.includes = plugin.xml,\\"); //$NON-NLS-1$
+        out.println("				META-INF/,\\"); //$NON-NLS-1$
+        out.println("				."); //$NON-NLS-1$
+    }
 
-	private final static String[] BUNDLES = new String[] {
-	     "de.uka.ipd.sdq.simulation", 
-	     "de.uka.ipd.sdq.simulation.abstractsimengine",
-		 "de.uka.ipd.sdq.simucomframework",
-		 "de.uka.ipd.sdq.simucomframework.simucomstatus",
-		 "de.uka.ipd.sdq.sensorframework",
-		 "de.uka.ipd.sdq.simucomframework.variables",
-		 "org.apache.log4j",
-		 "org.eclipse.osgi",
-		 "de.uka.ipd.sdq.scheduler",
-		 "org.jscience",
-		 "de.uka.ipd.sdq.probespec.framework",
-		 "de.uka.ipd.sdq.pipesandfilters",
-		 "de.uka.ipd.sdq.pipesandfilters.framework",
-		 "de.uka.ipd.sdq.reliability.core",
-		 "de.fzi.se.accuracy",
-		 "de.uka.ipd.sdq.probfunction.math"
-	};
+    private final static String[] BUNDLES = new String[] {
+            "de.uka.ipd.sdq.simulation", "de.uka.ipd.sdq.simulation.abstractsimengine",
+            "de.uka.ipd.sdq.simucomframework", "de.uka.ipd.sdq.simucomframework.simucomstatus",
+            "de.uka.ipd.sdq.simucomframework.variables", "org.apache.log4j", "org.eclipse.osgi",
+            "de.uka.ipd.sdq.scheduler", "org.jscience", "org.palladiosimulator.probeframework",
+            "org.palladiosimulator.metricspec", "de.uka.ipd.sdq.reliability.core", "de.fzi.se.accuracy",
+            "de.uka.ipd.sdq.probfunction.math", "org.palladiosimulator.measurementframework;bundle-version=\"1.0.0\"",
+            "org.palladiosimulator.edp2;bundle-version=\"2.0.0\""
+    };
 
-	@Override
-	protected String[] getRequiredBundles() {
-		return BUNDLES;
-	}
+    @Override
+    protected String[] getRequiredBundles() {
+        return BUNDLES;
+    }
 
-	@Override
-	protected String getBundleActivator() {
-		return "main.SimuComControl";
-	}
+    @Override
+    protected String getBundleActivator() {
+        return "main.SimuComControl";
+    }
 
 }

@@ -14,9 +14,9 @@ public class FeatureUtils {
 	public static boolean hasFeature(FeatureConfig featureConfig, String featureName) {
 		EList<ConfigNode> nodes = featureConfig.getConfignode();
 		Iterator<ConfigNode> it = nodes.iterator();
-		while (it.hasNext()){
+		while (it.hasNext()) {
 			ConfigNode configNode = it.next();
-			if ( ((Feature)configNode.getOrigin()).getName().equals(featureName)) {
+			if (((Feature) configNode.getOrigin()).getName().equals(featureName)) {
 				return configNode.getConfigState() == ConfigState.SELECTED;
 			}
 		}

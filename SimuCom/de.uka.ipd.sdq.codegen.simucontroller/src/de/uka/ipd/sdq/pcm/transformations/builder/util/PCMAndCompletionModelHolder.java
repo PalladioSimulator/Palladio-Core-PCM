@@ -11,11 +11,9 @@ public class PCMAndCompletionModelHolder extends PCMModelHolder {
 	private Repository completionRepository;
 	private Repository middlewareRepository;
 	
-	public PCMAndCompletionModelHolder(ResourceRepository resourceRepository, 
-			Repository repository, System system,
-			Allocation allocation, UsageModel usageModel,
-			Repository completionRepository,
-			Repository middlewareRepository) {
+	public PCMAndCompletionModelHolder(ResourceRepository resourceRepository, Repository repository, System system,
+            Allocation allocation, UsageModel usageModel, Repository completionRepository,
+            Repository middlewareRepository) {
 		super(resourceRepository, repository, system, allocation, usageModel);
 		this.completionRepository = completionRepository;
 		this.middlewareRepository = middlewareRepository;

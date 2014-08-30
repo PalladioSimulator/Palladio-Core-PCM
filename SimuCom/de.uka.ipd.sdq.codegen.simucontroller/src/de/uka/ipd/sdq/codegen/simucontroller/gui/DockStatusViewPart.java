@@ -19,12 +19,13 @@ import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.events.DockDeletedEvent;
 public class DockStatusViewPart extends ViewPart implements Observer {
 
 	public static final String ID = "de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart"; //$NON-NLS-1$
-	private HashMap<String,DockStatusViewer> viewers = new HashMap<String, DockStatusViewer>();
+	private HashMap<String, DockStatusViewer> viewers = new HashMap<String, DockStatusViewer>();
 	private DocksModel model;
 	private Composite container;
 
 	/**
 	 * Create contents of the view part
+	 * 
 	 * @param parent
 	 */
 	@Override
@@ -33,8 +34,8 @@ public class DockStatusViewPart extends ViewPart implements Observer {
 		container.setLayout(new FillLayout());
 		model = SimuControllerPlugin.getDockModel();
 		
-		for(DockModel dock : model.getAllDocks()) {
-			update(model,new DockAddedEvent(dock));
+		for (DockModel dock : model.getAllDocks()) {
+			update(model, new DockAddedEvent(dock));
 		}
 		model.addObserver(this);
 		
@@ -62,11 +63,11 @@ public class DockStatusViewPart extends ViewPart implements Observer {
 	public void update(Observable o, Object arg) {
 		if (arg instanceof DockAddedEvent) {
 			final DockAddedEvent addedEvent = (DockAddedEvent) arg;
-			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
+			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 
 				public void run() {
 					DockStatusViewPart.this.viewers.put(addedEvent.getDock().getID(), 
-							new DockStatusViewer(addedEvent.getDock(),container,SWT.NONE));
+							new DockStatusViewer(addedEvent.getDock(), container, SWT.NONE));
 					container.layout();
 					container.redraw();
 				}
@@ -75,7 +76,7 @@ public class DockStatusViewPart extends ViewPart implements Observer {
 		}
 		if (arg instanceof DockDeletedEvent) {
 			final DockDeletedEvent deleteEvent = (DockDeletedEvent) arg;
-			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable(){
+			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 
 				public void run() {
 					DockStatusViewer viewer = DockStatusViewPart.this.viewers.get(deleteEvent.getDock().getID());
