@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCM Reliability Core Definitions
+Bundle-SymbolicName: de.uka.ipd.sdq.reliability.core;singleton:=true
+Bundle-Version: 3.1.0.qualifier
+Require-Bundle: org.eclipse.core.runtime,
+ org.apache.log4j,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.query,
+ de.uka.ipd.sdq.pcm,
+ org.apache.commons.collections15,
+ org.palladiosimulator.commons;bundle-version="1.0.0",
+ org.jscience;bundle-version="4.1.3",
+ org.palladiosimulator.measurementframework;bundle-version="1.0.0",
+ org.palladiosimulator.probeframework;bundle-version="2.0.0",
+ org.palladiosimulator.metricspec;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: sdq.ipd.uka.de
+Export-Package: de.uka.ipd.sdq.reliability.core,
+ de.uka.ipd.sdq.reliability.core.helper
