@@ -1,0 +1,156 @@
+module org.palladiosimulator.pcm.pcmstoex.PCMStoEx
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+
+var grammarURI = "classpath:/org/palladiosimulator/pcm/pcmstoex/PCMStoEx.xtext"
+var fileExtensions = "pcmstoex"
+var projectName = "de.uka.ipd.sdq.pcm"
+var runtimeProject = "../${projectName}"
+var generateXtendStub = true
+var uiProjectName = "org.palladiosimulator.pcm.pcmstoex"
+var uiRuntimeProject = "../${uiProjectName}"
+
+Workflow {
+	bean = StandaloneSetup {
+		scanClassPath  = true
+		platformUri = "${runtimeProject}/.."
+		uriMap = {
+            from = "platform:/plugin/org.eclipse.uml2.codegen.ecore/model/GenModel.ecore"
+            to = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.ecore"
+        }
+        
+		
+		registerGeneratedEPackage = "de.uka.ipd.sdq.pcm.parameter.ParameterPackage"
+		registerGeneratedEPackage = "de.uka.ipd.sdq.probfunction.ProbfunctionPackage"
+		registerGeneratedEPackage = "de.uka.ipd.sdq.units.UnitsPackage"
+		registerGeneratedEPackage = "de.uka.ipd.sdq.stoex.StoexPackage"
+		registerGeneratedEPackage = "org.eclipse.uml2.codegen.ecore.genmodel.GenModelPackage"
+		
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.pcm/model/pcm.genmodel"
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel"
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel"
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel"
+		registerGenModelFile = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${uiRuntimeProject}.ui/src-gen"
+	}
+
+	component = Generator {
+		pathRtProject = runtimeProject
+		pathUiProject = "${uiRuntimeProject}.ui"
+		pathTestProject = "${uiRuntimeProject}.tests"
+		projectNameRt = projectName
+		projectNameUi = "${uiProjectName}.ui"
+		language = auto-inject {
+			uri = grammarURI
+
+			// Java API to access grammar elements (required by several other fragments)
+			fragment = grammarAccess.GrammarAccessFragment auto-inject {}
+
+			// generates Java API for the generated EPackages
+			// fragment = ecore.EcoreGeneratorFragment auto-inject {}
+
+			// the Ecore2Xtext specific terminal converter
+			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment auto-inject {}
+
+			// serializer 2.0
+			fragment = serializer.SerializerFragment auto-inject {
+				//generateStub = false
+			}
+
+			// the old serialization component
+			// fragment = parseTreeConstructor.ParseTreeConstructorFragment auto-inject {}
+
+			// a custom ResourceFactory for use with EMF 
+			fragment = resourceFactory.ResourceFactoryFragment auto-inject {}
+
+			// the Antlr parser
+			fragment = parser.antlr.XtextAntlrGeneratorFragment auto-inject {
+				options = {
+					classSplitting = true
+					backtrack=true
+				}
+			}
+
+			// Xtend-based API for validation 
+			fragment = validation.ValidatorFragment auto-inject {
+			// composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+			// composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+
+			//Java based validation
+			fragment = org.eclipse.xtext.generator.validation.JavaValidatorFragment {}
+			
+			// old scoping and exporting API 
+			// fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
+			// fragment = exporting.QualifiedNamesFragment auto-inject {}
+
+			// scoping and exporting API
+			fragment = scoping.ImportURIScopingFragment auto-inject {}
+			fragment = exporting.SimpleNamesFragment auto-inject {}
+			fragment = builder.BuilderIntegrationFragment auto-inject {}		
+
+			// generator API
+			fragment = generator.GeneratorFragment auto-inject {}
+
+			// formatter API 
+			// fragment = formatting.FormatterFragment auto-inject {}
+			fragment = ecore2xtext.FormatterFragment auto-inject {}
+
+			// labeling API 
+			fragment = labeling.LabelProviderFragment auto-inject {}
+
+			// outline API 
+            fragment = outline.OutlineTreeProviderFragment auto-inject {}
+            fragment = outline.QuickOutlineFragment auto-inject {}
+
+			// quickfix API
+			fragment = quickfix.QuickfixProviderFragment auto-inject {}
+
+			//content assist API 
+			fragment = contentAssist.JavaBasedContentAssistFragment auto-inject {}
+
+			// antlr parser generator tailored for content assist 
+			fragment = parser.antlr.XtextAntlrUiGeneratorFragment auto-inject {
+				options = {
+					classSplitting = true
+					backtrack=true
+				}
+			}
+			
+			// generates junit test support classes into Generator#pathTestProject
+			fragment = junit.Junit4Fragment auto-inject {}
+
+			// project wizard (optional) 
+			// fragment = projectWizard.SimpleProjectWizardFragment auto-inject {
+			//		generatorProjectName = "${projectName}.generator" 
+			// }
+
+			// rename refactoring
+			fragment = refactoring.RefactorElementNameFragment auto-inject {}
+
+			// provides the necessary bindings for java types integration
+			fragment = types.TypesGeneratorFragment auto-inject {}
+			
+			// generates the required bindings only if the grammar inherits from Xbase
+			fragment = xbase.XbaseGeneratorFragment auto-inject {}
+			
+			// generates the required bindings only if the grammar inherits from Xtype
+			fragment = xbase.XtypeGeneratorFragment auto-inject {}
+
+			// provides a preference page for template proposals
+			fragment = templates.CodetemplatesGeneratorFragment auto-inject {}
+
+			// provides a compare view
+            fragment = compare.CompareFragment auto-inject {}
+		}
+	}
+}
