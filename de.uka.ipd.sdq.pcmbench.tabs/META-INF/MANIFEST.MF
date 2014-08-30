@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCMBench Tabbed Property Sheets
+Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.tabs;singleton:=true
+Bundle-Version: 2.0.1.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.ui.views.properties.tabbed,
+ org.eclipse.emf,
+ org.eclipse.emf.edit.ui,
+ org.eclipse.emf.transaction,
+ de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
+ de.uka.ipd.sdq.pcm.edit;bundle-version="3.6.0",
+ de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0",
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.7.0",
+ de.uka.ipd.sdq.dialogs;bundle-version="2.0.1",
+ de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
+ de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
+ de.uka.ipd.sdq.pcm.stochasticexpressions;bundle-version="2.0.0",
+ org.palladiosimulator.pcm.pcmstoex.ui
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator
+Export-Package: de.uka.ipd.sdq.pcmbench.tabs,
+ de.uka.ipd.sdq.pcmbench.tabs.operations
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
