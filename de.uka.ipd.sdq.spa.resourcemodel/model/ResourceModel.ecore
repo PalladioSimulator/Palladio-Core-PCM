@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="resourcemodel"
+    nsURI="http://sdq.ipd.uka.de/ResourceModel/1.0" nsPrefix="resourcemodel">
+  <eClassifiers xsi:type="ecore:EClass" name="SequentialResourceUsage" eSuperTypes="#//AbstractResourceUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsages" upperBound="-1"
+        eType="#//AbstractResourceUsage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractResourceUsage" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlternativeResourceUsage" eSuperTypes="#//AbstractResourceUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" unique="false"
+        upperBound="-1" eType="#//Option" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Option">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsage" lowerBound="1"
+        eType="#//AbstractResourceUsage" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceUsage" eSuperTypes="#//AbstractResourceUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usageTime" lowerBound="1"
+        eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityDensityFunction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
+        eType="#//ActiveResource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActiveResource" abstract="true" eSuperTypes="#//Resource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfServers" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" eSuperTypes="#//ContentionResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentionResource" abstract="true"
+      eSuperTypes="#//Resource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplicas" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessingResource" eSuperTypes="#//ContentionResource #//ActiveResource"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DelayResource" eSuperTypes="#//ActiveResource"/>
+</ecore:EPackage>
