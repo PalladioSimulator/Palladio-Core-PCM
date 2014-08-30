@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/de.uka.ipd.sdq.reliability.sensitivity/src"
+    modelPluginID="de.uka.ipd.sdq.reliability.sensitivity" modelName="Sensitivity"
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" copyrightFields="false"
+    usedGenPackages="../../de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+  </genAnnotations>
+  <foreignModel>file:/C:/temp/export/identifier.uml</foreignModel>
+  <foreignModel>file:/C:/temp/export/pcm.uml</foreignModel>
+  <foreignModel>file:/C:/temp/export/ProbabilityFunction.uml</foreignModel>
+  <foreignModel>file:/C:/temp/export/Sensitivity.uml</foreignModel>
+  <foreignModel>file:/C:/temp/export/stoex.uml</foreignModel>
+  <foreignModel>file:/C:/temp/export/Units.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Sensitivity" basePackage="de.uka.ipd.sdq"
+      resource="XML" disposableProviderFactory="true" ecorePackage="sensitivity.ecore#/">
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="sensitivity.ecore#//VariableUsageType">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//VariableUsageType/SYSTEM_CALL_INPUT"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//VariableUsageType/COMPONENT_CONFIGURATION"/>
+    </genEnums>
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="sensitivity.ecore#//DoubleOffsetType">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//DoubleOffsetType/ADD"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//DoubleOffsetType/SUBTRACT"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//DoubleOffsetType/MULTIPLY"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//DoubleOffsetType/DIVIDE"/>
+    </genEnums>
+    <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="sensitivity.ecore#//FailureDimension">
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//FailureDimension/SOFTWARE"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//FailureDimension/HARDWARE"/>
+      <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="sensitivity.ecore#//FailureDimension/NETWORK"/>
+    </genEnums>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//SensitivityConfiguration">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference sensitivity.ecore#//SensitivityConfiguration/sensitivityParameters__SensitivityConfiguration"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference sensitivity.ecore#//SensitivityConfiguration/sensitivityResultSpecifications__SensitivityConfiguration"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="sensitivity.ecore#//SensitivityParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference sensitivity.ecore#//SensitivityParameter/parentParameter__SensitivityParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference sensitivity.ecore#//SensitivityParameter/sensitivityConfiguration__SensitivityParameter"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//CombinedSensitivityParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//CombinedSensitivityParameter/isCombinatory"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference sensitivity.ecore#//CombinedSensitivityParameter/childParameters__CombinedSensitivityParameter"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="sensitivity.ecore#//SensitivityResultSpecification"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="sensitivity.ecore#//SingleSensitivityParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference sensitivity.ecore#//SingleSensitivityParameter/sensitivityParameterVariation__SingleSensitivityParameter"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="sensitivity.ecore#//SensitivityParameterVariation">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false" createChild="false"
+          ecoreFeature="ecore:EReference sensitivity.ecore#//SensitivityParameterVariation/singleSensitivityParameter__SensitivityParameterVariation"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//ComponentReliabilityParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//ComponentReliabilityParameter/basicComponent__ComponentReliabilityParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//ComponentReliabilityParameter/ComponentReliabilityParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ComponentReliabilityParameter/ComponentReliabilityParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ComponentReliabilityParameter/ComponentReliabilityParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="sensitivity.ecore#//DoubleParameterVariation"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//StringParameterSequence">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//StringParameterSequence/stringValues"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//DoubleParameterRange">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleParameterRange/considerStepSize"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleParameterRange/firstValue"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleParameterRange/lastValue"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleParameterRange/stepSize"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleParameterRange/stepCount"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//DoubleParameterSequence">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleParameterSequence/doubleValues"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="sensitivity.ecore#//DoubleParameterFunction"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//InternalActionReliabilityParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//InternalActionReliabilityParameter/softwareInducedFailureType__InternalActionReliabilityParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//InternalActionReliabilityParameter/internalAction__InternalActionReliabilityParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//InternalActionReliabilityParameter/InternalActionReliabilityParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//InternalActionReliabilityParameter/InternalActionReliabilityParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//InternalActionReliabilityParameter/InternalActionReliabilityParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//ProbabilisticBranchParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//ProbabilisticBranchParameter/probabilisticBranchTransition__ProbabilisticBranchParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//ProbabilisticBranchParameter/ProbabilisticBranchParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ProbabilisticBranchParameter/ProbabilisticBranchParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ProbabilisticBranchParameter/ProbabilisticBranchParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//HardwareMTTFParameter">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//HardwareMTTFParameter/HardwareMTTFParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//HardwareMTTFParameter/HardwareMTTFParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//HardwareMTTFParameter/HardwareMTTFParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//HardwareMTTRParameter">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//HardwareMTTRParameter/HardwareMTTRParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//HardwareMTTRParameter/HardwareMTTRParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//HardwareMTTRParameter/HardwareMTTRParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//ResourceMTTFParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//ResourceMTTFParameter/processingResourceType__ResourceMTTFParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//ResourceMTTFParameter/resourceContainer__ResourceMTTFParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//ResourceMTTFParameter/ResourceMTTFParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ResourceMTTFParameter/ResourceMTTFParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ResourceMTTFParameter/ResourceMTTFParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//ResourceMTTRParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//ResourceMTTRParameter/resourceContainer__ResourceMTTRParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//ResourceMTTRParameter/processingResourceType__ResourceMTTRParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//ResourceMTTRParameter/ResourceMTTRParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ResourceMTTRParameter/ResourceMTTRParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//ResourceMTTRParameter/ResourceMTTRParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//NetworkReliabilityParameter">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//NetworkReliabilityParameter/NetworkReliabilityParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//NetworkReliabilityParameter/NetworkReliabilityParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//NetworkReliabilityParameter/NetworkReliabilityParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//CommunicationLinkReliabilityParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//CommunicationLinkReliabilityParameter/communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//CommunicationLinkReliabilityParameter/CommunicationLinkParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//CommunicationLinkReliabilityParameter/CommunicationLinkParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//CommunicationLinkReliabilityParameter/CommunicationLinkParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//SoftwareReliabilityParameter">
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//SoftwareReliabilityParameter/SoftwareReliabilityParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//SoftwareReliabilityParameter/SoftwareReliabilityParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//SoftwareReliabilityParameter/SoftwareReliabilityParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//VariableUsageParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//VariableUsageParameter/VariableName"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//VariableUsageParameter/entryLevelSystemCall__VariableUsageParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//VariableUsageParameter/variableCharacterisationType__VariableUsageParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//VariableUsageParameter/variableUsageType__VariableUsageParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//VariableUsageParameter/basicComponent__VariableUsageParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//VariableUsageParameter/SystemCallParameterMustHaveStringSequence">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//VariableUsageParameter/SystemCallParameterMustHaveStringSequence/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//VariableUsageParameter/SystemCallParameterMustHaveStringSequence/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//UsageBranchParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//UsageBranchParameter/branch__UsageBranchParameter"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//UsageBranchParameter/scenarioBehaviour__UsageBranchParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//UsageBranchParameter/UsageBranchParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//UsageBranchParameter/UsageBranchParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//UsageBranchParameter/UsageBranchParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//DoubleOffsetSequence">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleOffsetSequence/offsetValues"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//DoubleOffsetSequence/doubleOffsetType__DoubleOffsetSequence"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//SoftwareFailureTypesParameter">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//SoftwareFailureTypesParameter/softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter"/>
+      <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="sensitivity.ecore#//SoftwareFailureTypesParameter/SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation">
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//SoftwareFailureTypesParameter/SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation/diagnostics"/>
+        <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="sensitivity.ecore#//SoftwareFailureTypesParameter/SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//FailureTypeResultSpecification">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference sensitivity.ecore#//FailureTypeResultSpecification/failureTypes__FailureTypeResultSpecification"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="sensitivity.ecore#//FailureDimensionResultSpecification">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute sensitivity.ecore#//FailureDimensionResultSpecification/failureDimension__FailureDimensionResultSpecification"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

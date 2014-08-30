@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCM Markov Sensitivity Model
+Bundle-SymbolicName: de.uka.ipd.sdq.reliability.sensitivity;singleton:=true
+Bundle-Version: 3.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: sdq.ipd.uka.de
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: de.uka.ipd.sdq.sensitivity,
+ de.uka.ipd.sdq.sensitivity.impl,
+ de.uka.ipd.sdq.sensitivity.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ de.uka.ipd.sdq.identifier;visibility:=reexport,
+ de.uka.ipd.sdq.pcm;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;visibility:=reexport,
+ de.uka.ipd.sdq.stoex;visibility:=reexport,
+ de.uka.ipd.sdq.units;visibility:=reexport
+Bundle-ActivationPolicy: lazy
