@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Propertytabs Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.propertytabs
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.pcmbench.propertytabs.Activator
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.edit.ui,
+ de.uka.ipd.sdq.dialogs;bundle-version="2.0.1",
+ de.uka.ipd.sdq.pcm.stochasticexpressions;bundle-version="2.0.0",
+ de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
+ de.uka.ipd.sdq.pcm.edit;bundle-version="3.6.0",
+ de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
+ de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
+ org.palladiosimulator.pcm.pcmstoex.ui
+Bundle-ActivationPolicy: lazy
+Export-Package: de.uka.ipd.sdq.pcmbench.propertytabs
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
