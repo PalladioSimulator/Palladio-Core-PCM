@@ -13,11 +13,11 @@ class ServletSystemMain extends ServletClass<System> {
 	}	
 	
 	override superClass() {
-		'''«frameworkBase».main.Main'''
+		'''«frameworkBase».ui.Main'''
 	}
 	
 	override annotations() {
-		#[new JAnnotation().withName("javax.servlet.annotation.WebServlet").withValues(#['''urlPatterns = "/oldmain", loadOnStartup = 0'''])]
+		#[new JAnnotation().withName("javax.servlet.annotation.WebServlet").withValues(#['''urlPatterns = "", loadOnStartup = 0'''])]
 	}
 	
 	override compilationUnitName() {
@@ -35,8 +35,44 @@ class ServletSystemMain extends ServletClass<System> {
 	}
 	
 	override methods() {
-		#[				
+		val system = JavaNames::javaName(pcmEntity)
+		val systemClass = JavaNames::fqn(pcmEntity)
+		
+		#[
 			new JMethod()
+				.withVisibilityModifier("protected")
+				.withReturnType("void")
+				.withName("initPrototype")
+				.withImplementation('''
+					«frameworkBase».prototype.Prototype prototype = «frameworkBase».prototype.Prototype.getInstance();
+
+					prototype.setSystem(new «frameworkBase».prototype.System("«system»", "«systemClass»"));
+					prototype.setUsageScenarios(getUsageScenarios());
+
+					ResourceEnvironment.init();
+					ContainerAllocation.init();
+				'''),
+				
+			new JMethod()
+				.withVisibilityModifier("private")
+				.withReturnType('''«frameworkBase».prototype.IUsageScenario[]''')
+				.withName("getUsageScenarios")
+				.withImplementation('''
+					Class<?>[] classes = «frameworkBase».prototype.ClassHelper.getClassesInPackage("usagescenarios");
+					«frameworkBase».prototype.IUsageScenario[] scenarios = new «frameworkBase».prototype.IUsageScenario[classes.length];
+
+					try {
+						for (int i = 0; i < classes.length; i++) {
+							scenarios[i] = («frameworkBase».prototype.IUsageScenario) classes[i].newInstance();
+						}
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+
+					return scenarios;
+				''')
+				
+			/*new JMethod()
 				.withName("initAllocationStorage")
 				.withImplementation('''AllocationStorage.initSingleton(new AllocationStorage());'''), 
 				
@@ -46,7 +82,7 @@ class ServletSystemMain extends ServletClass<System> {
 				.withName("getSystem")
 				.withImplementation('''
 					return new String[] {"«JavaNames::fqn(pcmEntity)»", "«JavaNames::javaName(pcmEntity)»"};
-				''')
+				''')*/
 		]
 	}
 	

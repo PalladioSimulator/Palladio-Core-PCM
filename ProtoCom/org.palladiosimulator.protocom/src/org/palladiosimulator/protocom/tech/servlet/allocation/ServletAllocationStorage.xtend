@@ -13,7 +13,7 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 	}
 	
 	override superClass() {
-		'''«frameworkBase».legacy.AbstractAllocationStorage'''
+		//'''«frameworkBase».legacy.AbstractAllocationStorage'''
 	}
 	
 	override packageName() {
@@ -21,12 +21,30 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 	}
 	
 	override compilationUnitName() {
-		"AllocationStorage"
+		"ContainerAllocation"
 	}
 	
 	override methods() {
+		val allocations = pcmEntity.allocationContexts_Allocation.filter[e | e.assemblyContext_AllocationContext != null]
+		var i = 0
+		
 		#[
 			new JMethod()
+				.withVisibilityModifier("public")
+				.withStaticModifier
+				.withName("init")
+				.withImplementation('''
+					«frameworkBase».prototype.Prototype prototype = «frameworkBase».prototype.Prototype.getInstance();
+					«frameworkBase».prototype.Allocation[] allocations = new «frameworkBase».prototype.Allocation[«allocations.length»];
+					
+					«FOR context : allocations»
+						allocations[«i++»] = new «frameworkBase».prototype.Allocation("«context.resourceContainer_AllocationContext.id»", «JavaNames::fqn(context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)».class, "«context.assemblyContext_AllocationContext.id»");
+					«ENDFOR»
+					
+					prototype.setAllocations(allocations);
+				''')
+			
+			/*new JMethod()
 				.withName("initContainerTemplate")
 				.withImplementation('''
 					String container;
@@ -41,11 +59,11 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 						assemblyContext = "«context.assemblyContext_AllocationContext.id»";
 						saveContainerComponent(containerId, container, component, assemblyContext);
 					«ENDFOR»
-				''')
+				''')*/
 		]
 	}
 	
 	override filePath() {
-		"/src/main/AllocationStorage.java"
+		"/src/main/ContainerAllocation.java"
 	}	
 }
