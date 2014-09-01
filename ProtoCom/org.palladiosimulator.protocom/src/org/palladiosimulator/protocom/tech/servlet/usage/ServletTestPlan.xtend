@@ -2,16 +2,17 @@ package org.palladiosimulator.protocom.tech.servlet.usage
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
 import de.uka.ipd.sdq.pcm.usagemodel.Branch
+import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition
 import de.uka.ipd.sdq.pcm.usagemodel.Delay
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
 import de.uka.ipd.sdq.pcm.usagemodel.Loop
 import de.uka.ipd.sdq.pcm.usagemodel.Start
 import de.uka.ipd.sdq.pcm.usagemodel.Stop
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import java.math.BigDecimal
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.xml.ITestPlan
 import org.palladiosimulator.protocom.tech.ConceptMapping
-import java.math.BigDecimal
 
 /**
  * @author Christian Klaussner
@@ -28,6 +29,11 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		val actualTypes = formalTypes
 		
 		'''{"name":"«method»","formalTypes":«formalTypes»,"actualTypes":«actualTypes»,"arguments":[{}]}'''
+	}
+	
+	private def getStartAction(BranchTransition branch) {
+		var transition = branch.branchedBehaviour_BranchTransition
+		transition.actions_ScenarioBehaviour.findFirst[Start.isInstance(it)]
 	}
 	
 	/**
@@ -55,10 +61,15 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		val port = JavaNames::portClassName(action.providedRole_EntryLevelSystemCall);
 		val method = JavaNames::javaSignature(action.operationSignature__EntryLevelSystemCall)
 		
+		val name = 
+			JavaNames::javaName(action.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole)
+			+ "." + 
+			action.operationSignature__EntryLevelSystemCall.entityName
+		
 		val request = buildRequest(method)
 		 	
 		'''
-		<HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="«method»" enabled="true">
+		<HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="«name»" enabled="true">
 		  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
 		  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
 		    <collectionProp name="Arguments.arguments">
@@ -109,10 +120,10 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 
 		// Build a list with the start actions of each branch.
 		
-		val startActions = branches.map[
+		/*val startActions = branches.map[
 			var transition = it.branchedBehaviour_BranchTransition
 			transition.actions_ScenarioBehaviour.findFirst[Start.isInstance(it)]
-		]
+		]*/
 		
 		// Generate the branch XML.
 
@@ -128,8 +139,11 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		  <stringProp name="SwitchController.value">${BRANCH}</stringProp>
 		</SwitchController>
 		<hashTree>
-		  «FOR start : startActions»
-		  «userActions(start)»
+		  «FOR branch : branches»
+		  <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="p = «branch.branchProbability»" enabled="true"/>
+		  <hashTree>
+		    «userActions(branch.startAction)»
+		  </hashTree>
 		  «ENDFOR»
 		</hashTree>
 		'''
@@ -170,10 +184,11 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		
 		// Currently, StoEx delays are not supported.
 		// Default to 0 if a non-static delay is specified.
+		// Furthermore, the delay is rounded because JMeter supports only integer delays. 
 		
 		var delay = try {
 			val spec = JavaNames::specificationString(action.timeSpecification_Delay.specification)
-			Double.parseDouble(spec)
+			Double.parseDouble(spec) as int
 		} catch (NumberFormatException e) {
 			0
 		}
