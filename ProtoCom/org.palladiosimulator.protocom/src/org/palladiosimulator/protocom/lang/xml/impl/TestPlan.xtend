@@ -49,6 +49,7 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 			      «threadGroup»
 			      <hashTree>
 			        «content»
+			        «thinkTimeDelay»
 			      </hashTree>
 			    </hashTree>
 			    «summaryReport»
@@ -112,10 +113,10 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
 		  <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
 		    <boolProp name="LoopController.continue_forever">false</boolProp>
-		    <stringProp name="LoopController.loops">10</stringProp>
+		    <stringProp name="LoopController.loops">1</stringProp>
 		  </elementProp>
-		  <stringProp name="ThreadGroup.num_threads">1</stringProp>
-		  <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+		  <stringProp name="ThreadGroup.num_threads">«population»</stringProp>
+		  <stringProp name="ThreadGroup.ramp_time">0</stringProp>
 		  <longProp name="ThreadGroup.start_time">1409475705000</longProp>
 		  <longProp name="ThreadGroup.end_time">1409475705000</longProp>
 		  <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -163,5 +164,24 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="filename"></stringProp>
 		</ResultCollector>
 		'''
+	}
+	
+	private def thinkTimeDelay() {
+		'''
+		<TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
+		  <intProp name="ActionProcessor.action">1</intProp>
+		  <intProp name="ActionProcessor.target">0</intProp>
+		  <stringProp name="ActionProcessor.duration">«thinkTime»</stringProp>
+		</TestAction>
+		<hashTree/>
+		'''
+	}
+	
+	override population() {
+		provider.population
+	}
+	
+	override thinkTime() {
+		provider.thinkTime
 	}
 }

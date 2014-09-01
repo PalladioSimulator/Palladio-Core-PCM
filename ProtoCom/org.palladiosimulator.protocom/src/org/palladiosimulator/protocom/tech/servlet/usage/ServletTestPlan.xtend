@@ -13,6 +13,7 @@ import java.math.BigDecimal
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.xml.ITestPlan
 import org.palladiosimulator.protocom.tech.ConceptMapping
+import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
 
 /**
  * @author Christian Klaussner
@@ -102,7 +103,7 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	/**
 	 * 
 	 */
-	private dispatch def String userAction(Branch action) {
+	private dispatch def userAction(Branch action) {
 		val branches = action.branchTransitions_Branch.sortBy[it.branchProbability]
 		
 		var value = 0;
@@ -118,13 +119,6 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		}«ENDFOR»
 		'''
 
-		// Build a list with the start actions of each branch.
-		
-		/*val startActions = branches.map[
-			var transition = it.branchedBehaviour_BranchTransition
-			transition.actions_ScenarioBehaviour.findFirst[Start.isInstance(it)]
-		]*/
-		
 		// Generate the branch XML.
 
 		'''
@@ -201,6 +195,32 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		</TestAction>
 		<hashTree/>
 		'''
+	}
+	
+	override population() {
+		var workload = pcmEntity.workload_UsageScenario
+		
+		switch workload {
+			ClosedWorkload: workload.population
+			default: 1
+		}
+	}
+	
+	override thinkTime() {
+		var workload = pcmEntity.workload_UsageScenario
+		
+		switch workload {
+			ClosedWorkload:
+				try {
+					val time = workload.thinkTime_ClosedWorkload
+					val spec = JavaNames::specificationString(time.specification)
+					
+					Double.parseDouble(spec) as int
+				} catch (NumberFormatException e) {
+					0
+				}
+			default: 0
+		}
 	}
 	
 	// 
