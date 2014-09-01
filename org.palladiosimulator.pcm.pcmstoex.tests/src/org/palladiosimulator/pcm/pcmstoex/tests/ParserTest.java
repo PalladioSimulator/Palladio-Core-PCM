@@ -70,13 +70,19 @@ public class ParserTest {
         parse("IntPMF[(1;0.2)(2;0.5)(5;0.3)] * Exp(4) + 2 % 4 >= 42 OR 2 == 0", PCMPARSER);
         parse("3[s]", PCMPARSER);
         parse("this.VALUE", PCMPARSER_ONLY);
-        parse("4[B^2]",PCMPARSER);
+        parse("4[B^2]", PCMPARSER);
     }
 
     @Test
     public void testStoExParserSyntaxErrors() {
         parseFail("+6***6", PCMPARSER);
         parseFail("a$JFfuRKrp23r32#", PCMPARSER);
+        parseFail("", PCMPARSER);
+    }
+    
+    @Test
+    public void testValidator(){
+    	parseFail("true AND 42", PCMPARSER_ONLY);
     }
 
     private void parseFail(String string, int type) {
