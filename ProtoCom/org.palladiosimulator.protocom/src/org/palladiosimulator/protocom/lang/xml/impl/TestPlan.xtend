@@ -51,6 +51,8 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 			        «content»
 			      </hashTree>
 			    </hashTree>
+			    «summaryReport»
+			    <hashTree/>
 			  </hashTree>
 			</jmeterTestPlan>
 		''')
@@ -120,6 +122,46 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="ThreadGroup.duration"></stringProp>
 		  <stringProp name="ThreadGroup.delay"></stringProp>
 		</ThreadGroup>
+		'''
+	}
+	
+	/**
+	 * Generates the XML for the summary report.
+	 * @returns a string containing the XML for the summary report
+	 */
+	private def summaryReport() {
+		'''
+		<ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+		  <boolProp name="ResultCollector.error_logging">false</boolProp>
+		  <objProp>
+		    <name>saveConfig</name>
+		    <value class="SampleSaveConfiguration">
+		      <time>true</time>
+		      <latency>true</latency>
+		      <timestamp>true</timestamp>
+		      <success>true</success>
+		      <label>true</label>
+		      <code>true</code>
+		      <message>true</message>
+		      <threadName>true</threadName>
+		      <dataType>true</dataType>
+		      <encoding>false</encoding>
+		      <assertions>true</assertions>
+		      <subresults>true</subresults>
+		      <responseData>false</responseData>
+		      <samplerData>false</samplerData>
+		      <xml>false</xml>
+		      <fieldNames>false</fieldNames>
+		      <responseHeaders>false</responseHeaders>
+		      <requestHeaders>false</requestHeaders>
+		      <responseDataOnError>false</responseDataOnError>
+		      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+		      <assertionsResultsToSave>0</assertionsResultsToSave>
+		      <bytes>true</bytes>
+		    </value>
+		  </objProp>
+		  <stringProp name="filename"></stringProp>
+		</ResultCollector>
 		'''
 	}
 }
