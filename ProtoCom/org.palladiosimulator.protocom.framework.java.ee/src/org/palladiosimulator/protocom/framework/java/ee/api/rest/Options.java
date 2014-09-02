@@ -189,7 +189,7 @@ public class Options {
 	 * @return
 	 */
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response getOptions() {
 		Storage storage = new Storage();
 
@@ -199,8 +199,7 @@ public class Options {
 		try {
 			optionsJson = storage.readFileAsString("options.json");
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return Response.serverError().build();
+			return Response.ok("{}").build();
 		}
 
 		try {
