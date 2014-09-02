@@ -46,6 +46,8 @@ var App = (function($, App) {
 		},
 
 		confirm: function() {
+			this.$el.find('.confirm').prop('disabled', true);
+
 			var data = {};
 
 			this.$el.find('form').serializeArray().map(function(item) {

@@ -69,6 +69,13 @@ input {
 	font: inherit;
 }
 
+select {
+	border: 1px solid #dcdcdc;
+	color: inherit;
+	font: inherit;
+	background: white;
+}
+
 td button, a {
 	color: #4691d2;
 	background: none;
@@ -91,8 +98,13 @@ button.confirm {
 	cursor: pointer;
 }
 
+button.confirm:disabled {
+	background-color: gray;
+	cursor: default;
+}
+
 .actions {
-	padding-top: 10px;
+	padding-top: 12px;
 	border-top: 1px solid #dcdcdc;
 	margin-top: 15px;
 	overflow: hidden;
@@ -161,28 +173,26 @@ button.confirm {
 /* Options */
 
 #options .option {
-	height: 24px;
-	margin-bottom: 6px;
+	height: 28px;
+	margin-top: 10px;
+}
+
+#options .option:first-child {
+	margin-top: 0;
 }
 
 #options label {
-	line-height: 24px;
-}
-
-#options input {
-	padding: 3px;
+	line-height: 28px;
 }
 
 #options select {
-	border: 1px solid #dcdcdc;
-	color: inherit;
-	background: white;
+	padding-left: 1px;
 }
 
 #options input, select {
 	box-sizing: border-box;
-	width: 350px;
-	height: 24px;
+	width: 380px;
+	height: 28px;
 	float: right;
 }
 

@@ -29,6 +29,7 @@ public class FileProvider {
 	};
 
 	private final String[] imgFiles = {
+		"favicon.ico",
 		"palladio.png"
 	};
 

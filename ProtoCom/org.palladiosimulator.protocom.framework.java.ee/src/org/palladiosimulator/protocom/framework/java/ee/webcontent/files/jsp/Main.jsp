@@ -24,6 +24,8 @@
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		
+		<link rel="icon" href="img/favicon.png">
 	</head>
 	
 	<body>
