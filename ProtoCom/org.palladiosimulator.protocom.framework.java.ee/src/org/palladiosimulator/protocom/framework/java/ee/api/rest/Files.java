@@ -15,6 +15,26 @@ import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
 
 @Path("/files")
 public class Files {
+	private StringBuilder appendFiles(StringBuilder sb, Storage storage, String path, int level) throws IOException {
+		Set<String> files = storage.getFiles(path);
+
+		for (String file : files) {
+			for (int i = 0; i < level; i++) {
+				sb.append("    ");
+			}
+
+			if (storage.isFolder(path + "/" + file)) {
+				sb.append(file + ":\n");
+				appendFiles(sb, storage, path + "/" + file, level + 1);
+			} else {
+				sb.append(file);
+				sb.append("\n");
+			}
+		}
+
+		return sb;
+	}
+
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getFiles() {
@@ -23,8 +43,17 @@ public class Files {
 
 		response.append("Files:\n");
 
+		StringBuilder sb = new StringBuilder();
 		try {
-			Set<String> files = storage.getFiles("calibration");
+			appendFiles(sb, storage, "", 0);
+			response.append(sb.toString());
+		} catch (IOException e) {
+			response.append("error");
+			e.printStackTrace();
+		}
+
+		/*try {
+			Set<String> files = storage.getFiles("");
 
 			for (String file : files) {
 				response.append(file);
@@ -33,7 +62,7 @@ public class Files {
 		} catch (IOException e) {
 			response.append("error");
 			e.printStackTrace();
-		}
+		}*/
 
 		return response.toString();
 	}

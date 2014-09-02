@@ -234,9 +234,7 @@ public class Storage implements IStorage {
 		files = new HashSet<String>();
 
 		for (CmisObject object : folder.getChildren()) {
-			if (object instanceof Document) {
-				files.add(object.getName());
-			}
+			files.add(object.getName());
 		}
 
 		return files;
@@ -246,5 +244,28 @@ public class Storage implements IStorage {
 	public void deleteFile(String path) {
 		CmisObject object = session.getObjectByPath(checkPath(path));
 		object.delete();
+	}
+
+	public boolean isFolder(String path) {
+		try {
+			CmisObject object = session.getObjectByPath(path);
+
+			if (object instanceof Folder) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (CmisObjectNotFoundException e) {
+			return false;
+		}
+	}
+
+	public boolean fileExists(String path) {
+		try {
+			session.getObjectByPath(path);
+			return true;
+		} catch (CmisObjectNotFoundException e) {
+			return false;
+		}
 	}
 }

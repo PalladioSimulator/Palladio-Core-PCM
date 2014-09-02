@@ -24,8 +24,8 @@ public abstract class Main extends HttpServlet {
 		super();
 		initPrototype();
 
-		// Registry.setLocation("http://localhost:8080/DevPrototype");
-		Registry.setLocation("http://localhost:8080/org.palladiosimulator.temporary");
+		Registry.setLocation("http://localhost:8080/DevPrototype");
+		//Registry.setLocation("http://localhost:8080/org.palladiosimulator.temporary");
 	}
 
 	@Override

@@ -55,6 +55,8 @@ public class FileProvider {
 		"asm-3.1.jar",
 		"commons-io-2.4.jar",
 		"commons-logging-1.1.3.jar",
+		"de.uka.ipd.sdq.sensorframework_1.1.0.201408041822.jar",
+		"de.uka.ipd.sdq.sensorframework.storage_1.0.0.201408041822.jar",
 		"httpclient-4.1.3.jar",
 		"httpcore-4.1.4.jar",
 		"jackson-annotations-2.2.3.jar",

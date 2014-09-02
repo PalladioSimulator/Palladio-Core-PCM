@@ -17,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
+import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentManager;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
@@ -245,6 +246,8 @@ public class Options {
 			context.setAttribute("status", "calibrating");
 			executor.submit(new Calibrator(context));
 		}
+
+		ExperimentManager.getInstance().init("Experiment Name");
 
 		try {
 			// TODO: Validate input

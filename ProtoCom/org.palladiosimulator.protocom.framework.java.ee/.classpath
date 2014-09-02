@@ -16,5 +16,7 @@
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/jersey-bundle-1.8.jar"/>
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/jsr311-api-1.1.jar"/>
 	<classpathentry kind="lib" path="com.sap.ecm.api_0.9.67.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/de.uka.ipd.sdq.sensorframework_1.1.0.201408041822.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/de.uka.ipd.sdq.sensorframework.storage_1.0.0.201408041822.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
