@@ -5,8 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
@@ -111,7 +109,9 @@ public final class ExperimentManager {
 			storage.createFolder(folder);
 
 			for (String filename : directory.list()) {
-				Path path = Paths.get(directory.getAbsolutePath(), filename);
+				// TODO: Not platform independent!
+				// Path path = Paths.get(directory.getAbsolutePath(), filename);
+				String path = directory.getAbsolutePath() + "/" + filename;
 
 				File file = new File(path.toString());
 				byte[] data = IOUtils.toByteArray(new FileInputStream(file));
