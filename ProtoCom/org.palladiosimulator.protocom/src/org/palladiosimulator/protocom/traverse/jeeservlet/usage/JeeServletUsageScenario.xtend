@@ -8,8 +8,6 @@ import org.palladiosimulator.protocom.tech.servlet.usage.ServletTestPlan
 
 class JeeServletUsageScenario extends XUsageScenario {
 	override protected generate() {
-		println("transforming scenarios---------------------------------------------")
-		//generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletUsageScenario(entity)))
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletUsageScenario(entity)));
 		generatedFiles.add(injector.getInstance(typeof(TestPlan)).createFor(new ServletTestPlan(entity)));
 	}
