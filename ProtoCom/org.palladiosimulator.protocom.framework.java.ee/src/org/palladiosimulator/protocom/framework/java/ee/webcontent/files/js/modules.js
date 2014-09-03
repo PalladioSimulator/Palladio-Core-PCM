@@ -22,7 +22,11 @@ var App = (function($, App) {
 		},
 
 		start: function() {
-			$.get('api/modules/' + this.model.get('id') + '/start');
+			var self = this;
+			
+			$.get('api/modules/' + this.model.get('id') + '/start', function(response) {
+				self.$el.find(".state").addClass('started').text('Started');
+			});
 		}
 	});
 

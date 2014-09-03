@@ -147,7 +147,7 @@
 			<td>{{- name }}</td>
 			<td class="state">Stopped</td>
 			<td class="last">
-				<button class="action start">Start</button>
+				<button class="start">Start</button>
 			</td>
 		</script>
 
