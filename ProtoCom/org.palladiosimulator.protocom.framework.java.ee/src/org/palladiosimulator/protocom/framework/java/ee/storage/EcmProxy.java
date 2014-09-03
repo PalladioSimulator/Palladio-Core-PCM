@@ -86,14 +86,12 @@ public class EcmProxy {
 		InitialContext context = new InitialContext();
 		ecmService = context.lookup("java:comp/env/EcmService");
 
-		Method connect = ecmService.getClass().getMethod("connect", String.class, String.class);
-
 		try {
-			session = (Session) connect.invoke(ecmService, name, key);
+			session = (Session) invoke(ecmService, "connect", name, key);
 		} catch (InvocationTargetException e) {
 			if (e.getCause() instanceof CmisObjectNotFoundException) {
 				createRepository(ecmService, name, key);
-				session = (Session) connect.invoke(ecmService, name, key);
+				session = (Session) invoke(ecmService, "connect", name, key);
 			} else {
 				throw e;
 			}
