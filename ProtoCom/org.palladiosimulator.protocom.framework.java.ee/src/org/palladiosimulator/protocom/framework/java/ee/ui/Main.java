@@ -15,6 +15,8 @@ import org.palladiosimulator.protocom.framework.java.ee.registry.Registry;
 public abstract class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private boolean firstRequest = true;
+
 	/**
 	 *
 	 */
@@ -23,14 +25,16 @@ public abstract class Main extends HttpServlet {
 	public Main() {
 		super();
 		initPrototype();
-
-		//Registry.setLocation("http://localhost:8080/DevPrototype");
-		Registry.setLocation("http://localhost:8080/org.palladiosimulator.temporary");
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
+
+		if (firstRequest) {
+			Registry.getInstance().setLocation(request.getRequestURL().toString());
+			firstRequest = false;
+		}
 
 		//response.getOutputStream().println("Hallo");
 

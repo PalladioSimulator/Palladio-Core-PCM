@@ -12,7 +12,8 @@ var App = (function($, App) {
 		id: 'registry', 
 
 		events: {
-			'blur input[name="location"]': 'blur'
+			'blur input[name="location"]': 'save',
+			'submit form': 'save'
 		}, 
 
 		render: function() {
@@ -22,23 +23,13 @@ var App = (function($, App) {
 			return this;
 		}, 
 
-		blur: function() {
+		save: function(e) {
+			e.preventDefault();
+			
 			var location = this.$el.find('input[name="location"]').val();
 
 			this.model.set('location', location);
 			this.model.save();
-
-			// var data = {'location': this.$el.find('input[name="location"]').val()};
-			
-			/*$.ajax({
-				type: 'PUT', 
-				url: 'registry', 
-				contentType: 'application/json', 
-				data: JSON.stringify(data), 
-
-				success: function(response) {
-				}
-			});*/
 		}
 	});
 
