@@ -182,7 +182,7 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		
 		var delay = try {
 			val spec = JavaNames::specificationString(action.timeSpecification_Delay.specification)
-			Double.parseDouble(spec) as int
+			(Double.parseDouble(spec) * 1000) as int
 		} catch (NumberFormatException e) {
 			0
 		}
@@ -215,7 +215,7 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 					val time = workload.thinkTime_ClosedWorkload
 					val spec = JavaNames::specificationString(time.specification)
 					
-					Double.parseDouble(spec) as int
+					(Double.parseDouble(spec) * 1000) as int
 				} catch (NumberFormatException e) {
 					0
 				}
