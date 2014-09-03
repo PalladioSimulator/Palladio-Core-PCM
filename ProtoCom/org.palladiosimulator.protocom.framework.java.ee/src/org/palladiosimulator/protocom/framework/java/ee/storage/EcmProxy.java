@@ -24,7 +24,7 @@ public class EcmProxy {
 	 * @param name the name of the method
 	 * @param args the arguments of the invocation
 	 * @return the result of the invocation
-	 * @throws Exception if an exception occured during the invocation
+	 * @throws Exception if any exception occured during the invocation
 	 */
 	private static Object invoke(Object target, String name, Object... args)
 		throws Exception {
@@ -36,26 +36,27 @@ public class EcmProxy {
 		}
 
 		Method method = target.getClass().getMethod(name, classes);
+
 		return method.invoke(target, args);
 	}
 
 	/**
 	 * Creates a repository in the database of the Document Service.
 	 *
-	 * @param ecmService the ECM service object
+	 * @param ecmService the EcmService object
 	 * @param name the name of the repository
 	 * @param key the key for the repository
-	 * @throws Exception if an exception occured during the repository creation
+	 * @throws Exception if any exception occured during the repository creation
 	 */
 	private static void createRepository(Object ecmService, String name, String key)
 		throws Exception {
 
-		// Create options class instance.
+		// Create an options class instance.
 
 		Class<?> optionsClass = Class.forName("com.sap.ecm.api.RepositoryOptions");
 		Object options = optionsClass.newInstance();
 
-		// Get visibility enum field.
+		// Get the enum field for the desired visibility.
 
 		Class<?> enumClass = Class.forName("com.sap.ecm.api.RepositoryOptions$Visibility");
 		Object visibility = enumClass.getField("PROTECTED").get(null);
@@ -76,7 +77,7 @@ public class EcmProxy {
 	 * @param name the name of the repository to connect to
 	 * @param key the key for the repository to connect to
 	 * @return a CMIS session object for the repository
-	 * @throws Exception if an exception occured during the connection
+	 * @throws Exception if any exception occured during the connection
 	 */
 	private static Session connect(String name, String key) throws Exception {
 		Object ecmService;
