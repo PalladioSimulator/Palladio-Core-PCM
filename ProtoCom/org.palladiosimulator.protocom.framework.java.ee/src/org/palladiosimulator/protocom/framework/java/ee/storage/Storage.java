@@ -10,9 +10,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-
 import org.apache.chemistry.opencmis.client.api.CmisObject;
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Folder;
@@ -24,10 +21,6 @@ import org.apache.chemistry.opencmis.commons.enums.VersioningState;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisNameConstraintViolationException;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisObjectNotFoundException;
 import org.apache.commons.io.IOUtils;
-
-import com.sap.ecm.api.EcmService;
-import com.sap.ecm.api.RepositoryOptions;
-import com.sap.ecm.api.RepositoryOptions.Visibility;
 
 /**
  *
@@ -41,20 +34,6 @@ public class Storage implements IStorage {
 	private static final Charset UTF_8 = Charset.forName("UTF-8");
 
 	private Session session;
-
-	/**
-	 *
-	 * @param service
-	 */
-	private void createRepository(EcmService service) {
-		RepositoryOptions options = new RepositoryOptions();
-
-		options.setUniqueName(NAME);
-		options.setRepositoryKey(KEY);
-		options.setVisibility(Visibility.PROTECTED);
-
-		service.createRepository(options);
-	}
 
 	/**
 	 *
@@ -142,19 +121,8 @@ public class Storage implements IStorage {
 	 *
 	 */
 	public Storage() {
-		try {
-			InitialContext context = new InitialContext();
-			EcmService service = (EcmService) context.lookup("java:comp/env/EcmService");
-
-			try {
-				session = service.connect(NAME, KEY);
-			} catch (CmisObjectNotFoundException e) {
-				createRepository(service);
-				session = service.connect(NAME, KEY);
-			}
-		} catch (NamingException e) {
-			e.printStackTrace();
-		}
+		// TODO: Improve exception handling in case ECM is not available
+		session = EcmProxy.getSession(NAME, KEY);
 	}
 
 	@Override
