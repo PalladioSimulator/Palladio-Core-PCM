@@ -92,6 +92,10 @@ PCM Core build.
          id="org.palladiosimulator.protocom.javaee.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.palladiosimulator.edp2.ui.feature"
+         version="0.0.0"/>
+
    <plugin
          id="de.uka.ipd.sdq.pcm.stochasticexpressions.tests"
          download-size="0"
