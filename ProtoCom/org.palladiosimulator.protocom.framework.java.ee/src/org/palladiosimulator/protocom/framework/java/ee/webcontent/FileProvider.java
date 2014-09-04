@@ -67,6 +67,7 @@ public class FileProvider {
 		"jscience.jar",
 		"jsr311-api-1.1.jar",
 		"jstl-1.2.jar",
+		"log4j-1.2.17.jar",
 		"org.palladiosimulator.protocom.framework.java.ee.jar",
 		"org.palladiosimulator.protocom.resourcestrategies.ee.jar"
 	};

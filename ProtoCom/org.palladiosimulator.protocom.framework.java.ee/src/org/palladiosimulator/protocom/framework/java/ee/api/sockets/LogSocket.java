@@ -11,6 +11,9 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import org.apache.log4j.Logger;
+import org.palladiosimulator.protocom.framework.java.ee.ui.WebAppender;
+
 /**
  *
  * @author Christian Klaussner
@@ -23,18 +26,18 @@ public class LogSocket extends WebSocket {
 	 *
 	 * @param message
 	 */
-	public static void addMessage(String message) {
-		//Map<String, Object> payload = new HashMap<String, Object>();
-		//payload.put("message", message);
-
-		//String json = JsonHelper.toJson(payload);
-
+	public static void append(String message) {
 		sendToAll(sessions, message);
 	}
 
 	@OnOpen
 	public void onOpen(Session session, EndpointConfig config) {
 		sessions.add(session);
+
+		Logger logger = Logger.getRootLogger();
+		WebAppender appender = (WebAppender) logger.getAppender(WebAppender.NAME);
+
+		sendToAll(sessions, appender.getLogContent());
 	}
 
 	@OnClose

@@ -3,7 +3,7 @@ package org.palladiosimulator.protocom.framework.java.ee.modules;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import org.palladiosimulator.protocom.framework.java.ee.common.Log;
+import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.Allocation;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.Prototype;
 
@@ -12,6 +12,8 @@ import org.palladiosimulator.protocom.framework.java.ee.prototype.Prototype;
  * @author Christian Klaussner
  */
 public class ContainerModule extends Module {
+	private static final Logger LOGGER = Logger.getRootLogger();
+
 	/**
 	 * Constructs a new ContainerModule object.
 	 * @param id the ID of the container
@@ -24,18 +26,18 @@ public class ContainerModule extends Module {
 	@Override
 	public void startModule(String location) throws ModuleStartException {
 		if (isStarted()) {
-			Log.error("Container '" + getName() + "' already started");
+			LOGGER.error("Container '" + getName() + "' already started");
 			throw new ModuleStartException();
 		}
 
-		Log.info("Start container '" + getName() + "'");
+		LOGGER.info("Start container '" + getName() + "'");
 
 
 		Allocation[] allocations = Prototype.getInstance().getAllocations(getId());
 
 		for (Allocation allocation : allocations) {
 
-			Log.info("Start component '" + allocation.getComponentClass().getSimpleName() + "'");
+			LOGGER.info("Start component '" + allocation.getComponentClass().getSimpleName() + "'");
 
 			try {
 				Class<?>[] types = {String.class, String.class};

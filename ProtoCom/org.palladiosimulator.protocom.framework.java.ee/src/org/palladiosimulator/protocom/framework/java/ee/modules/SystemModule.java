@@ -3,7 +3,7 @@ package org.palladiosimulator.protocom.framework.java.ee.modules;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import org.palladiosimulator.protocom.framework.java.ee.common.Log;
+import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.registry.RegistryException;
 
 /**
@@ -11,6 +11,8 @@ import org.palladiosimulator.protocom.framework.java.ee.registry.RegistryExcepti
  * @author Christian Klaussner
  */
 public class SystemModule extends Module {
+	private static Logger LOGGER = Logger.getRootLogger();
+
 	private String className;
 
 	/**
@@ -27,11 +29,11 @@ public class SystemModule extends Module {
 	@Override
 	public void startModule(String location) throws ModuleStartException {
 		if (isStarted()) {
-			Log.error("System '" + getName() + "' already started");
+			LOGGER.error("System '" + getName() + "' already started");
 			throw new ModuleStartException();
 		}
 
-		Log.info("Start system '" + getName() + "'");
+		LOGGER.info("Start system '" + getName() + "'");
 
 		try {
 			Class<?> systemClass = Class.forName(className);
@@ -44,7 +46,7 @@ public class SystemModule extends Module {
 
 		} catch (InvocationTargetException e) {
 			if (e.getCause() instanceof RegistryException) {
-				Log.error("Failed to look up components in registry");
+				LOGGER.error("Failed to look up components in registry");
 				throw new ModuleStartException();
 			}
 		} catch (ClassNotFoundException e) {
