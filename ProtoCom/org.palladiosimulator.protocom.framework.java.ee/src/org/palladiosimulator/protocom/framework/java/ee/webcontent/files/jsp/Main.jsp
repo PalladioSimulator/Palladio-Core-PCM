@@ -7,9 +7,9 @@
 		
 		<title>ProtoCom</title>
 		
-		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="js/underscore-1.6.0.min.js"></script>
-		<script type="text/javascript" src="js/backbone-1.1.2.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/lib/underscore-1.6.0.min.js"></script>
+		<script type="text/javascript" src="js/lib/backbone-1.1.2.min.js"></script>
 
 		<script type="text/javascript" src="js/options.js"></script>
 

@@ -1,6 +1,5 @@
 package org.palladiosimulator.protocom.traverse.jeeservlet.system
 
-import java.net.URL
 import org.palladiosimulator.protocom.lang.CopiedFile
 import org.palladiosimulator.protocom.lang.java.impl.JClass
 import org.palladiosimulator.protocom.lang.xml.impl.Classpath
@@ -19,24 +18,13 @@ import org.palladiosimulator.protocom.framework.java.ee.webcontent.FileProvider
 class JeeServletSystem extends XSystem {
 	val fileProvider = new FileProvider
 	
-	private def copyFiles(String folder, int type) {
-		var urls = fileProvider.getFilesOfType(type);
-		
-		for (URL url : urls) {
-			var stream = url.openStream
-			
-			var file = url.path.substring(url.path.lastIndexOf('/'))
-			var path = "WebContent/" + folder + "/" + file
-			
-			copiedFiles.add(injector.getInstance(typeof(CopiedFile)).build(path, stream))
-		}
-	}
-	
 	private def generateSettingsFile(String contentId) {
 		generatedFiles.add(injector.getInstance(typeof(JeeSettings)).createFor(new ServletSettings(entity, contentId)))
 	}
 	
 	override protected generate() {
+		fileProvider.frameworkFiles
+		
 		// Generate system interface.
 		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletComposedStructureInterface(entity)))
 		
@@ -63,12 +51,14 @@ class JeeServletSystem extends XSystem {
 		generatedFiles.add(injector.getInstance(typeof(ServletDeploymentDescriptor)))
 		
 		// Copy WebContent files.
-		copyFiles("css", FileProvider.CSS);
-		copyFiles("fonts", FileProvider.FONTS);
-		copyFiles("img", FileProvider.IMG);
-		copyFiles("js", FileProvider.JS);
-		copyFiles("", FileProvider.JSP);
-		copyFiles("WEB-INF/lib", FileProvider.LIB);
+		var files = fileProvider.frameworkFiles
+		
+		files.forEach[
+			var path = "WebContent/" + it.path
+			var stream = it.url.openStream
+			
+			copiedFiles.add(injector.getInstance(typeof(CopiedFile)).build(path, stream));
+		]
 		
 		// Generate main class for entry point.
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemMain(entity)))

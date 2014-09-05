@@ -1,0 +1,59 @@
+# Index of files to be copied to the WebContent folder during transformation.
+# Format: [source file] -> [destination folder]
+# 
+# Author: Christian Klaussner
+
+# CSS
+
+css/font-awesome.min.css -> css
+css/style.css -> css
+
+# Fonts
+
+fonts/fontawesome-webfont.woff -> fonts
+
+# Images
+
+img/favicon.png -> img
+img/palladio.png -> img
+
+# JavaScript
+
+js/lib/backbone-1.1.2.min.js -> js/lib
+js/lib/jquery-2.1.1.min.js -> js/lib
+js/lib/underscore-1.6.0.min.js -> js/lib
+
+js/calibration.js -> js
+js/code.js -> js
+js/log.js -> js
+js/modules.js -> js
+js/options.js -> js
+js/registry.js -> js
+js/results.js -> js
+js/scenarios.js -> js
+
+# JSP
+
+jsp/Main.jsp -> jsp
+jsp/RemoteRegistry.jsp -> jsp
+
+# Libraries
+
+lib/asm-3.1.jar -> WEB-INF/lib
+lib/commons-io-2.4.jar -> WEB-INF/lib
+lib/commons-logging-1.1.3.jar -> WEB-INF/lib
+lib/httpclient-4.1.3.jar -> WEB-INF/lib
+lib/httpcore-4.1.4.jar -> WEB-INF/lib
+lib/jackson-annotations-2.2.3.jar -> WEB-INF/lib
+lib/jackson-core-2.2.3.jar -> WEB-INF/lib
+lib/jackson-databind-2.2.3.jar -> WEB-INF/lib
+lib/jersey-bundle-1.8.jar -> WEB-INF/lib
+lib/jscience.jar -> WEB-INF/lib
+lib/jsr311-api-1.1.jar -> WEB-INF/lib
+lib/jstl-1.2.jar -> WEB-INF/lib
+lib/log4j-1.2.17.jar -> WEB-INF/lib
+lib/org.palladiosimulator.protocom.framework.java.ee.jar -> WEB-INF/lib
+lib/org.palladiosimulator.protocom.resourcestrategies.ee.jar -> WEB-INF/lib
+
+lib/de.uka.ipd.sdq.sensorframework_1.1.0.201408041822.jar -> WEB-INF/lib
+lib/de.uka.ipd.sdq.sensorframework.storage_1.0.0.201408041822.jar -> WEB-INF/lib

@@ -51,7 +51,7 @@ public abstract class Main extends HttpServlet {
 
 		//response.getOutputStream().println("Hallo");
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("Main.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/Main.jsp");
 		dispatcher.forward(request, response);
 	}
 }

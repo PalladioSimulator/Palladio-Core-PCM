@@ -9,7 +9,8 @@ Export-Package: org.palladiosimulator.protocom.framework.java.ee,
  org.palladiosimulator.protocom.framework.java.ee.webcontent,
  org.palladiosimulator.protocom.framework.java.ee.webcontent.files
 Bundle-Vendor: palladiosimulator.org
-Require-Bundle: org.apache.log4j;bundle-version="1.2.15",
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
+ org.apache.log4j;bundle-version="1.2.15",
  org.palladiosimulator.protocom.resourcestrategies.ee;bundle-version="1.0.0",
  javax.servlet;bundle-version="3.0.0",
  javax.websocket;bundle-version="1.0.0",
