@@ -250,17 +250,15 @@ button.confirm:disabled {
 /* Log */
 
 #log #messages {
-	display: block;
-	width: 558px;
-	height: 180px;
 	padding: 5px;
 	border: 1px solid #dcdcdc;
-	margin: auto;
-	resize: none;
-	color: inherit;
+	width: 558px;
+	height: 180px;
+	background: white;
 	font-family: monospace;
-	font-size: inherit;
-	overflow-x: scroll;
-	white-space: pre;
-	word-wrap: normal;
+	overflow: scroll;
+}
+
+#log .message {
+	white-space: nowrap;
 }

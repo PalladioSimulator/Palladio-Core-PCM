@@ -1,7 +1,7 @@
 package org.palladiosimulator.protocom.framework.java.ee.ui;
 
-import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.PatternLayout;
@@ -15,10 +15,10 @@ import org.palladiosimulator.protocom.framework.java.ee.api.sockets.LogSocket;
 public class WebAppender extends AppenderSkeleton {
 	public static final String NAME = "ProtoCom-Log";
 
-	private static final int CAPACITY = 50;
+	private static final int CAPACITY = 100;
 	private static final PatternLayout LAYOUT = new PatternLayout("%d{HH:mm:ss} %p %m%n");
 
-	private Deque<String> messages;
+	private LinkedList<String> messages;
 
 	/**
 	 * Constructs a new WebAppender object and sets its name to {@link NAME}.
@@ -30,16 +30,10 @@ public class WebAppender extends AppenderSkeleton {
 
 	/**
 	 * Returns the content of the log.
-	 * @return a string containing all messages of the log
+	 * @return a list containing all messages of the log
 	 */
-	public String getLogContent() {
-		StringBuilder sb = new StringBuilder();
-
-		for (String message : messages) {
-			sb.append(message);
-		}
-
-		return sb.toString();
+	public List<String> getLogContent() {
+		return messages;
 	}
 
 	@Override

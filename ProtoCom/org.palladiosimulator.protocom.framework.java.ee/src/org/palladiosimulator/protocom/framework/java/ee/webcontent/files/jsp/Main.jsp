@@ -222,9 +222,8 @@
 		<script type="text/template" id="template-log-box">
 			<h2><i class="fa fa-eye fa-fw"></i> Local Log</h2>
 
-			<form>
-				<textarea readonly id="messages"></textarea>
-			</form>
+			<div id="messages">
+			</div>
 		</script>
 	</body>
 </html>

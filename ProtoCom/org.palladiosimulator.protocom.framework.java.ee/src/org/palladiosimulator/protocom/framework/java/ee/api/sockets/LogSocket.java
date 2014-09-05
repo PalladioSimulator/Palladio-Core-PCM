@@ -12,6 +12,8 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import org.apache.log4j.Logger;
+import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.LogData;
+import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.ui.WebAppender;
 
 /**
@@ -27,7 +29,10 @@ public class LogSocket extends WebSocket {
 	 * @param message
 	 */
 	public static void append(String message) {
-		sendToAll(sessions, message);
+		LogData data = new LogData();
+		data.setPayload(message);
+
+		sendToAll(sessions, JsonHelper.toJson(data));
 	}
 
 	@OnOpen
@@ -37,7 +42,10 @@ public class LogSocket extends WebSocket {
 		Logger logger = Logger.getRootLogger();
 		WebAppender appender = (WebAppender) logger.getAppender(WebAppender.NAME);
 
-		sendToAll(sessions, appender.getLogContent());
+		LogData data = new LogData();
+		data.setPayload(appender.getLogContent());
+
+		sendToAll(sessions, JsonHelper.toJson(data));
 	}
 
 	@OnClose
