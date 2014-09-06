@@ -18,14 +18,27 @@ var App = (function($, App) {
 			var template = _.template($('#template-module').html());
 			this.$el.append(template(this.model.toJSON()));
 
+			this.updateState();
+
 			return this;
+		},
+
+		updateState: function() {
+			if (this.model.get('started')) {
+				this.$el.find('.state').addClass('started').text('Started');
+			} else {
+				this.$el.find('.state').text('Stopped');
+			}
 		},
 
 		start: function() {
 			var self = this;
+
+			this.$el.find('.start').prop('disabled', true);
 			
 			$.get('api/modules/' + this.model.get('id') + '/start', function(response) {
-				self.$el.find(".state").addClass('started').text('Started');
+				self.model.set('started', true);
+				self.updateState();
 			});
 		}
 	});

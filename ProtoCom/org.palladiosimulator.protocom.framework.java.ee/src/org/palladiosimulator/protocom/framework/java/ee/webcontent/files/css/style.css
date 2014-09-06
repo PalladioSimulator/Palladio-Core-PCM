@@ -84,8 +84,8 @@ td button, a {
 	cursor: pointer;
 }
 
-td button.disabled {
-	color: #cccccc;
+td button:disabled {
+	color: #999999;
 	cursor: default;
 }
 
