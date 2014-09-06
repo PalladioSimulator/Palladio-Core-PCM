@@ -137,7 +137,7 @@ public class Storage implements IStorage {
 	@Override
 	public void writeFile(String path, byte[] data) throws IOException {
 		String file = getPathFile(path);
-		ContentStream content = createContentStream(path, data);
+		ContentStream content = createContentStream(file, data);
 
 		Folder folder = getParentFolder(path);
 
