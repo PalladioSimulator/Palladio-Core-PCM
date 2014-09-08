@@ -130,7 +130,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
                 calculator.getMetricDesciption());
         recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURING_POINT, calculator.getMeasuringPoint());
 
-        final IRecorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration
+        final IRecorder recorder = RecorderExtensionHelper.instantiateRecorderImplementationForRecorder(this.configuration
                 .getRecorderName());
         final IRecorderConfiguration recorderConfiguration = this.configuration.getRecorderConfigurationFactory()
                 .createRecorderConfiguration(recorderConfigurationMap);
