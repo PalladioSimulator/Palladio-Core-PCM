@@ -11,7 +11,7 @@ import org.palladiosimulator.probeframework.calculator.Calculator;
 import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
 import org.palladiosimulator.probeframework.probes.Probe;
 import org.palladiosimulator.recorderframework.AbstractRecorderConfiguration;
-import org.palladiosimulator.recorderframework.Recorder;
+import org.palladiosimulator.recorderframework.IRecorder;
 import org.palladiosimulator.recorderframework.launch.IRecorderConfiguration;
 import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
 
@@ -130,7 +130,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
                 calculator.getMetricDesciption());
         recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURING_POINT, calculator.getMeasuringPoint());
 
-        final Recorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration
+        final IRecorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration
                 .getRecorderName());
         final IRecorderConfiguration recorderConfiguration = this.configuration.getRecorderConfigurationFactory()
                 .createRecorderConfiguration(recorderConfigurationMap);
