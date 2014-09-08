@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -163,7 +164,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         final Label persistenceLabel = new Label(persistenceGroup, SWT.NONE);
         persistenceLabel.setText("Persistence Framework:");
 
-        String[] recorderNames = null;
+        List<String> recorderNames = null;
         try {
             recorderNames = RecorderExtensionHelper.getRecorderNames();
         } catch (CoreException e1) {
@@ -172,7 +173,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
             }
         }
         persistenceCombo = new Combo(persistenceGroup, SWT.READ_ONLY);
-        persistenceCombo.setItems(recorderNames);
+        persistenceCombo.setItems(recorderNames.toArray(new String[recorderNames.size()]));
         persistenceCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         persistenceCombo.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -632,9 +633,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 
         // set default value for persistence framework
         try {
-            String[] recorderNames = RecorderExtensionHelper.getRecorderNames();
-            if (recorderNames.length > 0) {
-                configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, recorderNames[0]);
+            final List<String> recorderNames = RecorderExtensionHelper.getRecorderNames();
+            if (recorderNames.size() > 0) {
+                configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, recorderNames.get(0));
             }
         } catch (CoreException e1) {
             if (LOGGER.isEnabledFor(Level.ERROR)) {
