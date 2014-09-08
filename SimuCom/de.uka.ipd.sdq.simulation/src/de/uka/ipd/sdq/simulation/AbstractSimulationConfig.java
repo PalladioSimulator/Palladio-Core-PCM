@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.palladiosimulator.recorderframework.IRecorderConfigurationFactory;
+import org.palladiosimulator.recorderframework.config.IRecorderConfigurationFactory;
 import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
 
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
