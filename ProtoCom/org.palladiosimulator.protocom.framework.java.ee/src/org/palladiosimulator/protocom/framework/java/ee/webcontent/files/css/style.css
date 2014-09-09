@@ -56,8 +56,12 @@ th.last, td.last {
 	text-align: right;
 }
 
+tbody tr {
+	background: white;
+}
+
 tbody tr:hover {
-	background: #f0f5ff;
+	background: #f0f5ff !important;
 }
 
 /* Forms and Dialog Elements */

@@ -38,7 +38,7 @@ public class Files {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getFiles() {
-		Storage storage = new Storage();
+		Storage storage = Storage.getInstance();
 		StringBuilder response = new StringBuilder();
 
 		response.append("Files:\n");
@@ -72,7 +72,7 @@ public class Files {
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public Response getFile(@PathParam("file") String file) {
 		try {
-			Storage storage = new Storage();
+			Storage storage = Storage.getInstance();
 			byte[] data = storage.readFile(file);
 
 			return Response.ok(data).build();
@@ -85,9 +85,58 @@ public class Files {
 	@GET
 	@Path("delete/calibration")
 	public void deleteCalibration() {
-		Storage storage = new Storage();
+		Storage storage = Storage.getInstance();
 
 		storage.deleteFile("calibration/low.cpu.fibonacci");
 		storage.deleteFile("calibration/low.hdd.largeChunks");
+	}
+
+	@GET
+	@Path("delete/experiments")
+	public void deleteExperiments() {
+		Storage storage = Storage.getInstance();
+
+		try {
+			for (String folder : storage.getFiles("experiments")) {
+				for (String file : storage.getFiles("experiments/" + folder)) {
+					storage.deleteFile("experiments/" + folder + "/" + file);
+				}
+
+				storage.deleteFile("experiments/" + folder);
+			}
+
+			storage.deleteFile("experiments");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@GET
+	@Path("test/write")
+	public void testWrite() {
+		Storage storage = Storage.getInstance();
+
+		try {
+			storage.createFolder("x");
+			storage.createFolder("x/y");
+			storage.writeFile("x.txt", "test");
+			storage.writeFile("x/y.txt", "test");
+			storage.writeFile("x/y/z.txt", "test");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@GET
+	@Path("test/read")
+	public void testRead() {
+		Storage storage = Storage.getInstance();
+
+		try {
+			String data = storage.readFileAsString("x/y.txt");
+			System.out.println(data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

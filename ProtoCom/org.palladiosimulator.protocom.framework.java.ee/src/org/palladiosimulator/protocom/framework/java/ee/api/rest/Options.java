@@ -16,6 +16,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentManager;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
@@ -78,7 +80,7 @@ class Calibrator implements Runnable, ICalibrationListener {
 	public Calibrator(ServletContext context) {
 		this.context = context;
 
-		storage = new Storage();
+		storage = Storage.getInstance();
 	}
 
 	@Override
@@ -99,6 +101,9 @@ class Calibrator implements Runnable, ICalibrationListener {
 
 	@Override
 	public void run() {
+		Logger logger = Logger.getRootLogger();
+		logger.setLevel(Level.OFF);
+
 		// Calibrate CPU strategy.
 		FibonacciDemand cpuStrategy = new FibonacciDemand();
 		strategyType = StrategyType.CPU;
@@ -113,6 +118,8 @@ class Calibrator implements Runnable, ICalibrationListener {
 
 		// Update status.
 		context.setAttribute("status", "started");
+
+		logger.setLevel(Level.INFO);
 	}
 }
 
@@ -191,7 +198,7 @@ public class Options {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getOptions() {
-		Storage storage = new Storage();
+		Storage storage = Storage.getInstance();
 
 		String optionsJson;
 		String[] files;
@@ -210,7 +217,7 @@ public class Options {
 			files = new String[0];
 		}
 
-		OptionsData options = (OptionsData) JsonHelper.fromJson(optionsJson, OptionsData.class);
+		OptionsData options = JsonHelper.fromJson(optionsJson, OptionsData.class);
 		options.setCalibrated(files);
 
 		return Response.ok(JsonHelper.toJson(options)).build();
@@ -223,7 +230,7 @@ public class Options {
 	 */
 	@POST
 	public Response setOptions(String data) {
-		Storage storage = new Storage();
+		Storage storage = Storage.getInstance();
 		boolean isCalibrated;
 
 		try {

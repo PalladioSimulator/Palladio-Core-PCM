@@ -8,6 +8,7 @@
 		<title>ProtoCom</title>
 		
 		<script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery.color-2.1.2.min.js"></script>
 		<script type="text/javascript" src="js/lib/underscore-1.6.0.min.js"></script>
 		<script type="text/javascript" src="js/lib/backbone-1.1.2.min.js"></script>
 
@@ -175,7 +176,7 @@
 		<script type="text/template" id="template-scenario">
 			<td>{{- name }}</td>
 			<td class="last">
-				<a href={{ url }} download><i class="fa fa-cloud-download fa-fw"></i> JMX</a>
+				<a href="{{ url }}" download><i class="fa fa-cloud-download fa-fw"></i> JMX</a>
 			</td>
 		</script>
 
@@ -192,7 +193,7 @@
 				<thead>
 					<tr>
 						<th>Experiment</th>
-						<th>Date</th>
+						<th>Last Change</th>
 						<th class="last">Download</th>
 					</tr>
 				</thead>
@@ -204,16 +205,16 @@
 
 		<script type="text/template" id="template-result">
 			<td>
-				{{- experiment }}
+				{{- name }}
 				<button class="delete">
 					<i class="fa fa-times"></i>
 				</button>
 			</td>
 			
-			<td>21.08.2014 19:06</td>
+			<td>{{- date }}</td>
 			
 			<td class="last">
-				<a href={{ url }}><i class="fa fa-cloud-download fa-fw"></i> Archive</a>
+				<a href="{{ url }}" download><i class="fa fa-cloud-download fa-fw"></i> ZIP</a>
 			</td>
 		</script>
 

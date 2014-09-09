@@ -24,8 +24,22 @@ public final class JsonHelper {
 		return value;
 	}
 
-	public static Object fromJson(String json, Class<?> clazz) {
+	/*public static Object fromJson(String json, Class<?> clazz) {
 		Object object = null;
+
+		try {
+			object = mapper.readValue(json, clazz);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return object;
+	}*/
+
+
+
+	public static <T> T fromJson(String json, Class<T> clazz) {
+		T object = null;
 
 		try {
 			object = mapper.readValue(json, clazz);

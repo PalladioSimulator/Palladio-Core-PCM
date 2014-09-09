@@ -1,7 +1,9 @@
 package org.palladiosimulator.protocom.framework.java.ee.experiment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
@@ -12,6 +14,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import org.apache.commons.io.IOUtils;
+import org.palladiosimulator.protocom.framework.java.ee.api.sockets.ResultsSocket;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
 
@@ -30,6 +33,7 @@ public final class ExperimentManager {
 
 	private ExperimentManager() {
 		sensors = new HashMap<String, TimeSpanSensor>();
+		storage = Storage.getInstance();
 	}
 
 	public static ExperimentManager getInstance() {
@@ -44,29 +48,46 @@ public final class ExperimentManager {
 
 	private static final double ONE_SECOND_IN_NANO_SECONDS = Math.pow(10, 9);
 
+	private static final String[] stateFiles = new String[] {
+		"experiment.ser",
+		"exprun.ser",
+		"id_generator.ser",
+		"sensor.ser"
+	};
+
 	private IDAOFactory dataSource;
-	private File directory;
 	private Experiment experiment;
+	private String experimentId;
 	private String experimentName;
+	private String tempFolder;
 
 	private ExperimentRun run;
 
 	private HashMap<String, TimeSpanSensor> sensors;
+
+	private Storage storage;
 
 	/**
 	 *
 	 * @param experimentName
 	 */
 	public void init(String experimentName) {
+		this.experimentId = getExperimentId(experimentName);
 		this.experimentName = experimentName;
 
-		String temp = System.getProperty("java.io.tmpdir") + System.getProperty("file.separator");
+		tempFolder = getTempFolder();
 
-		directory = new File(temp + UUID.randomUUID());
-		directory.mkdirs();
+		fetchExperiment(experimentId, tempFolder);
 
-		this.dataSource = new FileDAOFactory(directory.getAbsolutePath());
+		if (dataSource != null) {
+			sensors.clear();
+			try {
+				dataSource.finalizeAndClose();
+			} catch (Exception e) {
+			}
+		}
 
+		this.dataSource = new FileDAOFactory(tempFolder);
 		experiment = dataSource.createExperimentDAO().addExperiment(experimentName);
 	}
 
@@ -81,57 +102,36 @@ public final class ExperimentManager {
 	 * Stops the current experiment run and stores the results.
 	 */
 	public void stopRun() {
-		dataSource.store();
 
-		Storage storage = new Storage();
+		// Store and copy experiment files.
 
-		// Calculate the identifier for the given experiment name.
-
-		String experimentId = "default";
+		String folder = "results/" + experimentId;
 
 		try {
-			MessageDigest digest = MessageDigest.getInstance("SHA-256");
-			digest.update(experimentName.getBytes("UTF-8"));
-
-			experimentId = new BigInteger(1, digest.digest()).toString(16);
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-
-		// Copy results from temporary folder to destination.
-
-		String folder = "experiments/" + experimentId;
-
-		try {
-			storage.createFolder("experiments");
+			storage.createFolder("results");
 			storage.createFolder(folder);
-
-			for (String filename : directory.list()) {
-				// TODO: Not platform independent!
-				// Path path = Paths.get(directory.getAbsolutePath(), filename);
-				String path = directory.getAbsolutePath() + "/" + filename;
-
-				File file = new File(path.toString());
-				byte[] data = IOUtils.toByteArray(new FileInputStream(file));
-
-				storage.writeFile(folder + "/" + filename, data);
-			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		// Store experiment meta data.
+		dataSource.store();
+		storeExperiment(experimentId, tempFolder);
 
-		ExperimentInfo info = new ExperimentInfo();
-		info.setName(experimentName);
+		// Store experiment metadata.
+
+		ExperimentData data = new ExperimentData();
+
+		data.setId(experimentId);
+		data.setName(experimentName);
+		data.setDate(new Date());
 
 		try {
-			storage.writeFile(folder + "/experiment.json", JsonHelper.toJson(info));
+			storage.writeFile(folder + "/experiment.json", JsonHelper.toJson(data));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		ResultsSocket.update(data);
 	}
 
 	/**
@@ -152,5 +152,136 @@ public final class ExperimentManager {
 		double timeSpan = (endTime - startTime) / ONE_SECOND_IN_NANO_SECONDS;
 
 		run.addTimeSpanMeasurement(sensor, start, timeSpan);
+	}
+
+	/**
+	 *
+	 * @param name
+	 * @return
+	 */
+	private String getExperimentId(String name) {
+		String id = "default";
+
+		try {
+			MessageDigest digest = MessageDigest.getInstance("SHA-256");
+			digest.update(name.getBytes("UTF-8"));
+
+			id = new BigInteger(1, digest.digest()).toString(16);
+
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		return id;
+	}
+
+	// The following methods are used for copying experiment data back and forth between
+	// storage and file system. They may be removed when replacing the Sensor Framework.
+
+	/**
+	 *
+	 * @param id
+	 * @return
+	 */
+	private String fetchExperiment(String id, String destination) {
+		File folder = new File(destination);
+		folder.mkdirs();
+
+		String source = "results/" + id + "/";
+
+		if (storage.fileExists(source)) {
+			try {
+				for (String stateFile : stateFiles) {
+					copyToFs(source, stateFile, destination);
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return folder.getAbsolutePath();
+	}
+
+	/**
+	 *
+	 * @param id
+	 * @param source
+	 */
+	private void storeExperiment(String id, String source) {
+		String destination = "results/" + id + "/";
+
+		try {
+			// Copy state files.
+
+			for (String stateFile : stateFiles) {
+				copyFromFs(source, stateFile, destination);
+			}
+
+			// Copy the remaining files that don't exist in the storage.
+
+			for (String file : new File(source).list()) {
+				if (storage.fileExists(destination + file)) {
+					continue;
+				}
+
+				copyFromFs(source, file, destination);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Gets the path of a temporary folder for storing experiment data.
+	 * @return the path of a temporary folder
+	 */
+	private String getTempFolder() {
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(System.getProperty("java.io.tmpdir"));
+		sb.append("/ProtoCom/");
+		sb.append(UUID.randomUUID());
+		sb.append('/');
+
+		return sb.toString();
+	}
+
+	/**
+	 *
+	 * @param path
+	 * @param file
+	 * @param destination
+	 * @throws IOException
+	 */
+	private void copyToFs(String path, String file, String destination)
+		throws IOException {
+
+		byte[] data = storage.readFile(path + file);
+		FileOutputStream out = new FileOutputStream(destination + file);
+
+		out.write(data);
+		out.close();
+	}
+
+	/**
+	 *
+	 * @param path
+	 * @param file
+	 * @param destination
+	 */
+	private void copyFromFs(String path, String file, String destination)
+		throws IOException {
+
+		FileInputStream in = new FileInputStream(path + file);
+
+		ByteArrayOutputStream data = new ByteArrayOutputStream();
+		IOUtils.copy(in, data);
+
+		storage.writeFile(destination + file, data.toByteArray());
+
+		in.close();
 	}
 }

@@ -20,7 +20,6 @@ var App = (function($, App) {
 
 		start: function() {
 			var url = 'ws://' + location.host + location.pathname + 'ws/log';
-			console.log(url);
 
 			var connection = new WebSocket(url);
 			var self = this;

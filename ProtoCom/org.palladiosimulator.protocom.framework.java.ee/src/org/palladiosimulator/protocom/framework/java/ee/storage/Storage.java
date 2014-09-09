@@ -27,6 +27,13 @@ import org.apache.commons.io.IOUtils;
  * @author Christian Klaussner
  */
 public class Storage implements IStorage {
+	// TODO: Replace with DI
+	private static Storage instance;
+	public static Storage getInstance() {
+		if (instance == null) instance = new Storage();
+		return instance;
+	}
+
 	private static final String NAME = "ProtoCom-Repository";
 	private static final String KEY = "protocom_key";
 
@@ -120,7 +127,7 @@ public class Storage implements IStorage {
 	/**
 	 *
 	 */
-	public Storage() {
+	private Storage() {
 		// TODO: Improve exception handling in case ECM is not available
 		session = EcmProxy.getSession(NAME, KEY);
 	}
@@ -230,7 +237,7 @@ public class Storage implements IStorage {
 
 	public boolean fileExists(String path) {
 		try {
-			session.getObjectByPath(path);
+			session.getObjectByPath(checkPath(path));
 			return true;
 		} catch (CmisObjectNotFoundException e) {
 			return false;

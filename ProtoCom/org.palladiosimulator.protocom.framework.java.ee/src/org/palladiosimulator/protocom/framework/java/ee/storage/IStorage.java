@@ -60,4 +60,5 @@ public interface IStorage {
 	 * @throws IOException
 	 */
 	void deleteFile(String path);
+	// TODO: Add recursive deletion
 }

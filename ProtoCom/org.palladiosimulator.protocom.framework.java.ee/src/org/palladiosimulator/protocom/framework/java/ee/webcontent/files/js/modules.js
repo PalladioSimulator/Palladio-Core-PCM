@@ -26,6 +26,7 @@ var App = (function($, App) {
 		updateState: function() {
 			if (this.model.get('started')) {
 				this.$el.find('.state').addClass('started').text('Started');
+				this.$el.find('.start').prop('disabled', true);
 			} else {
 				this.$el.find('.state').text('Stopped');
 			}

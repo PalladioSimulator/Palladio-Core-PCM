@@ -9,8 +9,13 @@ import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentMan
 @Path("/experiment")
 public class Experiment {
 	@GET
-	@Path("init")
+	@Path("test")
 	public Response init() {
+		ExperimentManager.getInstance().init("Experiment");
+		ExperimentManager.getInstance().startRun();
+		ExperimentManager.getInstance().takeMeasurement("Test Measurement", 100, 700);
+		ExperimentManager.getInstance().stopRun();
+
 		return Response.ok().build();
 	}
 
