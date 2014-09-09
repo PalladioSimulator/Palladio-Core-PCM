@@ -35,8 +35,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
-import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
 import org.palladiosimulator.recorderframework.launch.RecorderTabGroup;
+import org.palladiosimulator.recorderframework.utils.RecorderExtensionHelper;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
@@ -164,14 +164,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         final Label persistenceLabel = new Label(persistenceGroup, SWT.NONE);
         persistenceLabel.setText("Persistence Framework:");
 
-        List<String> recorderNames = null;
-        try {
-            recorderNames = RecorderExtensionHelper.getRecorderNames();
-        } catch (CoreException e1) {
-            if (LOGGER.isEnabledFor(Level.WARN)) {
-                LOGGER.warn("Could not access RecorderNames.", e1);
-            }
-        }
+        final List<String> recorderNames = RecorderExtensionHelper.getRecorderNames();
         persistenceCombo = new Combo(persistenceGroup, SWT.READ_ONLY);
         persistenceCombo.setItems(recorderNames.toArray(new String[recorderNames.size()]));
         persistenceCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
@@ -632,15 +625,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
                 SimuComConfig.DEFAULT_CONFIDENCE_MIN_NUMBER_OF_BATCHES);
 
         // set default value for persistence framework
-        try {
-            final List<String> recorderNames = RecorderExtensionHelper.getRecorderNames();
-            if (recorderNames.size() > 0) {
-                configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, recorderNames.get(0));
-            }
-        } catch (CoreException e1) {
-            if (LOGGER.isEnabledFor(Level.ERROR)) {
-                LOGGER.error("Could not set default value for persistence framework.", e1);
-            }
+        final List<String> recorderNames = RecorderExtensionHelper.getRecorderNames();
+        if (recorderNames.size() > 0) {
+            configuration.setAttribute(AbstractSimulationConfig.PERSISTENCE_RECORDER_NAME, recorderNames.get(0));
         }
     }
 

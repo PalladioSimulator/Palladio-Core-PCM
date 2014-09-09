@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.palladiosimulator.recorderframework.config.IRecorderConfigurationFactory;
-import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
+import org.palladiosimulator.recorderframework.utils.RecorderExtensionHelper;
 
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
@@ -55,8 +55,8 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     public static final String EXPERIMENT_RUN = "experimentRun";
     public static final String SIMULATION_TIME = "simTime";
 
-    private boolean verboseLogging;
-    private boolean isDebug;
+    private final boolean verboseLogging;
+    private final boolean isDebug;
 
     private final List<ISimulationListener> listeners;
     /** configuration options */
@@ -70,7 +70,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     protected String recorderName;
     protected IRecorderConfigurationFactory recorderConfigurationFactory;
     protected ExperimentRunDescriptor descriptor = null;
-    private String simulatorId;
+    private final String simulatorId;
 
     /**
      * @param configuration
@@ -80,28 +80,22 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
      *            </ul>
      */
     public AbstractSimulationConfig(final Map<String, Object> configuration, final boolean debug) {
-        try {
-            this.verboseLogging = (Boolean) configuration.get(VERBOSE_LOGGING);
-            this.isDebug = debug;
-            this.variationId = (String) configuration.get(VARIATION_ID);
+        this.verboseLogging = (Boolean) configuration.get(VERBOSE_LOGGING);
+        this.isDebug = debug;
+        this.variationId = (String) configuration.get(VARIATION_ID);
 
-            this.simulatorId = (String) configuration.get(SIMULATOR_ID);
-            this.nameExperimentRun = (String) configuration.get(EXPERIMENT_RUN);
-            this.simuTime = Long.valueOf((String) configuration.get(SIMULATION_TIME));
-            this.maxMeasurementsCount = Long.valueOf((String) configuration.get(MAXIMUM_MEASUREMENT_COUNT));
-            this.randomSeed = getSeedFromConfig(configuration);
+        this.simulatorId = (String) configuration.get(SIMULATOR_ID);
+        this.nameExperimentRun = (String) configuration.get(EXPERIMENT_RUN);
+        this.simuTime = Long.valueOf((String) configuration.get(SIMULATION_TIME));
+        this.maxMeasurementsCount = Long.valueOf((String) configuration.get(MAXIMUM_MEASUREMENT_COUNT));
+        this.randomSeed = getSeedFromConfig(configuration);
 
-            this.recorderName = (String) configuration.get(PERSISTENCE_RECORDER_NAME);
-            this.recorderConfigurationFactory = RecorderExtensionHelper
-                    .getRecorderConfigurationFactoryForName(this.recorderName);
-            this.recorderConfigurationFactory.initialize(configuration);
+        this.recorderName = (String) configuration.get(PERSISTENCE_RECORDER_NAME);
+        this.recorderConfigurationFactory = RecorderExtensionHelper
+                .getRecorderConfigurationFactoryForName(this.recorderName);
+        this.recorderConfigurationFactory.initialize(configuration);
 
-            this.listeners = new ArrayList<ISimulationListener>();
-        } catch (final Exception e) {
-            LOGGER.error("Setup of simulation failed");
-            LOGGER.error("The configuration could not be loaded", e);
-            throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
-        }
+        this.listeners = new ArrayList<ISimulationListener>();
     }
 
     /**

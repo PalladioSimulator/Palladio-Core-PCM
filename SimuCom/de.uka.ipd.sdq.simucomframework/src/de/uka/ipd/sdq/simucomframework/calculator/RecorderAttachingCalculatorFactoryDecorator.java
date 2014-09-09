@@ -13,7 +13,7 @@ import org.palladiosimulator.probeframework.probes.Probe;
 import org.palladiosimulator.recorderframework.IRecorder;
 import org.palladiosimulator.recorderframework.config.AbstractRecorderConfiguration;
 import org.palladiosimulator.recorderframework.config.IRecorderConfiguration;
-import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
+import org.palladiosimulator.recorderframework.utils.RecorderExtensionHelper;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
