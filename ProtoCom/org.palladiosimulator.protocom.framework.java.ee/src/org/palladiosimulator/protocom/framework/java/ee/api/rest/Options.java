@@ -21,11 +21,13 @@ import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentManager;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.legacy.strategies.DemandConsumerStrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.FibonacciDemand;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.hdd.ReadLargeChunksDemand;
 
@@ -109,12 +111,14 @@ class Calibrator implements Runnable, ICalibrationListener {
 		strategyType = StrategyType.CPU;
 
 		calibrateStrategy(cpuStrategy, "low.cpu.fibonacci");
+		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
 
 		// Calibrate HDD strategy.
 		ReadLargeChunksDemand hddStrategy = new ReadLargeChunksDemand();
 		strategyType = StrategyType.HDD;
 
 		calibrateStrategy(hddStrategy, "low.hdd.largeChunks");
+		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
 
 		// Update status.
 		context.setAttribute("status", "started");
@@ -248,12 +252,27 @@ public class Options {
 
 		if (isCalibrated) {
 			context.setAttribute("status", "started");
+
+			// CPU
+
+			FibonacciDemand cpu = new FibonacciDemand();
+			cpu.initializeStrategy(DegreeOfAccuracyEnum.LOW, 1);
+			byte[] cpuData = null;
+			try {
+				cpuData = storage.readFile("calibration/low.cpu.fibonacci");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			CalibrationTable cpuTable = CalibrationTable.fromBinary(cpuData);
+			cpu.setCalibrationTable(cpuTable);
+			DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpu);
 		} else {
 			context.setAttribute("status", "calibrating");
 			executor.submit(new Calibrator(context));
 		}
 
-		ExperimentManager.getInstance().init("Experiment Name");
+		ExperimentManager.getInstance().init("Test Experiment");
 
 		try {
 			// TODO: Validate input

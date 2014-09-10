@@ -11,10 +11,10 @@ public class Experiment {
 	@GET
 	@Path("test")
 	public Response init() {
-		ExperimentManager.getInstance().init("Experiment");
+		/*ExperimentManager.getInstance().init("Experiment");
 		ExperimentManager.getInstance().startRun();
 		ExperimentManager.getInstance().takeMeasurement("Test Measurement", 100, 700);
-		ExperimentManager.getInstance().stopRun();
+		ExperimentManager.getInstance().stopRun();*/
 
 		return Response.ok().build();
 	}

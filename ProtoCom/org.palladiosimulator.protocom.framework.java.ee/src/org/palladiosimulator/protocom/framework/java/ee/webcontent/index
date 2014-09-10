@@ -1,4 +1,4 @@
-# Index of files to be copied to the WebContent folder during transformation.
+# Index of files to be copied to the WebContent folder during the transformation.
 # Format: [source file] -> [destination folder]
 # 
 # Author: Christian Klaussner
@@ -21,7 +21,7 @@ img/palladio.png -> img
 
 js/lib/backbone-1.1.2.min.js -> js/lib
 js/lib/jquery-2.1.1.min.js -> js/lib
-js/lib/jquery.color-2.1.2.min -> js/lib
+js/lib/jquery.color-2.1.2.min.js -> js/lib
 js/lib/underscore-1.6.0.min.js -> js/lib
 
 js/calibration.js -> js

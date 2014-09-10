@@ -3,6 +3,7 @@ package org.palladiosimulator.protocom.framework.java.ee.experiment;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -75,20 +76,37 @@ public final class ExperimentManager {
 		this.experimentId = getExperimentId(experimentName);
 		this.experimentName = experimentName;
 
-		tempFolder = getTempFolder();
+		reset();
+	}
 
-		fetchExperiment(experimentId, tempFolder);
+	/**
+	 *
+	 */
+	public void reset() {
+
+		// Remove previous sensors and the data source.
+
+		sensors.clear();
 
 		if (dataSource != null) {
-			sensors.clear();
 			try {
 				dataSource.finalizeAndClose();
 			} catch (Exception e) {
+				// Ignore Sensor Framework exceptions.
 			}
 		}
 
+		// Create a new temporary folder and data source.
+
+		tempFolder = getTempFolder();
+		fetchExperiment(experimentId, tempFolder);
+
 		this.dataSource = new FileDAOFactory(tempFolder);
 		experiment = dataSource.createExperimentDAO().addExperiment(experimentName);
+	}
+
+	public String getId() {
+		return experimentId;
 	}
 
 	/**
@@ -259,11 +277,15 @@ public final class ExperimentManager {
 	private void copyToFs(String path, String file, String destination)
 		throws IOException {
 
-		byte[] data = storage.readFile(path + file);
-		FileOutputStream out = new FileOutputStream(destination + file);
+		try {
+			byte[] data = storage.readFile(path + file);
+			FileOutputStream out = new FileOutputStream(destination + file);
 
-		out.write(data);
-		out.close();
+			out.write(data);
+			out.close();
+		} catch (FileNotFoundException e) {
+			// Ignore missing files.
+		}
 	}
 
 	/**
@@ -275,13 +297,17 @@ public final class ExperimentManager {
 	private void copyFromFs(String path, String file, String destination)
 		throws IOException {
 
-		FileInputStream in = new FileInputStream(path + file);
+		try {
+			FileInputStream in = new FileInputStream(path + file);
 
-		ByteArrayOutputStream data = new ByteArrayOutputStream();
-		IOUtils.copy(in, data);
+			ByteArrayOutputStream data = new ByteArrayOutputStream();
+			IOUtils.copy(in, data);
 
-		storage.writeFile(destination + file, data.toByteArray());
+			storage.writeFile(destination + file, data.toByteArray());
 
-		in.close();
+			in.close();
+		} catch (FileNotFoundException e) {
+			// Ignore missing files.
+		}
 	}
 }

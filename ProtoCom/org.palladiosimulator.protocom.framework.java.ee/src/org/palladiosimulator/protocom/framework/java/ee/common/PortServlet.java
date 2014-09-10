@@ -2,6 +2,8 @@ package org.palladiosimulator.protocom.framework.java.ee.common;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,10 +23,16 @@ import org.palladiosimulator.protocom.framework.java.ee.registry.RemoteCall;
  */
 public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected String location;
 	protected T component;
-	
+
+	private final List<ICallVisitor> visitors;
+
+	public PortServlet() {
+		visitors = new LinkedList<ICallVisitor>();
+	}
+
 	/**
 	 * Starts the port and registers it.
 	 * @param componentId identifier of the started component
@@ -33,43 +41,71 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 	 */
 	public void start(String componentId, String assemblyContext) throws ModuleStartException {
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse httpResponse)
 			throws ServletException, IOException {
-		
+
 		if (request.getParameter("action").equals("start")) {
 			if (location == null) {
 				location = request.getParameter("location");
 			}
-			
+
 			StringResponse response = new StringResponse();
-			
+
 			try {
 				//String componentId = request.getParameter("componentId");
 				String assemblyContext = request.getParameter("assemblyContext");
-				
+
 				String innerPortId = request.getParameter("componentId");
-				
+
 				start(innerPortId, assemblyContext);
 				response.setError(Response.OK);
 			} catch (ModuleStartException e) {
 				response.setError(Response.FAILED);
 			}
-			
+
 			httpResponse.setContentType("application/json");
 			httpResponse.getOutputStream().print(response.toJson());
 		}
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		StringWriter call = new StringWriter();
 		IOUtils.copy(request.getInputStream(), call);
-		
+
 		RemoteCall remoteCall = RemoteCall.fromJson(call.toString());
-		remoteCall.dispatch(this);		
+		remoteCall.dispatch(this);
+	}
+
+	/**
+	 *
+	 * @param visitor
+	 */
+	protected void addVisitor(ICallVisitor visitor) {
+		visitors.add(visitor);
+	}
+
+	/**
+	 *
+	 * @param callId
+	 */
+	protected void preCallVisitors(String callId) {
+		for (ICallVisitor visitor : visitors) {
+			visitor.preCallVisit(callId);
+		}
+	}
+
+	/**
+	 *
+	 * @param callId
+	 */
+	protected void postCallVisitors(String callId) {
+		for (ICallVisitor visitor : visitors) {
+			visitor.postCallVisit(callId);
+		}
 	}
 }

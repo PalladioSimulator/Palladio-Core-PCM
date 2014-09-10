@@ -32,7 +32,7 @@ public class FileProvider {
 		System.out.println(source);
 
 		URL url = getClass().getResource("files/" + source);
-		String absolute = path + '/' + source.substring(source.lastIndexOf('/'));
+		String absolute = path + '/' + source.substring(source.lastIndexOf('/') + 1);
 
 		return new FrameworkFile(url, absolute);
 	}
