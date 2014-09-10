@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.repository.InfrastructureInterface",

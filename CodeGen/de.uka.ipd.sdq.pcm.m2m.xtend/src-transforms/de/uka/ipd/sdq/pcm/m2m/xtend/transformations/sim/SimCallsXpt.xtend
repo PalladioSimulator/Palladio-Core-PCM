@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature
 import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 import java.util.List
 
 @ModelIn(#[

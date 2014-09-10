@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.core.composition.ComposedStructure",

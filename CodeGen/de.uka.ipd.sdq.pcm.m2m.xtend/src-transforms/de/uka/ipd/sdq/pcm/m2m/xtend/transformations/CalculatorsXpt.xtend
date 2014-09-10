@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.seff.ExternalCallAction",
@@ -18,10 +18,10 @@ class CalculatorsXpt {
 		
 		// TODO get rid of StringMeasuringPoint and use a more concrete one.
 		org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint mp = measuringpointFactory.createStringMeasuringPoint();
-		mp.setMeasuringPoint("«this»");
+		mp.setMeasuringPoint("«s»");
 
 		getModel().getProbeFrameworkContext().getCalculatorFactory().buildResponseTimeCalculator(mp,probes);
-		this.startStopProbes.put("«this»",probes);
+		this.startStopProbes.put("«s»",probes);
 	}
 	'''
 

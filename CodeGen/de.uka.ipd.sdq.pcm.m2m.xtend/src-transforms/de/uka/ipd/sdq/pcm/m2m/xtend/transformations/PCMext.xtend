@@ -50,7 +50,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import de.uka.ipd.sdq.stoex.AbstractNamedReference
 import de.uka.ipd.sdq.stoex.NamespaceReference
 import de.uka.ipd.sdq.stoex.VariableReference
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 import java.util.ArrayList
 import java.util.Collection
 import java.util.HashSet

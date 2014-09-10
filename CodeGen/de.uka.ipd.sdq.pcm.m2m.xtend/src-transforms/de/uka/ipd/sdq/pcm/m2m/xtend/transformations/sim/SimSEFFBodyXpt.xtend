@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction
 import de.uka.ipd.sdq.pcm.seff.StartAction
 import de.uka.ipd.sdq.pcm.seff.StopAction
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"quality.parameters.pcm.PCMComponentParameterReference",

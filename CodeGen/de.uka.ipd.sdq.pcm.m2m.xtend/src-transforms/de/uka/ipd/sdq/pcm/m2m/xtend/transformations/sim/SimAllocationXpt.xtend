@@ -11,16 +11,9 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
 import de.uka.ipd.sdq.pcm.system.System
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
 import javax.annotation.processing.Completion
 
-@ModelIn(#[
-	"pcm.allocation.*",
-	"pcm.core.composition.AssemblyContext",
-	"pcm.repository.CompositeComponent",
-	"pcm.subsystem.SubSystem",
-	"pcm.system.System"
-])
+//@Transformation
 class SimAllocationXpt extends AllocationXpt {
 	@Inject extension M2TFileSystemAccess fsa
 	

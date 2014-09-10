@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import de.uka.ipd.sdq.pcm.usagemodel.Workload
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.system.System",

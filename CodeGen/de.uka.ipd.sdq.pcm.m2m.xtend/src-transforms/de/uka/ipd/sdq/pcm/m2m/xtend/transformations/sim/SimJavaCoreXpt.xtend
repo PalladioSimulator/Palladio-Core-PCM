@@ -7,7 +7,6 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
@@ -21,9 +20,8 @@ import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
 import de.uka.ipd.sdq.pcm.seff.ForkAction
 import de.uka.ipd.sdq.pcm.seff.LoopAction
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
 import de.uka.ipd.sdq.pcm.seff.StopAction
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.core.entity.InterfaceProvidingEntity",

@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.repository.BasicComponent",
@@ -31,8 +31,6 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 	@Inject extension SensorsExt
 
 	def dispatch String setupCalculators(UsageScenario us) '''
-		// Setup calculator for usage scenario «us.entityName»
-		«us.entityName.setupCalculatorResponseTime("start" + us.entityName, "end" + us.entityName)»
 		if(getModel().getConfiguration().getSimulateFailures()){
 			«us.setupCalculatorExecutionResult»
 		}

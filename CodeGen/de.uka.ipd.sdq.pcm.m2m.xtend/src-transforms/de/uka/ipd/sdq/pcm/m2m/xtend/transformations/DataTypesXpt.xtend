@@ -4,7 +4,7 @@ import de.uka.ipd.sdq.pcm.repository.CollectionDataType
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
 import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.repository.CollectionDataType",

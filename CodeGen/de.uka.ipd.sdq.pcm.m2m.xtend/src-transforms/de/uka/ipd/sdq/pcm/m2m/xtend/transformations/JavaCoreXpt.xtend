@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
 import de.uka.ipd.sdq.pcm.seff.StopAction
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.repository.*",

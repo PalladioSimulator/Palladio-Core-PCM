@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 import java.util.List
 
 @ModelIn(#[

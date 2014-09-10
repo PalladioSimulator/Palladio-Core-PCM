@@ -4,7 +4,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.repository.PassiveResource",

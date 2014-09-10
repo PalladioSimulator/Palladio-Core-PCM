@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"completions.Completion",

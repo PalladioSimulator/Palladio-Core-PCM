@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.seff.StopAction
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"completions.DelegatingExteralCallAction",

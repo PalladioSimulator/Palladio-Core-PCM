@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ContextPatternXpt
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.core.entity.InterfaceRequiringEntity"

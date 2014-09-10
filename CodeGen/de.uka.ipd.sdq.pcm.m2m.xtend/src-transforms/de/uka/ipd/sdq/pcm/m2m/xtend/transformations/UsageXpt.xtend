@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
 import de.uka.ipd.sdq.pcm.usagemodel.Stop
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.allocation.Allocation",

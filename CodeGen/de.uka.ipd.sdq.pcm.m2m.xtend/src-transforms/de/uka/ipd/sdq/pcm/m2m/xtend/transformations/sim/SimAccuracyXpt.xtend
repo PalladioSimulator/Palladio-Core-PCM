@@ -10,7 +10,7 @@ import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRan
 import de.fzi.se.quality.qualityannotation.PCMParameterPartition
 import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"quality.parameters.pcm.PCMComponentParameterReference",

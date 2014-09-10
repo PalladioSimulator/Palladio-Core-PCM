@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
 import de.uka.ipd.sdq.pcm.usagemodel.Loop
 import de.uka.ipd.sdq.pcm.usagemodel.Start
 import de.uka.ipd.sdq.pcm.usagemodel.Stop
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.usagemodel.AbstractUserAction",

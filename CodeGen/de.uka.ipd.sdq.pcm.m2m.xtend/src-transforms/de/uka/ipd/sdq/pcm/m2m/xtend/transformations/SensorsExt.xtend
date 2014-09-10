@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 import java.util.Set
 import org.eclipse.emf.ecore.EObject
 

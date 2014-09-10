@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import de.uka.ipd.sdq.pcm.usagemodel.UserData
 import de.uka.ipd.sdq.pcm.usagemodel.Workload
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.allocation.Allocation",
@@ -78,7 +78,7 @@ class SimUsageXpt extends UsageXpt {
 						«FOR us : _this.usageScenario_UsageModel SEPARATOR ","»«us.workloadDriver»«ENDFOR»
 					};
 				}
-	
+			
 				// Return the generated resource container class
 				protected de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory getResourceContainerFactory(){
 					return new ResourceEnvironment();
@@ -230,6 +230,7 @@ class SimUsageXpt extends UsageXpt {
 			.map[it as System]
 			.uniqueSystemList»
 		public «_this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«FOR system : systemList SEPARATOR ","»«system.systemVariableDecl»«ENDFOR») {
+			this.simuComModel = model;
 			ctx = new «a.fqnAllocationContext()»(model);
 			ctx.getStack().createAndPushNewStackFrame();
 			«_this.usageScenarioConstructorContextInit(a)»

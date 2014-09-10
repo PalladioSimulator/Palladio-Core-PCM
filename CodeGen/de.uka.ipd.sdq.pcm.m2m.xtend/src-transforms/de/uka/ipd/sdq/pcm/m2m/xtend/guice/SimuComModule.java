@@ -7,8 +7,37 @@ import com.google.inject.Module;
 import com.google.inject.Singleton;
 import com.google.inject.util.Modules;
 
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.*;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.*;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.AllocationXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CalculatorsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CallsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ComposedStructureXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ContextPatternXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.DummiesXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaCoreXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ProvidedPortsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.RepositoryXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ResourcesXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UsageXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UserActionsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimAccuracyInfluenceExt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimAccuracyXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimAllocationXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimCalculatorsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimCallsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimComposedStructureXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimContextPatternXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimDummiesXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimJavaCoreXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimProvidedPortsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimRepositoryXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimResourcesXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimSEFFBodyXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimSensorsXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimUsageFactoryXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimUsageXpt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimUserActionsXpt;
 
 public class SimuComModule implements Module {
 	@Override

@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.completions.CompletionRepository
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
 import de.uka.ipd.sdq.pcm.system.System
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.repository.RepositoryComponent",

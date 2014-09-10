@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.pcm.repository.Repository
 import de.uka.ipd.sdq.pcm.system.System
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"pcm.usagemodel.UsageModel",

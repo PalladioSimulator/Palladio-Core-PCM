@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
 import de.uka.ipd.sdq.pcm.system.System
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"completions.Completion",
@@ -95,7 +95,7 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 		  ||(obj.parentStructure__AssemblyContext instanceof SubSystem)
 		  ||(obj.parentStructure__AssemblyContext instanceof Completion)
 		  ||(obj.parentStructure__AssemblyContext instanceof System))
-			'''"«obj.id»" + this.assemblyContext.getId()'''
+			'''"«obj.eResource.URI + '#' + obj.id»"'''
 		else
 			'''this.assemblyContext'''
 	}

@@ -11,7 +11,7 @@ import de.fzi.se.quality.qualityannotation.PCMServiceSpecification
 import de.fzi.se.quality.qualityannotation.QualityAnnotation
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
 import de.uka.ipd.sdq.pcm.transformations.Helper
-import edu.kit.student.dwerle.xtendfw.annotations.ModelIn
+import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
 @ModelIn(#[
 	"quality.QualityRepository",
