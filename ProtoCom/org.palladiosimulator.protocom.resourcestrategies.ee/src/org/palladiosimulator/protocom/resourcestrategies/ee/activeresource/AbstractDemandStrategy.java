@@ -256,7 +256,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      */
     protected abstract void run(long load);
 
-    public void setCalibrationListener(ICalibrationListener listener) {
+    @Override
+	public void setCalibrationListener(ICalibrationListener listener) {
     	this.listener = listener;
     }
 
@@ -268,7 +269,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      * Create a new calibration table for this host by measuring the execution times of our
      * algorithm and creating an according calibration table
      */
-    public CalibrationTable calibrate() {
+    @Override
+	public CalibrationTable calibrate() {
         this.calibrationTable = new CalibrationTable();
 
         System.out.println("starting calibration");
@@ -298,6 +300,10 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
         //calibrationTable.save(configFile);
 
         return calibrationTable;
+    }
+
+    public void setCalibrationTable(CalibrationTable table) {
+    	this.calibrationTable = table;
     }
 
     /**

@@ -1,5 +1,6 @@
 package org.palladiosimulator.protocom.resourcestrategies.ee.activeresource;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -178,7 +179,22 @@ public class CalibrationTable {
     }
 
     public static CalibrationTable fromBinary(byte[] binary) {
-    	return null;
+    	CalibrationTable result = new CalibrationTable();
+    	CalibrationEntry[] table = null;
+
+    	ByteArrayInputStream in = new ByteArrayInputStream(binary);
+
+    	try {
+    		ObjectInputStream stream = new ObjectInputStream(in);
+    		table = (CalibrationEntry[]) stream.readObject();
+    		result.setTable(table);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+    	return result;
     }
 
     private void setTable(CalibrationEntry[] table) {
