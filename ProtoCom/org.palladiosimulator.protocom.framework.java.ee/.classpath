@@ -20,6 +20,6 @@
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/guice-servlet-3.0.jar"/>
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/jersey-guice-1.18.1.jar"/>
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/guice-3.0-no_aop.jar"/>
-	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/reflections-0.9.9-RC1-uberjar.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/reflections-0.9.9-RC1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

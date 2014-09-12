@@ -33,9 +33,12 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 	
 	override annotations() {
 		#[
-			new JAnnotation()
+			/*new JAnnotation()
 				.withName("javax.servlet.annotation.WebServlet")
-				.withValues(#['''urlPatterns = "/«compilationUnitName»"''', "loadOnStartup = 0"])
+				.withValues(#['''urlPatterns = "/«compilationUnitName»"''', "loadOnStartup = 0"])*/
+			
+			/*new JAnnotation()
+				.withName("javax.inject.Singleton")*/
 		]
 	}
 	
@@ -99,7 +102,10 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
 				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
 				.withImplementation('''
+					preCall("«JavaNames::serviceName(it)»");
 					«frameworkBase».stubs.SimulatedStackframe<Object> result = component.«JavaNames::serviceName(it)»(ctx);
+					postCall("«JavaNames::serviceName(it)»");
+					
 					return result;
 				''')
 		] 

@@ -99,7 +99,7 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 	 *
 	 * @param callId
 	 */
-	protected void preCallVisitors(String callId) {
+	protected void preCall(String callId) {
 		for (ICallVisitor visitor : visitors) {
 			visitor.preCallVisit(callId);
 		}
@@ -109,7 +109,7 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 	 *
 	 * @param callId
 	 */
-	protected void postCallVisitors(String callId) {
+	protected void postCall(String callId) {
 		for (ICallVisitor visitor : visitors) {
 			visitor.postCallVisit(callId);
 		}
