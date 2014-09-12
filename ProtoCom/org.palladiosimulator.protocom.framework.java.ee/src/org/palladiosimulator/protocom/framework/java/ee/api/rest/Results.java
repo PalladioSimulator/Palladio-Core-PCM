@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -19,18 +20,23 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentData;
-import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentManager;
+import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
-import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
+import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
 import com.sun.jersey.core.header.ContentDisposition;
 
 @Path("/results")
 public class Results {
+	@Inject
+	private IStorage storage;
+
+	@Inject
+	private Experiment experiment;
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getResults() {
-		Storage storage = Storage.getInstance();
 		List<ExperimentData> result = new LinkedList<ExperimentData>();
 
 		try {
@@ -51,7 +57,6 @@ public class Results {
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public Response getResult(@PathParam("id") final String id) {
-		Storage storage = Storage.getInstance();
 		ExperimentData data;
 
 		try {
@@ -87,7 +92,6 @@ public class Results {
 	@DELETE
 	@Path("{id}")
 	public Response deleteResult(@PathParam("id") String id) {
-		Storage storage = Storage.getInstance();
 
 		// Delete all result files of the experiment.
 
@@ -105,10 +109,8 @@ public class Results {
 
 		// Reset the experiment if it is currently initialized.
 
-		ExperimentManager manager = ExperimentManager.getInstance();
-
-		if (id.equals(manager.getId())) {
-			manager.reset();
+		if (id.equals(experiment.getId())) {
+			experiment.reset();
 		}
 
 		return Response.noContent().build();
@@ -120,7 +122,6 @@ public class Results {
 	 * @param out
 	 */
 	private void zipResults(String id, OutputStream out) {
-		Storage storage = Storage.getInstance();
 		Set<String> files;
 		String root = "results/" + id;
 

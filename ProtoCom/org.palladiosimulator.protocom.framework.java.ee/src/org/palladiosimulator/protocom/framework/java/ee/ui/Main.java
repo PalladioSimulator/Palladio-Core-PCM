@@ -13,6 +13,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.registry.Registry;
 
+import com.google.inject.Guice;
+
 /**
  *
  * @author Christian Klaussner
@@ -45,6 +47,15 @@ public abstract class Main extends HttpServlet {
 		throws ServletException, IOException {
 
 		if (firstRequest) {
+			/*
+			 * Initialization of Guice is usually done in a ServletContextListener.
+			 * However, the EcmService class of the SAP HANA Cloud Document Service
+			 * is loaded after the Guice initialization (via web.xml), which makes it
+			 * impossible for injected IStorage instances to connect to the service.
+			 * Therefore, Guice is initialized here, during the first request.
+			 */
+			Guice.createInjector(new ProtoComModule());
+
 			Registry.getInstance().setLocation(request.getRequestURL().toString());
 			firstRequest = false;
 		}

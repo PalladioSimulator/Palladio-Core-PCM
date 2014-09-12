@@ -14,13 +14,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import org.apache.commons.io.IOUtils;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.ResultsSocket;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
-import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
@@ -29,24 +31,8 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  *
  * @author Christian Klaussner
  */
-public final class ExperimentManager {
-	private static ExperimentManager instance;
-
-	private ExperimentManager() {
-		sensors = new HashMap<String, TimeSpanSensor>();
-		storage = Storage.getInstance();
-	}
-
-	public static ExperimentManager getInstance() {
-		if (instance == null) {
-			instance = new ExperimentManager();
-		}
-
-		return instance;
-	}
-
-	//
-
+@Singleton
+public final class Experiment {
 	private static final double ONE_SECOND_IN_NANO_SECONDS = Math.pow(10, 9);
 
 	private static final String[] stateFiles = new String[] {
@@ -56,8 +42,11 @@ public final class ExperimentManager {
 		"sensor.ser"
 	};
 
+	@Inject
+	private Storage storage;
+
 	private IDAOFactory dataSource;
-	private Experiment experiment;
+	private de.uka.ipd.sdq.sensorframework.entities.Experiment experiment;
 	private String experimentId;
 	private String experimentName;
 	private String tempFolder;
@@ -66,7 +55,9 @@ public final class ExperimentManager {
 
 	private HashMap<String, TimeSpanSensor> sensors;
 
-	private Storage storage;
+	public Experiment() {
+		sensors = new HashMap<String, TimeSpanSensor>();
+	}
 
 	/**
 	 *

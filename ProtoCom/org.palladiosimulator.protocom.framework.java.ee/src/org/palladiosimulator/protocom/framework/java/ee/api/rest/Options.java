@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -19,9 +20,10 @@ import javax.ws.rs.core.Response;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
-import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentManager;
+import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.legacy.strategies.DemandConsumerStrategiesRegistry;
+import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
@@ -56,7 +58,7 @@ class Calibrator implements Runnable, ICalibrationListener {
 	}
 
 	private ServletContext context;
-	private Storage storage;
+	private IStorage storage;
 	private StrategyType strategyType;
 
 	/**
@@ -79,10 +81,11 @@ class Calibrator implements Runnable, ICalibrationListener {
 		}
 	}
 
-	public Calibrator(ServletContext context) {
+	public Calibrator(ServletContext context, IStorage storage) {
 		this.context = context;
+		this.storage = storage;
 
-		storage = Storage.getInstance();
+		//storage = Storage.getInstance();
 	}
 
 	@Override
@@ -190,6 +193,12 @@ public class Options {
 
 	private static ExecutorService executor;
 
+	@Inject
+	private Storage storage;
+
+	@Inject
+	private Experiment experiment;
+
 	static {
 		CalibrationThreadFactory factory = new CalibrationThreadFactory();
 		executor = Executors.newFixedThreadPool(1, factory);
@@ -202,7 +211,7 @@ public class Options {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getOptions() {
-		Storage storage = Storage.getInstance();
+		//Storage storage = Storage.getInstance();
 
 		String optionsJson;
 		String[] files;
@@ -234,7 +243,7 @@ public class Options {
 	 */
 	@POST
 	public Response setOptions(String data) {
-		Storage storage = Storage.getInstance();
+		//Storage storage = Storage.getInstance();
 		boolean isCalibrated;
 
 		try {
@@ -269,10 +278,10 @@ public class Options {
 			DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpu);
 		} else {
 			context.setAttribute("status", "calibrating");
-			executor.submit(new Calibrator(context));
+			executor.submit(new Calibrator(context, storage));
 		}
 
-		ExperimentManager.getInstance().init("Test Experiment");
+		experiment.init("Test Experiment");
 
 		try {
 			// TODO: Validate input

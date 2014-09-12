@@ -5,12 +5,14 @@ import java.io.StringWriter;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
+import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentVisitor;
 import org.palladiosimulator.protocom.framework.java.ee.http.Response;
 import org.palladiosimulator.protocom.framework.java.ee.http.StringResponse;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleStartException;
@@ -26,6 +28,9 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 
 	protected String location;
 	protected T component;
+
+	@Inject
+	private ExperimentVisitor experimentVisitor;
 
 	private final List<ICallVisitor> visitors;
 
@@ -59,6 +64,7 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 
 				String innerPortId = request.getParameter("componentId");
 
+				addVisitor(experimentVisitor);
 				start(innerPortId, assemblyContext);
 				response.setError(Response.OK);
 			} catch (ModuleStartException e) {

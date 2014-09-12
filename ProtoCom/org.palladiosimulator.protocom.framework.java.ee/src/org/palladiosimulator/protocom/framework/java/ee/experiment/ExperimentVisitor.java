@@ -2,6 +2,9 @@ package org.palladiosimulator.protocom.framework.java.ee.experiment;
 
 import java.util.Stack;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import org.palladiosimulator.protocom.framework.java.ee.common.ICallVisitor;
 
 /**
@@ -30,6 +33,7 @@ class StartTime {
  *
  * @author Christian Klaussner
  */
+@Singleton
 public final class ExperimentVisitor implements ICallVisitor {
 
 	// Singleton fields and methods.
@@ -44,12 +48,16 @@ public final class ExperimentVisitor implements ICallVisitor {
 		return instance;
 	}
 
-	private ExperimentVisitor() {
+	public ExperimentVisitor() {
 	}
 
 	//
 
-	private ExperimentManager manager = ExperimentManager.getInstance();
+	//private ExperimentManager manager = ExperimentManager.getInstance();
+
+	@Inject
+	private Experiment experiment;
+
 	private Stack<StartTime> startTimes = new Stack<StartTime>();
 
 	@Override
@@ -63,6 +71,6 @@ public final class ExperimentVisitor implements ICallVisitor {
 		long now = System.nanoTime();
 		StartTime start = startTimes.pop();
 
-		manager.takeMeasurement(callId, start.getTime(), now);
+		experiment.takeMeasurement(callId, start.getTime(), now);
 	}
 }

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Set;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -11,11 +12,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
+import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
 @Path("/files")
 public class Files {
-	private StringBuilder appendFiles(StringBuilder sb, Storage storage, String path, int level) throws IOException {
+	@Inject
+	private IStorage storage;
+
+	private StringBuilder appendFiles(StringBuilder sb, String path, int level) throws IOException {
 		Set<String> files = storage.getFiles(path);
 
 		for (String file : files) {
@@ -25,7 +29,7 @@ public class Files {
 
 			if (storage.isFolder(path + "/" + file)) {
 				sb.append(file + ":\n");
-				appendFiles(sb, storage, path + "/" + file, level + 1);
+				appendFiles(sb, path + "/" + file, level + 1);
 			} else {
 				sb.append(file);
 				sb.append("\n");
@@ -38,14 +42,13 @@ public class Files {
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getFiles() {
-		Storage storage = Storage.getInstance();
 		StringBuilder response = new StringBuilder();
 
 		response.append("Files:\n");
 
 		StringBuilder sb = new StringBuilder();
 		try {
-			appendFiles(sb, storage, "", 0);
+			appendFiles(sb, "", 0);
 			response.append(sb.toString());
 		} catch (IOException e) {
 			response.append("error");
@@ -72,7 +75,6 @@ public class Files {
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public Response getFile(@PathParam("file") String file) {
 		try {
-			Storage storage = Storage.getInstance();
 			byte[] data = storage.readFile(file);
 
 			return Response.ok(data).build();
@@ -85,8 +87,6 @@ public class Files {
 	@GET
 	@Path("delete/calibration")
 	public void deleteCalibration() {
-		Storage storage = Storage.getInstance();
-
 		storage.deleteFile("calibration/low.cpu.fibonacci");
 		storage.deleteFile("calibration/low.hdd.largeChunks");
 	}
@@ -94,8 +94,6 @@ public class Files {
 	@GET
 	@Path("delete/experiments")
 	public void deleteExperiments() {
-		Storage storage = Storage.getInstance();
-
 		try {
 			for (String folder : storage.getFiles("experiments")) {
 				for (String file : storage.getFiles("experiments/" + folder)) {
@@ -114,8 +112,6 @@ public class Files {
 	@GET
 	@Path("test/write")
 	public void testWrite() {
-		Storage storage = Storage.getInstance();
-
 		try {
 			storage.createFolder("x");
 			storage.createFolder("x/y");
@@ -130,8 +126,6 @@ public class Files {
 	@GET
 	@Path("test/read")
 	public void testRead() {
-		Storage storage = Storage.getInstance();
-
 		try {
 			String data = storage.readFileAsString("x/y.txt");
 			System.out.println(data);

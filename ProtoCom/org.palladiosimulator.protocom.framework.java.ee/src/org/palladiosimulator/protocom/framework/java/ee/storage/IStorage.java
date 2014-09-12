@@ -61,4 +61,18 @@ public interface IStorage {
 	 */
 	void deleteFile(String path);
 	// TODO: Add recursive deletion
+
+	/**
+	 *
+	 * @param path
+	 * @return
+	 */
+	boolean isFolder(String path);
+
+	/**
+	 *
+	 * @param path
+	 * @return
+	 */
+	boolean fileExists(String path);
 }

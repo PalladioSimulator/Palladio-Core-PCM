@@ -43,6 +43,8 @@ jsp/RemoteRegistry.jsp -> jsp
 lib/asm-3.1.jar -> WEB-INF/lib
 lib/commons-io-2.4.jar -> WEB-INF/lib
 lib/commons-logging-1.1.3.jar -> WEB-INF/lib
+lib/guice-3.0.jar -> WEB-INF/lib
+lib/guice-servlet-3.0.jar -> WEB-INF/lib
 lib/httpclient-4.1.3.jar -> WEB-INF/lib
 lib/httpcore-4.1.4.jar -> WEB-INF/lib
 lib/jackson-annotations-2.2.3.jar -> WEB-INF/lib

@@ -10,6 +10,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.inject.Singleton;
+
 import org.apache.chemistry.opencmis.client.api.CmisObject;
 import org.apache.chemistry.opencmis.client.api.Document;
 import org.apache.chemistry.opencmis.client.api.Folder;
@@ -26,14 +28,8 @@ import org.apache.commons.io.IOUtils;
  *
  * @author Christian Klaussner
  */
+@Singleton
 public class Storage implements IStorage {
-	// TODO: Replace with DI
-	private static Storage instance;
-	public static Storage getInstance() {
-		if (instance == null) instance = new Storage();
-		return instance;
-	}
-
 	private static final String NAME = "ProtoCom-Repository";
 	private static final String KEY = "protocom_key";
 
@@ -127,7 +123,7 @@ public class Storage implements IStorage {
 	/**
 	 *
 	 */
-	private Storage() {
+	public Storage() {
 		// TODO: Improve exception handling in case ECM is not available
 		session = EcmProxy.getSession(NAME, KEY);
 	}
@@ -221,6 +217,7 @@ public class Storage implements IStorage {
 		object.delete();
 	}
 
+	@Override
 	public boolean isFolder(String path) {
 		try {
 			CmisObject object = session.getObjectByPath(path);
@@ -235,6 +232,7 @@ public class Storage implements IStorage {
 		}
 	}
 
+	@Override
 	public boolean fileExists(String path) {
 		try {
 			session.getObjectByPath(checkPath(path));
