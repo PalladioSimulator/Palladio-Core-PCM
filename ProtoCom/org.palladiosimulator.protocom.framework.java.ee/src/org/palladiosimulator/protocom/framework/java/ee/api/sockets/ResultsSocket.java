@@ -14,7 +14,7 @@ import javax.websocket.server.ServerEndpoint;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentData;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 
-@ServerEndpoint("/ws/experiment")
+@ServerEndpoint("/ws/results")
 public class ResultsSocket extends WebSocket {
 	private static Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
 

@@ -19,7 +19,8 @@ var App = (function($, App) {
 		},
 
 		start: function() {
-			var url = 'ws://' + location.host + location.pathname + 'ws/log';
+			var path = location.pathname.replace(/\/$/, '');
+			var url = 'ws://' + location.host + path + '/ws/log';
 
 			var connection = new WebSocket(url);
 			var self = this;

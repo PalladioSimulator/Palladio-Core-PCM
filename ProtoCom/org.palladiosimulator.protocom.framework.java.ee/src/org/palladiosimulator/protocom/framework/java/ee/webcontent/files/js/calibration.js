@@ -15,7 +15,8 @@ var App = (function($, App) {
 		},
 
 		start: function() {
-			var url = 'ws://' + location.host + location.pathname + 'ws/calibration';
+			var path = location.pathname.replace(/\/$/, '');
+			var url = 'ws://' + location.host + path + '/ws/calibration';
 
 			var connection = new WebSocket(url);
 			var self = this;

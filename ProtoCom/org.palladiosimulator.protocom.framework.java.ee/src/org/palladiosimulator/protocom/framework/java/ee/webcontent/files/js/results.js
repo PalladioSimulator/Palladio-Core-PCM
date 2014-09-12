@@ -65,8 +65,8 @@ var App = (function($, App) {
 		},
 
 		startSocket: function() {
-			var url = 'ws://' + location.host + location.pathname + 'ws/experiment';
-			console.log(url);
+			var path = location.pathname.replace(/\/$/, '');
+			var url = 'ws://' + location.host + path + '/ws/results';
 			
 			var connection = new WebSocket(url);
 			var self = this;
