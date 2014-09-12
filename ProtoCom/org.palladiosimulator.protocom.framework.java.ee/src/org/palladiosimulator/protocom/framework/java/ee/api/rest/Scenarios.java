@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -14,7 +15,7 @@ import javax.ws.rs.core.Response;
 import org.apache.commons.io.IOUtils;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.IUsageScenario;
-import org.palladiosimulator.protocom.framework.java.ee.prototype.Prototype;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 
 import com.sun.jersey.core.header.ContentDisposition;
 
@@ -24,16 +25,16 @@ import com.sun.jersey.core.header.ContentDisposition;
  */
 @Path("/scenarios")
 public class Scenarios {
+	@Inject
+	private PrototypeBridge bridge;
 
 	/**
 	 *
 	 * @param id
 	 * @return
 	 */
-	private static IUsageScenario getScenario(String id) {
-		Prototype prototype = Prototype.getInstance();
-
-		for (IUsageScenario scenario : prototype.getUsageScenarios()) {
+	private IUsageScenario getScenario(String id) {
+		for (IUsageScenario scenario : bridge.getUsageScenarios()) {
 			if (scenario.getId().equals(id)) {
 				return scenario;
 			}
@@ -49,8 +50,7 @@ public class Scenarios {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getScenarios() {
-		Prototype prototype = Prototype.getInstance();
-		return Response.ok(JsonHelper.toJson(prototype.getUsageScenarios())).build();
+		return Response.ok(JsonHelper.toJson(bridge.getUsageScenarios())).build();
 	}
 
 	/**

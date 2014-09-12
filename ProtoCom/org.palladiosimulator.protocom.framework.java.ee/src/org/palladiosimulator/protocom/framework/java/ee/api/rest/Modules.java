@@ -2,6 +2,7 @@ package org.palladiosimulator.protocom.framework.java.ee.api.rest;
 
 import java.net.URI;
 
+import javax.inject.Inject;
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -17,8 +18,9 @@ import org.palladiosimulator.protocom.framework.java.ee.modules.Module;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleList;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleStartException;
 import org.palladiosimulator.protocom.framework.java.ee.modules.SystemModule;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.Allocation;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.Container;
-import org.palladiosimulator.protocom.framework.java.ee.prototype.Prototype;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.System;
 
 /**
@@ -32,23 +34,24 @@ public class Modules {
 
 	private static ModuleList modules;
 
-	public Modules() {
+	@Inject
+	private Modules(PrototypeBridge bridge) {
 		if (modules == null) {
-			Prototype prototype = Prototype.getInstance();
 			modules = new ModuleList();
 
 			// Add containers to the list.
 
-			for (Container container : prototype.getContainers()) {
+			for (Container container : bridge.getContainers()) {
 				String id = container.getId();
 				String name = container.getName();
+				Allocation[] allocations = bridge.getAllocations(id);
 
-				modules.add(new ContainerModule(id, name));
+				modules.add(new ContainerModule(id, name, allocations));
 			}
 
 			// Add system to the list.
 
-			System system = prototype.getSystem();
+			System system = bridge.getSystem();
 			modules.add(new SystemModule(system.getName(), system.getClassName()));
 		}
 	}

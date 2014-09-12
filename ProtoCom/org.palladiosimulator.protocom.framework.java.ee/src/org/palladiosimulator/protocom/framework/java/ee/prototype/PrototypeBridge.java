@@ -3,32 +3,18 @@ package org.palladiosimulator.protocom.framework.java.ee.prototype;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.inject.Singleton;
+
 /**
  *
  * @author Christian Klaussner
  */
-public final class Prototype {
-	private static Prototype instance;
-
-	private Prototype() {
-	}
-
-	public static Prototype getInstance() {
-		if (instance == null) {
-			instance = new Prototype();
-		}
-
-		return instance;
-	}
-
-	// Instance variables.
-
+@Singleton
+public final class PrototypeBridge {
 	private Container[] containers;
 	private IUsageScenario[] scenarios;
 	private System system;
 	private Allocation[] allocations;
-
-	// Instance methods.
 
 	public void setContainers(Container[] containers) {
 		this.containers = containers;

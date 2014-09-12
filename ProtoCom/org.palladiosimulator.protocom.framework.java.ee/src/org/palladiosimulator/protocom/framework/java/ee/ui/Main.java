@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 import org.palladiosimulator.protocom.framework.java.ee.registry.Registry;
 
 import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 /**
  *
@@ -29,17 +31,33 @@ public abstract class Main extends HttpServlet {
 	/**
 	 *
 	 */
-	protected abstract void initPrototype();
+	protected abstract void initPrototype(PrototypeBridge bridge);
 
+	/**
+	 *
+	 */
 	public Main() {
 		super();
+
+		// Initialize logging.
 
 		LOGGER.removeAllAppenders();
 		LOGGER.addAppender(new WebAppender());
 
 		LOGGER.setLevel(Level.INFO);
 
-		initPrototype();
+		/*
+		 * Initialization of Guice is usually done in a ServletContextListener.
+		 * However, the EcmService class of the SAP HANA Cloud Document Service
+		 * is loaded after the Guice initialization (via web.xml), which makes it
+		 * impossible for injected IStorage instances to connect to the service.
+		 */
+		Injector injector = Guice.createInjector(new ProtoComModule());
+
+		// Get an instance of the bridge and initialize the prototype.
+
+		PrototypeBridge bridge = injector.getInstance(PrototypeBridge.class);
+		initPrototype(bridge);
 	}
 
 	@Override
@@ -47,20 +65,9 @@ public abstract class Main extends HttpServlet {
 		throws ServletException, IOException {
 
 		if (firstRequest) {
-			/*
-			 * Initialization of Guice is usually done in a ServletContextListener.
-			 * However, the EcmService class of the SAP HANA Cloud Document Service
-			 * is loaded after the Guice initialization (via web.xml), which makes it
-			 * impossible for injected IStorage instances to connect to the service.
-			 * Therefore, Guice is initialized here, during the first request.
-			 */
-			Guice.createInjector(new ProtoComModule());
-
 			Registry.getInstance().setLocation(request.getRequestURL().toString());
 			firstRequest = false;
 		}
-
-		//response.getOutputStream().println("Hallo");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/Main.jsp");
 		dispatcher.forward(request, response);
