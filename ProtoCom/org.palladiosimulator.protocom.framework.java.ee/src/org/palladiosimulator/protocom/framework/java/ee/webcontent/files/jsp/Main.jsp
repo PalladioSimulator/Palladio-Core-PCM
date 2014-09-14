@@ -50,7 +50,7 @@
 			<form>
 				<div class="option">
 				<label for="experiment-name">Experiment Name:</label>
-				<input id="experiment-name" name="name" value="{{- name }}" autocomplete="off">
+				<input id="experiment-name" name="name" value="{{- name }}" autocomplete="off" spellcheck="false">
 				</div>
 
 				<div class="option">
@@ -115,7 +115,7 @@
 
 		<script type="text/template" id="template-registry">
 			<form action="#">
-				<input class="input" type="text" name="location" value="{{ location }}" autocomplete="off">
+				<input class="input" type="text" name="location" value="{{ location }}" autocomplete="off" spellcheck="false">
 			</form>
 			
 			<div class="note">Modules perform registrations and lookups at the specified location during startup.</div>
