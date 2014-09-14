@@ -57,7 +57,7 @@ class ServletSystemMain extends ServletClass<System> {
 				.withReturnType('''«frameworkBase».prototype.IUsageScenario[]''')
 				.withName("getUsageScenarios")
 				.withImplementation('''
-					Class<?>[] classes = «frameworkBase».prototype.ClassHelper.getClassesInPackage("usagescenarios");
+					Class<?>[] classes = «frameworkBase».prototype.ClassHelper.getSubclasses("usagescenarios", «frameworkBase».prototype.IUsageScenario.class);
 					«frameworkBase».prototype.IUsageScenario[] scenarios = new «frameworkBase».prototype.IUsageScenario[classes.length];
 
 					try {
