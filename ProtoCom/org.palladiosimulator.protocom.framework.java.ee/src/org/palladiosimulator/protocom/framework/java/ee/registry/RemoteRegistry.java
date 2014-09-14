@@ -136,6 +136,10 @@ public class RemoteRegistry extends HttpServlet {
 				result = lookup(request.getParameter("name"));
 			}
 
+			if (result.getError() != Response.OK) {
+				response.setStatus(404);
+			}
+
 			response.getOutputStream().print(result.toJson());
 		}
 	}

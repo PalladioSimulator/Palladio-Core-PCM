@@ -28,7 +28,8 @@ var App = (function($, App) {
 				this.$el.find('.state').addClass('started').text('Started');
 				this.$el.find('.start').prop('disabled', true);
 			} else {
-				this.$el.find('.state').text('Stopped');
+				this.$el.find('.state').removeClass('started').text('Stopped');
+				this.$el.find('.start').prop('disabled', false);
 			}
 		},
 
@@ -37,9 +38,22 @@ var App = (function($, App) {
 
 			this.$el.find('.start').prop('disabled', true);
 			
-			$.get('api/modules/' + this.model.get('id') + '/start', function(response) {
+			/*$.get('api/modules/' + this.model.get('id') + '/start', function(response) {
 				self.model.set('started', true);
 				self.updateState();
+			});*/
+			
+			$.ajax({
+				url: 'api/modules/' + this.model.get('id') + '/start',
+				
+				success: function(response) {
+					self.model.set('started', true);
+					self.updateState();
+				},
+				
+				error: function(response) {
+					self.updateState();
+				}
 			});
 		}
 	});

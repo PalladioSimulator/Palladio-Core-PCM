@@ -16,7 +16,6 @@ import javax.ws.rs.core.UriInfo;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ContainerModule;
 import org.palladiosimulator.protocom.framework.java.ee.modules.Module;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleList;
-import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleStartException;
 import org.palladiosimulator.protocom.framework.java.ee.modules.SystemModule;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.Allocation;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.Container;
@@ -91,11 +90,11 @@ public class Modules {
 	public Response startModule(@Context UriInfo uriInfo, @PathParam("id") String id) {
 		Module module = modules.get(id);
 
-		try {
+//		try {
 			module.startModule(getBaseUrl(uriInfo));
-		} catch (ModuleStartException e) {
-			e.printStackTrace();
-		}
+//		} catch (ModuleStartException e) {
+//			return Response.serverError().build();
+//		}
 
 		return Response.ok().build();
 	}
