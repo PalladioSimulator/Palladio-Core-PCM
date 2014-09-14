@@ -71,10 +71,6 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		''')
 	}
 	
-	override content() {
-		provider.content
-	}
-	
 	/**
 	 * Generates the XML for the test plan.
 	 * @returns a string containing the XML for the test plan 
@@ -125,7 +121,7 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
 		  <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
 		    <boolProp name="LoopController.continue_forever">false</boolProp>
-		    <stringProp name="LoopController.loops">1</stringProp>
+		    <stringProp name="LoopController.loops">${MEASUREMENTS_PER_USER}</stringProp>
 		  </elementProp>
 		  <stringProp name="ThreadGroup.num_threads">«population»</stringProp>
 		  <stringProp name="ThreadGroup.ramp_time">0</stringProp>
@@ -191,8 +187,15 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 	
 	private def arguments() {
 		'''
-		<Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
-		  <collectionProp name="Arguments.arguments"/>
+		<Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration" enabled="true">
+		  <collectionProp name="Arguments.arguments">
+		    <elementProp name="measurementsPerUser" elementType="Argument">
+		      <stringProp name="Argument.name">MEASUREMENTS_PER_USER</stringProp>
+		      <stringProp name="Argument.value">1</stringProp>
+		      <stringProp name="Argument.desc">Number of measurements (iterations) per user</stringProp>
+		      <stringProp name="Argument.metadata">=</stringProp>
+		    </elementProp>
+		  </collectionProp>
 		</Arguments>
 		'''
 	}
@@ -293,6 +296,10 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
 		</HTTPSamplerProxy>
 		'''
+	}
+	
+	override content() {
+		provider.content
 	}
 	
 	override population() {
