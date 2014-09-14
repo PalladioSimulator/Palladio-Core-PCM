@@ -29,8 +29,6 @@ public class FileProvider {
 	 * @return
 	 */
 	private FrameworkFile processIndex(String source, String path) {
-		System.out.println(source);
-
 		URL url = getClass().getResource("files/" + source);
 		String absolute = path + '/' + source.substring(source.lastIndexOf('/') + 1);
 
