@@ -81,6 +81,7 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="TestPlan.comments"></stringProp>
 		  <boolProp name="TestPlan.functional_mode">false</boolProp>
 		  <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+		  <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
 		  <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
 		    <collectionProp name="Arguments.arguments"/>
 		  </elementProp>
