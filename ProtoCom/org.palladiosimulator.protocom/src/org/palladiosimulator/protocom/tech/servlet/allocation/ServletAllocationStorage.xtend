@@ -21,7 +21,7 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 	}
 	
 	override compilationUnitName() {
-		"ContainerAllocation"
+		"ComponentAllocation"
 	}
 	
 	override methods() {
@@ -64,6 +64,6 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 	}
 	
 	override filePath() {
-		"/src/main/ContainerAllocation.java"
+		"/src/main/ComponentAllocation.java"
 	}	
 }

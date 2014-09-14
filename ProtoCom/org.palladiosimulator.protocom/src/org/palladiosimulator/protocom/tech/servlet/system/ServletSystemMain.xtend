@@ -50,7 +50,7 @@ class ServletSystemMain extends ServletClass<System> {
 					prototype.setUsageScenarios(getUsageScenarios());
 
 					ResourceEnvironment.init();
-					ContainerAllocation.init();
+					ComponentAllocation.init();
 				'''),
 				
 			new JMethod()
