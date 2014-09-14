@@ -44,15 +44,27 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 			  <hashTree>
 			    «testPlan»
 			    <hashTree>
+			      «arguments»
+			      <hashTree/>
 			      «requestDefaults»
 			      <hashTree/>
+			      «setupThreadGroup»
+			      <hashTree>
+			        «httpRequest("Start Request", "org.palladiosimulator.temporary/api/experiment/start")»
+			      </hashTree>
 			      «threadGroup»
 			      <hashTree>
 			        «content»
 			        «thinkTimeDelay»
 			      </hashTree>
+			      «postThreadGroup»
+			      <hashTree>
+			        «httpRequest("Stop Request", "org.palladiosimulator.temporary/api/experiment/stop")»
+			      </hashTree>
 			    </hashTree>
 			    «summaryReport»
+			    <hashTree/>
+			    «viewResultsTree»
 			    <hashTree/>
 			  </hashTree>
 			</jmeterTestPlan>
@@ -109,8 +121,8 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 	 */
 	private def threadGroup() {
 		'''
-		<ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
-		  <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+		<ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Experiment" enabled="true">
+		  <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
 		  <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
 		    <boolProp name="LoopController.continue_forever">false</boolProp>
 		    <stringProp name="LoopController.loops">1</stringProp>
@@ -174,6 +186,112 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="ActionProcessor.duration">«thinkTime»</stringProp>
 		</TestAction>
 		<hashTree/>
+		'''
+	}
+	
+	private def arguments() {
+		'''
+		<Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables" enabled="true">
+		  <collectionProp name="Arguments.arguments"/>
+		</Arguments>
+		'''
+	}
+	
+	private def setupThreadGroup() {
+		'''
+		<SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Start" enabled="true">
+		  <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+		  <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+		    <boolProp name="LoopController.continue_forever">false</boolProp>
+		    <stringProp name="LoopController.loops">1</stringProp>
+		  </elementProp>
+		  <stringProp name="ThreadGroup.num_threads">1</stringProp>
+		  <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+		  <longProp name="ThreadGroup.start_time">1410291848000</longProp>
+		  <longProp name="ThreadGroup.end_time">1410291848000</longProp>
+		  <boolProp name="ThreadGroup.scheduler">false</boolProp>
+		  <stringProp name="ThreadGroup.duration"></stringProp>
+		  <stringProp name="ThreadGroup.delay"></stringProp>
+		</SetupThreadGroup>
+		'''
+	}
+	
+	private def postThreadGroup() {
+		'''
+		<PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="Stop" enabled="true">
+		  <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+		  <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+		    <boolProp name="LoopController.continue_forever">false</boolProp>
+		    <stringProp name="LoopController.loops">1</stringProp>
+		  </elementProp>
+		  <stringProp name="ThreadGroup.num_threads">1</stringProp>
+		  <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+		  <longProp name="ThreadGroup.start_time">1410291879000</longProp>
+		  <longProp name="ThreadGroup.end_time">1410291879000</longProp>
+		  <boolProp name="ThreadGroup.scheduler">false</boolProp>
+		  <stringProp name="ThreadGroup.duration"></stringProp>
+		  <stringProp name="ThreadGroup.delay"></stringProp>
+		</PostThreadGroup>
+		'''
+	}
+	
+	private def viewResultsTree() {
+		'''
+		<ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Debug" enabled="true">
+		  <boolProp name="ResultCollector.error_logging">false</boolProp>
+		  <objProp>
+		    <name>saveConfig</name>
+		    <value class="SampleSaveConfiguration">
+		      <time>true</time>
+		      <latency>true</latency>
+		      <timestamp>true</timestamp>
+		      <success>true</success>
+		      <label>true</label>
+		      <code>true</code>
+		      <message>true</message>
+		      <threadName>true</threadName>
+		      <dataType>true</dataType>
+		      <encoding>false</encoding>
+		      <assertions>true</assertions>
+		      <subresults>true</subresults>
+		      <responseData>false</responseData>
+		      <samplerData>false</samplerData>
+		      <xml>false</xml>
+		      <fieldNames>false</fieldNames>
+		      <responseHeaders>false</responseHeaders>
+		      <requestHeaders>false</requestHeaders>
+		      <responseDataOnError>false</responseDataOnError>
+		      <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+		      <assertionsResultsToSave>0</assertionsResultsToSave>
+		      <bytes>true</bytes>
+		    </value>
+		  </objProp>
+		  <stringProp name="filename"></stringProp>
+		</ResultCollector>
+		'''
+	}
+	
+	private def httpRequest(String name, String path) {
+		'''
+		<HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="«name»" enabled="true">
+		  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+		    <collectionProp name="Arguments.arguments"/>
+		  </elementProp>
+		  <stringProp name="HTTPSampler.domain"></stringProp>
+		  <stringProp name="HTTPSampler.port"></stringProp>
+		  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+		  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+		  <stringProp name="HTTPSampler.protocol"></stringProp>
+		  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+		  <stringProp name="HTTPSampler.path">«path»</stringProp>
+		  <stringProp name="HTTPSampler.method">GET</stringProp>
+		  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+		  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+		  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+		  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+		  <boolProp name="HTTPSampler.monitor">false</boolProp>
+		  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+		</HTTPSamplerProxy>
 		'''
 	}
 	
