@@ -24,6 +24,7 @@ public class SystemModule extends Module {
 		super("0", name, true);
 
 		this.className = className;
+		setDisplayName("System: " + name);
 	}
 
 	@Override

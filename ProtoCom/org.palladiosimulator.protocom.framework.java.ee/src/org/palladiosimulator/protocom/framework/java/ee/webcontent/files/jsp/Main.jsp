@@ -145,7 +145,7 @@
 		</script>
 
 		<script type="text/template" id="template-module">
-			<td>{{- name }}</td>
+			<td>{{- displayName }}</td>
 			<td class="state"></td>
 			<td class="last">
 				<button class="start">Start</button>

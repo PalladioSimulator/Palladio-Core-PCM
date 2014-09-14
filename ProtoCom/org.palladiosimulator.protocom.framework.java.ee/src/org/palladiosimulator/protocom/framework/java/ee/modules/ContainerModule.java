@@ -24,6 +24,7 @@ public class ContainerModule extends Module {
 		super(id, name, true);
 
 		this.allocations = allocations;
+		setDisplayName("Container: " + name);
 	}
 
 	@Override
