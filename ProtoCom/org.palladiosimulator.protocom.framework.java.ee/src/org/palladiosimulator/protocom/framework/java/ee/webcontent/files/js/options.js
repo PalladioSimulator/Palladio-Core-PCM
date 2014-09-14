@@ -25,7 +25,8 @@ var App = (function($, App) {
 
 		events: {
 			'click .confirm': 'confirm',
-			'change select': 'updateStatus'
+			'change select': 'updateStatus',
+			'submit form': 'confirm'
 		},
 
 		initialize: function() {
@@ -45,7 +46,9 @@ var App = (function($, App) {
 			return this;
 		},
 
-		confirm: function() {
+		confirm: function(e) {
+			e.preventDefault();
+			
 			this.$el.find('.confirm').prop('disabled', true);
 
 			var data = {};

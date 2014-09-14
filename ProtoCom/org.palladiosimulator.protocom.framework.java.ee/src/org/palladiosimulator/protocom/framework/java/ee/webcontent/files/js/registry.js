@@ -12,8 +12,7 @@ var App = (function($, App) {
 		id: 'registry', 
 
 		events: {
-			'blur input[name="location"]': 'save',
-			'submit form': 'save'
+			'blur input[name="location"]': 'save'
 		}, 
 
 		render: function() {

@@ -49,39 +49,39 @@
 		<script type="text/template" id="template-options">
 			<form>
 				<div class="option">
-				<label for="experiment-name">Experiment Name:</label>
-				<input id="experiment-name" name="name" value="{{- name }}" autocomplete="off" spellcheck="false">
+					<label for="experiment-name">Experiment Name:</label>
+					<input id="experiment-name" name="name" value="{{- name }}" autocomplete="off" spellcheck="false">
 				</div>
 
 				<div class="option">
-				<label for="cpu-strategy">CPU Strategy:</label>
+					<label for="cpu-strategy">CPU Strategy:</label>
 
-				<select id="cpu-strategy" name="cpuStrategy">
-					<option value="primes">Primes</option>
-					<option value="count_numbers">Count Numbers</option>
-					<option value="fft">FFT</option>
-					<option value="fibonacci">Fibonacci</option>
-					<option value="mandelbrot">Mandelbrot</option>
-					<option value="sortarray">Sort Array</option>
-					<option value="void">Void</option>
-					<option value="wait">Wait</option>
-				</select>
+					<select id="cpu-strategy" name="cpuStrategy">
+						<option value="primes">Primes</option>
+						<option value="count_numbers">Count Numbers</option>
+						<option value="fft">FFT</option>
+						<option value="fibonacci">Fibonacci</option>
+						<option value="mandelbrot">Mandelbrot</option>
+						<option value="sortarray">Sort Array</option>
+						<option value="void">Void</option>
+						<option value="wait">Wait</option>
+					</select>
 				</div>
 
 				<div class="option">
-				<label for="hdd-strategy">HDD Strategy:</label>
-				<select id="hdd-strategy" name="hddStrategy">
-					<option value="largeChunks">Large Chunks</option>
-				</select>
+					<label for="hdd-strategy">HDD Strategy:</label>
+					<select id="hdd-strategy" name="hddStrategy">
+						<option value="largeChunks">Large Chunks</option>
+					</select>
 				</div>
 
 				<div class="option">
-				<label for="accuracy">Accuracy:</label>
-				<select id="accuracy" name="accuracy">
-					<option value="low">Low</option>
-					<option value="medium">Medium</option>
-					<option value="high">High</option>
-				</select>
+					<label for="accuracy">Accuracy:</label>
+					<select id="accuracy" name="accuracy">
+						<option value="low">Low</option>
+						<option value="medium">Medium</option>
+						<option value="high">High</option>
+					</select>
 				</div>
 			</form>
 
@@ -114,9 +114,9 @@
 		</script>
 
 		<script type="text/template" id="template-registry">
-			<form action="#">
+			<!--<form action="#">-->
 				<input class="input" type="text" name="location" value="{{ location }}" autocomplete="off" spellcheck="false">
-			</form>
+			<!--</form>-->
 			
 			<div class="note">Modules perform registrations and lookups at the specified location during startup.</div>
 		</script>
@@ -193,7 +193,7 @@
 				<thead>
 					<tr>
 						<th>Experiment</th>
-						<th>Last Change</th>
+						<th>Last Run</th>
 						<th class="last">Download</th>
 					</tr>
 				</thead>
