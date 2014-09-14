@@ -150,6 +150,10 @@ button.confirm:disabled {
 	color: #ffbb00;
 }
 
+.error {
+	color: red;
+}
+
 /* Header */
 
 #header {

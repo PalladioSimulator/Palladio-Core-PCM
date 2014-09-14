@@ -4,17 +4,19 @@ var App = (function($, App) {
 		tagName: 'div',
 		id: 'calibration',
 		className: 'box',
+		
+		initialize: function() {
+			this.startSocket();
+		},
 
 		render: function() {
 			var template = _.template($('#template-calibration-box').html());
 			this.$el.append(template());
 
-			this.start();
-
 			return this;
 		},
 
-		start: function() {
+		startSocket: function() {
 			var path = location.pathname.replace(/\/$/, '');
 			var url = 'ws://' + location.host + path + '/ws/calibration';
 
@@ -32,11 +34,11 @@ var App = (function($, App) {
 						App.updateView();
 					}, 500);
 				}
-			}
+			};
 
 			connection.onerror = function(e) {
 				console.log(e);
-			}
+			};
 		}
 	});
 

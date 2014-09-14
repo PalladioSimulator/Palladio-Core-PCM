@@ -9,16 +9,18 @@ var App = (function($, App) {
 		reuseIndex: 0,
 		capacity: 100,
 
+		initialize: function() {
+			this.startSocket();
+		},
+		
 		render: function() {
 			var template = _.template($('#template-log-box').html());
 			this.$el.append(template());
 
-			this.start();
-
 			return this;
 		},
 
-		start: function() {
+		startSocket: function() {
 			var path = location.pathname.replace(/\/$/, '');
 			var url = 'ws://' + location.host + path + '/ws/log';
 
@@ -30,19 +32,19 @@ var App = (function($, App) {
 
 				if (_.isArray(data.payload)) {
 					_.each(data.payload, function(element) {
-						self.append(element)
+						self.addMessage(element);
 					});
 				} else {
-					self.append(data.payload);
+					self.addMessage(data.payload);
 				}
-			}
+			};
 
 			connection.onerror = function(e) {
 				console.log(e);
-			}
+			};
 		},
 
-		append: function(message) {
+		addMessage: function(message) {
 			var log = this.$el.find("#messages");
 			var div = this.messages[this.reuseIndex];
 
@@ -51,9 +53,10 @@ var App = (function($, App) {
 				this.messages[this.reuseIndex] = div;
 			}
 
-			div.text(message);
+			div.text(message.text);
+			if (message.error) div.addClass('error');
+			
 			div.appendTo(log);
-
 			log.scrollTop(log[0].scrollHeight);
 
 			this.reuseIndex++;
