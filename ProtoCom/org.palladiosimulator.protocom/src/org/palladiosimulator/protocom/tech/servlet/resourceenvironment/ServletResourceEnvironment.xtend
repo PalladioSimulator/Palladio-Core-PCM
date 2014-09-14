@@ -61,15 +61,15 @@ class ServletResourceEnvironment extends ConceptMapping<ResourceEnvironment> imp
 				.withVisibilityModifier("public")
 				.withStaticModifier
 				.withName("init")
+				.withParameters('''«frameworkBase».prototype.PrototypeBridge bridge''')
 				.withImplementation('''
-					«frameworkBase».prototype.Prototype prototype = «frameworkBase».prototype.Prototype.getInstance();
-					«frameworkBase».prototype.Container[] containers = new «frameworkBase».prototype.Container[«containers.length»];
+					«frameworkBase».prototype.PrototypeBridge.Container[] containers = new «frameworkBase».prototype.PrototypeBridge.Container[«containers.length»];
 					
 					«FOR container : containers»
-						containers[«i++»] = new «frameworkBase».prototype.Container("«container.id»", "«container.entityName»", "«getRate(container, "cpu")»", "«getRate(container, "hdd")»");
+						containers[«i++»] = bridge.new Container("«container.id»", "«container.entityName»", "«getRate(container, "cpu")»", "«getRate(container, "hdd")»");
 					«ENDFOR»
 					
-					prototype.setContainers(containers);
+					bridge.setContainers(containers);
 				''')
 		]
 	}

@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import org.apache.log4j.Logger;
-import org.palladiosimulator.protocom.framework.java.ee.prototype.Allocation;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 
 /**
  * A ContainerModule represents a PCM resource container and its assigned components.
@@ -13,14 +13,14 @@ import org.palladiosimulator.protocom.framework.java.ee.prototype.Allocation;
 public class ContainerModule extends Module {
 	private static final Logger LOGGER = Logger.getRootLogger();
 
-	private Allocation[] allocations;
+	private PrototypeBridge.Allocation[] allocations;
 
 	/**
 	 * Constructs a new ContainerModule object.
 	 * @param id the ID of the container
 	 * @param name the display name of the container
 	 */
-	public ContainerModule(String id, String name, Allocation[] allocations) {
+	public ContainerModule(String id, String name, PrototypeBridge.Allocation[] allocations) {
 		super(id, name, true);
 
 		this.allocations = allocations;
@@ -36,7 +36,7 @@ public class ContainerModule extends Module {
 
 		LOGGER.info("Start container '" + getName() + "'");
 
-		for (Allocation allocation : allocations) {
+		for (PrototypeBridge.Allocation allocation : allocations) {
 
 			LOGGER.info("Start component '" + allocation.getComponentClass().getSimpleName() + "'");
 

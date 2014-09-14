@@ -43,14 +43,13 @@ class ServletSystemMain extends ServletClass<System> {
 				.withVisibilityModifier("protected")
 				.withReturnType("void")
 				.withName("initPrototype")
+				.withParameters('''«frameworkBase».prototype.PrototypeBridge bridge''')
 				.withImplementation('''
-					«frameworkBase».prototype.Prototype prototype = «frameworkBase».prototype.Prototype.getInstance();
+					bridge.setSystem(bridge.new System("«system»", "«systemClass»"));
+					bridge.setUsageScenarios(getUsageScenarios());
 
-					prototype.setSystem(new «frameworkBase».prototype.System("«system»", "«systemClass»"));
-					prototype.setUsageScenarios(getUsageScenarios());
-
-					ResourceEnvironment.init();
-					ComponentAllocation.init();
+					ResourceEnvironment.init(bridge);
+					ComponentAllocation.init(bridge);
 				'''),
 				
 			new JMethod()

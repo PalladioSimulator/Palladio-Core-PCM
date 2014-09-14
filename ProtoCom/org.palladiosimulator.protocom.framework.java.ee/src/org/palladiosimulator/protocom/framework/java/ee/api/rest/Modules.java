@@ -17,10 +17,7 @@ import org.palladiosimulator.protocom.framework.java.ee.modules.ContainerModule;
 import org.palladiosimulator.protocom.framework.java.ee.modules.Module;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleList;
 import org.palladiosimulator.protocom.framework.java.ee.modules.SystemModule;
-import org.palladiosimulator.protocom.framework.java.ee.prototype.Allocation;
-import org.palladiosimulator.protocom.framework.java.ee.prototype.Container;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
-import org.palladiosimulator.protocom.framework.java.ee.prototype.System;
 
 /**
  *
@@ -40,17 +37,17 @@ public class Modules {
 
 			// Add containers to the list.
 
-			for (Container container : bridge.getContainers()) {
+			for (PrototypeBridge.Container container : bridge.getContainers()) {
 				String id = container.getId();
 				String name = container.getName();
-				Allocation[] allocations = bridge.getAllocations(id);
+				PrototypeBridge.Allocation[] allocations = bridge.getAllocations(id);
 
 				modules.add(new ContainerModule(id, name, allocations));
 			}
 
 			// Add system to the list.
 
-			System system = bridge.getSystem();
+			PrototypeBridge.System system = bridge.getSystem();
 			modules.add(new SystemModule(system.getName(), system.getClassName()));
 		}
 	}

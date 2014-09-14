@@ -11,6 +11,95 @@ import javax.inject.Singleton;
  */
 @Singleton
 public final class PrototypeBridge {
+
+
+	public class System {
+		private String name;
+		private String className;
+
+		public System(String name, String className) {
+			this.name = name;
+			this.className = className;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public String getClassName() {
+			return className;
+		}
+	}
+
+	public class Container {
+		private String id;
+		private String name;
+		private String cpuRate;
+		private String hddRate;
+
+		/**
+		 * Constructs a new Container object.
+		 * @param id the PCM identifier of the container
+		 * @param name the name of the container
+		 * @param cpuRate the processing rate of the container's CPU
+		 * @param hddRate the processing rate of the container's HDD
+		 */
+		public Container(String id, String name, String cpuRate, String hddRate) {
+			this.id = id;
+			this.name = name;
+			this.cpuRate = cpuRate;
+			this.hddRate = hddRate;
+		}
+
+		public String getId() {
+			return id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public String getCpuRate() {
+			return cpuRate;
+		}
+
+		public String getHddRate() {
+			return hddRate;
+		}
+	}
+
+
+	public class Allocation {
+		private String containerId;
+		private Class<?> componentClass;
+		private String assemblyContext;
+
+		/**
+		 * Constructs a new Allocation object.
+		 * @param containerId
+		 * @param componentClass
+		 * @param assemblyContext
+		 */
+		public Allocation(String containerId, Class<?> componentClass, String assemblyContext) {
+			this.containerId = containerId;
+			this.componentClass = componentClass;
+			this.assemblyContext = assemblyContext;
+		}
+
+		public String getContainerId() {
+			return containerId;
+		}
+
+		public Class<?> getComponentClass() {
+			return componentClass;
+		}
+
+		public String getAssemblyContext() {
+			return assemblyContext;
+		}
+	}
+
+
 	private Container[] containers;
 	private IUsageScenario[] scenarios;
 	private System system;

@@ -33,15 +33,15 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 				.withVisibilityModifier("public")
 				.withStaticModifier
 				.withName("init")
+				.withParameters('''«frameworkBase».prototype.PrototypeBridge bridge''')
 				.withImplementation('''
-					«frameworkBase».prototype.Prototype prototype = «frameworkBase».prototype.Prototype.getInstance();
-					«frameworkBase».prototype.Allocation[] allocations = new «frameworkBase».prototype.Allocation[«allocations.length»];
+					«frameworkBase».prototype.PrototypeBridge.Allocation[] allocations = new «frameworkBase».prototype.PrototypeBridge.Allocation[«allocations.length»];
 					
 					«FOR context : allocations»
-						allocations[«i++»] = new «frameworkBase».prototype.Allocation("«context.resourceContainer_AllocationContext.id»", «JavaNames::fqn(context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)».class, "«context.assemblyContext_AllocationContext.id»");
+						allocations[«i++»] = bridge.new Allocation("«context.resourceContainer_AllocationContext.id»", «JavaNames::fqn(context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)».class, "«context.assemblyContext_AllocationContext.id»");
 					«ENDFOR»
 					
-					prototype.setAllocations(allocations);
+					bridge.setAllocations(allocations);
 				''')
 			
 			/*new JMethod()
