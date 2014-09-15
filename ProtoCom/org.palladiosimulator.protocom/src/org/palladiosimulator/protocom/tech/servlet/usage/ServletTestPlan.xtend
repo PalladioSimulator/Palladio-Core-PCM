@@ -223,6 +223,10 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		}
 	}
 	
+	override scenarioName() {
+		pcmEntity.entityName
+	}
+	
 	// 
 	
 	override filePath() {

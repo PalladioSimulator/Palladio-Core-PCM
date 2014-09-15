@@ -6,4 +6,5 @@ interface ITestPlan extends ICompilationUnit {
 	def String content()
 	def int population()
 	def int thinkTime()
+	def String scenarioName()
 }

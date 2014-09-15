@@ -50,16 +50,33 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 			      <hashTree/>
 			      «setupThreadGroup»
 			      <hashTree>
-			        «httpRequest("Start Request", "org.palladiosimulator.temporary/api/experiment/start")»
+			        «httpRequest("Start Request", "org.palladiosimulator.temporary/api/experiment/start", "PUT", scenarioName)»
+			        <hashTree/>
 			      </hashTree>
 			      «threadGroup»
 			      <hashTree>
-			        «content»
-			        «thinkTimeDelay»
+			        «simpleController("Start Iteration")»
+			        <hashTree>
+			          «iterationScript»
+			          <hashTree/>
+			          «httpRequest("Start Request", "org.palladiosimulator.temporary/api/experiment/iteration/start/${_ITERATION_ID}", "PUT", null)»
+			          <hashTree/>
+			        </hashTree>
+			        «simpleController("Iteration")»
+			        <hashTree>
+			          «content»
+			          «thinkTimeDelay»
+			        </hashTree>
+			        «simpleController("Stop Iteration")»
+			        <hashTree>
+			          «httpRequest("Stop Request", "org.palladiosimulator.temporary/api/experiment/iteration/stop/${_ITERATION_ID}", "PUT", null)»
+			          <hashTree/>
+			        </hashTree>
 			      </hashTree>
 			      «postThreadGroup»
 			      <hashTree>
-			        «httpRequest("Stop Request", "org.palladiosimulator.temporary/api/experiment/stop")»
+			        «httpRequest("Stop Request", "org.palladiosimulator.temporary/api/experiment/stop", "PUT", null)»
+			        <hashTree/>
 			      </hashTree>
 			    </hashTree>
 			    «summaryReport»
@@ -190,7 +207,7 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		'''
 		<Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Configuration" enabled="true">
 		  <collectionProp name="Arguments.arguments">
-		    <elementProp name="measurementsPerUser" elementType="Argument">
+		    <elementProp name="MEASUREMENTS_PER_USER" elementType="Argument">
 		      <stringProp name="Argument.name">MEASUREMENTS_PER_USER</stringProp>
 		      <stringProp name="Argument.value">1</stringProp>
 		      <stringProp name="Argument.desc">Number of measurements (iterations) per user</stringProp>
@@ -275,11 +292,22 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		'''
 	}
 	
-	private def httpRequest(String name, String path) {
+	private def httpRequest(String name, String path, String method, String body) {
 		'''
 		<HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="«name»" enabled="true">
+		  «IF body != null»
+		  	<boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+		  «ENDIF»
 		  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-		    <collectionProp name="Arguments.arguments"/>
+		    <collectionProp name="Arguments.arguments">
+		      «IF body != null»
+		      	<elementProp name="" elementType="HTTPArgument">
+		      	  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+		      	  <stringProp name="Argument.value">«body»</stringProp>
+		      	  <stringProp name="Argument.metadata">=</stringProp>
+		      	</elementProp>
+		      «ENDIF»
+		    </collectionProp>
 		  </elementProp>
 		  <stringProp name="HTTPSampler.domain"></stringProp>
 		  <stringProp name="HTTPSampler.port"></stringProp>
@@ -288,7 +316,7 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <stringProp name="HTTPSampler.protocol"></stringProp>
 		  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
 		  <stringProp name="HTTPSampler.path">«path»</stringProp>
-		  <stringProp name="HTTPSampler.method">GET</stringProp>
+		  <stringProp name="HTTPSampler.method">«method»</stringProp>
 		  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
 		  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
 		  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -296,6 +324,24 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  <boolProp name="HTTPSampler.monitor">false</boolProp>
 		  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
 		</HTTPSamplerProxy>
+		'''
+	}
+	
+	private def simpleController(String name) {
+		'''
+		<GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="«name»" enabled="true"/>
+		'''
+	}
+	
+	private def iterationScript() {
+		'''
+		<BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="Initialize" enabled="true">
+		  <stringProp name="BeanShellSampler.query">vars.put(&quot;_ITERATION_ID&quot;, UUID.randomUUID().toString());
+		  </stringProp>
+		  <stringProp name="BeanShellSampler.filename"></stringProp>
+		  <stringProp name="BeanShellSampler.parameters"></stringProp>
+		  <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+		</BeanShellSampler>
 		'''
 	}
 	
@@ -309,5 +355,9 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 	
 	override thinkTime() {
 		provider.thinkTime
+	}
+	
+	override scenarioName() {
+		provider.scenarioName
 	}
 }
