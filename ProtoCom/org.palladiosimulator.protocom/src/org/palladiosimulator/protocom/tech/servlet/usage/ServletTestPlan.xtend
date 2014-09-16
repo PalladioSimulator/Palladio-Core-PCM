@@ -72,7 +72,7 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		'''
 		<HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="«name»" enabled="true">
 		  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
-		  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+		  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
 		    <collectionProp name="Arguments.arguments">
 		      <elementProp name="" elementType="HTTPArgument">
 		        <boolProp name="HTTPArgument.always_encode">false</boolProp>

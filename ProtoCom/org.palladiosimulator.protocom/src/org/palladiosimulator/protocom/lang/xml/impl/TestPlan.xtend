@@ -78,11 +78,11 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 			        «httpRequest("Stop Request", "org.palladiosimulator.temporary/api/experiment/stop", "PUT", null)»
 			        <hashTree/>
 			      </hashTree>
+			      «summaryReport»
+			      <hashTree/>
+			      «viewResultsTree»
+			      <hashTree/>
 			    </hashTree>
-			    «summaryReport»
-			    <hashTree/>
-			    «viewResultsTree»
-			    <hashTree/>
 			  </hashTree>
 			</jmeterTestPlan>
 		''')
@@ -298,7 +298,7 @@ class TestPlan extends GeneratedFile<ITestPlan> implements ITestPlan {
 		  «IF body != null»
 		  	<boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
 		  «ENDIF»
-		  <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+		  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
 		    <collectionProp name="Arguments.arguments">
 		      «IF body != null»
 		      	<elementProp name="" elementType="HTTPArgument">
