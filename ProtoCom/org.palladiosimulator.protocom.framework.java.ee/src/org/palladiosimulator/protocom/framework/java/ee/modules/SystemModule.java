@@ -28,7 +28,7 @@ public class SystemModule extends Module {
 	}
 
 	@Override
-	public void startModule(String location) throws ModuleStartException {
+	public void start(String location) throws ModuleStartException {
 		if (isStarted()) {
 			LOGGER.error("System '" + getName() + "' already started");
 			throw new ModuleStartException();

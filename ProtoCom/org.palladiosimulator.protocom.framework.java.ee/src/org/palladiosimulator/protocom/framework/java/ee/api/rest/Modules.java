@@ -1,6 +1,7 @@
 package org.palladiosimulator.protocom.framework.java.ee.api.rest;
 
 import java.net.URI;
+import java.util.LinkedList;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
@@ -13,9 +14,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ContainerModule;
 import org.palladiosimulator.protocom.framework.java.ee.modules.Module;
-import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleList;
 import org.palladiosimulator.protocom.framework.java.ee.modules.SystemModule;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 
@@ -28,12 +29,12 @@ public class Modules {
 	@Context
 	private ServletContext context;
 
-	private static ModuleList modules;
+	private static LinkedList<Module> modules;
 
 	@Inject
 	private Modules(PrototypeBridge bridge) {
 		if (modules == null) {
-			modules = new ModuleList();
+			modules = new LinkedList<Module>();
 
 			// Add containers to the list.
 
@@ -74,7 +75,7 @@ public class Modules {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getModules() {
-		return Response.ok(modules.toJson()).build();
+		return Response.ok(JsonHelper.toJson(modules)).build();
 	}
 
 	/**
@@ -85,14 +86,20 @@ public class Modules {
 	@GET
 	@Path("{id}/start")
 	public Response startModule(@Context UriInfo uriInfo, @PathParam("id") String id) {
-		Module module = modules.get(id);
+		Module result = null;
 
-//		try {
-			module.startModule(getBaseUrl(uriInfo));
-//		} catch (ModuleStartException e) {
-//			return Response.serverError().build();
-//		}
+		for (Module module : modules) {
+			if (module.getId().equals(id)) {
+				result = module;
+				break;
+			}
+		}
 
+		if (result == null) {
+			return Response.status(404).build();
+		}
+
+		result.start(getBaseUrl(uriInfo));
 		return Response.ok().build();
 	}
 }

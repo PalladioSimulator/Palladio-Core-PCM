@@ -1,8 +1,5 @@
 package org.palladiosimulator.protocom.framework.java.ee.modules;
 
-import java.io.IOException;
-
-import com.fasterxml.jackson.core.JsonGenerator;
 
 /**
  * The Module class is the common base class for modules.
@@ -71,34 +68,5 @@ public abstract class Module {
 	 * @param location the location of the module
 	 * @throws ModuleStartException when the module could not be started
 	 */
-	public abstract void startModule(String location) throws ModuleStartException;
-
-	/**
-	 * Converts the module-specific data to JSON.
-	 * @param json the JSON generator to write to
-	 * @throws IOException when the JSON data could not be written to the generator
-	 */
-	protected void writeJson(JsonGenerator json) throws IOException {
-	}
-
-	/**
-	 * Converts the module to JSON.
-	 * @param json the JSON generator to write the object string to
-	 */
-	public void writeJsonObject(JsonGenerator json) {
-		try {
-			json.writeStartObject();
-
-			json.writeStringField("id", id);
-			json.writeStringField("name", name);
-			json.writeStringField("displayName", displayName);
-			json.writeBooleanField("started", started);
-
-			writeJson(json);
-
-			json.writeEndObject();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	public abstract void start(String location) throws ModuleStartException;
 }
