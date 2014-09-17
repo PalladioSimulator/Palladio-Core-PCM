@@ -21,5 +21,34 @@
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/jersey-guice-1.18.1.jar"/>
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/guice-3.0-no_aop.jar"/>
 	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/reflections-0.9.9-RC1.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.identifier_2.1.0.201408251904.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.pcm_3.6.0.201408261313.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.pcm.stochasticexpressions_2.0.0.201408261313.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.probfunction_2.1.0.201408251904.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.probfunction.math_2.0.2.201408251904.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.simucomframework.variables_1.0.0.201408261313.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.stoex_2.2.0.201408251904.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.stoex.analyser_2.0.0.201408261313.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/de.uka.ipd.sdq.units_2.1.0.201408251904.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/edu.kit.ipd.sdq.mdsd.profiles_1.0.0.201408251100.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/javax.annotation_1.2.0.v201401042248.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.antlr.runtime_3.2.0.v201101311130.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.apache.commons.math_2.1.0.v201105210652.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.core.contenttype_3.4.200.v20140207-1251.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.core.jobs_3.6.0.v20140424-0053.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.core.runtime_3.10.0.v20140318-2214.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.emf.common_2.10.0.v20140514-1158.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.emf.ecore_2.10.0.v20140514-1158.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.emf.ecore.xmi_2.10.0.v20140514-1158.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.equinox.app_1.3.200.v20130910-1609.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.equinox.preferences_3.5.200.v20140224-1527.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.equinox.registry_3.5.400.v20140428-1507.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.osgi_3.10.0.v20140606-1445.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.osgi.compatibility.state_1.0.0.v20140403-1907.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.uml2.common_2.0.0.v20140602-0749.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.eclipse.uml2.types_2.0.0.v20140602-0749.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/org.modelversioning.emfprofile_1.1.0.jar"/>
+	<classpathentry kind="lib" path="src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/stoex/runtime_registry_compatibility.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

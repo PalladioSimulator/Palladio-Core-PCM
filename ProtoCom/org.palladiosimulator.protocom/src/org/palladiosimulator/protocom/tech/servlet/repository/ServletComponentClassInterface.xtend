@@ -31,6 +31,8 @@ class ServletComponentClassInterface extends ServletInterface<BasicComponent> {
 		results += pcmEntity.serviceEffectSpecifications__BasicComponent.map[
 			new JMethod()
 				.withName(JavaNames::serviceName(it.describedService__SEFF))
+				//.withReturnType('''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>''')
+				//.withParameters('''de.uka.ipd.sdq.simucomframework.variables.StackContext ctx''')
 				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
 				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
 		]

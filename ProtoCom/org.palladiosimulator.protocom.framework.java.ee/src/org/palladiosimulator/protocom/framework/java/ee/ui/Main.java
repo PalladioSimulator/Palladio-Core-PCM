@@ -17,6 +17,11 @@ import org.palladiosimulator.protocom.framework.java.ee.registry.Registry;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
+import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
+import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
+
 /**
  *
  * @author Christian Klaussner
@@ -58,6 +63,8 @@ public abstract class Main extends HttpServlet {
 
 		PrototypeBridge bridge = injector.getInstance(PrototypeBridge.class);
 		initPrototype(bridge);
+
+		initStoEx();
 	}
 
 	@Override
@@ -71,5 +78,15 @@ public abstract class Main extends HttpServlet {
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/Main.jsp");
 		dispatcher.forward(request, response);
+	}
+
+	private void initStoEx() {
+		DefaultRandomGenerator generator = new DefaultRandomGenerator();
+
+		// TODO: Set generator seed here.
+
+		IProbabilityFunctionFactory factory = ProbabilityFunctionFactoryImpl.getInstance();
+		factory.setRandomGenerator(generator);
+		StoExCache.initialiseStoExCache(factory);
 	}
 }

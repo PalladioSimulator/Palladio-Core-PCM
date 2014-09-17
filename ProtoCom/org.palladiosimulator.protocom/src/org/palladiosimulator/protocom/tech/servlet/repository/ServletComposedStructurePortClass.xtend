@@ -114,6 +114,8 @@ class ServletComposedStructurePortClass extends ServletClass<ProvidedRole> {
 		role.providedInterface__OperationProvidedRole.signatures__OperationInterface.map[
 			new JMethod()
 				.withName(JavaNames::javaSignature(it))
+				//.withReturnType('''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>''')
+				//.withParameters('''de.uka.ipd.sdq.simucomframework.variables.StackContext ctx''')
 				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
 				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
 				.withImplementation("return innerPort." + JavaNames::javaSignature(it) + "(ctx);")			
