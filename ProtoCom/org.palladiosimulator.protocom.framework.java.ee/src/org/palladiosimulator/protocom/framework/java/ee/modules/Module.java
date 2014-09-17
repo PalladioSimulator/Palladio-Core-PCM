@@ -13,7 +13,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 public abstract class Module {
 	private String id;
 	private String name, displayName;
-	private boolean permanent, started;
+	private boolean started;
 
 	/**
 	 * Constructs a new Module object.
@@ -21,10 +21,9 @@ public abstract class Module {
 	 * @param name the name of the module
 	 * @param permanent true if the module is permanent, otherwise false
 	 */
-	public Module(String id, String name, boolean permanent) {
+	public Module(String id, String name) {
 		this.id = id;
 		this.name = name;
-		this.permanent = permanent;
 	}
 
 	/**
@@ -49,14 +48,6 @@ public abstract class Module {
 
 	public String getDisplayName() {
 		return displayName;
-	}
-
-	/**
-	 * Checks whether the module is permanent.
-	 * @return true if the module is permanent, otherwise false
-	 */
-	public boolean isPermanent() {
-		return permanent;
 	}
 
 	/**
@@ -101,7 +92,6 @@ public abstract class Module {
 			json.writeStringField("id", id);
 			json.writeStringField("name", name);
 			json.writeStringField("displayName", displayName);
-			json.writeBooleanField("permanent", permanent);
 			json.writeBooleanField("started", started);
 
 			writeJson(json);

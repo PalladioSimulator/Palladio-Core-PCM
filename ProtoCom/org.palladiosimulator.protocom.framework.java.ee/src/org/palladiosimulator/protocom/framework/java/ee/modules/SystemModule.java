@@ -21,7 +21,7 @@ public class SystemModule extends Module {
 	 * @param className the class name of the system
 	 */
 	public SystemModule(String name, String className) {
-		super("0", name, true);
+		super("0", name);
 
 		this.className = className;
 		setDisplayName("System: " + name);
@@ -34,7 +34,7 @@ public class SystemModule extends Module {
 			throw new ModuleStartException();
 		}
 
-		LOGGER.info("Start system '" + getName() + "'");
+		LOGGER.info("Starting system '" + getName() + "'");
 
 		try {
 			Class<?> systemClass = Class.forName(className);

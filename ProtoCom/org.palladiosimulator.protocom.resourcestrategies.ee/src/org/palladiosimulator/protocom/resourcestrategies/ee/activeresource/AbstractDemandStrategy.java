@@ -112,8 +112,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      */
     @Override
     public void initializeStrategy(DegreeOfAccuracyEnum degree, double initProcessingRate) {
-        LOGGER.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "
-                + degree.name());
+//        LOGGER.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "
+//                + degree.name());
 
         /*if (!isCalibrated()) {
         	throw new StrategyNotCalibratedException();
@@ -237,7 +237,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
         // Create path if it does not exist
         if (!path.exists()) {
             if (path.mkdirs()) {
-                LOGGER.info("Created Calibration Path " + path);
+//                LOGGER.info("Created Calibration Path " + path);
             } else {
                 LOGGER.error("Could not create " + path
                         + ". Assure you have the rights to create and write to this folder.");

@@ -21,7 +21,7 @@ public class ContainerModule extends Module {
 	 * @param name the display name of the container
 	 */
 	public ContainerModule(String id, String name, PrototypeBridge.Allocation[] allocations) {
-		super(id, name, true);
+		super(id, name);
 
 		this.allocations = allocations;
 		setDisplayName("Container: " + name);
@@ -34,17 +34,19 @@ public class ContainerModule extends Module {
 			throw new ModuleStartException();
 		}
 
-		LOGGER.info("Start container '" + getName() + "'");
+		LOGGER.info("Starting container '" + getName() + "'");
 
 		for (PrototypeBridge.Allocation allocation : allocations) {
-
-			LOGGER.info("Start component '" + allocation.getComponentClass().getSimpleName() + "'");
+			String componentName = allocation.getComponentClass().getSimpleName();
+			LOGGER.info("Starting component '" + componentName + "'");
 
 			try {
+				Class<?> componentClass = allocation.getComponentClass();
+
 				Class<?>[] types = {String.class, String.class};
 				Object[] arguments = {location, allocation.getAssemblyContext()};
 
-				Constructor<?> constructor = allocation.getComponentClass().getConstructor(types);
+				Constructor<?> constructor = componentClass.getConstructor(types);
 				constructor.newInstance(arguments);
 
 			} catch (NoSuchMethodException e) {

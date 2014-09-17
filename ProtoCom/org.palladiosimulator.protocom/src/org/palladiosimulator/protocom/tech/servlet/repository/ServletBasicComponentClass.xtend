@@ -67,7 +67,7 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
 				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
 				.withImplementation('''
-					org.apache.log4j.Logger.getRootLogger().info("Invoke '«JavaNames::serviceName(it.describedService__SEFF)»'");
+					org.apache.log4j.Logger.getRootLogger().info("Invoking '«JavaNames::serviceName(it.describedService__SEFF)»'");
 					«new PcmServletProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 					return null;
 				''')
