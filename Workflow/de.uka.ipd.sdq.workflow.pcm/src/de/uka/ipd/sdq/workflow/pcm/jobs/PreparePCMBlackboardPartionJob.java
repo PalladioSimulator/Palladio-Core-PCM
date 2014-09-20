@@ -20,8 +20,8 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	private static final Logger LOGGER = Logger.getLogger(PreparePCMBlackboardPartionJob.class);
 	private MDSDBlackboard blackboard;
 
-	static final URI PCM_PALLADIO_RESOURCE_TYPE_URI = URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype");
-	static final URI PCM_PALLADIO_PRIMITIVE_TYPE_REPOSITORY_URI = URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository");
+	public static final URI PCM_PALLADIO_RESOURCE_TYPE_URI = URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype");
+	public static final URI PCM_PALLADIO_PRIMITIVE_TYPE_REPOSITORY_URI = URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository");
 
 	@Override
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
