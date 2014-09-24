@@ -153,7 +153,7 @@ class SimUsageXpt extends UsageXpt {
 				
 	
 				private de.uka.ipd.sdq.simucomframework.Context ctx = null;
-				private de.uka.ipd.sdq.simucomframework.model.SimuComModel simuComModel;
+				private final de.uka.ipd.sdq.simucomframework.model.SimuComModel simuComModel;
 				private de.uka.ipd.sdq.simucomframework.model.SimuComModel getModel() {
 					return this.simuComModel;
 				}
@@ -179,7 +179,6 @@ class SimUsageXpt extends UsageXpt {
 		
 			// Here comes the usage scenario code...
 			«_this.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActions»
-			
 		
 			// A run through this usage model is complete
 			// The counter for main measurements is incremented by the SimuComSimProcess.internalLifeCycle that called this  

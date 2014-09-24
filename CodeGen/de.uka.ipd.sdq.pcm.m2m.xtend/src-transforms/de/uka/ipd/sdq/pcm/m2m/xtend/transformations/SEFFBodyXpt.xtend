@@ -36,19 +36,30 @@ abstract class SEFFBodyXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt
 	
-	def String action(AbstractAction action)
-	def String action(StartAction action)
-	def String action(StopAction action)
-	def String action(CollectionIteratorAction action) 	
-	def String action(LoopAction action)
-	def String action(BranchAction action)
-	def String action(AcquireAction action)
-	def String action(ReleaseAction action)
-	def String action(SetVariableAction action)
-	def String action(ForkAction action)
-	def String action(DelegatingExternalCallAction action)
+	def dispatch String action(AbstractAction action) '''
+		« /* ERROR */»
+	'''	
 	
-	def String action(InternalAction action) '''
+	def dispatch String action(StartAction action) ''''''
+	def dispatch String action(StopAction action) ''''''
+
+	def dispatch String action(CollectionIteratorAction action) {
+		// error
+	}
+	
+	def dispatch String action(LoopAction action) {
+		// error
+	}
+	def dispatch action(BranchAction action) '''«/* error */»	'''
+	def dispatch action(AcquireAction action) '''«/* error */»	'''
+	def dispatch action(ReleaseAction action) '''«/* error */»	'''
+	def dispatch action(SetVariableAction action) '''«/* error */»	'''
+	def dispatch action(ForkAction action) '''«/* error */»	'''
+	def dispatch action(DelegatingExternalCallAction action) {
+		// error
+	}
+	
+	def dispatch action(InternalAction action) '''
 	/* InternalAction - START */
 		// software failures:
 		«action.failureInternalActionPreTM»
@@ -61,7 +72,7 @@ abstract class SEFFBodyXpt {
 	/* InternalAction - END */
 	'''
 	
-	def String action(ExternalCallAction action) '''
+	def dispatch action(ExternalCallAction action) '''
 	/* ExternalCallAction - START */
 		{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
 			«action.calledService_ExternalService.call(action,
@@ -72,13 +83,13 @@ abstract class SEFFBodyXpt {
 	/* ExternalCallAction - END */
 	'''
 	
-	def String action(RecoveryAction action) '''
+	def dispatch action(RecoveryAction action) '''
 	{ /* RecoveryAction - START */
 		«action.primaryBehaviour__RecoveryAction.recoveryActionAlternative»
 	} /* RecoveryAction - END */
 	'''
 
-	private def String recoveryActionAlternative(RecoveryActionBehaviour behaviour) '''
+	def String recoveryActionAlternative(RecoveryActionBehaviour behaviour) '''
 	/* RecoveryActionBehaviour - START */
 	«val id = behaviour.id.javaVariableName»
 	«behaviour.initFailureHandling(id)»
@@ -207,5 +218,7 @@ abstract class SEFFBodyXpt {
 		«ENDIF»
 	'''
 	
-	def CharSequence failureInternalActionPreTM(InternalAction action)
+		def failureInternalActionPreTM(InternalAction action) '''
+		«/* nothing to do in the general case. */»
+	'''
 }

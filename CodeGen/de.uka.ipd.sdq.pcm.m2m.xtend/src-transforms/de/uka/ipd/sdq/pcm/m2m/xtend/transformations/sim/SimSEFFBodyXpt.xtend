@@ -61,7 +61,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	// ----------------------------
 	// SimuCom templates for parts of a SEFF
 	// ----------------------------
-	override action(CollectionIteratorAction cir) '''
+	override dispatch action(CollectionIteratorAction cir) '''
 		for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«cir.parameter_CollectionIteratorAction.parameterName».NUMBER_OF_ELEMENTS",Integer.class);
 				iterationCount < maxIterationCount; iterationCount++) {
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
@@ -73,7 +73,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	'''
 	
 	// TODO: check if <<id>> translated correctly
-	override action(LoopAction la) '''
+	override dispatch action(LoopAction la) '''
 	   for (int iterationCount«la.id.javaVariableName()» = 0, maxIterationCount«la.id.javaVariableName()» = (Integer)ctx.evaluate("«la.iterationCount_LoopAction.specification.specificationString()»",Integer.class);
 	            iterationCount«la.id.javaVariableName()» < maxIterationCount«la.id.javaVariableName()»; iterationCount«la.id.javaVariableName()»++){
 	       «la.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls»
@@ -111,7 +111,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 				"«sift.id»", "«internalActionId»"));
 	'''
 	
-	override action(BranchAction ba) '''
+	override dispatch action(BranchAction ba) '''
 		{
 			«val counterID = ba.id.javaVariableName»
 			«IF ba.branches_Branch.head instanceof ProbabilisticBranchTransition»
@@ -147,7 +147,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		sum«counterNumber» += «pbt.branchProbability»;
 	'''
 	
-	override action(AcquireAction aa) '''
+	override dispatch action(AcquireAction aa) '''
 			// Acquire «aa.passiveresource_AcquireAction»
 	{
 	  //TODO Here, a resource demand of 0 is issued to a hard-coded resource "CPU" (ID = "_oro4gG3fEdy4YaaT-RYrLQ")
@@ -166,7 +166,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	pr_«aa.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread(), 1, «aa.timeout», «aa.timeoutValue»);
 	'''
 	
-	override action(ReleaseAction ra) '''
+	override dispatch action(ReleaseAction ra) '''
 	// Release «ra.passiveResource_ReleaseAction»
 	if (pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
 		// Initialize Resource First...
@@ -180,7 +180,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()».release(ctx.getThread(), 1);
 	'''
 	
-	override action(StartAction sa) '''
+	override dispatch action(StartAction sa) '''
 		«IF sa.eContainer instanceof ResourceDemandingSEFF»
 		«val rdseff = (sa.eContainer as ResourceDemandingSEFF)»
 		«val qualityAnnotation = rdseff.getQualityAnnotation()»
@@ -204,10 +204,10 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		«ENDIF»
 	'''
 	
-	override action(StopAction sa) '''
+	override dispatch action(StopAction sa) '''
 	'''
 	
-	override action(SetVariableAction sva) '''
+	override dispatch action(SetVariableAction sva) '''
 		«FOR pu : sva.localVariableUsages_SetVariableAction»
 			«FOR vc : pu.variableCharacterisation_VariableUsage»
 				«IF pu.namedReference__VariableUsage.isInnerReference()»
@@ -221,7 +221,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		«ENDFOR»
 	'''
 	
-	override action(ForkAction fa) '''
+	override dispatch action(ForkAction fa) '''
 	{
 		de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
 			new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{
@@ -261,7 +261,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	}
 	'''
 	
-	override action(DelegatingExternalCallAction deca) '''
+	override dispatch action(DelegatingExternalCallAction deca) '''
 	{
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx
 				.getStack().currentStackFrame();
@@ -284,10 +284,5 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	
 		ctx.getStack().removeStackFrame();
 	}
-	'''
-	
-	override action(AbstractAction action) '''
-		« /*Error */ »
-	'''
-	
+	'''	
 }

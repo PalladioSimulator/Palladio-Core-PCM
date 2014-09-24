@@ -23,11 +23,9 @@ abstract class UserActionsXpt {
 	@Inject extension CallsXpt
 	@Inject extension JavaNamesExt
 
-	def CharSequence userAction(AbstractUserAction aua) 
-	
-	def CharSequence userAction(Start start) 
-	def CharSequence userAction(Stop stop) 
-	def CharSequence userAction(EntryLevelSystemCall elsc) '''
+	def dispatch userAction(Start start) ''''''
+	def dispatch userAction(Stop stop) ''''''
+	def dispatch userAction(EntryLevelSystemCall elsc) '''
 				// Set the priority for «elsc.entityName»
 				thread.setPriority(«elsc.priority»);
 		«elsc.operationSignature__EntryLevelSystemCall.call(
@@ -37,7 +35,7 @@ abstract class UserActionsXpt {
 			{})»
 	'''
 	
-	def CharSequence userAction(Loop loop)
-	def CharSequence userAction(Branch branch) 
-	def CharSequence userAction(Delay delay)
+	def dispatch userAction(Loop loop) ''''''
+	def dispatch userAction(Branch branch) ''''''
+	def dispatch userAction(Delay delay) ''''''
 }
