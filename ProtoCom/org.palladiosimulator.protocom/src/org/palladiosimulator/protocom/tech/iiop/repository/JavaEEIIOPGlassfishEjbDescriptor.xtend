@@ -1,44 +1,66 @@
 package org.palladiosimulator.protocom.tech.iiop.repository
 
-import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
+import java.util.HashMap
+import org.eclipse.emf.ecore.EObject
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPDescriptor
 
-class JavaEEIIOPGlassfishEjbDescriptor extends JavaEEIIOPDescriptor<BasicComponent>  {
-	
-	new(BasicComponent pcmEntity) {
+class JavaEEIIOPGlassfishEjbDescriptor extends JavaEEIIOPDescriptor<AllocationContext> {
+	private val allocation = pcmEntity.allocation_AllocationContext
+	private var HashMap<AssemblyConnector, String> assemblyConnectorIPHashMap = newHashMap
+
+	new(AllocationContext pcmEntity) {
 		super(pcmEntity)
 	}
-	
-	override ejbName() {
-		JavaNames::javaName(pcmEntity)
-	}
-	
-	override ejbRefName() {
-		requiredInterfaces
-	}
-	
-	override jndiName() {
-		"Package of the required Component"
-	}
-	
-	override filePath() {
-		JavaNames::fqnJavaEEDescriptorPath(pcmEntity)+"glassfish-ejb-jar.xml"
-	}
-	
-	override projectName(){
-		JavaNames::fqnJavaEEDescriptorProjectName(pcmEntity)
-	}
-	
-	def requiredInterfaces() {
-	 	val results = newLinkedList
 
-		for(required : pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole]){
-			results+= #[
-			JavaNames::javaName(required.requiredInterface__OperationRequiredRole)
-			]
+	override ejbName() {
+		JavaNames::javaName(pcmEntity.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)
+	}
+
+	override ejbRefName() {
+	}
+
+	override jndiName() {
+	}
+
+	override filePath() {
+		JavaNames::fqnJavaEEDescriptorPath(
+			pcmEntity.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext) + "glassfish-ejb-jar.xml"
+	}
+
+	override projectName() {
+		JavaNames::fqnJavaEEDescriptorProjectName(
+			pcmEntity.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)
+	}
+
+	override requiredComponentsAndResourceContainerIPAddress() {
+		val basicComponentAssemblyConnectors = allocation.system_Allocation.connectors__ComposedStructure.filter(
+			typeof(AssemblyConnector)).filter[
+			it.requiredRole_AssemblyConnector.requiringEntity_RequiredRole.equals(
+				pcmEntity.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)]
+
+		for (connector : basicComponentAssemblyConnectors) {
+			var requiredEntityAllocationContext = allocation.allocationContexts_Allocation.filter[
+				it.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext.equals(
+					connector.providedRole_AssemblyConnector.providingEntity_ProvidedRole)]
+			for (allocationContext : requiredEntityAllocationContext) {
+				var resourceContainerAppliedStereotypes = allocationContext.resourceContainer_AllocationContext.
+					getStereotypeApplications("IIOP")
+				if(resourceContainerAppliedStereotypes != null){
+					for (stereotypeApplication : resourceContainerAppliedStereotypes) {
+						var ipValue = stereotypeApplication.eGet(stereotypeApplication.stereotype.getTaggedValue("IpAddress")).toString
+						assemblyConnectorIPHashMap.put(connector, ipValue)
+					}
+				}
+				else{
+					assemblyConnectorIPHashMap.put(connector, "localhost")
+				}
+			}
 		}
-		results
+
+		return assemblyConnectorIPHashMap
+
 	}
 }

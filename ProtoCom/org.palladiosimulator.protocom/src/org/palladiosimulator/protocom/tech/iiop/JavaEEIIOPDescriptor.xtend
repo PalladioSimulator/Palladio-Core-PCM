@@ -33,4 +33,10 @@ class JavaEEIIOPDescriptor <E extends Entity> extends ConceptMapping<E> implemen
 	override projectName() {
 	}
 	
+	override ipAddress(){
+	}
+	
+	override requiredComponentsAndResourceContainerIPAddress() {
+	}
+	
 }

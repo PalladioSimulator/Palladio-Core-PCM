@@ -6,6 +6,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
 import java.util.List
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaConstants
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPClass
@@ -14,6 +15,7 @@ import org.palladiosimulator.protocom.tech.iiop.util.PcmIIOPProtoAction
 class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponent> {
 
 	List<AssemblyConnector> assemblyConnector
+	
 
 	new(BasicComponent pcmEntity) {
 		super(pcmEntity)
@@ -118,6 +120,23 @@ class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponent> {
 		}
 
 		results
+	}
+	
+	override jeeClassStatelessAnnotation() {
+		var Object isStateless = true
+		var basicComponentAppliedStereotypes = pcmEntity.getStereotypeApplications("Stateless")
+		if(basicComponentAppliedStereotypes != null){
+			for(appliedStatelessStereotype : basicComponentAppliedStereotypes){
+				isStateless = appliedStatelessStereotype.eGet(appliedStatelessStereotype.stereotype.getTaggedValue("isStateless"))
+			}
+		}
+		
+		if(isStateless.equals(true)){
+			return JavaConstants::JEE_EJB_ANNOTATION_STATELESS
+		}
+		else{
+			return JavaConstants::JEE_EJB_ANNOTATION_STATEFUL
+		}
 	}
 
 }

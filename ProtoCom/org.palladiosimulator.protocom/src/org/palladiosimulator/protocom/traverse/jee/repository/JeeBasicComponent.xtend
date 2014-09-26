@@ -38,7 +38,7 @@ class JeeBasicComponent  extends XBasicComponent {
 		]
 		
 		// Glasfish Ejb Descriptor for this component.
-		generatedFiles.add(injector.getInstance(typeof(JeeGlassfishEjbDescriptor)).createFor(new JavaEEIIOPGlassfishEjbDescriptor(entity)))
+	//	generatedFiles.add(injector.getInstance(typeof(JeeGlassfishEjbDescriptor)).createFor(new JavaEEIIOPGlassfishEjbDescriptor(entity)))
 		
 		// Ejb Descriptor for this component.
 		generatedFiles.add(injector.getInstance(typeof(JeeEjbDescriptor)).createFor(new JavaEEIIOPEjbDescriptor(entity)))

@@ -20,6 +20,7 @@ abstract class JavaConstants {
 	public static val VISIBILITY_PUBLIC = "public"
 	
 	public static val JEE_EJB_ANNOTATION_STATELESS = "javax.ejb.Stateless"
+	public static val JEE_EJB_ANNOTATION_STATEFUL = "javax.ejb.Stateful"
 	public static val JEE_EJB_ANNOTATION_EJB = "javax.ejb.EJB"
 	
 	public static val JEE_INTERFACE_ANNOTATION_REMOTE = "javax.ejb.Remote"
