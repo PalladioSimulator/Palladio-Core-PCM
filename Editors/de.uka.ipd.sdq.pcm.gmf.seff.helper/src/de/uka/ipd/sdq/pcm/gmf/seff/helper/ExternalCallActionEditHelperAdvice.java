@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 
@@ -23,20 +23,20 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * The Class ExternalCallActionEditHelperAdvice constructs a command to configure newly created
  * external call action.
- * 
+ *
  * @author Roman Andrej
  */
 public class ExternalCallActionEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     /**
      * Gets the after configure command.
-     * 
+     *
      * @param request
      *            the request
      * @return the after configure command
@@ -76,7 +76,7 @@ public class ExternalCallActionEditHelperAdvice extends AbstractEditHelperAdvice
         final OperationSignature signature = (OperationSignature) dialog.getResult();
 
         // set the required role for ExternalCallAction
-        if (dialog.getViewerRootElement() instanceof OperationRequiredRole) {
+        if (dialog.getRootOfResult() instanceof OperationRequiredRole) {
             requiredRole = (OperationRequiredRole) dialog.getRootOfResult();
         }
 
@@ -86,7 +86,7 @@ public class ExternalCallActionEditHelperAdvice extends AbstractEditHelperAdvice
 
     /**
      * Search basic component.
-     * 
+     *
      * @param elementToConfigure
      *            the element to configure
      * @return the e object
