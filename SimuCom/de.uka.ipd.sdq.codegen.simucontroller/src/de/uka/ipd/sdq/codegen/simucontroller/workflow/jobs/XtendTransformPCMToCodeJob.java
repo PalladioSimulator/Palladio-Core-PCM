@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.RepositoryXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SystemXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UsageXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimAccuracyInfluenceExt;
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimAllocationXpt;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
@@ -88,8 +89,8 @@ public class XtendTransformPCMToCodeJob extends
 		final RepositoryXpt repositoryXpt = guiceInjector
 				.getInstance(RepositoryXpt.class);
 		final SystemXpt systemXpt = guiceInjector.getInstance(SystemXpt.class);
-		final AllocationXpt allocationXpt = guiceInjector
-				.getInstance(AllocationXpt.class);
+		final SimAllocationXpt allocationXpt = guiceInjector
+				.getInstance(SimAllocationXpt.class);
 		final UsageXpt usageXpt = guiceInjector.getInstance(UsageXpt.class);
 
 		final SimAccuracyInfluenceExt accuracyInfluenceExt = guiceInjector
