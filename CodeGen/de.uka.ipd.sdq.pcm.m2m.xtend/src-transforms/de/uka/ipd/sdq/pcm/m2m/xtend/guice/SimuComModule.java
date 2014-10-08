@@ -7,7 +7,6 @@ import com.google.inject.Module;
 import com.google.inject.Singleton;
 import com.google.inject.util.Modules;
 
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.AllocationXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CalculatorsXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CallsXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ComposedStructureXpt;
@@ -46,9 +45,9 @@ public class SimuComModule implements Module {
 		binder.bind(SimAccuracyInfluenceExt.class).in(Singleton.class);
 		binder.bind(SimAccuracyXpt.class).in(Singleton.class);
 		binder.bind(SimUsageFactoryXpt.class).in(Singleton.class);
+		binder.bind(SimAllocationXpt.class).in(Singleton.class);
 		
 		// changed bindings
-		binder.bind(AllocationXpt.class).to(SimAllocationXpt.class).in(Singleton.class);
 		binder.bind(CalculatorsXpt.class).to(SimCalculatorsXpt.class).in(Singleton.class);
 		binder.bind(CallsXpt.class).to(SimCallsXpt.class).in(Singleton.class);
 		binder.bind(ComposedStructureXpt.class).to(SimComposedStructureXpt.class).in(Singleton.class);

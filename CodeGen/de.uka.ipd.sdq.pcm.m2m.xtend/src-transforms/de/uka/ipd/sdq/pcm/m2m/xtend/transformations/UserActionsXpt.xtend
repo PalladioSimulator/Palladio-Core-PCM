@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
 import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
 import de.uka.ipd.sdq.pcm.usagemodel.Branch
 import de.uka.ipd.sdq.pcm.usagemodel.Delay
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall

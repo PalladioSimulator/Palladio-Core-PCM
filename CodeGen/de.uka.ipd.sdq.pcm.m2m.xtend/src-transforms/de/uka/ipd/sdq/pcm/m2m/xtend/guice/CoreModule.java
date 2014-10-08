@@ -4,7 +4,6 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.AllocationXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.BuildXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CalculatorsXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.CallsXpt;
@@ -26,6 +25,9 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SensorsXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SystemXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UsageXpt;
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UserActionsXpt;
+import edu.kit.ipd.sdq.xtend2m.api.ModuleFactory;
+import edu.kit.ipd.sdq.xtend2m.api.TracingAPI;
+import edu.kit.ipd.sdq.xtend2m.mwe.MultiplePackageFactory;
 
 public class CoreModule extends AbstractModule {
 	private M2TFileSystemAccess fsa;
@@ -38,8 +40,14 @@ public class CoreModule extends AbstractModule {
 	protected void configure() {
 		bind(M2TFileSystemAccess.class).toInstance(fsa);
 		
+		//bind first the necessary classes for using the moduleIn's correctly
+		bind(TracingAPI.class).toInstance(TracingAPI.INSTANCE);
+		bind(ModuleFactory.class).to(MultiplePackageFactory.class).in(Singleton.class);;
+		
 		// load all the base classes of the modules
-		bind(AllocationXpt.class).in(Singleton.class);
+		//bind(SimAllocationXpt.class).in(Singleton.class);
+		//bind(SimAllocationXpt.class).in(Singleton.class);//.to(SimAllocationXpt.class);
+		//bind(AllocationXpt.class).to(SimAllocationXpt.class);
 		bind(BuildXpt.class).in(Singleton.class);
 		bind(CalculatorsXpt.class).in(Singleton.class);
 		bind(CallsXpt.class).in(Singleton.class);

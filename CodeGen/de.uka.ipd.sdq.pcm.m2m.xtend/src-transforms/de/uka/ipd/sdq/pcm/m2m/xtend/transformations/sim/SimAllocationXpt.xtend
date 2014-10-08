@@ -11,10 +11,11 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
 import de.uka.ipd.sdq.pcm.system.System
+import edu.kit.ipd.sdq.xtend2m.annotations.Transformation
 import javax.annotation.processing.Completion
 
-//@Transformation
-class SimAllocationXpt extends AllocationXpt {
+@Transformation
+class SimAllocationXpt implements AllocationXpt {
 	@Inject extension M2TFileSystemAccess fsa
 	
 	@Inject extension JavaNamesExt
