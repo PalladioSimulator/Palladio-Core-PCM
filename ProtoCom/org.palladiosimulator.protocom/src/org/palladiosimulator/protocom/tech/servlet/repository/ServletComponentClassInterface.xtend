@@ -33,8 +33,8 @@ class ServletComponentClassInterface extends ServletInterface<BasicComponent> {
 				.withName(JavaNames::serviceName(it.describedService__SEFF))
 				//.withReturnType('''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>''')
 				//.withParameters('''de.uka.ipd.sdq.simucomframework.variables.StackContext ctx''')
-				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
-				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
+				.withReturnType('''«stackFrame»<Object>''')
+				.withParameters('''«stackContext» ctx''')
 		]
 		
 		results

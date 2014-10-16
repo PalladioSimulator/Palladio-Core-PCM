@@ -64,10 +64,11 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 				.withName(JavaNames::serviceName(it.describedService__SEFF))
 				//.withReturnType('''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>''')
 				//.withParameters('''de.uka.ipd.sdq.simucomframework.variables.StackContext ctx''')
-				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
-				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
+				.withReturnType('''«stackFrame»<Object>''')
+				.withParameters('''«stackContext» ctx''')
 				.withImplementation('''
 					org.apache.log4j.Logger.getRootLogger().info("Invoking '«JavaNames::serviceName(it.describedService__SEFF)»'");
+					ctx.getStack().createAndPushNewStackFrame();
 					«new PcmServletProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 					return null;
 				''')

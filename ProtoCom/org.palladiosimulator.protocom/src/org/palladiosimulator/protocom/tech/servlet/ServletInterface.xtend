@@ -7,6 +7,8 @@ import org.palladiosimulator.protocom.lang.java.util.JavaNames
 
 class ServletInterface<E extends Entity> extends ConceptMapping<E> implements IJInterface {
 	protected val frameworkBase = "org.palladiosimulator.protocom.framework.java.ee"
+	protected val stackContext = "de.uka.ipd.sdq.simucomframework.variables.StackContext"
+	protected val stackFrame = "de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe"
 	
 	new(E pcmEntity) {
 		super(pcmEntity)

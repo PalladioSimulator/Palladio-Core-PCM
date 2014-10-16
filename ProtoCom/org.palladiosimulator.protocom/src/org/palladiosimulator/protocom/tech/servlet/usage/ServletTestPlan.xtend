@@ -26,7 +26,8 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	// Action transformations.
 	
 	private def buildRequest(String method) {
-		val formalTypes = '''["org.palladiosimulator.protocom.framework.java.ee.stubs.StackContext"]'''
+		//val formalTypes = '''["org.palladiosimulator.protocom.framework.java.ee.stubs.StackContext"]'''
+		val formalTypes = '''["de.uka.ipd.sdq.simucomframework.variables.StackContext"]'''
 		val actualTypes = formalTypes
 		
 		'''{"name":"«method»","formalTypes":«formalTypes»,"actualTypes":«actualTypes»,"arguments":[{}]}'''
