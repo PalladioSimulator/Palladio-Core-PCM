@@ -121,7 +121,9 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
         this.degreeOfAccuracy = degree;
         this.processingRate = Amount.valueOf(initProcessingRate, ProcessingRate.UNIT);
-        this.configFile = new File(getCalibrationFileName());
+
+        // TODO: Only create folder during saving process.
+        //this.configFile = new File(getCalibrationFileName());
 
         /*CalibrationTable loadedCalibration = CalibrationTable.load(configFile);
 

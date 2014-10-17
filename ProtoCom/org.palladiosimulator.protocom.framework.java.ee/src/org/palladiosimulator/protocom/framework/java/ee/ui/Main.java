@@ -29,14 +29,25 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 @WebServlet("")
 public abstract class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	private static Logger LOGGER = Logger.getRootLogger();
+	private static DefaultRandomGenerator generator;
 
 	private boolean firstRequest = true;
+
+	static {
+		//generator = new DefaultRandomGenerator();
+		initStoEx();
+	}
 
 	/**
 	 *
 	 */
 	protected abstract void initPrototype(PrototypeBridge bridge);
+
+	public static void setStoExSeed(long seed) {
+		generator.setSeed(seed);
+	}
 
 	/**
 	 *
@@ -64,7 +75,7 @@ public abstract class Main extends HttpServlet {
 		PrototypeBridge bridge = injector.getInstance(PrototypeBridge.class);
 		initPrototype(bridge);
 
-		initStoEx();
+		//initStoEx();
 	}
 
 	@Override
@@ -80,8 +91,8 @@ public abstract class Main extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	private void initStoEx() {
-		DefaultRandomGenerator generator = new DefaultRandomGenerator();
+	private static void initStoEx() {
+		generator = new DefaultRandomGenerator();
 
 		// TODO: Set generator seed here.
 

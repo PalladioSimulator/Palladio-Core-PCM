@@ -19,12 +19,14 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.OptionsData;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.legacy.strategies.DemandConsumerStrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
+import org.palladiosimulator.protocom.framework.java.ee.ui.Main;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
@@ -70,7 +72,7 @@ class Calibrator implements Runnable, ICalibrationListener {
 		CalibrationTable table;
 
 		strategy.setCalibrationListener(this);
-		strategy.initializeStrategy(DegreeOfAccuracyEnum.LOW, 1.0);
+		strategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1.0);
 		table = strategy.calibrate();
 
 		try {
@@ -113,72 +115,20 @@ class Calibrator implements Runnable, ICalibrationListener {
 		FibonacciDemand cpuStrategy = new FibonacciDemand();
 		strategyType = StrategyType.CPU;
 
-		calibrateStrategy(cpuStrategy, "low.cpu.fibonacci");
+		calibrateStrategy(cpuStrategy, "cpu.fibonacci");
 		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
 
 		// Calibrate HDD strategy.
 		ReadLargeChunksDemand hddStrategy = new ReadLargeChunksDemand();
 		strategyType = StrategyType.HDD;
 
-		calibrateStrategy(hddStrategy, "low.hdd.largeChunks");
+		calibrateStrategy(hddStrategy, "hdd.largeChunks");
 		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
 
 		// Update status.
 		context.setAttribute("status", "started");
 
 		logger.setLevel(Level.INFO);
-	}
-}
-
-/**
- *
- * @author Christian Klaussner
- */
-class OptionsData {
-	private String name;
-	private String cpuStrategy, hddStrategy;
-	private String accuracy;
-
-	private String[] calibrated;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCpuStrategy() {
-		return cpuStrategy;
-	}
-
-	public void setCpuStrategy(String cpuStrategy) {
-		this.cpuStrategy = cpuStrategy;
-	}
-
-	public String getHddStrategy() {
-		return hddStrategy;
-	}
-
-	public void setHddStrategy(String hddStrategy) {
-		this.hddStrategy = hddStrategy;
-	}
-
-	public String getAccuracy() {
-		return accuracy;
-	}
-
-	public void setAccuracy(String accuracy) {
-		this.accuracy = accuracy;
-	}
-
-	public String[] getCalibrated() {
-		return calibrated;
-	}
-
-	public void setCalibrated(String[] calibrated) {
-		this.calibrated = calibrated;
 	}
 }
 
@@ -249,7 +199,7 @@ public class Options {
 		try {
 			Set<String> files = storage.getFiles("calibration");
 
-			if (files.contains("low.cpu.fibonacci") && files.contains("low.hdd.largeChunks")) {
+			if (files.contains("cpu.fibonacci") && files.contains("hdd.largeChunks")) {
 				isCalibrated = true;
 			} else {
 				isCalibrated = false;
@@ -265,10 +215,10 @@ public class Options {
 			// CPU
 
 			FibonacciDemand cpu = new FibonacciDemand();
-			cpu.initializeStrategy(DegreeOfAccuracyEnum.LOW, 1);
+			cpu.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
 			byte[] cpuData = null;
 			try {
-				cpuData = storage.readFile("calibration/low.cpu.fibonacci");
+				cpuData = storage.readFile("calibration/cpu.fibonacci");
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -281,7 +231,9 @@ public class Options {
 			executor.submit(new Calibrator(context, storage));
 		}
 
+		// TODO: Insert real values
 		experiment.init("Test Experiment");
+		Main.setStoExSeed(0);
 
 		try {
 			// TODO: Validate input

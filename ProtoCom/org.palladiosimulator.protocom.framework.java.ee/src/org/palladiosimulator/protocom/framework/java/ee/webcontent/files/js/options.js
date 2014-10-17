@@ -11,7 +11,8 @@ var App = (function($, App) {
 			name: 'Default Experiment',
 			cpuStrategy: 'fibonacci',
 			hddStrategy: 'largeChunks',
-			accuracy: 'medium',
+			seed: '',
+			//accuracy: 'medium',
 			calibrated: []
 		},
 
@@ -39,7 +40,8 @@ var App = (function($, App) {
 
 			this.$el.find('#cpu-strategy').val(this.model.get('cpuStrategy'));
 			this.$el.find('#hdd-strategy').val(this.model.get('hddStrategy'));
-			this.$el.find('#accuracy').val(this.model.get('accuracy'));
+			//this.$el.find('#accuracy').val(this.model.get('accuracy'));
+			this.$el.find('#seed').val(this.model.get('seed'));
 
 			this.updateStatus();
 
@@ -69,7 +71,8 @@ var App = (function($, App) {
 		updateStatus: function() {
 			var cpuStrategy = this.$el.find('select[name="cpuStrategy"]').val();
 			var hddStrategy = this.$el.find('select[name="hddStrategy"]').val();
-			var accuracy = this.$el.find('select[name="accuracy"]').val();
+			//var accuracy = this.$el.find('select[name="accuracy"]').val();
+			var seed = this.$el.find('input[name="seed"]').val();
 
 			/*var status = this.model.get('calibrated')[accuracy];
 
@@ -84,8 +87,8 @@ var App = (function($, App) {
 				this.$el.find('.confirm').text('Confirm & Calibrate');
 			}*/
 
-			var cpuId = accuracy + '.cpu.' + cpuStrategy;
-			var hddId = accuracy + '.hdd.' + hddStrategy;
+			var cpuId = 'cpu.' + cpuStrategy;
+			var hddId = 'hdd.' + hddStrategy;
 
 			var calibrated = this.model.get('calibrated');
 

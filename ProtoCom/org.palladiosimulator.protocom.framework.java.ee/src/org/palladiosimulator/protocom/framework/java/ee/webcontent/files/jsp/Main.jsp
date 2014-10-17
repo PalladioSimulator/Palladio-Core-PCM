@@ -49,8 +49,8 @@
 		<script type="text/template" id="template-options">
 			<form>
 				<div class="option">
-					<label for="experiment-name">Experiment Name:</label>
-					<input id="experiment-name" name="name" value="{{- name }}" autocomplete="off" spellcheck="false">
+					<label for="name">Experiment Name:</label>
+					<input id="name" name="name" value="{{- name }}" autocomplete="off" spellcheck="false">
 				</div>
 
 				<div class="option">
@@ -76,12 +76,8 @@
 				</div>
 
 				<div class="option">
-					<label for="accuracy">Accuracy:</label>
-					<select id="accuracy" name="accuracy">
-						<option value="low">Low</option>
-						<option value="medium">Medium</option>
-						<option value="high">High</option>
-					</select>
+					<label for="seed">StoEx Seed:</label>
+					<input id="seed" name="seed" value="{{- seed}}" autocomplete="off" spellcheck="false">
 				</div>
 			</form>
 

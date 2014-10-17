@@ -10,9 +10,9 @@ import org.jscience.physics.amount.Amount;
 
 /**
  * Helper class for monitoring system resources.
- * 
+ *
  * @author Thomas Zolynski
- * 
+ *
  */
 public final class SystemResourcesUtil {
 
@@ -28,12 +28,13 @@ public final class SystemResourcesUtil {
      * This systems' temp directory. Due to inconsistencies between different systems a file
      * separator is added.
      */
-    public static final File TEMP_DIR = new File(System.getProperty("java.io.tmpdir")
+    public static final File TEMP_DIR = new File("D:\\TEMP");
+    public static final File TEMP_DIR2 = new File(System.getProperty("java.io.tmpdir")
             + System.getProperty("file.separator"));
 
     /**
      * Returns the total size of the physical memory in bytes.
-     * 
+     *
      * @return total memory in bytes
      */
     public static long getTotalPhysicalMemorySize() {
@@ -42,7 +43,7 @@ public final class SystemResourcesUtil {
 
     /**
      * Returns the free physical memory in bytes.
-     * 
+     *
      * @return free memory in bytes
      */
     public static long getFreePhysicalMemorySize() {
@@ -51,16 +52,16 @@ public final class SystemResourcesUtil {
 
     /**
      * Returns the free space of the temp directory
-     * 
+     *
      * @return free space in bytes
      */
     public static long getFreeTempDirectorySize() {
-        return TEMP_DIR.getUsableSpace();
+        return TEMP_DIR2.getUsableSpace();
     }
 
     /**
      * Returns the number of CPU cores.
-     * 
+     *
      * @return CPU cores
      */
     public static int getCPUCores() {
@@ -69,7 +70,7 @@ public final class SystemResourcesUtil {
 
     /**
      * Returns the CPU time used by this JVM
-     * 
+     *
      * @return CPU usage in nanoseconds
      */
     public static double getCPUProcessTimeNS() {
@@ -78,7 +79,7 @@ public final class SystemResourcesUtil {
 
     /**
      * Returns the CPU time used by this JVM
-     * 
+     *
      * @return CPU usage as a JScience object
      */
     public static Amount<Duration> getCPUProcessTime() {
