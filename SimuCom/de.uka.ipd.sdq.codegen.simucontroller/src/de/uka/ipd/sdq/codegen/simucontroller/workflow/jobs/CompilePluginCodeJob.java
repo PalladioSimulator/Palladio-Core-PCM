@@ -41,15 +41,14 @@ public class CompilePluginCodeJob implements IJob {
 
         IProject project = CreatePluginProjectJob.getProject(this.configuration.getStoragePluginID());
         if (project != null && !project.exists()) {
-        	try {
-				project.create(monitor);
-				project.open(monitor);
-			} catch (CoreException e) {
-				System.out.println("Project creation failed");
-				e.printStackTrace();
-			}
+            try {
+                project.create(monitor);
+                project.open(monitor);
+            } catch (CoreException e) {
+                throw new JobFailedException("Project Creation failed!");
+            }
         }
-        
+
         assert (project != null);
 
         // create description
@@ -89,9 +88,7 @@ public class CompilePluginCodeJob implements IJob {
         IJavaProject javaProject = JavaCore.create(project);
         IPath srcPath = javaProject.getPath().append("src");
         IPath binPath = javaProject.getPath().append("bin");
-        IClasspathEntry[] buildPath = {
-                JavaCore.newSourceEntry(srcPath), JavaRuntime.getDefaultJREContainerEntry()
-        };
+        IClasspathEntry[] buildPath = { JavaCore.newSourceEntry(srcPath), JavaRuntime.getDefaultJREContainerEntry() };
         try {
             javaProject.setRawClasspath(buildPath, binPath, null);
         } catch (JavaModelException e) {
@@ -104,16 +101,12 @@ public class CompilePluginCodeJob implements IJob {
      */
     private void createDescription(IProject project, IProgressMonitor monitor) throws JobFailedException {
         IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
-        description.setNatureIds(new String[] {
-                JavaCore.NATURE_ID, PDE.PLUGIN_NATURE
-        });
+        description.setNatureIds(new String[] { JavaCore.NATURE_ID, PDE.PLUGIN_NATURE });
         description.setLocation(null);
         // set java builders
         ICommand command = description.newCommand();
         command.setBuilderName(JavaCore.BUILDER_ID);
-        description.setBuildSpec(new BuildCommand[] {
-            (BuildCommand) command
-        });
+        description.setBuildSpec(new BuildCommand[] { (BuildCommand) command });
         try {
             project.setDescription(description, monitor);
         } catch (CoreException e) {

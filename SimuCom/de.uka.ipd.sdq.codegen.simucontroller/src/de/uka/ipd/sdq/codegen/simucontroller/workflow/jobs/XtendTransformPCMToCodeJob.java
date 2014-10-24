@@ -110,8 +110,6 @@ public class XtendTransformPCMToCodeJob extends
         }
 		
 		for (int repositoryIndex = 0; repositoryIndex < getRepositoryCount(); repositoryIndex++) {
-			java.lang.System.out
-					.println(getRepositoryTransformationSlots(repositoryIndex));
 			final Map<String, Object> currentRepositorySlot = getRepositoryTransformationSlots(repositoryIndex);
 			final Repository repository = (Repository) currentRepositorySlot
 					.get("pcmmodel");
