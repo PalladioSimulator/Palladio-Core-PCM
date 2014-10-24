@@ -9,17 +9,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.Repository
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.core.entity.ComposedProvidingRequiringEntity",
-	"pcm.repository.CompositeComponent",
-	"pcm.repository.InfrastructureInterface",
-	"pcm.repository.OperationInterface",
-	"pcm.repository.Repository",
-	"pcm.repository.RepositoryComponent",
-	"pcm.subsystem.SubSystem"
-])
 abstract class RepositoryXpt {
 	@Inject M2TFileSystemAccess fsa
 
@@ -80,10 +70,6 @@ abstract class RepositoryXpt {
 	   public interface «ii.javaName()»
 	'''
 	
-	def CharSequence interfaceHelperMethodsDeclarationTM(OperationInterface oi)
-	
-	def CharSequence interfaceHelperMethodsDeclarationTM(InfrastructureInterface ii)
-	
 	def dispatch void componentRoot(RepositoryComponent rc) {
 	  /* FIXME: There seems to be a bug in xPand 0.7.2 that calls this template for SubSystems 
 	  (It should call ComponentRoot FOR SubSystem). See Bug 523. Revisit this again when a new XPand is available. 
@@ -122,4 +108,9 @@ abstract class RepositoryXpt {
 
 		fsa.generateFile(fileName, fileContent)
 	}
+	
+	//Template methods to be overwritten
+	def CharSequence interfaceHelperMethodsDeclarationTM(OperationInterface oi)
+	
+	def CharSequence interfaceHelperMethodsDeclarationTM(InfrastructureInterface ii)
 }

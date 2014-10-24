@@ -5,6 +5,7 @@ import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ResourcesXpt
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage
 import de.uka.ipd.sdq.pcm.repository.PassiveResource
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource
@@ -14,19 +15,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
 import de.uka.ipd.sdq.pcm.transformations.Helper
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"completions.NetworkDemandParametricResourceDemand",
-	"pcm.repository.PassiveResource",
-	"pcm.resourceenviroment.CommunicationLinkResourceSpecification",
-	"pcm.resourceenviroment.LinkinResource",
-	"pcm.resourceenviroment.ProcessingResourceSpecification",
-	"pcm.resourceenviroment.ResourceContainer",
-	"pcm.resourceenviroment.ResourceEnviroment",
-	"pcm.seff.seff_performance.ParametricResourceDemand",
-	"pcm.seff.seff_performance.ResourceCall"
-])
 class SimResourcesXpt extends ResourcesXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension SimMeasuringPointExt
@@ -52,7 +41,7 @@ class SimResourcesXpt extends ResourcesXpt {
 	    }
 	'''
 	
-	// New: Load resource demand using ResourceInterfaces
+	// New: Load resource demand using ResourceInterfaces and additional parameters
 	def dispatch resourceDemand(ResourceCall rc) '''
  {
             
@@ -68,7 +57,6 @@ class SimResourcesXpt extends ResourcesXpt {
    	 	 	
    	 	 	//remove Brackets [] from specification String	
    	 	 	specificationString = (String)"«rc.numberOfCalls__ResourceCall.variableCharacterisation_Specification.specification_VariableCharacterisation.specification.specificationString()»".subSequence(1, "«rc.numberOfCalls__ResourceCall.variableCharacterisation_Specification.specification_VariableCharacterisation.specification.specificationString()»".length() - 1);
-   	 	 	
    	 	 	typeString = "«parm.dataType__Parameter.toString()»";
    	 	 	
    	 	 	solvedSpecification = null;     		

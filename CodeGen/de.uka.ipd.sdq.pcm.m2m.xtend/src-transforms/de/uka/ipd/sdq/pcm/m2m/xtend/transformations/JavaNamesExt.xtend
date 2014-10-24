@@ -19,20 +19,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
 import de.uka.ipd.sdq.pcm.system.System
 import de.uka.ipd.sdq.pcm.transformations.Helper
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.completions.Completion",
-	"pcm.allocation.Allocation",
-	"pcm.core.composition.ComposedStructure",
-	"pcm.core.entity.Entity",
-	"pcm.core.entity.InterfaceProvidingEntity",
-	"pcm.core.entity.InterfaceRequiringEntity",
-	"pcm.reliability.FailureType",
-	"pcm.system.System",
-	"pcm.usagemodel.UsageScenario",
-	"pcm.repository.*"
-])
 class JavaNamesExt {
 	def removeAllSpecialChars(String s) {
 		Helper::removeAllSpecialChars(s)

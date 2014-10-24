@@ -15,7 +15,6 @@ public class M2TFileSystemAccess {
 	public void generateFile(String fileName, CharSequence contents) {		
 		Path p = Paths.get(rootDirectory, fileName);
 		
-		System.out.println("WRITING FILE: " + p.toAbsolutePath());
 		File newFile = p.toFile();
 		
 		try {

@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
 import com.google.inject.Inject
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimMeasuringPointExt
 import de.uka.ipd.sdq.pcm.reliability.FailureType
 import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType
 import de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType
@@ -22,20 +23,14 @@ import de.uka.ipd.sdq.pcm.seff.StopAction
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"completions.DelegatingExteralCallAction",
-	"pcm.reliability.*",
-	"pcm.seff.*"
-])
 abstract class SEFFBodyXpt {
 	@Inject extension CallsXpt
 	@Inject extension PCMext
 	@Inject extension ResourcesXpt
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt
-	
+
 	def dispatch String action(AbstractAction action) '''
 		« /* ERROR */»
 	'''	

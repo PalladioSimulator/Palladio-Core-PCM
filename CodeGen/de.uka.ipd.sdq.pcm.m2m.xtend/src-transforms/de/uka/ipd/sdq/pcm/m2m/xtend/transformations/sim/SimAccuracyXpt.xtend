@@ -10,19 +10,7 @@ import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRan
 import de.fzi.se.quality.qualityannotation.PCMParameterPartition
 import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"quality.parameters.pcm.PCMComponentParameterReference",
-	"quality.parameters.pcm.PCMOperationParameterReference",
-	"quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference",
-	"quality.qualityannotation.CharacterisedPCMParameterPartition",
-	"quality.qualityannotation.CharacterisedPCMParameterPartitionInterval",
-	"quality.qualityannotation.CharacterisedPCMParameterPartitionRange",
-	"quality.qualityannotation.PCMParameterPartition",
-	"pcm.seff.AbstractAction",
-	"pcm.seff.ResourceDemandingSEFF"
-])
 class SimAccuracyXpt {
 	@Inject extension SimAccuracyInfluenceExt	
 	

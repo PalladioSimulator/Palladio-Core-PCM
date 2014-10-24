@@ -6,14 +6,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.repository.InfrastructureInterface",
-	"pcm.repository.InfrastructureSignature",
-	"pcm.repository.OperationInterface",
-	"pcm.repository.OperationSignature"
-])
 class DelegatorClassXpt {
 	@Inject M2TFileSystemAccess fsa
 	

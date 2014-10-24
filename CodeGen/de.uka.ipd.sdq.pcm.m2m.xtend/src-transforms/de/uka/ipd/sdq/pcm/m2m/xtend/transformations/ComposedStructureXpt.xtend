@@ -12,21 +12,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"completions.Completion",
-	"pcm.core.composition.AssemblyConnector",
-	"pcm.core.composition.AssemblyContext",
-	"pcm.core.composition.AssemblyInfrastructureConnector",
-	"pcm.core.composition.ComposedStructure",
-	"pcm.core.entity.ComposedProvidingRequiringEntity",
-	"pcm.core.entity.InterfaceProvidingEntity",
-	"pcm.repository.InfrastructureProvidedRole",
-	"pcm.repository.InfrastructureRequiredRole",
-	"pcm.repository.OperationProvidedRole",
-	"pcm.repository.OperationRequiredRole"
-])
 abstract class ComposedStructureXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext
@@ -150,7 +136,7 @@ abstract class ComposedStructureXpt {
 				);
 	'''
 	
-	private def init(AssemblyContext context, ComposedStructure s) '''
+	def init(AssemblyContext context, ComposedStructure s) '''
 		private void init«context.javaName()»() {
 			«context.encapsulatedComponent__AssemblyContext.fqnContext()» context = new «context.encapsulatedComponent__AssemblyContext.fqnContext()»(
 			«FOR role : context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)) SEPARATOR ","»

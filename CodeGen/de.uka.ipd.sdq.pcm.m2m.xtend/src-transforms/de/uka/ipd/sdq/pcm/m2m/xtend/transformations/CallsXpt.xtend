@@ -6,16 +6,8 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 import java.util.List
 
-@ModelIn(#[
-	"pcm.core.entity.Entity",
-	"pcm.parameter.VariableUsage",
-	"pcm.repository.InfrastructureSignature",
-	"pcm.repository.OperationSignature",
-	"pcm.seff.seff_performance.InfrastructureCall"
-])
 abstract class CallsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt
@@ -25,14 +17,14 @@ abstract class CallsXpt {
 // An instance of a port can be passed as prefix
 // The list of parameter usages characterises the paramter contents
 // ----------------------------------
-	def call(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages, List<VariableUsage> outParameterUsages) '''
+	def CharSequence call(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages, List<VariableUsage> outParameterUsages) '''
 		«signature.preCallTM(call, prefix, parameterUsages)»
 		«prefix»«signature.javaSignature»
 			(«signature.parameterUsageListTM»);
 		«signature.postCallTM(call, prefix, outParameterUsages)»
 	'''
 
-	def call(InfrastructureCall infraCall, Entity call) '''
+	def CharSequence call(InfrastructureCall infraCall, Entity call) '''
 		{ //CALL SCOPE: this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
 	    long numberOfCalls = ctx.evaluate("«infraCall.numberOfCalls__InfrastructureCall.specification.specificationString»",Double.class).longValue();
 		for (long callNumber = 0; callNumber < numberOfCalls; callNumber++) {

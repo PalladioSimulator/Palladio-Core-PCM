@@ -11,20 +11,8 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.core.composition.ComposedStructure",
-	"pcm.core.entity.ComposedProvidingRequiringEntity",
-	"pcm.core.entity.InterfaceProvidingEntity",
-	"pcm.repository.InfrastructureInterface",
-	"pcm.repository.InfrastructureProvidedRole",
-	"pcm.repository.InfrastructureSignature",
-	"pcm.repository.OperationInterface",
-	"pcm.repository.OperationProvidedRole",
-	"pcm.repository.OperationSignature"
-])
-abstract class ProvidedPortsXpt {
+class ProvidedPortsXpt {
 	@Inject M2TFileSystemAccess fsa
 
 	@Inject extension JavaNamesExt
@@ -141,9 +129,6 @@ abstract class ProvidedPortsXpt {
 		     «ENDFOR»
 		}
 	'''
-		
-	def dispatch componentPortHelperMethodsTM(OperationProvidedRole role) ''''''
-	def dispatch componentPortHelperMethodsTM(InfrastructureProvidedRole role) ''''''
 	
 	def dispatch composedStructurePortImpl(OperationProvidedRole role, ComposedProvidingRequiringEntity cs) '''
 		// Port class for «role.portClassName»
@@ -213,9 +198,6 @@ abstract class ProvidedPortsXpt {
 			«signature.composedStructurePortDelegationDelegatingCallTM(cs)»
 		}
 	'''
-	
-	def dispatch portDelegationDelegatingCallTM(OperationSignature signature) '''«/* error */»'''
-	def dispatch portDelegationDelegatingCallTM(InfrastructureSignature signature) '''«/* error */»'''
 
 	def dispatch composedStructurePortDelegationDelegatingCallTM(OperationSignature signature,
 		ComposedProvidingRequiringEntity cs) '''«/* error */»'''
@@ -269,4 +251,10 @@ abstract class ProvidedPortsXpt {
 	def dispatch componentPortGetter(InfrastructureProvidedRole role) '''
 		public «role.providedInterface__InfrastructureProvidedRole.fqn» «role.portGetterName»();
 	'''
+	
+	//Template methods to be overwritten
+	def dispatch componentPortHelperMethodsTM(OperationProvidedRole role) ''''''
+	def dispatch componentPortHelperMethodsTM(InfrastructureProvidedRole role) ''''''
+	def dispatch portDelegationDelegatingCallTM(OperationSignature signature) '''«/* error */»'''
+	def dispatch portDelegationDelegatingCallTM(InfrastructureSignature signature) '''«/* error */»'''
 }

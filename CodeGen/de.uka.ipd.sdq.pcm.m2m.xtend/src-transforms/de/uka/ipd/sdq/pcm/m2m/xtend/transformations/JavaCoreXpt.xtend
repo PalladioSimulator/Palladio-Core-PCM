@@ -18,17 +18,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
 import de.uka.ipd.sdq.pcm.seff.StopAction
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.repository.*",
-	"pcm.core.entity.InterfaceProvidingEntity",
-	"pcm.core.entity.InterfaceProvidingRequiringEntity",
-	"pcm.seff.AbstractAction",
-	"pcm.seff.ServiceEffektSpecification",
-	"pcm.seff.StopAction",
-	"pcm.subsytem.Subsystem"
-])
 abstract class JavaCoreXpt {
 	@Inject M2TFileSystemAccess fsa
 	
@@ -170,16 +160,7 @@ abstract class JavaCoreXpt {
 		val fileContent = '''
 			«entity.contentImplementationInterfaceHeader»
 			{
-				«entity.componentHelperMethodsDeclarationTM»
-«««				«FOR providedRole:entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))»
-«««					«FOR operationSignature:(providedRole as OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
-«««						«operationSignature.componentServiceSignature»
-«««						«";"»
-«««					«ENDFOR»
-«««					«';'»
-«««				«ENDFOR»
-«««				
-				
+				«entity.componentHelperMethodsDeclarationTM»				
 				«entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
 					map[providedInterface__OperationProvidedRole.signatures__OperationInterface].
 					flatten.map[it.componentServiceSignature].join(";")»;

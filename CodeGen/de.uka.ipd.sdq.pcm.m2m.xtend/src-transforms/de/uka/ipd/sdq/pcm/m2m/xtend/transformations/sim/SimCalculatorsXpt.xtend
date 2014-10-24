@@ -13,18 +13,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.repository.BasicComponent",
-	"pcm.repository.RepositoryComponent",
-	"pcm.seff.ExternalCallAction",
-	"pcm.seff.InternalAction",
-	"pcm.seff.ResourceDemandingSEFF",
-	"pcm.seff.ServiceEffectSpecification",
-	"pcm.usagemodel.EntryLevelSystemCall",
-	"pcm.usagemodel.UsageScenario"
-])
 class SimCalculatorsXpt extends CalculatorsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext
@@ -92,4 +81,97 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 				«callName.setupCalculatorResponseTime("start" + callName, "end" + callName)»
 		«ENDFOR»
 	'''
+	
+//	«REM»
+//«DEFINE CalculatorRoot FOR UsageModel»
+//	«FILE "main/CalculatorRepositoryFactory.java"»
+//		package main;
+//		import de.uka.ipd.sdq.simucomframework.calculator.CalculatorRepository;
+//		import de.uka.ipd.sdq.simucomframework.calculator.ICalculatorRepositoryFactory;
+//		import org.palladiosimulator.probeframework.SampleBlackboard;
+//		import org.palladiosimulator.recorderframework.*;
+//		import org.palladiosimulator.recorderframework.*;
+//		import org.palladiosimulator.probeframework.calculator.*;
+//		
+//		public class CalculatorRepositoryFactory implements ICalculatorRepositoryFactory {
+//		
+//			private static CalculatorRepositoryFactory instance = new CalculatorRepositoryFactory();
+//			
+//			public CalculatorRepository createCalculatorRepository(SampleBlackboard blackboard) {
+//				CalculatorRepository repository = new CalculatorRepository();
+//				
+//				«EXPAND CreateCalculatorForUsageScenario FOREACH this.usageScenario_UsageModel»
+//				
+//				return repository;
+//			}
+//		
+//			public static CalculatorRepositoryFactory getInstance() {
+//				return instance;
+//			}
+//		}
+//	«ENDFILE»
+//«ENDDEFINE»
+//«ENDREM»
+//
+//«REM»
+//«DEFINE CalculatorRoot FOR Repository»
+//	«IF this.components__Repository.size > 0»
+//		«FILE this.basePackageName() + "/CalculatorFactory.java"»
+//			package «this.basePackageName()»;
+//			
+//			// CalculatorRoot FOR Repository: «this.datatypes_Repository.toString()»
+//			public class CalculatorFactory {
+//				public static void createCalculators(String assemblyContext) {
+//					«EXPAND CreateCalculatorForComponents FOREACH this.components__Repository»
+//				}
+//			}
+//		«ENDFILE»
+//	«ENDIF»
+//«ENDDEFINE»
+//
+//«DEFINE CreateCalculatorForComponents FOR RepositoryComponent»
+//	// Nothing to do?? (Create calculators solely for BasicComponents?)
+//«ENDDEFINE»
+//
+//«DEFINE CreateCalculatorForComponents FOR BasicComponent»
+//	// CreateCalculatorForComponents FOR BasicComponent
+//	«EXPAND CreateCalculatorForComponents(this) FOREACH this.serviceEffectSpecifications__BasicComponent.describedService__SEFF»
+//«ENDDEFINE»
+//
+//«DEFINE CreateCalculatorForComponents(RepositoryComponent component) FOR Signature»
+//	// CreateCalculatorForComponents(RepositoryComponent component) FOR Signature
+//	«IF this.hasSEFF(component)»
+//   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+//	      «EXPAND CreateCalculatorForComponents FOREACH seff.steps_Behaviour.findStart().queryExternalCallActions({})»      
+//    	«ENDLET»
+//   	  «ENDIF»
+//«ENDDEFINE»
+//
+//«DEFINE CreateCalculatorForComponents FOR ExternalCallAction»
+//	// CreateCalculatorForComponents FOR ExternalCallAction
+//	// «this.entityName»
+//«ENDDEFINE»«ENDREM»
+//
+//«REM»Creates one calculator for each UsageScenario«ENDREM»
+//«REM»«DEFINE CreateCalculatorForUsageScenario FOR UsageScenario»
+//	// Initialise calculator for «this.entityName»
+//	Recorder recorder = new RawRecorder(new ConsoleWriteStrategy());
+//	PipesAndFiltersManager pipesAndFiltersManager = new PipesAndFiltersManager(recorder);
+//	Calculator calculator = new ResponseTimeCalculator(blackboard,
+//			"start«this.entityName»", "end«this.entityName»");
+//	calculator.setPipesAndFiltersManager(pipesAndFiltersManager);
+//	repository.addCalculator("«this.entityName»", calculator);
+//	
+//	// «this.scenarioBehaviour_UsageScenario.querySystemCalls()»
+//«ENDDEFINE»
+//
+//«DEFINE CreateCalculators FOR System»
+//	«this.toString()»
+//«ENDDEFINE» 
+//
+//«DEFINE CreateCalculator FOR EntryLevelSystemCall»
+//	// Create calculator for «this.toString()»
+//«ENDDEFINE»
+//«ENDREM»
+
 }

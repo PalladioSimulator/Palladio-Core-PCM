@@ -9,17 +9,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.system.System
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.system.System",
-	"pcm.repository.InfrastructureInterface",
-	"pcm.repository.InfrastructureRequiredRole",
-	"pcm.repository.InfrastructureSignature",
-	"pcm.repository.OperationInterface",
-	"pcm.repository.OperationRequiredRole",
-	"pcm.repository.OperationSignature"
-])
 abstract class DummiesXpt {
 	@Inject M2TFileSystemAccess fsa
 	
@@ -64,10 +54,6 @@ abstract class DummiesXpt {
 		fsa.generateFile(fileName, fileContent)
 	}
 	
-	def CharSequence dummyComponentPortHelperMethodTM(OperationInterface oi)
-	
-	def CharSequence dummyComponentPortHelperMethodTM(InfrastructureInterface oi)
-	
 	def dispatch dummyMethod(OperationSignature os, System s, OperationRequiredRole r) '''
 		public «os.operationSignature» {
 			«os.dummyMethodBodyTM(s, r)»
@@ -88,4 +74,8 @@ abstract class DummiesXpt {
 	def CharSequence dummyMethodBodyTM(OperationSignature os, System s, OperationRequiredRole r)
 	
 	def CharSequence dummyMethodBodyTM(InfrastructureSignature os, System s, InfrastructureRequiredRole r)
+	
+	def CharSequence dummyComponentPortHelperMethodTM(OperationInterface oi)
+	
+	def CharSequence dummyComponentPortHelperMethodTM(InfrastructureInterface oi)
 }

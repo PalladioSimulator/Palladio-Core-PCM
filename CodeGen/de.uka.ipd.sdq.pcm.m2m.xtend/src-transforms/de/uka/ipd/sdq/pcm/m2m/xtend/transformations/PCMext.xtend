@@ -50,7 +50,6 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import de.uka.ipd.sdq.stoex.AbstractNamedReference
 import de.uka.ipd.sdq.stoex.NamespaceReference
 import de.uka.ipd.sdq.stoex.VariableReference
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 import java.util.ArrayList
 import java.util.Collection
 import java.util.HashSet
@@ -58,49 +57,6 @@ import java.util.List
 import java.util.Set
 import org.eclipse.emf.ecore.EObject
 
-@ModelIn(#[
-	"pcm.completions.Completion",
-	"pcm.core.composition.*",
-	"pcm.core.entity.Entity",
-	"pcm.core.entity.InterfaceProvidingEntity",
-	"pcm.core.entity.InterfaceProvidingRequiringEntity",
-	"pcm.parameter.VariableUsage",
-	"pcm.repository.BasicComponent",
-	"pcm.repository.CompositeComponent",
-	"pcm.repository.InfrastructureProvidedRole",
-	"pcm.repository.InfrastructureRequiredRole",
-	"pcm.repository.OperationProvidedRole",
-	"pcm.repository.OperationRequiredRole",
-	"pcm.repository.ProvidedRole",
-	"pcm.repository.RepositoryComponent",
-	"pcm.repository.RequiredRole",
-	"pcm.repository.Signature",
-	"pcm.repository.SinkRole",
-	"pcm.seff.AbstractAction",
-	"pcm.seff.StopAction",
-	"pcm.seff.AbstractBranchTransition",
-	"pcm.seff.AbstractLoopAction",
-	"pcm.seff.BranchAction",
-	"pcm.seff.ExternalCallAction",
-	"pcm.seff.ForkAction",
-	"pcm.seff.ForkedBehaviour",
-	"pcm.seff.InternalAction",
-	"pcm.seff.ResourceDemandingSEFF",
-	"pcm.seff.StartAction",
-	"pcm.seff.SynchronisationPoint",
-	"pcm.subsystem.SubSystem",
-	"pcm.system.System",
-	"pcm.usagemodel.AbstractUserAction",
-	"pcm.usagemodel.Branch",
-	"pcm.usagemodel.EntryLevelSystemCall",
-	"pcm.usagemodel.Loop",
-	"pcm.usagemodel.ScenarioBehaviour",
-	"pcm.usagemodel.Stop",
-	"pcm.usagemodel.UsageScenario",
-	"stoex.AbstractNamedReference",
-	"stoex.NamespaceReference",
-	"stoex.VariableReference"
-])
 class PCMext {
 	def findStart(List<AbstractAction> actions) {
 		actions.filter(typeof(StartAction)).head
@@ -360,48 +316,27 @@ class PCMext {
 		else
 			o.eContainer.findContainerComponent
 	}
-	
+
 	def List<System> uniqueSystemList(List<System> s) {
 		if (s != null) {
 			recursiveList(s, newArrayList, 0)
 		}
 	}
-	
+
 	private def List<System> recursiveList(List<System> s, List<System> result, int pos) {
 		if (pos < s.size) {
 			if (s.get(pos) != null && result.contains(s.get(pos))) {
-				recursiveList(s, result, pos+1)
+				recursiveList(s, result, pos + 1)
 			} else {
 				val element = s.get(pos) as System
 				if (element != null) {
 					result.add(element)
 				}
-				recursiveList(s, result, pos+1)
+				recursiveList(s, result, pos + 1)
 			}
 		} else {
 			return result
 		}
-	}
-
-	def <T> List<T> uniqueIterable(Iterable<T> s) {
-		val result = <T>newArrayList()
-		for (T t : s) {
-			if (result != null && !result.contains(t)) {
-				result.add(t)
-			} else {
-				//do nothing
-			}
-		}
-//		if (s != null) {
-//			s.forall [
-//				if (result != null && it != null && !result.contains(it)) {
-//					result.add(it)
-//				} else {
-//					//do nothing
-//				}
-//			]
-//		}
-		return result
 	}
 
 	def String getParentSubsystemsIdConcatenationFor(System s, ComposedStructure toMatch) {

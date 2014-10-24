@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.PCMext
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt
 import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription
 import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
-import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
 import de.uka.ipd.sdq.pcm.seff.AcquireAction
 import de.uka.ipd.sdq.pcm.seff.BranchAction
@@ -25,31 +24,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction
 import de.uka.ipd.sdq.pcm.seff.StartAction
 import de.uka.ipd.sdq.pcm.seff.StopAction
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"quality.parameters.pcm.PCMComponentParameterReference",
-	"quality.parameters.pcm.PCMOperationParameterReference",
-	"quality.qualityannotation.PCMParameterPartition",
-	"completions.DelegatingExternalCallAction",
-	"pcm.reliability.InternalFailureOccurrenceDescription",
-	"pcm.reliability.SoftwareInducedFailureType",
-	"pcm.seff.AbstractAction",
-	"pcm.seff.AbstractBranchTransition",
-	"pcm.seff.AcquireAction",
-	"pcm.seff.BranchAction",
-	"pcm.seff.CollectionIteratorAction",
-	"pcm.seff.ForkAction",
-	"pcm.seff.GuardedBranchTransition",
-	"pcm.seff.InternalAction",
-	"pcm.seff.LoopAction",
-	"pcm.seff.ProbabilisticBranchTransition",
-	"pcm.seff.ReleaseAction",
-	"pcm.seff.ResourceDemandingSEFF",
-	"pcm.seff.SetVariableAction",
-	"pcm.seff.StartAction",
-	"pcm.seff.StopAction"
-])
 class SimSEFFBodyXpt extends SEFFBodyXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext

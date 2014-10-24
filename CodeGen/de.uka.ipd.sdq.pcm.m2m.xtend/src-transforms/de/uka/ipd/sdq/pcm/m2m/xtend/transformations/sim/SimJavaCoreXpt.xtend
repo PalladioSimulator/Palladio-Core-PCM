@@ -21,28 +21,7 @@ import de.uka.ipd.sdq.pcm.seff.ForkAction
 import de.uka.ipd.sdq.pcm.seff.LoopAction
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF
 import de.uka.ipd.sdq.pcm.seff.StopAction
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 
-@ModelIn(#[
-	"pcm.core.entity.InterfaceProvidingEntity",
-	"pcm.repository.BasicComponent",
-	"pcm.repository.CompositeComponent",
-	"pcm.repository.ImplementationComponentType",
-	"pcm.repository.InfrastructureInterface",
-	"pcm.repository.InfrastructureSignature",
-	"pcm.repository.OperationInterface",
-	"pcm.repository.OperationSignature",
-	"pcm.repository.RepositoryComponent",
-	"pcm.repository.Signature",
-	"pcm.seff.AbstractAction",
-	"pcm.seff.BranchAction",
-	"pcm.seff.CollectionIteratorAction",
-	"pcm.seff.ForkAction",
-	"pcm.seff.LoopAction",
-	"pcm.seff.ResourceDemandingSEFF",
-	"pcm.seff.ServiceEffectSpecification",
-	"pcm.seff.StopAction"
-])
 class SimJavaCoreXpt extends JavaCoreXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext

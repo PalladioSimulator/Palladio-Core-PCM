@@ -16,20 +16,8 @@ import de.uka.ipd.sdq.pcm.repository.Signature
 import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
-import edu.kit.ipd.sdq.xtend2m.annotations.ModelIn
 import java.util.List
 
-@ModelIn(#[
-	"quality.qualityannotation.PCMParameterPartition",
-	"pcm.core.entity.Entity",
-	"pcm.parameter.VariableUsage",
-	"pcm.repository.InfrastructureSignature",
-	"pcm.repository.OperationSignature",
-	"pcm.repository.Signature",
-	"pcm.seff.AbstractAction",
-	"pcm.seff.ExternalCallAction",
-	"pcm.seff.InternalAction"
-])
 class SimCallsXpt extends CallsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext
