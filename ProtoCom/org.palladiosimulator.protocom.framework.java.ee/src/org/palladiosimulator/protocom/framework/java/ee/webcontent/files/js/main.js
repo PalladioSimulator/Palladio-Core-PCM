@@ -1,4 +1,4 @@
-var App = (function($, App) {
+var App = (function($, _, App) {
 	/**
 	 * The default escape symbols for Underscore templates conflict with JSP.
 	 * Therefore, change them to {{ and }}.
@@ -76,4 +76,4 @@ var App = (function($, App) {
 	});
 
 	return App;
-})(jQuery, App || {});
+})(jQuery, _, App || {});

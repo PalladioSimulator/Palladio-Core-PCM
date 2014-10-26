@@ -1,8 +1,6 @@
-var App = (function($, App) {
+var App = (function(App) {
 
 	var Scenario = Backbone.Model.extend({
-		// urlRoot: 'scenarios',
-
 		defaults: {
 			name: 'Default Scenario',
 			url: '#'
@@ -58,4 +56,4 @@ var App = (function($, App) {
 	});
 
 	return App;
-})(jQuery, App || {});
+})(App || {});

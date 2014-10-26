@@ -1,4 +1,4 @@
-var App = (function($, App) {
+var App = (function(App) {
 
 	App.CalibrationBoxView = Backbone.View.extend({
 		tagName: 'div',
@@ -43,4 +43,4 @@ var App = (function($, App) {
 	});
 
 	return App;
-})(jQuery, App || {});
+})(App || {});

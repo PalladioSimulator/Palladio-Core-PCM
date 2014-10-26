@@ -1,4 +1,4 @@
-var App = (function($, App) {
+var App = (function(App) {
 
 	var Options = Backbone.Model.extend({
 		urlRoot: 'api/options',
@@ -12,7 +12,6 @@ var App = (function($, App) {
 			cpuStrategy: 'fibonacci',
 			hddStrategy: 'largeChunks',
 			seed: '',
-			//accuracy: 'medium',
 			calibrated: []
 		},
 
@@ -29,18 +28,13 @@ var App = (function($, App) {
 			'change select': 'updateStatus',
 			'submit form': 'confirm'
 		},
-
-		initialize: function() {
-			// this.listenTo(this.model, 'sync', this.done);
-		},
-
+		
 		render: function() {
 			var template = _.template($('#template-options').html());
 			this.$el.append(template(this.model.toJSON()));
 
 			this.$el.find('#cpu-strategy').val(this.model.get('cpuStrategy'));
 			this.$el.find('#hdd-strategy').val(this.model.get('hddStrategy'));
-			//this.$el.find('#accuracy').val(this.model.get('accuracy'));
 			this.$el.find('#seed').val(this.model.get('seed'));
 
 			this.updateStatus();
@@ -71,28 +65,14 @@ var App = (function($, App) {
 		updateStatus: function() {
 			var cpuStrategy = this.$el.find('select[name="cpuStrategy"]').val();
 			var hddStrategy = this.$el.find('select[name="hddStrategy"]').val();
-			//var accuracy = this.$el.find('select[name="accuracy"]').val();
 			var seed = this.$el.find('input[name="seed"]').val();
-
-			/*var status = this.model.get('calibrated')[accuracy];
-
-			var cpu = status.cpuStrategy;
-			var hdd = status.hddStrategy;
-
-			if (_.contains(cpu, cpuStrategy) && _.contains(hdd, hddStrategy)) {
-				this.$el.find('.warning').hide();
-				this.$el.find('.confirm').text('Confirm');
-			} else {
-				this.$el.find('.warning').show();
-				this.$el.find('.confirm').text('Confirm & Calibrate');
-			}*/
 
 			var cpuId = 'cpu.' + cpuStrategy;
 			var hddId = 'hdd.' + hddStrategy;
 
 			var calibrated = this.model.get('calibrated');
 
-			if (_.contains(calibrated, cpuId) && _.contains(calibrated, hddId)) {
+			if (_(calibrated).contains(cpuId) && _(calibrated).contains(hddId)) {
 				this.$el.find('.warning').hide();
 				this.$el.find('.confirm').text('Confirm');
 			} else {
@@ -139,4 +119,4 @@ var App = (function($, App) {
 	});
 
 	return App;
-})(jQuery, App || {});
+})(App || {});

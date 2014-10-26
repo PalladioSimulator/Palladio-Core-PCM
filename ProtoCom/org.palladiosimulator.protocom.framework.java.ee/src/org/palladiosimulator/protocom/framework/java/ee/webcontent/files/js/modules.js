@@ -1,4 +1,4 @@
-var App = (function($, App) {
+var App = (function(App) {
 
 	var Module = Backbone.Model.extend({
 		defaults: {
@@ -37,11 +37,6 @@ var App = (function($, App) {
 			var self = this;
 
 			this.$el.find('.start').prop('disabled', true);
-			
-			/*$.get('api/modules/' + this.model.get('id') + '/start', function(response) {
-				self.model.set('started', true);
-				self.updateState();
-			});*/
 			
 			$.ajax({
 				url: 'api/modules/' + this.model.get('id') + '/start',
@@ -92,4 +87,4 @@ var App = (function($, App) {
 	});
 
 	return App;
-})(jQuery, App || {});
+})(App || {});

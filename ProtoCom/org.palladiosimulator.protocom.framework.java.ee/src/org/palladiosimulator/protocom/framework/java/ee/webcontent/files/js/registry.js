@@ -1,4 +1,4 @@
-var App = (function($, App) {
+var App = (function(App) {
 
 	var Registry = Backbone.Model.extend({
 		urlRoot: 'api/registry', 
@@ -64,4 +64,4 @@ var App = (function($, App) {
 	})
 
 	return App;
-})(jQuery, App || {});
+})(App || {});

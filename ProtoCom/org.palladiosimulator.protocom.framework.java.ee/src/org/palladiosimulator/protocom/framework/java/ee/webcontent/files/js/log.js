@@ -1,4 +1,4 @@
-var App = (function($, App) {
+var App = (function(App) {
 
 	App.LogBoxView = Backbone.View.extend({
 		tagName: 'div',
@@ -30,8 +30,8 @@ var App = (function($, App) {
 			connection.onmessage = function(e) {
 				var data = JSON.parse(e.data);
 
-				if (_.isArray(data.payload)) {
-					_.each(data.payload, function(element) {
+				if (_(data.payload).isArray()) {
+					_(data.payload).each(function(element) {
 						self.addMessage(element);
 					});
 				} else {
@@ -68,4 +68,4 @@ var App = (function($, App) {
 	});
 
 	return App;
-})(jQuery, App || {});
+})(App || {});

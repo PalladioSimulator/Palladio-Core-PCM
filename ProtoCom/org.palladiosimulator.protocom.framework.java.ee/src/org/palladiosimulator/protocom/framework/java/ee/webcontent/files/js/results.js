@@ -1,4 +1,4 @@
-var App = (function($, App) {
+var App = (function(App) {
 
 	var Result = Backbone.Model.extend({
 		urlRoot: 'api/results', 
@@ -56,7 +56,7 @@ var App = (function($, App) {
 		comparator: 'name',
 
 		parse: function(response) {
-			return _.sortBy(response, 'name');
+			return _(response).sortBy('name');
 		},
 		
 		initialize: function() {
@@ -134,4 +134,4 @@ var App = (function($, App) {
 	});
 
 	return App;
-})(jQuery, App || {});
+})(App || {});
