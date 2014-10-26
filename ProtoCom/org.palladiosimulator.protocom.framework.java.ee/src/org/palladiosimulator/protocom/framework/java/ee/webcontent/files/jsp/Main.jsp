@@ -7,24 +7,22 @@
 		
 		<title>ProtoCom</title>
 		
-		<script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="js/lib/jquery.color-2.1.2.min.js"></script>
-		<script type="text/javascript" src="js/lib/underscore-1.6.0.min.js"></script>
-		<script type="text/javascript" src="js/lib/backbone-1.1.2.min.js"></script>
+		<script src="js/lib/jquery-2.1.1.min.js"></script>
+		<script src="js/lib/jquery.color-2.1.2.min.js"></script>
+		<script src="js/lib/underscore-1.6.0.min.js"></script>
+		<script src="js/lib/backbone-1.1.2.min.js"></script>
 
-		<script type="text/javascript" src="js/options.js"></script>
+		<script src="js/calibration.js"></script>
+		<script src="js/log.js"></script>
+		<script src="js/modules.js"></script>
+		<script src="js/options.js"></script>
+		<script src="js/registry.js"></script>
+		<script src="js/results.js"></script>
+		<script src="js/scenarios.js"></script>
+		<script src="js/main.js"></script>
 
-		<script type="text/javascript" src="js/calibration.js"></script>
-
-		<script type="text/javascript" src="js/registry.js"></script>
-		<script type="text/javascript" src="js/modules.js"></script>
-		<script type="text/javascript" src="js/scenarios.js"></script>
-		<script type="text/javascript" src="js/results.js"></script>
-		<script type="text/javascript" src="js/log.js"></script>
-		<script type="text/javascript" src="js/code.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
 		
 		<link rel="icon" href="img/favicon.png">
 	</head>
