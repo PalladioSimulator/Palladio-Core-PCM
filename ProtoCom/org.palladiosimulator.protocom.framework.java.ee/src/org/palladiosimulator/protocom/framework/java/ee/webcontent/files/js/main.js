@@ -1,4 +1,8 @@
 var App = (function($, App) {
+	/**
+	 * The default escape symbols for Underscore templates conflict with JSP.
+	 * Therefore, change them to {{ and }}.
+	 */
 	_.templateSettings = {
 		interpolate: /\{\{(.+?)\}\}/g,
 		escape: /\{\{-(.+?)\}\}/g
@@ -6,23 +10,20 @@ var App = (function($, App) {
 
 	App.ControlBoxView = Backbone.View.extend({
 		tagName: 'div',
+		
+		boxes: [
+			App.RegistryBoxView,
+			App.ModulesBoxView,
+			App.ScenariosBoxView,
+			App.ResultsBoxView,
+			App.LogBoxView
+		],
 
 		render: function() {
-			var registryView = new App.RegistryBoxView;
-			this.$el.append(registryView.render().el);
-
-			var modulesView = new App.ModuleCollectionView;
-			this.$el.append(modulesView.render().el);
-
-			var scenariosView = new App.ScenariosBoxView;
-			this.$el.append(scenariosView.render().el);
-
-			var resultsView = new App.ResultsBoxView;
-			this.$el.append(resultsView.render().el);
-
-			var logView = new App.LogBoxView;
-			this.$el.append(logView.render().el);
-
+			_(this.boxes).each(function(box) {
+				this.$el.append(new box().render().el);
+			}, this);
+			
 			return this;
 		}
 	});

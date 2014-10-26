@@ -67,7 +67,7 @@ var App = (function($, App) {
 		}
 	});
 
-	App.ModuleCollectionView = Backbone.View.extend({
+	App.ModulesBoxView = Backbone.View.extend({
 		tagName: 'div',
 		id: 'modules',
 		className: 'box',
