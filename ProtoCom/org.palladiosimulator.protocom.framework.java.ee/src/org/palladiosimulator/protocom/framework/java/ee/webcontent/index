@@ -25,8 +25,8 @@ js/lib/jquery.color-2.1.2.min.js -> js/lib
 js/lib/underscore-1.6.0.min.js -> js/lib
 
 js/calibration.js -> js
-js/code.js -> js
 js/log.js -> js
+js/main.js -> js
 js/modules.js -> js
 js/options.js -> js
 js/registry.js -> js
