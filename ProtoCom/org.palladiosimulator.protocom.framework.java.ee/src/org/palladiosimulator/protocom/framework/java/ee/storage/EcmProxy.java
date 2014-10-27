@@ -24,7 +24,7 @@ public class EcmProxy {
 	 * @param name the name of the method
 	 * @param args the arguments of the invocation
 	 * @return the result of the invocation
-	 * @throws Exception if any exception occured during the invocation
+	 * @throws Exception if any exception occurred during the invocation
 	 */
 	private static Object invoke(Object target, String name, Object... args)
 		throws Exception {
@@ -46,7 +46,7 @@ public class EcmProxy {
 	 * @param ecmService the EcmService object
 	 * @param name the name of the repository
 	 * @param key the key for the repository
-	 * @throws Exception if any exception occured during the repository creation
+	 * @throws Exception if any exception occurred during the repository creation
 	 */
 	private static void createRepository(Object ecmService, String name, String key)
 		throws Exception {
@@ -77,7 +77,7 @@ public class EcmProxy {
 	 * @param name the name of the repository to connect to
 	 * @param key the key for the repository to connect to
 	 * @return a CMIS session object for the repository
-	 * @throws Exception if any exception occured during the connection
+	 * @throws Exception if any exception occurred during the connection
 	 */
 	private static Session connect(String name, String key) throws Exception {
 		Object ecmService;
