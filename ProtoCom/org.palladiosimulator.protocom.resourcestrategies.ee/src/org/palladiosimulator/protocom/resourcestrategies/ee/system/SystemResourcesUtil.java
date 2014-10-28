@@ -28,8 +28,8 @@ public final class SystemResourcesUtil {
      * This systems' temp directory. Due to inconsistencies between different systems a file
      * separator is added.
      */
-    public static final File TEMP_DIR = new File("D:\\TEMP");
-    public static final File TEMP_DIR2 = new File(System.getProperty("java.io.tmpdir")
+    //public static final File TEMP_DIR = new File("D:\\TEMP");
+    public static final File TEMP_DIR = new File(System.getProperty("java.io.tmpdir")
             + System.getProperty("file.separator"));
 
     /**
@@ -56,7 +56,7 @@ public final class SystemResourcesUtil {
      * @return free space in bytes
      */
     public static long getFreeTempDirectorySize() {
-        return TEMP_DIR2.getUsableSpace();
+        return TEMP_DIR.getUsableSpace();
     }
 
     /**
