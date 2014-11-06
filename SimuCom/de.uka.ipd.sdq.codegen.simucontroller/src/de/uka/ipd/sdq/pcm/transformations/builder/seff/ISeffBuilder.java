@@ -7,6 +7,6 @@ import de.uka.ipd.sdq.pcm.transformations.builder.IBuilder;
 
 public interface ISeffBuilder extends IBuilder {
 
-	List<ResourceDemandingSEFF> getSeffs();
+    List<ResourceDemandingSEFF> getSeffs();
 
 }

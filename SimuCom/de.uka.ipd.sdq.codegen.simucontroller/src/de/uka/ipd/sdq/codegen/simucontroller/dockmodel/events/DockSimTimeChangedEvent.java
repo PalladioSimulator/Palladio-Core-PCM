@@ -4,15 +4,15 @@ import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 
 public class DockSimTimeChangedEvent extends DockEvent {
 
-	private double newSimTime;
+    private double newSimTime;
 
-	public DockSimTimeChangedEvent(DockModel dock, double simTime) {
-		super(dock);
-		this.newSimTime = simTime;
-	}
+    public DockSimTimeChangedEvent(DockModel dock, double simTime) {
+        super(dock);
+        this.newSimTime = simTime;
+    }
 
-	public double getNewSimTime() {
-		return newSimTime;
-	}
+    public double getNewSimTime() {
+        return newSimTime;
+    }
 
 }
