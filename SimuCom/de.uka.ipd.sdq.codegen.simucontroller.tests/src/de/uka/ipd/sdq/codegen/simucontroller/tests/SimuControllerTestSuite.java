@@ -129,8 +129,8 @@ public class SimuControllerTestSuite {
             copy.setAttribute(ConstantsContainer.SYSTEM_FILE,
                     getModelsFilePath(modelFolderName, ConstantsContainer.SYSTEM_EXTENSION[0]));
 
-            copy.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
-                    ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE);
+            copy.setAttribute(ConstantsContainer.RMI_MIDDLEWARE_REPOSITORY_FILE,
+                    ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE);
 
             copy.setAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE,
                     ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
