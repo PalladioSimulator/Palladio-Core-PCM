@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 /**
  * The class defines a tab, which is responsible for the input model(s) of
  * the Palladio Component Model.
- *
+ * 
  * @author Roman Andrej
  * @author groenda
  */
@@ -22,7 +22,7 @@ public class FileNamesInputTab extends ProtocomFileNamesInputTab {
 	
 	// input fields
 	/** Text field for path to middleware model file. */
-	protected Text mwtextRepository;
+	protected Text rmiMiddlewareRepository;
 	/** Text field for path to event middleware model file. */
 	protected Text eventMiddlewareRepository;
 
@@ -34,8 +34,8 @@ public class FileNamesInputTab extends ProtocomFileNamesInputTab {
 		/**
 		 * Create MW repository section
 		 */
-		mwtextRepository = new Text(container, SWT.SINGLE | SWT.BORDER);
-		TabHelper.createFileInputSection(container, modifyListener, "Middleware Repository File", ConstantsContainer.REPOSITORY_EXTENSION, mwtextRepository, "Select Middleware Repository File", getShell(), ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE);
+		rmiMiddlewareRepository = new Text(container, SWT.SINGLE | SWT.BORDER);
+		TabHelper.createFileInputSection(container, modifyListener, "Middleware Repository File", ConstantsContainer.REPOSITORY_EXTENSION, rmiMiddlewareRepository, "Select Middleware Repository File", getShell(), ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE);
 
 		/**
 		 * Create event MW repository section
@@ -50,10 +50,10 @@ public class FileNamesInputTab extends ProtocomFileNamesInputTab {
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		super.initializeFrom(configuration);
 		try {
-			mwtextRepository.setText(configuration.getAttribute(
-					ConstantsContainer.MWREPOSITORY_FILE, ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE));
+			rmiMiddlewareRepository.setText(configuration.getAttribute(
+					ConstantsContainer.RMI_MIDDLEWARE_REPOSITORY_FILE, ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE));
 		} catch (CoreException e) {
-			LaunchConfigPlugin.errorLogger(getName(),"Middleware Repository File", e.getMessage());
+			LaunchConfigPlugin.errorLogger(getName(),"RMI Middleware Repository File", e.getMessage());
 		}
 
 		try {
@@ -70,8 +70,8 @@ public class FileNamesInputTab extends ProtocomFileNamesInputTab {
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		super.performApply(configuration);
-		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
-				mwtextRepository.getText());
+		configuration.setAttribute(ConstantsContainer.RMI_MIDDLEWARE_REPOSITORY_FILE,
+				rmiMiddlewareRepository.getText());
 		configuration.setAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE,
 				eventMiddlewareRepository.getText());
 	}
@@ -81,8 +81,8 @@ public class FileNamesInputTab extends ProtocomFileNamesInputTab {
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		super.setDefaults(configuration);
-		configuration.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
-				ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE);
+		configuration.setAttribute(ConstantsContainer.RMI_MIDDLEWARE_REPOSITORY_FILE,
+				ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE);
 		configuration.setAttribute(
 				ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE,
 				ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
@@ -96,9 +96,9 @@ public class FileNamesInputTab extends ProtocomFileNamesInputTab {
 	public boolean isValid(ILaunchConfiguration launchConfig) {
 		boolean tmp = super.isValid(launchConfig);
 
-		if (!TabHelper.validateFilenameExtension(mwtextRepository.getText(),
+		if (!TabHelper.validateFilenameExtension(rmiMiddlewareRepository.getText(),
 				ConstantsContainer.REPOSITORY_EXTENSION)) {
-			setErrorMessage("Middleware Repository is missing.");
+			setErrorMessage("RMI Middleware Repository is missing.");
 			return false;
 		}
 		if (!TabHelper.validateFilenameExtension(eventMiddlewareRepository.getText(),

@@ -73,7 +73,7 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 			QosReliabilityPackage.eINSTANCE,
 			SeffReliabilityPackage.eINSTANCE};
 
-	protected String middlewareFile;
+	protected String rmiMiddlewareFile;
 	protected String eventMiddlewareFile;
 	protected List<String> allocationFiles;
 	protected String usageModelFile;
@@ -210,21 +210,21 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 	}
 
 	/**
-	 * @return Returns the filename of the PCM's middleware completion
+	 * @return Returns the filename of the PCM's RMI middleware repository
 	 *         repository
 	 */
-	public String getMiddlewareFile() {
-		return middlewareFile;
+	public String getRMIMiddlewareFile() {
+		return rmiMiddlewareFile;
 	}
 
 	/**
-	 * Sets the filename of the PCM's middleware completion repository
+	 * Sets the filename of the PCM's RMI middleware repository
 	 *
 	 * @param middlewareFile
 	 */
-	public void setMiddlewareFile(String middlewareFile) {
+	public void setRMIMiddlewareFile(String rmiMiddlewareFile) {
 		checkFixed();
-		this.middlewareFile = middlewareFile;
+		this.rmiMiddlewareFile = rmiMiddlewareFile;
 	}
 
 	/**
@@ -309,7 +309,7 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 		config.allocationFiles = newAllocationFiles;
 		config.deleteTemporaryDataAfterAnalysis = this.deleteTemporaryDataAfterAnalysis;
 		config.eventMiddlewareFile = new String(this.eventMiddlewareFile);
-		config.middlewareFile = new String(this.middlewareFile);
+		config.rmiMiddlewareFile = new String(this.rmiMiddlewareFile);
 		config.temporaryDataLocation = new String(temporaryDataLocation);
 		config.usageModelFile = new String(usageModelFile);
 		config.accuracyInfluenceIssueReceivingJob = this.accuracyInfluenceIssueReceivingJob;

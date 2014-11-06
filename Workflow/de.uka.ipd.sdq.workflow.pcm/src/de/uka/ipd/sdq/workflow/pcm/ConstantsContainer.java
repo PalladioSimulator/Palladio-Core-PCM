@@ -14,7 +14,7 @@ public class ConstantsContainer {
 	public static final String SYSTEM_FILE = "systemFile";
 	public static final String ALLOCATION_FILE = "allocationFile";
 	public static final String USAGE_FILE = "usageFile";
-	public static final String MWREPOSITORY_FILE = "mwRepositoryFile";
+	public static final String RMI_MIDDLEWARE_REPOSITORY_FILE = "rmiRepositoryFile";
 	public static final String EVENT_MIDDLEWARE_REPOSITORY_FILE = "eventMiddlewareRepositoryFile";
 	public static final String ACCURACY_QUALITY_ANNOTATION_FILE = "accuracyQualityAnnotationFile";
 	public static final String SENSITIVITY_MODEL_FILE = "sensitivityModelFile";
@@ -83,7 +83,7 @@ public class ConstantsContainer {
 	//BRG
 	// private static final String PCM_RESOURCETYPE_FILE_URI = "pathmap://PCM_MODELS/Palladio.resourcetype";
 	/** Default URI of the middleware repository file. */
-	public static final String DEFAULT_MIDDLEWARE_REPOSITORY_FILE = "pathmap://PCM_MODELS/Glassfish.repository";
+	public static final String DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE = "pathmap://PCM_MODELS/Glassfish.repository";
 	/** Default URI of the allocation model file. */
 	public static final String DEFAULT_ALLOCATION_FILE = "";
 	/** Default URI of the usage model file. */

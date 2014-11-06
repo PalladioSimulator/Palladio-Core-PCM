@@ -18,7 +18,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
     private static final Logger LOGGER = Logger.getLogger(LoadPCMModelsIntoBlackboardJob.class);
 	
-	public static final String MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.middleware";
+	public static final String RMI_MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.rmimiddleware";
 	public static final String EVENT_MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.eventmiddleware";
 
 	private MDSDBlackboard blackboard = null;
@@ -34,22 +34,22 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
     public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		ResourceSetPartition middlewareRepositoryPartition = null;
-		if (!this.blackboard.hasPartition(MIDDLEWARE_PARTITION_ID)) {
+		if (!this.blackboard.hasPartition(RMI_MIDDLEWARE_PARTITION_ID)) {
 			if(LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Creating Middleware Repository Partition");
+                LOGGER.debug("Creating RMI Middleware Repository Partition");
             }
 			
 			middlewareRepositoryPartition = new ResourceSetPartition();
-			this.blackboard.addPartition(MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
+			this.blackboard.addPartition(RMI_MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
 			
 			if(LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Initialising Middleware EPackages");
+                LOGGER.debug("Initialising RMI Middleware EPackages");
             }
 			middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		} else {
-			middlewareRepositoryPartition = this.blackboard.getPartition(MIDDLEWARE_PARTITION_ID);
+			middlewareRepositoryPartition = this.blackboard.getPartition(RMI_MIDDLEWARE_PARTITION_ID);
 		}
-		middlewareRepositoryPartition.loadModel(configuration.getMiddlewareFile());
+		middlewareRepositoryPartition.loadModel(configuration.getRMIMiddlewareFile());
 		
 		// load event middleware 
 		ResourceSetPartition eventMiddlewareRepositoryPartition = null;
@@ -81,7 +81,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	@Override
     public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
-		this.blackboard.removePartition(MIDDLEWARE_PARTITION_ID);
+		this.blackboard.removePartition(RMI_MIDDLEWARE_PARTITION_ID);
 	}
 
 	@Override

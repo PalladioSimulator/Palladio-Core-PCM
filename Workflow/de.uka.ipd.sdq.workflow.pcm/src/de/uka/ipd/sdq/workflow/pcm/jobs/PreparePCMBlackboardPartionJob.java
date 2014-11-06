@@ -34,7 +34,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, myPartion);
 		
 		ResourceSetPartition middlewareRepositoryPartition = new ResourceSetPartition();
-		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
+		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
 		
 		ResourceSetPartition eventMiddlewareRepositoryPartition = new ResourceSetPartition();
 		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID, eventMiddlewareRepositoryPartition);
@@ -58,7 +58,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
 		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID);
-		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
+		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID);
 		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 	}
 

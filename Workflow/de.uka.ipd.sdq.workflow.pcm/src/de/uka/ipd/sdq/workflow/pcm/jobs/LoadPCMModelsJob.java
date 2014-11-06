@@ -42,7 +42,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		ResourceSetPartition pcmPartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		ResourceSetPartition middlewarePartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
+		ResourceSetPartition rmiMiddlewarePartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID);
 		ResourceSetPartition eventMiddlewarePartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID);
 
 		// Load the PCM model itself
@@ -53,11 +53,11 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		}
 		pcmPartition.resolveAllProxies();
 
-		// load the middleware completion
+		// load the RMI middleware repository
 		if(LOGGER.isEnabledFor(Level.INFO))
 			LOGGER.info("Loading middleware completion models");
-		middlewarePartition.loadModel(configuration.getMiddlewareFile());
-		middlewarePartition.resolveAllProxies();
+		rmiMiddlewarePartition.loadModel(configuration.getRMIMiddlewareFile());
+		rmiMiddlewarePartition.resolveAllProxies();
 
 		// load the event middleware repository
 		if(LOGGER.isEnabledFor(Level.INFO))

@@ -60,7 +60,7 @@ public class PCMWorkflowConfigurationBuilder extends
 		tempList.add(getStringAttribute(ConstantsContainer.ALLOCATION_FILE));
 		config.setAllocationFiles(tempList);
 		config.setUsageModelFile   ( getStringAttribute(ConstantsContainer.USAGE_FILE) );
-		config.setMiddlewareFile   (ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE);
+		config.setRMIMiddlewareFile   (ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE);
 		config.setEventMiddlewareFile   (ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
 
 	}
