@@ -52,7 +52,7 @@ public class ApplyConnectorCompletionsJob implements IBlackboardInteractingJob<M
         PCMResourceSetPartition pcmModels = (PCMResourceSetPartition) blackboard
                 .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
         ResourceSetPartition middlewareRepository = blackboard
-                .getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
+                .getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID);
 
         if (LOGGER.isEnabledFor(Level.INFO)) {
             LOGGER.info("Create completion repository...");

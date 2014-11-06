@@ -106,7 +106,7 @@ public class TransformPCMToCodeJob extends SequentialBlackboardInteractingJob<MD
     private HashMap<String, Object> getMiddlewareRepositorySlots() {
         final HashMap<String, Object> sC2 = new HashMap<String, Object>();
         final ResourceSetPartition mwRepositoryPartition = this.myBlackboard
-                .getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
+                .getPartition(LoadMiddlewareConfigurationIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID);
 
         sC2.put("pcmmodel", mwRepositoryPartition.getResourceSet().getResources().get(0).getContents().get(0));
 
