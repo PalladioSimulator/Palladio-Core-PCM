@@ -6,29 +6,22 @@ import java.util.Map;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.mwe2.runtime.workflow.IWorkflowComponent;
 import org.eclipse.emf.mwe2.runtime.workflow.IWorkflowContext;
 import org.eclipse.emf.mwe2.runtime.workflow.Workflow;
-import org.eclipse.xpand2.output.Outlet;
 import org.eclipse.xtend.expression.AbstractExpressionsUsingWorkflowComponent.GlobalVarDef;
 
 import com.google.inject.Injector;
 
 import de.fzi.se.quality.QualityFactory;
-import de.fzi.se.quality.QualityPackage;
 import de.fzi.se.quality.QualityRepository;
-import de.fzi.se.quality.parameters.ParametersPackage;
-import de.fzi.se.quality.parameters.pcm.PCMPackage;
-import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.m2m.xtend.guice.SimuComModule;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.AllocationXpt;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.RepositoryXpt;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SystemXpt;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UsageXpt;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimAccuracyInfluenceExt;
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim.SimAllocationXpt;
+import de.uka.ipd.sdq.pcm.codegen.simucom.guice.SimuComModule;
+import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.RepositoryXpt;
+import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.SystemXpt;
+import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.UsageXpt;
+import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.sim.SimAccuracyInfluenceExt;
+import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.sim.SimAllocationXpt;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
@@ -41,10 +34,8 @@ import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
-import de.uka.ipd.sdq.workflow.mdsd.oaw.XpandGeneratorJob;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
-import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
@@ -269,65 +260,6 @@ public class XtendTransformPCMToCodeJob extends
 				.getResources().get(0).getContents().get(0));
 
 		return sC2;
-	}
-
-	/**
-	 * Creates an XPand generator job.
-	 * 
-	 * @param slots
-	 *            XPand slots and their content.
-	 * @param expression
-	 *            XPand expression starting the generation.
-	 * @param globalVarDefs
-	 *            Global variables used in the generation.
-	 */
-	private XpandGeneratorJob getGeneratorJob(HashMap<String, Object> slots,
-			String expression, GlobalVarDef[] globalVarDefs) {
-		// add accuracy EMF packages to transformation
-		EPackage[] pcmAndAccuracyPackages = new EPackage[AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES.length + 3];
-		java.lang.System.arraycopy(
-				AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES, 0,
-				pcmAndAccuracyPackages, 0,
-				AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES.length);
-		pcmAndAccuracyPackages[pcmAndAccuracyPackages.length - 4] = QualityPackage.eINSTANCE;
-		pcmAndAccuracyPackages[pcmAndAccuracyPackages.length - 3] = QualityAnnotationPackage.eINSTANCE;
-		pcmAndAccuracyPackages[pcmAndAccuracyPackages.length - 2] = ParametersPackage.eINSTANCE;
-		pcmAndAccuracyPackages[pcmAndAccuracyPackages.length - 1] = PCMPackage.eINSTANCE;
-		// create job
-		XpandGeneratorJob job = new XpandGeneratorJob(slots,
-				pcmAndAccuracyPackages, getPCMOutlets(), expression,
-				globalVarDefs);
-		job.getAdvices().add(configuration.getCodeGenerationAdvicesFile());
-		for (String advice : configuration.getCodeGenerationAdvices()) {
-			job.getAdvices().add(advice);
-		}
-		job.setCheckProtectedRegions(true);
-
-		return job;
-	}
-
-	/**
-	 * Creates an XPand generator job without global variables.
-	 * 
-	 * @param slots
-	 *            XPand slots and their content.
-	 * @param expression
-	 *            XPand expression starting the generation.
-	 */
-	private XpandGeneratorJob getGeneratorJob(HashMap<String, Object> slots,
-			String expression) {
-		return getGeneratorJob(slots, expression, null);
-	}
-
-	/**
-	 * @return
-	 */
-	private Outlet[] getPCMOutlets() {
-		Outlet defaultOutlet = new Outlet(getBasePath());
-		Outlet interfaces = new Outlet(getBasePath());
-		interfaces.setName("INTERFACES");
-
-		return new Outlet[] { defaultOutlet, interfaces };
 	}
 
 	/**
