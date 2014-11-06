@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This script is run by Jenkins/Buckminster for the headless build --> 
+<!-- see http://www.lorenzobettini.it/2013/09/using-the-xtend-compiler-in-buckminster-builds/ -->
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/de.uka.ipd.sdq.pcm.codegen.simucom"/>
