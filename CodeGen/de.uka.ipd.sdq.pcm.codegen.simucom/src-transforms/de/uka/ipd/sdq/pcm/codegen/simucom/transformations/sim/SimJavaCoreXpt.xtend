@@ -29,25 +29,25 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	
 	override specificImplementationPartTM(RepositoryComponent rc) '''
 		// Component Parameter Defaults
-		// TODO: The stackframes are not yet initialised by calling setComponentFrame in Protocom, thus initialise them here, too
+		// TODO: The stackframes are not yet initialised by calling setComponentFrame in Protocom, thus initialize them here, too
 		protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myDefaultComponentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 	
 		// Component Parameter setter
-		// TODO: The stackframes are not yet initialised by calling setComponentFrame in Protocom, thus initialise them here, too
+		// TODO: The stackframes are not yet initialised by calling setComponentFrame in Protocom, thus initialize them here, too
 		protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 		
 		public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) {
 			this.myComponentStackFrame = myComponentStackFrame;	
 			this.myDefaultComponentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
-			«IF rc instanceof ImplementationComponentType»
-				«FOR pu : (rc as ImplementationComponentType).componentParameterUsage_ImplementationComponentType»
-					«FOR vc : pu.variableCharacterisation_VariableUsage»
-						this.myDefaultComponentStackFrame.addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
-						   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",
+			Â«IF rc instanceof ImplementationComponentTypeÂ»
+				Â«FOR pu : (rc as ImplementationComponentType).componentParameterUsage_ImplementationComponentTypeÂ»
+					Â«FOR vc : pu.variableCharacterisation_VariableUsageÂ»
+						this.myDefaultComponentStackFrame.addValue("Â«pu.parameterUsageLHS()+'.'+vc.type.toString()Â»",
+						   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("Â«vc.specification_VariableCharacterisation.specification.specificationString()Â»",
 						   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
-					«ENDFOR»
-				«ENDFOR»
-			«ENDIF»
+					Â«ENDFORÂ»
+				Â«ENDFORÂ»
+			Â«ENDIFÂ»
 		}
 	'''
 	
@@ -77,13 +77,13 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 			return model;
 		} 
 		
-		«rc.passiveResourceDecls»
+		Â«rc.passiveResourceDeclsÂ»
 		
-		public «rc.javaName()» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+		public Â«rc.javaName()Â» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 			this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel(assemblyContextURI);
 			this.model = model;
 			
-			«rc.initCalculatorsTM»
+			Â«rc.initCalculatorsTMÂ»
 		}
 	'''
 	
@@ -92,9 +92,9 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	
 	def dispatch passiveResourceDecls(BasicComponent bc) '''
 		// Initialize this component's passive resources
-		«FOR pr : bc.passiveResource_BasicComponent»
-			de.uka.ipd.sdq.scheduler.IPassiveResource pr_«pr.id.javaVariableName()» = null;
-		«ENDFOR»
+		Â«FOR pr : bc.passiveResource_BasicComponentÂ»
+			de.uka.ipd.sdq.scheduler.IPassiveResource pr_Â«pr.id.javaVariableName()Â» = null;
+		Â«ENDFORÂ»
 	'''
 	
 	def componentHelperMethodsDeclaration(InterfaceProvidingEntity ipe) '''
@@ -109,7 +109,7 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	 public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext();
 	'''
 	
-//	«REM»Template Method for the calculator initialization«ENDREM»
+//	Â«REMÂ»Template Method for the calculator initializationÂ«ENDREMÂ»
 	@Inject SimCalculatorsXpt simCalculators
 	def initCalculatorsTM(RepositoryComponent rc) {
 		simCalculators.setupCalculators(rc)
@@ -138,13 +138,13 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	Use ActionsAsMethods to generate the mapping for exactly one AbstractAction.
 	*/
 	def dispatch componentService(OperationSignature os, RepositoryComponent component) '''
-		public «os.componentServiceSignature»
+		public Â«os.componentServiceSignatureÂ»
 		{
-			«os.containerAvailabilityCheckTM» 
-«««		TODO: translate PROTECT
-«««	      	«PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
-			«IF os.hasSEFF(component)»
-				«val seff = (os.getSEFF(component) as ResourceDemandingSEFF)»
+			Â«os.containerAvailabilityCheckTMÂ» 
+Â«Â«Â«		TODO: translate PROTECT
+Â«Â«Â«	      	Â«PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLEÂ»
+			Â«IF os.hasSEFF(component)Â»
+				Â«val seff = (os.getSEFF(component) as ResourceDemandingSEFF)Â»
 				de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame =
 					new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 				de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame =
@@ -155,24 +155,24 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 				if (this.myComponentStackFrame.getContents().size() > 0) {
 					methodBodyStackFrame.addVariables(this.myComponentStackFrame);
 				}
-				«seff.steps_Behaviour.findStart().actionsAsCalls»
+				Â«seff.steps_Behaviour.findStart().actionsAsCallsÂ»
 				return resultStackFrame;
-			«ENDIF»
-«««	   	  «ENDPROTECT»
+			Â«ENDIFÂ»
+Â«Â«Â«	   	 Â«ENDPROTECTÂ»
 	   }   
-	   «IF os.hasSEFF(component)»
-		«val seff = (os.getSEFF(component) as ResourceDemandingSEFF)»
-	    	«seff.steps_Behaviour.findStart().actionsAsMethods»      
-	  «ENDIF»
+	   Â«IF os.hasSEFF(component)Â»
+		Â«val seff = (os.getSEFF(component) as ResourceDemandingSEFF)Â»
+	    	Â«seff.steps_Behaviour.findStart().actionsAsMethodsÂ»      
+	  Â«ENDIFÂ»
 	'''
 	
 	def dispatch componentService(InfrastructureSignature is, RepositoryComponent component) '''
-		public «is.componentServiceSignature»
+		public Â«is.componentServiceSignatureÂ»
 		{ 
-«««	      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.infrastructureInterface__InfrastructureSignature.id DISABLE»
-«««	TODO: translate PROTECT
-		«IF is.hasSEFF(component)»
-		«val seff = (is.getSEFF(component) as ResourceDemandingSEFF)»
+Â«Â«Â«	      Â«PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.infrastructureInterface__InfrastructureSignature.id DISABLEÂ»
+Â«Â«Â«		TODO: translate PROTECT
+		Â«IF is.hasSEFF(component)Â»
+		Â«val seff = (is.getSEFF(component) as ResourceDemandingSEFF)Â»
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame =
 				new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame =
@@ -183,62 +183,62 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 			if (this.myComponentStackFrame.getContents().size() > 0) {
 				methodBodyStackFrame.addVariables(this.myComponentStackFrame);
 			}
-			«seff.steps_Behaviour.findStart().actionsAsCalls»
+			Â«seff.steps_Behaviour.findStart().actionsAsCallsÂ»
 			return resultStackFrame;   
-		«ENDIF»
-«««	   	  «ENDPROTECT»
+		Â«ENDIFÂ»
+Â«Â«Â«	   	  Â«ENDPROTECTÂ»
 	   }   
-	   «IF is.hasSEFF(component)»
-		«val seff = (is.getSEFF(component) as ResourceDemandingSEFF)»
-	    	«seff.steps_Behaviour.findStart().actionsAsMethods»      
-	  «ENDIF»
+	   Â«IF is.hasSEFF(component)Â»
+		Â«val seff = (is.getSEFF(component) as ResourceDemandingSEFF)Â»
+	    	Â«seff.steps_Behaviour.findStart().actionsAsMethodsÂ»      
+	  Â«ENDIFÂ»
 	'''
 	
 	def String actionsAsCalls(AbstractAction aa) '''
-		action«javaVariableName(aa.id)»(ctx, resultStackFrame, methodBodyStackFrame);
-	   «IF !(aa instanceof StopAction)»
-	      «aa.successor_AbstractAction.actionsAsCalls»
-	   «ENDIF»
+		actionÂ«javaVariableName(aa.id)Â»(ctx, resultStackFrame, methodBodyStackFrame);
+	   Â«IF !(aa instanceof StopAction)Â»
+	      Â«aa.successor_AbstractAction.actionsAsCallsÂ»
+	   Â«ENDIFÂ»
 	'''
 	
 	def String actionsAsMethods(AbstractAction aa) '''
-		private void action«javaVariableName(aa.id)»(
-				final «aa.contextTypeTM» ctx, 
+		private void actionÂ«javaVariableName(aa.id)Â»(
+				final Â«aa.contextTypeTMÂ» ctx, 
 				final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame, 
 				final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame) {
-			// EntityName = «javaString(aa.entityName)», Type = «javaString(aa.eClass.name)»
-		   «aa.action»
+			// EntityName = Â«javaString(aa.entityName)Â», Type = Â«javaString(aa.eClass.name)Â»
+		   Â«aa.actionÂ»
 		}
-		«aa.actionsAsMethodsSubBehavior»
-		«IF aa.successor_AbstractAction != null»
-			«aa.successor_AbstractAction.actionsAsMethods»
-		«ENDIF»
+		Â«aa.actionsAsMethodsSubBehaviorÂ»
+		Â«IF aa.successor_AbstractAction != nullÂ»
+			Â«aa.successor_AbstractAction.actionsAsMethodsÂ»
+		Â«ENDIFÂ»
 	'''
 	
 	def dispatch actionsAsMethodsSubBehavior(AbstractAction aa) '''
 	'''
 	
 	def dispatch actionsAsMethodsSubBehavior(CollectionIteratorAction cia) '''
-		«cia.bodyBehaviour_Loop.steps_Behaviour.findStart.actionsAsMethods»
+		Â«cia.bodyBehaviour_Loop.steps_Behaviour.findStart.actionsAsMethodsÂ»
 	'''
 	
 	def dispatch actionsAsMethodsSubBehavior(LoopAction la) '''
-		«la.bodyBehaviour_Loop.steps_Behaviour.findStart.actionsAsMethods»
+		Â«la.bodyBehaviour_Loop.steps_Behaviour.findStart.actionsAsMethodsÂ»
 	'''
 	
 	def dispatch actionsAsMethodsSubBehavior(BranchAction ba) '''
-		«FOR transition : ba.branches_Branch.map[branchBehaviour_BranchTransition] SEPARATOR " "»
-			«transition.steps_Behaviour.findStart.actionsAsMethods»
-		«ENDFOR»
+		Â«FOR transition : ba.branches_Branch.map[branchBehaviour_BranchTransition] SEPARATOR " "Â»
+			Â«transition.steps_Behaviour.findStart.actionsAsMethodsÂ»
+		Â«ENDFORÂ»
 	'''
 	
 	def dispatch actionsAsMethodsSubBehavior(ForkAction fa) '''
-		«FOR f : fa.asynchronousForkedBehaviours_ForkAction SEPARATOR " "»
-			«f.steps_Behaviour.findStart().actionsAsMethods»
-		«ENDFOR»
-		«FOR f : fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR " "»
-			«f.steps_Behaviour.findStart().actionsAsMethods»
-		«ENDFOR»
+		Â«FOR f : fa.asynchronousForkedBehaviours_ForkAction SEPARATOR " "Â»
+			Â«f.steps_Behaviour.findStart().actionsAsMethodsÂ»
+		Â«ENDFORÂ»
+		Â«FOR f : fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR " "Â»
+			Â«f.steps_Behaviour.findStart().actionsAsMethodsÂ»
+		Â«ENDFORÂ»
 	'''
 	
 	// overwritten template methods	

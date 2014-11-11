@@ -20,24 +20,24 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 	override childInitTM(AssemblyContext ac, ComposedStructure s) '''
 		context.setUserData(this.myContext.getUserData());
 		  
-		«IF ac.encapsulatedComponent__AssemblyContext instanceof BasicComponent»
+		Â«IF ac.encapsulatedComponent__AssemblyContext instanceof BasicComponentÂ»
 			//Initialize Component Parameters
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = 
 				new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
-			«FOR pu : ac.configParameterUsages__AssemblyContext»
-				«FOR vc : pu.variableCharacterisation_VariableUsage»
-					componentStackFrame.addValue("«pu.parameterUsageLHS() + '.' + vc.type.toString()»",
-					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.
-			specification.specificationString()»",
+			Â«FOR pu : ac.configParameterUsages__AssemblyContextÂ»
+				Â«FOR vc : pu.variableCharacterisation_VariableUsageÂ»
+					componentStackFrame.addValue("Â«pu.parameterUsageLHS() + '.' + vc.type.toString()Â»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("Â«vc.specification_VariableCharacterisation.
+			specification.specificationString()Â»",
 					   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
-				«ENDFOR»
-			«ENDFOR»
+				Â«ENDFORÂ»
+			Â«ENDFORÂ»
 			
 			// possibly overwrite some with user data if this AssemblyContext is meant
-			this.myContext.getUserData().overwriteParametersForAssemblyContext(my«ac.javaName()».getAssemblyContext().getId(), componentStackFrame);
+			this.myContext.getUserData().overwriteParametersForAssemblyContext(myÂ«ac.javaName()Â».getAssemblyContext().getId(), componentStackFrame);
 			
-			my«ac.javaName()».setComponentFrame(componentStackFrame);
-		«ENDIF»
+			myÂ«ac.javaName()Â».setComponentFrame(componentStackFrame);
+		Â«ENDIFÂ»
 	'''
 
 	def composedPREConstructorStart(ComposedProvidingRequiringEntity cpre) '''
@@ -53,26 +53,26 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 			return model;
 		}
 	
-	«««		open curly brace here, is closed in main define.
-		«IF cpre instanceof System»
-		public «cpre.className()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+	Â«Â«Â«		open curly brace here, is closed in main define.
+		Â«IF cpre instanceof SystemÂ»
+		public Â«cpre.className()Â»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 		this.model = model; 
-		«ELSE»
-		public «cpre.className()» (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+		Â«ELSEÂ»
+		public Â«cpre.className()Â» (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 	    /* The assembly context contains this Assembly Context's id plus potentially Assembly Context's ids of its parents in the system. */
 		this.assemblyContext = assemblyContext;
 	
 		
 		this.model = model;
 				
-		logger.info("Creating composed structure «cpre.entityName» with AssemblyContextID " + assemblyContext.getId());
-		«ENDIF»
-	«««		Do not close curly brace here.
+		logger.info("Creating composed structure Â«cpre.entityNameÂ» with AssemblyContextID " + assemblyContext.getId());
+		Â«ENDIFÂ»
+	Â«Â«Â« 	Do not close curly brace here.
 	'''
 
 	private def childMemberVarInit(AssemblyContext ac) '''
-		my«ac.javaName()» = new «ac.encapsulatedComponent__AssemblyContext.fqn()»
-		      	(«ac.componentConstructorParametersTM», model);
+		myÂ«ac.javaName()Â» = new Â«ac.encapsulatedComponent__AssemblyContext.fqn()Â»
+		      	(Â«ac.componentConstructorParametersTMÂ», model);
 	'''
 
 	// overwritten template methods
@@ -84,7 +84,7 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 		if ((obj.parentStructure__AssemblyContext instanceof CompositeComponent) ||
 			(obj.parentStructure__AssemblyContext instanceof SubSystem) ||
 			(obj.parentStructure__AssemblyContext instanceof Completion) ||
-			(obj.parentStructure__AssemblyContext instanceof System)) '''"«obj.eResource.URI + '#' + obj.id»"''' else '''this.assemblyContext'''
+			(obj.parentStructure__AssemblyContext instanceof System)) '''"Â«obj.eResource.URI + '#' + obj.idÂ»"''' else '''this.assemblyContext'''
 	}
 
 	override childMemberVarInitTM(AssemblyContext context) {

@@ -19,16 +19,16 @@ abstract class DummiesXpt {
 	def dispatch void dummyComponent(OperationRequiredRole orr, System s) {
 		val fileName = (s.implementationPackage()+"."+orr.fqnDummyComponent()).fqnToDirectoryPath()+".java"
 		val fileContent = '''
-			package «s.implementationPackage()».«orr.fqnDummyComponentPackage()»;
+			package Â«s.implementationPackage()Â».Â«orr.fqnDummyComponentPackage()Â»;
 					
-			public class «orr.dummyComponentName()» 
-			implements «orr.requiredInterface__OperationRequiredRole.fqn()» {
+			public class Â«orr.dummyComponentName()Â»
+			implements Â«orr.requiredInterface__OperationRequiredRole.fqn()Â» {
 				private static org.apache.log4j.Logger logger = 
-					org.apache.log4j.Logger.getLogger(«orr.dummyComponentName()».class.getName());
-				«orr.requiredInterface__OperationRequiredRole.dummyComponentPortHelperMethodTM»
-				«FOR signature : orr.requiredInterface__OperationRequiredRole.signatures__OperationInterface»
-				«signature.dummyMethod(s, orr)»
-				«ENDFOR»
+					org.apache.log4j.Logger.getLogger(Â«orr.dummyComponentName()Â».class.getName());
+				Â«orr.requiredInterface__OperationRequiredRole.dummyComponentPortHelperMethodTMÂ»
+				Â«FOR signature : orr.requiredInterface__OperationRequiredRole.signatures__OperationInterfaceÂ»
+				Â«signature.dummyMethod(s, orr)Â»
+				Â«ENDFORÂ»
 			}
 		'''
 		
@@ -38,16 +38,16 @@ abstract class DummiesXpt {
 	def dispatch void dummyComponent(InfrastructureRequiredRole irr, System s) {
 		val fileName = (s.implementationPackage()+"."+irr.fqnDummyComponent()).fqnToDirectoryPath()+".java"
 		val fileContent = '''
-			package «s.implementationPackage()».«irr.fqnDummyComponentPackage()»;
+			package Â«s.implementationPackage()Â».Â«irr.fqnDummyComponentPackage()Â»;
 			
-			public class «irr.dummyComponentName()» 
-			implements «irr.requiredInterface__InfrastructureRequiredRole.fqn()» {
+			public class Â«irr.dummyComponentName()Â» 
+			implements Â«irr.requiredInterface__InfrastructureRequiredRole.fqn()Â» {
 				private static org.apache.log4j.Logger logger = 
-					org.apache.log4j.Logger.getLogger(«irr.dummyComponentName()».class.getName());
-				«irr.requiredInterface__InfrastructureRequiredRole.dummyComponentPortHelperMethodTM»
-				«FOR signature : irr.requiredInterface__InfrastructureRequiredRole.infrastructureSignatures__InfrastructureInterface»
-				«signature.dummyMethod(s, irr)»
-				«ENDFOR»
+					org.apache.log4j.Logger.getLogger(Â«irr.dummyComponentName()Â».class.getName());
+				Â«irr.requiredInterface__InfrastructureRequiredRole.dummyComponentPortHelperMethodTMÂ»
+				Â«FOR signature : irr.requiredInterface__InfrastructureRequiredRole.infrastructureSignatures__InfrastructureInterfaceÂ»
+				Â«signature.dummyMethod(s, irr)Â»
+				Â«ENDFORÂ»
 			}
 		'''
 		
@@ -55,14 +55,14 @@ abstract class DummiesXpt {
 	}
 	
 	def dispatch dummyMethod(OperationSignature os, System s, OperationRequiredRole r) '''
-		public «os.operationSignature» {
-			«os.dummyMethodBodyTM(s, r)»
+		public Â«os.operationSignatureÂ» {
+			Â«os.dummyMethodBodyTM(s, r)Â»
 		}
 	'''
 	
 	def dispatch dummyMethod(InfrastructureSignature is, System s, InfrastructureRequiredRole r) '''
-		public «is.infrastructureSignature» {
-			«is.dummyMethodBodyTM(s, r)»
+		public Â«is.infrastructureSignatureÂ» {
+			Â«is.dummyMethodBodyTM(s, r)Â»
 		}
 	'''
 	

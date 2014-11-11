@@ -29,15 +29,15 @@ class SimUsageFactoryXpt {
 
 		val fileName = _this.implementationPackage().fqnToDirectoryPath() + "/" + _this.javaName() + "Factory.java"
 		val fileContent = '''
-			package «_this.implementationPackage()»;
-			public class «_this.javaName() + "Factory"» 
-			extends «_this.workload_UsageScenario.usageFactoryBaseClass»
+			package Â«_this.implementationPackage()Â»;
+			public class Â«_this.javaName() + "Factory"Â» 
+			extends Â«_this.workload_UsageScenario.usageFactoryBaseClassÂ»
 			{
-				«_this.factoryConstructor»
+				Â«_this.factoryConstructorÂ»
 				
 				public de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner createScenarioRunner() {
-					return new «_this.implementationPackage() + "." + _this.javaName()»(model,«FOR system : systemList SEPARATOR ","»«system.
-				systemVariableParameter»«ENDFOR»);
+					return new Â«_this.implementationPackage() + "." + _this.javaName()Â»(model,Â«FOR system : systemList SEPARATOR ","Â»Â«system.
+				systemVariableParameterÂ»Â«ENDFORÂ»);
 				}
 			}
 		'''
@@ -47,7 +47,7 @@ class SimUsageFactoryXpt {
 
 	// TODO error
 	def dispatch usageFactoryBaseClass(Workload _this) '''
-«««		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"»
+	Â«Â«Â«	Â«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"Â»
 	'''
 
 	def dispatch usageFactoryBaseClass(ClosedWorkload _this) '''
@@ -59,33 +59,33 @@ class SimUsageFactoryXpt {
 	'''
 
 	def dispatch String factoryConstructor(UsageScenario _this) '''
-		«val systemList = _this.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
-			it as System].uniqueSystemList»
+		Â«val systemList = _this.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
+			it as System].uniqueSystemListÂ»
 		private final de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
-		«FOR system : systemList»
-			private «system.fqn()» my«system.javaName()» = null;
-		«ENDFOR»
-		public «_this.javaName() + "Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model, String usageID, «FOR system : systemList SEPARATOR ","»«system.
-			systemVariableDecl»«ENDFOR»){
-			«_this.workload_UsageScenario.factoryConstructor»
+		Â«FOR system : systemListÂ»
+			private Â«system.fqn()Â» myÂ«system.javaName()Â» = null;
+		Â«ENDFORÂ»
+		public Â«_this.javaName() + "Factory"Â»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model, String usageID, Â«FOR system : systemList SEPARATOR ","Â»Â«system.
+			systemVariableDeclÂ»Â«ENDFORÂ»){
+			Â«_this.workload_UsageScenario.factoryConstructorÂ»
 			this.model = model;
-			«FOR system : systemList»
-				this.my«system.javaName()» = my«system.javaName()»; 
-			«ENDFOR»
+			Â«FOR system : systemListÂ»
+				this.myÂ«system.javaName()Â» = myÂ«system.javaName()Â»; 
+			Â«ENDFORÂ»
 		}
 	'''
 
 	// TODO: error
 	def dispatch String factoryConstructor(Workload _this) '''
-«««		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"»
+Â«Â«Â«	Â«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"Â»
 	'''
 
 	def dispatch String factoryConstructor(ClosedWorkload _this) '''
-		super(model, "«_this.thinkTime_ClosedWorkload.specification.specificationString()»", "«_this.usageScenario_Workload.
-			getResourceURI()»");
+		super(model, "Â«_this.thinkTime_ClosedWorkload.specification.specificationString()Â»", "Â«_this.usageScenario_Workload.
+			getResourceURI()Â»");
 	'''
 
 	def dispatch String factoryConstructor(OpenWorkload _this) '''
-		super(model, "«_this.usageScenario_Workload.getResourceURI()»");
+		super(model, "Â«_this.usageScenario_Workload.getResourceURI()Â»");
 	'''
 }

@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
 
 class DataTypesXpt {
 	def dispatch String dataType(DataType type) {
-		// «ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"»
+		// Â«ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"Â»
 	}
 
 	def dispatch String dataType(PrimitiveDataType type) {
@@ -22,10 +22,10 @@ class DataTypesXpt {
 	}
 
 	def dispatch String dataType(CollectionDataType type) '''
-		«dataType(type.innerType_CollectionDataType)»[]
+		Â«dataType(type.innerType_CollectionDataType)Â»[]
 	'''
 
 	def dispatch String dataType(CompositeDataType type) '''
-		«type.entityName»
+		Â«type.entityNameÂ»
 	'''
 }

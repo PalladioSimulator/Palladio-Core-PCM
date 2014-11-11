@@ -16,71 +16,71 @@ class SimAccuracyXpt {
 	
 	def dispatch checkAccuracy(CharacterisedPCMParameterPartitionInterval ival, ResourceDemandingSEFF rdseff, AbstractAction action) '''
 		de.uka.ipd.sdq.simucomframework.accuracy.AccuracyAnalysisHelper.checkBoundsInterval(
-			"«ival.id»",
-			"«ival.getResourceName()»",
+			"Â«ival.idÂ»",
+			"Â«ival.getResourceName()Â»",
 			ctx.getModel(),
-			«IF ival.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReference»
+			Â«IF ival.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReferenceÂ»
 				methodBodyStackFrame
-			«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReference»
+			Â«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReferenceÂ»
 				callResult
-			«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReference»
+			Â«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReferenceÂ»
 				methodBodyStackFrame
-			«ELSE»
-				«/* ERROR "This type of parameter reference is not supported by this implementation."*/»
-			«ENDIF»,
-			«IF ival.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReference»
-				"«ival.pcmParameterPartition.parameterReference.getSimuComId()».«ival.forCharacterisation»"
-			«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReference»
-				"RETURN.«ival.forCharacterisation»"
-			«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReference»
-				"«ival.pcmParameterPartition.parameterReference.getSimuComId()».«ival.forCharacterisation»"
-			«ELSE»
-				«/* ERROR "This type of parameter reference is not supported by this implementation." */»
-			«ENDIF»,
-			"«rdseff.id»",
-			"«action.id»",
-			"«rdseff.getResourceName()»",
-			"«ival.from.specification»",
-			"«ival.to.specification»");
+			Â«ELSEÂ»
+				Â«/* ERROR "This type of parameter reference is not supported by this implementation."*/Â»
+			Â«ENDIFÂ»,
+			Â«IF ival.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReferenceÂ»
+				"Â«ival.pcmParameterPartition.parameterReference.getSimuComId()Â».Â«ival.forCharacterisationÂ»"
+			Â«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReferenceÂ»
+				"RETURN.Â«ival.forCharacterisationÂ»"
+			Â«ELSEIF ival.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReferenceÂ»
+				"Â«ival.pcmParameterPartition.parameterReference.getSimuComId()Â».Â«ival.forCharacterisationÂ»"
+			Â«ELSEÂ»
+				Â«/* ERROR "This type of parameter reference is not supported by this implementation." */Â»
+			Â«ENDIFÂ»,
+			"Â«rdseff.idÂ»",
+			"Â«action.idÂ»",
+			"Â«rdseff.getResourceName()Â»",
+			"Â«ival.from.specificationÂ»",
+			"Â«ival.to.specificationÂ»");
 	'''
 
 	def dispatch checkAccuracy(CharacterisedPCMParameterPartitionRange range, ResourceDemandingSEFF rdseff, AbstractAction action) '''
 		de.uka.ipd.sdq.simucomframework.accuracy.AccuracyAnalysisHelper.checkBoundsRange(
-			"«range.id»",
-			"«range.getResourceName()»",
+			"Â«range.idÂ»",
+			"Â«range.getResourceName()Â»",
 			ctx.getModel(),
-			«IF range.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReference»
+			Â«IF range.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReferenceÂ»
 				ctx.getStack().currentStackFrame()
-			«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReference»
+			Â«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReferenceÂ»
 				callResult
-			«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReference»
+			Â«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReferenceÂ»
 				ctx.getStack().currentStackFrame()
-			«ELSE»
-				«/* ERROR "This type of parameter reference is not supported by this implementation." */»
-			«ENDIF»,
-			«IF range.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReference»
-				"«range.pcmParameterPartition.parameterReference.getSimuComId()».«range.forCharacterisation»"
-			«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReference»
-				"RETURN.«range.forCharacterisation»"
-			«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReference»
-				"«range.pcmParameterPartition.parameterReference.getSimuComId()».«range.forCharacterisation»"
-			«ELSE»
-				«/* ERROR "This type of parameter reference is not supported by this implementation." */»
-			«ENDIF»,
-			"«rdseff.id»",
-			"«action.id»",
-			"«rdseff.getResourceName()»",
-			«FOR value : range.values SEPARATOR ', '»"«value.specification»"«ENDFOR»
+			Â«ELSEÂ»
+				Â«/* ERROR "This type of parameter reference is not supported by this implementation." */Â»
+			Â«ENDIFÂ»,
+			Â«IF range.pcmParameterPartition.parameterReference instanceof PCMOperationParameterReferenceÂ»
+				"Â«range.pcmParameterPartition.parameterReference.getSimuComId()Â».Â«range.forCharacterisationÂ»"
+			Â«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMRequiredBusinessOperationReturnParameterReferenceÂ»
+				"RETURN.Â«range.forCharacterisationÂ»"
+			Â«ELSEIF range.pcmParameterPartition.parameterReference instanceof PCMComponentParameterReferenceÂ»
+				"Â«range.pcmParameterPartition.parameterReference.getSimuComId()Â».Â«range.forCharacterisationÂ»"
+			Â«ELSEÂ»
+				Â«/* ERROR "This type of parameter reference is not supported by this implementation." */Â»
+			Â«ENDIFÂ»,
+			"Â«rdseff.idÂ»",
+			"Â«action.idÂ»",
+			"Â«rdseff.getResourceName()Â»",
+			Â«FOR value : range.values SEPARATOR ', 'Â»"Â«value.specificationÂ»"Â«ENDFORÂ»
 			);
 	'''
 
 def dispatch String checkAccuracy(CharacterisedPCMParameterPartition partition, ResourceDemandingSEFF rdseff, AbstractAction action) '''
-	«/* ERROR "Implementation of transformation for accuracy influence analysis does not support this partition type." */»
+	Â«/* ERROR "Implementation of transformation for accuracy influence analysis does not support this partition type." */Â»
 '''
 
 def dispatch String checkAccuracy(PCMParameterPartition partition, ResourceDemandingSEFF rdseff, AbstractAction action) '''
-	«FOR part : partition.characerisedParameterPartitions»
-		«part.checkAccuracy(rdseff, action)»
-	«ENDFOR»
+	Â«FOR part : partition.characerisedParameterPartitionsÂ»
+		Â«part.checkAccuracy(rdseff, action)Â»
+	Â«ENDFORÂ»
 '''
 }

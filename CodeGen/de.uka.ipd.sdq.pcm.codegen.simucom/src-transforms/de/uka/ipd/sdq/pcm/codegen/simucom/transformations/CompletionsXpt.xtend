@@ -30,10 +30,10 @@ class CompletionsXpt {
 	def void completionRoot(Completion completion) {
 		val fileName = completion.getFileName
 		val fileContent = '''
-			«completion.composedStructureStart»
-			«completion.providedPorts»
-			«completion.requiredInterfaces»
-			«completion.composedStructureEnd»
+			Â«completion.composedStructureStartÂ»
+			Â«completion.providedPortsÂ»
+			Â«completion.requiredInterfacesÂ»
+			Â«completion.composedStructureEndÂ»
 		'''
 		
 		fsa.generateFile(fileName, fileContent)
@@ -42,10 +42,10 @@ class CompletionsXpt {
 	}
 	
 	def dispatch innerCompletionComponent(RepositoryComponent comp) '''
-		«comp.componentRoot»
+		Â«comp.componentRootÂ»
 	'''
 	
 	def dispatch innerCompletionComponent(Completion comp) '''
-		«comp.completionRoot»
+		Â«comp.completionRootÂ»
 	'''
 }

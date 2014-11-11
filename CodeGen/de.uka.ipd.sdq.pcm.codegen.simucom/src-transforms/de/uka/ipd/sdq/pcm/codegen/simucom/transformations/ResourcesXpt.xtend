@@ -8,8 +8,8 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
 abstract class ResourcesXpt {
 	// For each resource demand load a resource
 	def resourceDemands(AbstractInternalControlFlowAction aicfa) '''
-		«FOR action : aicfa.resourceDemand_Action»«action.resourceDemandTM»«ENDFOR»
-		«FOR action : aicfa.resourceCall__Action»«action.resourceDemandTM»«ENDFOR»
+		Â«FOR action : aicfa.resourceDemand_ActionÂ»Â«action.resourceDemandTMÂ»Â«ENDFORÂ»
+		Â«FOR action : aicfa.resourceCall__ActionÂ»Â«action.resourceDemandTMÂ»Â«ENDFORÂ»
 	'''
 	
 	// What to do with the actual demand is target dependant

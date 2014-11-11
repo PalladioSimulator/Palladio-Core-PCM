@@ -14,28 +14,28 @@ abstract class ContextPatternXpt {
 
 
 	def requiredInterfaces(InterfaceRequiringEntity entity) '''
-		«entity.componentContextInterface»
-		«entity.componentContextImpl»
-		«entity.componentContextMemberVar»
-		«entity.componentContextSetter»
+		Â«entity.componentContextInterfaceÂ»
+		Â«entity.componentContextImplÂ»
+		Â«entity.componentContextMemberVarÂ»
+		Â«entity.componentContextSetterÂ»
 	'''
 	
 	private def componentContextInterface(InterfaceRequiringEntity entity) {
 		val fileName = entity.fqnContextInterface.fqnToDirectoryPath+".java"
 		val fileContent = '''
-			package «entity.fqnContextPackage»;
+			package Â«entity.fqnContextPackageÂ»;
 
-			// Component context interface for «entity.javaName»
-			public interface «entity.contextInterfaceName»
+			// Component context interface for Â«entity.javaNameÂ»
+			public interface Â«entity.contextInterfaceNameÂ»
 			{
-				«val operationRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole))»
-				«val infrastructureRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole))»
-				«FOR role : operationRequiredRoles»«role.contextInterfaceGetterSignature»«ENDFOR»
-				«FOR role : infrastructureRequiredRoles»«role.contextInterfaceGetterSignature»«ENDFOR»
-				«FOR role : operationRequiredRoles»«role.contextInterfaceSetterSignature»«ENDFOR»
-				«FOR role : infrastructureRequiredRoles»«role.contextInterfaceSetterSignature»«ENDFOR»
+				Â«val operationRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole))Â»
+				Â«val infrastructureRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole))Â»
+				Â«FOR role : operationRequiredRolesÂ»Â«role.contextInterfaceGetterSignatureÂ»Â«ENDFORÂ»
+				Â«FOR role : infrastructureRequiredRolesÂ»Â«role.contextInterfaceGetterSignatureÂ»Â«ENDFORÂ»
+				Â«FOR role : operationRequiredRolesÂ»Â«role.contextInterfaceSetterSignatureÂ»Â«ENDFORÂ»
+				Â«FOR role : infrastructureRequiredRolesÂ»Â«role.contextInterfaceSetterSignatureÂ»Â«ENDFORÂ»
 				
-				«entity.contextInterfaceAdditionsTM»
+				Â«entity.contextInterfaceAdditionsTMÂ»
 			}
 		'''
 		
@@ -45,38 +45,38 @@ abstract class ContextPatternXpt {
 	private def componentContextImpl(InterfaceRequiringEntity entity) {
 		val fileName = entity.fqnContext.fqnToDirectoryPath+".java"
 		val fileContent = '''
-			package «entity.fqnContextPackage»;
+			package Â«entity.fqnContextPackageÂ»;
 			
-			// Component context class for «entity.javaName»
-			public class «entity.contextClassName» implements «entity.fqnContextInterface», java.io.Serializable
+			// Component context class for Â«entity.javaNameÂ»
+			public class Â«entity.contextClassNameÂ» implements Â«entity.fqnContextInterfaceÂ», java.io.Serializable
 			{
-				«val operationRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole))»
-				«val infrastructureRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole))»				
-				«FOR role : operationRequiredRoles»«role.contextInterfaceMemberVar»«ENDFOR»
-				«FOR role : infrastructureRequiredRoles»«role.contextInterfaceMemberVar»«ENDFOR»
-				«FOR role : operationRequiredRoles»«role.contextInterfaceGetter»«ENDFOR»
-				«FOR role : infrastructureRequiredRoles»«role.contextInterfaceGetter»«ENDFOR»
-				«FOR role : operationRequiredRoles»«role.contextInterfaceSetter»«ENDFOR»
-				«FOR role : infrastructureRequiredRoles»«role.contextInterfaceSetter»«ENDFOR»
+				Â«val operationRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole))Â»
+				Â«val infrastructureRequiredRoles = entity.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole))Â»				
+				Â«FOR role : operationRequiredRolesÂ»Â«role.contextInterfaceMemberVarÂ»Â«ENDFORÂ»
+				Â«FOR role : infrastructureRequiredRolesÂ»Â«role.contextInterfaceMemberVarÂ»Â«ENDFORÂ»
+				Â«FOR role : operationRequiredRolesÂ»Â«role.contextInterfaceGetterÂ»Â«ENDFORÂ»
+				Â«FOR role : infrastructureRequiredRolesÂ»Â«role.contextInterfaceGetterÂ»Â«ENDFORÂ»
+				Â«FOR role : operationRequiredRolesÂ»Â«role.contextInterfaceSetterÂ»Â«ENDFORÂ»
+				Â«FOR role : infrastructureRequiredRolesÂ»Â«role.contextInterfaceSetterÂ»Â«ENDFORÂ»
 			
 			
-				public «entity.contextClassName» () {
+				public Â«entity.contextClassNameÂ» () {
 				}
 
-				«IF entity.requiredRoles_InterfaceRequiringEntity.size > 0»			
-				public «entity.contextClassName» (
-					«FOR role : operationRequiredRoles SEPARATOR ","»«role.contextInterfaceVar»«ENDFOR»
-					«IF (infrastructureRequiredRoles.size > 0)»
-						«IF operationRequiredRoles.size > 0», «ENDIF»
-						«FOR role : infrastructureRequiredRoles SEPARATOR ","»«role.contextInterfaceVar»«ENDFOR»
-					«ENDIF»
+				Â«IF entity.requiredRoles_InterfaceRequiringEntity.size > 0Â»			
+				public Â«entity.contextClassNameÂ» (
+					Â«FOR role : operationRequiredRoles SEPARATOR ","Â»Â«role.contextInterfaceVarÂ»Â«ENDFORÂ»
+					Â«IF (infrastructureRequiredRoles.size > 0)Â»
+						Â«IF operationRequiredRoles.size > 0Â», Â«ENDIFÂ»
+						Â«FOR role : infrastructureRequiredRoles SEPARATOR ","Â»Â«role.contextInterfaceVarÂ»Â«ENDFORÂ»
+					Â«ENDIFÂ»
 					) {
-					«FOR role : operationRequiredRoles»«role.contextInterfaceInitialisation»«ENDFOR»
-					«FOR role : infrastructureRequiredRoles»«role.contextInterfaceInitialisation»«ENDFOR»
+					Â«FOR role : operationRequiredRolesÂ»Â«role.contextInterfaceInitialisationÂ»Â«ENDFORÂ»
+					Â«FOR role : infrastructureRequiredRolesÂ»Â«role.contextInterfaceInitialisationÂ»Â«ENDFORÂ»
 				}
-				«ENDIF»
+				Â«ENDIFÂ»
 				
-				«entity.componentContextImplAdditionsTM»
+				Â«entity.componentContextImplAdditionsTMÂ»
 			}
 		'''
 		
@@ -84,92 +84,92 @@ abstract class ContextPatternXpt {
 	}
 	
 	private def componentContextMemberVar(InterfaceRequiringEntity entity) '''
-		protected «entity.fqnContextInterface» myContext = null;
+		protected Â«entity.fqnContextInterfaceÂ» myContext = null;
 	'''
 	
 	private def componentContextSetter(InterfaceRequiringEntity entity) '''
-		public void setContext(«entity.fqnContextInterface» myContext) {
+		public void setContext(Â«entity.fqnContextInterfaceÂ» myContext) {
 			this.myContext = myContext;
-			«IF entity instanceof ComposedStructure»
+			Â«IF entity instanceof ComposedStructureÂ»
 				initInnerComponents();
-			«ENDIF»
+			Â«ENDIFÂ»
 		}
 	'''
 	
 	def componentContextSetterDefinition(InterfaceRequiringEntity entity) '''
-		public void setContext(«entity.fqnContextInterface» myContext);
+		public void setContext(Â«entity.fqnContextInterfaceÂ» myContext);
 	'''
 	
 	def dispatch contextInterfaceVar(OperationRequiredRole role) '''
-		«role.requiredInterface__OperationRequiredRole.fqn» «role.javaName.toFirstLower»
+		Â«role.requiredInterface__OperationRequiredRole.fqnÂ» Â«role.javaName.toFirstLowerÂ»
 	'''
 	
 	def dispatch contextInterfaceVar(InfrastructureRequiredRole role) '''
-		«role.requiredInterface__InfrastructureRequiredRole.fqn» «role.javaName.toFirstLower»
+		Â«role.requiredInterface__InfrastructureRequiredRole.fqnÂ» Â«role.javaName.toFirstLowerÂ»
 	'''
 	
 	def dispatch contextInterfaceInitialisation(OperationRequiredRole role) '''
-		this.«role.javaName.toFirstLower» = «role.javaName.toFirstLower»;
+		this.Â«role.javaName.toFirstLowerÂ» = Â«role.javaName.toFirstLowerÂ»;
 	'''
 
 	def dispatch contextInterfaceInitialisation(InfrastructureRequiredRole role) '''
-		this.«role.javaName.toFirstLower» = «role.javaName.toFirstLower»;
+		this.Â«role.javaName.toFirstLowerÂ» = Â«role.javaName.toFirstLowerÂ»;
 	'''
 	
 	def dispatch contextInterfaceMemberVar(OperationRequiredRole role) '''
-		protected «role.requiredInterface__OperationRequiredRole.fqn» «role.javaName.toFirstLower» = null;
+		protected Â«role.requiredInterface__OperationRequiredRole.fqnÂ» Â«role.javaName.toFirstLowerÂ» = null;
 	'''
 	
 	def dispatch contextInterfaceMemberVar(InfrastructureRequiredRole role) '''
-		protected «role.requiredInterface__InfrastructureRequiredRole.fqn» «role.javaName.toFirstLower» = null;
+		protected Â«role.requiredInterface__InfrastructureRequiredRole.fqnÂ» Â«role.javaName.toFirstLowerÂ» = null;
 	'''
 
 	def dispatch contextInterfaceGetter(OperationRequiredRole role) '''
-		public «role.requiredInterface__OperationRequiredRole.fqn» getRole«role.javaName»() {
-			if («role.javaName.toFirstLower» == null) {
+		public Â«role.requiredInterface__OperationRequiredRole.fqnÂ» getRoleÂ«role.javaNameÂ»() {
+			if (Â«role.javaName.toFirstLowerÂ» == null) {
 				throw new RuntimeException("Attempt to retrieve unbounded port. Check your architecture! "+
-					"Role «role.entityName» <«role.id»> RequiringEntity «role.requiringEntity_RequiredRole.entityName»");
+					"Role Â«role.entityNameÂ» <Â«role.idÂ»> RequiringEntity Â«role.requiringEntity_RequiredRole.entityNameÂ»");
 			}
-			return «role.javaName.toFirstLower»;
+			return Â«role.javaName.toFirstLowerÂ»;
 		}
 	'''
 
 	def dispatch contextInterfaceGetter(InfrastructureRequiredRole role) '''
-		public «role.requiredInterface__InfrastructureRequiredRole.fqn» getRole«role.javaName»() {
-			if («role.javaName.toFirstLower» == null) {
+		public Â«role.requiredInterface__InfrastructureRequiredRole.fqnÂ» getRoleÂ«role.javaNameÂ»() {
+			if (Â«role.javaName.toFirstLowerÂ» == null) {
 				throw new RuntimeException("Attempt to retrieve unbounded port. Check your architecture! "+
-					"Role «role.entityName» <«role.id»> RequiringEntity «role.requiringEntity_RequiredRole.entityName»");
+					"Role Â«role.entityNameÂ» <Â«role.idÂ»> RequiringEntity Â«role.requiringEntity_RequiredRole.entityNameÂ»");
 			}
-			return «role.javaName.toFirstLower»;
+			return Â«role.javaName.toFirstLowerÂ»;
 		}
 	'''
 	
 	def dispatch contextInterfaceSetter(OperationRequiredRole role) '''
-		public void setRole«role.javaName»(«role.requiredInterface__OperationRequiredRole.fqn» newValue) {
-			this.«role.javaName.toFirstLower» = newValue;
+		public void setRoleÂ«role.javaNameÂ»(Â«role.requiredInterface__OperationRequiredRole.fqnÂ» newValue) {
+			this.Â«role.javaName.toFirstLowerÂ» = newValue;
 		}
 	'''
 
 	def dispatch contextInterfaceSetter(InfrastructureRequiredRole role) '''
-		public void setRole«role.javaName»(«role.requiredInterface__InfrastructureRequiredRole.fqn» newValue) {
-			this.«role.javaName.toFirstLower» = newValue;
+		public void setRoleÂ«role.javaNameÂ»(Â«role.requiredInterface__InfrastructureRequiredRole.fqnÂ» newValue) {
+			this.Â«role.javaName.toFirstLowerÂ» = newValue;
 		}
 	'''
 	
 	def dispatch contextInterfaceGetterSignature(OperationRequiredRole role) '''
-		«role.requiredInterface__OperationRequiredRole.fqn» getRole«role.javaName»();
+		Â«role.requiredInterface__OperationRequiredRole.fqnÂ» getRoleÂ«role.javaNameÂ»();
 	'''
 
 	def dispatch contextInterfaceGetterSignature(InfrastructureRequiredRole role) '''
-		«role.requiredInterface__InfrastructureRequiredRole.fqn» getRole«role.javaName»();
+		Â«role.requiredInterface__InfrastructureRequiredRole.fqnÂ» getRoleÂ«role.javaNameÂ»();
 	'''
 	
 	def dispatch contextInterfaceSetterSignature(OperationRequiredRole role) '''
-		void setRole«role.javaName»(«role.requiredInterface__OperationRequiredRole.fqn» newValue);
+		void setRoleÂ«role.javaNameÂ»(Â«role.requiredInterface__OperationRequiredRole.fqnÂ» newValue);
 	'''
 
 	def dispatch contextInterfaceSetterSignature(InfrastructureRequiredRole role) '''
-		void setRole«role.javaName»(«role.requiredInterface__InfrastructureRequiredRole.fqn» newValue);
+		void setRoleÂ«role.javaNameÂ»(Â«role.requiredInterface__InfrastructureRequiredRole.fqnÂ» newValue);
 	'''
 	
 	// ----------------------------------

@@ -23,36 +23,36 @@ class ProvidedPortsXpt {
 	// Additionally, generate a local member variable for my provided roles/ports and a
 	// respective getter
 	def dispatch providedPorts(InterfaceProvidingEntity entity) '''
-		«val operationProvidedRoles =
-			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))»
-		«val infrastructureProvidedRoles =
-			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))»
-		«FOR role : operationProvidedRoles»«role.portImplFile»«ENDFOR»
-		«FOR role : infrastructureProvidedRoles»«role.portImplFile»«ENDFOR»
-		«FOR role : operationProvidedRoles»«role.portMemberVars»«ENDFOR»
-		«FOR role : infrastructureProvidedRoles»«role.portMemberVars»«ENDFOR»
-		«FOR role : operationProvidedRoles»«role.portGetter»«ENDFOR»
-		«FOR role : infrastructureProvidedRoles»«role.portGetter»«ENDFOR»
+		Â«val operationProvidedRoles =
+			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))Â»
+		Â«val infrastructureProvidedRoles =
+			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))Â»
+		Â«FOR role : operationProvidedRolesÂ»Â«role.portImplFileÂ»Â«ENDFORÂ»
+		Â«FOR role : infrastructureProvidedRolesÂ»Â«role.portImplFileÂ»Â«ENDFORÂ»
+		Â«FOR role : operationProvidedRolesÂ»Â«role.portMemberVarsÂ»Â«ENDFORÂ»
+		Â«FOR role : infrastructureProvidedRolesÂ»Â«role.portMemberVarsÂ»Â«ENDFORÂ»
+		Â«FOR role : operationProvidedRolesÂ»Â«role.portGetterÂ»Â«ENDFORÂ»
+		Â«FOR role : infrastructureProvidedRolesÂ»Â«role.portGetterÂ»Â«ENDFORÂ»
 	'''
 	
 	def dispatch providedPorts(ComposedProvidingRequiringEntity entity) '''
-		«val operationProvidedRoles =
-			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))»
-		«val infrastructureProvidedRoles =
-			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))»
-		«FOR role : operationProvidedRoles»«role.composedStructurePortImplFile(entity)»«ENDFOR»
-		«FOR role : infrastructureProvidedRoles»«role.composedStructurePortImplFile(entity)»«ENDFOR»
-		«FOR role : operationProvidedRoles»«role.contextPortGetter(entity)»«ENDFOR»
-		«FOR role : infrastructureProvidedRoles»«role.contextPortGetter(entity)»«ENDFOR»
-		«FOR role : operationProvidedRoles»«role.portGetter»«ENDFOR»
-		«FOR role : infrastructureProvidedRoles»«role.portGetter»«ENDFOR»
+		Â«val operationProvidedRoles =
+			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))Â»
+		Â«val infrastructureProvidedRoles =
+			entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))Â»
+		Â«FOR role : operationProvidedRolesÂ»Â«role.composedStructurePortImplFile(entity)Â»Â«ENDFORÂ»
+		Â«FOR role : infrastructureProvidedRolesÂ»Â«role.composedStructurePortImplFile(entity)Â»Â«ENDFORÂ»
+		Â«FOR role : operationProvidedRolesÂ»Â«role.contextPortGetter(entity)Â»Â«ENDFORÂ»
+		Â«FOR role : infrastructureProvidedRolesÂ»Â«role.contextPortGetter(entity)Â»Â«ENDFORÂ»
+		Â«FOR role : operationProvidedRolesÂ»Â«role.portGetterÂ»Â«ENDFORÂ»
+		Â«FOR role : infrastructureProvidedRolesÂ»Â«role.portGetterÂ»Â«ENDFORÂ»
 	'''
 	
 	def dispatch portImplFile(OperationProvidedRole role) {
 		val fileName = role.fqnPortPackage.fqnToDirectoryPath+"/"+role.portClassName+".java"
 		val fileContent = '''
-			package «role.fqnPortPackage»;
-			«role.portImpl»
+			package Â«role.fqnPortPackageÂ»;
+			Â«role.portImplÂ»
 		'''
 		
 		fsa.generateFile(fileName, fileContent)
@@ -61,8 +61,8 @@ class ProvidedPortsXpt {
 	def dispatch portImplFile(InfrastructureProvidedRole role) {
 		val fileName = role.fqnPortPackage.fqnToDirectoryPath+"/"+role.portClassName+".java"
 		val fileContent = '''
-			package «role.fqnPortPackage»;
-			«role.portImpl»
+			package Â«role.fqnPortPackageÂ»;
+			Â«role.portImplÂ»
 		'''
 		
 		fsa.generateFile(fileName, fileContent)
@@ -73,8 +73,8 @@ class ProvidedPortsXpt {
 		
 		val fileName = role.fqnPortPackage.fqnToDirectoryPath+"/"+role.portClassName+".java"
 		val fileContent = '''
-			package «role.fqnPortPackage»;
-			«role.composedStructurePortImpl(cs)»
+			package Â«role.fqnPortPackageÂ»;
+			Â«role.composedStructurePortImpl(cs)Â»
 		'''
 
 		fsa.generateFile(fileName, fileContent)
@@ -85,88 +85,88 @@ class ProvidedPortsXpt {
 		
 		val fileName = role.fqnPortPackage.fqnToDirectoryPath+"/"+role.portClassName+".java"
 		val fileContent = '''
-			package «role.fqnPortPackage»;
-			«role.composedStructurePortImpl(cs)»
+			package Â«role.fqnPortPackageÂ»;
+			Â«role.composedStructurePortImpl(cs)Â»
 		'''
 
 		fsa.generateFile(fileName, fileContent)
 	}
 	
 	def dispatch portImpl(OperationProvidedRole role) '''
-		// Port class for «role.portClassName»
-		public class «role.portClassName» implements «role.providedInterface__OperationProvidedRole.fqn», java.io.Serializable
+		// Port class for Â«role.portClassNameÂ»
+		public class Â«role.portClassNameÂ» implements Â«role.providedInterface__OperationProvidedRole.fqnÂ», java.io.Serializable
 		{
-		     protected «role.providingEntity_ProvidedRole.fqnInterface» myComponent = null;
+		     protected Â«role.providingEntity_ProvidedRole.fqnInterfaceÂ» myComponent = null;
 		     
-		     public «role.portClassName»(){}
+		     public Â«role.portClassNameÂ»(){}
 		     
-		     public «role.portClassName»(«role.providingEntity_ProvidedRole.fqnInterface» myComponent){
+		     public Â«role.portClassNameÂ»(Â«role.providingEntity_ProvidedRole.fqnInterfaceÂ» myComponent){
 		        this.myComponent = myComponent;
 		     }
 		     
-		     «role.componentPortHelperMethodsTM»
-		     «FOR signature : role.providedInterface__OperationProvidedRole.signatures__OperationInterface»
-		     	«signature.portDelegator»
-		     «ENDFOR»
+		     Â«role.componentPortHelperMethodsTMÂ»
+		     Â«FOR signature : role.providedInterface__OperationProvidedRole.signatures__OperationInterfaceÂ»
+		     	Â«signature.portDelegatorÂ»
+		     Â«ENDFORÂ»
 		}
 	'''
 
 	def dispatch portImpl(InfrastructureProvidedRole role) '''
-		// Port class for «role.portClassName»
-		public class «role.portClassName» implements «role.providedInterface__InfrastructureProvidedRole.fqn»
+		// Port class for Â«role.portClassNameÂ»
+		public class Â«role.portClassNameÂ» implements Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ»
 		{
-		     protected «role.providingEntity_ProvidedRole.fqnInterface» myComponent = null;
+		     protected Â«role.providingEntity_ProvidedRole.fqnInterfaceÂ» myComponent = null;
 		     
-		     public «role.portClassName»(){}
+		     public Â«role.portClassNameÂ»(){}
 		     
-		     public «role.portClassName»(«role.providingEntity_ProvidedRole.fqnInterface» myComponent){
+		     public Â«role.portClassNameÂ»(Â«role.providingEntity_ProvidedRole.fqnInterfaceÂ» myComponent){
 		        this.myComponent = myComponent;
 		     }
 		     
-		     «role.componentPortHelperMethodsTM»
-		     «FOR signature : role.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface»
-		     	«signature.portDelegator»
-		     «ENDFOR»
+		     Â«role.componentPortHelperMethodsTMÂ»
+		     Â«FOR signature : role.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterfaceÂ»
+		     	Â«signature.portDelegatorÂ»
+		     Â«ENDFORÂ»
 		}
 	'''
 	
 	def dispatch composedStructurePortImpl(OperationProvidedRole role, ComposedProvidingRequiringEntity cs) '''
-		// Port class for «role.portClassName»
-		public class «role.portClassName» implements «role.providedInterface__OperationProvidedRole.fqn», java.io.Serializable
+		// Port class for Â«role.portClassNameÂ»
+		public class Â«role.portClassNameÂ» implements Â«role.providedInterface__OperationProvidedRole.fqnÂ», java.io.Serializable
 		{
 			private static org.apache.log4j.Logger logger = 
-				org.apache.log4j.Logger.getLogger(«role.portClassName».class.getName());
+				org.apache.log4j.Logger.getLogger(Â«role.portClassNameÂ».class.getName());
 
-			protected «role.providedInterface__OperationProvidedRole.fqn» myInnerPort = null;
+			protected Â«role.providedInterface__OperationProvidedRole.fqnÂ» myInnerPort = null;
 
-			public «role.portClassName»(«role.providedInterface__OperationProvidedRole.fqn» myInnerPort){
+			public Â«role.portClassNameÂ»(Â«role.providedInterface__OperationProvidedRole.fqnÂ» myInnerPort){
 				this.myInnerPort = myInnerPort;
 			}
 
-			«role.providedInterface__OperationProvidedRole.composedComponentPortHelperMethodsTM»
-	     	«FOR signature : role.providedInterface__OperationProvidedRole.signatures__OperationInterface»
-	     		«signature.composedStructurePortDelegator(cs)»
-	     	«ENDFOR»
+			Â«role.providedInterface__OperationProvidedRole.composedComponentPortHelperMethodsTMÂ»
+	     	Â«FOR signature : role.providedInterface__OperationProvidedRole.signatures__OperationInterfaceÂ»
+	     		Â«signature.composedStructurePortDelegator(cs)Â»
+	     	Â«ENDFORÂ»
 		}
 	'''
 
 	def dispatch composedStructurePortImpl(InfrastructureProvidedRole role, ComposedProvidingRequiringEntity cs) '''
-		// Port class for «role.portClassName»
-		public class «role.portClassName» implements «role.providedInterface__InfrastructureProvidedRole.fqn», java.io.Serializable
+		// Port class for Â«role.portClassNameÂ»
+		public class Â«role.portClassNameÂ» implements Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ», java.io.Serializable
 		{
 			private static org.apache.log4j.Logger logger = 
-				org.apache.log4j.Logger.getLogger(«role.portClassName».class.getName());
+				org.apache.log4j.Logger.getLogger(Â«role.portClassNameÂ».class.getName());
 
-			protected «role.providedInterface__InfrastructureProvidedRole.fqn» myInnerPort = null;
+			protected Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ» myInnerPort = null;
 
-			public «role.portClassName»(«role.providedInterface__InfrastructureProvidedRole.fqn» myInnerPort){
+			public Â«role.portClassNameÂ»(Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ» myInnerPort){
 				this.myInnerPort = myInnerPort;
 			}
 
-	     	«role.providedInterface__InfrastructureProvidedRole.composedComponentPortHelperMethodsTM»
-	     	«FOR signature : role.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface»
-	     		«signature.composedStructurePortDelegator(cs)»
-	     	«ENDFOR»
+	     	Â«role.providedInterface__InfrastructureProvidedRole.composedComponentPortHelperMethodsTMÂ»
+	     	Â«FOR signature : role.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterfaceÂ»
+	     		Â«signature.composedStructurePortDelegator(cs)Â»
+	     	Â«ENDFORÂ»
 		}
 	'''
 	
@@ -174,87 +174,87 @@ class ProvidedPortsXpt {
 	def dispatch composedComponentPortHelperMethodsTM(InfrastructureInterface iface) ''''''
 
 	def dispatch portDelegator(OperationSignature signature) '''
-		public «signature.operationSignature» {
-			«signature.portDelegationDelegatingCallTM»
+		public Â«signature.operationSignatureÂ» {
+			Â«signature.portDelegationDelegatingCallTMÂ»
 		}
 	'''
 
 	def dispatch portDelegator(InfrastructureSignature signature) '''
-		public «signature.infrastructureSignature» {
-			«signature.portDelegationDelegatingCallTM»
+		public Â«signature.infrastructureSignatureÂ» {
+			Â«signature.portDelegationDelegatingCallTMÂ»
 		}
 	'''
 	
 	def dispatch composedStructurePortDelegator(OperationSignature signature,
 		ComposedProvidingRequiringEntity cs) '''
-		public «signature.operationSignature» {
-			«signature.composedStructurePortDelegationDelegatingCallTM(cs)»
+		public Â«signature.operationSignatureÂ» {
+			Â«signature.composedStructurePortDelegationDelegatingCallTM(cs)Â»
 		}
 	'''
 
 	def dispatch composedStructurePortDelegator(InfrastructureSignature signature,
 		ComposedProvidingRequiringEntity cs) '''
-		public «signature.infrastructureSignature» {
-			«signature.composedStructurePortDelegationDelegatingCallTM(cs)»
+		public Â«signature.infrastructureSignatureÂ» {
+			Â«signature.composedStructurePortDelegationDelegatingCallTM(cs)Â»
 		}
 	'''
 
 	def dispatch composedStructurePortDelegationDelegatingCallTM(OperationSignature signature,
-		ComposedProvidingRequiringEntity cs) '''«/* error */»'''
+		ComposedProvidingRequiringEntity cs) '''Â«/* error */Â»'''
 	def dispatch composedStructurePortDelegationDelegatingCallTM(InfrastructureSignature signature,
-		ComposedProvidingRequiringEntity cs) '''«/* error */»'''
+		ComposedProvidingRequiringEntity cs) '''Â«/* error */Â»'''
 		
 	def dispatch portMemberVars(OperationProvidedRole role) '''
-		protected «role.fqnPort» «role.portMemberVar» = new «role.fqnPort»(this);
+		protected Â«role.fqnPortÂ» Â«role.portMemberVarÂ» = new Â«role.fqnPortÂ»(this);
 	'''
 
 	def dispatch portMemberVars(InfrastructureProvidedRole role) '''
-		protected «role.fqnPort» «role.portMemberVar» = new «role.fqnPort»(this);
+		protected Â«role.fqnPortÂ» Â«role.portMemberVarÂ» = new Â«role.fqnPortÂ»(this);
 	'''
 	
 	def dispatch contextPortGetter(OperationProvidedRole role, ComposedStructure cs) '''
-		protected «role.fqnPort» «role.portMemberVar» = null;
+		protected Â«role.fqnPortÂ» Â«role.portMemberVarÂ» = null;
 	'''
 
 	def dispatch contextPortGetter(InfrastructureProvidedRole role, ComposedStructure cs) '''
-		protected «role.fqnPort» «role.portMemberVar» = null;
+		protected Â«role.fqnPortÂ» Â«role.portMemberVarÂ» = null;
 	'''
 	
 	def dispatch portGetter(OperationProvidedRole role) '''
-		public «role.providedInterface__OperationProvidedRole.fqn» «role.portGetterName»() {
-			return «role.portMemberVar»;
+		public Â«role.providedInterface__OperationProvidedRole.fqnÂ» Â«role.portGetterNameÂ»() {
+			return Â«role.portMemberVarÂ»;
 		}
 	'''
 
 	def dispatch portGetter(InfrastructureProvidedRole role) '''
-		public «role.providedInterface__InfrastructureProvidedRole.fqn» «role.portGetterName»() {
-			return «role.portMemberVar»;
+		public Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ» Â«role.portGetterNameÂ»() {
+			return Â«role.portMemberVarÂ»;
 		}
 	'''
 	
 	def dispatch portGetterDefinition(OperationProvidedRole role) '''
-	«/* Definition of port getter which is generated by provided_ports.xpt#PortGetter. Need this in interface to access component on EJB Server. */»
-		public «role.providedInterface__OperationProvidedRole.fqn» «role.portGetterName»();
+	Â«/* Definition of port getter which is generated by provided_ports.xpt#PortGetter. Need this in interface to access component on EJB Server. */Â»
+		public Â«role.providedInterface__OperationProvidedRole.fqnÂ» Â«role.portGetterNameÂ»();
 	'''	
 
 	def dispatch portGetterDefinition(InfrastructureProvidedRole role) '''
-	«/* Definition of port getter which is generated by provided_ports.xpt#PortGetter. Need this in interface to access component on EJB Server. */»
-		public «role.providedInterface__InfrastructureProvidedRole.fqn» «role.portGetterName»();
+	Â«/* Definition of port getter which is generated by provided_ports.xpt#PortGetter. Need this in interface to access component on EJB Server. */Â»
+		public Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ» Â«role.portGetterNameÂ»();
 	'''
 	
 	// Generate method signatures for basic component port getters
 	def dispatch componentPortGetter(OperationProvidedRole role) '''
-		public «role.providedInterface__OperationProvidedRole.fqn» «role.portGetterName»();
+		public Â«role.providedInterface__OperationProvidedRole.fqnÂ» Â«role.portGetterNameÂ»();
 	'''
 
 	// Generate method signatures for basic component port getters
 	def dispatch componentPortGetter(InfrastructureProvidedRole role) '''
-		public «role.providedInterface__InfrastructureProvidedRole.fqn» «role.portGetterName»();
+		public Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ» Â«role.portGetterNameÂ»();
 	'''
 	
 	//Template methods to be overwritten
 	def dispatch componentPortHelperMethodsTM(OperationProvidedRole role) ''''''
 	def dispatch componentPortHelperMethodsTM(InfrastructureProvidedRole role) ''''''
-	def dispatch portDelegationDelegatingCallTM(OperationSignature signature) '''«/* error */»'''
-	def dispatch portDelegationDelegatingCallTM(InfrastructureSignature signature) '''«/* error */»'''
+	def dispatch portDelegationDelegatingCallTM(OperationSignature signature) '''Â«/* error */Â»'''
+	def dispatch portDelegationDelegatingCallTM(InfrastructureSignature signature) '''Â«/* error */Â»'''
 }

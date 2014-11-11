@@ -24,26 +24,26 @@ abstract class UsageXpt {
 	// standalone
 	//-----------------------------------
 	def usageModel(UsageModel um, Allocation a) '''
-		«FOR scenario : um.usageScenario_UsageModel»«scenario.usageScenarioTM(a)»«ENDFOR»
-		«um.mainTM»
+		Â«FOR scenario : um.usageScenario_UsageModelÂ»Â«scenario.usageScenarioTM(a)Â»Â«ENDFORÂ»
+		Â«um.mainTMÂ»
 	'''
 
 	//----------------------
 	// Generic helper methods
 	//----------------------
 	def dispatch systemMemberVar(OperationProvidedRole opr) '''
-		protected «opr.providedInterface__OperationProvidedRole.fqn()» «opr.portMemberVar()» = null;
+		protected Â«opr.providedInterface__OperationProvidedRole.fqn()Â» Â«opr.portMemberVar()Â» = null;
 	'''
 
 	def dispatch systemMemberVar(InfrastructureProvidedRole ipr) '''
-		protected «ipr.providedInterface__InfrastructureProvidedRole.fqn()» «ipr.portMemberVar()» = null;
+		protected Â«ipr.providedInterface__InfrastructureProvidedRole.fqn()Â» Â«ipr.portMemberVar()Â» = null;
 	'''
 
 	def String userActions(AbstractUserAction aua) '''
-		«aua.userAction»
-		«IF !(aua instanceof Stop)»
-			«aua.successor.userActions»
-		«ENDIF»
+		Â«aua.userActionÂ»
+		Â«IF !(aua instanceof Stop)Â»
+			Â«aua.successor.userActionsÂ»
+		Â«ENDIFÂ»
 	'''
 
 	def dispatch dummyRequiredSystemTM(OperationRequiredRole orr, System s) '''
@@ -56,9 +56,9 @@ abstract class UsageXpt {
 
 	def usageScenarioConstructorContextInit(UsageScenario us, Allocation a) '''
 		// Initialise local interface pointer pointing to system roles
-		«FOR pr : us.querySystemCalls.map[providedRole_EntryLevelSystemCall].toSet»
-			«pr.portMemberVar()» = my«pr.providingEntity_ProvidedRole.javaName()».«pr.portGetterName()»();
-		«ENDFOR»
+		Â«FOR pr : us.querySystemCalls.map[providedRole_EntryLevelSystemCall].toSetÂ»
+			Â«pr.portMemberVar()Â» = myÂ«pr.providingEntity_ProvidedRole.javaName()Â».Â«pr.portGetterName()Â»();
+		Â«ENDFORÂ»
 	'''
 	
 	//------------------------------------

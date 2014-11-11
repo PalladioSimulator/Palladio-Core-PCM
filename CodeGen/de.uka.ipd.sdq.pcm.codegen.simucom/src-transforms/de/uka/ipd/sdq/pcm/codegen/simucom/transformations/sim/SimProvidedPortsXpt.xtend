@@ -21,33 +21,33 @@ class SimProvidedPortsXpt extends ProvidedPortsXpt {
 	@Inject extension JavaCoreXpt
 
 	def dispatch portDelegationDelegatingCall(OperationSignature os) '''
-		return myComponent.«os.interface__OperationSignature.javaName().toFirstLower()»_«os.javaSignature()»(
-		     «os.parameterUsageListTM»);
+		return myComponent.Â«os.interface__OperationSignature.javaName().toFirstLower()Â»_Â«os.javaSignature()Â»(
+		     Â«os.parameterUsageListTMÂ»);
 	'''
 
 	def dispatch portDelegationDelegatingCall(InfrastructureSignature is) '''
-		return myComponent.«is.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower()»_«is.
-			javaSignature()»(
-		     «is.parameterUsageListTM»);
+		return myComponent.Â«is.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower()Â»_Â«is.
+			javaSignature()Â»(
+		     Â«is.parameterUsageListTMÂ»);
 	'''
 
 	def dispatch composedStructurePortDelegationDelegatingCall(OperationSignature os,
 		ComposedProvidingRequiringEntity cs) '''
-		//logger.debug("Entering port of composed structure «cs.entityName»");
-		«cs.prePortCode»
-		«os.returnTypeTM» result = myInnerPort.«os.javaSignature()»(
-		     «os.parameterUsageListTM»);
-		«cs.postPortCode»
+		//logger.debug("Entering port of composed structure Â«cs.entityNameÂ»");
+		Â«cs.prePortCodeÂ»
+		Â«os.returnTypeTMÂ» result = myInnerPort.Â«os.javaSignature()Â»(
+		     Â«os.parameterUsageListTMÂ»);
+		Â«cs.postPortCodeÂ»
 		return result;
 	'''
 
 	def dispatch composedStructurePortDelegationDelegatingCall(InfrastructureSignature is,
 		ComposedProvidingRequiringEntity cs) '''
-		//logger.debug("Entering port of composed structure «cs.entityName»");
-		«cs.prePortCode»
-		«is.returnTypeTM» result = myInnerPort.«is.javaSignature()»(
-		     «is.parameterUsageListTM»);
-		«cs.postPortCode»
+		//logger.debug("Entering port of composed structure Â«cs.entityNameÂ»");
+		Â«cs.prePortCodeÂ»
+		Â«is.returnTypeTMÂ» result = myInnerPort.Â«is.javaSignature()Â»(
+		     Â«is.parameterUsageListTMÂ»);
+		Â«cs.postPortCodeÂ»
 		return result;
 	'''
 

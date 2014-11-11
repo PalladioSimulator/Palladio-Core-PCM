@@ -29,27 +29,27 @@ abstract class JavaCoreXpt {
 	@Inject extension ContextPatternXpt
 	
 	def classHeader(RepositoryComponent component) '''
-		public class «component.javaName»
+		public class Â«component.javaNameÂ»
 	'''
 	
 	def operationSignature(OperationSignature signature) '''
-		«signature.returnTypeTM»
-		«signature.javaSignature»
-		( «signature.parameterListTM» )
+		Â«signature.returnTypeTMÂ»
+		Â«signature.javaSignatureÂ»
+		( Â«signature.parameterListTMÂ» )
 	'''	
 
 	def infrastructureSignature(InfrastructureSignature signature) '''
-		«signature.returnTypeTM»
-		«signature.javaSignature»
-		( «signature.parameterListTM» )
+		Â«signature.returnTypeTMÂ»
+		Â«signature.javaSignatureÂ»
+		( Â«signature.parameterListTMÂ» )
 	'''	
 
 	def dispatch returnType(OperationSignature signature) '''
-		«IF signature.returnType__OperationSignature != null»
-			«signature.returnType__OperationSignature.dataType»
-		«ELSE»
+		Â«IF signature.returnType__OperationSignature != nullÂ»
+			Â«signature.returnType__OperationSignature.dataTypeÂ»
+		Â«ELSEÂ»
 			void
-		«ENDIF»
+		Â«ENDIFÂ»
 	'''
 
 	def dispatch returnType(InfrastructureSignature signature) '''
@@ -57,45 +57,45 @@ abstract class JavaCoreXpt {
 	'''
 
 	def dispatch returnTypeTM(OperationSignature signature) '''
-		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ »
+		Â« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ Â»
 	'''
 
 	def dispatch returnTypeTM(InfrastructureSignature signature) '''
-		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ »
+		Â« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ Â»
 	'''
 
 	def parameterListTM(Signature signature) '''
-		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ »
+		Â« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ Â»
 	'''
 
 	def parameterUsageListTM(Signature signature) '''
-		« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ »
+		Â« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ Â»
 	'''
 	
 	def parameter(Parameter param) '''
-		«IF param.dataType__Parameter != null»
-			«param.dataType__Parameter.dataType»
-		«ELSE»
+		Â«IF param.dataType__Parameter != nullÂ»
+			Â«param.dataType__Parameter.dataTypeÂ»
+		Â«ELSEÂ»
 			void
-		«ENDIF»
-		«param.parameterName»
+		Â«ENDIFÂ»
+		Â«param.parameterNameÂ»
 	'''
 	
 	def parameterUse(Parameter param) '''
-		«param.parameterName»
+		Â«param.parameterNameÂ»
 	'''
 
 	//-----
 	// Generate method implementations by traversing the SEFF
 	def componentService(ServiceEffectSpecification seff) '''
-	« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: Unknown Service Effect Specification found!" */ »
+	Â« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: Unknown Service Effect Specification found!" */ Â»
 	'''
 	def dispatch componentServiceSignature(OperationSignature signature) '''
-		«signature.returnTypeTM»	«signature.interface__OperationSignature.javaName.toFirstLower»_«signature.javaSignature»(«signature.parameterListTM»)
+		Â«signature.returnTypeTMÂ»	Â«signature.interface__OperationSignature.javaName.toFirstLowerÂ»_Â«signature.javaSignatureÂ»(Â«signature.parameterListTMÂ»)
 	'''
 
 	def dispatch componentServiceSignature(InfrastructureSignature signature) '''
-		«signature.returnTypeTM»	«signature.infrastructureInterface__InfrastructureSignature.javaName.toFirstLower»_«signature.javaSignature»(«signature.parameterListTM»)
+		Â«signature.returnTypeTMÂ»	Â«signature.infrastructureInterface__InfrastructureSignature.javaName.toFirstLowerÂ»_Â«signature.javaSignatureÂ»(Â«signature.parameterListTMÂ»)
 	'''
 
 	def dispatch componentServiceTM(OperationSignature signature, RepositoryComponent component) '''
@@ -106,10 +106,10 @@ abstract class JavaCoreXpt {
 
 
 	def String actions(AbstractAction action) '''
-		«action.action»
-		«IF !(action instanceof StopAction)»
-			«action.successor_AbstractAction.actions»
-		«ENDIF»
+		Â«action.actionÂ»
+		Â«IF !(action instanceof StopAction)Â»
+			Â«action.successor_AbstractAction.actionsÂ»
+		Â«ENDIFÂ»
 	'''
 	//-----
 	
@@ -117,74 +117,74 @@ abstract class JavaCoreXpt {
 	// Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
 	// ComposedStructure
 	def dispatch componentImplementation(RepositoryComponent component) '''
-		« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: " + this.entityName +"(type "+this.metaType+") is an unknown RepositoryComponent type. Fix the transformations or contact the developers." */ »
+		Â« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: " + this.entityName +"(type "+this.metaType+") is an unknown RepositoryComponent type. Fix the transformations or contact the developers." */ Â»
 	'''
 
 	def dispatch componentImplementation(ImplementationComponentType component) '''
-		«component.componentImplementationForImplComponentTypesAndSubSystems»
+		Â«component.componentImplementationForImplComponentTypesAndSubSystemsÂ»
 	'''
 
 	def dispatch componentImplementation(SubSystem system) '''
-		«system.componentImplementationForImplComponentTypesAndSubSystems»
+		Â«system.componentImplementationForImplComponentTypesAndSubSystemsÂ»
 	'''
 
 	def componentImplementationForImplComponentTypesAndSubSystems(RepositoryComponent component) {
 		val fileName = component.fileName
 		val fileContent = '''
-			«component.componentImplementationInterface»
-			«component.componentPackage»
+			Â«component.componentImplementationInterfaceÂ»
+			Â«component.componentPackageÂ»
 			
-			«component.classHeader»
-			«component.superClassesTM»
-			implements «component.fqnInterface»
+			Â«component.classHeaderÂ»
+			Â«component.superClassesTMÂ»
+			implements Â«component.fqnInterfaceÂ»
 			{
-				«component.componentConstructorTM»
-				«component.providedPorts»
-				«component.requiredInterfaces»
-				«component.innerImplementation»
-				«component.specificImplementationPartTM»
+				Â«component.componentConstructorTMÂ»
+				Â«component.providedPortsÂ»
+				Â«component.requiredInterfacesÂ»
+				Â«component.innerImplementationÂ»
+				Â«component.specificImplementationPartTMÂ»
 				
 			}
-			«component.componentImplementationChildClassTM»
+			Â«component.componentImplementationChildClassTMÂ»
 		'''
 		
 		fsa.generateFile(fileName, fileContent)
 	}
 
 	def componentPackage(RepositoryComponent component) '''
-		package «component.implementationPackage»;
+		package Â«component.implementationPackageÂ»;
 	'''
 
 	def componentImplementationInterface(InterfaceProvidingEntity entity) {
 		val fileName = entity.fqnInterface.fqnToDirectoryPath+'.java'
 		val fileContent = '''
-			«entity.contentImplementationInterfaceHeader»
+			Â«entity.contentImplementationInterfaceHeaderÂ»
 			{
-				«entity.componentHelperMethodsDeclarationTM»				
-				«entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
+				Â«entity.componentHelperMethodsDeclarationTMÂ»				
+				Â«entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
 					map[providedInterface__OperationProvidedRole.signatures__OperationInterface].
-					flatten.map[it.componentServiceSignature].join(";")»;
-				«entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole)).
+					flatten.map[it.componentServiceSignature].join(";")Â»;
+				Â«entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole)).
 					map[providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface].
-					flatten.map[it.componentServiceSignature].join(";")»;
-				«FOR providedRole:entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))»
-					«providedRole.portGetterDefinition»
-				«ENDFOR»
-				«FOR providedRole:entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))»
-					«providedRole.portGetterDefinition»
-				«ENDFOR»
-				«IF (entity instanceof InterfaceProvidingRequiringEntity)»
-					«{
+					flatten.map[it.componentServiceSignature].join(";")Â»;
+				Â«FOR providedRole:entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))Â»
+					Â«providedRole.portGetterDefinitionÂ»
+				Â«ENDFORÂ»
+				Â«FOR providedRole:entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))Â»
+					Â«providedRole.portGetterDefinitionÂ»
+				Â«ENDFORÂ»
+				Â«IF (entity instanceof InterfaceProvidingRequiringEntity)Â»
+					Â«{
 						val requiringEntity = entity as InterfaceProvidingRequiringEntity
 						requiringEntity.componentContextSetterDefinition
-					}»
-				«ENDIF»
-				«IF (entity instanceof RepositoryComponent)»
-					«{
+					}Â»
+				Â«ENDIFÂ»
+				Â«IF (entity instanceof RepositoryComponent)Â»
+					Â«{
 						val requiringEntity = entity as RepositoryComponent
 					 	requiringEntity.specificImplementationPartForInterfaceTM
-					}»
-				«ENDIF»
+					}Â»
+				Â«ENDIFÂ»
 			}
 		'''
 		
@@ -192,9 +192,9 @@ abstract class JavaCoreXpt {
 	}
 	
 	def contentImplementationInterfaceHeader(InterfaceProvidingEntity entity) '''
-		package «entity.implementationPackage»;
+		package Â«entity.implementationPackageÂ»;
 		
-		public interface «entity.interfaceName»
+		public interface Â«entity.interfaceNameÂ»
 	'''
 
 	def componentHelperMethodsDeclarationTM(InterfaceProvidingEntity entity) '''
@@ -217,14 +217,14 @@ abstract class JavaCoreXpt {
 	'''
 	
 	def dispatch innerImplementation(BasicComponent component) '''
-		«FOR iface:component.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
-			map[providedInterface__OperationProvidedRole.signatures__OperationInterface].flatten»
-			«componentServiceTM(iface, component)»
-		«ENDFOR»
-		«FOR iface:component.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole)).
-			map[providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface].flatten»
-			«componentServiceTM(iface, component)»
-		«ENDFOR»
+		Â«FOR iface:component.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
+			map[providedInterface__OperationProvidedRole.signatures__OperationInterface].flattenÂ»
+			Â«componentServiceTM(iface, component)Â»
+		Â«ENDFORÂ»
+		Â«FOR iface:component.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole)).
+			map[providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface].flattenÂ»
+			Â«componentServiceTM(iface, component)Â»
+		Â«ENDFORÂ»
 	'''
 	
 	def dispatch innerImplementation(CompositeComponent component) '''

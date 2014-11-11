@@ -31,13 +31,13 @@ abstract class RepositoryXpt {
 	}
 	
 	def dispatch void interfaceFile(OperationInterface oi) {
-		val fileName = oi.getFileName() // TODO «FILE this.getFileName() ***INTERFACES***»
+		val fileName = oi.getFileName() // TODO FILE Â«this.getFileName() ***INTERFACES***Â»
 		val fileContent = '''
-			«oi.interfaceHeader»
+			Â«oi.interfaceHeaderÂ»
 
 			{
-				«oi.interfaceHelperMethodsDeclarationTM»
-				«FOR iface : oi.signatures__OperationInterface SEPARATOR ";"»«iface.operationSignature»«ENDFOR»;
+				Â«oi.interfaceHelperMethodsDeclarationTMÂ»
+				Â«FOR iface : oi.signatures__OperationInterface SEPARATOR ";"Â»Â«iface.operationSignatureÂ»Â«ENDFORÂ»;
 			}
 		'''
 		
@@ -45,13 +45,13 @@ abstract class RepositoryXpt {
 	}
 	
 	def dispatch void interfaceFile(InfrastructureInterface ii) {
-		val fileName = ii.getFileName // TODO: «FILE this.getFileName() INTERFACES» 
+		val fileName = ii.getFileName // TODO: Â«FILE this.getFileName() INTERFACESÂ» 
 		val fileContent = '''
-			«ii.interfaceHeader»
+			Â«ii.interfaceHeaderÂ»
 
 			{
-				«ii.interfaceHelperMethodsDeclarationTM»
-				«FOR iface : ii.infrastructureSignatures__InfrastructureInterface SEPARATOR ";"»«iface.infrastructureSignature»«ENDFOR»;
+				Â«ii.interfaceHelperMethodsDeclarationTMÂ»
+				Â«FOR iface : ii.infrastructureSignatures__InfrastructureInterface SEPARATOR ";"Â»Â«iface.infrastructureSignatureÂ»Â«ENDFORÂ»;
 			}
 		'''
 
@@ -59,15 +59,15 @@ abstract class RepositoryXpt {
 	}
 
 	def dispatch interfaceHeader(OperationInterface oi) '''
-	   package «oi.repository__Interface.basePackageName()»;
+	   package Â«oi.repository__Interface.basePackageName()Â»;
 
-	   public interface «oi.javaName()»
+	   public interface Â«oi.javaName()Â»
 	'''
 	
 	def dispatch interfaceHeader(InfrastructureInterface ii) '''
-	   package «ii.repository__Interface.basePackageName()»;
+	   package Â«ii.repository__Interface.basePackageName()Â»;
 
-	   public interface «ii.javaName()»
+	   public interface Â«ii.javaName()Â»
 	'''
 	
 	def dispatch void componentRoot(RepositoryComponent rc) {
@@ -95,15 +95,15 @@ abstract class RepositoryXpt {
 		/* Handles CompositeComponents and SubSystems */
 		val fileName = cpre.getFileName()
 		val fileContent = '''
-			«cpre.composedStructureStart»
-			«cpre.providedPorts»
-			«cpre.requiredInterfaces»
-			«cpre.composedStructureEnd»
+			Â«cpre.composedStructureStartÂ»
+			Â«cpre.providedPortsÂ»
+			Â«cpre.requiredInterfacesÂ»
+			Â«cpre.composedStructureEndÂ»
 
-			«/*
+			Â«/*
 			I guess this line is generating additional overhead, the components inside a CC should be generated already
-			«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContext»
-			*/»
+			Â«EXPAND m2t_transforms::repository::ComponentRoot FOREACH this.assemblyContexts_ComposedStructure.encapsulatedComponent_AssemblyContextÂ»
+			*/Â»
 		'''
 
 		fsa.generateFile(fileName, fileContent)

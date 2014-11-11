@@ -13,18 +13,21 @@ class UserActionsXpt {
 	@Inject extension JavaNamesExt
 
 	def dispatch userAction(Start start) ''''''
+
 	def dispatch userAction(Stop stop) ''''''
+
 	def dispatch userAction(EntryLevelSystemCall elsc) '''
-				// Set the priority for «elsc.entityName»
-				thread.setPriority(«elsc.priority»);
-		«elsc.operationSignature__EntryLevelSystemCall.call(
-			elsc,
-			elsc.providedRole_EntryLevelSystemCall.portMemberVar+".",
-			elsc.inputParameterUsages_EntryLevelSystemCall,
-			{})»
+		// Set the priority for Â«elsc.entityNameÂ»
+		thread.setPriority(Â«elsc.priorityÂ»);
+		Â«elsc.operationSignature__EntryLevelSystemCall.call(elsc,
+			elsc.providedRole_EntryLevelSystemCall.portMemberVar + ".", elsc.inputParameterUsages_EntryLevelSystemCall,
+			{
+			})Â»
 	'''
-	
+
 	def dispatch userAction(Loop loop) ''''''
+
 	def dispatch userAction(Branch branch) ''''''
+
 	def dispatch userAction(Delay delay) ''''''
 }

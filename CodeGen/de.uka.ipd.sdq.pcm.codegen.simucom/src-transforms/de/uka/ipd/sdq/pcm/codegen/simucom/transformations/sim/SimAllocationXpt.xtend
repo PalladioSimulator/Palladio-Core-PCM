@@ -32,18 +32,18 @@ class SimAllocationXpt extends AllocationXpt {
 	
 		val fileName = a.fqnAllocationContext.fqnToDirectoryPath+".java"
 		val fileContent = '''
-			package «a.fqnAllocationContextPackage()»;
+			package Â«a.fqnAllocationContextPackage()Â»;
 			 
-			public class «a.fqnAllocationContextClass()» 
+			public class Â«a.fqnAllocationContextClass()Â» 
 			extends de.uka.ipd.sdq.simucomframework.Context {
-				public «a.fqnAllocationContextClass()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel myModel) {
+				public Â«a.fqnAllocationContextClass()Â»(de.uka.ipd.sdq.simucomframework.model.SimuComModel myModel) {
 					super(myModel);
 				}
 				
 				protected void initialiseAssemblyContextLookup() {
-					«FOR context : a.allocationContexts_Allocation»
-						«context.assemblyContextLink(a.system_Allocation)»
-					«ENDFOR»
+					Â«FOR context : a.allocationContexts_AllocationÂ»
+						Â«context.assemblyContextLink(a.system_Allocation)Â»
+					Â«ENDFORÂ»
 				}
 			}
 		'''
@@ -57,7 +57,7 @@ class SimAllocationXpt extends AllocationXpt {
 	// it is used multiple times and the inner components are directly allocated.
 	def assemblyContextLink(AllocationContext context, System system) '''
 		
-		«val fullAssemblyContextID =
+		Â«val fullAssemblyContextID =
 			if ((context.assemblyContext_AllocationContext.parentStructure__AssemblyContext instanceof SubSystem)
 				|| (context.assemblyContext_AllocationContext.parentStructure__AssemblyContext instanceof Completion))
 					context.assemblyContext_AllocationContext.id + system.getParentSubsystemsIdConcatenationFor(
@@ -65,37 +65,37 @@ class SimAllocationXpt extends AllocationXpt {
 					)
 			else
 				context.assemblyContext_AllocationContext.id
-		»
-		linkAssemblyContextAndResourceContainer("«fullAssemblyContextID»","«context.resourceContainer_AllocationContext.id»");
+		Â»
+		linkAssemblyContextAndResourceContainer("Â«fullAssemblyContextIDÂ»","Â«context.resourceContainer_AllocationContext.idÂ»");
 		
 		
-		«IF (context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext instanceof CompositeComponent) 
+		Â«IF (context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext instanceof CompositeComponent) 
 		|| (context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext instanceof SubSystem)
-		|| (context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext instanceof Completion)»
-			«FOR assemblyContext : (context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext as CompositeComponent).assemblyContexts__ComposedStructure»
-				«assemblyContext.compositeAllocation(context, fullAssemblyContextID, system)»
-			«ENDFOR»
-		«ENDIF»
+		|| (context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext instanceof Completion)Â»
+			Â«FOR assemblyContext : (context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext as CompositeComponent).assemblyContexts__ComposedStructureÂ»
+				Â«assemblyContext.compositeAllocation(context, fullAssemblyContextID, system)Â»
+			Â«ENDFORÂ»
+		Â«ENDIFÂ»
 	'''
 
 	def String compositeAllocation(AssemblyContext context, AllocationContext allocCxt, String parentid, System system) '''
-«««		Store this context id (1) alone and (2) together with parent id and then
-«««		recursively call this definition for the child components.  
-«««		Thus, all combinations of subsystems, composite components and basic components are 
-«««		hopefully covered. 
-«««		TODO: Some combinations might be superfluous and could be excluded here. 
-«««		But test throurouhly with also composite components inside nested subsystems... «ENDREM»
-		linkAssemblyContextAndResourceContainer("«context.id»"+"«parentid»","«allocCxt.resourceContainer_AllocationContext.id»");
-		«IF (context.encapsulatedComponent__AssemblyContext instanceof CompositeComponent)
+Â«Â«Â«		Store this context id (1) alone and (2) together with parent id and then
+Â«Â«Â«		recursively call this definition for the child components.  
+Â«Â«Â«		Thus, all combinations of subsystems, composite components and basic components are 
+Â«Â«Â«		hopefully covered. 
+Â«Â«Â«		TODO: Some combinations might be superfluous and could be excluded here. 
+Â«Â«Â«		But test throurouhly with also composite components inside nested subsystems... Â«ENDREMÂ»
+		linkAssemblyContextAndResourceContainer("Â«context.idÂ»"+"Â«parentidÂ»","Â«allocCxt.resourceContainer_AllocationContext.idÂ»");
+		Â«IF (context.encapsulatedComponent__AssemblyContext instanceof CompositeComponent)
 		|| (context.encapsulatedComponent__AssemblyContext instanceof SubSystem)
-		|| (context.encapsulatedComponent__AssemblyContext instanceof Completion)»
-			«FOR assemblyContext : (context.encapsulatedComponent__AssemblyContext as CompositeComponent).assemblyContexts__ComposedStructure»
-				«assemblyContext.compositeAllocation(allocCxt, context.id + parentid, system)»
-			«ENDFOR»
-			«FOR assemblyContext : (context.encapsulatedComponent__AssemblyContext as CompositeComponent).assemblyContexts__ComposedStructure»
-				«assemblyContext.compositeAllocation(allocCxt, context.id, system)»
-			«ENDFOR»
-		«ENDIF»
+		|| (context.encapsulatedComponent__AssemblyContext instanceof Completion)Â»
+			Â«FOR assemblyContext : (context.encapsulatedComponent__AssemblyContext as CompositeComponent).assemblyContexts__ComposedStructureÂ»
+				Â«assemblyContext.compositeAllocation(allocCxt, context.id + parentid, system)Â»
+			Â«ENDFORÂ»
+			Â«FOR assemblyContext : (context.encapsulatedComponent__AssemblyContext as CompositeComponent).assemblyContexts__ComposedStructureÂ»
+				Â«assemblyContext.compositeAllocation(allocCxt, context.id, system)Â»
+			Â«ENDFORÂ»
+		Â«ENDIFÂ»
 	'''
 
 	// overwritten template methods

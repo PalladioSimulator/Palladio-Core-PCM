@@ -48,13 +48,13 @@ class SimUsageXpt extends UsageXpt {
 				// Override abstract framework method and return the workloads of this usage model
 				protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads(
 					de.uka.ipd.sdq.simucomframework.SimuComConfig config) {
-						// Create «systemList.size» System(s)
-						«FOR system : systemList»
-							«system.fqn()» my«system.javaName()» = new «system.fqn()»(getModel());
-							«system.usageScenarioConstructorContextInit(_this)»
-						«ENDFOR»
+						// Create Â«systemList.sizeÂ» System(s)
+						Â«FOR system : systemListÂ»
+							Â«system.fqn()Â» myÂ«system.javaName()Â» = new Â«system.fqn()Â»(getModel());
+							Â«system.usageScenarioConstructorContextInit(_this)Â»
+						Â«ENDFORÂ»
 					return new de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] {
-						«FOR us : _this.usageScenario_UsageModel SEPARATOR ","»«us.workloadDriver»«ENDFOR»
+						Â«FOR us : _this.usageScenario_UsageModel SEPARATOR ","Â»Â«us.workloadDriverÂ»Â«ENDFORÂ»
 					};
 				}
 			
@@ -70,38 +70,38 @@ class SimUsageXpt extends UsageXpt {
 	}
 
 	def usageScenarioConstructorContextInit(System _this, UsageModel usageModel) '''
-		«_this.fqnContext()» context«_this.javaName()» = 
-			new «_this.fqnContext()»
+		Â«_this.fqnContext()Â» contextÂ«_this.javaName()Â» = 
+			new Â«_this.fqnContext()Â»
 				(
-				«FOR orr : _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)) SEPARATOR ","»«orr.
-			dummyRequiredSystemTM(_this)»«ENDFOR»
-				«IF _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)).size > 0» 
-					«IF _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)).size > 0», «ENDIF»
-					«FOR irr : _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)) SEPARATOR ","»«irr.
-			dummyRequiredSystemTM(_this)»«ENDFOR»
-				«ENDIF»
+				Â«FOR orr : _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)) SEPARATOR ","Â»Â«orr.
+			dummyRequiredSystemTM(_this)Â»Â«ENDFORÂ»
+				Â«IF _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)).size > 0Â» 
+					Â«IF _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)).size > 0Â», Â«ENDIFÂ»
+					Â«FOR irr : _this.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)) SEPARATOR ","Â»Â«irr.
+			dummyRequiredSystemTM(_this)Â»Â«ENDFORÂ»
+				Â«ENDIFÂ»
 				);
 		// read UserData
 		de.uka.ipd.sdq.simucomframework.variables.userdata.UserData userData
 			= new de.uka.ipd.sdq.simucomframework.variables.userdata.UserData();
-		«FOR ud : usageModel.userData_UsageModel»«ud.initUserData»«ENDFOR»
+		Â«FOR ud : usageModel.userData_UsageModelÂ»Â«ud.initUserDataÂ»Â«ENDFORÂ»
 		
-		context«_this.javaName()».setUserData(userData);
+		contextÂ«_this.javaName()Â».setUserData(userData);
 		
-		my«_this.javaName()».setContext(context«_this.javaName()»);
+		myÂ«_this.javaName()Â».setContext(contextÂ«_this.javaName()Â»);
 	'''
 
 	def initUserData(UserData _this) '''
-		«FOR pu : _this.userDataParameterUsages_UserData»
-			«FOR vc : pu.variableCharacterisation_VariableUsage»
+		Â«FOR pu : _this.userDataParameterUsages_UserDataÂ»
+			Â«FOR vc : pu.variableCharacterisation_VariableUsageÂ»
 				userData.addUserData(
-					"«_this.assemblyContext_userData.id»",
-					"«pu.parameterUsageLHS() + '.' + vc.type.toString()»",
-					new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.
-			specification.specificationString()»",
+					"Â«_this.assemblyContext_userData.idÂ»",
+					"Â«pu.parameterUsageLHS() + '.' + vc.type.toString()Â»",
+					new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("Â«vc.specification_VariableCharacterisation.
+			specification.specificationString()Â»",
 						new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
-			«ENDFOR»
-		«ENDFOR»
+			Â«ENDFORÂ»
+		Â«ENDFORÂ»
 	'''
 
 	def usageScenario(UsageScenario _this, Allocation a) {
@@ -109,8 +109,8 @@ class SimUsageXpt extends UsageXpt {
 
 		val fileName = _this.implementationPackage().fqnToDirectoryPath() + "/" + _this.javaName() + ".java"
 		val fileContent = '''
-					package «_this.implementationPackage()»;
-					public class «_this.javaName()» 
+					package Â«_this.implementationPackage()Â»;
+					public class Â«_this.javaName()Â»
 					implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 					{
 				/** Default EMF factory for measuring points. */
@@ -118,18 +118,18 @@ class SimUsageXpt extends UsageXpt {
 			
 						private static java.util.Map<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>> startStopProbes = null;
 						
-						«FOR pr : _this.querySystemCalls.map[providedRole_EntryLevelSystemCall].toSet»«pr.systemMemberVar»«ENDFOR»
+						Â«FOR pr : _this.querySystemCalls.map[providedRole_EntryLevelSystemCall].toSetÂ»Â«pr.systemMemberVarÂ»Â«ENDFORÂ»
 						
 						// Workaround to specify and retrieve the priority for a system call
 						public int getPriorityForEntryLevelSystemCallID(String id){
 							int defaultPriority = 0;
-						«FOR entrycall : _this.querySystemCalls()»
-							// priority for EntrySystemLevelCall «entrycall.providedRole_EntryLevelSystemCall.entityName»: «entrycall.
-				priority»
-							if(id.equalsIgnoreCase("«entrycall.providedRole_EntryLevelSystemCall.id»")){
-								return «entrycall.priority»;
+						Â«FOR entrycall : _this.querySystemCalls()Â»
+							// priority for EntrySystemLevelCall Â«entrycall.providedRole_EntryLevelSystemCall.entityNameÂ»: Â«entrycall.
+				priorityÂ»
+							if(id.equalsIgnoreCase("Â«entrycall.providedRole_EntryLevelSystemCall.idÂ»")){
+								return Â«entrycall.priorityÂ»;
 							} 
-						«ENDFOR»
+						Â«ENDFORÂ»
 						return defaultPriority;
 						}
 						
@@ -140,12 +140,12 @@ class SimUsageXpt extends UsageXpt {
 						private de.uka.ipd.sdq.simucomframework.model.SimuComModel getModel() {
 							return this.simuComModel;
 						}
-						«_this.usageScenarioConstructor(a)»
+						Â«_this.usageScenarioConstructor(a)Â»
 						
-						«_this.scenarioBehaviour_UsageScenario.scenarioRunner(_this)»
+						Â«_this.scenarioBehaviour_UsageScenario.scenarioRunner(_this)Â»
 						
 						private void setupCalculators() {
-							«_this.initCalculatorsTM»
+							Â«_this.initCalculatorsTMÂ»
 						}
 					}
 		'''
@@ -161,7 +161,7 @@ class SimUsageXpt extends UsageXpt {
 			ctx.setSimProcess(thread);
 		
 			// Here comes the usage scenario code...
-			«_this.actions_ScenarioBehaviour.filter(typeof(Start)).get(0).userActions»
+			Â«_this.actions_ScenarioBehaviour.filter(typeof(Start)).get(0).userActionsÂ»
 		
 			// A run through this usage model is complete
 			// The counter for main measurements is incremented by the SimuComSimProcess.internalLifeCycle that called this  
@@ -170,49 +170,49 @@ class SimUsageXpt extends UsageXpt {
 	'''
 
 	def workloadDriver(UsageScenario _this) '''
-		new «_this.workload_UsageScenario.workloadClass(_this)»
+		new Â«_this.workload_UsageScenario.workloadClass(_this)Â»
 	'''
 
 	// TODO: error
 	def dispatch workloadClass(Workload _this, UsageScenario u) '''
-«««		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage.xpt]: AbstractWorkload found! This is imposible!"»
+Â«Â«Â«		Â«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage.xpt]: AbstractWorkload found! This is imposible!"Â»
 	'''
 
 	def dispatch workloadClass(ClosedWorkload _this, UsageScenario u) '''
-		«val systemList = u.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
-			it as System].uniqueSystemList»
+		Â«val systemList = u.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
+			it as System].uniqueSystemListÂ»
 		de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
-			new «u.implementationPackage() + "." + u.javaName() + "Factory"»(getModel(), "«u.entityName.javaString()»",«FOR system : systemList SEPARATOR ","»«system.
-			systemVariableParameter»«ENDFOR»),
-			«_this.population»)
+			new Â«u.implementationPackage() + "." + u.javaName() + "Factory"Â»(getModel(), "Â«u.entityName.javaString()Â»",Â«FOR system : systemList SEPARATOR ","Â»Â«system.
+			systemVariableParameterÂ»Â«ENDFORÂ»),
+			Â«_this.populationÂ»)
 	'''
 
 	def systemVariableParameter(System _this) '''
-		my«_this.javaName()»
+		myÂ«_this.javaName()Â»
 	'''
 
 	def systemVariableDecl(System _this) '''
-		«_this.fqn()» my«_this.javaName()»
+		Â«_this.fqn()Â» myÂ«_this.javaName()Â»
 	'''
 
 	def dispatch workloadClass(OpenWorkload _this, UsageScenario u) '''
-		«val systemList = u.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
-			it as System].uniqueSystemList»
+		Â«val systemList = u.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
+			it as System].uniqueSystemListÂ»
 		de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
-			new «u.implementationPackage() + "." + u.javaName() + "Factory"»(getModel(), "«u.entityName.javaString()»",«FOR system : systemList SEPARATOR ","»«system.
-			systemVariableParameter»«ENDFOR»),
-			"«_this.interArrivalTime_OpenWorkload.specification.specificationString()»")
+			new Â«u.implementationPackage() + "." + u.javaName() + "Factory"Â»(getModel(), "Â«u.entityName.javaString()Â»",Â«FOR system : systemList SEPARATOR ","Â»Â«system.
+			systemVariableParameterÂ»Â«ENDFORÂ»),
+			"Â«_this.interArrivalTime_OpenWorkload.specification.specificationString()Â»")
 	'''
 
 	def usageScenarioConstructor(UsageScenario _this, Allocation a) '''
-		«val systemList = _this.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
-			it as System].uniqueSystemList»
-		public «_this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«FOR system : systemList SEPARATOR ","»«system.
-			systemVariableDecl»«ENDFOR») {
+		Â«val systemList = _this.querySystemCalls.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].map[
+			it as System].uniqueSystemListÂ»
+		public Â«_this.javaName()Â»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,Â«FOR system : systemList SEPARATOR ","Â»Â«system.
+			systemVariableDeclÂ»Â«ENDFORÂ») {
 			this.simuComModel = model;
-			ctx = new «a.fqnAllocationContext()»(model);
+			ctx = new Â«a.fqnAllocationContext()Â»(model);
 			ctx.getStack().createAndPushNewStackFrame();
-			«_this.usageScenarioConstructorContextInit(a)»
+			Â«_this.usageScenarioConstructorContextInit(a)Â»
 			if (startStopProbes == null) {
 			    startStopProbes = new java.util.HashMap<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>>();
 				setupCalculators();
@@ -222,7 +222,7 @@ class SimUsageXpt extends UsageXpt {
 
 	@Inject SimCalculatorsXpt simCalculators
 
-	//	«REM»Template Method for the calculator initialization«ENDREM»
+	//	Â«REMÂ»Template Method for the calculator initializationÂ«ENDREMÂ»
 	def initCalculatorsTM(UsageScenario _this) {
 		simCalculators.setupCalculators(_this)
 	}
@@ -231,8 +231,8 @@ class SimUsageXpt extends UsageXpt {
 	@Inject DummiesXpt dummies
 
 	override dummyRequiredSystemTM(RequiredRole _this, System s) '''
-		«dummies.dummyComponent(_this, s)»
-		new «s.implementationPackage».«_this.fqnDummyComponent»()
+		Â«dummies.dummyComponent(_this, s)Â»
+		new Â«s.implementationPackageÂ».Â«_this.fqnDummyComponentÂ»()
 	'''
 
 	override mainTM(UsageModel um) {

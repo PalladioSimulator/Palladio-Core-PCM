@@ -23,12 +23,12 @@ class SystemXpt {
 	}
 	
 	def system(System s) '''
-		«s.composedStructureStart»
-		«s.providedPorts»
-		«s.requiredInterfaces»
-		«s.systemInnerAdditionsTM»
-		«s.composedStructureEnd»
-		«s.systemAdditionsTM»
+		Â«s.composedStructureStartÂ»
+		Â«s.providedPortsÂ»
+		Â«s.requiredInterfacesÂ»
+		Â«s.systemInnerAdditionsTMÂ»
+		Â«s.composedStructureEndÂ»
+		Â«s.systemAdditionsTMÂ»
 	'''
 	
 	def systemInnerAdditionsTM(System s) ''''''

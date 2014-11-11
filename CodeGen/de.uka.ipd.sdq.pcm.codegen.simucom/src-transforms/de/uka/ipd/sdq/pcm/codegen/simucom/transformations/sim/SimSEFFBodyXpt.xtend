@@ -37,174 +37,174 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	// SimuCom templates for parts of a SEFF
 	// ----------------------------
 	override dispatch action(CollectionIteratorAction cir) '''
-		for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«cir.parameter_CollectionIteratorAction.parameterName».NUMBER_OF_ELEMENTS",Integer.class);
+		for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("Â«cir.parameter_CollectionIteratorAction.parameterNameÂ».NUMBER_OF_ELEMENTS",Integer.class);
 				iterationCount < maxIterationCount; iterationCount++) {
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
-			ctx.evaluateInner(loopFrame, "«cir.parameter_CollectionIteratorAction.parameterName».INNER");
+			ctx.evaluateInner(loopFrame, "Â«cir.parameter_CollectionIteratorAction.parameterNameÂ».INNER");
 
-			«cir.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls»
+			Â«cir.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCallsÂ»
 			ctx.getStack().removeStackFrame();
 		}
 	'''
 	
 	// TODO: check if <<id>> translated correctly
 	override dispatch action(LoopAction la) '''
-	   for (int iterationCount«la.id.javaVariableName()» = 0, maxIterationCount«la.id.javaVariableName()» = (Integer)ctx.evaluate("«la.iterationCount_LoopAction.specification.specificationString()»",Integer.class);
-	            iterationCount«la.id.javaVariableName()» < maxIterationCount«la.id.javaVariableName()»; iterationCount«la.id.javaVariableName()»++){
-	       «la.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls»
+	   for (int iterationCountÂ«la.id.javaVariableName()Â» = 0, maxIterationCountÂ«la.id.javaVariableName()Â» = (Integer)ctx.evaluate("Â«la.iterationCount_LoopAction.specification.specificationString()Â»",Integer.class);
+	            iterationCountÂ«la.id.javaVariableName()Â» < maxIterationCountÂ«la.id.javaVariableName()Â»; iterationCountÂ«la.id.javaVariableName()Â»++){
+	       Â«la.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCallsÂ»
 	   }
 	'''
 	
 	override failureInternalActionPreTM(InternalAction ia) '''
-		«IF ia.internalFailureOccurrenceDescriptions__InternalAction.size > 0»
+		Â«IF ia.internalFailureOccurrenceDescriptions__InternalAction.size > 0Â»
 		// Simulate a failure that occurs with a predefined probability:
 		if (ctx.getModel().getConfig().getSimulateFailures()) {
 			double accProbability = 0;
 			double randValue = ctx.getModel().getConfiguration().getRandomGenerator().random();
-			«FOR ifod : ia.internalFailureOccurrenceDescriptions__InternalAction»«ifod.failureOccurrence»«ENDFOR»
+			Â«FOR ifod : ia.internalFailureOccurrenceDescriptions__InternalActionÂ»Â«ifod.failureOccurrenceÂ»Â«ENDFORÂ»
 		}
-	    «ENDIF»
+	    Â«ENDIFÂ»
 	'''
 	
 	def failureOccurrence(InternalFailureOccurrenceDescription ifod) '''
-		«val fp = "failureProbability"+ifod.softwareInducedFailureType__InternalFailureOccurrenceDescription.javaName()»
-		double «fp»;
+		Â«val fp = "failureProbability"+ifod.softwareInducedFailureType__InternalFailureOccurrenceDescription.javaName()Â»
+		double Â«fpÂ»;
 		try {
-			    «fp» = Double.parseDouble("«ifod.failureProbability»");
+			    Â«fpÂ» = Double.parseDouble("Â«ifod.failureProbabilityÂ»");
 		} catch (NumberFormatException exception) {
-			    «fp» = 0.0;
+			    Â«fpÂ» = 0.0;
 		}
-			accProbability += «fp»;
-			if ((«fp» > 0.0) && (accProbability >= randValue)) {
-				«ifod.softwareInducedFailureType__InternalFailureOccurrenceDescription.raiseInternalSoftwareFailure(ifod.internalAction__InternalFailureOccurrenceDescription.id)»
+			accProbability += Â«fpÂ»;
+			if ((Â«fpÂ» > 0.0) && (accProbability >= randValue)) {
+				Â«ifod.softwareInducedFailureType__InternalFailureOccurrenceDescription.raiseInternalSoftwareFailure(ifod.internalAction__InternalFailureOccurrenceDescription.id)Â»
 		}
 	'''
 	
 	def raiseInternalSoftwareFailure(SoftwareInducedFailureType sift, String internalActionId) '''
 		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
 			this.getModel(),this.getModel().getFailureStatistics().getInternalSoftwareFailureType(
-				"«sift.id»", "«internalActionId»"));
+				"Â«sift.idÂ»", "Â«internalActionIdÂ»"));
 	'''
 	
 	override dispatch action(BranchAction ba) '''
 		{
-			«val counterID = ba.id.javaVariableName»
-			«IF ba.branches_Branch.head instanceof ProbabilisticBranchTransition»
-				double u«counterID» = (Double)ctx.evaluate("DoublePDF[(1;1.0)]",Double.class);
-				double sum«counterID» = 0;
-				«FOR b : ba.branches_Branch SEPARATOR ""»«b.branchTransition(counterID)»«ENDFOR»
-			«ELSE»
-				«FOR b : ba.branches_Branch SEPARATOR " else "»«b.branchTransition(counterID)»«ENDFOR»
+			Â«val counterID = ba.id.javaVariableNameÂ»
+			Â«IF ba.branches_Branch.head instanceof ProbabilisticBranchTransitionÂ»
+				double uÂ«counterIDÂ» = (Double)ctx.evaluate("DoublePDF[(1;1.0)]",Double.class);
+				double sumÂ«counterIDÂ» = 0;
+				Â«FOR b : ba.branches_Branch SEPARATOR ""Â»Â«b.branchTransition(counterID)Â»Â«ENDFORÂ»
+			Â«ELSEÂ»
+				Â«FOR b : ba.branches_Branch SEPARATOR " else "Â»Â«b.branchTransition(counterID)Â»Â«ENDFORÂ»
 				else
-				    logger.error("No branch condition evaluated to true in «ba.entityName» :-(");  
+				    logger.error("No branch condition evaluated to true in Â«ba.entityNameÂ» :-(");  
 					
-			«ENDIF»
+			Â«ENDIFÂ»
 		}
 	'''
 	
 	// TODO: ERROR
 	def dispatch branchTransition(AbstractBranchTransition abt, String counterNumber) '''
-«««	   «ERROR "OAW GENERATION ERROR [m2t_transforms/sim/seff.xpt]: Unknown branch transition found!"»
+Â«Â«Â«	   Â«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/seff.xpt]: Unknown branch transition found!"Â»
 	'''
 	
 	def dispatch branchTransition(GuardedBranchTransition gbt, String counterNumber) '''
-		if ((Boolean)ctx.evaluate("«gbt.branchCondition_GuardedBranchTransition.specification.specificationString()»") == true)
+		if ((Boolean)ctx.evaluate("Â«gbt.branchCondition_GuardedBranchTransition.specification.specificationString()Â»") == true)
 		{
-			«gbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCalls»
+			Â«gbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCallsÂ»
 		}
 	'''
 	
 	def dispatch branchTransition(ProbabilisticBranchTransition pbt, String counterNumber) '''
-		if (sum«counterNumber» <= u«counterNumber» && u«counterNumber» < sum«counterNumber» + «pbt.branchProbability» )
+		if (sumÂ«counterNumberÂ» <= uÂ«counterNumberÂ» && uÂ«counterNumberÂ» < sumÂ«counterNumberÂ» + Â«pbt.branchProbabilityÂ» )
 		{
-			«pbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCalls»
+			Â«pbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCallsÂ»
 		}
-		sum«counterNumber» += «pbt.branchProbability»;
+		sumÂ«counterNumberÂ» += Â«pbt.branchProbabilityÂ»;
 	'''
 	
 	override dispatch action(AcquireAction aa) '''
-			// Acquire «aa.passiveresource_AcquireAction»
+			// Acquire Â«aa.passiveresource_AcquireActionÂ»
 	{
 	  //TODO Here, a resource demand of 0 is issued to a hard-coded resource "CPU" (ID = "_oro4gG3fEdy4YaaT-RYrLQ")
 	double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("0", Double.class));
 	ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(), "_oro4gG3fEdy4YaaT-RYrLQ", demand);
 	}
-	if (pr_«aa.passiveresource_AcquireAction.id.javaVariableName()» == null) {
+	if (pr_Â«aa.passiveresource_AcquireAction.id.javaVariableName()Â» == null) {
 		// Initialize Resource First...
-		pr_«aa.passiveresource_AcquireAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(
-			"«aa.passiveresource_AcquireAction.getResourceURI()»",
+		pr_Â«aa.passiveresource_AcquireAction.id.javaVariableName()Â» = ctx.getPassiveRessourceInContext(
+			"Â«aa.passiveresource_AcquireAction.getResourceURI()Â»",
 			this.assemblyContext,
 			ctx.findResource(this.assemblyContext.getId()),
-			(Integer)ctx.evaluate("«aa.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()»", Integer.class)
+			(Integer)ctx.evaluate("Â«aa.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()Â»", Integer.class)
 		);
 	}
-	pr_«aa.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread(), 1, «aa.timeout», «aa.timeoutValue»);
+	pr_Â«aa.passiveresource_AcquireAction.id.javaVariableName()Â».acquire(ctx.getThread(), 1, Â«aa.timeoutÂ», Â«aa.timeoutValueÂ»);
 	'''
 	
 	override dispatch action(ReleaseAction ra) '''
-	// Release «ra.passiveResource_ReleaseAction»
-	if (pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
+	// Release Â«ra.passiveResource_ReleaseActionÂ»
+	if (pr_Â«ra.passiveResource_ReleaseAction.id.javaVariableName()Â» == null) {
 		// Initialize Resource First...
-		pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(
-			"«ra.passiveResource_ReleaseAction.getResourceURI()»",
+		pr_Â«ra.passiveResource_ReleaseAction.id.javaVariableName()Â» = ctx.getPassiveRessourceInContext(
+			"Â«ra.passiveResource_ReleaseAction.getResourceURI()Â»",
 			this.assemblyContext,
 			ctx.findResource(this.assemblyContext.getId()),
-			(Integer)ctx.evaluate("«ra.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()»",Integer.class)
+			(Integer)ctx.evaluate("Â«ra.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()Â»",Integer.class)
 		);
 	}
-	pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()».release(ctx.getThread(), 1);
+	pr_Â«ra.passiveResource_ReleaseAction.id.javaVariableName()Â».release(ctx.getThread(), 1);
 	'''
 	
 	override dispatch action(StartAction sa) '''
-		«IF sa.eContainer instanceof ResourceDemandingSEFF»
-		«val rdseff = (sa.eContainer as ResourceDemandingSEFF)»
-		«val qualityAnnotation = rdseff.getQualityAnnotation()»
-«««			«REM»Handle accuracy influence analysis. «ENDREM»
-				«IF qualityAnnotation != null»
-					«FOR partition : rdseff.qualityAnnotation.validForParameterPartitions
+		Â«IF sa.eContainer instanceof ResourceDemandingSEFFÂ»
+		Â«val rdseff = (sa.eContainer as ResourceDemandingSEFF)Â»
+		Â«val qualityAnnotation = rdseff.getQualityAnnotation()Â»
+Â«Â«Â«		Â«REMÂ»Handle accuracy influence analysis. Â«ENDREMÂ»
+				Â«IF qualityAnnotation != nullÂ»
+					Â«FOR partition : rdseff.qualityAnnotation.validForParameterPartitions
 						.filter(typeof(PCMParameterPartition))
-						.filter[(parameterReference instanceof PCMOperationParameterReference) || (parameterReference instanceof PCMComponentParameterReference)]»
-					«partition.checkAccuracy(rdseff, sa)»
-					«ENDFOR»
-«««					«EXPAND m2t_transforms::sim::accuracy::CheckAccuracy(rdseff, this) FOREACH getQualityAnnotation(rdseff).validForParameterPartitions.typeSelect(PCMParameterPartition).select(partition| PCMOperationParameterReference.isInstance(partition.parameterReference) || PCMComponentParameterReference.isInstance(partition.parameterReference))»
-				«ELSE»
-					«IF getQualityAnnotationRepository() != null»
-«««						«REM»Accuracy analysis was requested but no quality annotation could be found for this RDSEFF«ENDREM»
-						SeverityAndIssue issue = AccuracyIssueFactory.createMissingQualityAnnotationIssue("«rdseff.getResourceName()»", "«rdseff.id»");
+						.filter[(parameterReference instanceof PCMOperationParameterReference) || (parameterReference instanceof PCMComponentParameterReference)]Â»
+					Â«partition.checkAccuracy(rdseff, sa)Â»
+					Â«ENDFORÂ»
+Â«Â«Â«					Â«EXPAND m2t_transforms::sim::accuracy::CheckAccuracy(rdseff, this) FOREACH getQualityAnnotation(rdseff).validForParameterPartitions.typeSelect(PCMParameterPartition).select(partition| PCMOperationParameterReference.isInstance(partition.parameterReference) || PCMComponentParameterReference.isInstance(partition.parameterReference))Â»
+				Â«ELSEÂ»
+					Â«IF getQualityAnnotationRepository() != nullÂ»
+Â«Â«Â«						Â«REMÂ»Accuracy analysis was requested but no quality annotation could be found for this RDSEFFÂ«ENDREMÂ»
+						SeverityAndIssue issue = AccuracyIssueFactory.createMissingQualityAnnotationIssue("Â«rdseff.getResourceName()Â»", "Â«rdseff.idÂ»");
 						config.addIssue(issue);
-					«ELSE»
-«««						«REM»Accuracy analysis was not requested. Do nothing.«ENDREM»
-					«ENDIF»
-				«ENDIF»
-		«ENDIF»
+					Â«ELSEÂ»
+Â«Â«Â«						Â«REMÂ»Accuracy analysis was not requested. Do nothing.Â«ENDREMÂ»
+					Â«ENDIFÂ»
+				Â«ENDIFÂ»
+		Â«ENDIFÂ»
 	'''
 	
 	override dispatch action(StopAction sa) '''
 	'''
 	
 	override dispatch action(SetVariableAction sva) '''
-		«FOR pu : sva.localVariableUsages_SetVariableAction»
-			«FOR vc : pu.variableCharacterisation_VariableUsage»
-				«IF pu.namedReference__VariableUsage.isInnerReference()»
-					resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
-					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",methodBodyStackFrame.copyFrame()));
-				«ELSE»
-					resultStackFrame.addValue("«pu.parameterUsageLHS()».«vc.type.toString()»",
-						ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»"));
-				«ENDIF»
-			«ENDFOR»
-		«ENDFOR»
+		Â«FOR pu : sva.localVariableUsages_SetVariableActionÂ»
+			Â«FOR vc : pu.variableCharacterisation_VariableUsageÂ»
+				Â«IF pu.namedReference__VariableUsage.isInnerReference()Â»
+					resultStackFrame.addValue("Â«pu.parameterUsageLHS()Â».Â«vc.type.toString()Â»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("Â«vc.specification_VariableCharacterisation.specification.specificationString()Â»",methodBodyStackFrame.copyFrame()));
+				Â«ELSEÂ»
+					resultStackFrame.addValue("Â«pu.parameterUsageLHS()Â».Â«vc.type.toString()Â»",
+						ctx.evaluate("Â«vc.specification_VariableCharacterisation.specification.specificationString()Â»"));
+				Â«ENDIFÂ»
+			Â«ENDFORÂ»
+		Â«ENDFORÂ»
 	'''
 	
 	override dispatch action(ForkAction fa) '''
 	{
 		de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
 			new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{
-			«FOR f : fa.asynchronousForkedBehaviours_ForkAction SEPARATOR ","»
+			Â«FOR f : fa.asynchronousForkedBehaviours_ForkAction SEPARATOR ","Â»
 				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx, this.assemblyContext.getId(), true, ctx.getThread().getPriority()){
 					public void executeBehaviour() {
 						try {
-							«f.steps_Behaviour.findStart()»
+							Â«f.steps_Behaviour.findStart()Â»
 						} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 							if (ctx.getModel().getConfig().getSimulateFailures()) {
 								ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
@@ -212,16 +212,16 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 						}
 					}
 				}
-			«ENDFOR»
-			«IF (fa.asynchronousForkedBehaviours_ForkAction.size > 0)»
+			Â«ENDFORÂ»
+			Â«IF (fa.asynchronousForkedBehaviours_ForkAction.size > 0)Â»
 			,
-			«ENDIF»
-			«IF (fa.synchronisingBehaviours_ForkAction != null)»
-				«FOR f: fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR ","»
+			Â«ENDIFÂ»
+			Â«IF (fa.synchronisingBehaviours_ForkAction != null)Â»
+				Â«FOR f: fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR ","Â»
 					new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx, this.assemblyContext.getId(), false){
 						public void executeBehaviour() {
 							try {
-								«f.steps_Behaviour.findStart()»
+								Â«f.steps_Behaviour.findStart()Â»
 							} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 								if (ctx.getModel().getConfig().getSimulateFailures()) {
 									ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
@@ -229,8 +229,8 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 							}
 						}
 					}
-				«ENDFOR»
-			«ENDIF»
+				Â«ENDFORÂ»
+			Â«ENDIFÂ»
 			};
 		new de.uka.ipd.sdq.simucomframework.fork.ForkExecutor(ctx.getThread(),forks).run();
 	}
@@ -244,15 +244,15 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx
 				.getStack().createAndPushNewStackFrame(currentFrame);
 		stackframe.addVariables(methodBodyStackFrame);
-«««		«REM» It is also required to add the variables from the result stack here in the exceptional case of completions
-«««		      because the bytesize data for the network load can only be stored there but at the same time needs
-«««		      to be passed to the next component in the delegation chain. «ENDREM»
+Â«Â«Â«		Â«REMÂ» It is also required to add the variables from the result stack here in the exceptional case of completions
+Â«Â«Â«		      because the bytesize data for the network load can only be stored there but at the same time needs
+Â«Â«Â«		      to be passed to the next component in the delegation chain. Â«ENDREMÂ»
 		stackframe.addVariables(resultStackFrame);
 	
 	
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =
-	   	myContext.getRole«deca.role_ExternalService.javaName()»().«deca.calledService_ExternalService.javaSignature()»
-		   	(«deca.calledService_ExternalService.parameterUsageListTM»);
+	   	myContext.getRoleÂ«deca.role_ExternalService.javaName()Â»().Â«deca.calledService_ExternalService.javaSignature()Â»
+		   	(Â«deca.calledService_ExternalService.parameterUsageListTMÂ»);
 		resultStackFrame.addVariables(callResult);
 		// Copy the result variables in my own stack frame so that we can access them in the post actions
 		methodBodyStackFrame.addVariables(callResult);

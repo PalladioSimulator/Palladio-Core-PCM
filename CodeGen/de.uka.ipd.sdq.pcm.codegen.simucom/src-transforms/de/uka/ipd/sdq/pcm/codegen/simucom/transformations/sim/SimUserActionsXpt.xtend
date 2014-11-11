@@ -16,35 +16,35 @@ class SimUserActionsXpt extends UserActionsXpt {
 	@Inject extension UsageXpt
 
 	override dispatch userAction(Loop _this) '''
-		for (int iterationCount_«_this.id.javaVariableName()» = 0, maxIterationCount_«_this.id.javaVariableName()» = (Integer)ctx.evaluate("«_this.
-			loopIteration_Loop.specification.specificationString()»",Integer.class); 
-			iterationCount_«_this.id.javaVariableName()» < maxIterationCount_«_this.id.javaVariableName()»; iterationCount_«_this.
-			id.javaVariableName()»++){
-		«_this.bodyBehaviour_Loop.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActions»
+		for (int iterationCount_Â«_this.id.javaVariableName()Â» = 0, maxIterationCount_Â«_this.id.javaVariableName()Â» = (Integer)ctx.evaluate("Â«_this.
+			loopIteration_Loop.specification.specificationString()Â»",Integer.class); 
+			iterationCount_Â«_this.id.javaVariableName()Â» < maxIterationCount_Â«_this.id.javaVariableName()Â»; iterationCount_Â«_this.
+			id.javaVariableName()Â»++){
+		Â«_this.bodyBehaviour_Loop.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActionsÂ»
 		} 
 	'''
 
 	override dispatch userAction(Branch _this) '''
 		{
-			«val counterID = _this.id.javaVariableName»
-			double u«counterID» = ctx.getModel().getConfiguration().getRandomGenerator().random();
-			double sum«counterID» = 0;
-			«FOR bt : _this.branchTransitions_Branch SEPARATOR ""»«bt.branchTransition(counterID)»«ENDFOR»
+			Â«val counterID = _this.id.javaVariableNameÂ»
+			double uÂ«counterIDÂ» = ctx.getModel().getConfiguration().getRandomGenerator().random();
+			double sumÂ«counterIDÂ» = 0;
+			Â«FOR bt : _this.branchTransitions_Branch SEPARATOR ""Â»Â«bt.branchTransition(counterID)Â»Â«ENDFORÂ»
 		}
 	'''
 
 	def branchTransition(BranchTransition _this, String counterNumber) '''
-		if (sum«counterNumber» <= u«counterNumber» && u«counterNumber» < sum«counterNumber» + «_this.branchProbability» )
+		if (sumÂ«counterNumberÂ» <= uÂ«counterNumberÂ» && uÂ«counterNumberÂ» < sumÂ«counterNumberÂ» + Â«_this.branchProbabilityÂ» )
 		{
-			«_this.branchedBehaviour_BranchTransition.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActions»
+			Â«_this.branchedBehaviour_BranchTransition.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActionsÂ»
 		}
-		sum«counterNumber» += «_this.branchProbability»;
+		sumÂ«counterNumberÂ» += Â«_this.branchProbabilityÂ»;
 	'''
 
 	override dispatch userAction(Delay _this) '''
 		{
-		double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«_this.
-			timeSpecification_Delay.specification»"));
+		double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("Â«_this.
+			timeSpecification_Delay.specificationÂ»"));
 		ctx.getThread().hold(delay);
 		}
 	'''

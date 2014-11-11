@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.pcm.codegen.simucom.transformations
 
 import com.google.inject.Inject
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction
-import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.sim.SimMeasuringPointExt
 import de.uka.ipd.sdq.pcm.reliability.FailureType
 import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType
 import de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType
@@ -32,7 +31,7 @@ abstract class SEFFBodyXpt {
 	@Inject extension JavaCoreXpt
 
 	def dispatch String action(AbstractAction action) '''
-		« /* ERROR */»
+		Â« /* ERROR */Â»
 	'''	
 	
 	def dispatch String action(StartAction action) ''''''
@@ -45,11 +44,11 @@ abstract class SEFFBodyXpt {
 	def dispatch String action(LoopAction action) {
 		// error
 	}
-	def dispatch action(BranchAction action) '''«/* error */»	'''
-	def dispatch action(AcquireAction action) '''«/* error */»	'''
-	def dispatch action(ReleaseAction action) '''«/* error */»	'''
-	def dispatch action(SetVariableAction action) '''«/* error */»	'''
-	def dispatch action(ForkAction action) '''«/* error */»	'''
+	def dispatch action(BranchAction action) '''Â«/* error */Â»	'''
+	def dispatch action(AcquireAction action) '''Â«/* error */Â»	'''
+	def dispatch action(ReleaseAction action) '''Â«/* error */Â»	'''
+	def dispatch action(SetVariableAction action) '''Â«/* error */Â»	'''
+	def dispatch action(ForkAction action) '''Â«/* error */Â»	'''
 	def dispatch action(DelegatingExternalCallAction action) {
 		// error
 	}
@@ -57,57 +56,57 @@ abstract class SEFFBodyXpt {
 	def dispatch action(InternalAction action) '''
 	/* InternalAction - START */
 		// software failures:
-		«action.failureInternalActionPreTM»
+		Â«action.failureInternalActionPreTMÂ»
 		// direct resource demands:
-		«action.resourceDemands»
+		Â«action.resourceDemandsÂ»
 		// infrastructure calls:
-		«FOR call : action.infrastructureCall__Action»
-			«call.call(action)»
-		«ENDFOR»
+		Â«FOR call : action.infrastructureCall__ActionÂ»
+			Â«call.call(action)Â»
+		Â«ENDFORÂ»
 	/* InternalAction - END */
 	'''
 	
 	def dispatch action(ExternalCallAction action) '''
 	/* ExternalCallAction - START */
 		{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
-			«action.calledService_ExternalService.call(action,
+			Â«action.calledService_ExternalService.call(action,
 				"myContext.getRole"+action.role_ExternalService.javaName+"().",
 				action.inputVariableUsages__CallAction,
-				action.returnVariableUsage__CallReturnAction)»
+				action.returnVariableUsage__CallReturnAction)Â»
 		}
 	/* ExternalCallAction - END */
 	'''
 	
 	def dispatch action(RecoveryAction action) '''
 	{ /* RecoveryAction - START */
-		«action.primaryBehaviour__RecoveryAction.recoveryActionAlternative»
+		Â«action.primaryBehaviour__RecoveryAction.recoveryActionAlternativeÂ»
 	} /* RecoveryAction - END */
 	'''
 
 	def String recoveryActionAlternative(RecoveryActionBehaviour behaviour) '''
 	/* RecoveryActionBehaviour - START */
-	«val id = behaviour.id.javaVariableName»
-	«behaviour.initFailureHandling(id)»
+	Â«val id = behaviour.id.javaVariableNameÂ»
+	Â«behaviour.initFailureHandling(id)Â»
 	try {
-		«behaviour.steps_Behaviour.findStart.actions»	
-	} catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex_«id») {
+		Â«behaviour.steps_Behaviour.findStart.actionsÂ»	
+	} catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex_Â«idÂ») {
 			
 		// Remember the type of the failure-on-demand occurrence:
-		failureException_«id» = ex_«id»;
+		failureException_Â«idÂ» = ex_Â«idÂ»;
 
 		// Remove all additional stack frames; they are invalid now:
-		for(int frameCount_«id» = 0; frameCount_«id» < ctx.getStack().size() - stackSize_«id»; ++frameCount_«id») {
+		for(int frameCount_Â«idÂ» = 0; frameCount_Â«idÂ» < ctx.getStack().size() - stackSize_Â«idÂ»; ++frameCount_Â«idÂ») {
 			ctx.getStack().removeStackFrame();
 		}
 	
-		«FOR alternative:behaviour.failureHandlingAlternatives__RecoveryActionBehaviour»
-			«alternative.nextRecoveryActionAlternative(id)»
-		«ENDFOR»
+		Â«FOR alternative:behaviour.failureHandlingAlternatives__RecoveryActionBehaviourÂ»
+			Â«alternative.nextRecoveryActionAlternative(id)Â»
+		Â«ENDFORÂ»
 	} finally {}
 
 	// no more alternatives.
-	if(failureException_«id»!=null) { // failure occurred? 
-		throw failureException_«id»;
+	if(failureException_Â«idÂ»!=null) { // failure occurred? 
+		throw failureException_Â«idÂ»;
 	}
 	
 	/* RecoveryActionBehaviour - END */
@@ -115,11 +114,11 @@ abstract class SEFFBodyXpt {
 	
 	def checkIfExceptionIsHandled(FailureHandlingEntity entity, String id) '''
 		(
-		«IF entity.failureTypes_FailureHandlingEntity.size == 0»
+		Â«IF entity.failureTypes_FailureHandlingEntity.size == 0Â»
 			false
-		«ELSE»
-			«entity.failureTypes_FailureHandlingEntity.map[checkFailureTypeMatch(it, id)].join("||")»
-		«ENDIF»
+		Â«ELSEÂ»
+			Â«entity.failureTypes_FailureHandlingEntity.map[checkFailureTypeMatch(it, id)].join("||")Â»
+		Â«ENDIFÂ»
 		)
 	'''
 	
@@ -128,52 +127,52 @@ abstract class SEFFBodyXpt {
 	}
 	
 	def dispatch checkFailureTypeMatch(SoftwareInducedFailureType ft, String id) '''
-		«IF (ft instanceof ResourceTimeoutFailureType)»
-			«val resourceFailureType = ft as ResourceTimeoutFailureType»
+		Â«IF (ft instanceof ResourceTimeoutFailureType)Â»
+			Â«val resourceFailureType = ft as ResourceTimeoutFailureTypeÂ»
 			(
-			  (failureException_«id».getFailureType() instanceof
+			  (failureException_Â«idÂ».getFailureType() instanceof
 			  de.uka.ipd.sdq.reliability.core.MarkovResourceTimeoutFailureType)
 			  &&
 			  (((de.uka.ipd.sdq.reliability.core.MarkovResourceTimeoutFailureType)
-			  failureException_«id».getFailureType()).getPassiveResourceId().equals(
-			  "«resourceFailureType.passiveResource__ResourceTimeoutFailureType.id»"))
+			  failureException_Â«idÂ».getFailureType()).getPassiveResourceId().equals(
+			  "Â«resourceFailureType.passiveResource__ResourceTimeoutFailureType.idÂ»"))
 			)
-		«ELSE»
+		Â«ELSEÂ»
 			(
-			  (failureException_«id».getFailureType() instanceof
+			  (failureException_Â«idÂ».getFailureType() instanceof
 			  de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType)
 			  &&
 			  (((de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType)
-			  failureException_«id».getFailureType()).getSoftwareFailureId().equals("«ft.id»"))
+			  failureException_Â«idÂ».getFailureType()).getSoftwareFailureId().equals("Â«ft.idÂ»"))
 			)
-		«ENDIF»
+		Â«ENDIFÂ»
 	'''
 	
 	def dispatch checkFailureTypeMatch(HardwareInducedFailureType ft, String id) '''
 		(
-		  (failureException_«id».getFailureType() instanceof
+		  (failureException_Â«idÂ».getFailureType() instanceof
 		  de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType)
 		  &&
 		  (((de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType)
-		  failureException_«id».getFailureType()).getResourceTypeId().equals(
-		  "«ft.processingResourceType__HardwareInducedFailureType.id»"))
+		  failureException_Â«idÂ».getFailureType()).getResourceTypeId().equals(
+		  "Â«ft.processingResourceType__HardwareInducedFailureType.idÂ»"))
 		)
 	'''
 	
 	def dispatch checkFailureTypeMatch(NetworkInducedFailureType ft, String id) '''
 		(
-		  (failureException_«id».getFailureType() instanceof
+		  (failureException_Â«idÂ».getFailureType() instanceof
 		  de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType)
 		  &&
 		  (((de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType)
-		  failureException_«id».getFailureType()).getCommLinkResourceTypeId().equals(
-		  "«ft.communicationLinkResourceType__NetworkInducedFailureType.id»"))
+		  failureException_Â«idÂ».getFailureType()).getCommLinkResourceTypeId().equals(
+		  "Â«ft.communicationLinkResourceType__NetworkInducedFailureType.idÂ»"))
 		)
 	'''
 	
 	def initFailureHandling(Object obj, String id) '''
-		de.uka.ipd.sdq.simucomframework.exceptions.FailureException failureException_«id»=null;
-		int stackSize_«id»=ctx.getStack().size();
+		de.uka.ipd.sdq.simucomframework.exceptions.FailureException failureException_Â«idÂ»=null;
+		int stackSize_Â«idÂ»=ctx.getStack().size();
 	'''
 	
 	def nextRecoveryActionAlternative(RecoveryActionBehaviour behaviour, String id) '''
@@ -181,39 +180,39 @@ abstract class SEFFBodyXpt {
 		// (i)  the previous alternatives did not already handle it, and
 		// (ii) the handled failure types of the next alternative include
 		//      the occurred failure type:
-		if(failureException_«id» != null)
+		if(failureException_Â«idÂ» != null)
 		{
-			if(«behaviour.checkIfExceptionIsHandled(id)») {
+			if(Â«behaviour.checkIfExceptionIsHandled(id)Â») {
 		
 				// Mark the original exception as handled (even if the
 				// handling alternative fails itself, this will be a new
 				// failure, and the original failure is counted as handled):
-				ctx.getModel().getFailureStatistics().increaseFailureCounter(de.uka.ipd.sdq.reliability.core.FailureStatistics.FailureType.HANDLED, failureException_«id».getFailureType());
-				failureException_«id» = null;
+				ctx.getModel().getFailureStatistics().increaseFailureCounter(de.uka.ipd.sdq.reliability.core.FailureStatistics.FailureType.HANDLED, failureException_Â«idÂ».getFailureType());
+				failureException_Â«idÂ» = null;
 		
-				«behaviour.recoveryActionAlternative»
+				Â«behaviour.recoveryActionAlternativeÂ»
 			}
 		}
 	'''
 	
 	def catchFailureExceptions(ExternalCallAction action, String id) '''
-		«IF action != null»
+		Â«IF action != nullÂ»
 			catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex) {
 				
 				// Remember the type of the failure-on-demand occurrence:
-				failureException_«id» = ex;
+				failureException_Â«idÂ» = ex;
 				
 				// Remove all additional stack frames; they are invalid now:
-				for(int frameCount_«id» = 0; frameCount_«id» < ctx.getStack().size() - stackSize_«id»; ++frameCount_«id») {
+				for(int frameCount_Â«idÂ» = 0; frameCount_Â«idÂ» < ctx.getStack().size() - stackSize_Â«idÂ»; ++frameCount_Â«idÂ») {
 					ctx.getStack().removeStackFrame();
 				}
 			}
-		«ELSE»
+		Â«ELSEÂ»
 			finally {}
-		«ENDIF»
+		Â«ENDIFÂ»
 	'''
 	
 		def failureInternalActionPreTM(InternalAction action) '''
-		«/* nothing to do in the general case. */»
+		Â«/* nothing to do in the general case. */Â»
 	'''
 }

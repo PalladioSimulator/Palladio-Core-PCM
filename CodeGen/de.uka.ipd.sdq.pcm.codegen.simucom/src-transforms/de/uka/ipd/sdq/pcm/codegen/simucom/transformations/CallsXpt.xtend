@@ -12,44 +12,48 @@ abstract class CallsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt
 
-//-----------------------------------
-// Templates for the call to an external method
-// An instance of a port can be passed as prefix
-// The list of parameter usages characterises the paramter contents
-// ----------------------------------
-	def CharSequence call(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages, List<VariableUsage> outParameterUsages) '''
-		«signature.preCallTM(call, prefix, parameterUsages)»
-		«prefix»«signature.javaSignature»
-			(«signature.parameterUsageListTM»);
-		«signature.postCallTM(call, prefix, outParameterUsages)»
+	//-----------------------------------
+	// Templates for the call to an external method
+	// An instance of a port can be passed as prefix
+	// The list of parameter usages characterises the paramter contents
+	// ----------------------------------
+	def CharSequence call(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages,
+		List<VariableUsage> outParameterUsages) '''
+		Â«signature.preCallTM(call, prefix, parameterUsages)Â»
+		Â«prefixÂ»Â«signature.javaSignatureÂ»
+			(Â«signature.parameterUsageListTMÂ»);
+		Â«signature.postCallTM(call, prefix, outParameterUsages)Â»
 	'''
 
 	def CharSequence call(InfrastructureCall infraCall, Entity call) '''
-		{ //CALL SCOPE: this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
-	    long numberOfCalls = ctx.evaluate("«infraCall.numberOfCalls__InfrastructureCall.specification.specificationString»",Double.class).longValue();
-		for (long callNumber = 0; callNumber < numberOfCalls; callNumber++) {
-		«val prefix = "myContext.getRole"+infraCall.requiredRole__InfrastructureCall.javaName+"()."»
-		«infraCall.signature__InfrastructureCall.preCallTM(call, prefix, infraCall.inputVariableUsages__CallAction)»
-	   	«prefix»«infraCall.signature__InfrastructureCall.javaSignature»
-		   	(«infraCall.signature__InfrastructureCall.parameterUsageListTM»);
-		«infraCall.signature__InfrastructureCall.postCallTM(call, prefix)»
-		}
-	} // END CALL SCOPE
+			{ //CALL SCOPE: this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
+		   long numberOfCalls = ctx.evaluate("Â«infraCall.numberOfCalls__InfrastructureCall.specification.specificationStringÂ»",Double.class).longValue();
+			for (long callNumber = 0; callNumber < numberOfCalls; callNumber++) {
+			Â«val prefix = "myContext.getRole" + infraCall.requiredRole__InfrastructureCall.javaName + "()."Â»
+			Â«infraCall.signature__InfrastructureCall.preCallTM(call, prefix, infraCall.inputVariableUsages__CallAction)Â»
+			  	Â«prefixÂ»Â«infraCall.signature__InfrastructureCall.javaSignatureÂ»
+			  		(Â«infraCall.signature__InfrastructureCall.parameterUsageListTMÂ»);
+			Â«infraCall.signature__InfrastructureCall.postCallTM(call, prefix)Â»
+			}
+		} // END CALL SCOPE
 	'''
-	
+
 	// ----------------------------------
 	// Template method for code to be executed before
 	// an external call
 	// ----------------------------------
-	def CharSequence preCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) 
-	
-	def CharSequence preCallTM(InfrastructureSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages)
-	
+	def CharSequence preCallTM(OperationSignature signature, Entity call, String prefix,
+		List<VariableUsage> parameterUsages)
+
+	def CharSequence preCallTM(InfrastructureSignature signature, Entity call, String prefix,
+		List<VariableUsage> parameterUsages)
+
 	// ----------------------------------
 	// Template method for code to be executed after
 	// an external call
 	// ----------------------------------
-	def CharSequence postCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> outParameterUsages)
-	
+	def CharSequence postCallTM(OperationSignature signature, Entity call, String prefix,
+		List<VariableUsage> outParameterUsages)
+
 	def CharSequence postCallTM(InfrastructureSignature signature, Entity call, String prefix)
 }

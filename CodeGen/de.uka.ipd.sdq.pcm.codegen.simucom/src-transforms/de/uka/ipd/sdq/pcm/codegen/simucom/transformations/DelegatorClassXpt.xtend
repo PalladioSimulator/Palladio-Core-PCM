@@ -17,24 +17,24 @@ class DelegatorClassXpt {
 	def dispatch void delegatorClass(OperationInterface iface, String prefix) {
 		val fileName = (iface.implementationPackage()+".delegates").fqnToDirectoryPath()+"/"+prefix+iface.javaName()+".java"
 		val fileContent = '''
-		package «iface.implementationPackage()».delegates;
-		// Delegator class for interface «iface.entityName»
-		public class «prefix»«iface.javaName()» implements «iface.fqn()»
+		package Â«iface.implementationPackage()Â».delegates;
+		// Delegator class for interface Â«iface.entityNameÂ»
+		public class Â«prefixÂ»Â«iface.javaName()Â» implements Â«iface.fqn()Â»
 		{
 			private static org.apache.log4j.Logger logger = 
-				org.apache.log4j.Logger.getLogger(«iface.fqn()».class.getName());
+				org.apache.log4j.Logger.getLogger(Â«iface.fqn()Â».class.getName());
 		
-			protected «iface.fqn()» myInnerPort = null;
+			protected Â«iface.fqn()Â» myInnerPort = null;
 		     
-			public «prefix»«iface.javaName()»(«iface.fqn()» myInnerPort){
+			public Â«prefixÂ»Â«iface.javaName()Â»(Â«iface.fqn()Â» myInnerPort){
 				this.myInnerPort = myInnerPort;
 			}
 			
-			«iface.composedComponentPortHelperMethodsTM»    
+			Â«iface.composedComponentPortHelperMethodsTMÂ»    
 
-			«FOR subinterface : iface.signatures__OperationInterface»
-			«subinterface.delegator»
-			«ENDFOR»
+			Â«FOR subinterface : iface.signatures__OperationInterfaceÂ»
+			Â«subinterface.delegatorÂ»
+			Â«ENDFORÂ»
 		  }
 		'''
 		
@@ -44,24 +44,24 @@ class DelegatorClassXpt {
 	def dispatch void delegatorClass(InfrastructureInterface iface, String prefix) {
 		val fileName = (iface.implementationPackage()+".delegates").fqnToDirectoryPath()+"/"+prefix+iface.javaName()+".java"
 		val fileContent = '''
-			package «iface.implementationPackage()».delegates;
-			// Delegator class for interface «iface.entityName»
-			public class «prefix»«iface.javaName()» implements «iface.fqn()»
+			package Â«iface.implementationPackage()Â».delegates;
+			// Delegator class for interface Â«iface.entityNameÂ»
+			public class Â«prefixÂ»Â«iface.javaName()Â» implements Â«iface.fqn()Â»
 			{
 				private static org.apache.log4j.Logger logger = 
-					org.apache.log4j.Logger.getLogger(«iface.fqn()».class.getName());
+					org.apache.log4j.Logger.getLogger(Â«iface.fqn()Â».class.getName());
 			
-				protected «iface.fqn()» myInnerPort = null;
+				protected Â«iface.fqn()Â» myInnerPort = null;
 			
-				public «prefix»«iface.javaName()»(«iface.fqn()» myInnerPort){
+				public Â«prefixÂ»Â«iface.javaName()Â»(Â«iface.fqn()Â» myInnerPort){
 					this.myInnerPort = myInnerPort;
 				}
 			
-				«iface.composedComponentPortHelperMethodsTM»
+				Â«iface.composedComponentPortHelperMethodsTMÂ»
 
-			«FOR subinterface : iface.infrastructureSignatures__InfrastructureInterface»
-			«subinterface.delegator»
-			«ENDFOR»
+			Â«FOR subinterface : iface.infrastructureSignatures__InfrastructureInterfaceÂ»
+			Â«subinterface.delegatorÂ»
+			Â«ENDFORÂ»
 			}
 '''
 		
@@ -69,12 +69,12 @@ class DelegatorClassXpt {
 	}
 	
 	def dispatch delegator(OperationSignature os) '''
-		public «os.operationSignature» {
-			logger.debug("Delegating «os.entityName»");
+		public Â«os.operationSignatureÂ» {
+			logger.debug("Delegating Â«os.entityNameÂ»");
 			// Pre
 			ctx.setEvaluationMode(de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode.EXCEPTION_ON_NOT_FOUND);
-			«os.returnTypeTM» result = myInnerPort.«os.javaSignature()»(
-			     «os.parameterUsageListTM»);
+			Â«os.returnTypeTMÂ» result = myInnerPort.Â«os.javaSignature()Â»(
+			     Â«os.parameterUsageListTMÂ»);
 			// Post
 			ctx.setEvaluationMode(de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode.RETURN_DEFAULT_ON_NOT_FOUND);
 		return result;
@@ -82,12 +82,12 @@ class DelegatorClassXpt {
 	'''
 	
 	def dispatch delegator(InfrastructureSignature is) '''
-		public «is.infrastructureSignature» {
-			logger.debug("Delegating «is.entityName»");
+		public Â«is.infrastructureSignatureÂ» {
+			logger.debug("Delegating Â«is.entityNameÂ»");
 			// Pre
 			ctx.setEvaluationMode(de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode.EXCEPTION_ON_NOT_FOUND);
-			«is.returnTypeTM» result = myInnerPort.«is.javaSignature()»(
-			     «is.parameterUsageListTM»);
+			Â«is.returnTypeTMÂ» result = myInnerPort.Â«is.javaSignature()Â»(
+			     Â«is.parameterUsageListTMÂ»);
 			// Post
 			ctx.setEvaluationMode(de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode.RETURN_DEFAULT_ON_NOT_FOUND);
 			return result;

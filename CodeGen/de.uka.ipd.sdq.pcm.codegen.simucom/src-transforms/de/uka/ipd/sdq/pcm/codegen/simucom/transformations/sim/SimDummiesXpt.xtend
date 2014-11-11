@@ -32,92 +32,92 @@ class SimDummiesXpt extends DummiesXpt {
 	def dispatch dummyMethodBody(OperationSignature os, System s, OperationRequiredRole r) '''
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe resultStackFrame = 
 			new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe();
-		«val annotations1 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
+		Â«val annotations1 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
 			(it instanceof SpecifiedReliabilityAnnotation) && (it.role_SpecifiedQoSAnnotation == r) &&
-				(it.signature_SpecifiedQoSAnnation == os)]»
-		«IF annotations1.size == 1»
+				(it.signature_SpecifiedQoSAnnation == os)]Â»
+		Â«IF annotations1.size == 1Â»
 			// Simulate a failure that occurs with a predefined probability:
 			if (ctx.getModel().getConfig().getSimulateFailures()) {   
 				double accProbability = 0;
 				double randValue = ctx.getModel().getConfiguration().getRandomGenerator().random();
-				«FOR fod : (annotations1.head as SpecifiedReliabilityAnnotation).
-			externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation»«fod.failureOccurrence(r.id, os.id)»«ENDFOR»
+				Â«FOR fod : (annotations1.head as SpecifiedReliabilityAnnotation).
+			externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotationÂ»Â«fod.failureOccurrence(r.id, os.id)Â»Â«ENDFORÂ»
 			}
-		«ENDIF»
-		«val annotations2 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
+		Â«ENDIFÂ»
+		Â«val annotations2 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
 			(it instanceof SystemSpecifiedExecutionTime) && (it.role_SpecifiedQoSAnnotation == r) &&
-				(it.signature_SpecifiedQoSAnnation == os)]»
-		«IF annotations2.size == 1»
-			double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«(annotations2.
-			head as SpecifiedExecutionTime).specification_SpecifiedExecutionTime.specification.specificationString()»"));
-			logger.info("SystemExternalCall «annotations2.head.signature_SpecifiedQoSAnnation.entityName» delaying execution for "+delay);
+				(it.signature_SpecifiedQoSAnnation == os)]Â»
+		Â«IF annotations2.size == 1Â»
+			double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("Â«(annotations2.
+			head as SpecifiedExecutionTime).specification_SpecifiedExecutionTime.specification.specificationString()Â»"));
+			logger.info("SystemExternalCall Â«annotations2.head.signature_SpecifiedQoSAnnation.entityNameÂ» delaying execution for "+delay);
 			ctx.getThread().hold(delay);
-		«ENDIF»
+		Â«ENDIFÂ»
 		return resultStackFrame;
 	'''
 
 	def dispatch dummyMethodBody(InfrastructureSignature is, System s, InfrastructureRequiredRole r) '''
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe resultStackFrame = 
 			new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe();
-		«val annotations1 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
+		Â«val annotations1 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
 			(it instanceof SpecifiedReliabilityAnnotation) && (it.role_SpecifiedQoSAnnotation == r) &&
-				(it.signature_SpecifiedQoSAnnation == is)]»
-		«IF annotations1.size == 1»
+				(it.signature_SpecifiedQoSAnnation == is)]Â»
+		Â«IF annotations1.size == 1Â»
 			// Simulate a failure that occurs with a predefined probability:
 			if (ctx.getModel().getConfig().getSimulateFailures()) {   
 				double accProbability = 0;
 				double randValue = Math.random();
-				«FOR fod : (annotations1.head as SpecifiedReliabilityAnnotation).
-			externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation»«fod.failureOccurrence(r.id, is.id)»«ENDFOR»
+				Â«FOR fod : (annotations1.head as SpecifiedReliabilityAnnotation).
+			externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotationÂ»Â«fod.failureOccurrence(r.id, is.id)Â»Â«ENDFORÂ»
 			}
-		«ENDIF»
-		«««		«LET s.qosAnnotations_System.specifiedQoSAnnotations_QoSAnnotations.select(annotation | (SystemSpecifiedExecutionTime.isInstance(annotation)) && (annotation.role_SpecifiedQoSAnnotation==r) && (annotation.signature_SpecifiedQoSAnnation==this)) AS annotations»
-		«val annotations2 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
+		Â«ENDIFÂ»
+		Â«Â«Â«		Â«LET s.qosAnnotations_System.specifiedQoSAnnotations_QoSAnnotations.select(annotation | (SystemSpecifiedExecutionTime.isInstance(annotation)) && (annotation.role_SpecifiedQoSAnnotation==r) && (annotation.signature_SpecifiedQoSAnnation==this)) AS annotationsÂ»
+		Â«val annotations2 = s.qosAnnotations_System.map[specifiedQoSAnnotations_QoSAnnotations].flatten.filter[
 			(it instanceof SystemSpecifiedExecutionTime) && (it.role_SpecifiedQoSAnnotation == r) &&
-				(it.signature_SpecifiedQoSAnnation == is)]»
-		«IF annotations2.size == 1»
-			double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«(annotations2.
-			head as SpecifiedExecutionTime).specification_SpecifiedExecutionTime.specification.specificationString()»"));
-			logger.info("SystemExternalCall «annotations2.head.signature_SpecifiedQoSAnnation.entityName» delaying execution for "+delay);
+				(it.signature_SpecifiedQoSAnnation == is)]Â»
+		Â«IF annotations2.size == 1Â»
+			double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("Â«(annotations2.
+			head as SpecifiedExecutionTime).specification_SpecifiedExecutionTime.specification.specificationString()Â»"));
+			logger.info("SystemExternalCall Â«annotations2.head.signature_SpecifiedQoSAnnation.entityNameÂ» delaying execution for "+delay);
 			ctx.getThread().hold(delay);
-		«ENDIF»
+		Â«ENDIFÂ»
 		return resultStackFrame;
 	'''
 
 	def failureOccurrence(ExternalFailureOccurrenceDescription efod, String roleId, String signatureId) '''
-		«val fp = "failureProbability" + efod.failureType__ExternalFailureOccurrenceDescription.javaName()»
-			double «fp»;
+		Â«val fp = "failureProbability" + efod.failureType__ExternalFailureOccurrenceDescription.javaName()Â»
+			double Â«fpÂ»;
 			try {
-				    «fp» = Double.parseDouble("«efod.failureProbability»");
+				    Â«fpÂ» = Double.parseDouble("Â«efod.failureProbabilityÂ»");
 			} catch (NumberFormatException exception) {
-				    «fp» = 0.0;
+				    Â«fpÂ» = 0.0;
 			}
-				accProbability += «fp»;
-						if ((«fp» > 0.0) && (accProbability >= randValue)) {
-					«efod.failureType__ExternalFailureOccurrenceDescription.raiseFailure(roleId, signatureId)»
+				accProbability += Â«fpÂ»;
+						if ((Â«fpÂ» > 0.0) && (accProbability >= randValue)) {
+					Â«efod.failureType__ExternalFailureOccurrenceDescription.raiseFailure(roleId, signatureId)Â»
 			}
 	'''
 
 	def dispatch raiseFailure(FailureType ft, String roleId, String signatureId) '''
-«««		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/dummies.xpt]: Unknown FailureType found: " + ft.entityName + " (type = " + ft.metaType + "; id = " + ft.id + ")"» 
+Â«Â«Â«		Â«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/dummies.xpt]: Unknown FailureType found: " + ft.entityName + " (type = " + ft.metaType + "; id = " + ft.id + ")"Â»
 	'''
 
 	def dispatch raiseFailure(SoftwareInducedFailureType sift, String roleId, String signatureId) '''
 		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
 		this.getModel(),this.getModel().getFailureStatistics().getExternalSoftwareFailureType(
-			"«sift.id»", "«roleId»", "«signatureId»"));
+			"Â«sift.idÂ»", "Â«roleIdÂ»", "Â«signatureIdÂ»"));
 	'''
 
 	def dispatch raiseFailure(HardwareInducedFailureType hift, String roleId, String signatureId) '''
 		    de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
 		this.getModel(),this.getModel().getFailureStatistics().getExternalHardwareFailureType(
-		    "«hift.processingResourceType__HardwareInducedFailureType.id»", "«roleId»", "«signatureId»"));
+		    "Â«hift.processingResourceType__HardwareInducedFailureType.idÂ»", "Â«roleIdÂ»", "Â«signatureIdÂ»"));
 	'''
 
 	def dispatch raiseFailure(NetworkInducedFailureType nift, String roleId, String signatureId) '''
 		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
 		this.getModel(),this.getModel().getFailureStatistics().getExternalNetworkFailureType(
-			"«nift.communicationLinkResourceType__NetworkInducedFailureType.id»", "«roleId»", "«signatureId»"));
+			"Â«nift.communicationLinkResourceType__NetworkInducedFailureType.idÂ»", "Â«roleIdÂ»", "Â«signatureIdÂ»"));
 	'''
 
 	// overwrite template methods

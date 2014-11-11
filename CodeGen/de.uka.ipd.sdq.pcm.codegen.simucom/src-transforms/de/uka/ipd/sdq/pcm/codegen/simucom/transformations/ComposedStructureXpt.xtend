@@ -25,39 +25,39 @@ abstract class ComposedStructureXpt {
 	// assembly contexts
 	//-------------------------------------
 	def composedStructureStart(ComposedProvidingRequiringEntity entity) '''
-		package «entity.implementationPackage»;
+		package Â«entity.implementationPackageÂ»;
 
-		public class «entity.className» 
+		public class Â«entity.classNameÂ» 
 		{
 			private static org.apache.log4j.Logger logger = 
-				org.apache.log4j.Logger.getLogger(«entity.className».class.getName());
-		«entity.constructor»
-		«entity.innerImplementation»
+				org.apache.log4j.Logger.getLogger(Â«entity.classNameÂ».class.getName());
+		Â«entity.constructorÂ»
+		Â«entity.innerImplementationÂ»
 	'''
 	
 	def constructor(ComposedProvidingRequiringEntity entity) '''
-		«/* Create constructor without closing curly brace */»
-		«entity.composedPREConstructorStartTM»
+		Â«/* Create constructor without closing curly brace */Â»
+		Â«entity.composedPREConstructorStartTMÂ»
 
-			«/* This is still inside the constructor. */»
-			logger.info("Creating composed structure «entity.entityName»");
-			«entity.allChildMemberVarInit»
+			Â«/* This is still inside the constructor. */Â»
+			logger.info("Creating composed structure Â«entity.entityNameÂ»");
+			Â«entity.allChildMemberVarInitÂ»
 		      
-			«IF entity instanceof InterfaceProvidingEntity»
+			Â«IF entity instanceof InterfaceProvidingEntityÂ»
 				/* And finally, my ports */
-				«FOR role : entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))»
-					«role.portInit(entity)»
-				«ENDFOR»
-				«FOR role : entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))»
-					«role.portInit(entity)»
-				«ENDFOR»
-			«ENDIF»
-		} «/* End constructor */»
+				Â«FOR role : entity.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole))Â»
+					Â«role.portInit(entity)Â»
+				Â«ENDFORÂ»
+				Â«FOR role : entity.providedRoles_InterfaceProvidingEntity.filter(typeof(InfrastructureProvidedRole))Â»
+					Â«role.portInit(entity)Â»
+				Â«ENDFORÂ»
+			Â«ENDIFÂ»
+		} Â«/* End constructor */Â»
 	'''
 	
 	def composedPREConstructorStartTM(ComposedProvidingRequiringEntity entity) '''
-	   «/* default constructor */»
-	   public «entity.className()»() {
+	   Â«/* default constructor */Â»
+	   public Â«entity.className()Â»() {
 	'''
 	
 	def CharSequence composedStructureEnd(ComposedStructure entity)
@@ -75,83 +75,83 @@ abstract class ComposedStructureXpt {
 	//--------------------------------------
 	def childMemberVar(AssemblyContext ac) '''
 	   protected 
-	      «ac.encapsulatedComponent__AssemblyContext.fqn()» 
-	         my«ac.javaName()» = null;
+	      Â«ac.encapsulatedComponent__AssemblyContext.fqn()Â» 
+	         myÂ«ac.javaName()Â» = null;
 	'''
 	
 	def allChildMemberVarInit(ComposedProvidingRequiringEntity entity) '''
-		«FOR context : entity.assemblyContexts__ComposedStructure»«context.childMemberVarInitTM»«ENDFOR»
+		Â«FOR context : entity.assemblyContexts__ComposedStructureÂ»Â«context.childMemberVarInitTMÂ»Â«ENDFORÂ»
 	'''
 	
 	
 	def childMemberVarInitTM(AssemblyContext context) '''
-	   my«context.javaName()» = new «context.encapsulatedComponent__AssemblyContext.fqn()»
-	         	(«context.componentConstructorParametersTM»);
+	   myÂ«context.javaName()Â» = new Â«context.encapsulatedComponent__AssemblyContext.fqn()Â»
+	         	(Â«context.componentConstructorParametersTMÂ»);
 	'''
 	
 	def innerImplementation(ComposedStructure cs) '''
 		// Composed child components member variables
-		«FOR context : cs.assemblyContexts__ComposedStructure»«context.childMemberVar»«ENDFOR»
+		Â«FOR context : cs.assemblyContexts__ComposedStructureÂ»Â«context.childMemberVarÂ»Â«ENDFORÂ»
 
 		/**
 		* Inner Structure initialisation
 		*/
 		private void initInnerComponents() {
 	
-			/* First, initialise composite child structures */
-			«FOR child : cs.assemblyContexts__ComposedStructure.filter[c|c.encapsulatedComponent__AssemblyContext instanceof ComposedStructure]»
-				init«child.javaName()»();
-			«ENDFOR»
-			/* Then initialise basic components */
-			«FOR child : cs.assemblyContexts__ComposedStructure.filter[c|!(c.encapsulatedComponent__AssemblyContext instanceof ComposedStructure)]»
-				init«child.javaName()»();
-			«ENDFOR»
+			/* First, initialize composite child structures */
+			Â«FOR child : cs.assemblyContexts__ComposedStructure.filter[c|c.encapsulatedComponent__AssemblyContext instanceof ComposedStructure]Â»
+				initÂ«child.javaName()Â»();
+			Â«ENDFORÂ»
+			/* Then initialize basic components */
+			Â«FOR child : cs.assemblyContexts__ComposedStructure.filter[c|!(c.encapsulatedComponent__AssemblyContext instanceof ComposedStructure)]Â»
+				initÂ«child.javaName()Â»();
+			Â«ENDFORÂ»
 		}
 	
-		«FOR context : cs.assemblyContexts__ComposedStructure»«init(context, cs)»«ENDFOR»
+		Â«FOR context : cs.assemblyContexts__ComposedStructureÂ»Â«init(context, cs)Â»Â«ENDFORÂ»
 		/**
 		* Inner Structure initialisation end
 		*/
 	'''
 	
 	def dispatch portInit(OperationProvidedRole role, ComposedStructure cs) '''
-	«role.portMemberVar()» = new «role.fqnPort()»(
-			«IF cs.hasProvidedDelegationConnector(role)»
-				my«cs.getProvidedDelegationConnector(role).assemblyContext_ProvidedDelegationConnector.javaName()».
-				«cs.getProvidedDelegationConnector(role).innerProvidedRole_ProvidedDelegationConnector.portGetterName()»()
-			«ELSE»
+	Â«role.portMemberVar()Â» = new Â«role.fqnPort()Â»(
+			Â«IF cs.hasProvidedDelegationConnector(role)Â»
+				myÂ«cs.getProvidedDelegationConnector(role).assemblyContext_ProvidedDelegationConnector.javaName()Â».
+				Â«cs.getProvidedDelegationConnector(role).innerProvidedRole_ProvidedDelegationConnector.portGetterName()Â»()
+			Â«ELSEÂ»
 			   null
-			«ENDIF»
+			Â«ENDIFÂ»
 			);
 	'''
 	
 	def dispatch portInit(InfrastructureProvidedRole role, ComposedStructure cs) '''
-		«role.portMemberVar()» = new «role.fqnPort()»(
-				«IF cs.hasProvidedDelegationConnector(role)»
-					my«cs.getProvidedDelegationConnector(role).assemblyContext_ProvidedDelegationConnector.javaName()».
-					«cs.getProvidedDelegationConnector(role).innerProvidedRole_ProvidedDelegationConnector.portGetterName()»()
-				«ELSE»
+		Â«role.portMemberVar()Â» = new Â«role.fqnPort()Â»(
+				Â«IF cs.hasProvidedDelegationConnector(role)Â»
+					myÂ«cs.getProvidedDelegationConnector(role).assemblyContext_ProvidedDelegationConnector.javaName()Â».
+					Â«cs.getProvidedDelegationConnector(role).innerProvidedRole_ProvidedDelegationConnector.portGetterName()Â»()
+				Â«ELSEÂ»
 				   null
-				«ENDIF»
+				Â«ENDIFÂ»
 				);
 	'''
 	
 	def init(AssemblyContext context, ComposedStructure s) '''
-		private void init«context.javaName()»() {
-			«context.encapsulatedComponent__AssemblyContext.fqnContext()» context = new «context.encapsulatedComponent__AssemblyContext.fqnContext()»(
-			«FOR role : context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)) SEPARATOR ","»
-			«portQuery(role, s, context)»
-			«ENDFOR»
-			«IF context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)).size > 0»
-				«IF context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)).size > 0»,
-				«ENDIF»
-				«FOR role : context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)) SEPARATOR ","»
-				«portQuery(role, s, context)»
-				«ENDFOR»
-			«ENDIF»
+		private void initÂ«context.javaName()Â»() {
+			Â«context.encapsulatedComponent__AssemblyContext.fqnContext()Â» context = new Â«context.encapsulatedComponent__AssemblyContext.fqnContext()Â»(
+			Â«FOR role : context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)) SEPARATOR ","Â»
+			Â«portQuery(role, s, context)Â»
+			Â«ENDFORÂ»
+			Â«IF context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)).size > 0Â»
+				Â«IF context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(OperationRequiredRole)).size > 0Â»,
+				Â«ENDIFÂ»
+				Â«FOR role : context.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter(typeof(InfrastructureRequiredRole)) SEPARATOR ","Â»
+				Â«portQuery(role, s, context)Â»
+				Â«ENDFORÂ»
+			Â«ENDIFÂ»
 			);
-			«childInitTM(context, s)»
-			my«context.javaName()».setContext(context);
+			Â«childInitTM(context, s)Â»
+			myÂ«context.javaName()Â».setContext(context);
 		}
 	'''
 	
@@ -162,48 +162,48 @@ abstract class ComposedStructureXpt {
 	// If the component is unbound, a null pointer is generated
 	// -----------------------------------
 	def dispatch portQuery(OperationRequiredRole role, ComposedStructure s, AssemblyContext ctx) '''
-		«IF hasConnector(s,ctx,role)»
-			«val connector = (getConnector(s, ctx, role) as AssemblyConnector)»
-				/* From Connector «connector.id» */
-				my«connector.providingAssemblyContext_AssemblyConnector.javaName()».«connector.providedRole_AssemblyConnector.portGetterName()»()
-		«ELSE» 
-			«IF hasRequiredDelegationConnector(s,ctx,role)»
-				«IF (s instanceof Completion)»
-					«role.requiredInterface__OperationRequiredRole.delegatorClass(s.javaName()+"Delegator")»
-					new «role.requiredInterface__OperationRequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«role.requiredInterface__OperationRequiredRole.javaName()»
+		Â«IF hasConnector(s,ctx,role)Â»
+			Â«val connector = (getConnector(s, ctx, role) as AssemblyConnector)Â»
+				/* From Connector Â«connector.idÂ» */
+				myÂ«connector.providingAssemblyContext_AssemblyConnector.javaName()Â».Â«connector.providedRole_AssemblyConnector.portGetterName()Â»()
+		Â«ELSEÂ» 
+			Â«IF hasRequiredDelegationConnector(s,ctx,role)Â»
+				Â«IF (s instanceof Completion)Â»
+					Â«role.requiredInterface__OperationRequiredRole.delegatorClass(s.javaName()+"Delegator")Â»
+					new Â«role.requiredInterface__OperationRequiredRole.implementationPackage()Â».delegates.Â«s.javaName()+"Delegator"Â»Â«role.requiredInterface__OperationRequiredRole.javaName()Â»
 					(
-				«ENDIF»
-				«val connector2 = getRequiredDelegationConnector(s,ctx,role)»
-					this.myContext.getRole«connector2.outerRequiredRole_RequiredDelegationConnector.javaName()»()
-				«IF (s instanceof Completion)»
+				Â«ENDIFÂ»
+				Â«val connector2 = getRequiredDelegationConnector(s,ctx,role)Â»
+					this.myContext.getRoleÂ«connector2.outerRequiredRole_RequiredDelegationConnector.javaName()Â»()
+				Â«IF (s instanceof Completion)Â»
 					)
-				«ENDIF»
-		    «ELSE»
+				Â«ENDIFÂ»
+		    Â«ELSEÂ»
 				null
-		    «ENDIF» 
-	    «ENDIF»
+		   Â«ENDIFÂ» 
+	    Â«ENDIFÂ»
 	'''
 	
 	def dispatch portQuery(InfrastructureRequiredRole role, ComposedStructure s, AssemblyContext ctx) '''
-		«IF hasConnector(s,ctx,role)»
-			«val connector = (getConnector(s,ctx,role) as AssemblyInfrastructureConnector)»
-				/* From Connector «connector.id» */
-				my«connector.providingAssemblyContext__AssemblyInfrastructureConnector.javaName()».«connector.providedRole__AssemblyInfrastructureConnector.portGetterName()»()
-		«ELSE» 
-			«IF hasRequiredDelegationConnector(s,ctx,role)»
-				«IF (s instanceof Completion)»
-					«role.requiredInterface__InfrastructureRequiredRole.delegatorClass(s.javaName()+"Delegator")»
-					new «role.requiredInterface__InfrastructureRequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«role.requiredInterface__InfrastructureRequiredRole.javaName()»
+		Â«IF hasConnector(s,ctx,role)Â»
+			Â«val connector = (getConnector(s,ctx,role) as AssemblyInfrastructureConnector)Â»
+				/* From Connector Â«connector.idÂ» */
+				myÂ«connector.providingAssemblyContext__AssemblyInfrastructureConnector.javaName()Â».Â«connector.providedRole__AssemblyInfrastructureConnector.portGetterName()Â»()
+		Â«ELSEÂ» 
+			Â«IF hasRequiredDelegationConnector(s,ctx,role)Â»
+				Â«IF (s instanceof Completion)Â»
+					Â«role.requiredInterface__InfrastructureRequiredRole.delegatorClass(s.javaName()+"Delegator")Â»
+					new Â«role.requiredInterface__InfrastructureRequiredRole.implementationPackage()Â».delegates.Â«s.javaName()+"Delegator"Â»Â«role.requiredInterface__InfrastructureRequiredRole.javaName()Â»
 					(
-				«ENDIF»
-				«val connector2 = getRequiredDelegationConnector(s,ctx,role)»
-					this.myContext.getRole«connector2.outerRequiredRole_RequiredDelegationConnector.javaName()»()
-				«IF (s instanceof Completion)»
+				Â«ENDIFÂ»
+				Â«val connector2 = getRequiredDelegationConnector(s,ctx,role)Â»
+					this.myContext.getRoleÂ«connector2.outerRequiredRole_RequiredDelegationConnector.javaName()Â»()
+				Â«IF (s instanceof Completion)Â»
 					)
-				«ENDIF»
-		   «ELSE»
+				Â«ENDIFÂ»
+		   Â«ELSEÂ»
 				null
-		   «ENDIF» 
-	    «ENDIF»
+		   Â«ENDIFÂ» 
+	    Â«ENDIFÂ»
 	'''
 }

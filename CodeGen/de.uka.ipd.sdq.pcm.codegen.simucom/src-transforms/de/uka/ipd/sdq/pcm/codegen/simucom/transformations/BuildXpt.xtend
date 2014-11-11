@@ -59,18 +59,18 @@ output=output
 <project name="generated-filesets">
 
 	<fileset id="client-classes" dir="${dist-dir}">
-		«FOR us : um.usageScenario_UsageModel»
-		<include name="«us.basePackageName.fqnToDirectoryPath»/**/*.class" />
-		«ENDFOR»
+		Â«FOR us : um.usageScenario_UsageModelÂ»
+		<include name="Â«us.basePackageName.fqnToDirectoryPathÂ»/**/*.class" />
+		Â«ENDFORÂ»
 		<include name="*.class" />
 		<include name="META-INF/application-client.xml" />
 	</fileset>
 
 	<fileset id="ejb-classes" dir="${dist-dir}">
-		«val systems = um.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour].flatten.
+		Â«val systems = um.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour].flatten.
 			filter(typeof(EntryLevelSystemCall)).map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole].
-			filter(typeof(System)).toSet»
-		«FOR system : systems»«system.includeClasses»«ENDFOR»
+			filter(typeof(System)).toSetÂ»
+		Â«FOR system : systemsÂ»Â«system.includeClassesÂ»Â«ENDFORÂ»
 		<include name="META-INF/ejb-jar.xml" />
 	</fileset>
 
@@ -108,10 +108,10 @@ output=output
 <?xml version="1.0" encoding="UTF-8"?>
 <application-client version="5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application-client_5.xsd">
     <display-name>@@projectname@@-Client</display-name>
-    «val systemCalls = um.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour].
-			flatten.filter(typeof(EntryLevelSystemCall)).map[providedRole_EntryLevelSystemCall].toSet»
-    «FOR systemCall : systemCalls»«systemCall.ejbClientRef»«ENDFOR»
-    .providedRole_EntryLevelSystemCall.toSet()»
+    Â«val systemCalls = um.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour].
+			flatten.filter(typeof(EntryLevelSystemCall)).map[providedRole_EntryLevelSystemCall].toSetÂ»
+   Â«FOR systemCall : systemCallsÂ»Â«systemCall.ejbClientRefÂ»Â«ENDFORÂ»
+    .providedRole_EntryLevelSystemCall.toSet()Â»
 </application-client>
 		'''
 
@@ -119,37 +119,37 @@ output=output
 	}
 
 	def dispatch String includeClasses(Repository repository) '''
-		<include name="«repository.javaName.toLowerCase.fqnToDirectoryPath»"/**/*.class" />
+		<include name="Â«repository.javaName.toLowerCase.fqnToDirectoryPathÂ»"/**/*.class" />
 	'''
 
 	def dispatch String includeClasses(System system) '''
-		<include name="«system.javaName.toLowerCase.fqnToDirectoryPath»"/**/*.class" />
-		«FOR repository : system.collectRepositories»«repository.includeClasses»«ENDFOR»
+		<include name="Â«system.javaName.toLowerCase.fqnToDirectoryPathÂ»"/**/*.class" />
+		Â«FOR repository : system.collectRepositoriesÂ»Â«repository.includeClassesÂ»Â«ENDFORÂ»
 	'''
 
 	def dispatch ejbClientRef(OperationProvidedRole role) '''
 		<ejb-ref>
-			<ejb-ref-name>ejb/«role.providedInterface__OperationProvidedRole.javaName»</ejb-ref-name>
+			<ejb-ref-name>ejb/Â«role.providedInterface__OperationProvidedRole.javaNameÂ»</ejb-ref-name>
 			<ejb-ref-type>Session</ejb-ref-type> 
-			<remote>«role.providedInterface__OperationProvidedRole.fqn»</remote>
-			«val delegationConnector = (role.providingEntity_ProvidedRole as System).connectors__ComposedStructure.filter(
-			typeof(ProvidedDelegationConnector)).filter[outerProvidedRole_ProvidedDelegationConnector == role].head»
-			«val componentContext = delegationConnector.assemblyContext_ProvidedDelegationConnector»
-			<ejb-link>«componentContext.encapsulatedComponent__AssemblyContext.javaName()»_«role.
-			providedInterface__OperationProvidedRole.javaName»_«componentContext.id»</ejb-link> 
+			<remote>Â«role.providedInterface__OperationProvidedRole.fqnÂ»</remote>
+			Â«val delegationConnector = (role.providingEntity_ProvidedRole as System).connectors__ComposedStructure.filter(
+			typeof(ProvidedDelegationConnector)).filter[outerProvidedRole_ProvidedDelegationConnector == role].headÂ»
+			Â«val componentContext = delegationConnector.assemblyContext_ProvidedDelegationConnectorÂ»
+			<ejb-link>Â«componentContext.encapsulatedComponent__AssemblyContext.javaName()Â»_Â«role.
+			providedInterface__OperationProvidedRole.javaNameÂ»_Â«componentContext.idÂ»</ejb-link> 
 		</ejb-ref>
 	'''
 
 	def dispatch ejbClientRef(InfrastructureProvidedRole role) '''
 		<ejb-ref>
-			<ejb-ref-name>ejb/«role.providedInterface__InfrastructureProvidedRole.javaName»</ejb-ref-name>
+			<ejb-ref-name>ejb/Â«role.providedInterface__InfrastructureProvidedRole.javaNameÂ»</ejb-ref-name>
 			   <ejb-ref-type>Session</ejb-ref-type> 
-			   <remote>«role.providedInterface__InfrastructureProvidedRole.fqn»</remote>
-			   «val delegationConnector = (role.providingEntity_ProvidedRole as System).connectors__ComposedStructure.
-			filter(typeof(ProvidedDelegationConnector)).filter[outerProvidedRole_ProvidedDelegationConnector == role].head»
-			«val componentContext = delegationConnector.assemblyContext_ProvidedDelegationConnector»
-			<ejb-link>«componentContext.encapsulatedComponent__AssemblyContext.javaName()»_«role.
-			providedInterface__InfrastructureProvidedRole.javaName»_«componentContext.id»</ejb-link> 
+			   <remote>Â«role.providedInterface__InfrastructureProvidedRole.fqnÂ»</remote>
+			   Â«val delegationConnector = (role.providingEntity_ProvidedRole as System).connectors__ComposedStructure.
+			filter(typeof(ProvidedDelegationConnector)).filter[outerProvidedRole_ProvidedDelegationConnector == role].headÂ»
+			Â«val componentContext = delegationConnector.assemblyContext_ProvidedDelegationConnectorÂ»
+			<ejb-link>Â«componentContext.encapsulatedComponent__AssemblyContext.javaName()Â»_Â«role.
+			providedInterface__InfrastructureProvidedRole.javaNameÂ»_Â«componentContext.idÂ»</ejb-link> 
 		</ejb-ref>
 	'''
 }

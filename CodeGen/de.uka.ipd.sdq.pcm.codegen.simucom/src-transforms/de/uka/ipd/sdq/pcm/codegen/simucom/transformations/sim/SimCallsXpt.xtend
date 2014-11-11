@@ -28,58 +28,58 @@ class SimCallsXpt extends CallsXpt {
 	@Inject extension SimAccuracyXpt
 
 	def dispatch preCall(OperationSignature signature, Object call, String prefix, List<VariableUsage> parameterUsages) '''		
-		«IF (call instanceof ExternalCallAction)»
-			«val externalCall = call as ExternalCallAction»
-				«val id = externalCall.id.javaVariableName()»
+		Â«IF (call instanceof ExternalCallAction)Â»
+			Â«val externalCall = call as ExternalCallActionÂ»
+				Â«val id = externalCall.id.javaVariableName()Â»
 			//start handling potential failures
-					«val triesVar = javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature())»
-			int «triesVar» = 1 + «externalCall.retryCount»; //The call plus the retries
+					Â«val triesVar = javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature())Â»
+			int Â«triesVarÂ» = 1 + Â«externalCall.retryCountÂ»; //The call plus the retries
 			// Execute the external call until it succeeds or the maximal try count is exeeded.
 			boolean callSucceeded = false;
-			for(int retries=0; retries<«triesVar»; ++retries) {
+			for(int retries=0; retries<Â«triesVarÂ»; ++retries) {
 	
 				// Check if the call has already succeeded:
 				if(callSucceeded == true) {
 					break;
 				}
 	
-						«externalCall.initFailureHandling(id)»
+						Â«externalCall.initFailureHandling(id)Â»
 				try { // needs to be closed after the call in PostCall
 			// end of failure handling before the call
 	
-	        «signature.handleRemoteExternalCall(prefix)»
-		«ENDIF»
-		«signature.genericPreCall(call,parameterUsages,prefix)»
+	        Â«signature.handleRemoteExternalCall(prefix)Â»
+		Â«ENDIFÂ»
+		Â«signature.genericPreCall(call,parameterUsages,prefix)Â»
 	'''
 
 	def dispatch preCall(InfrastructureSignature signature, Object call, String prefix, List<VariableUsage> parameterUsages) '''
-		«IF (call instanceof InternalAction)»
-		    «signature.handleRemoteExternalCall(prefix)»
-		«ELSE»
-			«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) does not support a call for the provided action type." */»
-		«ENDIF»
-		«signature.genericPreCall(call,parameterUsages)»
+		Â«IF (call instanceof InternalAction)Â»
+		    Â«signature.handleRemoteExternalCall(prefix)Â»
+		Â«ELSEÂ»
+			Â«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) does not support a call for the provided action type." */Â»
+		Â«ENDIFÂ»
+		Â«signature.genericPreCall(call,parameterUsages)Â»
 	'''
 
-	//«REM»This generic pre call does not include simulation of network failures and latency. «ENDREM»
+	//Â«REMÂ»This generic pre call does not include simulation of network failures and latency. Â«ENDREMÂ»
 	def genericPreCall(OperationSignature signature, Object call, List<VariableUsage> parameterUsages, String prefix) '''
 		try {
-		«signature.prepareSimulatedStackFrame(parameterUsages)»
-		«IF (call instanceof ExternalCallAction)»
-			«signature.externalCallActionDescription(call).startResponseTimeMeasurementTM»
-		«ELSE»
-			«signature.entryLevelSystemCallActionDescription(call).startResponseTimeMeasurementTM»
-		«ENDIF»
+		Â«signature.prepareSimulatedStackFrame(parameterUsages)Â»
+		Â«IF (call instanceof ExternalCallAction)Â»
+			Â«signature.externalCallActionDescription(call).startResponseTimeMeasurementTMÂ»
+		Â«ELSEÂ»
+			Â«signature.entryLevelSystemCallActionDescription(call).startResponseTimeMeasurementTMÂ»
+		Â«ENDIFÂ»
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =
 	'''
 
 	def genericPreCall(InfrastructureSignature signature, Object call,List<VariableUsage> parameterUsages) '''
-		«signature.prepareSimulatedStackFrame(parameterUsages)»
-		«IF (call instanceof InternalAction)»
-			«signature.internalActionDescription(call).startResponseTimeMeasurementTM»
-		«ELSE»
-			«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPreCall(Object call,List[VariableUsage] parameterUsages) does not support a call for the provided action type." */»
-		«ENDIF»
+		Â«signature.prepareSimulatedStackFrame(parameterUsages)Â»
+		Â«IF (call instanceof InternalAction)Â»
+			Â«signature.internalActionDescription(call).startResponseTimeMeasurementTMÂ»
+		Â«ELSEÂ»
+			Â«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPreCall(Object call,List[VariableUsage] parameterUsages) does not support a call for the provided action type." */Â»
+		Â«ENDIFÂ»
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =
 	'''
 
@@ -88,118 +88,118 @@ class SimCallsXpt extends CallsXpt {
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx.getStack().currentStackFrame();
 		// prepare stackframe
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx.getStack().createAndPushNewStackFrame();
-		«FOR pu : parameterUsages»
-			«val lhs_prefix = pu.parameterUsageLHS()»
-				«FOR vc : pu.variableCharacterisation_VariableUsage»
-					«IF pu.namedReference__VariableUsage.isInnerReference()»
-						stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-						   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame.copyFrame()));
-					«ELSE»
-						stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-						   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame));
-					«ENDIF»
-				«ENDFOR»
-		«ENDFOR»
+		Â«FOR pu : parameterUsagesÂ»
+			Â«val lhs_prefix = pu.parameterUsageLHS()Â»
+				Â«FOR vc : pu.variableCharacterisation_VariableUsageÂ»
+					Â«IF pu.namedReference__VariableUsage.isInnerReference()Â»
+						stackframe.addValue("Â«lhs_prefix+'.'+vc.type.toString()Â»",
+						   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("Â«vc.specification_VariableCharacterisation.specification.specificationString()Â»",currentFrame.copyFrame()));
+					Â«ELSEÂ»
+						stackframe.addValue("Â«lhs_prefix+'.'+vc.type.toString()Â»",
+						   	ctx.evaluate("Â«vc.specification_VariableCharacterisation.specification.specificationString()Â»",currentFrame));
+					Â«ENDIFÂ»
+				Â«ENDFORÂ»
+		Â«ENDFORÂ»
 	'''
 
 	def tidySimulatedStackFrame(Signature siganture) '''
 	 	ctx.getStack().removeStackFrame();
 	'''
 
-	//«REM»This generic post call does not include simulation of network failures and latency. «ENDREM»
+	//Â«REMÂ»This generic post call does not include simulation of network failures and latency. Â«ENDREMÂ»
 	def genericPostCall(OperationSignature signature, Object call, List<VariableUsage> outParameterUsages) '''
 		// Stop the time measurement
-		«IF (call instanceof ExternalCallAction)»
-			«signature.externalCallActionDescription(call).endResponseTimeMeasurementTM»
-		«ELSE»
-			«("Call_"+signature.javaSignature+" <EntryLevelSystemCall id: "+(call as Entity).id+" >").endResponseTimeMeasurementTM»
-		«ENDIF»
-«««		«REM»Handle accuracy influence analysis. «ENDREM»
-		«IF (call instanceof AbstractAction)»
-			«IF getQualityAnnotationRepository() != null»
-				«IF (call as AbstractAction).getRdseff().getQualityAnnotation() != null»
-					«val qualityAnnotation = (call as AbstractAction).getRdseff().getQualityAnnotation()»
-						«FOR partition : qualityAnnotation.validForParameterPartitions.filter(typeof(PCMParameterPartition))»
-							«partition.checkAccuracy((call as AbstractAction).rdseff, (call as AbstractAction))»
-						«ENDFOR»
-				«ELSE»
-«««					«REM»Accuracy analysis was requested but no quality annotation could be found for this RDSEFF«ENDREM»
-					SeverityAndIssue issue = AccuracyIssueFactory.createMissingQualityAnnotationIssue("«(call as AbstractAction).getRdseff().getResourceName()»", "«(call as AbstractAction).getRdseff().id»");
+		Â«IF (call instanceof ExternalCallAction)Â»
+			Â«signature.externalCallActionDescription(call).endResponseTimeMeasurementTMÂ»
+		Â«ELSEÂ»
+			Â«("Call_"+signature.javaSignature+" <EntryLevelSystemCall id: "+(call as Entity).id+" >").endResponseTimeMeasurementTMÂ»
+		Â«ENDIFÂ»
+Â«Â«Â«		Â«REMÂ»Handle accuracy influence analysis. Â«ENDREMÂ»
+		Â«IF (call instanceof AbstractAction)Â»
+			Â«IF getQualityAnnotationRepository() != nullÂ»
+				Â«IF (call as AbstractAction).getRdseff().getQualityAnnotation() != nullÂ»
+					Â«val qualityAnnotation = (call as AbstractAction).getRdseff().getQualityAnnotation()Â»
+						Â«FOR partition : qualityAnnotation.validForParameterPartitions.filter(typeof(PCMParameterPartition))Â»
+							Â«partition.checkAccuracy((call as AbstractAction).rdseff, (call as AbstractAction))Â»
+						Â«ENDFORÂ»
+				Â«ELSEÂ»
+Â«Â«Â«				Â«REMÂ»Accuracy analysis was requested but no quality annotation could be found for this RDSEFFÂ«ENDREMÂ»
+					SeverityAndIssue issue = AccuracyIssueFactory.createMissingQualityAnnotationIssue("Â«(call as AbstractAction).getRdseff().getResourceName()Â»", "Â«(call as AbstractAction).getRdseff().idÂ»");
 					config.addIssue(issue);
-				«ENDIF»
-			«ELSE»
-«««				«REM»Accuracy analysis was not requested. Do nothing.«ENDREM»
-			«ENDIF»
-		«ENDIF»
+				Â«ENDIFÂ»
+			Â«ELSEÂ»
+Â«Â«Â«				Â«REMÂ»Accuracy analysis was not requested. Do nothing.Â«ENDREMÂ»
+			Â«ENDIFÂ»
+		Â«ENDIFÂ»
 	
-««« TODO: check if = / != null check is correct
-		«IF (outParameterUsages != null)»
-		«FOR pu : outParameterUsages»
-			«val lhs_prefix = pu.parameterUsageLHS()»
-				// Copy out parameter «lhs_prefix» to local stack frame
-				«FOR vc : pu.variableCharacterisation_VariableUsage»
-					«IF pu.namedReference__VariableUsage.isInnerReference()»
-						methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-						   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult.copyFrame()));
-					«ELSE»
-						methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-						   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
-					«ENDIF»
-				«ENDFOR»
-		«ENDFOR»
-		«ENDIF»
+Â«Â«Â« TODO: check if = / != null check is correct
+		Â«IF (outParameterUsages != null)Â»
+		Â«FOR pu : outParameterUsagesÂ»
+			Â«val lhs_prefix = pu.parameterUsageLHS()Â»
+				// Copy out parameter Â«lhs_prefixÂ» to local stack frame
+				Â«FOR vc : pu.variableCharacterisation_VariableUsageÂ»
+					Â«IF pu.namedReference__VariableUsage.isInnerReference()Â»
+						methodBodyStackFrame.addValue("Â«lhs_prefix+'.'+vc.type.toString()Â»",
+						   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("Â«vc.specification_VariableCharacterisation.specification.specificationString()Â»",callResult.copyFrame()));
+					Â«ELSEÂ»
+						methodBodyStackFrame.addValue("Â«lhs_prefix+'.'+vc.type.toString()Â»",
+						   	ctx.evaluate("Â«vc.specification_VariableCharacterisation.specification.specificationString()Â»",callResult));
+					Â«ENDIFÂ»
+				Â«ENDFORÂ»
+		Â«ENDFORÂ»
+		Â«ENDIFÂ»
 		}
 		finally
 		{
-			«signature.tidySimulatedStackFrame»
+			Â«signature.tidySimulatedStackFrameÂ»
 		}
 		// END Simulate an external call
 	'''
 
 	def genericPostCall(InfrastructureSignature is, Object call) '''
 		// Stop the time measurement
-		«IF (call instanceof InternalAction)»
-			«is.internalActionDescription(call).endResponseTimeMeasurementTM»
-		«ELSE»
-			«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPostCall(Object call, List[VariableUsage] outParameterUsages) does not support a call for the provided action type." */»
-		«ENDIF»
-		«is.tidySimulatedStackFrame»
+		Â«IF (call instanceof InternalAction)Â»
+			Â«is.internalActionDescription(call).endResponseTimeMeasurementTMÂ»
+		Â«ELSEÂ»
+			Â«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPostCall(Object call, List[VariableUsage] outParameterUsages) does not support a call for the provided action type." */Â»
+		Â«ENDIFÂ»
+		Â«is.tidySimulatedStackFrameÂ»
 		// END Simulate an external call
 	'''
 
 	def postCall(OperationSignature os, Object call, String prefix, List<VariableUsage> outParameterUsages) '''
-		«os.genericPostCall(call,outParameterUsages)»
-		«IF (call instanceof ExternalCallAction)»
+		Â«os.genericPostCall(call,outParameterUsages)Â»
+		Â«IF (call instanceof ExternalCallAction)Â»
 		
-			«os.handleRemoteExternalCall(prefix)»
+			Â«os.handleRemoteExternalCall(prefix)Â»
 
 			} // end of try block from the pre cal failure handling section
-			«val externalCall = (call as ExternalCallAction)»
-			«val id = externalCall.id.javaVariableName()»
-			«val triesVar = javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature())»
-« /* TODO: ->> am ende richtig übersetzen */»
-					«externalCall.catchFailureExceptions(id)»
-			«val callName = "Call "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+(call as ExternalCallAction).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+(call as ExternalCallAction).id+">"»
+			Â«val externalCall = (call as ExternalCallAction)Â»
+			Â«val id = externalCall.id.javaVariableName()Â»
+			Â«val triesVar = javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature())Â»
+Â« /* TODO: ->> am ende richtig Ã¼bersetzen */Â»
+					Â«externalCall.catchFailureExceptions(id)Â»
+			Â«val callName = "Call "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+(call as ExternalCallAction).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+(call as ExternalCallAction).id+">"Â»
 			de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.recordExternalCallResult(
-				"«callName»",
-				"«externalCall.id»",
-				failureException_«id»,
+				"Â«callNameÂ»",
+				"Â«externalCall.idÂ»",
+				failureException_Â«idÂ»,
 				ctx.getModel(),
 				ctx.getThread().getRequestContext());
-			if(failureException_«id» != null) { // failure occurred
+			if(failureException_Â«idÂ» != null) { // failure occurred
 
 				// Check if we handle this failure-on-demand occurrence:
-				if(!«externalCall.checkIfExceptionIsHandled(id)») { // is this failure type handled?
-					throw failureException_«id»;
+				if(!Â«externalCall.checkIfExceptionIsHandled(id)Â») { // is this failure type handled?
+					throw failureException_Â«idÂ»;
 				}
-				if(retries == «triesVar»-1) { // retry count exceeded?
-					throw failureException_«id»;
+				if(retries == Â«triesVarÂ»-1) { // retry count exceeded?
+					throw failureException_Â«idÂ»;
 				}
 
 				// If the failure-on-demand occurrence is handled,
 				// update the failure statistics accordingly:
 				this.getModel().getFailureStatistics().increaseFailureCounter(
-		de.uka.ipd.sdq.reliability.core.FailureStatistics.FailureType.HANDLED, failureException_«id».getFailureType()); //count handled failure
+		de.uka.ipd.sdq.reliability.core.FailureStatistics.FailureType.HANDLED, failureException_Â«idÂ».getFailureType()); //count handled failure
 
 			} else {
 
@@ -208,29 +208,29 @@ class SimCallsXpt extends CallsXpt {
 			}
 		}
 		// End failure handling section.
-		«ENDIF»
+		Â«ENDIFÂ»
 	'''
 
 	def postCall(InfrastructureSignature is, Object call, String prefix) '''
-		«is.genericPostCall(call)»
-		«IF (call instanceof InternalAction)»
-			«is.handleRemoteExternalCall(prefix)»
-		«ENDIF»
+		Â«is.genericPostCall(call)Â»
+		Â«IF (call instanceof InternalAction)Â»
+			Â«is.handleRemoteExternalCall(prefix)Â»
+		Â«ENDIFÂ»
 	'''
 	
 	def dispatch handleRemoteExternalCall(OperationSignature os, String prefix) '''
-		«os.handleNetworkLatencyAndFailures(prefix)»
+		Â«os.handleNetworkLatencyAndFailures(prefix)Â»
 	'''
 	
 	def dispatch handleRemoteExternalCall(InfrastructureSignature is, String prefix) '''
-		«is.handleNetworkLatencyAndFailures(prefix)»
+		Â«is.handleNetworkLatencyAndFailures(prefix)Â»
 	'''
 
 	def handleNetworkLatencyAndFailures(Signature signature, String prefix) '''
-«««				«REM»
-«««					Options for moving this code into the framework should be checked.
-«««					The main problem is how to find out if an external call goes over a network link or not.
-«««				«ENDREM» 
+Â«Â«Â«				Â«REMÂ»
+Â«Â«Â«					Options for moving this code into the framework should be checked.
+Â«Â«Â«					The main problem is how to find out if an external call goes over a network link or not.
+Â«Â«Â«				Â«ENDREMÂ» 
 				// If the call goes over network, simulate the link latency and the possibility of a communication link failure.
 				// Do this only in case that the "simulate linking resources" option is deactivated, because otherwise,
 				// completions handle the link behaviour.
@@ -239,7 +239,7 @@ class SimCallsXpt extends CallsXpt {
 					de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
 					try {
 						fromContainer = ctx.findResource(this.assemblyContext.getId());
-						toContainer = ctx.findResource(«prefix»getComponentAssemblyContext().getId());
+						toContainer = ctx.findResource(Â«prefixÂ»getComponentAssemblyContext().getId());
 					} catch (de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound exception) {
 						// If the call is system external, no target resource container will be found.
 					}
