@@ -2,12 +2,20 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
+         id="edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.workflow_extension"
          name="SimuCom Reliability Extension"
-         point="de.uka.ipd.sdq.workflow.extension">
-      <workflow_extension
+         point="de.uka.ipd.sdq.workflow.job">
+      <workflow_job
             extension_configurationbuilder="edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.jobs.ReliabilityExtensionConfigurationBuilder"
             extension_job="edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.jobs.ReliabilityExtensionJob"
-            name="edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.workflow_extension"
+            workflow_id="workflow.extension.simucom.before.codegeneration">
+      </workflow_job>
+   </extension>
+   <extension
+         name="name"
+         point="de.uka.ipd.sdq.workflow.tab.extension">
+      <workflow_extension
+            name="edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.workflow_extension1"
             runconfig_tab="edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.jobs.ReliabilityExtensionTab"
             workflow_id="workflow.extension.simucom.before.codegeneration">
       </workflow_extension>
