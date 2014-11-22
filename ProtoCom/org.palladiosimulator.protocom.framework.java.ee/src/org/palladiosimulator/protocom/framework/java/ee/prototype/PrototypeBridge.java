@@ -113,6 +113,16 @@ public final class PrototypeBridge {
 		return containers;
 	}
 
+	public Container getContainer(String containerId) {
+		for (Container container : containers) {
+			if (container.getId().equals(containerId)) {
+				return container;
+			}
+		}
+
+		return null;
+	}
+
 	public void setUsageScenarios(IUsageScenario[] scenarios) {
 		this.scenarios = scenarios;
 	}

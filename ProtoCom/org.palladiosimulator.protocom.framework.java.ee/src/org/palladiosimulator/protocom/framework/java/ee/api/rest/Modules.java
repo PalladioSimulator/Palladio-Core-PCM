@@ -43,7 +43,7 @@ public class Modules {
 				String name = container.getName();
 				PrototypeBridge.Allocation[] allocations = bridge.getAllocations(id);
 
-				modules.add(new ContainerModule(id, name, allocations));
+				modules.add(new ContainerModule(container, allocations));
 			}
 
 			// Add system to the list.

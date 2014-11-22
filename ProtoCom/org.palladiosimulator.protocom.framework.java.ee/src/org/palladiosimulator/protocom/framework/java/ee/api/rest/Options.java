@@ -215,7 +215,7 @@ public class Options {
 			// CPU
 
 			FibonacciDemand cpu = new FibonacciDemand();
-			cpu.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
+			//cpu.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
 			byte[] cpuData = null;
 			try {
 				cpuData = storage.readFile("calibration/cpu.fibonacci");
@@ -226,6 +226,21 @@ public class Options {
 			CalibrationTable cpuTable = CalibrationTable.fromBinary(cpuData);
 			cpu.setCalibrationTable(cpuTable);
 			DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpu);
+
+			// HDD
+
+			ReadLargeChunksDemand hdd = new ReadLargeChunksDemand();
+			//hdd.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
+			byte[] hddData = null;
+			try {
+				hddData = storage.readFile("calibration/hdd.largeChunks");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			CalibrationTable hddTable = CalibrationTable.fromBinary(hddData);
+			hdd.setCalibrationTable(hddTable);
+			DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hdd);
 		} else {
 			context.setAttribute("status", "calibrating");
 			executor.submit(new Calibrator(context, storage));
