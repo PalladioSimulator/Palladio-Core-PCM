@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Level;
-import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
@@ -76,10 +75,8 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
         parentResourceContainer = (SimulatedResourceContainer) resourceContainer;
     }
 
-    public void addActiveResource(final String activeResourceURI, final String[] providedInterfaceIds,
-            final String resourceContainerID, final String schedulingStrategyID) {
-        final ProcessingResourceSpecification activeResource = (ProcessingResourceSpecification) EMFLoadHelper
-                .loadModel(activeResourceURI);
+    public void addActiveResource(final ProcessingResourceSpecification activeResource,
+            final String[] providedInterfaceIds, final String resourceContainerID, final String schedulingStrategyID) {
         final ScheduledResource r = new ScheduledResource(activeResource, myModel, resourceContainerID,
                 schedulingStrategyID);
         final String resourceType = activeResource.getActiveResourceType_ActiveResourceSpecification().getId();
