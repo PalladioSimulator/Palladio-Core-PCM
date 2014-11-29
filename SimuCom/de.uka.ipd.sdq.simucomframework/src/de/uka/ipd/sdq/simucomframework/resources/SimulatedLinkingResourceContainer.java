@@ -23,8 +23,7 @@ public class SimulatedLinkingResourceContainer extends AbstractSimulatedResource
         super(myModel, id);
     }
 
-    public void addActiveResource(final String linkingResourceURI, final String resourceContainerID) {
-        final LinkingResource linkingResource = (LinkingResource) EMFLoadHelper.loadModel(linkingResourceURI);
+    public void addActiveResource(LinkingResource linkingResource, final String resourceContainerID) {
         final SimulatedLinkingResource r = new SimulatedLinkingResource(linkingResource, myModel, resourceContainerID);
         activeResources.put(linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
                 .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification().getId(), r);
