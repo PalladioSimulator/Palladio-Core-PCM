@@ -23,6 +23,4 @@ abstract class ConceptMapping<E extends NamedElement> {
 	new(E pcmEntity) {
 		this.pcmEntity = pcmEntity
 	}
-	
-	
 }

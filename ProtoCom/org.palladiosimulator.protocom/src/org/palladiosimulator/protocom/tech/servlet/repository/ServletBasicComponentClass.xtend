@@ -1,21 +1,23 @@
 package org.palladiosimulator.protocom.tech.servlet.repository
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.model.repository.BasicComponentAdapter
 import org.palladiosimulator.protocom.tech.servlet.ServletClass
 import org.palladiosimulator.protocom.tech.servlet.util.PcmServletProtoAction
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
 
 class ServletBasicComponentClass extends ServletClass<BasicComponent> {
-	new(BasicComponent pcmEntity) {
+	private val BasicComponentAdapter entity
+	
+	new(BasicComponentAdapter entity, BasicComponent pcmEntity) {
 		super(pcmEntity)
+		this.entity = entity
 	}
 	
 	override interfaces() {
-		#[JavaNames::interfaceName(pcmEntity)]
+		#[entity.interfaceName]
 	}
 	
 	override constructors() {
@@ -30,8 +32,8 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 					params.add(new «frameworkBase».http.Parameter("location", location));
 					params.add(new «frameworkBase».http.Parameter("assemblyContext", assemblyContext));
 					
-					«FOR role : pcmEntity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].map[it as OperationProvidedRole]»
-						«frameworkBase».http.Request.get(location, "/«JavaNames::portClassName(role)»", params);
+					«FOR role : entity.operationProvidedRoles»
+						«frameworkBase».http.Request.get(location, "/«role.portClassName»", params);
 					«ENDFOR»
 				''')
 		]
@@ -43,7 +45,7 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 		result += #[
 			new JField()
 				.withName("context")
-				.withType(JavaNames::fqnContextInterface(pcmEntity))
+				.withType(entity.contextInterfaceFqn)
 		]
 		
 		result
@@ -56,20 +58,22 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 			new JMethod()
 				.withName("setContext")
 				.withParameters("Object context")
-				.withImplementation("this.context = (" + JavaNames::fqnContextInterface(pcmEntity) + ") context;")
+				.withImplementation("this.context = (" + entity.contextInterfaceFqn + ") context;")
 		
 		// Generate SEFFs.
-		result += pcmEntity.serviceEffectSpecifications__BasicComponent.map[
+		result += entity.serviceEffectSpecifications.map[
+			val signature = it.signature
+			
 			new JMethod()
-				.withName(JavaNames::serviceName(it.describedService__SEFF))
+				.withName(signature.serviceName)
 				//.withReturnType('''de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>''')
 				//.withParameters('''de.uka.ipd.sdq.simucomframework.variables.StackContext ctx''')
 				.withReturnType('''«stackFrame»<Object>''')
 				.withParameters('''«stackContext» ctx''')
 				.withImplementation('''
-					org.apache.log4j.Logger.getRootLogger().info("Invoking '«JavaNames::serviceName(it.describedService__SEFF)»'");
+					org.apache.log4j.Logger.getRootLogger().info("Invoking '«signature.serviceName»'");
 					ctx.getStack().createAndPushNewStackFrame();
-					«new PcmServletProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
+					«new PcmServletProtoAction().actions((it.entity as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 					return null;
 				''')
 		]

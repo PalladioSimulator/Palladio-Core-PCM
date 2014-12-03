@@ -7,22 +7,26 @@ import org.palladiosimulator.protocom.lang.java.impl.JMethod
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
+import org.palladiosimulator.protocom.model.repository.BasicComponentAdapter
 
 class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
-	new(BasicComponent pcmEntity) {
+	private val BasicComponentAdapter entity
+	
+	new(BasicComponentAdapter entity, BasicComponent pcmEntity) {
 		super(pcmEntity)
+		this.entity = entity
 	}
 	
 	override packageName() {
-		JavaNames::fqnContextPackage(pcmEntity)
+		entity.contextPackageFqn
 	}
 	
 	override compilationUnitName() {
-		JavaNames::contextClassName(pcmEntity)	
+		entity.contextClassName
 	}
 	
 	override interfaces() {
-		#[JavaNames::contextInterfaceName(pcmEntity)]
+		#[entity.contextInterfaceName]
 	}
 	
 	override annotations() {
@@ -36,18 +40,20 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 	override fields() {
 		val result = newLinkedList
 		
+		val requiredRoles = entity.operationRequiredRoles
+		
 		// Port ID.
-		result += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[
+		result += requiredRoles.map[
 			new JField()
 				.withType("String")
-				.withName(JavaNames::javaName(it).toFirstLower)
+				.withName(it.safeName.toFirstLower)
 		]
 		
 		// Port class.
-		result += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[
+		result += requiredRoles.map[
 			new JField()
-				.withType(JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole))
-				.withName("portFor_" + JavaNames::javaName(it).toFirstLower)
+				.withType(JavaNames::fqn((it.entity as OperationRequiredRole).requiredInterface__OperationRequiredRole))
+				.withName("portFor_" + it.safeName.toFirstLower)
 		]
 		
 		result
