@@ -1,0 +1,416 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>parameter - UML-Dokumentation</title>
+<meta name="generator" content="IBM Rational Model Publisher">
+<meta name="description" content="Inhalt f&uuml;r VariableCharacterisationType">
+<link href="WebPublish.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">&Uuml;bersicht</a></td><td class="NavBarMainLink"><a href="_1198111488967104869100117101711110167478846771103-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_1166122011567104969100117101711110167478846771103-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">parameter - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#Aufz%C3%A4hlungsliterale" title="Aufz&auml;hlungsliterale">Aufz&auml;hlungsliterale</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#enumLiteralDetail" title="Aufz&auml;hlungsliterale">Aufz&auml;hlungsliterale</a></span></td>
+</tr>
+</table>
+<hr>
+<span class="PackageFullyQualifiedName">parameter</span>
+<br>
+<span class="ElementTitle">Aufz&auml;hlungVariableCharacterisationType</span>
+<p>
+<a name="documentationSection"></a>The variable characterisation types determine the set of available meta-informations on variables. Possible values are STRUCTURE, NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, and TYPE.</p>
+<p></p>
+<table border="1" class="SummaryTable">
+<tr>
+<td colspan="2" class="SummaryTitle"><a name="Aufz%C3%A4hlungsliterale">Aufz&auml;hlungsliterale</a></td>
+</tr>
+<tr>
+<td><a title="pcm::parameter::VariableCharacterisationType::BYTESIZE" href="#_99837483880739069100113113861111158290771141207865"><img border="0" src="../images/18428365_icon.jpeg" alt="BYTESIZE"></a>&nbsp;<a title="pcm::parameter::VariableCharacterisationType::BYTESIZE" href="#_99837483880739069100113113861111158290771141207865">BYTESIZE</a><td>
+<p>
+<a name="documentationSection"></a>The bytesize characterisation specifies the memory footprint of a data object.</p>
+</td></td>
+</tr>
+<tr>
+<td><a title="pcm::parameter::VariableCharacterisationType::NUMBER_OF_ELEMENTS" href="#_78889731157210811369100117102811288113109104106110112119"><img border="0" src="../images/18428365_icon.jpeg" alt="NUMBER_OF_ELEMENTS"></a>&nbsp;<a title="pcm::parameter::VariableCharacterisationType::NUMBER_OF_ELEMENTS" href="#_78889731157210811369100117102811288113109104106110112119">NUMBER_OF_ELEMENTS</a><td>
+<p>
+<a name="documentationSection"></a>The number of elements of a collection data type describe the amount of data objects contained in the collection.</p>
+</td></td>
+</tr>
+<tr>
+<td><a title="pcm::parameter::VariableCharacterisationType::STRUCTURE" href="#_80102106117897210811369100117102811288113109104106110112119"><img border="0" src="../images/18428365_icon.jpeg" alt="STRUCTURE"></a>&nbsp;<a title="pcm::parameter::VariableCharacterisationType::STRUCTURE" href="#_80102106117897210811369100117102811288113109104106110112119">STRUCTURE</a><td>
+<p>
+<a name="documentationSection"></a>The structure characterisation type is used to describe the structure of the data. With structure we refer to performance relevant properties of data like for example whether an array is sorted, a tree is balanced, a collection is indexed, and so on.... The allowed set of value of the structure characterisation has to be specified by the component developer for a particular component.</p>
+</td></td>
+</tr>
+<tr>
+<td><a title="pcm::parameter::VariableCharacterisationType::TYPE" href="#_993115816580739069100113113861111158290771141207865"><img border="0" src="../images/18428365_icon.jpeg" alt="TYPE"></a>&nbsp;<a title="pcm::parameter::VariableCharacterisationType::TYPE" href="#_993115816580739069100113113861111158290771141207865">TYPE</a><td>
+<p>
+<a name="documentationSection"></a>The type characterisation specifies the actual data type of polymorphic data objects in cases where the actual type has an impact on performance. For example in a shape drawing application the actual shape of a geometric object has an impact on the performance as drawing a circle is much more time consuming than drawing a simple line.</p>
+</td></td>
+</tr>
+<tr>
+<td><a title="pcm::parameter::VariableCharacterisationType::VALUE" href="#_9710888666580739069100113113861111158290771141207865"><img border="0" src="../images/18428365_icon.jpeg" alt="VALUE"></a>&nbsp;<a title="pcm::parameter::VariableCharacterisationType::VALUE" href="#_9710888666580739069100113113861111158290771141207865">VALUE</a><td>
+<p>
+<a name="documentationSection"></a>The value characterisation can be used to specify the actual value of a parameter. It is only available for parameters having a primitive type. The value characterisation should be used with care as it increased the complexity of the resulting analysis model significantly. It should be only used in performance-critical cases.</p>
+</td></td>
+</tr>
+</table>
+<br>
+<a name="propertiesTable">
+<p class="LargeTitle">Eigenschaften:</p>
+</a>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Abstract</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Is Leaf</b></td><td class="PropertyValue">false</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; parameter</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owned Template Signature</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; parameter</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Package</b></td><td class="PropertyValue">&lt;&lt;ePackage&gt;&gt; &lt;Package&gt; parameter</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::parameter::VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Representation</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+<p></p>
+<table class="DetailsTable">
+<tr>
+<td colspan="2" class="DetailsTitle"><a name="enumLiteralDetail">Details f&uuml;r Aufz&auml;hlungsliterale</a></td>
+</tr>
+</table>
+<br>
+<span class="ListItem"><img src="../images/18428365_icon.jpeg" alt="">&nbsp;<a name="_99837483880739069100113113861111158290771141207865">BYTESIZE</a></span>
+<p>
+<a name="documentationSection"></a>The bytesize characterisation specifies the memory footprint of a data object.</p>
+<dl>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Enumeration</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">BYTESIZE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::parameter::VariableCharacterisationType::BYTESIZE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Specification</b></td><td class="PropertyValue">&lt;Opaque Expression&gt;</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<span class="ListItem"><img src="../images/18428365_icon.jpeg" alt="">&nbsp;<a name="_78889731157210811369100117102811288113109104106110112119">NUMBER_OF_ELEMENTS</a></span>
+<p>
+<a name="documentationSection"></a>The number of elements of a collection data type describe the amount of data objects contained in the collection.</p>
+<dl>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Enumeration</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">NUMBER_OF_ELEMENTS</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::parameter::VariableCharacterisationType::NUMBER_OF_ELEMENTS</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Specification</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<span class="ListItem"><img src="../images/18428365_icon.jpeg" alt="">&nbsp;<a name="_80102106117897210811369100117102811288113109104106110112119">STRUCTURE</a></span>
+<p>
+<a name="documentationSection"></a>The structure characterisation type is used to describe the structure of the data. With structure we refer to performance relevant properties of data like for example whether an array is sorted, a tree is balanced, a collection is indexed, and so on.... The allowed set of value of the structure characterisation has to be specified by the component developer for a particular component.</p>
+<dl>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Enumeration</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">STRUCTURE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::parameter::VariableCharacterisationType::STRUCTURE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Specification</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<span class="ListItem"><img src="../images/18428365_icon.jpeg" alt="">&nbsp;<a name="_993115816580739069100113113861111158290771141207865">TYPE</a></span>
+<p>
+<a name="documentationSection"></a>The type characterisation specifies the actual data type of polymorphic data objects in cases where the actual type has an impact on performance. For example in a shape drawing application the actual shape of a geometric object has an impact on the performance as drawing a circle is much more time consuming than drawing a simple line.</p>
+<dl>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Enumeration</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">TYPE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::parameter::VariableCharacterisationType::TYPE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Specification</b></td><td class="PropertyValue">&lt;Opaque Expression&gt;</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<span class="ListItem"><img src="../images/18428365_icon.jpeg" alt="">&nbsp;<a name="_9710888666580739069100113113861111158290771141207865">VALUE</a></span>
+<p>
+<a name="documentationSection"></a>The value characterisation can be used to specify the actual value of a parameter. It is only available for parameters having a primitive type. The value characterisation should be used with care as it increased the complexity of the resulting analysis model significantly. It should be only used in performance-critical cases.</p>
+<dl>
+<dt>
+<b>Eigenschaften:</b>
+</dt>
+<dd>
+<br>
+<table border="1" cellspacing="0" cellpadding="4" class="PropertiesTable">
+<tr>
+<td class="PropertyName"><b>Alias</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Enumeration</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Keywords</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name</b></td><td class="PropertyValue">VALUE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Name Expression</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Namespace</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owner</b></td><td class="PropertyValue">&lt;Enumeration&gt; VariableCharacterisationType</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Owning Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Qualified Name</b></td><td class="PropertyValue">pcm::parameter::VariableCharacterisationType::VALUE</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Specification</b></td><td class="PropertyValue">&lt;Opaque Expression&gt;</td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Stereotype</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Template Parameter</b></td><td class="PropertyValue"></td>
+</tr>
+<tr>
+<td class="PropertyName"><b>Visibility</b></td><td class="PropertyValue">Public</td>
+</tr>
+</table>
+</dd>
+</dl>
+<hr>
+<br>
+<table class="NavigationBar">
+<tr>
+<td>
+<table class="NavBarLeft">
+<tr>
+<td class="NavBarMainLink"><a target="_top" href="../index.html">&Uuml;bersicht</a></td><td class="NavBarMainLink"><a href="_1198111488967104869100117101711110167478846771103-top-summary.html">Anfang</a></td><td class="NavBarMainLink"><a href="_1166122011567104969100117101711110167478846771103-content.html">Paket</a></td><td class="NavBarMainHighlight">Element</td>
+</tr>
+</table>
+</td><td class="NavBarRight">parameter - UML-Dokumentation</td>
+</tr>
+</table>
+<table>
+<tr class="NavBarBookMarks">
+<td class="BookMarkSections"><span class="BookMarkElements">Zusammenfassung:</span><span class="BookMarkElements"><a href="#Aufz%C3%A4hlungsliterale" title="Aufz&auml;hlungsliterale">Aufz&auml;hlungsliterale</a></span><span class="BookMarkElements"><a href="#propertiesTable" title="Eigenschaften">Eigenschaften</a></span></td><td class="BookMarkSections"><span class="BookMarkElements">Details:</span><span class="BookMarkElements"><a href="#enumLiteralDetail" title="Aufz&auml;hlungsliterale">Aufz&auml;hlungsliterale</a></span></td>
+</tr>
+</table>
+</body>
+</html>

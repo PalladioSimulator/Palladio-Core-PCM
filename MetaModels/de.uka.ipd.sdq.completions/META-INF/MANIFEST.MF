@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.completions; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: de.uka.ipd.sdq.completions,
+ de.uka.ipd.sdq.completions.impl,
+ de.uka.ipd.sdq.completions.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ de.uka.ipd.sdq.identifier;bundle-version="2.1.0";visibility:=reexport,
+ de.uka.ipd.sdq.pcm;bundle-version="3.6.0";visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;bundle-version="2.1.0";visibility:=reexport,
+ de.uka.ipd.sdq.stoex;bundle-version="2.2.0";visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
