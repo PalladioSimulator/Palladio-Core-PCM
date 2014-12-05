@@ -14,6 +14,7 @@ import org.palladiosimulator.protocom.tech.servlet.repository.ServletComposedStr
 import org.palladiosimulator.protocom.tech.servlet.repository.ServletComposedStructureInterface
 import org.palladiosimulator.protocom.lang.java.impl.JInterface
 import org.palladiosimulator.protocom.framework.java.ee.webcontent.FileProvider
+import org.palladiosimulator.protocom.model.system.SystemAdapter
 
 class JeeServletSystem extends XSystem {
 	val fileProvider = new FileProvider
@@ -25,11 +26,13 @@ class JeeServletSystem extends XSystem {
 	override protected generate() {
 		fileProvider.frameworkFiles
 		
+		val adapter = new SystemAdapter(entity)
+		
 		// Generate system interface.
 		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletComposedStructureInterface(entity)))
 		
 		// Generate system class.
-		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemClass(entity)))
+		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemClass(adapter, entity)))
 		
 		// Generate ports.
 		entity.providedRoles_InterfaceProvidingEntity.forEach[

@@ -1,7 +1,9 @@
 package org.palladiosimulator.protocom.model.allocation
 
-import org.palladiosimulator.protocom.model.ModelAdapter
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
+import de.uka.ipd.sdq.pcm.repository.BasicComponent
+import org.palladiosimulator.protocom.model.ModelAdapter
+import org.palladiosimulator.protocom.model.repository.BasicComponentAdapter
 
 /**
  * Adapter class for PCM AssemblyContext entities.
@@ -18,5 +20,10 @@ class AssemblyContextAdapter extends ModelAdapter<AssemblyContext> {
 	 */
 	def getId() {
 		entity.id
+	}
+	
+	def getEncapsulatedComponent() {
+		// TODO: Add support for CompositeComponent
+		new BasicComponentAdapter(entity.encapsulatedComponent__AssemblyContext as BasicComponent)
 	}
 }

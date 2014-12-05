@@ -1,14 +1,15 @@
 package org.palladiosimulator.protocom.model.repository
 
-import org.palladiosimulator.protocom.model.ModelAdapter
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import org.palladiosimulator.protocom.model.ModelAdapter
 import org.palladiosimulator.protocom.model.seff.ServiceEffectSpecificationAdapter
 
 /**
  * Adapter class for PCM BasicComponent entities.
+ * TODO: Super class -> InterfaceProvidingRequiringEntityAdapter
  * @author Christian Klaussner
  */
 class BasicComponentAdapter extends ModelAdapter<BasicComponent> {
@@ -63,6 +64,14 @@ class BasicComponentAdapter extends ModelAdapter<BasicComponent> {
 	}
 	
 	// Translation methods
+	
+	def getClassFqn() {
+		classPackageFqn + "." + entity.safeName
+	}
+	
+	def getClassPackageFqn() {
+		entity.repository__RepositoryComponent.basePackageName + ".impl"
+	}
 	
 	def getInterfaceName() {
 		"I" + entity.safeName

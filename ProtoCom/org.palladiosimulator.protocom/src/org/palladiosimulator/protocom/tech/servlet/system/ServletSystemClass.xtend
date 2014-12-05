@@ -13,14 +13,18 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
+import org.palladiosimulator.protocom.model.system.SystemAdapter
 
 class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends ServletClass<E> implements IJClass {
-	new(E pcmEntity) {
+	private val SystemAdapter entity
+	
+	new(SystemAdapter entity, E pcmEntity) {
 		super(pcmEntity)
+		this.entity = entity
 	}
 	
 	override interfaces() {
-		#[JavaNames::interfaceName(pcmEntity)]
+		#[entity.interfaceName]
 	}
 	
 	override fields() {
@@ -34,11 +38,11 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		]
 		
 		// Port IDs.
-		for (AssemblyContext assemblyContext : pcmEntity.assemblyContexts__ComposedStructure) {
+		for (assemblyContext : entity.assemblyContexts) {
 			result += new JField()
-				.withName(JavaNames::javaName(assemblyContext) + "ID")
+				.withName(assemblyContext.safeName + "ID")
 				.withType("String")
-				.withInitialization('''"«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»"''')
+				.withInitialization('''"«JavaNames::portClassName(assemblyContext.encapsulatedComponent.entity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»"''')
 		}
 		
 		result
@@ -83,18 +87,20 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 				''')
 		
 		// Assembly init methods.
-		result += pcmEntity.assemblyContexts__ComposedStructure.map[
+		//result += pcmEntity.assemblyContexts__ComposedStructure.map[
+		result += entity.assemblyContexts.map[
+			val x = it.entity
 			new JMethod()
-				.withName("init" + JavaNames::javaName(it))
+				.withName("init" + it.safeName)
 				.withVisibilityModifier("private")
 				.withImplementation('''
-					«JavaNames::fqnContext(it.encapsulatedComponent__AssemblyContext)» context = new «JavaNames::fqnContext(it.encapsulatedComponent__AssemblyContext)»(
-						«FOR requiredRole : it.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole] SEPARATOR ", \n"»
-							«JavaNames::javaName((PcmCalls::getConnector(pcmEntity, it, requiredRole) as AssemblyConnector).providingAssemblyContext_AssemblyConnector)»ID
+					«JavaNames::fqnContext(x.encapsulatedComponent__AssemblyContext)» context = new «JavaNames::fqnContext(x.encapsulatedComponent__AssemblyContext)»(
+						«FOR requiredRole : x.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(x)].map[it as OperationRequiredRole] SEPARATOR ", \n"»
+							«JavaNames::javaName((PcmCalls::getConnector(pcmEntity, x, requiredRole) as AssemblyConnector).providingAssemblyContext_AssemblyConnector)»ID
 						«ENDFOR»
 					);
 					
-					my«JavaNames::javaName(it)».setContext(context);
+					my«JavaNames::javaName(x)».setContext(context);
 				''')
 		]
 		

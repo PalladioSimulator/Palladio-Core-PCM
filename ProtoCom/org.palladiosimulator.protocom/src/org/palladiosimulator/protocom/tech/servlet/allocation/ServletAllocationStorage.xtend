@@ -1,19 +1,20 @@
 package org.palladiosimulator.protocom.tech.servlet.allocation
 
-import org.palladiosimulator.protocom.tech.servlet.ServletClass
 import de.uka.ipd.sdq.pcm.allocation.Allocation
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.model.allocation.AllocationAdapter
+import org.palladiosimulator.protocom.tech.servlet.ServletClass
 
 class ServletAllocationStorage extends ServletClass<Allocation> {
 	protected val frameworkBase = "org.palladiosimulator.protocom.framework.java.ee"
+	private val AllocationAdapter entity
 	
-	new(Allocation pcmEntity) {
+	new(AllocationAdapter entity, Allocation pcmEntity) {
 		super(pcmEntity)
+		this.entity = entity
 	}
 	
 	override superClass() {
-		//'''«frameworkBase».legacy.AbstractAllocationStorage'''
 	}
 	
 	override packageName() {
@@ -25,7 +26,7 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 	}
 	
 	override methods() {
-		val allocations = pcmEntity.allocationContexts_Allocation.filter[e | e.assemblyContext_AllocationContext != null]
+		var contexts = entity.allocationContexts
 		var i = 0
 		
 		#[
@@ -35,31 +36,14 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 				.withName("init")
 				.withParameters('''«frameworkBase».prototype.PrototypeBridge bridge''')
 				.withImplementation('''
-					«frameworkBase».prototype.PrototypeBridge.Allocation[] allocations = new «frameworkBase».prototype.PrototypeBridge.Allocation[«allocations.length»];
+					«frameworkBase».prototype.PrototypeBridge.Allocation[] allocations = new «frameworkBase».prototype.PrototypeBridge.Allocation[«contexts.length»];
 					
-					«FOR context : allocations»
-						allocations[«i++»] = bridge.new Allocation("«context.resourceContainer_AllocationContext.id»", «JavaNames::fqn(context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)».class, "«context.assemblyContext_AllocationContext.id»");
+					«FOR context : contexts»
+						allocations[«i++»] = bridge.new Allocation("«context.resourceContainer.id»", «context.assemblyContext.encapsulatedComponent.classFqn».class, "«context.assemblyContext.id»");
 					«ENDFOR»
 					
 					bridge.setAllocations(allocations);
 				''')
-			
-			/*new JMethod()
-				.withName("initContainerTemplate")
-				.withImplementation('''
-					String container;
-					String containerId;
-					Class<?> component;
-					String assemblyContext;
-					
-					«FOR context : pcmEntity.allocationContexts_Allocation.filter[i | i.assemblyContext_AllocationContext != null] SEPARATOR '\n'»
-						containerId = "«context.resourceContainer_AllocationContext.id»";
-						container = "«context.resourceContainer_AllocationContext.entityName»";
-						component = «JavaNames::fqn(context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)».class;
-						assemblyContext = "«context.assemblyContext_AllocationContext.id»";
-						saveContainerComponent(containerId, container, component, assemblyContext);
-					«ENDFOR»
-				''')*/
 		]
 	}
 	
