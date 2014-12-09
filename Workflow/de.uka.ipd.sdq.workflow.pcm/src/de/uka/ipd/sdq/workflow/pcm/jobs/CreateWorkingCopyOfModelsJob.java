@@ -106,16 +106,27 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 		List<Resource> resourceListToIterate = new ArrayList<Resource>();
 		resourceListToIterate.addAll(resourceSet.getResources());
 		
+		List<String> modelPaths = new ArrayList<String>();
 		for (Resource resource : resourceListToIterate) {
 
 			// we only need to copy the file models
-			if (resource.getURI().scheme() != "pathmap") {
+			if (!resource.getURI().scheme().equals("pathmap")) {
 				final URI uri = resource.getURI();
 				final String relativePath = uri.lastSegment();
 				final URI newURI = URI.createURI(modelBasePath +"/"+ relativePath);
 				
 				final ResourceSet newResSet = new ResourceSetImpl();
                 final Resource newResource = newResSet.createResource(newURI);
+                
+                //Add base Plug-in ID and model paths to the configuration
+                if (configuration.getBasePluginID() == null) {
+                    String[] splitString = uri.toString().split("/");
+                    configuration.setBasePluginID(splitString[2]);
+                }
+                if (uri.toString() != null) {
+                    modelPaths.add(uri.toString());
+                }
+                
                 // deep copy
                 newResource.getContents().addAll(EcoreUtil.copyAll(resource.getContents())); // FIXME Enable inter-model references 
 				try {
