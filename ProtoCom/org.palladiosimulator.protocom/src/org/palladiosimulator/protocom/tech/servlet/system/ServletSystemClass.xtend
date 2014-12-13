@@ -31,10 +31,10 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		var result = newLinkedList
 		
 		// Port classes.
-		result += pcmEntity.assemblyContexts__ComposedStructure.map[
+		result += entity.assemblyContexts.map[
 			new JField()
-				.withName("my" + JavaNames::javaName(it))
-				.withType('''«frameworkBase».common.IPort<«JavaNames::fqn(it.encapsulatedComponent__AssemblyContext)»>''')
+				.withName("my" + it.safeName)
+				.withType('''«frameworkBase».common.IPort<«it.encapsulatedComponent.classFqn»>''')
 		]
 		
 		// Port IDs.
@@ -42,7 +42,8 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 			result += new JField()
 				.withName(assemblyContext.safeName + "ID")
 				.withType("String")
-				.withInitialization('''"«JavaNames::portClassName(assemblyContext.encapsulatedComponent.entity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»"''')
+				//«JavaNames::portClassName(assemblyContext.encapsulatedComponent.entity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»
+				.withInitialization('''"«assemblyContext.encapsulatedComponent.operationProvidedRoles.get(0).portClassName»_«assemblyContext.id»"''')
 		}
 		
 		result
@@ -59,8 +60,8 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 					
 					initInnerComponents();
 					
-					«FOR role : pcmEntity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].map[it as OperationProvidedRole]»
-						startPort(location, "«JavaNames::portClassName(role)»", id, «JavaNames::javaName(PcmCommons::getProvidedDelegationConnector(pcmEntity, role).assemblyContext_ProvidedDelegationConnector)»ID);
+					«FOR role : entity.operationProvidedRoles»
+						startPort(location, "«role.portClassName»", id, «JavaNames::javaName(PcmCommons::getProvidedDelegationConnector(pcmEntity, role.entity).assemblyContext_ProvidedDelegationConnector)»ID);
 					«ENDFOR»
 					'''
 				)
@@ -100,7 +101,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 						«ENDFOR»
 					);
 					
-					my«JavaNames::javaName(x)».setContext(context);
+					my«it.safeName».setContext(context);
 				''')
 		]
 		
@@ -117,14 +118,14 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 				])
 				.withImplementation('''
 					try {
-						«FOR assemblyContext : pcmEntity.assemblyContexts__ComposedStructure»
-							«IF assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].size > 0»
-								my«JavaNames::javaName(assemblyContext)» = («frameworkBase».common.IPort<«JavaNames::fqn(assemblyContext.encapsulatedComponent__AssemblyContext)»>) «frameworkBase».registry.Registry.getInstance().lookup("«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»");
+						«FOR assemblyContext : entity.assemblyContexts»
+							«IF assemblyContext.encapsulatedComponent.operationProvidedRoles.size > 0»
+								my«assemblyContext.safeName» = («frameworkBase».common.IPort<«assemblyContext.encapsulatedComponent.classFqn»>) «frameworkBase».registry.Registry.getInstance().lookup("«assemblyContext.encapsulatedComponent.operationProvidedRoles.get(0).portClassName»_«assemblyContext.id»");
 							«ENDIF»
 						«ENDFOR»
 						
-						«FOR assemblyContext : pcmEntity.assemblyContexts__ComposedStructure»
-							init«JavaNames::javaName(assemblyContext)»();
+						«FOR assemblyContext : entity.assemblyContexts»
+							init«assemblyContext.safeName»();
 						«ENDFOR»
 					} catch («frameworkBase».registry.RegistryException e) {
 						throw e;

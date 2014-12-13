@@ -1,10 +1,14 @@
 package org.palladiosimulator.protocom.model.system
 
-import org.palladiosimulator.protocom.model.ModelAdapter
 import de.uka.ipd.sdq.pcm.system.System
 import org.palladiosimulator.protocom.model.allocation.AssemblyContextAdapter
+import org.palladiosimulator.protocom.model.repository.InterfaceProvidingRequiringEntityAdapter
 
-class SystemAdapter extends ModelAdapter<System> {
+/**
+ * Adapter for PCM System entities.
+ * @author Christian Klaussner
+ */
+class SystemAdapter extends InterfaceProvidingRequiringEntityAdapter<System> {
 	new(System entity) {
 		super(entity)
 	}

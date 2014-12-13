@@ -12,45 +12,9 @@ import org.palladiosimulator.protocom.model.seff.ServiceEffectSpecificationAdapt
  * TODO: Super class -> InterfaceProvidingRequiringEntityAdapter
  * @author Christian Klaussner
  */
-class BasicComponentAdapter extends ModelAdapter<BasicComponent> {
+class BasicComponentAdapter extends InterfaceProvidingRequiringEntityAdapter<BasicComponent> {
 	new(BasicComponent entity) {
 		super(entity)
-	}
-	
-	/**
-	 * Gets the operation provided roles.
-	 * @return a list of adapters for the operation provided roles
-	 */
-	def getOperationProvidedRoles() {
-		entity.providedRoles_InterfaceProvidingEntity.filter[
-			OperationProvidedRole.isInstance(it)
-		].map[
-			new OperationProvidedRoleAdapter(it as OperationProvidedRole)
-		]
-	}
-	
-	/**
-	 * Gets the infrastructure provided roles.
-	 * @return a list of adapters for the infrastructure provided roles
-	 */
-	def getInfrastructureProvidedRoles() {
-		entity.providedRoles_InterfaceProvidingEntity.filter[
-			InfrastructureProvidedRole.isInstance(it)
-		].map[
-			new InfrastructureProvidedRoleAdapter(it as InfrastructureProvidedRole)
-		]
-	}
-	
-	/**
-	 * Gets the operation required roles.
-	 * @return a list of adapters for the operation required roles
-	 */
-	def getOperationRequiredRoles() {
-		entity.requiredRoles_InterfaceRequiringEntity.filter[
-			OperationRequiredRole.isInstance(it)
-		].map[
-			new OperationRequiredRoleAdapter(it as OperationRequiredRole)
-		]
 	}
 	
 	/**
