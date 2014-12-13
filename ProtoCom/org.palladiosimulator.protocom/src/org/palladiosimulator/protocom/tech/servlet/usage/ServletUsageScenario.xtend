@@ -1,23 +1,26 @@
 package org.palladiosimulator.protocom.tech.servlet.usage
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import org.palladiosimulator.protocom.tech.servlet.ServletClass
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.model.usage.UsageScenarioAdapter
+import org.palladiosimulator.protocom.tech.servlet.ServletClass
 
 /**
  * @author Christian Klaussner
  */
 class ServletUsageScenario extends ServletClass<UsageScenario> {
-	new(UsageScenario pcmEntity) {
+	private val UsageScenarioAdapter entity
+	
+	new(UsageScenarioAdapter entity, UsageScenario pcmEntity) {
 		super(pcmEntity)
+		this.entity = entity
 	}
 	
 	/**
 	 * 
 	 */
 	private def testPlanPath() {
-		'''/usagescenarios/jmx/«JavaNames::javaName(pcmEntity)».jmx'''
+		'''/usagescenarios/jmx/«entity.safeName».jmx'''
 	}
 	
 	override packageName() {
@@ -35,7 +38,7 @@ class ServletUsageScenario extends ServletClass<UsageScenario> {
 				.withReturnType("String")
 				.withName("getId")
 				.withImplementation('''
-					return "«pcmEntity.id»";
+					return "«entity.id»";
 				'''),
 				
 			new JMethod()
@@ -43,7 +46,7 @@ class ServletUsageScenario extends ServletClass<UsageScenario> {
 				.withReturnType("String")
 				.withName("getName")
 				.withImplementation('''
-					return "«pcmEntity.entityName»";
+					return "«entity.name»";
 				'''),
 				
 			new JMethod()
@@ -60,12 +63,12 @@ class ServletUsageScenario extends ServletClass<UsageScenario> {
 				.withReturnType("String")
 				.withName("getFileName")
 				.withImplementation('''
-					return "«JavaNames::javaName(pcmEntity)».jmx";
+					return "«entity.safeName».jmx";
 				''')
 		]
 	}
 	
 	override filePath() {
-		"/src/usagescenarios/" + JavaNames::javaName(pcmEntity) + ".java";
+		"/src/usagescenarios/" + entity.safeName + ".java";
 	}
 }
