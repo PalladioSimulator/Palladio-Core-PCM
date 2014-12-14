@@ -27,4 +27,12 @@ class OperationRequiredRoleAdapter extends ModelAdapter<OperationRequiredRole> {
 	def getRequiringEntity() {
 		new InterfaceRequiringEntityAdapter(entity.requiringEntity_RequiredRole)
 	}
+	
+	/**
+	 * Get the required interface.
+	 * @return an adapter for the required interface
+	 */
+	def getRequiredInterface() {
+		new OperationInterfaceAdapter(entity.requiredInterface__OperationRequiredRole)
+	}
 }

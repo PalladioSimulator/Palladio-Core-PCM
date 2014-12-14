@@ -1,13 +1,12 @@
 package org.palladiosimulator.protocom.tech.servlet.repository
 
-import org.palladiosimulator.protocom.tech.servlet.ServletClass
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
-import org.palladiosimulator.protocom.lang.java.impl.JMethod
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
+import org.palladiosimulator.protocom.lang.java.impl.JField
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.model.repository.BasicComponentAdapter
+import org.palladiosimulator.protocom.tech.servlet.ServletClass
 
 class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 	private val BasicComponentAdapter entity
@@ -52,7 +51,7 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 		// Port class.
 		result += requiredRoles.map[
 			new JField()
-				.withType(JavaNames::fqn((it.entity as OperationRequiredRole).requiredInterface__OperationRequiredRole))
+				.withType(it.requiredInterface.interfaceFqn)
 				.withName("portFor_" + it.safeName.toFirstLower)
 		]
 		
@@ -67,17 +66,17 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 				.withImplementation('''
 				''')
 		
-		if (pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].length > 0) {
+		if (entity.operationRequiredRoles.length > 0) {
 			result +=
 				new JMethod()
 					.withParameters('''
-						«FOR role : pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole] SEPARATOR ", "»
-							String «JavaNames::javaName(role).toFirstLower»
+						«FOR role : entity.operationRequiredRoles SEPARATOR ", "»
+							String «role.safeName.toFirstLower»
 						«ENDFOR»
 					''')
 					.withImplementation('''
-						«FOR role : pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole]»
-							this.«JavaNames::javaName(role).toFirstLower» = «JavaNames::javaName(role).toFirstLower»;
+						«FOR role : entity.operationRequiredRoles»
+							this.«role.safeName.toFirstLower» = «role.safeName.toFirstLower»;
 						«ENDFOR»
 					''')
 		}
@@ -88,40 +87,40 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 	override methods() {
 		var result = newLinkedList
 		
-		result += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[
+		result += entity.operationRequiredRoles.map[
 			new JMethod()
-				.withName("get" + JavaNames::javaName(it))
+				.withName("get" + it.safeName)
 				.withReturnType("String")
 				.withImplementation('''
-					return «JavaNames::javaName(it).toFirstLower»;
+					return «it.safeName.toFirstLower»;
 				''')
 		]
 		
-		result += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[
+		result += entity.operationRequiredRoles.map[
 			new JMethod()
-			  	.withName("set" + JavaNames::javaName(it))
+			  	.withName("set" + it.safeName)
 			  	.withParameters("String port")
 			  	.withImplementation('''
-			  		«JavaNames::javaName(it).toFirstLower» = port;
+			  		«it.safeName.toFirstLower» = port;
 			  	''')
 		]
 		
-		result += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[
+		result += entity.operationRequiredRoles.map[
 			new JMethod()
-				.withName("getPortFor" + JavaNames::javaName(it))
-				.withReturnType(JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole))
+				.withName("getPortFor" + it.safeName)
+				.withReturnType(it.requiredInterface.interfaceFqn)
 				.withAnnotations(#[
 					new JAnnotation()
 						.withName("com.fasterxml.jackson.annotation.JsonIgnore") 
 				])
 				.withImplementation('''
 					try {
-						portFor_«JavaNames::javaName(it).toFirstLower» = («JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole)») «frameworkBase».registry.Registry.getInstance().lookup(«JavaNames::javaName(it).toFirstLower»);
+						portFor_«it.safeName.toFirstLower» = («it.requiredInterface.interfaceFqn») «frameworkBase».registry.Registry.getInstance().lookup(«it.safeName.toFirstLower»);
 					} catch («frameworkBase».registry.RegistryException e) {
 						e.printStackTrace();
 					}
 					
-					return portFor_«JavaNames::javaName(it).toFirstLower»;
+					return portFor_«it.safeName.toFirstLower»;
 				''')
 		]
 		
