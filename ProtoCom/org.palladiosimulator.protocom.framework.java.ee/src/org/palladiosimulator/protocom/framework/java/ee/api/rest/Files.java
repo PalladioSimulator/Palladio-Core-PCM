@@ -87,8 +87,8 @@ public class Files {
 	@GET
 	@Path("delete/calibration")
 	public void deleteCalibration() {
-		storage.deleteFile("calibration/low.cpu.fibonacci");
-		storage.deleteFile("calibration/low.hdd.largeChunks");
+		storage.deleteFile("calibration/cpu.fibonacci");
+		storage.deleteFile("calibration/hdd.largeChunks");
 	}
 
 	@GET

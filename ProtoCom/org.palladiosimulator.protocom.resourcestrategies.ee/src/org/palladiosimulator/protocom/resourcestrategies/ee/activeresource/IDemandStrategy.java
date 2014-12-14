@@ -54,7 +54,10 @@ public interface IDemandStrategy {
     String getName();
 
     void setCalibrationListener(ICalibrationListener listener);
+    void setCalibrationTable(CalibrationTable table);
     CalibrationTable calibrate();
+    boolean hasCalibrationTable();
+    void setDebug(boolean enable);
 
     /**
      * Do cleanup work.

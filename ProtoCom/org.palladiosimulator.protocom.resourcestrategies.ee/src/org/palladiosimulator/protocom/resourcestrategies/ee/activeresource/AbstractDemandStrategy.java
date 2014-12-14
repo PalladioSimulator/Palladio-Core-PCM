@@ -64,6 +64,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     private File configFile = null;
     private ICalibrationListener listener;
+    private boolean debug;
 
     protected DegreeOfAccuracyEnum degreeOfAccuracy;
     private static final Logger LOGGER = Logger.getLogger(AbstractDemandStrategy.class.getName());
@@ -281,6 +282,21 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
             run(defaultIterationCount);
         }
 
+        if (debug) {
+        	for (int i = 0; i < 10; i++) {
+        		try {
+					Thread.sleep(750);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+        		listener.progressChanged(this, (i + 1) / 10.0f);
+        		calibrationTable.addEntry(i, Amount.valueOf(1, SI.MILLI(SI.SECOND)), 0);
+        	}
+
+        	return calibrationTable;
+        }
+
         LOGGER.info("The timetable with the corresponding parameters:");
         for (int i = 0; i < calibrationTable.size(); i++) {
             Amount<Duration> targetTime = Amount.valueOf(1 << i, SI.MILLI(SI.SECOND));
@@ -293,7 +309,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
             if (listener != null) {
             	float progress = (float) i / (calibrationTable.size() - 1);
-            	listener.progressChanged(progress);
+            	listener.progressChanged(this, progress);
             }
 
             calibrationTable.addEntry(i, targetTime, parameter);
@@ -304,8 +320,19 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
         return calibrationTable;
     }
 
-    public void setCalibrationTable(CalibrationTable table) {
+    @Override
+	public void setCalibrationTable(CalibrationTable table) {
     	this.calibrationTable = table;
+    }
+
+    @Override
+	public boolean hasCalibrationTable() {
+    	return calibrationTable != null;
+    }
+
+    @Override
+	public void setDebug(boolean enable) {
+    	this.debug = enable;
     }
 
     /**
