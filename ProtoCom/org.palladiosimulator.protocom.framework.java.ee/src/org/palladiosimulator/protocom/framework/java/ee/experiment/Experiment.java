@@ -20,7 +20,7 @@ import javax.inject.Singleton;
 import org.apache.commons.io.IOUtils;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.ResultsSocket;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
-import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
+import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
@@ -43,7 +43,7 @@ public final class Experiment {
 	};
 
 	@Inject
-	private Storage storage;
+	private IStorage storage;
 
 	private IDAOFactory dataSource;
 	private de.uka.ipd.sdq.sensorframework.entities.Experiment experiment;

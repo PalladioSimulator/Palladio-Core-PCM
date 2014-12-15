@@ -27,7 +27,6 @@ import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.legacy.strategies.DemandConsumerStrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
-import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
 import org.palladiosimulator.protocom.framework.java.ee.ui.Main;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
@@ -250,7 +249,7 @@ public class Options {
 	private static ExecutorService executor;
 
 	@Inject
-	private Storage storage;
+	private IStorage storage;
 
 	@Inject
 	private Experiment experiment;
