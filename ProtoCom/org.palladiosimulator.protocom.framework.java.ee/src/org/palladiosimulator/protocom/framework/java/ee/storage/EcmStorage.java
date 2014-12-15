@@ -29,7 +29,7 @@ import org.apache.commons.io.IOUtils;
  * @author Christian Klaussner
  */
 @Singleton
-public class Storage implements IStorage {
+public class EcmStorage implements IStorage {
 	private static final String NAME = "ProtoCom-Repository";
 	private static final String KEY = "protocom_key";
 
@@ -123,7 +123,7 @@ public class Storage implements IStorage {
 	/**
 	 *
 	 */
-	public Storage() {
+	public EcmStorage() {
 		// TODO: Improve exception handling in case ECM is not available
 		session = EcmProxy.getSession(NAME, KEY);
 	}

@@ -6,7 +6,7 @@ import javax.inject.Singleton;
 
 import org.palladiosimulator.protocom.framework.java.ee.common.PortServlet;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
-import org.palladiosimulator.protocom.framework.java.ee.storage.Storage;
+import org.palladiosimulator.protocom.framework.java.ee.storage.EcmStorage;
 import org.reflections.Reflections;
 
 import com.google.inject.servlet.ServletModule;
@@ -26,7 +26,7 @@ public class ProtoComModule extends ServletModule {
 
 	@Override
 	protected void configureServlets() {
-		bind(IStorage.class).to(Storage.class);
+		bind(IStorage.class).to(EcmStorage.class);
 
 		registerApi();
 		registerServlets();
