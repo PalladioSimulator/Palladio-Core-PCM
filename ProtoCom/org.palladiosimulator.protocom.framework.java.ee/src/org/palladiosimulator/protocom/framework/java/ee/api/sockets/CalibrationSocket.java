@@ -63,9 +63,6 @@ public class CalibrationSocket extends WebSocket {
 	@OnOpen
 	public void onOpen(Session session, EndpointConfig config) {
 		sessions.add(session);
-
-		//String payload = buildPayload(lastProgress, lastMessage);
-		//send(session, payload);
 	}
 
 	@OnClose
@@ -75,14 +72,15 @@ public class CalibrationSocket extends WebSocket {
 
 	@OnMessage
 	public void onMessage(String message, Session session) {
-		System.out.println("message received");
-
 		String payload = buildPayload(lastProgress, lastMessage);
 		send(session, payload);
 	}
 
 	@OnError
 	public void onError(Session session, Throwable t) {
-		t.printStackTrace();
+		// Uncomment the next line if the progress bar doesn't update after starting
+		// the calibration. In this case, an IllegalStateException is thrown (reason unknown).
+		
+		// t.printStackTrace();
 	}
 }
