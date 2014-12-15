@@ -4,10 +4,15 @@ var App = (function(App) {
 		tagName: 'div',
 		id: 'log',
 		className: 'box',
+		
+		events: {
+			'click .toggle': 'toggle'
+		},
 
 		messages: [],
 		reuseIndex: 0,
 		capacity: 100,
+		enabled: true,
 
 		initialize: function() {
 			this.startSocket();
@@ -24,10 +29,10 @@ var App = (function(App) {
 			var path = location.pathname.replace(/\/$/, '');
 			var url = 'ws://' + location.host + path + '/ws/log';
 
-			var connection = new WebSocket(url);
+			this.connection = new WebSocket(url);
 			var self = this;
 
-			connection.onmessage = function(e) {
+			this.connection.onmessage = function(e) {
 				var data = JSON.parse(e.data);
 
 				if (_(data.payload).isArray()) {
@@ -39,7 +44,7 @@ var App = (function(App) {
 				}
 			};
 
-			connection.onerror = function(e) {
+			this.connection.onerror = function(e) {
 				console.log(e);
 			};
 		},
@@ -64,6 +69,18 @@ var App = (function(App) {
 			if (this.reuseIndex >= this.capacity) {
 				this.reuseIndex = 0;
 			}
+		},
+		
+		toggle: function() {
+			this.enabled = !this.enabled;
+			
+			if (this.enabled) {
+				this.$el.find('.toggle').css('color', '');
+			} else {
+				this.$el.find('.toggle').css('color', 'red');
+			}
+			
+			this.connection.send('toggle');
 		}
 	});
 

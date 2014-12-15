@@ -258,6 +258,11 @@ button.confirm:disabled {
 
 /* Log */
 
+#log .toggle {
+	float: right;
+	cursor: pointer;
+}
+
 #log #messages {
 	padding: 5px;
 	border: 1px solid #dcdcdc;

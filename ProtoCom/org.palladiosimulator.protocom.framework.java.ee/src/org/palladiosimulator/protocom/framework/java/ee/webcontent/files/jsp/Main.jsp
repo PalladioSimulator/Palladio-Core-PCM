@@ -215,7 +215,13 @@
 		<!-- Log -->
 
 		<script type="text/template" id="template-log-box">
-			<h2><i class="fa fa-eye fa-fw"></i> Local Log</h2>
+			<h2>
+				<i class="fa fa-eye fa-fw"></i>
+				Local Log
+				<div class="toggle">
+					<i class="fa fa-power-off fa-fw"></i>
+				</div>
+			</h2>
 
 			<div id="messages">
 			</div>

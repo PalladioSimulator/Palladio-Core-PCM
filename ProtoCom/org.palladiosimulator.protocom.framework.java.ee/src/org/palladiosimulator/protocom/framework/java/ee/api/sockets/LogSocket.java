@@ -7,10 +7,12 @@ import javax.websocket.CloseReason;
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
+import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.LogData;
 import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
@@ -24,6 +26,7 @@ import org.palladiosimulator.protocom.framework.java.ee.ui.WebAppender;
 @ServerEndpoint("/ws/log")
 public class LogSocket extends WebSocket {
 	private static Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
+	private static boolean enabled = true;
 
 	/**
 	 *
@@ -32,7 +35,7 @@ public class LogSocket extends WebSocket {
 	public static void append(LogMessage message) {
 		LogData data = new LogData();
 		data.setPayload(message);
-
+		
 		sendToAll(sessions, JsonHelper.toJson(data));
 	}
 
@@ -47,6 +50,24 @@ public class LogSocket extends WebSocket {
 		data.setPayload(appender.getLogContent());
 
 		sendToAll(sessions, JsonHelper.toJson(data));
+	}
+	
+	@OnMessage
+	public void onMessage(String message, Session session) {
+		// Sending "toggle" switches the state of the log. If you want to implement more 
+		// complex communication, you should replace this with some sort of JSON protocol.
+		
+		if (message.equals("toggle")) {
+			enabled = !enabled;
+			
+			Logger logger = Logger.getRootLogger();
+			
+			if (enabled) {
+				logger.setLevel(Level.INFO);
+			} else {
+				logger.setLevel(Level.OFF);
+			}
+		}
 	}
 
 	@OnClose
