@@ -29,10 +29,10 @@ var App = (function(App) {
 			var path = location.pathname.replace(/\/$/, '');
 			var url = 'ws://' + location.host + path + '/ws/log';
 
-			this.connection = new WebSocket(url);
+			var connection = new WebSocket(url);
 			var self = this;
 
-			this.connection.onmessage = function(e) {
+			connection.onmessage = function(e) {
 				var data = JSON.parse(e.data);
 
 				if (_(data.payload).isArray()) {
@@ -44,7 +44,7 @@ var App = (function(App) {
 				}
 			};
 
-			this.connection.onerror = function(e) {
+			connection.onerror = function(e) {
 				console.log(e);
 			};
 		},
@@ -76,11 +76,11 @@ var App = (function(App) {
 			
 			if (this.enabled) {
 				this.$el.find('.toggle').css('color', '');
+				$.ajax({url: 'api/log/enable', type: 'PUT'});
 			} else {
 				this.$el.find('.toggle').css('color', 'red');
+				$.ajax({url: 'api/log/disable', type: 'PUT'});
 			}
-			
-			this.connection.send('toggle');
 		}
 	});
 
