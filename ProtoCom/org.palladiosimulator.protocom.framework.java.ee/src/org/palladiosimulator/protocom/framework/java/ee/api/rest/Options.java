@@ -60,7 +60,7 @@ class CalibrationThreadFactory implements ThreadFactory {
 }
 
 /**
- *
+ * The StrategyBuilder class is used to create IDemandStrategy objects from strings.
  * @author Christian Klaussner
  */
 class StrategyBuilder {
@@ -88,12 +88,19 @@ class StrategyBuilder {
 		hdd.put("largeChunks", ReadLargeChunksDemand.class);
 	}
 
+	/**
+	 * Constructs a new StrategyBuilder object.
+	 * @param storage the storage used for loading existing calibration data
+	 */
 	public StrategyBuilder(IStorage storage) {
 		this.storage = storage;
 	}
 
 	/**
-	 * Otherwise, this method returns an IDemandStrategy without a calibration table.
+	 * Creates an IDemandStrategy object for the specified name.
+	 * @param name the name of the strategy
+	 * @param load true if the calibration data should be loaded, otherwise false
+	 * @return an IDemandStrategy object for the specified name
 	 */
 	public IDemandStrategy create(String name, boolean load) {
 		IDemandStrategy strategy = null;
@@ -147,7 +154,7 @@ class StrategyBuilder {
 }
 
 /**
- *
+ * The StrategyCalibrator class is used to initialize a set of resource strategies.
  * @author Christian Klaussner
  */
 class StrategyCalibrator implements Runnable, ICalibrationListener {
@@ -158,9 +165,9 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 	private int totalProgress = 0;
 
 	/**
-	 *
-	 * @param strategy
-	 * @param filename
+	 * Calibrates the specified resource strategy and stores the results.
+	 * @param strategy the strategy to calibrate
+	 * @param filename the filename under which the calibration data is stored
 	 */
 	private void calibrateStrategy(IDemandStrategy strategy, String filename) {
 		CalibrationTable table;
@@ -181,7 +188,7 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 	/**
 	 * Constructs a new Calibrator object.
 	 * @param context the context of the application used to update the progress
-	 * @param storage
+	 * @param storage the storage used for storing the calibration data
 	 */
 	public StrategyCalibrator(ServletContext context, IStorage storage) {
 		this.context = context;
@@ -191,8 +198,8 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 	}
 
 	/**
-	 *
-	 * @param strategyName
+	 * Adds a resource strategy to the list of strategies to calibrate.
+	 * @param strategyName the name of the strategy to calibrate
 	 */
 	public void addStrategy(String strategyName) {
 		strategyNames.add(strategyName);
@@ -232,7 +239,7 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 }
 
 /**
- *
+ * The Options class provides REST APIs for retrieving and setting the prototype's options.
  * @author Christian Klaussner
  */
 @Path("/options")
@@ -254,8 +261,8 @@ public class Options {
 	}
 
 	/**
-	 *
-	 * @return
+	 * Gets the options for the prototype.
+	 * @return a JSON object containing previously stored options or the default options.
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -284,9 +291,9 @@ public class Options {
 	}
 
 	/**
-	 *
-	 * @param data
-	 * @return
+	 * Sets the options for the prototype.
+	 * @param data a JSON string containing the new option data
+	 * @return a HTTP 204 response
 	 */
 	@POST
 	public Response setOptions(String data) {
