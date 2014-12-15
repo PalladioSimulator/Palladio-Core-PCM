@@ -56,11 +56,11 @@
 
 					<select id="cpu-strategy" name="cpuStrategy">
 						<option value="primes">Primes</option>
-						<option value="count_numbers">Count Numbers</option>
+						<option value="countNumbers">Count Numbers</option>
 						<option value="fft">FFT</option>
 						<option value="fibonacci">Fibonacci</option>
 						<option value="mandelbrot">Mandelbrot</option>
-						<option value="sortarray">Sort Array</option>
+						<option value="sortArray">Sort Array</option>
 						<option value="void">Void</option>
 						<option value="wait">Wait</option>
 					</select>

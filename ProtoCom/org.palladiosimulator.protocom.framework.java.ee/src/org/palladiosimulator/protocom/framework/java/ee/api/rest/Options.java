@@ -33,7 +33,14 @@ import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.Calib
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.CalculatePrimesDemand;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.CountNumbersDemand;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.FFTDemand;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.FibonacciDemand;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.MandelbrotDemand;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.SortArrayDemand;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.VoidDemand;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.WaitDemand;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.hdd.ReadLargeChunksDemand;
 
 /**
@@ -63,10 +70,19 @@ class StrategyBuilder {
 	private IStorage storage;
 
 	static {
+		// Add CPU strategies.
 		cpu = new HashMap<String, Class<?>>();
 
+		cpu.put("primes", CalculatePrimesDemand.class);
+		cpu.put("countNumbers", CountNumbersDemand.class);
+		cpu.put("fft", FFTDemand.class);
 		cpu.put("fibonacci", FibonacciDemand.class);
+		cpu.put("mandelbrot", MandelbrotDemand.class);
+		cpu.put("sortArray", SortArrayDemand.class);
+		cpu.put("void", VoidDemand.class);
+		cpu.put("wait", WaitDemand.class);
 
+		// Add HDD strategies.
 		hdd = new HashMap<String, Class<?>>();
 
 		hdd.put("largeChunks", ReadLargeChunksDemand.class);
