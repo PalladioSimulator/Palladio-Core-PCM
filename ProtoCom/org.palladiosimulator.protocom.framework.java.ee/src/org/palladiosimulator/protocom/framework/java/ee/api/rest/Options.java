@@ -173,9 +173,9 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 
 		strategyNames = new ArrayList<String>(2);
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @param strategyName
 	 */
 	public void addStrategy(String strategyName) {
@@ -200,14 +200,15 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 		// Calibrate all added strategies.
 		for (int i = 0; i < strategyNames.size(); i++) {
 			String strategyName = strategyNames.get(i);
-			
+
 			IDemandStrategy strategy = initializer.create(strategyName, false);
 			calibrateStrategy(strategy, strategyName);
-			
-			totalProgress = 100 / strategyNames.size();
+
+			totalProgress = 100 / strategyNames.size() * (i + 1);
 		}
 
 		// Update status.
+		CalibrationSocket.update(100, "");
 		context.setAttribute("status", "started");
 
 		logger.setLevel(Level.INFO);
@@ -273,27 +274,60 @@ public class Options {
 	 */
 	@POST
 	public Response setOptions(String data) {
-		boolean isCalibrated;
+		boolean isCalibrated = true;
 
 		OptionsData options = JsonHelper.fromJson(data, OptionsData.class);
 
+		StrategyBuilder builder = new StrategyBuilder(storage);
+		StrategyCalibrator calibrator = new StrategyCalibrator(context, storage);
+
+		Set<String> files;
+
+		String cpuStrategy = "cpu." + options.getCpuStrategy();
+		String hddStrategy = "hdd." + options.getHddStrategy();
+
 		try {
-			Set<String> files = storage.getFiles("calibration");
+			files = storage.getFiles("calibration");
 
-			String cpuStrategy = "cpu." + options.getCpuStrategy();
-			String hddStrategy = "hdd." + options.getHddStrategy();
+			// Load or calibrate CPU strategy.
+			if (files.contains(cpuStrategy)) {
+				builder.create(cpuStrategy, true);
+			} else {
+				isCalibrated = false;
+				calibrator.addStrategy(cpuStrategy);
+			}
 
-			if (files.contains(cpuStrategy) && files.contains(hddStrategy)) {
+			// Load or calibrate HDD strategy.
+			if (files.contains(hddStrategy)) {
+				builder.create(hddStrategy, true);
+			} else {
+				isCalibrated = false;
+				calibrator.addStrategy(hddStrategy);
+			}
+
+			/*if (files.contains(cpuStrategy) && files.contains(hddStrategy)) {
 				isCalibrated = true;
 			} else {
 				isCalibrated = false;
-			}
+			}*/
 		} catch (IOException e) {
 			// Calibration folder does not exist yet.
+			//isCalibrated = false;
 			isCalibrated = false;
+
+			calibrator.addStrategy(cpuStrategy);
+			calibrator.addStrategy(hddStrategy);
 		}
 
 		if (isCalibrated) {
+			context.setAttribute("status", "started");
+		} else {
+			context.setAttribute("status", "calibrating");
+			calibrator.addStrategy("cpu.fibonacci");
+			executor.submit(calibrator);
+		}
+
+		/*if (isCalibrated) {
 			context.setAttribute("status", "started");
 
 			StrategyBuilder initializer = new StrategyBuilder(storage);
@@ -301,14 +335,14 @@ public class Options {
 			initializer.create("cpu.fibonacci", true);
 		} else {
 			context.setAttribute("status", "calibrating");
-			
-			StrategyCalibrator calibrator = new StrategyCalibrator(context, storage);
-			
+
+			//StrategyCalibrator calibrator = new StrategyCalibrator(context, storage);
+
 			calibrator.addStrategy("cpu.fibonacci");
 			calibrator.addStrategy("hdd.largeChunks");
-			
+
 			executor.submit(calibrator);
-		}
+		}*/
 
 		// TODO: Insert real values
 		experiment.init("Test Experiment");

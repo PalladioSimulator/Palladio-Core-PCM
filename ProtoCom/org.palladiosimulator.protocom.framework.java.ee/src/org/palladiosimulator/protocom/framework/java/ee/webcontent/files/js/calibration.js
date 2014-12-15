@@ -36,6 +36,11 @@ var App = (function(App) {
 				}
 			};
 
+			connection.onopen = function(e) {
+				// Send initial data request.
+				connection.send('');
+			};
+			
 			connection.onerror = function(e) {
 				console.log(e);
 			};

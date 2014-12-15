@@ -9,6 +9,7 @@ import javax.websocket.CloseReason;
 import javax.websocket.EndpointConfig;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
+import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
@@ -63,8 +64,8 @@ public class CalibrationSocket extends WebSocket {
 	public void onOpen(Session session, EndpointConfig config) {
 		sessions.add(session);
 
-		String payload = buildPayload(lastProgress, lastMessage);
-		send(session, payload);
+		//String payload = buildPayload(lastProgress, lastMessage);
+		//send(session, payload);
 	}
 
 	@OnClose
@@ -72,7 +73,16 @@ public class CalibrationSocket extends WebSocket {
 		sessions.remove(session);
 	}
 
+	@OnMessage
+	public void onMessage(String message, Session session) {
+		System.out.println("message received");
+
+		String payload = buildPayload(lastProgress, lastMessage);
+		send(session, payload);
+	}
+
 	@OnError
 	public void onError(Session session, Throwable t) {
+		t.printStackTrace();
 	}
 }
