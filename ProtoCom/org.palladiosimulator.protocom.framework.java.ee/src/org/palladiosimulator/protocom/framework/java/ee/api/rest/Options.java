@@ -185,7 +185,7 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 	@Override
 	public void progressChanged(IDemandStrategy strategy, float progress) {
 		int percent = (int) (progress * 100.0f);
-		String message = "Calibrating '" + strategy.getName() + "' Strategy (" + percent + "%)";
+		String message = "Calibrating '" + strategy.getName() + "' strategy (" + percent + "%)";
 
 		CalibrationSocket.update(totalProgress + percent / strategyNames.size(), message);
 	}
@@ -277,11 +277,10 @@ public class Options {
 		boolean isCalibrated = true;
 
 		OptionsData options = JsonHelper.fromJson(data, OptionsData.class);
-
+		Set<String> files;
+		
 		StrategyBuilder builder = new StrategyBuilder(storage);
 		StrategyCalibrator calibrator = new StrategyCalibrator(context, storage);
-
-		Set<String> files;
 
 		String cpuStrategy = "cpu." + options.getCpuStrategy();
 		String hddStrategy = "hdd." + options.getHddStrategy();
@@ -304,15 +303,8 @@ public class Options {
 				isCalibrated = false;
 				calibrator.addStrategy(hddStrategy);
 			}
-
-			/*if (files.contains(cpuStrategy) && files.contains(hddStrategy)) {
-				isCalibrated = true;
-			} else {
-				isCalibrated = false;
-			}*/
 		} catch (IOException e) {
 			// Calibration folder does not exist yet.
-			//isCalibrated = false;
 			isCalibrated = false;
 
 			calibrator.addStrategy(cpuStrategy);
@@ -323,26 +315,8 @@ public class Options {
 			context.setAttribute("status", "started");
 		} else {
 			context.setAttribute("status", "calibrating");
-			calibrator.addStrategy("cpu.fibonacci");
 			executor.submit(calibrator);
 		}
-
-		/*if (isCalibrated) {
-			context.setAttribute("status", "started");
-
-			StrategyBuilder initializer = new StrategyBuilder(storage);
-
-			initializer.create("cpu.fibonacci", true);
-		} else {
-			context.setAttribute("status", "calibrating");
-
-			//StrategyCalibrator calibrator = new StrategyCalibrator(context, storage);
-
-			calibrator.addStrategy("cpu.fibonacci");
-			calibrator.addStrategy("hdd.largeChunks");
-
-			executor.submit(calibrator);
-		}*/
 
 		// TODO: Insert real values
 		experiment.init("Test Experiment");
