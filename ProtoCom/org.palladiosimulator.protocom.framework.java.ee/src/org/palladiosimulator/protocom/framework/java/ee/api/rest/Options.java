@@ -293,7 +293,7 @@ public class Options {
 	/**
 	 * Sets the options for the prototype.
 	 * @param data a JSON string containing the new option data
-	 * @return a HTTP 204 response
+	 * @return a HTTP 204 response if the request could be fulfilled
 	 */
 	@POST
 	public Response setOptions(String data) {
@@ -341,12 +341,22 @@ public class Options {
 			executor.submit(calibrator);
 		}
 
-		// TODO: Insert real values
-		experiment.init("Test Experiment");
-		Main.setStoExSeed(0);
+		// Set remaining options.
+		experiment.init(options.getName());
+		
+		String seed = options.getSeed();
+		
+		if (seed.length() > 0) {
+			try {
+				Main.setStoExSeed(Long.parseLong(options.getSeed()));
+			} catch (NumberFormatException e) {
+				Main.setStoExSeed(0);
+			}
+		}
 
+		// Store new options.
 		try {
-			// TODO: Validate input
+			// TODO Validate input
 			storage.writeFile("options.json", data);
 		} catch (IOException e) {
 			e.printStackTrace();
