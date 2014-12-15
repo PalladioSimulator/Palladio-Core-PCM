@@ -58,6 +58,7 @@ public interface IDemandStrategy {
     CalibrationTable calibrate();
     boolean hasCalibrationTable();
     void setDebug(boolean enable);
+    boolean debugEnabled();
 
     /**
      * Do cleanup work.

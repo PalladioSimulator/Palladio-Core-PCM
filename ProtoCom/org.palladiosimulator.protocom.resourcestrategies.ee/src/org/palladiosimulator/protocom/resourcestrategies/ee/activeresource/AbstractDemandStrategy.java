@@ -277,11 +277,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
         this.calibrationTable = new CalibrationTable();
 
         System.out.println("starting calibration");
-
-        for (int i = 0; i < warmUpCycles; i++) {
-            run(defaultIterationCount);
-        }
-
+        
         if (debug) {
         	for (int i = 0; i < 10; i++) {
         		try {
@@ -295,6 +291,11 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
         	}
 
         	return calibrationTable;
+        }
+
+
+        for (int i = 0; i < warmUpCycles; i++) {
+            run(defaultIterationCount);
         }
 
         LOGGER.info("The timetable with the corresponding parameters:");
@@ -333,6 +334,11 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     @Override
 	public void setDebug(boolean enable) {
     	this.debug = enable;
+    }
+    
+    @Override
+    public boolean debugEnabled() {
+    	return debug;
     }
 
     /**

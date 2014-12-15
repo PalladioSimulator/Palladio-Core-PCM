@@ -2,6 +2,7 @@ package org.palladiosimulator.protocom.framework.java.ee.api.rest;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
@@ -55,7 +56,7 @@ class CalibrationThreadFactory implements ThreadFactory {
  *
  * @author Christian Klaussner
  */
-class StrategyInitializer {
+class StrategyBuilder {
 	private static final HashMap<String, Class<?>> cpu;
 	private static final HashMap<String, Class<?>> hdd;
 
@@ -71,14 +72,14 @@ class StrategyInitializer {
 		hdd.put("largeChunks", ReadLargeChunksDemand.class);
 	}
 
-	public StrategyInitializer(IStorage storage) {
+	public StrategyBuilder(IStorage storage) {
 		this.storage = storage;
 	}
 
 	/**
 	 * Otherwise, this method returns an IDemandStrategy without a calibration table.
 	 */
-	public IDemandStrategy initialize(String name, boolean load) {
+	public IDemandStrategy create(String name, boolean load) {
 		IDemandStrategy strategy = null;
 
 		ResourceTypeEnum type;
@@ -133,15 +134,11 @@ class StrategyInitializer {
  *
  * @author Christian Klaussner
  */
-class Calibrator implements Runnable, ICalibrationListener {
-	enum StrategyType {
-		CPU, HDD
-	}
-
+class StrategyCalibrator implements Runnable, ICalibrationListener {
 	private ServletContext context;
 	private IStorage storage;
-	private StrategyType strategyType;
 
+	private ArrayList<String> strategyNames;
 	private int totalProgress = 0;
 
 	/**
@@ -153,41 +150,44 @@ class Calibrator implements Runnable, ICalibrationListener {
 		CalibrationTable table;
 
 		strategy.setCalibrationListener(this);
-		//strategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1.0);
 		table = strategy.calibrate();
 
-		/*try {
-			storage.createFolder("calibration");
-			storage.writeFile("calibration/" + filename, table.toBinary());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
+		if (!strategy.debugEnabled()) {
+			try {
+				storage.createFolder("calibration");
+				storage.writeFile("calibration/" + filename, table.toBinary());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
-	public Calibrator(ServletContext context, IStorage storage) {
+	/**
+	 * Constructs a new Calibrator object.
+	 * @param context the context of the application used to update the progress
+	 * @param storage
+	 */
+	public StrategyCalibrator(ServletContext context, IStorage storage) {
 		this.context = context;
 		this.storage = storage;
 
-		//storage = Storage.getInstance();
+		strategyNames = new ArrayList<String>(2);
+	}
+	
+	/**
+	 * 
+	 * @param strategyName
+	 */
+	public void addStrategy(String strategyName) {
+		strategyNames.add(strategyName);
 	}
 
 	@Override
 	public void progressChanged(IDemandStrategy strategy, float progress) {
 		int percent = (int) (progress * 100.0f);
-		//int totalProgress;
-
 		String message = "Calibrating '" + strategy.getName() + "' Strategy (" + percent + "%)";
 
-		/*if (strategyType == StrategyType.CPU) {
-			totalProgress = percent / 2;
-		} else {
-			totalProgress = 50 + percent / 2;
-		}*/
-
-		totalProgress += percent / 2;
-
-
-		CalibrationSocket.update(totalProgress, message);
+		CalibrationSocket.update(totalProgress + percent / strategyNames.size(), message);
 	}
 
 	@Override
@@ -195,30 +195,17 @@ class Calibrator implements Runnable, ICalibrationListener {
 		Logger logger = Logger.getRootLogger();
 		logger.setLevel(Level.OFF);
 
-		StrategyInitializer initializer = new StrategyInitializer(storage);
+		StrategyBuilder initializer = new StrategyBuilder(storage);
 
-		// Calibrate CPU strategy.
-		/*FibonacciDemand cpuStrategy = new FibonacciDemand();
-		strategyType = StrategyType.CPU;
-
-		calibrateStrategy(cpuStrategy, "cpu.fibonacci");
-		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);*/
-
-		IDemandStrategy cpu = initializer.initialize("cpu.fibonacci", false);
-		System.out.println(cpu.getName());
-		calibrateStrategy(cpu, "cpu.fibonacci");
-
-		totalProgress = 50;
-
-		// Calibrate HDD strategy.
-		/*ReadLargeChunksDemand hddStrategy = new ReadLargeChunksDemand();
-		strategyType = StrategyType.HDD;
-
-		calibrateStrategy(hddStrategy, "hdd.largeChunks");
-		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);*/
-
-		//IDemandStrategy hdd = initializer.initialize("hdd.largeChunks", false);
-		//calibrateStrategy(hdd, "hdd.largeChunks");
+		// Calibrate all added strategies.
+		for (int i = 0; i < strategyNames.size(); i++) {
+			String strategyName = strategyNames.get(i);
+			
+			IDemandStrategy strategy = initializer.create(strategyName, false);
+			calibrateStrategy(strategy, strategyName);
+			
+			totalProgress = 100 / strategyNames.size();
+		}
 
 		// Update status.
 		context.setAttribute("status", "started");
@@ -256,8 +243,6 @@ public class Options {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getOptions() {
-		//Storage storage = Storage.getInstance();
-
 		String optionsJson;
 		String[] files;
 
@@ -288,12 +273,9 @@ public class Options {
 	 */
 	@POST
 	public Response setOptions(String data) {
-		//Storage storage = Storage.getInstance();
 		boolean isCalibrated;
 
 		OptionsData options = JsonHelper.fromJson(data, OptionsData.class);
-
-
 
 		try {
 			Set<String> files = storage.getFiles("calibration");
@@ -314,42 +296,18 @@ public class Options {
 		if (isCalibrated) {
 			context.setAttribute("status", "started");
 
-			StrategyInitializer initializer = new StrategyInitializer(storage);
+			StrategyBuilder initializer = new StrategyBuilder(storage);
 
-			// CPU
-
-			/*FibonacciDemand cpu = new FibonacciDemand();
-			//cpu.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
-			byte[] cpuData = null;
-			try {
-				cpuData = storage.readFile("calibration/cpu.fibonacci");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			CalibrationTable cpuTable = CalibrationTable.fromBinary(cpuData);
-			cpu.setCalibrationTable(cpuTable);
-			DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpu);*/
-
-			initializer.initialize("cpu.fibonacci", true);
-
-			// HDD
-
-			ReadLargeChunksDemand hdd = new ReadLargeChunksDemand();
-			//hdd.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
-			byte[] hddData = null;
-			try {
-				hddData = storage.readFile("calibration/hdd.largeChunks");
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			CalibrationTable hddTable = CalibrationTable.fromBinary(hddData);
-			hdd.setCalibrationTable(hddTable);
-			DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hdd);
+			initializer.create("cpu.fibonacci", true);
 		} else {
 			context.setAttribute("status", "calibrating");
-			executor.submit(new Calibrator(context, storage));
+			
+			StrategyCalibrator calibrator = new StrategyCalibrator(context, storage);
+			
+			calibrator.addStrategy("cpu.fibonacci");
+			calibrator.addStrategy("hdd.largeChunks");
+			
+			executor.submit(calibrator);
 		}
 
 		// TODO: Insert real values
@@ -365,9 +323,5 @@ public class Options {
 		}
 
 		return Response.noContent().build();
-	}
-
-	private void initializeStrategy(String strategyName) {
-
 	}
 }
