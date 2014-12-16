@@ -1,9 +1,7 @@
-package org.palladiosimulator.protocom.framework.java.ee.registry;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-
-import org.palladiosimulator.protocom.framework.java.ee.http.Request;
 
 /**
  * A RemoteStub object is used to delegate local method calls to a remote instance.

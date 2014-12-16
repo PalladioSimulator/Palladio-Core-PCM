@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.common;
+package org.palladiosimulator.protocom.framework.java.ee.prototype;
 
 import java.util.HashMap;
 

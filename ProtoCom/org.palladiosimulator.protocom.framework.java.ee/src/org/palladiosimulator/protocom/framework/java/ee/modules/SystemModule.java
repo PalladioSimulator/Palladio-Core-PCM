@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import org.apache.log4j.Logger;
-import org.palladiosimulator.protocom.framework.java.ee.registry.RegistryException;
+import org.palladiosimulator.protocom.framework.java.ee.protocol.RegistryException;
 
 /**
  * A SystemModule object represents a startable PCM system entity.

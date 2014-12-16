@@ -1,12 +1,7 @@
-package org.palladiosimulator.protocom.framework.java.ee.registry;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
-
-import org.palladiosimulator.protocom.framework.java.ee.http.Parameter;
-import org.palladiosimulator.protocom.framework.java.ee.http.Request;
-import org.palladiosimulator.protocom.framework.java.ee.http.Response;
-import org.palladiosimulator.protocom.framework.java.ee.http.StringResponse;
 
 /**
  * The Registry singleton provides methods for registering and accessing remote objects.

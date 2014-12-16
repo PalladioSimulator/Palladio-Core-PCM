@@ -28,7 +28,7 @@ class ServletComposedStructurePortClass extends ServletClass<ProvidedRole> {
 	}
 	
 	override superClass() {
-		'''«frameworkBase».common.PortServlet<«JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)»>'''
+		'''«frameworkBase».prototype.PortServlet<«JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)»>'''
 	}
 	
 	override annotations() {
@@ -77,18 +77,18 @@ class ServletComposedStructurePortClass extends ServletClass<ProvidedRole> {
 				.withName("start")
 				.withThrows('''«frameworkBase».modules.ModuleStartException''')
 				.withImplementation('''
-					this.component = («JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)») «frameworkBase».common.LocalComponentRegistry.getInstance().getComponent(assemblyContext);
+					this.component = («JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)») «frameworkBase».prototype.LocalComponentRegistry.getInstance().getComponent(assemblyContext);
 					
 					try {
-						innerPort = («JavaNames::fqn((pcmEntity as OperationProvidedRole).providedInterface__OperationProvidedRole)») «frameworkBase».registry.Registry.getInstance().lookup(componentId);
-					} catch («frameworkBase».registry.RegistryException e) {
+						innerPort = («JavaNames::fqn((pcmEntity as OperationProvidedRole).providedInterface__OperationProvidedRole)») «frameworkBase».protocol.Registry.getInstance().lookup(componentId);
+					} catch («frameworkBase».protocol.RegistryException e) {
 						e.printStackTrace();
 					}
 					
 					try {
-						Class<?>[] interfaces = new Class<?>[] {«iface».class, «frameworkBase».common.IPort.class};
-						«frameworkBase».registry.Registry.getInstance().register("«JavaNames::portClassName(pcmEntity)»", interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
-					} catch («frameworkBase».registry.RegistryException e) {
+						Class<?>[] interfaces = new Class<?>[] {«iface».class, «frameworkBase».prototype.IPort.class};
+						«frameworkBase».protocol.Registry.getInstance().register("«JavaNames::portClassName(pcmEntity)»", interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
+					} catch («frameworkBase».protocol.RegistryException e) {
 						throw new «frameworkBase».modules.ModuleStartException();
 					}
 				''')

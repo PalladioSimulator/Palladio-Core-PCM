@@ -22,7 +22,7 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 	}
 	
 	override superClass() {
-		'''«frameworkBase».common.PortServlet<«JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)»>'''
+		'''«frameworkBase».prototype.PortServlet<«JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)»>'''
 	}
 	
 	override interfaces() {
@@ -65,12 +65,12 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 				.withName("start")
 				.withThrows('''«frameworkBase».modules.ModuleStartException''')
 				.withImplementation('''
-					this.component = («JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)») «frameworkBase».common.LocalComponentRegistry.getInstance().getComponent(assemblyContext);
+					this.component = («JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)») «frameworkBase».prototype.LocalComponentRegistry.getInstance().getComponent(assemblyContext);
 					
 					try {
-						Class<?>[] interfaces = new Class<?>[] {«iface».class, «frameworkBase».common.IPort.class};
-						«frameworkBase».registry.Registry.getInstance().register("«JavaNames::portClassName(pcmEntity)»" + "_" + assemblyContext, interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
-					} catch («frameworkBase».registry.RegistryException e) {
+						Class<?>[] interfaces = new Class<?>[] {«iface».class, «frameworkBase».prototype.IPort.class};
+						«frameworkBase».protocol.Registry.getInstance().register("«JavaNames::portClassName(pcmEntity)»" + "_" + assemblyContext, interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
+					} catch («frameworkBase».protocol.RegistryException e) {
 						throw new «frameworkBase».modules.ModuleStartException();
 					}
 				''')

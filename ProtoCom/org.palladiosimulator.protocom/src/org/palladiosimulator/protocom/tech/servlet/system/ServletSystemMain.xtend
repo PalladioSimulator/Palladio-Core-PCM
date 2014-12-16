@@ -13,7 +13,7 @@ class ServletSystemMain extends ServletClass<System> {
 	}	
 	
 	override superClass() {
-		'''«frameworkBase».ui.Main'''
+		'''«frameworkBase».main.MainServlet'''
 	}
 	
 	override annotations() {

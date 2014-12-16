@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.registry;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -9,9 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.palladiosimulator.protocom.framework.java.ee.http.Response;
-import org.palladiosimulator.protocom.framework.java.ee.http.StringResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

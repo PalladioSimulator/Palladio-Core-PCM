@@ -34,7 +34,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		result += entity.assemblyContexts.map[
 			new JField()
 				.withName("my" + it.safeName)
-				.withType('''«frameworkBase».common.IPort<«it.encapsulatedComponent.classFqn»>''')
+				.withType('''«frameworkBase».prototype.IPort<«it.encapsulatedComponent.classFqn»>''')
 		]
 		
 		// Port IDs.
@@ -53,10 +53,10 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		#[
 			new JMethod()
 				.withParameters("String location, String id")
-				.withThrows('''«frameworkBase».registry.RegistryException''')
+				.withThrows('''«frameworkBase».protocol.RegistryException''')
 				.withImplementation(
 					'''
-					«frameworkBase».common.LocalComponentRegistry.getInstance().addComponent(id, this);
+					«frameworkBase».prototype.LocalComponentRegistry.getInstance().addComponent(id, this);
 					
 					initInnerComponents();
 					
@@ -78,13 +78,13 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 				.withName("startPort")
 				.withParameters("String location, String portName, String id, String innerId")
 				.withImplementation('''
-					java.util.ArrayList<«frameworkBase».http.Parameter> params = new java.util.ArrayList<«frameworkBase».http.Parameter>(4);
-					params.add(new «frameworkBase».http.Parameter("action", "start"));
-					params.add(new «frameworkBase».http.Parameter("location", location));
-					params.add(new «frameworkBase».http.Parameter("assemblyContext", id));
-					params.add(new «frameworkBase».http.Parameter("componentId", innerId));
+					java.util.ArrayList<«frameworkBase».protocol.Parameter> params = new java.util.ArrayList<«frameworkBase».protocol.Parameter>(4);
+					params.add(new «frameworkBase».protocol.Parameter("action", "start"));
+					params.add(new «frameworkBase».protocol.Parameter("location", location));
+					params.add(new «frameworkBase».protocol.Parameter("assemblyContext", id));
+					params.add(new «frameworkBase».protocol.Parameter("componentId", innerId));
 					
-					«frameworkBase».http.Request.get(location, "/" + portName, params);
+					«frameworkBase».protocol.Request.get(location, "/" + portName, params);
 				''')
 		
 		// Assembly init methods.
@@ -110,7 +110,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 			new JMethod()
 				.withName("initInnerComponents")
 				.withVisibilityModifier("private")
-				.withThrows('''«frameworkBase».registry.RegistryException''')
+				.withThrows('''«frameworkBase».protocol.RegistryException''')
 				.withAnnotations(#[
 					new JAnnotation()
 						.withName("SuppressWarnings")
@@ -120,14 +120,14 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 					try {
 						«FOR assemblyContext : entity.assemblyContexts»
 							«IF assemblyContext.encapsulatedComponent.operationProvidedRoles.size > 0»
-								my«assemblyContext.safeName» = («frameworkBase».common.IPort<«assemblyContext.encapsulatedComponent.classFqn»>) «frameworkBase».registry.Registry.getInstance().lookup("«assemblyContext.encapsulatedComponent.operationProvidedRoles.get(0).portClassName»_«assemblyContext.id»");
+								my«assemblyContext.safeName» = («frameworkBase».prototype.IPort<«assemblyContext.encapsulatedComponent.classFqn»>) «frameworkBase».protocol.Registry.getInstance().lookup("«assemblyContext.encapsulatedComponent.operationProvidedRoles.get(0).portClassName»_«assemblyContext.id»");
 							«ENDIF»
 						«ENDFOR»
 						
 						«FOR assemblyContext : entity.assemblyContexts»
 							init«assemblyContext.safeName»();
 						«ENDFOR»
-					} catch («frameworkBase».registry.RegistryException e) {
+					} catch («frameworkBase».protocol.RegistryException e) {
 						throw e;
 					}
 				''')

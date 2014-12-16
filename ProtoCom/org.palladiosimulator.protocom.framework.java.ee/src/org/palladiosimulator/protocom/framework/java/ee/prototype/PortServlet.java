@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.common;
+package org.palladiosimulator.protocom.framework.java.ee.prototype;
 
 import java.io.IOException;
 import java.io.StringWriter;
@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentVisitor;
-import org.palladiosimulator.protocom.framework.java.ee.http.Response;
-import org.palladiosimulator.protocom.framework.java.ee.http.StringResponse;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ModuleStartException;
-import org.palladiosimulator.protocom.framework.java.ee.registry.RemoteCall;
+import org.palladiosimulator.protocom.framework.java.ee.protocol.RemoteCall;
+import org.palladiosimulator.protocom.framework.java.ee.protocol.Response;
+import org.palladiosimulator.protocom.framework.java.ee.protocol.StringResponse;
 
 /**
  * The PortServlet class is the common base class for ports.

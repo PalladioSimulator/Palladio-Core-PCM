@@ -115,8 +115,8 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 				])
 				.withImplementation('''
 					try {
-						portFor_«it.safeName.toFirstLower» = («it.requiredInterface.interfaceFqn») «frameworkBase».registry.Registry.getInstance().lookup(«it.safeName.toFirstLower»);
-					} catch («frameworkBase».registry.RegistryException e) {
+						portFor_«it.safeName.toFirstLower» = («it.requiredInterface.interfaceFqn») «frameworkBase».protocol.Registry.getInstance().lookup(«it.safeName.toFirstLower»);
+					} catch («frameworkBase».protocol.RegistryException e) {
 						e.printStackTrace();
 					}
 					

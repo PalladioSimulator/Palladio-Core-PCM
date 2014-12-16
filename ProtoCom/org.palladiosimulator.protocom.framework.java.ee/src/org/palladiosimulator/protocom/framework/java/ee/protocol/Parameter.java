@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.http;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 /**
  * A Parameter object represents a name-value pair used as GET parameter.

@@ -13,9 +13,9 @@ import javax.websocket.server.ServerEndpoint;
 
 import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.LogData;
-import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
-import org.palladiosimulator.protocom.framework.java.ee.ui.LogMessage;
-import org.palladiosimulator.protocom.framework.java.ee.ui.WebAppender;
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.main.LogMessage;
+import org.palladiosimulator.protocom.framework.java.ee.main.WebAppender;
 
 /**
  *

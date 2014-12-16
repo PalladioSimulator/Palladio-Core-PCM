@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.RegistryData;
-import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 
 @Path("/registry")
 public class Registry {
@@ -17,7 +17,7 @@ public class Registry {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getLocation() {
 		RegistryData data = new RegistryData();
-		data.setLocation(org.palladiosimulator.protocom.framework.java.ee.registry.Registry.getInstance().getLocation());
+		data.setLocation(org.palladiosimulator.protocom.framework.java.ee.protocol.Registry.getInstance().getLocation());
 
 		return Response.ok(JsonHelper.toJson(data)).build();
 	}
@@ -26,7 +26,7 @@ public class Registry {
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response setLocation(String raw) {
 		RegistryData data = (RegistryData) JsonHelper.fromJson(raw, RegistryData.class);
-		org.palladiosimulator.protocom.framework.java.ee.registry.Registry.getInstance().setLocation(data.getLocation());
+		org.palladiosimulator.protocom.framework.java.ee.protocol.Registry.getInstance().setLocation(data.getLocation());
 
 		return Response.noContent().build();
 	}

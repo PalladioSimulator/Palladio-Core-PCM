@@ -19,7 +19,7 @@ import javax.inject.Singleton;
 
 import org.apache.commons.io.IOUtils;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.ResultsSocket;
-import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
 import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;

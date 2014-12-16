@@ -24,10 +24,10 @@ import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.OptionsData;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
-import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.legacy.strategies.DemandConsumerStrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
-import org.palladiosimulator.protocom.framework.java.ee.ui.Main;
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.main.MainServlet;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
@@ -347,9 +347,9 @@ public class Options {
 		
 		if (seed.length() > 0) {
 			try {
-				Main.setStoExSeed(Long.parseLong(options.getSeed()));
+				MainServlet.setStoExSeed(Long.parseLong(options.getSeed()));
 			} catch (NumberFormatException e) {
-				Main.setStoExSeed(0);
+				MainServlet.setStoExSeed(0);
 			}
 		}
 

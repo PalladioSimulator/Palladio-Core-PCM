@@ -28,7 +28,7 @@ class JavaEEIIOPFacetCore extends JavaEEIIOPFacetCoreFile<BasicComponent>{
 	}
 	
 	override filePath() {
-		JavaNames::fqnJavaEEPreferencesPath(pcmEntity) + "org.eclipse.wst.common.project.facet.core.xml"
+		JavaNames::fqnJavaEEPreferencesPath(pcmEntity) + "org.eclipse.wst.prototype.project.facet.core.xml"
 	}
 	
 	override projectName() {

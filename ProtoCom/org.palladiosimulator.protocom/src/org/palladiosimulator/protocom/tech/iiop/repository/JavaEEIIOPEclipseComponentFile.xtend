@@ -24,7 +24,7 @@ class JavaEEIIOPEclipseComponentFile extends JavaEEIIOPComponentFile<BasicCompon
 	}
 	
 	override filePath() {
-		JavaNames::fqnJavaEEPreferencesPath(pcmEntity) + "org.eclipse.wst.common.component"
+		JavaNames::fqnJavaEEPreferencesPath(pcmEntity) + "org.eclipse.wst.prototype.component"
 	}
 	
 	override projectName() {

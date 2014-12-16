@@ -13,7 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.commons.io.IOUtils;
-import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.IUsageScenario;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 

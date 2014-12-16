@@ -2,7 +2,7 @@ package org.palladiosimulator.protocom.framework.java.ee.api.rest.data;
 
 import java.util.List;
 
-import org.palladiosimulator.protocom.framework.java.ee.ui.LogMessage;
+import org.palladiosimulator.protocom.framework.java.ee.main.LogMessage;
 
 /**
  *

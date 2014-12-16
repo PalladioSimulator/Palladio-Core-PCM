@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.json;
+package org.palladiosimulator.protocom.framework.java.ee.main;
 
 import java.io.IOException;
 

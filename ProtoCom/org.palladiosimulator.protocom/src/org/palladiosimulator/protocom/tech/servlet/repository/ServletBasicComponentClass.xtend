@@ -25,15 +25,15 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 			new JMethod()
 				.withParameters("String location, String assemblyContext")
 				.withImplementation('''
-					«frameworkBase».common.LocalComponentRegistry.getInstance().addComponent(assemblyContext, this);
+					«frameworkBase».prototype.LocalComponentRegistry.getInstance().addComponent(assemblyContext, this);
 					
-					java.util.ArrayList<«frameworkBase».http.Parameter> params = new java.util.ArrayList<«frameworkBase».http.Parameter>(3);
-					params.add(new «frameworkBase».http.Parameter("action", "start"));
-					params.add(new «frameworkBase».http.Parameter("location", location));
-					params.add(new «frameworkBase».http.Parameter("assemblyContext", assemblyContext));
+					java.util.ArrayList<«frameworkBase».protocol.Parameter> params = new java.util.ArrayList<«frameworkBase».protocol.Parameter>(3);
+					params.add(new «frameworkBase».protocol.Parameter("action", "start"));
+					params.add(new «frameworkBase».protocol.Parameter("location", location));
+					params.add(new «frameworkBase».protocol.Parameter("assemblyContext", assemblyContext));
 					
 					«FOR role : entity.operationProvidedRoles»
-						«frameworkBase».http.Request.get(location, "/«role.portClassName»", params);
+						«frameworkBase».protocol.Request.get(location, "/«role.portClassName»", params);
 					«ENDFOR»
 				''')
 		]

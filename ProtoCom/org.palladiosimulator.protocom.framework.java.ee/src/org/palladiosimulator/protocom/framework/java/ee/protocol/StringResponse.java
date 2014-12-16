@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.http;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 import java.io.IOException;
 

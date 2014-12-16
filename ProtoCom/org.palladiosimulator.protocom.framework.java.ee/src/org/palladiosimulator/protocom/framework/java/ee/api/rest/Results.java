@@ -21,7 +21,7 @@ import javax.ws.rs.core.StreamingOutput;
 
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentData;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
-import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
 import com.sun.jersey.core.header.ContentDisposition;

@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.registry;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;

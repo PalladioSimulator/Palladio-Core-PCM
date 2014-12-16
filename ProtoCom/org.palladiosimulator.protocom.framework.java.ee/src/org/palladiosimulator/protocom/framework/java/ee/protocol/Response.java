@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.http;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

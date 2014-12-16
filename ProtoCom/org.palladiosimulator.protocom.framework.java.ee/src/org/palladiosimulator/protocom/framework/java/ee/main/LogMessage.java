@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.ui;
+package org.palladiosimulator.protocom.framework.java.ee.main;
 
 /**
 *

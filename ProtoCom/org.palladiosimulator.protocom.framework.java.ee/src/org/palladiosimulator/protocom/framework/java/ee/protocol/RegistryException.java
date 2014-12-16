@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.registry;
+package org.palladiosimulator.protocom.framework.java.ee.protocol;
 
 /**
  * Signals that an invalid request was performed at a registry.

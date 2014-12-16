@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import org.palladiosimulator.protocom.framework.java.ee.json.JsonHelper;
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.modules.ContainerModule;
 import org.palladiosimulator.protocom.framework.java.ee.modules.Module;
 import org.palladiosimulator.protocom.framework.java.ee.modules.SystemModule;

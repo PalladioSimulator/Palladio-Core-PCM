@@ -5,7 +5,7 @@ import java.util.Stack;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import org.palladiosimulator.protocom.framework.java.ee.common.ICallVisitor;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.ICallVisitor;
 
 /**
  *
