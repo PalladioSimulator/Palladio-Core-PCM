@@ -30,7 +30,7 @@ public final class SystemResourcesUtil {
      */
     //public static final File TEMP_DIR = new File("D:\\TEMP");
     public static final File TEMP_DIR = new File(System.getProperty("java.io.tmpdir")
-            + System.getProperty("file.separator"));
+            + System.getProperty("file.separator") + "ProtoCom");
 
     /**
      * Returns the total size of the physical memory in bytes.
