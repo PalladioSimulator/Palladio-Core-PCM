@@ -74,7 +74,7 @@ class CalibrationEntry implements Serializable {
 public class CalibrationTable {
 
     /** Default number of tuples <targetTime, parameter> to store in the calibration table */
-    public static final int DEFAULT_CALIBRATION_TABLE_SIZE = 11;
+    public static final int DEFAULT_CALIBRATION_TABLE_SIZE = 5;
 
     protected CalibrationEntry[] table;
 

@@ -275,10 +275,11 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     @Override
 	public CalibrationTable calibrate() {
         this.calibrationTable = new CalibrationTable();
-
         System.out.println("starting calibration");
         
         if (debug) {
+        	System.out.println("debugging calibration");
+        	
         	for (int i = 0; i < 10; i++) {
         		try {
 					Thread.sleep(750);
@@ -292,7 +293,6 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
         	return calibrationTable;
         }
-
 
         for (int i = 0; i < warmUpCycles; i++) {
             run(defaultIterationCount);
@@ -317,6 +317,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
             LOGGER.info(calibrationTable.getEntry(i));
         }
         //calibrationTable.save(configFile);
+        
+        System.out.println("finished calibration");
 
         return calibrationTable;
     }
