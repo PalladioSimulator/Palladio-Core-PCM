@@ -22,4 +22,8 @@ class LoopAdapter extends UserActionAdapter<Loop> {
 		
 		new StartAdapter(start as Start)
 	}
+	
+	def getScenarioBehaviour() {
+		new ScenarioBehaviourAdapter(entity.bodyBehaviour_Loop)
+	}
 }

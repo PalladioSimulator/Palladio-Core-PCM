@@ -39,6 +39,10 @@ abstract class ModelAdapter<T extends EStereotypableObject> {
 		(entity as NamedElement).safeName
 	}
 	
+	def safeSpecification(String specification) {
+		specification.replaceAll('"', "\\\\").replaceAll("\\s", " ");
+	}
+	
 	protected def getSafeName(NamedElement entity) {
 		entity.entityName.replaceAll("[(\")(\\s)(<)(>)(:)(\\.)(\\\\)(\\+)(\\-)(\\()(\\))]", "_")
 	}

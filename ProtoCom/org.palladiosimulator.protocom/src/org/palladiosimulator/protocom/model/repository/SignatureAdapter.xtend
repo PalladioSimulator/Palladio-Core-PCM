@@ -5,6 +5,8 @@ import de.uka.ipd.sdq.pcm.repository.Signature
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 
+// TODO Create two adapters: OperationSignatureAdapter and InfrastructureSignatureAdapter
+
 /**
  * Adapter class for PCM Signature entities.
  * @author Christian Klaussner
@@ -23,7 +25,7 @@ class SignatureAdapter extends ModelAdapter<Signature> {
 			OperationSignature:
 				entity.interface__OperationSignature.safeName.toFirstLower
 				+ "_"
-				+ entity.signatureName
+				+ signatureName
 				
 			InfrastructureSignature:
 				""
@@ -35,7 +37,9 @@ class SignatureAdapter extends ModelAdapter<Signature> {
 	 * @return a string containing the unique name of the signature
 	 * @param signature the signature for which the unique name is generated
 	 */
-	private def getSignatureName(OperationSignature signature) {
+	def getSignatureName() {
+		val signature = entity as OperationSignature
+		
 		var position = -1
 		var OperationSignature s
 		

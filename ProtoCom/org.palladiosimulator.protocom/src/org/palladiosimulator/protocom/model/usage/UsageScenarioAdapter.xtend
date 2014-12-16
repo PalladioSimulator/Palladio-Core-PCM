@@ -17,6 +17,14 @@ class UsageScenarioAdapter extends ModelAdapter<UsageScenario> {
 	 * @return a string containing the ID
 	 */
 	def getId() {
-		return entity.id
+		entity.id
+	}
+	
+	/**
+	 * Gets the scenario behaviour.
+	 * @return an adapter for the scenario behaviour
+	 */
+	def getScenarioBehaviour() {
+		new ScenarioBehaviourAdapter(entity.scenarioBehaviour_UsageScenario)
 	}
 }

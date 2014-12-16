@@ -11,6 +11,6 @@ class JeeServletUsageScenario extends XUsageScenario {
 	override protected generate() {
 		val adapter = new UsageScenarioAdapter(entity)
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletUsageScenario(adapter, entity)));
-		generatedFiles.add(injector.getInstance(typeof(TestPlan)).createFor(new ServletTestPlan(entity)));
+		generatedFiles.add(injector.getInstance(typeof(TestPlan)).createFor(new ServletTestPlan(adapter, entity)));
 	}
 }

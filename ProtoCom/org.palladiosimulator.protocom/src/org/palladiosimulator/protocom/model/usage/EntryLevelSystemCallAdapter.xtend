@@ -2,6 +2,7 @@ package org.palladiosimulator.protocom.model.usage
 
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.protocom.model.repository.OperationProvidedRoleAdapter
+import org.palladiosimulator.protocom.model.repository.SignatureAdapter
 
 /**
  * Adapter class for PCM EntryLevelSystemCall user actions.
@@ -17,6 +18,6 @@ class EntryLevelSystemCallAdapter extends UserActionAdapter<EntryLevelSystemCall
 	}
 	
 	def getOperationSignature() {
-		// TODO
+		new SignatureAdapter(entity.operationSignature__EntryLevelSystemCall)
 	}
 }

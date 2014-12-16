@@ -1,26 +1,29 @@
 package org.palladiosimulator.protocom.tech.servlet.usage
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
-import de.uka.ipd.sdq.pcm.usagemodel.Branch
-import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition
-import de.uka.ipd.sdq.pcm.usagemodel.Delay
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
-import de.uka.ipd.sdq.pcm.usagemodel.Loop
-import de.uka.ipd.sdq.pcm.usagemodel.Start
-import de.uka.ipd.sdq.pcm.usagemodel.Stop
+import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 import java.math.BigDecimal
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.xml.ITestPlan
+import org.palladiosimulator.protocom.model.usage.BranchAdapter
+import org.palladiosimulator.protocom.model.usage.DelayAdapter
+import org.palladiosimulator.protocom.model.usage.EntryLevelSystemCallAdapter
+import org.palladiosimulator.protocom.model.usage.LoopAdapter
+import org.palladiosimulator.protocom.model.usage.StartAdapter
+import org.palladiosimulator.protocom.model.usage.StopAdapter
+import org.palladiosimulator.protocom.model.usage.UsageScenarioAdapter
+import org.palladiosimulator.protocom.model.usage.UserActionAdapter
 import org.palladiosimulator.protocom.tech.ConceptMapping
-import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload
 
 /**
  * @author Christian Klaussner
  */
 class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan {
-	new(UsageScenario pcmEntity) {
+	val UsageScenarioAdapter entity
+	
+	new(UsageScenarioAdapter entity, UsageScenario pcmEntity) {
 		super(pcmEntity)
+		this.entity = entity
 	}
 	
 	// Action transformations.
@@ -33,40 +36,37 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		'''{"name":"«method»","formalTypes":«formalTypes»,"actualTypes":«actualTypes»,"arguments":[{}]}'''
 	}
 	
-	private def getStartAction(BranchTransition branch) {
-		var transition = branch.branchedBehaviour_BranchTransition
-		transition.actions_ScenarioBehaviour.findFirst[Start.isInstance(it)]
-	}
-	
 	/**
 	 * @param action
 	 */
-	private def String userActions(AbstractUserAction action) {
+	private def String userActions(UserActionAdapter<? extends AbstractUserAction> action) {
 		'''
 		«userAction(action)»
-		«IF !Stop.isInstance(action)»
+		«IF !StopAdapter.isInstance(action)»
 			«userActions(action.successor)»
 		«ENDIF»
 		'''
 	}
 	
-	private def dispatch userAction(Start action) {
+	private def dispatch userAction(StartAdapter action) {
 	}
 	
-	private def dispatch userAction(Stop action) {
+	private def dispatch userAction(StopAdapter action) {
 	}
 	
 	/**
 	 * 
 	 */
-	private def dispatch userAction(EntryLevelSystemCall action) {
-		val port = JavaNames::portClassName(action.providedRole_EntryLevelSystemCall);
-		val method = JavaNames::javaSignature(action.operationSignature__EntryLevelSystemCall)
+	private def dispatch userAction(EntryLevelSystemCallAdapter action) {
+		val port = action.providedRole.portClassName //JavaNames::portClassName(action.providedRole_EntryLevelSystemCall);
+		val method = action.operationSignature.signatureName //JavaNames::javaSignature(action.entity.operationSignature__EntryLevelSystemCall)
 		
 		val name = 
-			JavaNames::javaName(action.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole)
+			//JavaNames::javaName(action.entity.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole)
+			action.providedRole.providedInterface.safeName
 			+ "." + 
-			action.operationSignature__EntryLevelSystemCall.entityName
+			//action.entity.operationSignature__EntryLevelSystemCall.entityName
+			action.operationSignature.name
 		
 		val request = buildRequest(method)
 		 	
@@ -104,8 +104,9 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	/**
 	 * 
 	 */
-	private dispatch def userAction(Branch action) {
-		val branches = action.branchTransitions_Branch.sortBy[it.branchProbability]
+	private dispatch def userAction(BranchAdapter action) {
+		//val branches = action.branchTransitions_Branch.sortBy[it.branchProbability]
+		val branches = action.branchTransitions.sortBy[it.probability]
 		
 		var value = 0;
 		var p = new BigDecimal("0.0")
@@ -115,7 +116,7 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		val script = '''
 		double val = new Random().nextDouble();
 		
-		«FOR branch : branches SEPARATOR " else "»if (val &lt; «(p = p.add(new BigDecimal(branch.branchProbability.toString))).toPlainString») {
+		«FOR branch : branches SEPARATOR " else "»if (val &lt; «(p = p.add(new BigDecimal(branch.probability.toString))).toPlainString») {
 			vars.put(&quot;BRANCH&quot;, &quot;«value++»&quot;);
 		}«ENDFOR»
 		'''
@@ -135,9 +136,9 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		</SwitchController>
 		<hashTree>
 		  «FOR branch : branches»
-		  <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="p = «branch.branchProbability»" enabled="true"/>
+		  <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="p = «branch.probability»" enabled="true"/>
 		  <hashTree>
-		    «userActions(branch.startAction)»
+		    «userActions(branch.start)»
 		  </hashTree>
 		  «ENDFOR»
 		</hashTree>
@@ -147,13 +148,13 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	/**
 	 * 
 	 */
-	private def dispatch userAction(Loop action) {
+	private def dispatch userAction(LoopAdapter action) {
 		
 		// Currently, StoEx loop counts are not supported.
 		// Default to 1 if a non-static loop count is specified.
 		
 		val iterations = try {
-			val spec = JavaNames::specificationString(action.loopIteration_Loop.specification)
+			val spec = entity.safeSpecification(action.iterationCount)
 			Integer.parseInt(spec)
 		} catch (NumberFormatException e) {
 			1
@@ -161,8 +162,8 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		
 		// Find the start action of the loop.
 		
-		val actions = action.bodyBehaviour_Loop.actions_ScenarioBehaviour
-		val startAction = actions.findFirst[Start.isInstance(it)]
+		//val actions = action.entity.bodyBehaviour_Loop.actions_ScenarioBehaviour
+		//val startAction = actions.findFirst[Start.isInstance(it)]
 		
 		'''
 		<LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop" enabled="true">
@@ -170,19 +171,19 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		  <stringProp name="LoopController.loops">«iterations»</stringProp>
 		</LoopController>
 		<hashTree>
-		  «userActions(startAction)»
+		  «userActions(action.scenarioBehaviour.start)»
 		</hashTree>
 		'''
 	}
 	
-	private def dispatch userAction(Delay action) {
+	private def dispatch userAction(DelayAdapter action) {
 		
 		// Currently, StoEx delays are not supported.
 		// Default to 0 if a non-static delay is specified.
 		// Furthermore, the delay is rounded because JMeter supports only integer delays. 
 		
 		var delay = try {
-			val spec = JavaNames::specificationString(action.timeSpecification_Delay.specification)
+			val spec = entity.safeSpecification(action.delay)
 			(Double.parseDouble(spec) * 1000) as int
 		} catch (NumberFormatException e) {
 			0
@@ -214,7 +215,7 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 			ClosedWorkload:
 				try {
 					val time = workload.thinkTime_ClosedWorkload
-					val spec = JavaNames::specificationString(time.specification)
+					val spec = entity.safeSpecification(time.specification)
 					
 					(Double.parseDouble(spec) * 1000) as int
 				} catch (NumberFormatException e) {
@@ -231,16 +232,16 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	// 
 	
 	override filePath() {
-		'''/src/usagescenarios/jmx/«JavaNames::javaName(pcmEntity)».jmx'''
+		'''/src/usagescenarios/jmx/«entity.safeName».jmx'''
 	}
 	
 	override projectName() {
 	}
 	
 	override content() {
-		var actions = pcmEntity.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour
-		var start = actions.findFirst[Start.isInstance(it)] as Start;
+		//var actions = pcmEntity.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour
+		//var start = actions.findFirst[Start.isInstance(it)] as Start;
 		
-		userActions(start)
+		userActions(entity.scenarioBehaviour.start)
 	}
 }

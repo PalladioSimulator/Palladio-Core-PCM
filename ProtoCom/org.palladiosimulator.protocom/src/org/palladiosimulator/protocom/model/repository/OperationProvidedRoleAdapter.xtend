@@ -12,6 +12,10 @@ class OperationProvidedRoleAdapter extends ModelAdapter<OperationProvidedRole> {
 		super(entity)
 	}
 	
+	def getProvidedInterface() {
+		new OperationInterfaceAdapter(entity.providedInterface__OperationProvidedRole)
+	}
+	
 	// Translation methods
 	
 	def getPortClassName() {
