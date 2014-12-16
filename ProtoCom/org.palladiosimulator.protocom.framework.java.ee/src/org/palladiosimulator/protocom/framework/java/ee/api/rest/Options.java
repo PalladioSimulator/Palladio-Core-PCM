@@ -23,12 +23,13 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.OptionsData;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
-import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
-import org.palladiosimulator.protocom.framework.java.ee.prototype.StrategiesRegistry;
-import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
+import org.palladiosimulator.protocom.framework.java.ee.experiment.IExperiment;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.main.MainServlet;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.StrategiesRegistry;
+import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
+import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
@@ -130,7 +131,7 @@ class StrategyBuilder {
 			e.printStackTrace();
 		}
 
-		strategy.setDebug(true);
+		// strategy.setDebug(true);
 
 		if (load) {
 			byte[] data = null;
@@ -143,6 +144,9 @@ class StrategyBuilder {
 
 			CalibrationTable table = CalibrationTable.fromBinary(data);
 			strategy.setCalibrationTable(table);
+		} else {
+			// TODO refactor resource strategies such that initialization is not required before calibration
+			strategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 0);
 		}
 
 		StrategiesRegistry.getInstance()
@@ -252,7 +256,7 @@ public class Options {
 	private IStorage storage;
 
 	@Inject
-	private Experiment experiment;
+	private IExperiment experiment;
 
 	static {
 		CalibrationThreadFactory factory = new CalibrationThreadFactory();

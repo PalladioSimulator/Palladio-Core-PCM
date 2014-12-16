@@ -77,8 +77,20 @@ public class ContainerModule extends Module {
 	}
 
 	private void initializeStrategies() {
-		double cpuRate = StackContext.evaluateStatic(container.getCpuRate(), Double.class);
-		double hddRate = StackContext.evaluateStatic(container.getHddRate(), Double.class);
+		String cpuRateExp = container.getCpuRate();
+		
+		if (cpuRateExp.length() == 0) {
+			cpuRateExp = "0";
+		}
+		
+		String hddRateExp = container.getHddRate();
+		
+		if (hddRateExp.length() == 0) {
+			hddRateExp = "0";
+		}
+		
+		double cpuRate = StackContext.evaluateStatic(cpuRateExp, Double.class);
+		double hddRate = StackContext.evaluateStatic(hddRateExp, Double.class);
 
 		StrategiesRegistry registry = StrategiesRegistry.getInstance();
 

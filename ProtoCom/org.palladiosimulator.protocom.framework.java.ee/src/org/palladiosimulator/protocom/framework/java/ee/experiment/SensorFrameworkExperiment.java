@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
  * @author Christian Klaussner
  */
 @Singleton
-public final class Experiment {
+public final class SensorFrameworkExperiment implements IExperiment {
 	private static final double ONE_SECOND_IN_NANO_SECONDS = Math.pow(10, 9);
 
 	private static final String[] stateFiles = new String[] {
@@ -55,7 +55,7 @@ public final class Experiment {
 
 	private HashMap<String, TimeSpanSensor> sensors;
 
-	public Experiment() {
+	public SensorFrameworkExperiment() {
 		sensors = new HashMap<String, TimeSpanSensor>();
 	}
 

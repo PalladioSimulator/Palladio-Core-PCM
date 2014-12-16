@@ -56,7 +56,7 @@ public final class ExperimentVisitor implements ICallVisitor {
 	//private ExperimentManager manager = ExperimentManager.getInstance();
 
 	@Inject
-	private Experiment experiment;
+	private IExperiment experiment;
 
 	private Stack<StartTime> startTimes = new Stack<StartTime>();
 

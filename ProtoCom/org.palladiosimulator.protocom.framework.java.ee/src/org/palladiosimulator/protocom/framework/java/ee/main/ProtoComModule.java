@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.inject.Singleton;
 
+import org.palladiosimulator.protocom.framework.java.ee.experiment.IExperiment;
+import org.palladiosimulator.protocom.framework.java.ee.experiment.SensorFrameworkExperiment;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.PortServlet;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 import org.palladiosimulator.protocom.framework.java.ee.storage.EcmStorage;
@@ -27,6 +29,7 @@ public class ProtoComModule extends ServletModule {
 	@Override
 	protected void configureServlets() {
 		bind(IStorage.class).to(EcmStorage.class);
+		bind(IExperiment.class).to(SensorFrameworkExperiment.class);
 
 		registerApi();
 		registerServlets();

@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentData;
-import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
+import org.palladiosimulator.protocom.framework.java.ee.experiment.IExperiment;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
@@ -32,7 +32,7 @@ public class Results {
 	private IStorage storage;
 
 	@Inject
-	private Experiment experiment;
+	private IExperiment experiment;
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
