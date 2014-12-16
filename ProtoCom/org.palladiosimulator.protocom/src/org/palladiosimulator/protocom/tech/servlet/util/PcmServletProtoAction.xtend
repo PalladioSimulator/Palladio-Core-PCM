@@ -117,9 +117,9 @@ class PcmServletProtoAction {
 				double demand = ctx.evaluate("«JavaNames::specificationString(resourceDemand.specification_ParametericResourceDemand.specification)»", Double.class);
 				
 				«IF resourceDemand.requiredResource_ParametricResourceDemand.entityName.toLowerCase.matches("cpu")»
-					«frameworkBase».legacy.strategies.DemandConsumerStrategiesRegistry.singleton().getStrategyFor(org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum.CPU).consume(demand);
+					«frameworkBase».prototype.StrategiesRegistry.getInstance().getStrategy(org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum.CPU).consume(demand);
 				«ELSEIF resourceDemand.requiredResource_ParametricResourceDemand.entityName.toLowerCase.matches("hdd")»
-					«frameworkBase».legacy.strategies.DemandConsumerStrategiesRegistry.singleton().getStrategyFor(org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum.HDD).consume(demand);
+					«frameworkBase».prototype.StrategiesRegistry.getInstance().getStrategy(org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum.HDD).consume(demand);
 				«ELSEIF resourceDemand.requiredResource_ParametricResourceDemand.entityName.toLowerCase().matches("delay")»
 					// org.palladiosimulator.protocom.framework.AbstractResourceEnvironment.performDelay(demand);
 				«ELSE»

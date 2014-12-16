@@ -4,7 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 import org.apache.log4j.Logger;
-import org.palladiosimulator.protocom.framework.java.ee.legacy.strategies.DemandConsumerStrategiesRegistry;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.StrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
 import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
@@ -80,10 +80,10 @@ public class ContainerModule extends Module {
 		double cpuRate = StackContext.evaluateStatic(container.getCpuRate(), Double.class);
 		double hddRate = StackContext.evaluateStatic(container.getHddRate(), Double.class);
 
-		DemandConsumerStrategiesRegistry registry = DemandConsumerStrategiesRegistry.singleton();
+		StrategiesRegistry registry = StrategiesRegistry.getInstance();
 
-		IDemandStrategy cpu = registry.getStrategyFor(ResourceTypeEnum.CPU);
-		IDemandStrategy hdd = registry.getStrategyFor(ResourceTypeEnum.HDD);
+		IDemandStrategy cpu = registry.getStrategy(ResourceTypeEnum.CPU);
+		IDemandStrategy hdd = registry.getStrategy(ResourceTypeEnum.HDD);
 
 		cpu.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, cpuRate);
 		hdd.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, hddRate);

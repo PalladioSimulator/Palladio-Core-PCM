@@ -24,7 +24,7 @@ import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.OptionsData;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.Experiment;
-import org.palladiosimulator.protocom.framework.java.ee.legacy.strategies.DemandConsumerStrategiesRegistry;
+import org.palladiosimulator.protocom.framework.java.ee.prototype.StrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.main.MainServlet;
@@ -145,8 +145,8 @@ class StrategyBuilder {
 			strategy.setCalibrationTable(table);
 		}
 
-		DemandConsumerStrategiesRegistry.singleton()
-			.registerStrategyFor(type, strategy);
+		StrategiesRegistry.getInstance()
+			.registerStrategy(type, strategy);
 
 		return strategy;
 	}
