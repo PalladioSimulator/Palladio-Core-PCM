@@ -119,9 +119,9 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
                 final Resource newResource = newResSet.createResource(newURI);
                 
                 //Add base Plug-in ID and model paths to the configuration
-                if (configuration.getBasePluginID() == null) {
+                if (configuration.getBaseProjectID() == null) {
                     String[] splitString = uri.toString().split("/");
-                    configuration.setBasePluginID(splitString[2]);
+                    configuration.setBaseProjectID(splitString[2]);
                 }
                 if (uri.toString() != null) {
                     modelPaths.add(uri.toString());
