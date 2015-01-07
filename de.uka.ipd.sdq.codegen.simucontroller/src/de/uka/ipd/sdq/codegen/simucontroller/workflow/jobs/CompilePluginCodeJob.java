@@ -20,6 +20,7 @@ import org.eclipse.pde.core.plugin.PluginRegistry;
 import org.eclipse.pde.internal.core.ClasspathComputer;
 import org.eclipse.pde.internal.core.natures.PDE;
 
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComNature;
 import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
@@ -90,12 +91,12 @@ public class CompilePluginCodeJob implements IJob {
     }
 
     /**
-     * Create a project description and set the JavaCore.NATURE_ID and PDE.PLUGIN_NATURE
+     * Create a project description and set the JavaCore.NATURE_ID, PDE.PLUGIN_NATURE and SimuComNature.NATURE_ID
      */
     private void createDescription(IProject project, IProgressMonitor monitor) throws JobFailedException {
         IProjectDescription description = ResourcesPlugin.getWorkspace().newProjectDescription(project.getName());
         description.setNatureIds(new String[] {
-                JavaCore.NATURE_ID, PDE.PLUGIN_NATURE
+                JavaCore.NATURE_ID, PDE.PLUGIN_NATURE, SimuComNature.NATURE_ID
         });
         description.setLocation(null);
         // set java builders

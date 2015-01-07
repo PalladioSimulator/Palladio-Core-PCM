@@ -40,10 +40,10 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         // Use the first line to generate the simulation code via xtend and the second line for
         // generating he code with the xpand templates
         this.addJob(new XtendTransformPCMToCodeJob(configuration));
-        }
+        
         // this.addJob(new TransformPCMToCodeJob(configuration));
         this.addJob(new CreateSimuComMetaDataFilesJob(configuration));
-
+        }
         // 3. Compile the plugin
         this.addJob(new CompilePluginCodeJob(configuration));
 

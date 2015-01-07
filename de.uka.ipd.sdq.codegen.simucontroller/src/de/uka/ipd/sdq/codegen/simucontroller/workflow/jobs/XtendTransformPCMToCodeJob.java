@@ -17,12 +17,15 @@ import de.fzi.se.quality.QualityFactory;
 import de.fzi.se.quality.QualityRepository;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.codegen.simucom.guice.SimuComModule;
+import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.AllocationXpt;
 import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.RepositoryXpt;
+import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.ResourcesXpt;
 import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.SystemXpt;
 import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.UsageXpt;
 import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.sim.SimAccuracyInfluenceExt;
-import de.uka.ipd.sdq.pcm.codegen.simucom.transformations.sim.SimAllocationXpt;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
 import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
@@ -58,6 +61,8 @@ public class XtendTransformPCMToCodeJob extends
 	private static final String SLOT_NAME_QUALITY_ANNOTATION_MODEL = "qualityannotationmodel";
 
 	private AbstractCodeGenerationWorkflowRunConfiguration configuration = null;
+	
+	private static boolean simulateFailures = false;
 
 	public XtendTransformPCMToCodeJob(
 			AbstractCodeGenerationWorkflowRunConfiguration configuration) {
@@ -80,12 +85,15 @@ public class XtendTransformPCMToCodeJob extends
 		final RepositoryXpt repositoryXpt = guiceInjector
 				.getInstance(RepositoryXpt.class);
 		final SystemXpt systemXpt = guiceInjector.getInstance(SystemXpt.class);
-		final SimAllocationXpt allocationXpt = guiceInjector
-				.getInstance(SimAllocationXpt.class);
+		final AllocationXpt allocationXpt = guiceInjector
+				.getInstance(AllocationXpt.class);
 		final UsageXpt usageXpt = guiceInjector.getInstance(UsageXpt.class);
 
 		final SimAccuracyInfluenceExt accuracyInfluenceExt = guiceInjector
 				.getInstance(SimAccuracyInfluenceExt.class);
+		
+		final ResourcesXpt resourcesXpt = guiceInjector.getInstance(ResourcesXpt.class);
+
 
 		// 1. Generate all repositories
 		// private static final String REPOSITORY_ROOT_EXPAND_EXPRESSION =
@@ -175,6 +183,28 @@ public class XtendTransformPCMToCodeJob extends
 				}
 			});
 		}
+		
+		if (simulateFailures) {
+		    ParametricResourceDemand prDemand = null;
+		    ResourceCall call = null;
+		    workflow.addComponent(new IWorkflowComponent() {
+
+                @Override
+                public void invoke(IWorkflowContext arg0) {
+                    resourcesXpt.resourceDemandTM(prDemand);
+                    resourcesXpt.resourceDemandTM(call);
+                }
+
+                @Override
+                public void postInvoke() { 
+                }
+
+                @Override
+                public void preInvoke() {
+                }
+		        
+		    });
+		}
 
 		final Map<String, Object> systemTransformationSlots = getSystemTransformationSlots();
 
@@ -237,6 +267,7 @@ public class XtendTransformPCMToCodeJob extends
 		});
 
 		// // Now let them run
+		simulateFailures = false;
 		workflow.invoke(null);
 	}
 
@@ -318,5 +349,9 @@ public class XtendTransformPCMToCodeJob extends
 
 	public String getName() {
 		return "Generate SimuCom Plugin Code";
+	}
+	
+	public static void setSimulateFailures(boolean failures) {
+	    simulateFailures = failures;
 	}
 }

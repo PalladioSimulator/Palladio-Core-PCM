@@ -139,13 +139,11 @@ public abstract class AbstractCreateMetaDataFilesJob {
     private void createAdditionalProperties(IProject project) throws CoreException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PrintStream out = new PrintStream(baos);
-        System.out.println(configuration.getStoragePluginID());
-        System.out.println(configuration.getUsageModelFile());
-        System.out.println(configuration.getRMIMiddlewareFile());
+
 
         out.println("#####Contains data about the original models on which this project was built#####");
         if (configuration.getStoragePluginID() != null) {
-            out.println("BaseProjectID = " + configuration.getBasePluginID());
+            out.println("baseProjectID = " + configuration.getBaseProjectID());
 
             for (String path : configuration.getModelPaths()) {
                 String fileEnding = path.substring(path.lastIndexOf(".") + 1);
@@ -158,5 +156,4 @@ public abstract class AbstractCreateMetaDataFilesJob {
             contentProp.create(new ByteArrayInputStream(baos.toByteArray()), true, null);
         }
     }
-
 }
