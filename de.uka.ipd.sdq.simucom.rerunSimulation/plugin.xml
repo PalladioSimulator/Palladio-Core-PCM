@@ -7,13 +7,14 @@
             delegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimulationWorkflowLauncher"
             id="de.uka.ipd.sdq.simucom.rerunSimulation.RerunSimulation"
             modes="run, debug"
-            name="Rerun Simulation">
+            name="Rerun Simulation"
+            public="true">
       </launchConfigurationType>
    </extension>
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTypeImages">
       <launchConfigurationTypeImage
-            configTypeID="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+            configTypeID="de.uka.ipd.sdq.simucom.rerunSimulation.RerunSimulation"
             icon="icons/app_simucim.gif"
             id="de.uka.ipd.sdq.simucom.rerunSimulation.launchConfigurationTypeImage">
       </launchConfigurationTypeImage>
@@ -30,9 +31,26 @@
          point="de.uka.ipd.sdq.codegen.simucontroller.simulator">
       <simulator
             id="de.uka.ipd.sdq.simucom.rerunSimulation.simulator"
-            launchDelegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowLauncher"
+            launchDelegate="de.uka.ipd.sdq.simucom.rerunSimulation.runconfig.RerunSimulationWorkflowLauncher"
             name="Rerun Simulation">
       </simulator>
+   </extension>
+   <extension
+         id="id1"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="de.uka.ipd.sdq.simucom.rerunSimulation.runconfig.RerunSimulationProjectNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/app_simucim.gif"
+            id="de.uka.ipd.sdq.simucom.rerunSimulation.ProjectNatureImage"
+            natureId="de.uka.ipd.sdq.simucom.rerunSimulation.ProjectNatureImage">
+      </image>
    </extension>
 
 
