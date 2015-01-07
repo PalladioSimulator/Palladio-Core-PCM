@@ -4,6 +4,9 @@ import org.palladiosimulator.protocom.model.ModelAdapter
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour
 import de.uka.ipd.sdq.pcm.usagemodel.Start
 
+/**
+ * @author Christian Klaussner
+ */
 class ScenarioBehaviourAdapter extends ModelAdapter<ScenarioBehaviour> {
 	new(ScenarioBehaviour entity) {
 		super(entity)

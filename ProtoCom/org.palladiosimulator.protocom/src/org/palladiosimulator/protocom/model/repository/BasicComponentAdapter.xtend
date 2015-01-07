@@ -1,10 +1,6 @@
 package org.palladiosimulator.protocom.model.repository
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import org.palladiosimulator.protocom.model.ModelAdapter
 import org.palladiosimulator.protocom.model.seff.ServiceEffectSpecificationAdapter
 
 /**

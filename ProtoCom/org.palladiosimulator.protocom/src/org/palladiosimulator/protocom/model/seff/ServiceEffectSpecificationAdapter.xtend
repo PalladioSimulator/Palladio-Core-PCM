@@ -4,6 +4,7 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification
 import org.palladiosimulator.protocom.model.ModelAdapter
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
 import org.palladiosimulator.protocom.model.repository.SignatureAdapter
+import de.uka.ipd.sdq.pcm.seff.StartAction
 
 /**
  * Adapter class for PCM ServiceEffectSpecification entities.
@@ -22,13 +23,8 @@ class ServiceEffectSpecificationAdapter extends ModelAdapter<ServiceEffectSpecif
 		new SignatureAdapter(entity.describedService__SEFF)
 	}
 	
-	/**
-	 * Gets the actions.
-	 * @return a list of adapter for the actions
-	 */
-	def getSteps() {
-		(entity as ResourceDemandingBehaviour).steps_Behaviour.map[
-			new AbstractActionAdapter(it)
-		]
+	def getStart() {
+		val steps = (entity as ResourceDemandingBehaviour).steps_Behaviour
+		new StartActionAdapter(steps.get(0) as StartAction)
 	}
 }

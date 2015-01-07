@@ -1,7 +1,6 @@
 package org.palladiosimulator.protocom.tech.servlet.repository
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
 import org.palladiosimulator.protocom.model.repository.BasicComponentAdapter
@@ -73,9 +72,11 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 				.withImplementation('''
 					org.apache.log4j.Logger.getRootLogger().info("Invoking '«signature.serviceName»'");
 					ctx.getStack().createAndPushNewStackFrame();
-					«new PcmServletProtoAction().actions((it.entity as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
+					«new PcmServletProtoAction().actions(it.start)»
 					return null;
 				''')
+				
+				//new PcmServletProtoAction().actions((it.entity as ResourceDemandingBehaviour).steps_Behaviour.get(0))
 		]
 		
 		result
