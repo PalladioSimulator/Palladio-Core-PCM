@@ -48,6 +48,8 @@ public class ConstantsContainer {
 	public static final String MAXIMUM_TEXT = "maximum";
 	public static final String STEP_WIDTH_TEXT = "stepwidth";
 	public static final String RUN_NO = "runNo";
+	public static final String RERUN_SIMULATION_NAME = "Rerun Simulation";
+	public static final String SIMUBENCH_SIMULATION_NAME = "SimuCom (Process-Driven Simulation)";
 
 	// Output path settings
 	public static final String EAROUT_PATH = "earOutpath";
@@ -61,6 +63,10 @@ public class ConstantsContainer {
 	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI_STUBS = "Java SE RMI Code Stubs";
 	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI = "Java SE RMI Performance Prototype";
 
+    // Rerun Simulation identifiers
+    public static final String BASE_PROJECT_ID = "baseProjectID";
+    public static final String GENERATED_PROJECT_PATH = "generatedProjectPath";
+	
 	// Simulation features
 	public static final String FEATURE_CONFIG = "featureConfig";
 	public static final String FEATURE_CONFIG_TARGET = "featureConfigTarget";

@@ -77,13 +77,20 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends AbstractWorkfl
      * information to the original models the generated project was built on. Currently only needed
      * when running the simulation again without regeneration of the project
      */
-    private String basePluginID = null;
+    private String baseProjectID = null;
 
     /**
      * Contains the paths to every model that is not recognized by the configuration yet such as
      * System
      */
     private List<String> modelPaths = null;
+    
+    /**
+     * Contains the path for the generated plug-in. This is equal to the
+     * temporaryDataLocation when using the Rerun Simulator but due to the code of the 
+     * SimuBench and the Rerun Simulation both attributes are needed
+     */
+    private String generatedProjectPath = null;
 
     /** Storage for temporary models and code. */
     protected String temporaryDataLocation;
@@ -299,12 +306,12 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends AbstractWorkfl
         this.skipProjectGeneration = skipProjectGeneration;
     }
 
-    public String getBasePluginID() {
-        return basePluginID;
+    public String getBaseProjectID() {
+        return baseProjectID;
     }
 
-    public void setBasePluginID(String basePluginID) {
-        this.basePluginID = basePluginID;
+    public void setBaseProjectID(String baseProjectID) {
+        this.baseProjectID = baseProjectID;
     }
 
     public List<String> getModelPaths() {
@@ -313,6 +320,14 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends AbstractWorkfl
 
     public void setModelPaths(List<String> modelPaths) {
         this.modelPaths = modelPaths;
+    }
+    
+    public String getGeneratedProjectPath() {
+        return generatedProjectPath;
+    }
+
+    public void setGeneratedProjectPath(String generatedProjectPath) {
+        this.generatedProjectPath = generatedProjectPath;
     }
 
     /*
