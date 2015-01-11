@@ -28,6 +28,7 @@ public abstract class AbstractCreateMetaDataFilesJob {
     public static final String F_FRAGMENT = "fragment.xml";
     public static final String F_PROPERTIES = ".properties";
     public static final String F_BUILD = "build" + F_PROPERTIES;
+    public static final String F_CONTENT = "content" + F_PROPERTIES;
 
     public AbstractCreateMetaDataFilesJob() {
         super();
@@ -40,6 +41,7 @@ public abstract class AbstractCreateMetaDataFilesJob {
             createPluginXml(project);
             createManifestMf(project);
             createBuildProperties(project);
+            createAdditionalProperties(project);
         } catch (final CoreException e) {
             throw new JobFailedException("Failed to create plugin metadata files", e);
         }
@@ -133,5 +135,29 @@ public abstract class AbstractCreateMetaDataFilesJob {
     protected abstract String[] getRequiredBundles();
 
     protected abstract String getBundleActivator();
+
+    /*
+     * Creates the content.properties file of the generated project which is necessary for rerunning
+     * the simulation
+     */
+    private void createAdditionalProperties(IProject project) throws CoreException {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        PrintStream out = new PrintStream(baos);
+
+        out.println("#####Contains data about the original models on which this project was built#####");
+        if (configuration.getStoragePluginID() != null) {
+            out.println("baseProjectID = " + configuration.getBaseProjectID());
+
+            for (String path : configuration.getModelPaths()) {
+                String fileEnding = path.substring(path.lastIndexOf(".") + 1);
+                out.println(fileEnding + " = " + path);
+            }
+        }
+
+        final IFile contentProp = project.getFile(F_CONTENT);
+        if (!contentProp.exists()) {
+            contentProp.create(new ByteArrayInputStream(baos.toByteArray()), true, null);
+        }
+    }
 
 }

@@ -48,49 +48,50 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
 
         // Stage Preparation
         // 0. Create plug-in project for simulation
-        this.add(new CreatePluginProjectJob(configuration));
+        if (!configuration.isSkipProjectGeneration()) {
+            this.add(new CreatePluginProjectJob(configuration));
 
-        // 1. Load PCM Models into memory
-        if (loadModels == true) {
-            this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
-            this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
+            // 1. Load PCM Models into memory
+            if (loadModels == true) {
+                this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
+                this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
+            }
+            // store models in temporary eclipse plug-in
+            this.add(new CreateWorkingCopyOfModelsJob(configuration));
+
+            // 2. Validate PCM Models
+            this.addJob(new ValidatePCMModelsJob(configuration));
+
+            // All Workflow extension jobs with the extension hook id
+            // WORKFLOW_ID_AFTER_LOAD_VALIDATE
+            handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE, configuration);
+
+            // -- Stage Model modification
+            // 3.1 Modification for AccuracyInfluenceAnalysis
+            if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
+                this.add(new TransformPCMForAccuracyInfluenceAnalysisJob(configuration));
+            }
+
+            // 3.2 Modifications for SensitivityAnalysis
+            if (configuration.isSensitivityAnalysisEnabled()) {
+                this.add(new TransformPCMForSensitivityAnalysisJob(configuration));
+            }
+
+            // 4. Apply Completions
+            // this.add(new CompletionJob(configuration));
+
+            // 5. Transform Event Model Elements
+            this.add(new EventsTransformationJob(configuration));
+
+            // 6. Apply connector completion transformation
+            if (configuration.getSimulateLinkingResources()) {
+                this.addJob(new ApplyConnectorCompletionsJob(configuration));
+            }
+
+            // -- Stage analysis
+            // 7. Store resulting model(s)
+            this.add(new StoreAllPCMModelsJob(configuration));
         }
-        // store models in temporary eclipse plug-in
-        this.add(new CreateWorkingCopyOfModelsJob(configuration));
-
-        // 2. Validate PCM Models
-        this.addJob(new ValidatePCMModelsJob(configuration));
-
-        // All Workflow extension jobs with the extension hook id
-        // WORKFLOW_ID_AFTER_LOAD_VALIDATE
-        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE, configuration);
-
-        // -- Stage Model modification
-        // 3.1 Modification for AccuracyInfluenceAnalysis
-        if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
-            this.add(new TransformPCMForAccuracyInfluenceAnalysisJob(configuration));
-        }
-
-        // 3.2 Modifications for SensitivityAnalysis
-        if (configuration.isSensitivityAnalysisEnabled()) {
-            this.add(new TransformPCMForSensitivityAnalysisJob(configuration));
-        }
-
-        // 4. Apply Completions
-        // this.add(new CompletionJob(configuration));
-
-        // 5. Transform Event Model Elements
-        this.add(new EventsTransformationJob(configuration));
-
-        // 6. Apply connector completion transformation
-        if (configuration.getSimulateLinkingResources()) {
-            this.addJob(new ApplyConnectorCompletionsJob(configuration));
-        }
-
-        // -- Stage analysis
-        // 7. Store resulting model(s)
-        this.add(new StoreAllPCMModelsJob(configuration));
-
         this.addSimulatorSpecificJobs(configuration);
     }
 

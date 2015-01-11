@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ConfigurationTab;
 
@@ -45,9 +44,6 @@ public class SimuConfigurationTab extends ConfigurationTab {
     private Text maximumText;
     private Text stepWidthText;
     private ArrayList<String> modelFiles = new ArrayList<String>();
-    // Random Number Generator Seed(s)
-    private Button fixedSeedButton;
-    private Text[] seedText;
 
     @Override
     protected void createFurtherSections(Composite container) {
@@ -104,31 +100,6 @@ public class SimuConfigurationTab extends ConfigurationTab {
         stepWidthText = new Text(composite, SWT.BORDER);
         stepWidthText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         stepWidthText.addModifyListener(modifyListener);
-
-        final Group randomNumberGeneratorParametersGroup = new Group(container, SWT.NONE);
-        randomNumberGeneratorParametersGroup.setText("Random Number Generator Seed");
-        final GridData gd_randomNumberGeneratorParametersGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
-        randomNumberGeneratorParametersGroup.setLayoutData(gd_randomNumberGeneratorParametersGroup);
-        final GridLayout gridLayout_3 = new GridLayout();
-        gridLayout_3.numColumns = 12;
-        randomNumberGeneratorParametersGroup.setLayout(gridLayout_3);
-
-        fixedSeedButton = new Button(randomNumberGeneratorParametersGroup, SWT.CHECK);
-        fixedSeedButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 12, 1));
-        fixedSeedButton.setText("Use a fixed seed in simulation run");
-        fixedSeedButton.setSelection(false);
-        fixedSeedButton.addSelectionListener(selectionListener);
-
-        seedText = new Text[6];
-        Label[] seedLabel = new Label[6];
-        for (int i = 0; i < 6; i++) {
-            seedLabel[i] = new Label(randomNumberGeneratorParametersGroup, SWT.NONE);
-            seedLabel[i].setText("Seed " + i);
-            seedText[i] = new Text(randomNumberGeneratorParametersGroup, SWT.BORDER);
-            seedText[i].setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-            seedText[i].addModifyListener(modifyListener);
-            seedText[i].setText(i + "");
-        }
     }
 
     protected void selectVariable() {
@@ -165,20 +136,6 @@ public class SimuConfigurationTab extends ConfigurationTab {
                     ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS, true));
         } catch (CoreException e) {
             clearButton.setSelection(true);
-        }
-
-        try {
-            fixedSeedButton.setSelection(configuration.getAttribute(AbstractSimulationConfig.USE_FIXED_SEED, false));
-        } catch (CoreException e) {
-            fixedSeedButton.setSelection(false);
-        }
-
-        for (int i = 0; i < 6; i++) {
-            try {
-                seedText[i].setText(configuration.getAttribute(AbstractSimulationConfig.FIXED_SEED_PREFIX + i, i + ""));
-            } catch (CoreException e) {
-                seedText[i].setText(i + "");
-            }
         }
 
         try {
@@ -228,10 +185,6 @@ public class SimuConfigurationTab extends ConfigurationTab {
         super.performApply(configuration);
 
         configuration.setAttribute(ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS, clearButton.getSelection());
-        configuration.setAttribute(AbstractSimulationConfig.USE_FIXED_SEED, fixedSeedButton.getSelection());
-        for (int i = 0; i < 6; i++) {
-            configuration.setAttribute(AbstractSimulationConfig.FIXED_SEED_PREFIX + i, seedText[i].getText());
-        }
         configuration.setAttribute(ConstantsContainer.VARIABLE_TEXT, variableText.getText());
         configuration.setAttribute(ConstantsContainer.MINIMUM_TEXT, minimumText.getText());
         configuration.setAttribute(ConstantsContainer.MAXIMUM_TEXT, maximumText.getText());

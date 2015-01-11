@@ -81,6 +81,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
     private Text batchSizeField;
     private Label minNumberOfBatchesLabel;
     private Text minNumberOfBatchesField;
+    // Random Number Generator Seed(s)
+    private Button fixedSeedButton;
+    private Text[] seedText;
 
     private Combo persistenceCombo;
     private Combo simulatorCombo;
@@ -88,6 +91,15 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 
     private RecorderTabGroup recorderTabGroup;
     protected Composite container;
+
+    private String notUsedSimulator = ConstantsContainer.RERUN_SIMULATION_NAME;
+
+    public SimuComConfigurationTab() {
+    }
+
+    public SimuComConfigurationTab(String notUsedSimulator) {
+        this.notUsedSimulator = notUsedSimulator;
+    }
 
     /*
      * (non-Javadoc)
@@ -121,8 +133,20 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         simulatorLabel.setText("Simulator implementation:");
 
         String[] simulatorNames = null;
+        /*
+         * This part makes sure that only the Rerun Simulation simulator or the simucom simulator
+         * are available depending on the chosen simulation. Rerun Simulation doesn't work for the
+         * SimuBench, SimuCom Simulation doesn't work for the Rerun Simulation
+         */
+        List<String> simulatorNamesList = new ArrayList<String>();
         try {
             simulatorNames = SimulatorExtensionHelper.getSimulatorNames();
+            for (String name : simulatorNames) {
+                if (!name.equals(notUsedSimulator)) {
+                    simulatorNamesList.add(name);
+                }
+            }
+            simulatorNames = simulatorNamesList.toArray(new String[simulatorNamesList.size()]);
         } catch (CoreException e1) {
             if (LOGGER.isEnabledFor(Level.WARN)) {
                 LOGGER.warn("Could not retrieve names of simulator extensions.", e1);
@@ -332,6 +356,43 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
             }
         });
         checkLoggingButton.setSelection(false);
+
+        final Group randomNumberGeneratorParametersGroup = new Group(container, SWT.NONE);
+        randomNumberGeneratorParametersGroup.setText("Random Number Generator Seed");
+        final GridData gd_randomNumberGeneratorParametersGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        randomNumberGeneratorParametersGroup.setLayoutData(gd_randomNumberGeneratorParametersGroup);
+        final GridLayout gridLayout_3 = new GridLayout();
+        gridLayout_3.numColumns = 12;
+        randomNumberGeneratorParametersGroup.setLayout(gridLayout_3);
+
+        fixedSeedButton = new Button(randomNumberGeneratorParametersGroup, SWT.CHECK);
+        fixedSeedButton.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 12, 1));
+        fixedSeedButton.setText("Use a fixed seed in simulation run");
+        fixedSeedButton.setSelection(false);
+        fixedSeedButton.addSelectionListener(new SelectionAdapter() {
+            /*
+             * (non-Javadoc)
+             * 
+             * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.
+             * SelectionEvent)
+             */
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                SimuComConfigurationTab.this.setDirty(true);
+                SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
+            }
+        });
+
+        seedText = new Text[6];
+        Label[] seedLabel = new Label[6];
+        for (int i = 0; i < 6; i++) {
+            seedLabel[i] = new Label(randomNumberGeneratorParametersGroup, SWT.NONE);
+            seedLabel[i].setText("Seed " + i);
+            seedText[i] = new Text(randomNumberGeneratorParametersGroup, SWT.BORDER);
+            seedText[i].setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+            seedText[i].addModifyListener(modifyListener);
+            seedText[i].setText(i + "");
+        }
     }
 
     /**
@@ -537,6 +598,19 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
             enableBatchMeansSettings(false);
 
         }
+        try {
+            fixedSeedButton.setSelection(configuration.getAttribute(AbstractSimulationConfig.USE_FIXED_SEED, false));
+        } catch (CoreException e) {
+            fixedSeedButton.setSelection(false);
+        }
+
+        for (int i = 0; i < 6; i++) {
+            try {
+                seedText[i].setText(configuration.getAttribute(AbstractSimulationConfig.FIXED_SEED_PREFIX + i, i + ""));
+            } catch (CoreException e) {
+                seedText[i].setText(i + "");
+            }
+        }
     }
 
     /*
@@ -574,6 +648,10 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         configuration.setAttribute(SimuComConfig.CONFIDENCE_LEVEL, levelField.getText());
         configuration.setAttribute(SimuComConfig.CONFIDENCE_HALFWIDTH, halfWidthField.getText());
         configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_NAME, selectedModelElementName);
+        configuration.setAttribute(AbstractSimulationConfig.USE_FIXED_SEED, fixedSeedButton.getSelection());
+        for (int i = 0; i < 6; i++) {
+            configuration.setAttribute(AbstractSimulationConfig.FIXED_SEED_PREFIX + i, seedText[i].getText());
+        }
 
         if (selectedModelElementURI != null) {
             configuration.setAttribute(SimuComConfig.CONFIDENCE_MODELELEMENT_URI, selectedModelElementURI.toString());

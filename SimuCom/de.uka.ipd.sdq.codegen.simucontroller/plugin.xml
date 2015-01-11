@@ -43,6 +43,23 @@
           name="SimuCom (Process-Driven Simulation)">
     </simulator>
  </extension>
+ <extension
+       id="de.uka.ipd.sdq.codegen.simucontroller.runconfig.simucomnature"
+       point="org.eclipse.core.resources.natures">
+    <runtime>
+       <run
+             class="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComNature">
+       </run>
+    </runtime>
+ </extension>
+ <extension
+       point="org.eclipse.ui.ide.projectNatureImages">
+    <image
+          icon="icons/app_simucim.gif"
+          id="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComNature"
+          natureId="de.uka.ipd.sdq.codegen.simucontroller.runconfig.simucomnature">
+    </image>
+ </extension>
 
 	
 </plugin>
