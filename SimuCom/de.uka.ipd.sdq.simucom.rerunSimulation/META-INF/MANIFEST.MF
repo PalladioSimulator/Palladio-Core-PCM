@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: RepeatedLaunch
-Bundle-SymbolicName: de.uka.ipd.sdq.simucom.rerunSimulation;singleton:=true
+Bundle-SymbolicName: de.uka.ipd.sdq.simucom.rerunsimulation;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
