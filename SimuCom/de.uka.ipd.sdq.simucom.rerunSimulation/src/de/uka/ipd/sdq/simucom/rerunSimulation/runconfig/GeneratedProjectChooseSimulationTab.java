@@ -122,43 +122,56 @@ public class GeneratedProjectChooseSimulationTab extends AbstractLaunchConfigura
         txtBelongsToProject.setVisible(true);
         txtBelongsToProject.setEnabled(false);
 
-        Label lAllocationFile = new Label(gBelongsToProject, SWT.NONE);
+        final Group gModelFiles = new Group(container, SWT.BORDER);
+        final GridLayout glModelFiles = new GridLayout();
+        GridData gDModelFiles = new GridData(SWT.FILL, SWT.CENTER, true, false);
+       
+        glModelFiles.numColumns = 2;
+        glModelFiles.makeColumnsEqualWidth = false;
+        
+        gModelFiles.setLayout(glModelFiles);
+        gModelFiles.setText("Model Files");
+        gModelFiles.setLayoutData(gDModelFiles);
+        gModelFiles.setVisible(false);
+        
+        
+        Label lAllocationFile = new Label(gModelFiles, SWT.NONE);
         lAllocationFile.setText("Allocation File");
-        txtAllocationFile = new Text(gBelongsToProject, SWT.SINGLE | SWT.BORDER);
+        txtAllocationFile = new Text(gModelFiles, SWT.SINGLE | SWT.BORDER);
         txtAllocationFile.setLayoutData(gridDataTextFileName);
         txtAllocationFile.setVisible(true);
         txtAllocationFile.setEnabled(false);
         txtAllocationFile.addModifyListener(modify);
 
-        Label lUsageModelFile = new Label(gBelongsToProject, SWT.NONE);
+        Label lUsageModelFile = new Label(gModelFiles, SWT.NONE);
         lUsageModelFile.setText("Usage Model File");
-        txtUsageModelFile = new Text(gBelongsToProject, SWT.SINGLE | SWT.BORDER);
+        txtUsageModelFile = new Text(gModelFiles, SWT.SINGLE | SWT.BORDER);
         txtUsageModelFile.setLayoutData(gridDataTextFileName);
         txtUsageModelFile.setVisible(true);
         txtUsageModelFile.setEnabled(false);
         txtUsageModelFile.addModifyListener(modify);
 
-        Label lEventMiddlewareFile = new Label(gBelongsToProject, SWT.NONE);
+        Label lEventMiddlewareFile = new Label(gModelFiles, SWT.NONE);
         lEventMiddlewareFile.setText("Event Middleware File");
-        txtEventMiddlewareFile = new Text(gBelongsToProject, SWT.SINGLE | SWT.BORDER);
+        txtEventMiddlewareFile = new Text(gModelFiles, SWT.SINGLE | SWT.BORDER);
         txtEventMiddlewareFile.setLayoutData(gridDataTextFileName);
         // Should be set to true if not the default model is used
         lEventMiddlewareFile.setVisible(true);
         txtEventMiddlewareFile.setVisible(true);
         txtEventMiddlewareFile.setEnabled(false);
 
-        Label lRepositoryMiddlewareFile = new Label(gBelongsToProject, SWT.NONE);
+        Label lRepositoryMiddlewareFile = new Label(gModelFiles, SWT.NONE);
         lRepositoryMiddlewareFile.setText("Repository Middleware File");
-        txtRepositoryMiddlewareFile = new Text(gBelongsToProject, SWT.SINGLE | SWT.BORDER);
+        txtRepositoryMiddlewareFile = new Text(gModelFiles, SWT.SINGLE | SWT.BORDER);
         txtRepositoryMiddlewareFile.setLayoutData(gridDataTextFileName);
         // Should be set to true if not the default model is used
         lRepositoryMiddlewareFile.setVisible(true);
         txtRepositoryMiddlewareFile.setVisible(true);
         txtRepositoryMiddlewareFile.setEnabled(false);
 
-        Label lFeatureConfigFile = new Label(gBelongsToProject, SWT.NONE);
+        Label lFeatureConfigFile = new Label(gModelFiles, SWT.NONE);
         lFeatureConfigFile.setText("Feature config file");
-        txtFeatureConfigFile = new Text(gBelongsToProject, SWT.SINGLE | SWT.BORDER);
+        txtFeatureConfigFile = new Text(gModelFiles, SWT.SINGLE | SWT.BORDER);
         txtFeatureConfigFile.setLayoutData(gridDataTextFileName);
         // Should be set to true if not the default model is used
         lFeatureConfigFile.setVisible(true);
