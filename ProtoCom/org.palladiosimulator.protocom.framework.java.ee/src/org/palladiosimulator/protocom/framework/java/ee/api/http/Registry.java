@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.api.rest;
+package org.palladiosimulator.protocom.framework.java.ee.api.http;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -8,7 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.RegistryData;
+import org.palladiosimulator.protocom.framework.java.ee.api.http.data.RegistryData;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 
 @Path("/registry")

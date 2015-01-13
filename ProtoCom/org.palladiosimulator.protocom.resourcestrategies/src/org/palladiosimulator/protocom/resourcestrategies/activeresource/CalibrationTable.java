@@ -1,5 +1,7 @@
 package org.palladiosimulator.protocom.resourcestrategies.activeresource;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,6 +16,8 @@ import javax.measure.quantity.Duration;
 
 import org.apache.log4j.Logger;
 import org.jscience.physics.amount.Amount;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.CalibrationEntry;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.CalibrationTable;
 
 /**
  * Struct to represent a single entry in the calibration table of the load generators. It is a tuple
@@ -162,6 +166,48 @@ public class CalibrationTable {
             }
         }
     }
+    
+    /**
+     * Serializes the calibration table to a byte array.
+     * @return a byte array containing the serialized calibration table
+     */
+    public byte[] toBinary() {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        try {
+            ObjectOutputStream stream = new ObjectOutputStream(out);
+            stream.writeObject(table);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return out.toByteArray();
+    }
+
+    /**
+     * Creates a calibration table from a byte array.
+     * @param binary a byte array containing the serialized calibration table
+     * @return a new CalibrationTable object
+     */
+    public static CalibrationTable fromBinary(byte[] binary) {
+        CalibrationTable result = new CalibrationTable();
+        CalibrationEntry[] table = null;
+
+        ByteArrayInputStream in = new ByteArrayInputStream(binary);
+
+        try {
+            ObjectInputStream stream = new ObjectInputStream(in);
+            table = (CalibrationEntry[]) stream.readObject();
+            result.setTable(table);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
 
     private void setTable(CalibrationEntry[] table) {
         this.table = table;

@@ -65,11 +65,14 @@ public class SortArrayDemand extends AbstractDemandStrategy {
         return "SortArray";
     }
 
-    @Override
+    // TODO: Check if array size is really needed in file name.
+    // This doesn't work anymore because calibration file handling has been moved to AbstractResourceEnvironment.
+    
+    /*@Override
     protected String getCalibrationFileName() {
         return getCalibrationPath() + "/" + getName() + "_" + CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_"
                 + this.arraySize + "_" + this.degreeOfAccuracy.name() + ".ser";
-    }
+    }*/
 
     @Override
     public void cleanup() {

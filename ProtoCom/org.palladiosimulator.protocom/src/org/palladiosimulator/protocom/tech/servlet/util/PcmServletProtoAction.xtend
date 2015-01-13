@@ -93,9 +93,9 @@ class PcmServletProtoAction {
 			double demand = ctx.evaluate("«action.safeSpecification(resourceDemand.specification)»", Double.class);
 			
 			«IF resourceDemand.type.matches("cpu")»
-				«frameworkBase».prototype.StrategiesRegistry.getInstance().getStrategy(org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum.CPU).consume(demand);
+				«frameworkBase».prototype.StrategiesRegistry.getInstance().getStrategy(org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum.CPU).consume(demand);
 			«ELSEIF resourceDemand.type.matches("hdd")»
-				«frameworkBase».prototype.StrategiesRegistry.getInstance().getStrategy(org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum.HDD).consume(demand);
+				«frameworkBase».prototype.StrategiesRegistry.getInstance().getStrategy(org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum.HDD).consume(demand);
 			«ELSEIF resourceDemand.type.matches("delay")»
 			«ELSE»
 				throw new java.lang.UnsupportedOperationException("Resource type not yet supported");

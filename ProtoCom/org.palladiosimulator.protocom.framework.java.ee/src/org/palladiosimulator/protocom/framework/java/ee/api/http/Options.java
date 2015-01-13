@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.api.rest;
+package org.palladiosimulator.protocom.framework.java.ee.api.http;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,27 +21,27 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.OptionsData;
+import org.palladiosimulator.protocom.framework.java.ee.api.http.data.OptionsData;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.CalibrationSocket;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.IExperiment;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.main.MainServlet;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.StrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.CalibrationTable;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ICalibrationListener;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.CalculatePrimesDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.CountNumbersDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.FFTDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.FibonacciDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.MandelbrotDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.SortArrayDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.VoidDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.cpu.WaitDemand;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.hdd.ReadLargeChunksDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.CalibrationTable;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.ICalibrationListener;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.CalculatePrimesDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.CountNumbersDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.FFTDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.FibonacciDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.MandelbrotDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.SortArrayDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.VoidDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.WaitDemand;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.hdd.ReadLargeChunksDemand;
 
 /**
  * The CalibrationThreadFactory class is used to create background threads
@@ -145,7 +145,7 @@ class StrategyBuilder {
 			CalibrationTable table = CalibrationTable.fromBinary(data);
 			strategy.setCalibrationTable(table);
 		} else {
-			// TODO refactor resource strategies such that initialization is not required before calibration
+			// TODO Fix resource strategies such that initialization is not required before calibration
 			strategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 0);
 		}
 
@@ -221,13 +221,13 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 		Logger logger = Logger.getRootLogger();
 		logger.setLevel(Level.OFF);
 
-		StrategyBuilder initializer = new StrategyBuilder(storage);
+		StrategyBuilder builder = new StrategyBuilder(storage);
 
 		// Calibrate all added strategies.
 		for (int i = 0; i < strategyNames.size(); i++) {
 			String strategyName = strategyNames.get(i);
 
-			IDemandStrategy strategy = initializer.create(strategyName, false);
+			IDemandStrategy strategy = builder.create(strategyName, false);
 			calibrateStrategy(strategy, strategyName);
 
 			totalProgress = 100 / strategyNames.size() * (i + 1);

@@ -96,7 +96,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 				.withVisibilityModifier("private")
 				.withImplementation('''
 					«JavaNames::fqnContext(x.encapsulatedComponent__AssemblyContext)» context = new «JavaNames::fqnContext(x.encapsulatedComponent__AssemblyContext)»(
-						«FOR requiredRole : x.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(x)].map[it as OperationRequiredRole] SEPARATOR ", \n"»
+						«FOR requiredRole : x.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole] SEPARATOR ", \n"»
 							«JavaNames::javaName((PcmCalls::getConnector(pcmEntity, x, requiredRole) as AssemblyConnector).providingAssemblyContext_AssemblyConnector)»ID
 						«ENDFOR»
 					);

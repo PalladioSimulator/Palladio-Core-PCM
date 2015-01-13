@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.api.rest.data;
+package org.palladiosimulator.protocom.framework.java.ee.api.http.data;
 
 public class RegistryData {
 	private String location;

@@ -36,7 +36,6 @@ public abstract class MainServlet extends HttpServlet {
 	private boolean firstRequest = true;
 
 	static {
-		//generator = new DefaultRandomGenerator();
 		initStoEx();
 	}
 
@@ -74,8 +73,6 @@ public abstract class MainServlet extends HttpServlet {
 
 		PrototypeBridge bridge = injector.getInstance(PrototypeBridge.class);
 		initPrototype(bridge);
-
-		//initStoEx();
 	}
 
 	@Override
@@ -93,8 +90,6 @@ public abstract class MainServlet extends HttpServlet {
 
 	private static void initStoEx() {
 		generator = new DefaultRandomGenerator();
-
-		// TODO: Set generator seed here.
 
 		IProbabilityFunctionFactory factory = ProbabilityFunctionFactoryImpl.getInstance();
 		factory.setRandomGenerator(generator);

@@ -6,9 +6,9 @@ import java.lang.reflect.InvocationTargetException;
 import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.StrategiesRegistry;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.DegreeOfAccuracyEnum;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;
 
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 
@@ -70,7 +70,6 @@ public class ContainerModule extends Module {
 		// Initialize the resource strategies for this component.
 		// This has to be done here because the component that is started first determines
 		// the resource environment.
-
 		initializeStrategies();
 
 		setStarted(true);

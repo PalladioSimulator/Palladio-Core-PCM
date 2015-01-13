@@ -1,5 +1,8 @@
 package org.palladiosimulator.protocom.framework;
 
+import java.io.File;
+
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.CalibrationTable;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;
@@ -132,10 +135,67 @@ public class AbstractResourceEnvironment {
                 org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum.HDD);
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    /**
+     * Returns the name of the file used to store the calibration table Filename depends on
+     * paramters of this class
+     * 
+     * @return The calibration table file name
+     */
+    protected static String getCalibrationFileName(IDemandStrategy strategy, DegreeOfAccuracyEnum accuracy, String basePath) {
+    	if (basePath == null) {
+    		basePath = "../ProtoComCalibration/";
+    	}
+    	
+    	File path = new File(basePath);
+    	
+    	if (!path.exists()) {
+            if (path.mkdirs()) {
+                LOGGER.info("Created Calibration Path " + path);
+            } else {
+                LOGGER.error("Could not create " + path
+                	+ ". Assure you have the rights to create and write to this folder.");
+                System.exit(0);
+            }
+    	}
+    	
+        return basePath
+        	+ "/" + strategy.getName()
+        	+ "_" + CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE
+        	+ "_" + accuracy.name() + ".ser";
+    }
+    
+    
+    
     private static void registerStrategy(String calibrationPath, DegreeOfAccuracyEnum accuracy, String processingRate,
             IDemandStrategy strategy, ResourceTypeEnum resourceType) {
-        double procRate = StackContext.evaluateStatic(processingRate, Double.class);
-        strategy.initializeStrategy(accuracy, procRate, calibrationPath);
+        
+    	double procRate = StackContext.evaluateStatic(processingRate, Double.class);
+        
+    	// Load calibration table here.
+    	String fileName = getCalibrationFileName(strategy, accuracy, calibrationPath);
+    	
+    	File calibrationFile = new File(fileName);
+    	CalibrationTable calibrationTable = CalibrationTable.load(calibrationFile);
+    	
+    	if (calibrationTable != null) {
+    		strategy.setCalibrationTable(calibrationTable);
+    	} else {
+    		// TODO Fix resource strategies such that initialization is not required before calibration
+    		strategy.initializeStrategy(accuracy, 0);
+    		
+    		calibrationTable = strategy.calibrate();
+    		calibrationTable.save(calibrationFile);
+    	}
+    	
+    	strategy.initializeStrategy(accuracy, procRate);
 
         org.palladiosimulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry.singleton()
                 .registerStrategyFor(resourceType, strategy);

@@ -2,8 +2,8 @@ package org.palladiosimulator.protocom.framework.java.ee.prototype;
 
 import java.util.HashMap;
 
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.IDemandStrategy;
-import org.palladiosimulator.protocom.resourcestrategies.ee.activeresource.ResourceTypeEnum;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;
 
 /**
  * 

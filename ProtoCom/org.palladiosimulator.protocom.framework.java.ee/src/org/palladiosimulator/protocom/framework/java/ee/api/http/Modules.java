@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.api.rest;
+package org.palladiosimulator.protocom.framework.java.ee.api.http;
 
 import java.net.URI;
 import java.util.LinkedList;

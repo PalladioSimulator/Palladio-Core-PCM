@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework.java.ee.api.rest;
+package org.palladiosimulator.protocom.framework.java.ee.api.http;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.GET;

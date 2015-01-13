@@ -74,7 +74,7 @@ lib/xml-apis-1.0.b2.jar -> WEB-INF/lib
 # Libraries (ProtoCom)
 
 lib/org.palladiosimulator.protocom.framework.java.ee.jar -> WEB-INF/lib
-lib/org.palladiosimulator.protocom.resourcestrategies.ee.jar -> WEB-INF/lib
+lib/org.palladiosimulator.protocom.resourcestrategies.jar -> WEB-INF/lib
 
 # Libraries (Sensor Framework)
 

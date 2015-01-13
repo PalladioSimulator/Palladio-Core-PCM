@@ -14,6 +14,8 @@ import javax.measure.unit.Unit;
 
 import org.apache.log4j.Logger;
 import org.jscience.physics.amount.Amount;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.CalibrationTable;
+import org.palladiosimulator.protocom.resourcestrategies.activeresource.ICalibrationListener;
 
 /**
  * Abstract superclass of all active demand strategies.
@@ -62,12 +64,14 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
     private Amount<ProcessingRate> processingRate;
 
-    private File configFile = null;
+//    private File configFile = null;
+    private ICalibrationListener listener;
+    private boolean debug;
 
     protected DegreeOfAccuracyEnum degreeOfAccuracy;
     private static final Logger LOGGER = Logger.getLogger(AbstractDemandStrategy.class.getName());
 
-    private static final String CALIBRATION_PATH = "../ProtoComCalibration/";
+    //private static final String CALIBRATION_PATH = "../ProtoComCalibration/";
 
     // define constants
     private static final int[] CALIBRATION_CYCLES = {
@@ -111,22 +115,22 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      */
     @Override
     public void initializeStrategy(DegreeOfAccuracyEnum degree, double initProcessingRate) {
-        LOGGER.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "
-                + degree.name());
+        //LOGGER.info("Initialising " + getName() + " " + getStrategysResource().name() + "  strategy with accuracy "
+        //        + degree.name());
 
         this.degreeOfAccuracy = degree;
         this.processingRate = Amount.valueOf(initProcessingRate, ProcessingRate.UNIT);
-        this.configFile = new File(getCalibrationFileName());
+        //this.configFile = new File(getCalibrationFileName());
 
-        CalibrationTable loadedCalibration = CalibrationTable.load(configFile);
+        //CalibrationTable loadedCalibration = CalibrationTable.load(configFile);
 
-        if (loadedCalibration != null) {
+        /*if (loadedCalibration != null) {
             calibrationTable = loadedCalibration;
 
         } else {
             calibrate();
-        }
-        LOGGER.debug(getName() + " " + getStrategysResource().name() + " strategy initialised");
+        }*/
+        //LOGGER.debug(getName() + " " + getStrategysResource().name() + " strategy initialised");
     }
 
     /**
@@ -194,51 +198,51 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
     @Override
     public abstract String getName();
 
-    /**
-     * Returns the name of the file used to store the calibration table Filename depends on
-     * paramters of this class
-     * 
-     * @return The calibration table file name
-     */
-    protected String getCalibrationFileName() {
-        return getCalibrationPath() + "/" + getName() + "_" + CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_"
-                + this.degreeOfAccuracy.name() + ".ser";
-    }
+//    /**
+//     * Returns the name of the file used to store the calibration table Filename depends on
+//     * paramters of this class
+//     * 
+//     * @return The calibration table file name
+//     */
+//    protected String getCalibrationFileName() {
+//        return getCalibrationPath() + "/" + getName() + "_" + CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE + "_"
+//                + this.degreeOfAccuracy.name() + ".ser";
+//    }
 
-    /**
-     * Query the calibration path from the properties of this object
-     * 
-     * @return The file system path used to load and store the calibration data, or the current
-     *         working directory if it is not set
-     */
-    protected File getCalibrationPath() {
-        String pathString = null;
-
-        // Check whether properties have been set externally or not
-        if (properties != null) {
-            pathString = properties.getProperty(CALIBRATION_PATH_CONFIG_KEY) + "/";
-        } else {
-            pathString = CALIBRATION_PATH;
-        }
-
-        // create File object
-        File path = null;
-        if (pathString != null) {
-            path = new File(pathString);
-        }
-
-        // Create path if it does not exist
-        if (!path.exists()) {
-            if (path.mkdirs()) {
-                LOGGER.info("Created Calibration Path " + path);
-            } else {
-                LOGGER.error("Could not create " + path
-                        + ". Assure you have the rights to create and write to this folder.");
-                System.exit(0);
-            }
-        }
-        return path;
-    }
+//    /**
+//     * Query the calibration path from the properties of this object
+//     * 
+//     * @return The file system path used to load and store the calibration data, or the current
+//     *         working directory if it is not set
+//     */
+//    protected File getCalibrationPath() {
+//        String pathString = null;
+//
+//        // Check whether properties have been set externally or not
+//        if (properties != null) {
+//            pathString = properties.getProperty(CALIBRATION_PATH_CONFIG_KEY) + "/";
+//        } else {
+//            pathString = CALIBRATION_PATH;
+//        }
+//
+//        // create File object
+//        File path = null;
+//        if (pathString != null) {
+//            path = new File(pathString);
+//        }
+//
+//        // Create path if it does not exist
+//        if (!path.exists()) {
+//            if (path.mkdirs()) {
+//                LOGGER.info("Created Calibration Path " + path);
+//            } else {
+//                LOGGER.error("Could not create " + path
+//                        + ". Assure you have the rights to create and write to this folder.");
+//                System.exit(0);
+//            }
+//        }
+//        return path;
+//    }
 
     /**
      * Template method. This starts running the strategy with the parameter load
@@ -253,9 +257,28 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
      * Create a new calibration table for this host by measuring the execution times of our
      * algorithm and creating an according calibration table
      */
-    private void calibrate() {
+    @Override
+    public CalibrationTable calibrate() {
         this.calibrationTable = new CalibrationTable();
 
+        if (debug) {
+        	LOGGER.debug("Debugging calibration");
+        	
+        	for (int i = 0; i < 10; i++) {
+        		try {
+					Thread.sleep(750);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+
+        		listener.progressChanged(this, (i + 1) / 10.0f);
+        		calibrationTable.addEntry(i, Amount.valueOf(1, SI.MILLI(SI.SECOND)), 0);
+        	}
+
+        	return calibrationTable;
+        }
+        
+        // Run warm up cycles.
         for (int i = 0; i < warmUpCycles; i++) {
             run(defaultIterationCount);
         }
@@ -269,11 +292,43 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
                 // TODO: This is smart, but absolutely not maintainable...
                 targetTime = recalibrate(parameter, i);
             }
+            
+            if (listener != null) {
+            	float progress = (float) i / (calibrationTable.size() - 1);
+            	listener.progressChanged(this, progress);
+            }
 
             calibrationTable.addEntry(i, targetTime, parameter);
             LOGGER.info(calibrationTable.getEntry(i));
         }
-        calibrationTable.save(configFile);
+        //calibrationTable.save(configFile);
+        
+        return calibrationTable;
+    }
+    
+    @Override
+	public void setCalibrationListener(ICalibrationListener listener) {
+    	this.listener = listener;
+    }
+    
+    @Override
+	public void setCalibrationTable(CalibrationTable table) {
+    	this.calibrationTable = table;
+    }
+
+    @Override
+	public boolean hasCalibrationTable() {
+    	return calibrationTable != null;
+    }
+
+    @Override
+	public void setDebug(boolean enable) {
+    	this.debug = enable;
+    }
+    
+    @Override
+    public boolean debugEnabled() {
+    	return debug;
     }
 
     /**

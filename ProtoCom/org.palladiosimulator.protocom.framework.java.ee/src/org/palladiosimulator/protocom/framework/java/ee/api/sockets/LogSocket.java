@@ -12,7 +12,7 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
 import org.apache.log4j.Logger;
-import org.palladiosimulator.protocom.framework.java.ee.api.rest.data.LogData;
+import org.palladiosimulator.protocom.framework.java.ee.api.http.data.LogData;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.main.LogMessage;
 import org.palladiosimulator.protocom.framework.java.ee.main.WebAppender;

@@ -24,7 +24,7 @@ import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
  */
 public class ProtoComModule extends ServletModule {
 	private static final String apiPackage =
-		"org.palladiosimulator.protocom.framework.java.ee.api.rest";
+		"org.palladiosimulator.protocom.framework.java.ee.api.http";
 
 	@Override
 	protected void configureServlets() {
@@ -36,7 +36,7 @@ public class ProtoComModule extends ServletModule {
 	}
 
 	/**
-	 * Binds each REST API class to its respective path.
+	 * Binds each HTTP API class to its respective path.
 	 */
 	private void registerApi() {
 		ResourceConfig config = new PackagesResourceConfig(apiPackage);
