@@ -9,8 +9,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.SimpleLayout;
 import org.junit.Before;
 import org.junit.Test;
-import org.palladiosimulator.protocom.framework.strategies.PassiveResource;
-import org.palladiosimulator.protocom.framework.strategies.PassiveResourceRegistry;
+import org.palladiosimulator.protocom.framework.java.se.strategies.PassiveResource;
+import org.palladiosimulator.protocom.framework.java.se.strategies.PassiveResourceRegistry;
 
 public class PassiveResourcesTest {
     private static final int CAPACITY = 1;

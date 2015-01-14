@@ -24,7 +24,7 @@ class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
 	}
 	
 	override interfaces() {
-		#["org.palladiosimulator.protocom.framework.IPerformancePrototypeComponent"]
+		#["org.palladiosimulator.protocom.framework.java.se.IPerformancePrototypeComponent"]
 	}
 	
 	override methods() {

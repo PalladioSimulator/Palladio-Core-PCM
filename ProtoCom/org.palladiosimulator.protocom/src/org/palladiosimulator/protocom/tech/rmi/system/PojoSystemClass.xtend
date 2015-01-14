@@ -55,13 +55,13 @@ class PojoSystemClass extends PojoComposedStructureClass<System> {
 		results +=  pcmEntity.assemblyContexts__ComposedStructure.map[  //  PcmCommons::getProvidedDelegationConnector(pcmEntity).map[
 			new JField()
 				.withName("my" + JavaNames::javaName(it))
-				.withType("org.palladiosimulator.protocom.framework.port.IPerformancePrototypePort<" + JavaNames::fqn(it.encapsulatedComponent__AssemblyContext) + ">")
+				.withType("org.palladiosimulator.protocom.framework.java.se.port.IPerformancePrototypePort<" + JavaNames::fqn(it.encapsulatedComponent__AssemblyContext) + ">")
 		]
 		
 //		results += PcmCommons::getRequiredDelegationConnector(pcmEntity).map[
 //			new JField()
 //				.withName("my" + JavaNames::javaName((it as RequiredDelegationConnector).assemblyContext_RequiredDelegationConnector))
-//				.withType("org.palladiosimulator.protocom.framework.port.IPerformancePrototypePort<" + JavaNames::fqn((it as RequiredDelegationConnector).assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext) + ">")
+//				.withType("org.palladiosimulator.protocom.framework.java.se.port.IPerformancePrototypePort<" + JavaNames::fqn((it as RequiredDelegationConnector).assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext) + ">")
 //		]
 
 		results
@@ -81,13 +81,13 @@ class PojoSystemClass extends PojoComposedStructureClass<System> {
 «««						NOTE! This might go horribly wrong when a component provides InfrastructureProvided *AND* OperationProvidedRoles at the same time!
 						«FOR assemblyContext : pcmEntity.assemblyContexts__ComposedStructure»
 							«IF assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].size > 0»
-								my«JavaNames::javaName(assemblyContext)» = (org.palladiosimulator.protocom.framework.port.IPerformancePrototypePort<«JavaNames::fqn(assemblyContext.encapsulatedComponent__AssemblyContext)»>) org.palladiosimulator.protocom.framework.registry.RmiRegistry.lookup("«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»");
+								my«JavaNames::javaName(assemblyContext)» = (org.palladiosimulator.protocom.framework.java.se.port.IPerformancePrototypePort<«JavaNames::fqn(assemblyContext.encapsulatedComponent__AssemblyContext)»>) org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.lookup("«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»");
 							«ENDIF»
 						«ENDFOR»
 						
 						«FOR assemblyContext : pcmEntity.assemblyContexts__ComposedStructure»
 							«IF assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[InfrastructureProvidedRole.isInstance(it)].size > 0»
-								my«JavaNames::javaName(assemblyContext)» = (org.palladiosimulator.protocom.framework.port.IPerformancePrototypePort<«JavaNames::fqn(assemblyContext.encapsulatedComponent__AssemblyContext)»>) org.palladiosimulator.protocom.framework.registry.RmiRegistry.lookup("«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[InfrastructureProvidedRole.isInstance(it)].get(0) as InfrastructureProvidedRole)»_«assemblyContext.id»");
+								my«JavaNames::javaName(assemblyContext)» = (org.palladiosimulator.protocom.framework.java.se.port.IPerformancePrototypePort<«JavaNames::fqn(assemblyContext.encapsulatedComponent__AssemblyContext)»>) org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.lookup("«JavaNames::portClassName(assemblyContext.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity.filter[InfrastructureProvidedRole.isInstance(it)].get(0) as InfrastructureProvidedRole)»_«assemblyContext.id»");
 							«ENDIF»
 						«ENDFOR»
 						
@@ -108,13 +108,13 @@ class PojoSystemClass extends PojoComposedStructureClass<System> {
 				.withParameters("String... args")
 				.withStaticModifier		
 				.withImplementation('''
-					String ip = org.palladiosimulator.protocom.framework.registry.RmiRegistry.getIpFromArguments(args);
-					int port = org.palladiosimulator.protocom.framework.registry.RmiRegistry.getPortFromArguments(args);
+					String ip = org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.getIpFromArguments(args);
+					int port = org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.getPortFromArguments(args);
 					
-					String assemblyContext = org.palladiosimulator.protocom.framework.AbstractMain.getAssemblyContextFromArguments(args);
+					String assemblyContext = org.palladiosimulator.protocom.framework.java.se.AbstractMain.getAssemblyContextFromArguments(args);
 					
-					org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(ip);
-					org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRegistryPort(port);
+					org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.setRemoteAddress(ip);
+					org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.setRegistryPort(port);
 					
 					new «JavaNames::fqn(pcmEntity)»(assemblyContext);
 				''')

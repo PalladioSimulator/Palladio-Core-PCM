@@ -29,7 +29,7 @@ class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
 	}
 	
 	override superClass() {
-		'''org.palladiosimulator.protocom.framework.port.AbstractPerformancePrototypeBasicPort<«JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)»>'''
+		'''org.palladiosimulator.protocom.framework.java.se.port.AbstractPerformancePrototypeBasicPort<«JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)»>'''
 	}
 	
 	override packageName() {
@@ -50,11 +50,11 @@ class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
 				.withParameters(JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole) + " myComponent, String assemblyContext")
 				.withThrows("java.rmi.RemoteException")
 				.withImplementation('''
-					addVisitor(org.palladiosimulator.protocom.framework.visitor.SensorFrameworkVisitor.getInstance());
+					addVisitor(org.palladiosimulator.protocom.framework.java.se.visitor.SensorFrameworkVisitor.getInstance());
 				
 					this.myComponent = myComponent;
-					org.palladiosimulator.protocom.framework.registry.RmiRegistry.registerPort(org.palladiosimulator.protocom.framework.registry.RmiRegistry.getRemoteAddress(),
-					org.palladiosimulator.protocom.framework.registry.RmiRegistry.getRegistryPort(), this, "«JavaNames::portClassName(pcmEntity)»_" + assemblyContext);
+					org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.registerPort(org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.getRemoteAddress(),
+					org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.getRegistryPort(), this, "«JavaNames::portClassName(pcmEntity)»_" + assemblyContext);
 					''')
 		]
 	}

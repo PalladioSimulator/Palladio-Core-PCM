@@ -16,7 +16,7 @@ class PojoSystemMain extends PojoClass<UsageScenario> {
 	}
 	
 	override superClass() {
-		"org.palladiosimulator.protocom.framework.AbstractMain"
+		"org.palladiosimulator.protocom.framework.java.se.AbstractMain"
 	}
 		
 	override packageName() {

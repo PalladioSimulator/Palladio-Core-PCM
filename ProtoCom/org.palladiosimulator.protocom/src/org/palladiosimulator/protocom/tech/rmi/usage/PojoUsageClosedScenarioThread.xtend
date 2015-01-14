@@ -15,13 +15,13 @@ class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
 	}
 	
 	override superClass() {
-		'''org.palladiosimulator.protocom.framework.usage.AbstractClosedScenarioThread'''
+		'''org.palladiosimulator.protocom.framework.java.se.usage.AbstractClosedScenarioThread'''
 	}
 	
 	override constructors() {
 		#[
 			new JMethod()
-				.withParameters('''de.uka.ipd.sdq.sensorframework.entities.Experiment exp, de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun, org.palladiosimulator.protocom.framework.utils.RunProperties runProps''')
+				.withParameters('''de.uka.ipd.sdq.sensorframework.entities.Experiment exp, de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun, org.palladiosimulator.protocom.framework.java.se.utils.RunProperties runProps''')
 				.withImplementation('''super(exp, expRun, "Response Time of «pcmEntity.entityName»", runProps);''')
 		]
 	}
@@ -34,14 +34,14 @@ class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
 		#[
 			new JMethod()
 				.withName("getScenarioRunner")
-				.withParameters("org.palladiosimulator.protocom.framework.utils.RunProperties runProps")
+				.withParameters("org.palladiosimulator.protocom.framework.java.se.utils.RunProperties runProps")
 				.withReturnType("Runnable")
 				.withImplementation('''
 					if (runProps.hasOption('R')) {
-						org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+						org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
 					}
 					else {
-						org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(org.palladiosimulator.protocom.framework.registry.RmiRegistry.LOCALHOST);
+						org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.setRemoteAddress(org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.LOCALHOST);
 					}
 					return new «JavaNames::fqn(pcmEntity)»();
 				''')

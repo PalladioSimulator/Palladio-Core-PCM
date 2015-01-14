@@ -41,7 +41,7 @@ class PojoManifest extends PojoMFFile<System>{
  org.jscience,
  org.palladiosimulator.probeframework,
  org.palladiosimulator.recorderframework,		
- org.palladiosimulator.protocom.framework,
+ org.palladiosimulator.protocom.framework.java.se,
  org.palladiosimulator.protocom.resourcestrategies,
  org.junit,
  de.uka.ipd.sdq.stoex,

@@ -138,13 +138,13 @@ class PojoBasicComponentClass extends PojoClass<BasicComponent> {
 			.withParameters("String[] args")
 			.withStaticModifier		
 			.withImplementation('''
-				String ip = org.palladiosimulator.protocom.framework.registry.RmiRegistry.getIpFromArguments(args);
-				int port = org.palladiosimulator.protocom.framework.registry.RmiRegistry.getPortFromArguments(args);
+				String ip = org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.getIpFromArguments(args);
+				int port = org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.getPortFromArguments(args);
 				
-				String assemblyContext = org.palladiosimulator.protocom.framework.AbstractMain.getAssemblyContextFromArguments(args);
+				String assemblyContext = org.palladiosimulator.protocom.framework.java.se.AbstractMain.getAssemblyContextFromArguments(args);
 				
-				org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(ip);
-				org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRegistryPort(port);
+				org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.setRemoteAddress(ip);
+				org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.setRegistryPort(port);
 				
 				new «JavaNames::fqn(pcmEntity)»(assemblyContext);
 			''')

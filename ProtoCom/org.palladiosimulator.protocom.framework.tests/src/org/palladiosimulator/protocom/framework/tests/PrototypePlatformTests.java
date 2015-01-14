@@ -11,7 +11,7 @@ import org.apache.log4j.Category;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;
-import org.palladiosimulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry;
+import org.palladiosimulator.protocom.framework.java.se.strategies.DemandConsumerStrategiesRegistry;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum;

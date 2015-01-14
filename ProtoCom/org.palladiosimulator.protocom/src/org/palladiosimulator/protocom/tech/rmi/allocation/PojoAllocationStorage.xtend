@@ -15,7 +15,7 @@ class PojoAllocationStorage extends PojoClass<Allocation> {
 	}
 	
 	override superClass() {
-		"org.palladiosimulator.protocom.framework.AbstractAllocationStorage"
+		"org.palladiosimulator.protocom.framework.java.se.AbstractAllocationStorage"
 	}
 	
 	override packageName() {

@@ -19,7 +19,7 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 	}
 	
 	override superClass() {
-		"org.palladiosimulator.protocom.framework.AbstractResourceEnvironment"
+		"org.palladiosimulator.protocom.framework.java.se.AbstractResourceEnvironment"
 	}
 	
 	override packageName() {
@@ -37,7 +37,7 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 				.withParameters("String cpuStrategy, String hddStrategy, String calibrationPath, org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum accuracy")
 				.withStaticModifier
 				.withImplementation('''
-					String idContainer = org.palladiosimulator.protocom.framework.AbstractAllocationStorage.getActiveContainer();
+					String idContainer = org.palladiosimulator.protocom.framework.java.se.AbstractAllocationStorage.getActiveContainer();
 					«FOR container : pcmEntity.resourceContainer_ResourceEnvironment SEPARATOR " else"»
 					// Active resources of container «container.entityName»
 					if (idContainer.equals("«container.id»")) {

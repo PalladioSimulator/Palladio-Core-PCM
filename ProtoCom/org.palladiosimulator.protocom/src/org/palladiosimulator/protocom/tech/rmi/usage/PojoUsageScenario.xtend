@@ -31,7 +31,7 @@ class PojoUsageScenario extends PojoClass<UsageScenario> {
 						«ENDFOR»
 					}
 
-					expRun = org.palladiosimulator.protocom.framework.experiment.ExperimentManager.getLatestExperimentRun();
+					expRun = org.palladiosimulator.protocom.framework.java.se.experiment.ExperimentManager.getLatestExperimentRun();
 					ctx.getStack().createAndPushNewStackFrame();
 
 					de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory probFunctionFactory = de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl.getInstance();
@@ -44,7 +44,7 @@ class PojoUsageScenario extends PojoClass<UsageScenario> {
 	
 	def String contextInit(OperationProvidedRole role) {
 		'''
-		«JavaNames::portMemberVar(role)» = («JavaNames::fqn(role.providedInterface__OperationProvidedRole)»)org.palladiosimulator.protocom.framework.registry.RmiRegistry.lookup("«JavaNames::portClassName(role)»_");
+		«JavaNames::portMemberVar(role)» = («JavaNames::fqn(role.providedInterface__OperationProvidedRole)»)org.palladiosimulator.protocom.framework.java.se.registry.RmiRegistry.lookup("«JavaNames::portClassName(role)»_");
 		'''
 	}
 	
