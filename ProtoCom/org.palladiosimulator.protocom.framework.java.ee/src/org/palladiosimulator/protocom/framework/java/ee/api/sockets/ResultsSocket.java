@@ -16,7 +16,7 @@ import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 
 @ServerEndpoint("/ws/results")
 public class ResultsSocket extends WebSocket {
-	private static Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
+	private static final Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
 
 	public static void update(ExperimentData data) {
 		sendToAll(sessions, JsonHelper.toJson(data));

@@ -22,7 +22,7 @@ import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
  */
 @ServerEndpoint("/ws/calibration")
 public class CalibrationSocket extends WebSocket {
-	private static Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
+	private static final Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
 
 	private static int lastProgress;
 	private static String lastMessage;

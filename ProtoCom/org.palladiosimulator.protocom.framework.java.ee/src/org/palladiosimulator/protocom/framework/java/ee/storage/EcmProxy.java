@@ -52,17 +52,14 @@ public class EcmProxy {
 		throws Exception {
 
 		// Create an options class instance.
-
 		Class<?> optionsClass = Class.forName("com.sap.ecm.api.RepositoryOptions");
 		Object options = optionsClass.newInstance();
 
 		// Get the enum field for the desired visibility.
-
 		Class<?> enumClass = Class.forName("com.sap.ecm.api.RepositoryOptions$Visibility");
 		Object visibility = enumClass.getField("PROTECTED").get(null);
 
 		// Set the properties and create the repository.
-
 		invoke(options, "setUniqueName", name);
 		invoke(options, "setRepositoryKey", key);
 		invoke(options, "setVisibility", visibility);

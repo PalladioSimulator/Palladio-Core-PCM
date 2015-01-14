@@ -37,17 +37,14 @@ public class Modules {
 			modules = new LinkedList<Module>();
 
 			// Add containers to the list.
-
 			for (PrototypeBridge.Container container : bridge.getContainers()) {
 				String id = container.getId();
-				String name = container.getName();
 				PrototypeBridge.Allocation[] allocations = bridge.getAllocations(id);
 
 				modules.add(new ContainerModule(container, allocations));
 			}
 
 			// Add system to the list.
-
 			PrototypeBridge.System system = bridge.getSystem();
 			modules.add(new SystemModule(system.getName(), system.getClassName()));
 		}

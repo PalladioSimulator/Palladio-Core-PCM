@@ -35,30 +35,13 @@ class StartTime {
  */
 @Singleton
 public final class ExperimentVisitor implements ICallVisitor {
-
-	// Singleton fields and methods.
-
-	private static ExperimentVisitor instance;
-
-	public static ExperimentVisitor getInstance() {
-		if (instance == null) {
-			instance = new ExperimentVisitor();
-		}
-
-		return instance;
-	}
-
 	public ExperimentVisitor() {
 	}
-
-	//
-
-	//private ExperimentManager manager = ExperimentManager.getInstance();
-
+	
 	@Inject
 	private IExperiment experiment;
 
-	private Stack<StartTime> startTimes = new Stack<StartTime>();
+	private final Stack<StartTime> startTimes = new Stack<StartTime>();
 
 	@Override
 	public void preCallVisit(String callId) {

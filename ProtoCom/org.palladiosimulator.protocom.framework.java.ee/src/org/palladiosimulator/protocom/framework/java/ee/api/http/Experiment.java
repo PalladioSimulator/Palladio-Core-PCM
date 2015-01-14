@@ -13,7 +13,7 @@ public class Experiment {
 	@Inject
 	private org.palladiosimulator.protocom.framework.java.ee.experiment.IExperiment experiment;
 
-	private static ConcurrentHashMap<String, Long> startTimes;
+	private static final ConcurrentHashMap<String, Long> startTimes;
 	private static String scenarioName = "Scenario";
 
 	static {

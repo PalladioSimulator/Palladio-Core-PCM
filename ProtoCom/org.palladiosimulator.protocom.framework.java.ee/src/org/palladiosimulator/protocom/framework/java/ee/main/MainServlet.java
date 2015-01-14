@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 public abstract class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static Logger LOGGER = Logger.getRootLogger();
+	private static final Logger LOGGER = Logger.getRootLogger();
 	private static DefaultRandomGenerator generator;
 
 	private boolean firstRequest = true;
@@ -55,7 +55,6 @@ public abstract class MainServlet extends HttpServlet {
 		super();
 
 		// Initialize logging.
-
 		LOGGER.removeAllAppenders();
 		LOGGER.addAppender(new WebAppender());
 
@@ -70,7 +69,6 @@ public abstract class MainServlet extends HttpServlet {
 		Injector injector = Guice.createInjector(new ProtoComModule());
 
 		// Get an instance of the bridge and initialize the prototype.
-
 		PrototypeBridge bridge = injector.getInstance(PrototypeBridge.class);
 		initPrototype(bridge);
 	}

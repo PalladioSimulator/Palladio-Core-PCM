@@ -8,8 +8,8 @@ import java.lang.reflect.Method;
  * @author Christian Klaussner
  */
 public class LocalStub implements InvocationHandler {
-	private String location;
-	private String path;
+	private final String location;
+	private final String path;
 	
 	/**
 	 * Constructs a new RemoteStub object.

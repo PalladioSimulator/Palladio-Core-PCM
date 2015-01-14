@@ -5,8 +5,8 @@ package org.palladiosimulator.protocom.framework.java.ee.protocol;
  * @author Christian Klaussner
  */
 public class Parameter {
-	private String name;
-	private String value;
+	private final String name;
+	private final String value;
 	
 	/**
 	 * Constructs a new Parameter object.

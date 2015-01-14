@@ -10,7 +10,7 @@ import org.palladiosimulator.protocom.resourcestrategies.activeresource.Resource
  * @author Christian Klaussner
  */
 public final class StrategiesRegistry {
-	private static StrategiesRegistry instance = new StrategiesRegistry();
+	private static final StrategiesRegistry instance = new StrategiesRegistry();
     private final HashMap<ResourceTypeEnum, IDemandStrategy> strategies = new HashMap<ResourceTypeEnum, IDemandStrategy>();
 
     /**

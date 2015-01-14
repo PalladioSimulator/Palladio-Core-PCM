@@ -8,8 +8,9 @@ package org.palladiosimulator.protocom.framework.java.ee.modules;
  * @author Christian Klaussner
  */
 public abstract class Module {
-	private String id;
-	private String name, displayName;
+	private final String id;
+	private final String name;
+	private String displayName;
 	private boolean started;
 
 	/**

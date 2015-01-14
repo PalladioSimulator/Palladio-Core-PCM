@@ -32,10 +32,10 @@ public final class PrototypeBridge {
 	}
 
 	public class Container {
-		private String id;
-		private String name;
-		private String cpuRate;
-		private String hddRate;
+		private final String id;
+		private final String name;
+		private final String cpuRate;
+		private final String hddRate;
 
 		/**
 		 * Constructs a new Container object.
@@ -68,11 +68,10 @@ public final class PrototypeBridge {
 		}
 	}
 
-
 	public class Allocation {
-		private String containerId;
-		private Class<?> componentClass;
-		private String assemblyContext;
+		private final String containerId;
+		private final Class<?> componentClass;
+		private final String assemblyContext;
 
 		/**
 		 * Constructs a new Allocation object.

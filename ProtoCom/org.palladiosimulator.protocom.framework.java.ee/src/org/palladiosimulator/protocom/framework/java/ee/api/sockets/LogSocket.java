@@ -23,7 +23,7 @@ import org.palladiosimulator.protocom.framework.java.ee.main.WebAppender;
  */
 @ServerEndpoint("/ws/log")
 public class LogSocket extends WebSocket {
-	private static Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
+	private static final Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
 
 	/**
 	 *

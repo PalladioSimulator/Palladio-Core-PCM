@@ -10,7 +10,7 @@ import java.util.HashMap;
 public final class LocalComponentRegistry {
 	private static LocalComponentRegistry instance;
 	
-	private HashMap<String, Object> components;
+	private final HashMap<String, Object> components;
 	
 	/**
 	 * Private constructor.

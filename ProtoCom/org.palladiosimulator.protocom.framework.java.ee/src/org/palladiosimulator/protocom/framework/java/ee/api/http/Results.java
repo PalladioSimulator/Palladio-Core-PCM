@@ -94,7 +94,6 @@ public class Results {
 	public Response deleteResult(@PathParam("id") String id) {
 
 		// Delete all result files of the experiment.
-
 		try {
 			String root = "results/" + id;
 
@@ -108,7 +107,6 @@ public class Results {
 		}
 
 		// Reset the experiment if it is currently initialized.
-
 		if (id.equals(experiment.getId())) {
 			experiment.reset();
 		}

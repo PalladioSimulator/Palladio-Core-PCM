@@ -19,8 +19,8 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 public class ContainerModule extends Module {
 	private static final Logger LOGGER = Logger.getRootLogger();
 
-	private PrototypeBridge.Container container;
-	private PrototypeBridge.Allocation[] allocations;
+	private final PrototypeBridge.Container container;
+	private final PrototypeBridge.Allocation[] allocations;
 
 	/**
 	 * Constructs a new ContainerModule object.

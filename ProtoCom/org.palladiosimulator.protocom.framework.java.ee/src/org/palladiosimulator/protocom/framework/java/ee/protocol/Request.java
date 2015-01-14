@@ -19,7 +19,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
  * @author Christian Klaussner
  */
 public class Request {
-	
 	/**
 	 * Performs a synchronous POST request at the given URL (concatenation of location and path).
 	 * @param location the location part of the request URL

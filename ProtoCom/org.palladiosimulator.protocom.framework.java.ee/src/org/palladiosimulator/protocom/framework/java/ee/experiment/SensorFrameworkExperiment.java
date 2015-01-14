@@ -76,7 +76,6 @@ public final class SensorFrameworkExperiment implements IExperiment {
 	public void reset() {
 
 		// Remove previous sensors and the data source.
-
 		sensors.clear();
 
 		if (dataSource != null) {
@@ -88,7 +87,6 @@ public final class SensorFrameworkExperiment implements IExperiment {
 		}
 
 		// Create a new temporary folder and data source.
-
 		tempFolder = getTempFolder();
 		fetchExperiment(experimentId, tempFolder);
 
@@ -127,7 +125,6 @@ public final class SensorFrameworkExperiment implements IExperiment {
 		storeExperiment(experimentId, tempFolder);
 
 		// Store experiment metadata.
-
 		ExperimentData data = new ExperimentData();
 
 		data.setId(experimentId);
@@ -187,7 +184,7 @@ public final class SensorFrameworkExperiment implements IExperiment {
 	}
 
 	// The following methods are used for copying experiment data back and forth between
-	// storage and file system. They may be removed when replacing the Sensor Framework.
+	// storage and file system. May be replaced by a custom DAO factory.
 
 	/**
 	 *
@@ -230,7 +227,6 @@ public final class SensorFrameworkExperiment implements IExperiment {
 			}
 
 			// Copy the remaining files that don't exist in the storage.
-
 			for (String file : new File(source).list()) {
 				if (storage.fileExists(destination + file)) {
 					continue;

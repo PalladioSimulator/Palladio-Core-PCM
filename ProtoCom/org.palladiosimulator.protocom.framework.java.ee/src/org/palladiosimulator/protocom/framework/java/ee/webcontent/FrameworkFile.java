@@ -3,8 +3,8 @@ package org.palladiosimulator.protocom.framework.java.ee.webcontent;
 import java.net.URL;
 
 public class FrameworkFile {
-	private URL url;
-	private String path;
+	private final URL url;
+	private final String path;
 
 	public FrameworkFile(URL url, String path) {
 		this.url = url;

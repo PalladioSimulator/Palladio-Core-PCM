@@ -11,9 +11,9 @@ import org.palladiosimulator.protocom.framework.java.ee.protocol.RegistryExcepti
  * @author Christian Klaussner
  */
 public class SystemModule extends Module {
-	private static Logger LOGGER = Logger.getRootLogger();
+	private static final Logger LOGGER = Logger.getRootLogger();
 
-	private String className;
+	private final String className;
 
 	/**
 	 * Constructs a new SystemModule object.

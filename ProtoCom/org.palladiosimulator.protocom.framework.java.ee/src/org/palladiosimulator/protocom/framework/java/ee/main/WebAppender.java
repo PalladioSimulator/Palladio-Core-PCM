@@ -21,7 +21,7 @@ public class WebAppender extends AppenderSkeleton {
 	private static final int CAPACITY = 100;
 	private static final PatternLayout LAYOUT = new PatternLayout("%d{HH:mm:ss} %p %m%n");
 
-	private LinkedList<LogMessage> messages;
+	private final LinkedList<LogMessage> messages;
 
 	/**
 	 * Constructs a new WebAppender object and sets its name to {@link NAME}.

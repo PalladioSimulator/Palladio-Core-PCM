@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Christian Klaussner
  */
 public class RegistryEntry {
-	private static ObjectMapper mapper = new ObjectMapper();
+	private static final ObjectMapper mapper = new ObjectMapper();
 	
 	private String name;
 	private Class<?>[] interfaces;

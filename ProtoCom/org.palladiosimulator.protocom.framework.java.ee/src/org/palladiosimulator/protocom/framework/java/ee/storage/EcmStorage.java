@@ -36,7 +36,7 @@ public class EcmStorage implements IStorage {
 	private static final String MIME = "application/octet-stream";
 	private static final Charset UTF_8 = Charset.forName("UTF-8");
 
-	private Session session;
+	private final Session session;
 
 	/**
 	 *
@@ -124,7 +124,7 @@ public class EcmStorage implements IStorage {
 	 *
 	 */
 	public EcmStorage() {
-		// TODO: Improve exception handling in case ECM is not available
+		// TODO Improve exception handling in case ECM is not available
 		session = EcmProxy.getSession(NAME, KEY);
 	}
 
