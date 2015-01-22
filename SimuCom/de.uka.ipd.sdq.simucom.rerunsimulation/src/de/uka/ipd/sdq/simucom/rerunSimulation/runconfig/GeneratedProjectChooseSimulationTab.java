@@ -106,14 +106,14 @@ public class GeneratedProjectChooseSimulationTab extends AbstractLaunchConfigura
         final Group gBelongsToProject = new Group(container, SWT.BORDER);
         final GridLayout glBelongsToProject = new GridLayout();
         GridData gDBelongsToProject = new GridData(SWT.FILL, SWT.CENTER, true, false);
-       
+
         glBelongsToProject.numColumns = 2;
         glBelongsToProject.makeColumnsEqualWidth = false;
-        
+
         gBelongsToProject.setLayout(glBelongsToProject);
         gBelongsToProject.setText("Base project information");
         gBelongsToProject.setLayoutData(gDBelongsToProject);
-        
+
         Label lBelongsToProject = new Label(gBelongsToProject, SWT.NONE);
         lBelongsToProject.setText("Base Project");
 
@@ -125,16 +125,15 @@ public class GeneratedProjectChooseSimulationTab extends AbstractLaunchConfigura
         final Group gModelFiles = new Group(container, SWT.BORDER);
         final GridLayout glModelFiles = new GridLayout();
         GridData gDModelFiles = new GridData(SWT.FILL, SWT.CENTER, true, false);
-       
+
         glModelFiles.numColumns = 2;
         glModelFiles.makeColumnsEqualWidth = false;
-        
+
         gModelFiles.setLayout(glModelFiles);
         gModelFiles.setText("Model Files");
         gModelFiles.setLayoutData(gDModelFiles);
         gModelFiles.setVisible(false);
-        
-        
+
         Label lAllocationFile = new Label(gModelFiles, SWT.NONE);
         lAllocationFile.setText("Allocation File");
         txtAllocationFile = new Text(gModelFiles, SWT.SINGLE | SWT.BORDER);
@@ -205,30 +204,6 @@ public class GeneratedProjectChooseSimulationTab extends AbstractLaunchConfigura
 
     @Override
     public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-        txtBelongsToProject.setText("");
-        txtGeneratedProject.setText("");
-        try {
-            txtRepositoryMiddlewareFile.setText(configuration.getAttribute(
-                    ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE, ""));
-        } catch (CoreException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            txtEventMiddlewareFile.setText(configuration.getAttribute(ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE,
-                    ""));
-        } catch (CoreException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            txtFeatureConfigFile.setText(configuration.getAttribute(
-                    ConstantsContainer.DEFAULT_FEATURE_CONFIGURATION_FILE, ""));
-        } catch (CoreException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
         configuration.setAttribute(ConstantsContainer.BASE_PROJECT_ID, "");
         configuration.setAttribute(ConstantsContainer.TEMPORARY_DATA_LOCATION,
                 ConstantsContainer.DEFAULT_TEMPORARY_DATA_LOCATION);
@@ -238,8 +213,12 @@ public class GeneratedProjectChooseSimulationTab extends AbstractLaunchConfigura
                 ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
         configuration.setAttribute(ConstantsContainer.RMI_MIDDLEWARE_REPOSITORY_FILE,
                 ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE);
-        configuration.setAttribute(ConstantsContainer.FEATURE_FILE,
+        configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
                 ConstantsContainer.DEFAULT_FEATURE_CONFIGURATION_FILE);
+        configuration.setAttribute(ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS, false);
+        configuration.setAttribute(ConstantsContainer.ANALYSE_ACCURACY, false);
+        configuration.setAttribute(ConstantsContainer.ACCURACY_QUALITY_ANNOTATION_FILE,
+                ConstantsContainer.DEFAULT_ACCURACY_QUALITY_ANNOTATION_FILE);
     }
 
     @Override
@@ -281,7 +260,7 @@ public class GeneratedProjectChooseSimulationTab extends AbstractLaunchConfigura
             e.printStackTrace();
         }
         try {
-            txtFeatureConfigFile.setText(configuration.getAttribute(ConstantsContainer.FEATURE_FILE,
+            txtFeatureConfigFile.setText(configuration.getAttribute(ConstantsContainer.FEATURE_CONFIG,
                     ConstantsContainer.DEFAULT_FEATURE_CONFIGURATION_FILE));
         } catch (CoreException e) {
             // TODO Auto-generated catch block
@@ -297,13 +276,16 @@ public class GeneratedProjectChooseSimulationTab extends AbstractLaunchConfigura
         configuration.setAttribute(ConstantsContainer.GENERATED_PROJECT_PATH, txtGeneratedProject.getText());
         configuration.setAttribute(ConstantsContainer.ALLOCATION_FILE, txtAllocationFile.getText());
         configuration.setAttribute(ConstantsContainer.USAGE_FILE, txtUsageModelFile.getText());
+        configuration.setAttribute(ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS, false);
+        configuration.setAttribute(ConstantsContainer.ANALYSE_ACCURACY, false);
+        configuration.setAttribute(ConstantsContainer.ACCURACY_QUALITY_ANNOTATION_FILE,
+                ConstantsContainer.DEFAULT_ACCURACY_QUALITY_ANNOTATION_FILE);
 
-        // TODO: Don't use the default values but the actual input models
         configuration.setAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE,
                 ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
         configuration.setAttribute(ConstantsContainer.RMI_MIDDLEWARE_REPOSITORY_FILE,
                 ConstantsContainer.DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE);
-        configuration.setAttribute(ConstantsContainer.FEATURE_FILE,
+        configuration.setAttribute(ConstantsContainer.FEATURE_CONFIG,
                 ConstantsContainer.DEFAULT_FEATURE_CONFIGURATION_FILE);
     }
 

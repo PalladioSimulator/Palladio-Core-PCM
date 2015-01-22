@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
-            delegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimulationWorkflowLauncher"
+            delegate="de.uka.ipd.sdq.simucom.rerunSimulation.runconfig.RerunSimuComWorkflowLauncher"
             id="de.uka.ipd.sdq.simucom.rerunSimulation.RerunSimulation"
             modes="run, debug"
             name="Rerun Simulation"
@@ -26,14 +26,6 @@
             id="de.uka.ipd.sdq.simucom.rerunSimulation.launchConfigurationTabGroup"
             type="de.uka.ipd.sdq.simucom.rerunSimulation.RerunSimulation">
       </launchConfigurationTabGroup>
-   </extension>
-   <extension
-         point="de.uka.ipd.sdq.codegen.simucontroller.simulator">
-      <simulator
-            id="de.uka.ipd.sdq.simucom.rerunSimulation.simulator"
-            launchDelegate="de.uka.ipd.sdq.simucom.rerunSimulation.runconfig.RerunSimulationWorkflowLauncher"
-            name="Rerun Simulation">
-      </simulator>
    </extension>
 
 
