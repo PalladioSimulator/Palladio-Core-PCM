@@ -92,13 +92,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
     private RecorderTabGroup recorderTabGroup;
     protected Composite container;
 
-    private String notUsedSimulator = ConstantsContainer.RERUN_SIMULATION_NAME;
-
     public SimuComConfigurationTab() {
-    }
-
-    public SimuComConfigurationTab(String notUsedSimulator) {
-        this.notUsedSimulator = notUsedSimulator;
     }
 
     /*
@@ -122,6 +116,31 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         setControl(container);
 
         /** Create Simulator section */
+        createSimulatorGroup();
+
+        /** Create Experiment Run section */
+        createExperimentRunGroup(modifyListener);
+
+        /** DataSet group */
+        createDataSetGroup();
+
+        /** Create Stop Conditions section */
+        createStopConditionGroup(modifyListener);
+
+        /** Create Confidence Stop Condition section */
+        createConfidenceStopConditionGroup(modifyListener);
+
+        /** Logging group */
+        createLoggingGroup();
+
+        /** Generator Seeds group */
+        createGeneratorSeedsGroup(modifyListener);
+    }
+
+    /**
+     * Creates the simulator group, the first section of the SimuComConfigurationTab
+     */
+    protected void createSimulatorGroup() {
         final Group simulatorGroup = new Group(container, SWT.NONE);
         simulatorGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         final GridLayout simulatorLayout = new GridLayout();
@@ -133,20 +152,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         simulatorLabel.setText("Simulator implementation:");
 
         String[] simulatorNames = null;
-        /*
-         * This part makes sure that only the Rerun Simulation simulator or the simucom simulator
-         * are available depending on the chosen simulation. Rerun Simulation doesn't work for the
-         * SimuBench, SimuCom Simulation doesn't work for the Rerun Simulation
-         */
-        List<String> simulatorNamesList = new ArrayList<String>();
         try {
             simulatorNames = SimulatorExtensionHelper.getSimulatorNames();
-            for (String name : simulatorNames) {
-                if (!name.equals(notUsedSimulator)) {
-                    simulatorNamesList.add(name);
-                }
-            }
-            simulatorNames = simulatorNamesList.toArray(new String[simulatorNamesList.size()]);
         } catch (CoreException e1) {
             if (LOGGER.isEnabledFor(Level.WARN)) {
                 LOGGER.warn("Could not retrieve names of simulator extensions.", e1);
@@ -161,8 +168,15 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
                 updateLaunchConfigurationDialog();
             }
         });
+    }
 
-        /** Create Experiment Run section */
+    /**
+     * Creates the experiment run group, the second section of the SimuComConfigurationTab
+     * 
+     * @param modifyListener
+     *            the ModifyListener which should be added to the elements
+     */
+    protected void createExperimentRunGroup(ModifyListener modifyListener) {
         final Group experimentrunGroup = new Group(container, SWT.NONE);
         experimentrunGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         final GridLayout gridLayout = new GridLayout();
@@ -178,8 +192,12 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         gd_nameField.widthHint = 70;
         nameField.setLayoutData(gd_nameField);
         nameField.addModifyListener(modifyListener);
+    }
 
-        /** DataSet group */
+    /**
+     * Creates the data set group, the third group of the SimuComConfigurationTab
+     */
+    protected void createDataSetGroup() {
         final Group persistenceGroup = new Group(container, SWT.NONE);
         persistenceGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         persistenceGroup.setLayout(new GridLayout(2, false));
@@ -203,8 +221,15 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         CTabFolder tabFolder = TabHelper.createTabFolder(recorderTabGroup, getLaunchConfigurationDialog(),
                 getLaunchConfigurationDialog().getMode(), persistenceGroup, SWT.BORDER | SWT.FLAT);
         tabFolder.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 2, 1));
+    }
 
-        /** Create Stop Conditions section */
+    /**
+     * Creates the stop condition group, the fourth section of the SimuComConfigurationTab
+     * 
+     * @param modifyListener
+     *            the ModifyListener which should be added to the elements
+     */
+    protected void createStopConditionGroup(ModifyListener modifyListener) {
         final Group stopConditionsGroup = new Group(container, SWT.NONE);
         stopConditionsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         final GridLayout gridLayout_1 = new GridLayout();
@@ -228,8 +253,15 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         maxMeasurementsField = new Text(stopConditionsGroup, SWT.BORDER);
         maxMeasurementsField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         maxMeasurementsField.addModifyListener(modifyListener);
+    }
 
-        /** Create Confidence Stop Condition section */
+    /**
+     * The confidence stop condition group, the fifth group of the SimuComConfigurationTab
+     * 
+     * @param modifyListener
+     *            the ModifyListener which should be added to the elements
+     */
+    protected void createConfidenceStopConditionGroup(ModifyListener modifyListener) {
         final Group confidenceGroup = new Group(container, SWT.NONE);
         confidenceGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         final GridLayout confidenceLayout = new GridLayout();
@@ -334,8 +366,12 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         minNumberOfBatchesField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
         minNumberOfBatchesField.addModifyListener(modifyListener);
         minNumberOfBatchesField.setEnabled(false);
+    }
 
-        /** Logging group */
+    /**
+     * The logging group, the sixth section of the SimuComConfigurationTab
+     */
+    protected void createLoggingGroup() {
         final Group loggingGroup = new Group(container, SWT.NONE);
         loggingGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
         loggingGroup.setText("Logging");
@@ -356,7 +392,16 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
             }
         });
         checkLoggingButton.setSelection(false);
+    }
 
+    /**
+     * The generator seeds group, previous in analysis configuration tab, now the last section of
+     * the SimuComConfigurationTab
+     * 
+     * @param modifyListener
+     *            the ModifyListener which should be added to the elements
+     */
+    protected void createGeneratorSeedsGroup(ModifyListener modifyListener) {
         final Group randomNumberGeneratorParametersGroup = new Group(container, SWT.NONE);
         randomNumberGeneratorParametersGroup.setText("Random Number Generator Seed");
         final GridData gd_randomNumberGeneratorParametersGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
@@ -459,22 +504,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
     public void initializeFrom(ILaunchConfiguration configuration) {
         recorderTabGroup.initializeFrom(configuration);
 
-        try {
-            String simulatorId = configuration.getAttribute(AbstractSimulationConfig.SIMULATOR_ID,
-                    AbstractSimulationConfig.DEFAULT_SIMULATOR_ID);
-            String simulatorName = SimulatorExtensionHelper.getSimulatorNameForId(simulatorId);
-            String[] items = simulatorCombo.getItems();
-            for (int i = 0; i < items.length; i++) {
-                String currentItemName = items[i];
-                if (currentItemName.equals(simulatorName)) {
-                    simulatorCombo.select(i);
-                }
-            }
-        } catch (CoreException e) {
-            if (LOGGER.isEnabledFor(Level.WARN)) {
-                LOGGER.warn("Could not initialise simulator selection.", e);
-            }
-        }
+        initializeSimulatorGroup(configuration);
 
         try {
             nameField.setText(configuration.getAttribute(AbstractSimulationConfig.EXPERIMENT_RUN, ""));
@@ -613,6 +643,31 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         }
     }
 
+    /**
+     * initializes the simulator group with the help of the given configuration
+     * 
+     * @param configuration
+     *            the given ILaunchConfiguration
+     */
+    protected void initializeSimulatorGroup(ILaunchConfiguration configuration) {
+        try {
+            String simulatorId = configuration.getAttribute(AbstractSimulationConfig.SIMULATOR_ID,
+                    AbstractSimulationConfig.DEFAULT_SIMULATOR_ID);
+            String simulatorName = SimulatorExtensionHelper.getSimulatorNameForId(simulatorId);
+            String[] items = simulatorCombo.getItems();
+            for (int i = 0; i < items.length; i++) {
+                String currentItemName = items[i];
+                if (currentItemName.equals(simulatorName)) {
+                    simulatorCombo.select(i);
+                }
+            }
+        } catch (CoreException e) {
+            if (LOGGER.isEnabledFor(Level.WARN)) {
+                LOGGER.warn("Could not initialise simulator selection.", e);
+            }
+        }
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -625,15 +680,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         recorderTabGroup.performApply(configuration);
 
         // apply simulator selection
-        try {
-            // find simulator id for the given simulator name
-            String simulatorId = SimulatorExtensionHelper.getSimulatorIdForName(simulatorCombo.getText());
-            configuration.setAttribute(AbstractSimulationConfig.SIMULATOR_ID, simulatorId);
-        } catch (CoreException e) {
-            if (LOGGER.isEnabledFor(Level.ERROR)) {
-                LOGGER.error("Failed to retrieve the id for simulator \"" + simulatorCombo.getText() + "\"");
-            }
-        }
+        applySimulatorGroup(configuration);
 
         configuration.setAttribute(AbstractSimulationConfig.EXPERIMENT_RUN, nameField.getText());
         configuration.setAttribute(AbstractSimulationConfig.VARIATION_ID,
@@ -662,6 +709,24 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
                 useAutomatedBatchMeansCheckBox.getSelection());
         configuration.setAttribute(SimuComConfig.CONFIDENCE_BATCH_SIZE, batchSizeField.getText());
         configuration.setAttribute(SimuComConfig.CONFIDENCE_MIN_NUMBER_OF_BATCHES, minNumberOfBatchesField.getText());
+    }
+
+    /**
+     * Applies the configuration for the simulator group
+     * 
+     * @param configuration
+     *            the configuration where the values should be written to
+     */
+    protected void applySimulatorGroup(ILaunchConfigurationWorkingCopy configuration) {
+        try {
+            // find simulator id for the given simulator name
+            String simulatorId = SimulatorExtensionHelper.getSimulatorIdForName(simulatorCombo.getText());
+            configuration.setAttribute(AbstractSimulationConfig.SIMULATOR_ID, simulatorId);
+        } catch (CoreException e) {
+            if (LOGGER.isEnabledFor(Level.ERROR)) {
+                LOGGER.error("Failed to retrieve the id for simulator \"" + simulatorCombo.getText() + "\"");
+            }
+        }
     }
 
     /*
@@ -729,9 +794,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
     public boolean isValid(ILaunchConfiguration launchConfig) {
         setErrorMessage(null);
 
-        String simulatorName = simulatorCombo.getText();
-        if (simulatorName == null || simulatorName.isEmpty()) {
-            setErrorMessage("Simulator implementation is missing!");
+        //Validation of simulator group
+        if (!isSimulatorGroupValid()) {
             return false;
         }
         if (nameField.getText().equals("")) {
@@ -829,6 +893,19 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
         }
 
         return true;
+    }
+    
+    /**
+     * Validation of the simulator group
+     */
+    protected boolean isSimulatorGroupValid() {
+        String simulatorName = simulatorCombo.getText();
+        if (simulatorName == null || simulatorName.isEmpty()) {
+            setErrorMessage("Simulator implementation is missing!");
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override
