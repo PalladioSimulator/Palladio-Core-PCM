@@ -62,12 +62,6 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends AbstractWorkfl
             CorePackage.eINSTANCE, CompletionsPackage.eINSTANCE, ReliabilityPackage.eINSTANCE,
             QosReliabilityPackage.eINSTANCE, SeffReliabilityPackage.eINSTANCE };
 
-    /**
-     * This boolean variable is used for the rerun simulation plug-in. If set to true it assures
-     * that an already generated project isn't created again
-     */
-    protected boolean skipProjectGeneration = false;
-
     protected String rmiMiddlewareFile;
     protected String eventMiddlewareFile;
     protected List<String> allocationFiles;
@@ -296,14 +290,6 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends AbstractWorkfl
 
     public void setOverwriteWithoutAsking(boolean overwriteWithoutAsking) {
         this.overwriteWithoutAsking = overwriteWithoutAsking;
-    }
-
-    public boolean isSkipProjectGeneration() {
-        return this.skipProjectGeneration;
-    }
-
-    public void setSkipProjectGeneration(boolean skipProjectGeneration) {
-        this.skipProjectGeneration = skipProjectGeneration;
     }
 
     public String getBaseProjectID() {

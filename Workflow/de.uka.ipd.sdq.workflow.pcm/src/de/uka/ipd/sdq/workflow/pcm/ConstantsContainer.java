@@ -48,9 +48,6 @@ public class ConstantsContainer {
 	public static final String MAXIMUM_TEXT = "maximum";
 	public static final String STEP_WIDTH_TEXT = "stepwidth";
 	public static final String RUN_NO = "runNo";
-	public static final String RERUN_SIMULATION_NAME = "Rerun Simulation";
-	public static final String SIMUBENCH_SIMULATION_NAME = "SimuCom (Process-Driven Simulation)";
-
 	// Output path settings
 	public static final String EAROUT_PATH = "earOutpath";
 	public static final String INTERFACESOUT_PATH = "interfacesOutpath";
