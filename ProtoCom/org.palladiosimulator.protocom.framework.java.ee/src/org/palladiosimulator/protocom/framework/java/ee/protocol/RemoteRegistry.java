@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * The RemoteRegistry class manages the registry.
  * @author Christian Klaussner
  */
-@WebServlet(urlPatterns = "/Registry", loadOnStartup = 0)
+@WebServlet(urlPatterns = "/registry", loadOnStartup = 0)
 public class RemoteRegistry extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

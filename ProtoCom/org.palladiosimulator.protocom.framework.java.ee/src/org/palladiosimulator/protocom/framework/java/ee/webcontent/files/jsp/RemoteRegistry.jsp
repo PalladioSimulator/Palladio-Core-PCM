@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Reference Implementation</title>
+		<title>Registry</title>
 	</head>
 	<body>
 		<h1>Registry</h1>
@@ -25,10 +25,15 @@
 					out.print(entry.getName());
 					out.print(" at ");
 					out.print(entry.getLocation());
-					out.print(" (");
-					out.print(entry.getInterfaces()[0].toString());
-					out.print(")");
+					out.print("<br>Interfaces: ");
 					
+					Class<?>[] ifaces = entry.getInterfaces();
+					out.print(ifaces[0].getSimpleName());
+					
+					for (int i = 1; i < ifaces.length; i++) {
+						out.print(", " + ifaces[i].getSimpleName());
+					}
+
 					out.println("</li>");
 				}
 			%>
