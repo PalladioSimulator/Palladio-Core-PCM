@@ -29,7 +29,6 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	// Action transformations.
 	
 	private def buildRequest(String method) {
-		//val formalTypes = '''["org.palladiosimulator.protocom.framework.java.ee.stubs.StackContext"]'''
 		val formalTypes = '''["de.uka.ipd.sdq.simucomframework.variables.StackContext"]'''
 		val actualTypes = formalTypes
 		
@@ -58,14 +57,12 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	 * 
 	 */
 	private def dispatch userAction(EntryLevelSystemCallAdapter action) {
-		val port = action.providedRole.portClassName //JavaNames::portClassName(action.providedRole_EntryLevelSystemCall);
-		val method = action.operationSignature.signatureName //JavaNames::javaSignature(action.entity.operationSignature__EntryLevelSystemCall)
+		val port = action.providedRole.portClassName
+		val method = action.operationSignature.signatureName
 		
 		val name = 
-			//JavaNames::javaName(action.entity.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole)
 			action.providedRole.providedInterface.safeName
 			+ "." + 
-			//action.entity.operationSignature__EntryLevelSystemCall.entityName
 			action.operationSignature.name
 		
 		val request = buildRequest(method)
@@ -105,7 +102,6 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	 * 
 	 */
 	private dispatch def userAction(BranchAdapter action) {
-		//val branches = action.branchTransitions_Branch.sortBy[it.branchProbability]
 		val branches = action.branchTransitions.sortBy[it.probability]
 		
 		var value = 0;
@@ -161,9 +157,6 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 		}
 		
 		// Find the start action of the loop.
-		
-		//val actions = action.entity.bodyBehaviour_Loop.actions_ScenarioBehaviour
-		//val startAction = actions.findFirst[Start.isInstance(it)]
 		
 		'''
 		<LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop" enabled="true">
@@ -239,9 +232,6 @@ class ServletTestPlan extends ConceptMapping<UsageScenario> implements ITestPlan
 	}
 	
 	override content() {
-		//var actions = pcmEntity.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour
-		//var start = actions.findFirst[Start.isInstance(it)] as Start;
-		
 		userActions(entity.scenarioBehaviour.start)
 	}
 }
