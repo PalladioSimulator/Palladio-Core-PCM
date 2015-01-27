@@ -2,80 +2,86 @@ package org.palladiosimulator.protocom.framework.java.ee.api.http;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
+/**
+ * 
+ * @author Christian Klaussner
+ */
 @Path("/files")
 public class Files {
 	@Inject
 	private IStorage storage;
-
-	private StringBuilder appendFiles(StringBuilder sb, String path, int level) throws IOException {
+	
+	/**
+	 * Builds a set of file and folder names.
+	 * @param path the root path
+	 * @return a set of file names and folder names
+	 * @throws IOException when an error occurred during accessing the storage
+	 */
+	private HashSet<Object> getFileSet(String path) throws IOException {
+		HashSet<Object> result = new HashSet<Object>();
 		Set<String> files = storage.getFiles(path);
-
+		
 		for (String file : files) {
-			for (int i = 0; i < level; i++) {
-				sb.append("    ");
-			}
-
-			if (storage.isFolder(path + "/" + file)) {
-				sb.append(file + ":\n");
-				appendFiles(sb, path + "/" + file, level + 1);
+			String name = path + "/" + file;
+			
+			if (storage.isFolder(name)) {
+				HashMap<String, Object> folder = new HashMap<String, Object>();
+				
+				folder.put("name", file);
+				folder.put("files", getFileSet(name));
+				
+				result.add(folder);
 			} else {
-				sb.append(file);
-				sb.append("\n");
+				result.add(file);
 			}
 		}
-
-		return sb;
+		
+		return result;
 	}
 
+	/**
+	 * Lists all files and folders stored on the server.
+	 * @return a JSON response containing file and folder names
+	 */
 	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	public String getFiles() {
-		StringBuilder response = new StringBuilder();
-
-		response.append("Files:\n");
-
-		StringBuilder sb = new StringBuilder();
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getFiles() {
+		HashSet<Object> files = null;
+		
 		try {
-			appendFiles(sb, "", 0);
-			response.append(sb.toString());
+			files = getFileSet("");
 		} catch (IOException e) {
-			response.append("error");
 			e.printStackTrace();
 		}
-
-		/*try {
-			Set<String> files = storage.getFiles("");
-
-			for (String file : files) {
-				response.append(file);
-				response.append("\n");
-			}
-		} catch (IOException e) {
-			response.append("error");
-			e.printStackTrace();
-		}*/
-
-		return response.toString();
+		
+		return Response.ok(JsonHelper.toJson(files)).build();
 	}
 
+	/**
+	 * Gets the contents of a file.
+	 * @param path the path to the file whose contents should be returned
+	 * @return the contents of the specified file
+	 */
 	@GET
-	@Path("{file}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
-	public Response getFile(@PathParam("file") String file) {
+	public Response getFile(@QueryParam("path") String path) {
 		try {
-			byte[] data = storage.readFile(file);
+			byte[] data = storage.readFile(path);
 
 			return Response.ok(data).build();
 		} catch (FileNotFoundException e) {
@@ -83,54 +89,16 @@ public class Files {
 			return Response.noContent().build();
 		}
 	}
-
+	
+	/**
+	 * Deletes a file.
+	 * @param path the path to the file to be deleted
+	 * @return an empty response
+	 */
 	@GET
-	@Path("delete/calibration")
-	public void deleteCalibration() {
-		storage.deleteFile("calibration/cpu.fibonacci");
-		storage.deleteFile("calibration/hdd.largeChunks");
-	}
-
-	@GET
-	@Path("delete/experiments")
-	public void deleteExperiments() {
-		try {
-			for (String folder : storage.getFiles("experiments")) {
-				for (String file : storage.getFiles("experiments/" + folder)) {
-					storage.deleteFile("experiments/" + folder + "/" + file);
-				}
-
-				storage.deleteFile("experiments/" + folder);
-			}
-
-			storage.deleteFile("experiments");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@GET
-	@Path("test/write")
-	public void testWrite() {
-		try {
-			storage.createFolder("x");
-			storage.createFolder("x/y");
-			storage.writeFile("x.txt", "test");
-			storage.writeFile("x/y.txt", "test");
-			storage.writeFile("x/y/z.txt", "test");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	@GET
-	@Path("test/read")
-	public void testRead() {
-		try {
-			String data = storage.readFileAsString("x/y.txt");
-			System.out.println(data);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	@Path("delete")
+	public Response deleteFile(@QueryParam("path") String path) {
+		storage.deleteFile(path);
+		return Response.noContent().build();
 	}
 }
