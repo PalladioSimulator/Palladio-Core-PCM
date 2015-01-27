@@ -26,135 +26,161 @@ import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
 /**
- * Job to create a working copy of the models to simulate.
- * This ensures that any downstream job changing the models
- * does not modify the original models.
+ * Job to create a working copy of the models to simulate. This ensures that any downstream job
+ * changing the models does not modify the original models.
  *
- * Prerequisite of this job:
- * This job copies the models to the configured project created in
- * the workflow. It has to exist to be able to store the model copy
- * into it.
+ * Prerequisite of this job: This job copies the models to the configured project created in the
+ * workflow. It has to exist to be able to store the model copy into it.
+ * 
+ * The job currently only creates a working copy of the partition containing the pcm models:
+ * {@link LoadPCMModelsIntoBlackboardJob}.PCM_MODELS_PARTITION_ID
  *
- * @author Benjamin Klatt
+ * @author Benjamin Klatt, Sebastian Krach
  *
  */
-public class CreateWorkingCopyOfModelsJob implements IJob,
-	IBlackboardInteractingJob<MDSDBlackboard> {
+public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
-	/** The LOGGER for this class */
-	private static final Logger LOGGER = Logger.getLogger(CreateWorkingCopyOfModelsJob.class);
+    private static final String MODEL_FOLDER = "model";
 
-	/** The blackboard to interact with */
-	private MDSDBlackboard blackboard = null;
+    /** The LOGGER for this class */
+    private static final Logger LOGGER = Logger.getLogger(CreateWorkingCopyOfModelsJob.class);
 
-	/** The work flow configuration to get the required information from */
-	private final AbstractPCMWorkflowRunConfiguration configuration;
+    /** The blackboard to interact with */
+    private MDSDBlackboard blackboard = null;
 
-	/**
-	 * Constructor requiring the necessary configuration object.
-	 *
-	 * @param configuration The configuration for this job.
-	 */
-	public CreateWorkingCopyOfModelsJob(AbstractPCMWorkflowRunConfiguration configuration) {
-		this.configuration = configuration;
-	}
+    /** The work flow configuration to get the required information from */
+    private final AbstractPCMWorkflowRunConfiguration configuration;
 
-	/**
-	 * Execute this job and create the model copy.
-	 */
-	@Override
-    public void execute(IProgressMonitor monitor) throws JobFailedException,
-			UserCanceledException {
+    /**
+     * Constructor requiring the necessary configuration object.
+     *
+     * @param configuration
+     *            The configuration for this job.
+     */
+    public CreateWorkingCopyOfModelsJob(AbstractPCMWorkflowRunConfiguration configuration) {
+        this.configuration = configuration;
+    }
 
-		assert (this.configuration != null);
-		IProject project = CreatePluginProjectJob.getProject(this.configuration
-				.getStoragePluginID());
-		assert (project != null);
+    /**
+     * Execute this job and create the model copy.
+     */
+    @Override
+    public void execute(IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
 
-		// prepare the target path
-		IFolder modelFolder = project.getFolder("model");
-		if (project.isOpen() && !modelFolder.exists()) {
-			if(LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Creating folder " + modelFolder.getName());
-            }
-			try {
-				modelFolder.create(false, true, null);
-			} catch (CoreException e) {
-				if(LOGGER.isEnabledFor(Level.ERROR)) {
-                    LOGGER.error("unable to create model folder");
-                }
-				throw new JobFailedException(e);
-			}
-		}
-		final String modelBasePath = "file:/"+modelFolder.getLocation().toOSString();
+        IFolder modelFolder = getOrCreateModelFolder();
 
-		// access the resources
-		PCMResourceSetPartition partition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		ResourceSet resourceSet = partition.getResourceSet();
-		
-		
-		// Cannot do a deep copy within iterating the resource set, because if
-		// proxies are resolved, new resources are created within the resource
-		// set and a ConcurrentModificationException will be raised (happened
-		// for Peropteryx when having the ConnectorConfig.featureconfig in the
-		// ResourceSet, which causes the FeatureConfig to be copied, which has a
-		// FeatureDiagram as "annotatedElement" which needs to be resolved.
-		// Resolving the FeatureDiagramImpl proxy lead to modification of the
-		// ResourceSet).
-		// Thus, create new ArrayList to iterate. 
-		// TODO test whether the resource of resolved proxy is copied as expected. 
-		List<Resource> resourceListToIterate = new ArrayList<Resource>();
-		resourceListToIterate.addAll(resourceSet.getResources());
-		
-		List<String> modelPaths = new ArrayList<String>();
-		for (Resource resource : resourceListToIterate) {
+        URI modelFolderURI = URI.createFileURI(modelFolder.getLocation().toOSString());
 
-			// we only need to copy the file models
-			if (!resource.getURI().scheme().equals("pathmap")) {
-				final URI uri = resource.getURI();
-				final String relativePath = uri.lastSegment();
-				final URI newURI = URI.createURI(modelBasePath +"/"+ relativePath);
-				
-				final ResourceSet newResSet = new ResourceSetImpl();
-                final Resource newResource = newResSet.createResource(newURI);
-                
-                //Add base Plug-in ID and model paths to the configuration
+        // access the resources
+        PCMResourceSetPartition partition = (PCMResourceSetPartition) this.blackboard
+                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+        ResourceSet resourceSet = partition.getResourceSet();
+        
+        PCMResourceSetPartition workingCopyPartition = new PCMResourceSetPartition();
+
+        // Cannot do a deep copy within iterating the resource set, because if
+        // proxies are resolved, new resources are created within the resource
+        // set and a ConcurrentModificationException will be raised (happened
+        // for Peropteryx when having the ConnectorConfig.featureconfig in the
+        // ResourceSet, which causes the FeatureConfig to be copied, which has a
+        // FeatureDiagram as "annotatedElement" which needs to be resolved.
+        // Resolving the FeatureDiagramImpl proxy lead to modification of the
+        // ResourceSet).
+        // Thus, create new ArrayList to iterate.
+        // TODO test whether the resource of resolved proxy is copied as expected.
+        
+        // TODO check whether latest change conflicts with the deep copy issue from above (Sebastian Krach)
+        // should not be the case since there is no deep copy anymore
+        
+        List<Resource> resourceListToIterate = new ArrayList<Resource>();
+        resourceListToIterate.addAll(resourceSet.getResources());
+        
+        List<String> modelPaths = new ArrayList<String>();
+        
+        for (Resource resource : resourceListToIterate) {
+            if (resource.getURI().scheme().equals("pathmap")) {
+                //If its a pathmap resource we do not need to change its path
+                workingCopyPartition.setContents(resource.getURI(), 
+                        resource.getContents());
+            } else {
+                //Otherwise redirect path to generated simulation plugin
+                final URI uri = resource.getURI();
+                final String relativePath = uri.lastSegment();
+                final URI newURI = modelFolderURI.appendSegment(relativePath);
+
+                // Add base Plug-in ID and model paths to the configuration
                 if (configuration.getBaseProjectID() == null) {
                     String[] splitString = uri.toString().split("/");
                     configuration.setBaseProjectID(splitString[2]);
                 }
+
+                //TODO find out whether modelPaths should reference the old or the new models
+                //TODO wait for response of s_junker
                 if (uri.toString() != null) {
-                    modelPaths.add(uri.toString());
+                    modelPaths.add(newURI.toString());
                 }
                 
-                // deep copy
-                newResource.getContents().addAll(EcoreUtil.copyAll(resource.getContents())); // FIXME Enable inter-model references 
-				try {
-				    newResource.save(null);
-				} catch (IOException e) {
-					if(LOGGER.isEnabledFor(Level.ERROR)) {
-                        LOGGER.error("Unable to store resource "+resource.getURI(),e);
-                    }
-				}
-			}
-		}
-		configuration.setModelPaths(modelPaths);
-	}
+                workingCopyPartition.setContents(newURI, resource.getContents());
+            }
+        }
+        
+        try {
+            workingCopyPartition.storeAllResources();
+        } catch (IOException e) {
+            if(LOGGER.isEnabledFor(Level.ERROR)) {
+                LOGGER.error("Unable to serialize the working copy of the pcm models." ,e);
+            }
+        }
+        
+        //Remove the partition which references the models in the original project
+        this.blackboard.removePartition(
+                LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+        
+        //and replace it with the new working copy, so that further modifications of the
+        //model do not change the original model files.
+        this.blackboard.addPartition(
+                LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, 
+                workingCopyPartition);
+        
+        configuration.setModelPaths(modelPaths);
+    }
 
-	@Override
+    private IFolder getOrCreateModelFolder() throws JobFailedException {
+        assert (this.configuration != null);
+        IProject project = CreatePluginProjectJob.getProject(this.configuration.getStoragePluginID());
+        assert (project != null);
+
+        // prepare the target path
+        IFolder modelFolder = project.getFolder(MODEL_FOLDER);
+        if (project.isOpen() && !modelFolder.exists()) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Creating folder " + modelFolder.getName());
+            }
+            try {
+                modelFolder.create(false, true, null);
+            } catch (CoreException e) {
+                if (LOGGER.isEnabledFor(Level.ERROR)) {
+                    LOGGER.error("unable to create model folder");
+                }
+                throw new JobFailedException(e);
+            }
+        }
+        return modelFolder;
+    }
+
+    @Override
     public String getName() {
-		return "Create working copy of models";
-	}
+        return "Create working copy of models";
+    }
 
-	@Override
-    public void cleanup(IProgressMonitor monitor)
-			throws CleanupFailedException {
-		// nothing to clean up
-	}
+    @Override
+    public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
+        // nothing to clean up
+    }
 
-	@Override
+    @Override
     public void setBlackboard(MDSDBlackboard blackboard) {
-		this.blackboard = blackboard;
-	}
+        this.blackboard = blackboard;
+    }
 
 }
