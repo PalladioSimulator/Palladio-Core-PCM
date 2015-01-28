@@ -266,13 +266,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="org.palladiosimulator.protocom.framework"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="org.palladiosimulator.protocom.resourcestrategies"
          download-size="0"
          install-size="0"
@@ -281,6 +274,13 @@ litigation.
 
    <plugin
          id="org.palladiosimulator.protocom"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.palladiosimulator.protocom.framework.java.se"
          download-size="0"
          install-size="0"
          version="0.0.0"
