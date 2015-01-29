@@ -34,6 +34,9 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 
 	private final List<ICallVisitor> visitors;
 
+	/**
+	 * Constructs a new PortServlet object.
+	 */
 	public PortServlet() {
 		visitors = new LinkedList<ICallVisitor>();
 	}
@@ -88,16 +91,16 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 	}
 
 	/**
-	 *
-	 * @param visitor
+	 * Adds a visitor that will be invoked for each method call.
+	 * @param visitor the visitor to add
 	 */
 	protected void addVisitor(ICallVisitor visitor) {
 		visitors.add(visitor);
 	}
 
 	/**
-	 *
-	 * @param callId
+	 * Calls the preCallVisit method of all registered visitors.
+	 * @param callId the ID of the call
 	 */
 	protected void preCall(String callId) {
 		for (ICallVisitor visitor : visitors) {
@@ -106,8 +109,8 @@ public abstract class PortServlet<T> extends HttpServlet implements IPort<T> {
 	}
 
 	/**
-	 *
-	 * @param callId
+	 * Calls the postCallVisit method of all registered visitors.
+	 * @param callId the ID of the call
 	 */
 	protected void postCall(String callId) {
 		for (ICallVisitor visitor : visitors) {

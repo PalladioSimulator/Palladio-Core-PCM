@@ -11,11 +11,19 @@ import javax.ws.rs.core.MediaType;
 
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 
+/**
+ * API class for retrieving the prototype status.
+ * @author Christian Klaussner
+ */
 @Path("/status")
 public class Status {
 	@Context
 	private ServletContext context;
 
+	/**
+	 * Gets the status ("initial", "started", or "calibrating") of the prototype.
+	 * @return a JSON object describing the status
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getStatus() {

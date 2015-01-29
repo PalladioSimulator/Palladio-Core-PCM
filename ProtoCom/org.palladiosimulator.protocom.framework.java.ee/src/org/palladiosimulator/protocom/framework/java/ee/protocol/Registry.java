@@ -42,6 +42,10 @@ public final class Registry {
 		this.location = location;
 	}
 
+	/**
+	 * Gets the location of the registry.
+	 * @return the location of the registry
+	 */
 	public String getLocation() {
 		return location;
 	}

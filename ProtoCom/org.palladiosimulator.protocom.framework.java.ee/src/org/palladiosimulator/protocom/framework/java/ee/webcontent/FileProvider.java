@@ -23,10 +23,10 @@ import org.osgi.framework.Constants;
 public class FileProvider {
 
 	/**
-	 *
-	 * @param source
-	 * @param path
-	 * @return
+	 * Returns a file in the framework as specified in the index.
+	 * @param source the name of the file
+	 * @param path the path of the file
+	 * @return a file in the framework
 	 */
 	private FrameworkFile processIndex(String source, String path) {
 		URL url = getClass().getResource("files/" + source);
@@ -36,8 +36,8 @@ public class FileProvider {
 	}
 
 	/**
-	 *
-	 * @return
+	 * Gets all framework files specified in the index.
+	 * @return a list of files in the framework
 	 */
 	public List<FrameworkFile> getFrameworkFiles() {
 		List<FrameworkFile> files = new LinkedList<FrameworkFile>();

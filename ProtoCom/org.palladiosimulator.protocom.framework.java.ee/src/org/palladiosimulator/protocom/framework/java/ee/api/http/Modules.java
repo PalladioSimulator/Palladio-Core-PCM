@@ -21,16 +21,20 @@ import org.palladiosimulator.protocom.framework.java.ee.modules.SystemModule;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridge;
 
 /**
- *
+ * API class for retrieving module data and starting modules.
  * @author Christian Klaussner
  */
 @Path("/modules")
-public class Modules {
+public final class Modules {
 	@Context
 	private ServletContext context;
 
 	private static LinkedList<Module> modules;
 
+	/**
+	 * Constructs a new Modules object.
+	 * @param bridge the bridge providing prototype data
+	 */
 	@Inject
 	private Modules(PrototypeBridge bridge) {
 		if (modules == null) {
@@ -51,9 +55,9 @@ public class Modules {
 	}
 
 	/**
-	 *
-	 * @param uriInfo
-	 * @return
+	 * Gets the base URL of the specified URI.
+	 * @param uriInfo the URI whose base URL will be retrieved
+	 * @return the base URL of the specified URI
 	 */
 	private String getBaseUrl(UriInfo uriInfo) {
 		URI uri = uriInfo.getRequestUri();
@@ -66,8 +70,8 @@ public class Modules {
 	}
 
 	/**
-	 *
-	 * @return
+	 * Gets all modules.
+	 * @return a JSON array containing information about all modules
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -76,9 +80,10 @@ public class Modules {
 	}
 
 	/**
-	 *
-	 * @param id
-	 * @return
+	 * Starts the specified module.
+	 * @param uriInfo the URI
+	 * @param id the ID of the module
+	 * @return an HTTP 200 response if the module was started successfully
 	 */
 	@GET
 	@Path("{id}/start")

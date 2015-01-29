@@ -40,10 +40,9 @@ public abstract class MainServlet extends HttpServlet {
 	}
 
 	/**
-	 *
+	 * Sets the seed for the StoEx evaluator.
+	 * @param seed the seed
 	 */
-	protected abstract void initPrototype(PrototypeBridge bridge);
-
 	public static void setStoExSeed(long seed) {
 		generator.setSeed(seed);
 	}
@@ -72,6 +71,12 @@ public abstract class MainServlet extends HttpServlet {
 		PrototypeBridge bridge = injector.getInstance(PrototypeBridge.class);
 		initPrototype(bridge);
 	}
+	
+	/**
+	 * Initializes the prototype.
+	 * @param bridge the bridge in which the prototype data will be stored
+	 */
+	protected abstract void initPrototype(PrototypeBridge bridge);
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -86,6 +91,9 @@ public abstract class MainServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
+	/**
+	 * Initializes the StoEx evaluator.
+	 */
 	private static void initStoEx() {
 		generator = new DefaultRandomGenerator();
 

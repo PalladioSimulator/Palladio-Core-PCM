@@ -64,28 +64,28 @@ class CalibrationThreadFactory implements ThreadFactory {
  * @author Christian Klaussner
  */
 class StrategyBuilder {
-	private static final HashMap<String, Class<?>> cpu;
-	private static final HashMap<String, Class<?>> hdd;
+	private static final HashMap<String, Class<?>> CPU;
+	private static final HashMap<String, Class<?>> HDD;
 
 	private IStorage storage;
 
 	static {
 		// Add CPU strategies.
-		cpu = new HashMap<String, Class<?>>();
+		CPU = new HashMap<String, Class<?>>();
 
-		cpu.put("primes", CalculatePrimesDemand.class);
-		cpu.put("countNumbers", CountNumbersDemand.class);
-		cpu.put("fft", FFTDemand.class);
-		cpu.put("fibonacci", FibonacciDemand.class);
-		cpu.put("mandelbrot", MandelbrotDemand.class);
-		cpu.put("sortArray", SortArrayDemand.class);
-		cpu.put("void", VoidDemand.class);
-		cpu.put("wait", WaitDemand.class);
+		CPU.put("primes", CalculatePrimesDemand.class);
+		CPU.put("countNumbers", CountNumbersDemand.class);
+		CPU.put("fft", FFTDemand.class);
+		CPU.put("fibonacci", FibonacciDemand.class);
+		CPU.put("mandelbrot", MandelbrotDemand.class);
+		CPU.put("sortArray", SortArrayDemand.class);
+		CPU.put("void", VoidDemand.class);
+		CPU.put("wait", WaitDemand.class);
 
 		// Add HDD strategies.
-		hdd = new HashMap<String, Class<?>>();
+		HDD = new HashMap<String, Class<?>>();
 
-		hdd.put("largeChunks", ReadLargeChunksDemand.class);
+		HDD.put("largeChunks", ReadLargeChunksDemand.class);
 	}
 
 	/**
@@ -118,12 +118,15 @@ class StrategyBuilder {
 		try {
 			switch (type) {
 			case CPU:
-				strategy = (IDemandStrategy) cpu.get(strategyName).newInstance();
+				strategy = (IDemandStrategy) CPU.get(strategyName).newInstance();
 				break;
 
 			case HDD:
-				strategy = (IDemandStrategy) hdd.get(strategyName).newInstance();
+				strategy = (IDemandStrategy) HDD.get(strategyName).newInstance();
 				break;
+				
+			default:
+				throw new RuntimeException("Unknown strategy type");
 			}
 		} catch (InstantiationException e) {
 			e.printStackTrace();
@@ -242,7 +245,7 @@ class StrategyCalibrator implements Runnable, ICalibrationListener {
 }
 
 /**
- * The Options class provides REST APIs for retrieving and setting the prototype's options.
+ * The Options class provides HTTP APIs for retrieving and setting the prototype's options.
  * @author Christian Klaussner
  */
 @Path("/options")
@@ -296,7 +299,7 @@ public class Options {
 	/**
 	 * Sets the options for the prototype.
 	 * @param data a JSON string containing the new option data
-	 * @return a HTTP 204 response if the request could be fulfilled
+	 * @return an HTTP 204 response if the request could be fulfilled
 	 */
 	@POST
 	public Response setOptions(String data) {

@@ -20,7 +20,7 @@ import org.palladiosimulator.protocom.framework.java.ee.prototype.PrototypeBridg
 import com.sun.jersey.core.header.ContentDisposition;
 
 /**
- *
+ * API class for retrieving usage scenario data.
  * @author Christian Klaussner
  */
 @Path("/scenarios")
@@ -29,9 +29,9 @@ public class Scenarios {
 	private PrototypeBridge bridge;
 
 	/**
-	 *
-	 * @param id
-	 * @return
+	 * Gets the usage scenario for the specified ID.
+	 * @param id the ID of the usage scenario
+	 * @return the IUsageScenario instance of the usage scenario
 	 */
 	private IUsageScenario getScenario(String id) {
 		for (IUsageScenario scenario : bridge.getUsageScenarios()) {
@@ -44,8 +44,8 @@ public class Scenarios {
 	}
 
 	/**
-	 *
-	 * @return
+	 * Gets all usage scenarios.
+	 * @return a JSON array containing information about all usage scenarios
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -54,17 +54,17 @@ public class Scenarios {
 	}
 
 	/**
-	 *
-	 * @param id
-	 * @return
+	 * Gets the JXM file of the specified usage scenario.
+	 * @param id the ID of the usage scenario
+	 * @return an octet stream containing the JXM file
 	 */
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
 	public Response downloadScenario(@PathParam("id") String id) {
-		IUsageScenario scenario;
+		IUsageScenario scenario = getScenario(id);
 
-		if ((scenario = getScenario(id)) != null) {
+		if (scenario != null) {
 			try {
 				InputStream in = scenario.getFileUrl().openStream();
 				ByteArrayOutputStream out = new ByteArrayOutputStream();

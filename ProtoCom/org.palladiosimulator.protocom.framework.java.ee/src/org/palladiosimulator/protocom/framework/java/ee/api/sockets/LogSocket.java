@@ -18,27 +18,32 @@ import org.palladiosimulator.protocom.framework.java.ee.main.LogMessage;
 import org.palladiosimulator.protocom.framework.java.ee.main.WebAppender;
 
 /**
- *
+ * WebSocket class for providing real-time log updates.
  * @author Christian Klaussner
  */
 @ServerEndpoint("/ws/log")
 public class LogSocket extends WebSocket {
-	private static final Queue<Session> sessions = new ConcurrentLinkedQueue<Session>();
+	private static final Queue<Session> SESSIONS = new ConcurrentLinkedQueue<Session>();
 
 	/**
-	 *
-	 * @param message
+	 * Sends a log message in all sessions.
+	 * @param message the message to send
 	 */
 	public static void append(LogMessage message) {
 		LogData data = new LogData();
 		data.setPayload(message);
 
-		sendToAll(sessions, JsonHelper.toJson(data));
+		sendToAll(SESSIONS, JsonHelper.toJson(data));
 	}
 
+	/**
+	 * Called when a socket is opened.
+	 * @param session the session of the socket
+	 * @param config the endpoint configuration
+	 */
 	@OnOpen
 	public void onOpen(Session session, EndpointConfig config) {
-		sessions.add(session);
+		SESSIONS.add(session);
 
 		Logger logger = Logger.getRootLogger();
 		WebAppender appender = (WebAppender) logger.getAppender(WebAppender.NAME);
@@ -46,14 +51,24 @@ public class LogSocket extends WebSocket {
 		LogData data = new LogData();
 		data.setPayload(appender.getLogContent());
 
-		sendToAll(sessions, JsonHelper.toJson(data));
+		sendToAll(SESSIONS, JsonHelper.toJson(data));
 	}
 
+	/**
+	 * Called when a socket is closed.
+	 * @param session the session of the socket
+	 * @param reason the close reason
+	 */
 	@OnClose
 	public void onClose(Session session, CloseReason reason) {
-		sessions.remove(session);
+		SESSIONS.remove(session);
 	}
 
+	/**
+	 * Called when an error occurred.
+	 * @param session the session of the socket
+	 * @param t a description of the error
+	 */
 	@OnError
 	public void onError(Session session, Throwable t) {
 	}

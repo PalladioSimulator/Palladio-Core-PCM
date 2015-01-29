@@ -18,6 +18,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.api.sockets.ResultsSocket;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
 import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
@@ -28,14 +29,15 @@ import de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 /**
- *
+ * The SensorFrameworkExperiment provides a Sensor Framework implementation of IExperiment.
  * @author Christian Klaussner
  */
 @Singleton
 public final class SensorFrameworkExperiment implements IExperiment {
+	private static final Logger LOGGER = Logger.getRootLogger();
 	private static final double ONE_SECOND_IN_NANO_SECONDS = Math.pow(10, 9);
 
-	private static final String[] stateFiles = new String[] {
+	private static final String[] STATE_FILES = new String[] {
 		"experiment.ser",
 		"exprun.ser",
 		"id_generator.ser",
@@ -55,14 +57,14 @@ public final class SensorFrameworkExperiment implements IExperiment {
 
 	private HashMap<String, TimeSpanSensor> sensors;
 
+	/**
+	 * Constructs a new SensorFrameworkExperiment object.
+	 */
 	public SensorFrameworkExperiment() {
 		sensors = new HashMap<String, TimeSpanSensor>();
 	}
 
-	/**
-	 *
-	 * @param experimentName
-	 */
+	@Override
 	public void init(String experimentName) {
 		this.experimentId = getExperimentId(experimentName);
 		this.experimentName = experimentName;
@@ -70,9 +72,7 @@ public final class SensorFrameworkExperiment implements IExperiment {
 		reset();
 	}
 
-	/**
-	 *
-	 */
+	@Override
 	public void reset() {
 
 		// Remove previous sensors and the data source.
@@ -83,6 +83,7 @@ public final class SensorFrameworkExperiment implements IExperiment {
 				dataSource.finalizeAndClose();
 			} catch (Exception e) {
 				// Ignore Sensor Framework exceptions.
+				LOGGER.debug("Sensor Framework exception");
 			}
 		}
 
@@ -94,20 +95,17 @@ public final class SensorFrameworkExperiment implements IExperiment {
 		experiment = dataSource.createExperimentDAO().addExperiment(experimentName);
 	}
 
+	@Override
 	public String getId() {
 		return experimentId;
 	}
 
-	/**
-	 *
-	 */
+	@Override
 	public void startRun() {
 		run = experiment.addExperimentRun(new Date().toString());
 	}
 
-	/**
-	 * Stops the current experiment run and stores the results.
-	 */
+	@Override
 	public void stopRun() {
 
 		// Store and copy experiment files.
@@ -140,12 +138,7 @@ public final class SensorFrameworkExperiment implements IExperiment {
 		ResultsSocket.update(data);
 	}
 
-	/**
-	 *
-	 * @param name
-	 * @param startTime
-	 * @param endTime
-	 */
+	@Override
 	public void takeMeasurement(String name, long startTime, long endTime) {
 		TimeSpanSensor sensor = sensors.get(name);
 
@@ -161,9 +154,9 @@ public final class SensorFrameworkExperiment implements IExperiment {
 	}
 
 	/**
-	 *
-	 * @param name
-	 * @return
+	 * Gets the internal ID for an experiment.
+	 * @param name the name of the experiment
+	 * @return an ID consisting of the SHA-256 hash of the experiment name
 	 */
 	private String getExperimentId(String name) {
 		String id = "default";
@@ -187,9 +180,10 @@ public final class SensorFrameworkExperiment implements IExperiment {
 	// storage and file system. May be replaced by a custom DAO factory.
 
 	/**
-	 *
-	 * @param id
-	 * @return
+	 * Gets the path of an experiment with the specified ID.
+	 * @param id the ID of the experiment
+	 * @param destination the destination to which the experiment data will be copied
+	 * @return the path to the experiment data
 	 */
 	private String fetchExperiment(String id, String destination) {
 		File folder = new File(destination);
@@ -199,7 +193,7 @@ public final class SensorFrameworkExperiment implements IExperiment {
 
 		if (storage.fileExists(source)) {
 			try {
-				for (String stateFile : stateFiles) {
+				for (String stateFile : STATE_FILES) {
 					copyToFs(source, stateFile, destination);
 				}
 
@@ -212,9 +206,9 @@ public final class SensorFrameworkExperiment implements IExperiment {
 	}
 
 	/**
-	 *
-	 * @param id
-	 * @param source
+	 * Stores experiment data.
+	 * @param id the ID of the experiment
+	 * @param source the source path of the experiment data
 	 */
 	private void storeExperiment(String id, String source) {
 		String destination = "results/" + id + "/";
@@ -222,7 +216,7 @@ public final class SensorFrameworkExperiment implements IExperiment {
 		try {
 			// Copy state files.
 
-			for (String stateFile : stateFiles) {
+			for (String stateFile : STATE_FILES) {
 				copyFromFs(source, stateFile, destination);
 			}
 
@@ -255,11 +249,11 @@ public final class SensorFrameworkExperiment implements IExperiment {
 	}
 
 	/**
-	 *
-	 * @param path
-	 * @param file
-	 * @param destination
-	 * @throws IOException
+	 * Copies a file from an IStorage implementation to the file system.
+	 * @param path the path of the source file
+	 * @param file the source file name
+	 * @param destination the destination path
+	 * @throws IOException if an error occurred while accessing the storage
 	 */
 	private void copyToFs(String path, String file, String destination)
 		throws IOException {
@@ -272,14 +266,16 @@ public final class SensorFrameworkExperiment implements IExperiment {
 			out.close();
 		} catch (FileNotFoundException e) {
 			// Ignore missing files.
+			LOGGER.debug("File '" + path + file + "' not found");
 		}
 	}
 
 	/**
-	 *
-	 * @param path
-	 * @param file
-	 * @param destination
+	 * Copies a file from the file system to an IStorage implementation.
+	 * @param path the path of the source file
+	 * @param file the source file name
+	 * @param destination the destination path
+	 * @throws IOException if an error occurred while accessing the storage
 	 */
 	private void copyFromFs(String path, String file, String destination)
 		throws IOException {
@@ -295,6 +291,7 @@ public final class SensorFrameworkExperiment implements IExperiment {
 			in.close();
 		} catch (FileNotFoundException e) {
 			// Ignore missing files.
+			LOGGER.debug("File '" + path + file + "' not found");
 		}
 	}
 }

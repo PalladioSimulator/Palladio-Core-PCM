@@ -8,33 +8,49 @@ import javax.inject.Singleton;
 import org.palladiosimulator.protocom.framework.java.ee.prototype.ICallVisitor;
 
 /**
- *
+ * The StartTime class stores the start time of a method call.
  * @author Christian Klaussner
  */
 class StartTime {
 	private String id;
 	private long time;
 
+	/**
+	 * Constructs a new StartTime object.
+	 * @param id the call ID
+	 * @param time the start time in nanoseconds
+	 */
 	public StartTime(String id, long time) {
 		this.id = id;
 		this.time = time;
 	}
 
+	/**
+	 * Gets the call ID.
+	 * @return the call ID
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * Gets the start time.
+	 * @return the start time in nanoseconds
+	 */
 	public long getTime() {
 		return time;
 	}
 }
 
 /**
- *
+ * The ExperimentVisitor class is used to measure the duration of method calls during an experiment.
  * @author Christian Klaussner
  */
 @Singleton
 public final class ExperimentVisitor implements ICallVisitor {
+	/**
+	 * Constructs a new ExperimentVisitor object.
+	 */
 	public ExperimentVisitor() {
 	}
 	

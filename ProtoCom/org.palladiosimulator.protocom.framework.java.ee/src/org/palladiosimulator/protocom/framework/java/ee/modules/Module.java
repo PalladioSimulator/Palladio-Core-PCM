@@ -1,6 +1,5 @@
 package org.palladiosimulator.protocom.framework.java.ee.modules;
 
-
 /**
  * The Module class is the common base class for modules.
  * A module represents an entity (e.g., component) that can be started by a user.
@@ -17,7 +16,6 @@ public abstract class Module {
 	 * Constructs a new Module object.
 	 * @param id the ID of the module
 	 * @param name the name of the module
-	 * @param permanent true if the module is permanent, otherwise false
 	 */
 	public Module(String id, String name) {
 		this.id = id;
@@ -40,10 +38,18 @@ public abstract class Module {
 		return name;
 	}
 
+	/**
+	 * Sets the display name of the module.
+	 * @param displayName the display name of the module
+	 */
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
 
+	/**
+	 * Gets the display name of the module.
+	 * @return the display name of the module
+	 */
 	public String getDisplayName() {
 		return displayName;
 	}

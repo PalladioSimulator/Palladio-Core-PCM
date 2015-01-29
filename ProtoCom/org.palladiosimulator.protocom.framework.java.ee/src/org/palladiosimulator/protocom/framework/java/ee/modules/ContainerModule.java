@@ -24,8 +24,8 @@ public class ContainerModule extends Module {
 
 	/**
 	 * Constructs a new ContainerModule object.
-	 * @param id the ID of the container
-	 * @param name the display name of the container
+	 * @param container the container
+	 * @param allocations the allocations
 	 */
 	public ContainerModule(PrototypeBridge.Container container, PrototypeBridge.Allocation[] allocations) {
 		super(container.getId(), container.getName());
@@ -75,6 +75,9 @@ public class ContainerModule extends Module {
 		setStarted(true);
 	}
 
+	/**
+	 * Initializes the CPU and HDD strategies with the prototype's processing rates.
+	 */
 	private void initializeStrategies() {
 		String cpuRateExp = container.getCpuRate();
 		

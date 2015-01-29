@@ -6,15 +6,14 @@ import java.util.Queue;
 import javax.websocket.Session;
 
 /**
- *
+ * Abstract base class for WebSocket classes.
  * @author Christian Klaussner
  */
 public abstract class WebSocket {
-
 	/**
-	 *
-	 * @param session
-	 * @param message
+	 * Sends a message in the specified session.
+	 * @param session the session in which the message will be sent
+	 * @param message the message to send
 	 */
 	public static void send(Session session, String message) {
 		try {
@@ -25,9 +24,9 @@ public abstract class WebSocket {
 	}
 
 	/**
-	 *
-	 * @param sessions
-	 * @param message
+	 * Sends a message in the specified sessions.
+	 * @param sessions the sessions in which the message will be sent
+	 * @param message the message to send
 	 */
 	public static void sendToAll(Queue<Session> sessions, String message) {
 		for (Session session : sessions) {

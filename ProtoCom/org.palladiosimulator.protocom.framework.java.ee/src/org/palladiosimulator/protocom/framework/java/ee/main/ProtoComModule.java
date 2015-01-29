@@ -23,7 +23,7 @@ import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
  * @author Christian Klaussner
  */
 public class ProtoComModule extends ServletModule {
-	private static final String apiPackage =
+	private static final String API_PACKAGE =
 		"org.palladiosimulator.protocom.framework.java.ee.api.http";
 
 	@Override
@@ -39,7 +39,7 @@ public class ProtoComModule extends ServletModule {
 	 * Binds each HTTP API class to its respective path.
 	 */
 	private void registerApi() {
-		ResourceConfig config = new PackagesResourceConfig(apiPackage);
+		ResourceConfig config = new PackagesResourceConfig(API_PACKAGE);
 
 		for (Class<?> resource : config.getClasses()) {
 			bind(resource);

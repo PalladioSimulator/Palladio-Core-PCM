@@ -23,13 +23,16 @@ import org.apache.chemistry.opencmis.commons.enums.VersioningState;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisNameConstraintViolationException;
 import org.apache.chemistry.opencmis.commons.exceptions.CmisObjectNotFoundException;
 import org.apache.commons.io.IOUtils;
+import org.apache.log4j.Logger;
 
 /**
- *
+ * The EcmStorage class provides an IStorage implementation for the SAP HANA Cloud Document Service.
  * @author Christian Klaussner
  */
 @Singleton
 public class EcmStorage implements IStorage {
+	private static final Logger LOGGER = Logger.getRootLogger();
+	
 	private static final String NAME = "ProtoCom-Repository";
 	private static final String KEY = "protocom_key";
 
@@ -39,9 +42,10 @@ public class EcmStorage implements IStorage {
 	private final Session session;
 
 	/**
-	 *
-	 * @param path
-	 * @return
+	 * Gets a properties map for the specified path.
+	 * @param path the path of the file or folder
+	 * @param folder true if the path points to a folder, otherwise false
+	 * @return a properties map for the specified path
 	 */
 	private Map<String, Object> getProperties(String path, boolean folder) {
 		Map<String, Object> properties = new HashMap<String, Object>();
@@ -55,10 +59,10 @@ public class EcmStorage implements IStorage {
 	}
 
 	/**
-	 *
-	 * @param file
-	 * @param data
-	 * @return
+	 * Creates a content stream for a file.
+	 * @param file the name of the file for which the content stream will be created
+	 * @param data the file content
+	 * @return a content stream
 	 */
 	private ContentStream createContentStream(String file, byte[] data) {
 		InputStream stream = new ByteArrayInputStream(data);
@@ -68,10 +72,10 @@ public class EcmStorage implements IStorage {
 	}
 
 	/**
-	 *
-	 * @param path
-	 * @return
-	 * @throws IOException
+	 * Gets the parent folder for the specified path.
+	 * @param path the path for which the parent folder will be returned
+	 * @return the parent folder
+	 * @throws IOException if an error occurred while accessing the storage
 	 */
 	private Folder getParentFolder(String path) throws IOException {
 		String parent = getPathParent(path);
@@ -88,9 +92,9 @@ public class EcmStorage implements IStorage {
 	}
 
 	/**
-	 *
-	 * @param path
-	 * @return
+	 * Builds a correct path by prepending a slash to the specified path if necessary.
+	 * @param path the path to check
+	 * @return a correct path
 	 */
 	private String checkPath(String path) {
 		if (!path.startsWith("/")) {
@@ -100,6 +104,11 @@ public class EcmStorage implements IStorage {
 		}
 	}
 
+	/**
+	 * Gets the parent component of the specified path.
+	 * @param path the path whose parent component will be returned
+	 * @return the parent component
+	 */
 	private String getPathParent(String path) {
 		int lastIndex = path.lastIndexOf('/');
 
@@ -110,6 +119,11 @@ public class EcmStorage implements IStorage {
 		}
 	}
 
+	/**
+	 * Gets the file component of the specified path.
+	 * @param path the path whose file component will be returned
+	 * @return the file component
+	 */
 	private String getPathFile(String path) {
 		int lastIndex = path.lastIndexOf('/');
 
@@ -121,7 +135,7 @@ public class EcmStorage implements IStorage {
 	}
 
 	/**
-	 *
+	 * Constructs a new EcmStorage object.
 	 */
 	public EcmStorage() {
 		// TODO Improve exception handling in case ECM is not available
@@ -134,6 +148,7 @@ public class EcmStorage implements IStorage {
 			getParentFolder(path).createFolder(getProperties(getPathFile(path), true));
 		} catch (CmisNameConstraintViolationException e) {
 			// Folder already exists.
+			LOGGER.debug("Folder '" + path + "' already exists");
 		}
 	}
 
@@ -222,11 +237,7 @@ public class EcmStorage implements IStorage {
 		try {
 			CmisObject object = session.getObjectByPath(path);
 
-			if (object instanceof Folder) {
-				return true;
-			} else {
-				return false;
-			}
+			return object instanceof Folder;
 		} catch (CmisObjectNotFoundException e) {
 			return false;
 		}

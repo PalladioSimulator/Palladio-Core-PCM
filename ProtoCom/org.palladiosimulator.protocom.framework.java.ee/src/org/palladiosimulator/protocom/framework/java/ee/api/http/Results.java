@@ -19,6 +19,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.StreamingOutput;
 
+import org.apache.log4j.Logger;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.ExperimentData;
 import org.palladiosimulator.protocom.framework.java.ee.experiment.IExperiment;
 import org.palladiosimulator.protocom.framework.java.ee.main.JsonHelper;
@@ -26,14 +27,24 @@ import org.palladiosimulator.protocom.framework.java.ee.storage.IStorage;
 
 import com.sun.jersey.core.header.ContentDisposition;
 
+/**
+ * API class for retrieving experiment results.
+ * @author Christian Klaussner
+ */
 @Path("/results")
 public class Results {
+	private static final Logger LOGGER = Logger.getRootLogger();
+	
 	@Inject
 	private IStorage storage;
 
 	@Inject
 	private IExperiment experiment;
 
+	/**
+	 * Gets all experiment results.
+	 * @return a JSON array containing information about all experiment results
+	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getResults() {
@@ -48,11 +59,17 @@ public class Results {
 			}
 		} catch (IOException e) {
 			// No experiments stored yet.
+			LOGGER.debug("No results stored yet");
 		}
 
 		return Response.ok(JsonHelper.toJson(result)).build();
 	}
 
+	/**
+	 * Gets the results for the specified experiment.
+	 * @param id the ID of the experiment
+	 * @return an octet stream containing a ZIP file with the experiment results
+	 */
 	@GET
 	@Path("{id}")
 	@Produces(MediaType.APPLICATION_OCTET_STREAM)
@@ -89,6 +106,11 @@ public class Results {
 			.build();
 	}
 
+	/**
+	 * Deletes the results of the specified experiment.
+	 * @param id the ID of the experiment
+	 * @return an HTTP 204 response of the results were deleted successfully
+	 */
 	@DELETE
 	@Path("{id}")
 	public Response deleteResult(@PathParam("id") String id) {
@@ -115,9 +137,9 @@ public class Results {
 	}
 
 	/**
-	 *
-	 * @param id
-	 * @param out
+	 * Compresses the result of the specified experiment into a ZIP archive.
+	 * @param id the ID of the experiment
+	 * @param out the output stream to which the ZIP data will be written
 	 */
 	private void zipResults(String id, OutputStream out) {
 		Set<String> files;

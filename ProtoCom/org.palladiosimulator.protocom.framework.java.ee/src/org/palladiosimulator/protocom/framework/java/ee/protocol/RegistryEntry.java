@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Christian Klaussner
  */
 public class RegistryEntry {
-	private static final ObjectMapper mapper = new ObjectMapper();
+	private static final ObjectMapper MAPPER = new ObjectMapper();
 	
 	private String name;
 	private Class<?>[] interfaces;
@@ -109,7 +109,7 @@ public class RegistryEntry {
 		String result = "";
 		
 		try {
-			result = mapper.writeValueAsString(this);
+			result = MAPPER.writeValueAsString(this);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
@@ -126,7 +126,7 @@ public class RegistryEntry {
 		RegistryEntry result = null;
 		
 		try {
-			result = mapper.readValue(serialized, RegistryEntry.class);
+			result = MAPPER.readValue(serialized, RegistryEntry.class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
