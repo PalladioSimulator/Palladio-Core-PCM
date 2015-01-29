@@ -95,7 +95,7 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
         List<Resource> resourceListToIterate = new ArrayList<Resource>();
         resourceListToIterate.addAll(resourceSet.getResources());
         
-        List<String> modelPaths = new ArrayList<String>();
+        List<String> originalModelPaths = new ArrayList<String>();
         
         for (Resource resource : resourceListToIterate) {
             if (resource.getURI().scheme().equals("pathmap")) {
@@ -105,8 +105,16 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
             } else {
                 //Otherwise redirect path to generated simulation plugin
                 final URI uri = resource.getURI();
-                final String relativePath = uri.lastSegment();
-                final URI newURI = modelFolderURI.appendSegment(relativePath);
+                
+				// Use all segments of URI as model files may reside in
+				// different folders or projects and may have the same file
+				// name, e.g. a myproject/default.system referencing a
+				// myproject/default.repository and a
+				// anotherproject/default.repository.
+				final String[] segments = uri.segments();
+                final String schemeSegment = uri.scheme();
+                
+                final URI newURI = modelFolderURI.appendSegment(schemeSegment).appendSegments(segments) ;
 
                 // Add base Plug-in ID and model paths to the configuration
                 if (configuration.getBaseProjectID() == null) {
@@ -114,10 +122,9 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
                     configuration.setBaseProjectID(splitString[2]);
                 }
 
-                //TODO find out whether modelPaths should reference the old or the new models
-                //TODO wait for response of s_junker
+
                 if (uri.toString() != null) {
-                    modelPaths.add(newURI.toString());
+                    originalModelPaths.add(uri.toString());
                 }
                 
                 workingCopyPartition.setContents(newURI, resource.getContents());
@@ -142,7 +149,7 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
                 LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, 
                 workingCopyPartition);
         
-        configuration.setModelPaths(modelPaths);
+        configuration.setModelPaths(originalModelPaths);
     }
 
     private IFolder getOrCreateModelFolder() throws JobFailedException {
