@@ -5,8 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Parameter</b></em>'. <!--
@@ -39,7 +39,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * @extends EStereotypableObject
  * @generated
  */
-public interface Parameter extends EStereotypableObject {
+public interface Parameter extends NamedElement {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
