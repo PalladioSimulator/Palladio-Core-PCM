@@ -1,1 +1,0 @@
-contains pathmap / uri mapping for common PCM model instances
