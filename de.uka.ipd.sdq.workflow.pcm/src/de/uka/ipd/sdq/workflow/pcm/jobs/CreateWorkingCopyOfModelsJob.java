@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.log4j.Level;
@@ -10,20 +11,30 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
+import org.modelversioning.emfprofileapplication.ProfileApplication;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
 import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.mdsd.blackboard.ModelLocation;
+import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
+import edu.kit.ipd.sdq.mdsd.profiles.registry.ProfileApplicationFileRegistry;
 
 /**
  * Job to create a working copy of the models to simulate. This ensures that any downstream job
@@ -74,7 +85,49 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
         // access the resources
         PCMResourceSetPartition partition = (PCMResourceSetPartition) this.blackboard
                 .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-        ResourceSet resourceSet = partition.getResourceSet();
+        //ResourceSet resourceSet = partition.getResourceSet();
+        
+      //Begin edit
+        //get profile path. get the stereotypable object to geht the existing 
+        //profileapplicationdecorators and the paths
+        String pcmModelPartitionId = LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID;
+        ModelLocation systemModelLocation = null;
+       
+ 		partition.resolveAllProxies();
+ 		for (Resource r : partition.getResourceSet().getResources()) {
+ 			URI modelURI = r.getURI();
+ 			String fileExtension = modelURI.fileExtension();
+ 			if(fileExtension.equals("system")){
+ 				systemModelLocation = new ModelLocation(pcmModelPartitionId, modelURI);
+ 			}
+ 		}
+ 		
+ 		//get the System
+ 		URI modelID = systemModelLocation.getModelID();
+ 		ResourceSetPartition resPartition = blackboard.getPartition(systemModelLocation.getPartitionID());
+		List<EObject> contents = resPartition.getContents(modelID);
+		de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System) EcoreUtil.getObjectByType(contents, SystemPackage.eINSTANCE.getSystem());
+        EList<AssemblyContext> assContext = system.getAssemblyContexts__ComposedStructure();
+        
+        final EList<ProfileApplication> profileApplications =
+                new BasicEList<ProfileApplication>();
+
+        //TODO wenn funktioniert, schleife ueber assembly Contexts
+        Collection<ProfileApplicationDecorator> profileApplicationDecorators = ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext.get(1));
+                //ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext.get(1));
+       
+        for (final ProfileApplicationDecorator profileApplicationDecorator : profileApplicationDecorators) {
+            profileApplications.addAll(profileApplicationDecorator
+                    .getProfileApplications());
+        }
+        //ProfileApplication pro = profileApplications.get(0);
+        
+        PCMResourceSetPartition partition2 = (PCMResourceSetPartition) this.blackboard
+                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
+
+        ResourceSet resourceSet = partition2.getResourceSet();
+        resourceSet.getResources().remove(10);
+        //End edit
         
         PCMResourceSetPartition workingCopyPartition = new PCMResourceSetPartition();
 

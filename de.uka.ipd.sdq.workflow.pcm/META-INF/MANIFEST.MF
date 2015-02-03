@@ -15,7 +15,9 @@ Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
  de.uka.ipd.sdq.featureconfig;bundle-version="2.1.0",
  org.eclipse.debug.core;visibility:=reexport,
  de.uka.ipd.sdq.errorhandling;bundle-version="1.0.0",
- org.eclipse.debug.ui;bundle-version="3.5.1";visibility:=reexport
+ org.eclipse.debug.ui;bundle-version="3.5.1";visibility:=reexport,
+ org.modelversioning.emfprofile.application.registry,
+ edu.kit.ipd.sdq.mdsd.profiles.util;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.workflow.pcm,
  de.uka.ipd.sdq.workflow.pcm.blackboard,
  de.uka.ipd.sdq.workflow.pcm.configurations,
