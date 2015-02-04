@@ -15,6 +15,7 @@ import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
@@ -78,6 +79,8 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
             return this.createEntryLevelSystemCallMeasuringPoint();
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT:
             return this.createExternalCallActionMeasuringPoint();
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT:
+            return this.createResourceEnvironmentMeasuringPoint();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -180,6 +183,17 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
     public ExternalCallActionMeasuringPoint createExternalCallActionMeasuringPoint() {
         final ExternalCallActionMeasuringPointImpl externalCallActionMeasuringPoint = new ExternalCallActionMeasuringPointImpl();
         return externalCallActionMeasuringPoint;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ResourceEnvironmentMeasuringPoint createResourceEnvironmentMeasuringPoint() {
+        final ResourceEnvironmentMeasuringPointImpl resourceEnvironmentMeasuringPoint = new ResourceEnvironmentMeasuringPointImpl();
+        return resourceEnvironmentMeasuringPoint;
     }
 
     /**

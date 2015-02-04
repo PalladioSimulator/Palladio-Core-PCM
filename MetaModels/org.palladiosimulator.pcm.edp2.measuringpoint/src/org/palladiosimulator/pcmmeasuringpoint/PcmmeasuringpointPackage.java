@@ -707,6 +707,66 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL_REFERENCE_FEATURE_COUNT = 1;
 
     /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl
+     * <em>Resource Environment Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceEnvironmentReference()
+     * @generated
+     */
+    int RESOURCE_ENVIRONMENT_REFERENCE = 20;
+
+    /**
+     * The feature id for the '<em><b>Resource Environment</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT = 0;
+
+    /**
+     * The number of structural features of the '<em>Resource Environment Reference</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT = 1;
+
+    /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
+     * <em>Resource Environment Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceEnvironmentMeasuringPoint()
+     * @generated
+     */
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT = 19;
+
+    /**
+     * The feature id for the '<em><b>Resource Environment</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT;
+
+    /**
+     * The number of structural features of the '<em>Resource Environment Measuring Point</em>'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT_FEATURE_COUNT = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 0;
+
+    /**
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint
      * <em>Assembly Operation Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1064,6 +1124,41 @@ public interface PcmmeasuringpointPackage extends EPackage {
     EReference getEntryLevelSystemCallReference_EntryLevelSystemCall();
 
     /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
+     * <em>Resource Environment Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @return the meta object for class '<em>Resource Environment Measuring Point</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
+     * @generated
+     */
+    EClass getResourceEnvironmentMeasuringPoint();
+
+    /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference
+     * <em>Resource Environment Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Resource Environment Reference</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference
+     * @generated
+     */
+    EClass getResourceEnvironmentReference();
+
+    /**
+     * Returns the meta object for the reference '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference#getResourceEnvironment
+     * <em>Resource Environment</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference '<em>Resource Environment</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference#getResourceEnvironment()
+     * @see #getResourceEnvironmentReference()
+     * @generated
+     */
+    EReference getResourceEnvironmentReference_ResourceEnvironment();
+
+    /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -1407,6 +1502,39 @@ public interface PcmmeasuringpointPackage extends EPackage {
          */
         EReference ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE
                 .getEntryLevelSystemCallReference_EntryLevelSystemCall();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
+         * <em>Resource Environment Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceEnvironmentMeasuringPoint()
+         * @generated
+         */
+        EClass RESOURCE_ENVIRONMENT_MEASURING_POINT = eINSTANCE.getResourceEnvironmentMeasuringPoint();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl
+         * <em>Resource Environment Reference</em>}' class. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceEnvironmentReference()
+         * @generated
+         */
+        EClass RESOURCE_ENVIRONMENT_REFERENCE = eINSTANCE.getResourceEnvironmentReference();
+
+        /**
+         * The meta object literal for the '<em><b>Resource Environment</b></em>' reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT = eINSTANCE
+                .getResourceEnvironmentReference_ResourceEnvironment();
 
     }
 

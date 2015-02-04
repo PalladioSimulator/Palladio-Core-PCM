@@ -21,6 +21,8 @@ import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
 import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
@@ -173,6 +175,16 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
         @Override
         public Adapter caseEntryLevelSystemCallReference(final EntryLevelSystemCallReference object) {
             return PcmmeasuringpointAdapterFactory.this.createEntryLevelSystemCallReferenceAdapter();
+        }
+
+        @Override
+        public Adapter caseResourceEnvironmentMeasuringPoint(final ResourceEnvironmentMeasuringPoint object) {
+            return PcmmeasuringpointAdapterFactory.this.createResourceEnvironmentMeasuringPointAdapter();
+        }
+
+        @Override
+        public Adapter caseResourceEnvironmentReference(final ResourceEnvironmentReference object) {
+            return PcmmeasuringpointAdapterFactory.this.createResourceEnvironmentReferenceAdapter();
         }
 
         @Override
@@ -481,6 +493,36 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public Adapter createEntryLevelSystemCallReferenceAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
+     * <em>Resource Environment Measuring Point</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
+     * @generated
+     */
+    public Adapter createResourceEnvironmentMeasuringPointAdapter() {
+        return null;
+    }
+
+    /**
+     * Creates a new adapter for an object of class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference
+     * <em>Resource Environment Reference</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference
+     * @generated
+     */
+    public Adapter createResourceEnvironmentReferenceAdapter() {
         return null;
     }
 

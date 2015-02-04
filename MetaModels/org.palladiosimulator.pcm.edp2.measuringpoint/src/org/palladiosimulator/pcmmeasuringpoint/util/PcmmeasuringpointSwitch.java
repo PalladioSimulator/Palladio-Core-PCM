@@ -20,6 +20,8 @@ import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
 import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
@@ -292,6 +294,28 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE: {
             final EntryLevelSystemCallReference entryLevelSystemCallReference = (EntryLevelSystemCallReference) theEObject;
             T result = this.caseEntryLevelSystemCallReference(entryLevelSystemCallReference);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT: {
+            final ResourceEnvironmentMeasuringPoint resourceEnvironmentMeasuringPoint = (ResourceEnvironmentMeasuringPoint) theEObject;
+            T result = this.caseResourceEnvironmentMeasuringPoint(resourceEnvironmentMeasuringPoint);
+            if (result == null) {
+                result = this.caseResourceEnvironmentReference(resourceEnvironmentMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.caseMeasuringPoint(resourceEnvironmentMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE: {
+            final ResourceEnvironmentReference resourceEnvironmentReference = (ResourceEnvironmentReference) theEObject;
+            T result = this.caseResourceEnvironmentReference(resourceEnvironmentReference);
             if (result == null) {
                 result = this.defaultCase(theEObject);
             }
@@ -604,6 +628,38 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseEntryLevelSystemCallReference(final EntryLevelSystemCallReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Environment Measuring Point</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Environment Measuring Point</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseResourceEnvironmentMeasuringPoint(final ResourceEnvironmentMeasuringPoint object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Environment Reference</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Environment Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseResourceEnvironmentReference(final ResourceEnvironmentReference object) {
         return null;
     }
 

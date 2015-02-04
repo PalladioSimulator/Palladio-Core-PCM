@@ -297,6 +297,31 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     }
 
     /**
+     * This keeps track of the one adapter used for all
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected ResourceEnvironmentMeasuringPointItemProvider resourceEnvironmentMeasuringPointItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createResourceEnvironmentMeasuringPointAdapter() {
+        if (this.resourceEnvironmentMeasuringPointItemProvider == null) {
+            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(this);
+        }
+
+        return this.resourceEnvironmentMeasuringPointItemProvider;
+    }
+
+    /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -425,6 +450,9 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
         }
         if (this.externalCallActionMeasuringPointItemProvider != null) {
             this.externalCallActionMeasuringPointItemProvider.dispose();
+        }
+        if (this.resourceEnvironmentMeasuringPointItemProvider != null) {
+            this.resourceEnvironmentMeasuringPointItemProvider.dispose();
         }
     }
 

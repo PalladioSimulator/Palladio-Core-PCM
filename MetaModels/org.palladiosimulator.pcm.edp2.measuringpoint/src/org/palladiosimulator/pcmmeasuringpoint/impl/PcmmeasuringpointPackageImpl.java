@@ -25,6 +25,8 @@ import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
 import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
@@ -178,6 +180,20 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
      * @generated
      */
     private EClass entryLevelSystemCallReferenceEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass resourceEnvironmentMeasuringPointEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass resourceEnvironmentReferenceEClass = null;
 
     /**
      * Creates an instance of the model <b>Package</b>, registered with
@@ -566,6 +582,36 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
      * @generated
      */
     @Override
+    public EClass getResourceEnvironmentMeasuringPoint() {
+        return this.resourceEnvironmentMeasuringPointEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getResourceEnvironmentReference() {
+        return this.resourceEnvironmentReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getResourceEnvironmentReference_ResourceEnvironment() {
+        return (EReference) this.resourceEnvironmentReferenceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public PcmmeasuringpointFactory getPcmmeasuringpointFactory() {
         return (PcmmeasuringpointFactory) this.getEFactoryInstance();
     }
@@ -640,6 +686,12 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.entryLevelSystemCallReferenceEClass = this.createEClass(ENTRY_LEVEL_SYSTEM_CALL_REFERENCE);
         this.createEReference(this.entryLevelSystemCallReferenceEClass,
                 ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL);
+
+        this.resourceEnvironmentMeasuringPointEClass = this.createEClass(RESOURCE_ENVIRONMENT_MEASURING_POINT);
+
+        this.resourceEnvironmentReferenceEClass = this.createEClass(RESOURCE_ENVIRONMENT_REFERENCE);
+        this.createEReference(this.resourceEnvironmentReferenceEClass,
+                RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT);
     }
 
     /**
@@ -712,6 +764,8 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes().add(this.getEntryLevelSystemCallReference());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(this.getExternalCallActionReference());
+        this.resourceEnvironmentMeasuringPointEClass.getESuperTypes().add(this.getResourceEnvironmentReference());
+        this.resourceEnvironmentMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.assemblyOperationMeasuringPointEClass, AssemblyOperationMeasuringPoint.class,
@@ -810,6 +864,16 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.initEReference(this.getEntryLevelSystemCallReference_EntryLevelSystemCall(),
                 theUsagemodelPackage.getEntryLevelSystemCall(), null, "entryLevelSystemCall", null, 1, 1,
                 EntryLevelSystemCallReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.resourceEnvironmentMeasuringPointEClass, ResourceEnvironmentMeasuringPoint.class,
+                "ResourceEnvironmentMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        this.initEClass(this.resourceEnvironmentReferenceEClass, ResourceEnvironmentReference.class,
+                "ResourceEnvironmentReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getResourceEnvironmentReference_ResourceEnvironment(),
+                theResourceenvironmentPackage.getResourceEnvironment(), null, "resourceEnvironment", null, 1, 1,
+                ResourceEnvironmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource

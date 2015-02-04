@@ -41,11 +41,9 @@ public final class PcmmeasuringpointEditorPlugin extends EMFPlugin {
      * @generated
      */
     public PcmmeasuringpointEditorPlugin() {
-        super(new ResourceLocator[] {
-                EDP2EditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE, MetricSpecEditPlugin.INSTANCE,
-                PalladioComponentModelEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE,
-                StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE,
-        });
+        super(new ResourceLocator[] { EDP2EditPlugin.INSTANCE, IdentifierEditPlugin.INSTANCE,
+                MetricSpecEditPlugin.INSTANCE, PalladioComponentModelEditPlugin.INSTANCE,
+                ProbabilityFunctionEditPlugin.INSTANCE, StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
     }
 
     /**
