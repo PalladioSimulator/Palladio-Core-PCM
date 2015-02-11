@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="de.uka.ipd.sdq.codegen.simucontroller">
+<schema targetNamespace="de.uka.ipd.sdq.codegen.simucontroller" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
          <meta.schema plugin="de.uka.ipd.sdq.codegen.simucontroller" id="controller" name="SimuCom Controller"/>
@@ -11,6 +11,11 @@
    </annotation>
 
    <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
       <complexType>
          <sequence minOccurs="1" maxOccurs="unbounded">
             <element ref="actionDelegate"/>
@@ -64,7 +69,7 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="de.uka.ipd.sdq.codegen.simucontroller.actions.IControlInterace"/>
+                  <meta.attribute kind="java" basedOn=":de.uka.ipd.sdq.simulation.ISimulationControl"/>
                </appInfo>
             </annotation>
          </attribute>
@@ -107,13 +112,5 @@
       </documentation>
    </annotation>
 
-   <annotation>
-      <appInfo>
-         <meta.section type="copyright"/>
-      </appInfo>
-      <documentation>
-         
-      </documentation>
-   </annotation>
 
 </schema>
