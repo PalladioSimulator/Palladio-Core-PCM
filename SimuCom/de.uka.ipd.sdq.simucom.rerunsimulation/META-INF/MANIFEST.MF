@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: RepeatedLaunch
+Bundle-Name: RerunSimulation
 Bundle-SymbolicName: de.uka.ipd.sdq.simucom.rerunsimulation;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: de.uka.ipd.sdq.codegen.simucontroller;bundle-version="1.0.0",
