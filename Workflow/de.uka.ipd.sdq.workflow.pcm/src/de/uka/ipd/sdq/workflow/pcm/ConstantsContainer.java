@@ -63,6 +63,9 @@ public class ConstantsContainer {
     // Rerun Simulation identifiers
     public static final String BASE_PROJECT_ID = "baseProjectID";
     public static final String GENERATED_PROJECT_PATH = "generatedProjectPath";
+    public static final String REGENERATE_ALLOCATION = "regenerateAllocation";
+    public static final String REGENERATE_USAGE = "regenerateUsage";
+    public static final String REGENERATE_SYSTEM = "regenerateSystem";
 	
 	// Simulation features
 	public static final String FEATURE_CONFIG = "featureConfig";
