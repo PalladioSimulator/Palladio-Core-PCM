@@ -50,6 +50,7 @@ Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.debug,
  de.uka.ipd.sdq.codegen.simucontroller.runconfig,
  de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs,
+ de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.xtendworkflow,
  de.uka.ipd.sdq.pcm.transformations
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
