@@ -6,6 +6,7 @@ import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringP
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
@@ -171,6 +172,14 @@ public class PcmMeasuringPointStringFormaterSwitch extends PcmmeasuringpointSwit
     public String caseUsageScenarioMeasuringPoint(final UsageScenarioMeasuringPoint object) {
         result.append("Usage Scenario: ");
         result.append(object.getUsageScenario().getEntityName());
+
+        return result.toString();
+    }
+
+    @Override
+    public String caseResourceEnvironmentMeasuringPoint(final ResourceEnvironmentMeasuringPoint object) {
+        result.append("Resource Environment: ");
+        result.append(object.getResourceEnvironment().getEntityName());
 
         return result.toString();
     }
