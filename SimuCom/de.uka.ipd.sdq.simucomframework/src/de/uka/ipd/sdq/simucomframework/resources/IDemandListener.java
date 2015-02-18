@@ -4,8 +4,8 @@ import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 
 public interface IDemandListener {
 
-    public void demand(double demand);
+    public void demand(final double demand);
 
-    public void demandCompleted(ISchedulableProcess simProcess);
+    public void demandCompleted(final ISchedulableProcess simProcess);
 
 }

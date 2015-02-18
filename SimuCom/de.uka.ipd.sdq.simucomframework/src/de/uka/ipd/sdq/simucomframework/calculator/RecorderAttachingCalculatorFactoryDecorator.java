@@ -124,14 +124,23 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
         return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(measuringPoint, probe));
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Calculator buildNumberOfResourceContainersCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory
+                .buildNumberOfResourceContainersCalculator(measuringPoint, probe));
+    }
+
     private Calculator setupRecorder(final Calculator calculator) {
         final Map<String, Object> recorderConfigurationMap = new HashMap<String, Object>();
         recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC,
                 calculator.getMetricDesciption());
         recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURING_POINT, calculator.getMeasuringPoint());
 
-        final IRecorder recorder = RecorderExtensionHelper.instantiateRecorderImplementationForRecorder(this.configuration
-                .getRecorderName());
+        final IRecorder recorder = RecorderExtensionHelper
+                .instantiateRecorderImplementationForRecorder(this.configuration.getRecorderName());
         final IRecorderConfiguration recorderConfiguration = this.configuration.getRecorderConfigurationFactory()
                 .createRecorderConfiguration(recorderConfigurationMap);
         recorder.initialize(recorderConfiguration);
