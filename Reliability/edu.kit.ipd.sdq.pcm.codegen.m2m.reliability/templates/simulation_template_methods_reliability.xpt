@@ -5,7 +5,7 @@
 «AROUND m2t_transforms::sim::resources::ResourceDemand FOR ParametricResourceDemand»
 	«targetDef.proceed()»
 	«EXPAND ResourceDemand FOR this»
-«ENDAROUND«
+«ENDAROUND»
 
 «AROUND m2t_transforms::sim::resources::ResourceDemand FOR ResourceCall»
 «REM»Call  «targetDef.proceed()» in order to execute the underlying template.
