@@ -215,7 +215,7 @@ litigation.
 
    <requires>
       <import plugin="org.apache.log4j"/>
-      <import plugin="org.palladiosimulator.protocom.resourcestrategies.ee" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.protocom.resourcestrategies" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.jscience"/>
       <import plugin="org.apache.commons.math"/>
    </requires>
