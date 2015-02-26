@@ -230,11 +230,6 @@ litigation.
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.apache.log4j"/>
-      <import plugin="de.uka.ipd.sdq.sensorframework"/>
-      <import plugin="org.apache.commons.cli"/>
-      <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="javax.servlet" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.jscience"/>
       <import plugin="org.apache.commons.math"/>
       <import plugin="org.eclipse.xtext.builder" version="2.5.3" match="greaterOrEqual"/>
@@ -253,9 +248,14 @@ litigation.
       <import plugin="org.eclipse.wst.validation" version="1.2.501" match="greaterOrEqual"/>
       <import plugin="org.objectweb.asm" version="3.3.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jst.j2ee" version="1.1.710" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.protocom.framework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.protocom.framework.java.ee" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework"/>
+      <import plugin="org.apache.commons.cli"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="javax.servlet" version="3.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.xtend.sdk" version="2.4.3.v201309030823" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.protocom.framework.java.se" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

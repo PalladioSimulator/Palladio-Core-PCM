@@ -30,7 +30,7 @@
       <import plugin="org.junit" version="4.11.0" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j" version="1.2.15" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.protocom.resourcestrategies" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.protocom.framework"/>
+      <import plugin="org.palladiosimulator.protocom.framework.java.se"/>
    </requires>
 
    <plugin
