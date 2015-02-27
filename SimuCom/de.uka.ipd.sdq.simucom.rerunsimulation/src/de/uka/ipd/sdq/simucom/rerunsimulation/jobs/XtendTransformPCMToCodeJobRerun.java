@@ -22,7 +22,8 @@ import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 /**
- * Start the Workflow-Engine of oAW - Generator
+ * Start the Workflow-Engine of oAW - Generator. Only system, allocation and usage can be
+ * regenerated in this job.
  */
 public class XtendTransformPCMToCodeJobRerun extends SequentialBlackboardInteractingJob<MDSDBlackboard> implements
         IJob, IBlackboardInteractingJob<MDSDBlackboard> {
@@ -61,7 +62,8 @@ public class XtendTransformPCMToCodeJobRerun extends SequentialBlackboardInterac
     }
 
     /**
-     * @return
+     * 
+     * @return a map containing the system transformation slots (system allocation, usage)
      */
     private HashMap<String, Object> getSystemTransformationSlots() {
         HashMap<String, Object> sC2 = new HashMap<String, Object>();
@@ -75,6 +77,10 @@ public class XtendTransformPCMToCodeJobRerun extends SequentialBlackboardInterac
         return sC2;
     }
 
+    /**
+     * 
+     * @return the base path for the plug in that is generated
+     */
     private String getBasePath() {
         String basePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString() + "/"
                 + this.configuration.getStoragePluginID() + "/" + "src";

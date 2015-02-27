@@ -64,6 +64,7 @@ public class RerunSimulationJob extends AbstractExtendableJob<MDSDBlackboard> {
 
         // 5. Transfer the JAR to a free simulation dock and simulate it
         this.addJob(new TransferSimulationBundleToDock(configuration, listener, buildBundleJob));
+        //TODO: Still in progress
  //       this.addJob(new CallGeneratedMainDirectlyJob(configuration));
 
         // All Workflow extension de.uka.ipd.sdq.simucom.rerunsimulation.jobs with the extension
