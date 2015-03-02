@@ -14,6 +14,8 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComNature;
  * that hasn't got the SimuComNature. Currently only projects generated via the SimuBench use the
  * SimuComNature
  * 
+ * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComNature
+ * 
  * @author Michael Junker
  *
  */
