@@ -34,296 +34,335 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.IIssueReceiver;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 
 /**
- * Base class of workflow configuration objects where the workflow has to deal
- * with a PCM model instance. This configuration class holds the locations of
- * the PCM model parts, and (for convinience) a static list of EPackages needed
- * to read the files.
+ * Base class of workflow configuration objects where the workflow has to deal with a PCM model
+ * instance. This configuration class holds the locations of the PCM model parts, and (for
+ * convinience) a static list of EPackages needed to read the files.
  *
  * @author Steffen Becker
  */
-public abstract class AbstractPCMWorkflowRunConfiguration extends
-		AbstractWorkflowBasedRunConfiguration implements Cloneable {
-	/** Logger for this class. */
-	private static final Logger LOGGER = Logger.getLogger(AbstractPCMWorkflowRunConfiguration.class);
+public abstract class AbstractPCMWorkflowRunConfiguration extends AbstractWorkflowBasedRunConfiguration implements
+        Cloneable {
+    /** Logger for this class. */
+    private static final Logger LOGGER = Logger.getLogger(AbstractPCMWorkflowRunConfiguration.class);
 
-	/**
-	 * Contains All EPackages within or referenced by PCM. Used, e.g., for OAW
-	 * template generation.
-	 */
-	public static final EPackage[] PCM_EPACKAGES = new EPackage[] {
-			// Packages needed by QVT Transformations {{
-			EcorePackage.eINSTANCE,
-			IdentifierPackage.eINSTANCE,
-			UnitsPackage.eINSTANCE,
-			ProbfunctionPackage.eINSTANCE,
-			PcmPackage.eINSTANCE,
-			// }}
-			SeffPackage.eINSTANCE,
-			RepositoryPackage.eINSTANCE,
-			ParameterPackage.eINSTANCE,
-			UsagemodelPackage.eINSTANCE,
-			SystemPackage.eINSTANCE,
-			ResourcetypePackage.eINSTANCE,
-			ResourceenvironmentPackage.eINSTANCE,
-			AllocationPackage.eINSTANCE,
-			StoexPackage.eINSTANCE,
-			CorePackage.eINSTANCE,
-			CompletionsPackage.eINSTANCE,
-			ReliabilityPackage.eINSTANCE,
-			QosReliabilityPackage.eINSTANCE,
-			SeffReliabilityPackage.eINSTANCE};
+    /**
+     * Contains All EPackages within or referenced by PCM. Used, e.g., for OAW template generation.
+     */
+    public static final EPackage[] PCM_EPACKAGES = new EPackage[] {
+            // Packages needed by QVT Transformations {{
+            EcorePackage.eINSTANCE,
+            IdentifierPackage.eINSTANCE,
+            UnitsPackage.eINSTANCE,
+            ProbfunctionPackage.eINSTANCE,
+            PcmPackage.eINSTANCE,
+            // }}
+            SeffPackage.eINSTANCE, RepositoryPackage.eINSTANCE, ParameterPackage.eINSTANCE,
+            UsagemodelPackage.eINSTANCE, SystemPackage.eINSTANCE, ResourcetypePackage.eINSTANCE,
+            ResourceenvironmentPackage.eINSTANCE, AllocationPackage.eINSTANCE, StoexPackage.eINSTANCE,
+            CorePackage.eINSTANCE, CompletionsPackage.eINSTANCE, ReliabilityPackage.eINSTANCE,
+            QosReliabilityPackage.eINSTANCE, SeffReliabilityPackage.eINSTANCE };
 
-	protected String middlewareFile;
-	protected String eventMiddlewareFile;
-	protected List<String> allocationFiles;
-	protected String usageModelFile;
+    protected String rmiMiddlewareFile;
+    protected String eventMiddlewareFile;
+    protected List<String> allocationFiles;
+    protected String usageModelFile;
 
-	/** Storage for temporary models and code. */
-	protected String temporaryDataLocation;
-	/** State if temporary data (models and/or code) should be deleted after the analysis. */
-	protected boolean deleteTemporaryDataAfterAnalysis;
+    /**
+     * information to the original models the generated project was built on. Currently only needed
+     * when running the simulation again without regeneration of the project
+     */
+    private String baseProjectID = null;
 
-	/** Activation state of the accuracy influence analysis. */
-	protected boolean accuracyInfluenceAnalysisEnabled;
-	/** Path to the file containing the accuracy information model. */
-	protected String accuracyInformationModelFile;
-	/** State of the current accuracy influence analysis. */
-	protected AccuracyInfluenceAnalysisState accuracyInfluenceAnalysisState;
-	/** Job receiving the issues occurred during accuracy influence analysis. */
-	protected IIssueReceiver accuracyInfluenceIssueReceivingJob;
-	
-	protected boolean overwriteWithoutAsking = false;
+    /**
+     * Contains the paths to every model that is not recognized by the configuration yet such as
+     * System
+     */
+    private List<String> modelPaths = null;
+    
+    /**
+     * Contains the path for the generated plug-in. This is equal to the
+     * temporaryDataLocation when using the Rerun Simulator but due to the code of the 
+     * SimuBench and the Rerun Simulation both attributes are needed
+     */
+    private String generatedProjectPath = null;
 
-	/**
-	 * @return Returns the receiving job for accuracy influence analysis issues
-	 */
-	public IIssueReceiver getAccuracyInfluenceIssueReceivingJob() {
-		return accuracyInfluenceIssueReceivingJob;
-	}
+    /** Storage for temporary models and code. */
+    protected String temporaryDataLocation;
+    /** State if temporary data (models and/or code) should be deleted after the analysis. */
+    protected boolean deleteTemporaryDataAfterAnalysis;
 
-	/**
-	 * @param accuracyInfluenceIssueReceivingJob Sets the receiving job for accuracy influence analysis issues.
-	 */
-	public void setAccuracyInfluenceIssueReceivingJob(
-			IIssueReceiver accuracyInfluenceIssueReceivingJob) {
-		this.accuracyInfluenceIssueReceivingJob = accuracyInfluenceIssueReceivingJob;
-	}
+    /** Activation state of the accuracy influence analysis. */
+    protected boolean accuracyInfluenceAnalysisEnabled;
+    /** Path to the file containing the accuracy information model. */
+    protected String accuracyInformationModelFile;
+    /** State of the current accuracy influence analysis. */
+    protected AccuracyInfluenceAnalysisState accuracyInfluenceAnalysisState;
+    /** Job receiving the issues occurred during accuracy influence analysis. */
+    protected IIssueReceiver accuracyInfluenceIssueReceivingJob;
 
-	/**
-	 * @return Returns the current accuracy influence analysis state.
-	 */
-	public AccuracyInfluenceAnalysisState getAccuracyInfluenceAnalysisState() {
-		return accuracyInfluenceAnalysisState;
-	}
+    protected boolean overwriteWithoutAsking = false;
 
-	/**Sets the accuracy influence analysis state.
-	 * @param accuracyInfluenceAnalysisState The new state.
-	 */
-	public void setAccuracyInfluenceAnalysisState(
-			AccuracyInfluenceAnalysisState accuracyInfluenceAnalysisState) {
-		this.accuracyInfluenceAnalysisState = accuracyInfluenceAnalysisState;
-	}
+    /**
+     * @return Returns the receiving job for accuracy influence analysis issues
+     */
+    public IIssueReceiver getAccuracyInfluenceIssueReceivingJob() {
+        return accuracyInfluenceIssueReceivingJob;
+    }
 
-	/**
-	 * @return if deletion of temporary data after analysis is enabled.
-	 */
-	public boolean isDeleteTemporaryDataAfterAnalysis() {
-		return deleteTemporaryDataAfterAnalysis;
-	}
+    /**
+     * @param accuracyInfluenceIssueReceivingJob
+     *            Sets the receiving job for accuracy influence analysis issues.
+     */
+    public void setAccuracyInfluenceIssueReceivingJob(IIssueReceiver accuracyInfluenceIssueReceivingJob) {
+        this.accuracyInfluenceIssueReceivingJob = accuracyInfluenceIssueReceivingJob;
+    }
 
-	/**Sets the activation state for the deletion of temporary data after an analysis.
-	 * @param deleteTemporaryDataAfterAnalysis
-	 */
-	public void setDeleteTemporaryDataAfterAnalysis(
-			boolean deleteTemporaryDataAfterAnalysis) {
-		checkFixed();
-		this.deleteTemporaryDataAfterAnalysis = deleteTemporaryDataAfterAnalysis;
-	}
+    /**
+     * @return Returns the current accuracy influence analysis state.
+     */
+    public AccuracyInfluenceAnalysisState getAccuracyInfluenceAnalysisState() {
+        return accuracyInfluenceAnalysisState;
+    }
 
-	/**
-	 * @return Returns the activation state of the accuracy influence analysis.
-	 */
-	public boolean isAccuracyInfluenceAnalysisEnabled() {
-		return accuracyInfluenceAnalysisEnabled;
-	}
+    /**
+     * Sets the accuracy influence analysis state.
+     * 
+     * @param accuracyInfluenceAnalysisState
+     *            The new state.
+     */
+    public void setAccuracyInfluenceAnalysisState(AccuracyInfluenceAnalysisState accuracyInfluenceAnalysisState) {
+        this.accuracyInfluenceAnalysisState = accuracyInfluenceAnalysisState;
+    }
 
-	/**Set the activation state of the accuracy influence analysis.
-	 * @param enabled Activation state.
-	 */
-	public void setAccuracyInfluenceAnalysisEnabled(boolean enabled) {
-		checkFixed();
-		this.accuracyInfluenceAnalysisEnabled = enabled;
-	}
+    /**
+     * @return if deletion of temporary data after analysis is enabled.
+     */
+    public boolean isDeleteTemporaryDataAfterAnalysis() {
+        return deleteTemporaryDataAfterAnalysis;
+    }
 
-	/**
-	 * @return Returns the string representation of the path to the file containing the accuracy information model.
-	 */
-	public String getAccuracyInformationModelFile() {
-		return accuracyInformationModelFile;
-	}
+    /**
+     * Sets the activation state for the deletion of temporary data after an analysis.
+     * 
+     * @param deleteTemporaryDataAfterAnalysis
+     */
+    public void setDeleteTemporaryDataAfterAnalysis(boolean deleteTemporaryDataAfterAnalysis) {
+        checkFixed();
+        this.deleteTemporaryDataAfterAnalysis = deleteTemporaryDataAfterAnalysis;
+    }
 
-	/**Set the path to the file containing the accuracy information model.
-	 * @param accuracyInformationModelFile
-	 */
-	public void setAccuracyInformationModelFile(String accuracyInformationModelFile) {
-		checkFixed();
-		this.accuracyInformationModelFile = accuracyInformationModelFile;
-	}
+    /**
+     * @return Returns the activation state of the accuracy influence analysis.
+     */
+    public boolean isAccuracyInfluenceAnalysisEnabled() {
+        return accuracyInfluenceAnalysisEnabled;
+    }
 
-	/**
-	 * @return Returns the ID of the Eclipse plug-in project to be generated as temporary storage for models and, if applicable, code.
-	 */
-	public String getStoragePluginID() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(temporaryDataLocation);
-		if (isAccuracyInfluenceAnalysisEnabled()) {
-			sb.append("_" + accuracyInfluenceAnalysisState);
-		}
-		return sb.toString();
-	}
+    /**
+     * Set the activation state of the accuracy influence analysis.
+     * 
+     * @param enabled
+     *            Activation state.
+     */
+    public void setAccuracyInfluenceAnalysisEnabled(boolean enabled) {
+        checkFixed();
+        this.accuracyInfluenceAnalysisEnabled = enabled;
+    }
 
-	/**
-	 * Sets the name of the Eclipse plug-in project which will be generated as temporary storage for models and, if applicable, code.
-	 *
-	 * @param pluginID
-	 *            The name of the project containing the generated code
-	 */
-	public void setStoragePluginID(String pluginID) {
-		checkFixed();
-		this.temporaryDataLocation = pluginID;
-	}
+    /**
+     * @return Returns the string representation of the path to the file containing the accuracy
+     *         information model.
+     */
+    public String getAccuracyInformationModelFile() {
+        return accuracyInformationModelFile;
+    }
 
+    /**
+     * Set the path to the file containing the accuracy information model.
+     * 
+     * @param accuracyInformationModelFile
+     */
+    public void setAccuracyInformationModelFile(String accuracyInformationModelFile) {
+        checkFixed();
+        this.accuracyInformationModelFile = accuracyInformationModelFile;
+    }
 
-	/**
-	 * @return Returns a list of string URIs containing all model files needed
-	 *         for a full PCM instance
-	 */
-	public List<String> getPCMModelFiles() {
-		ArrayList<String> files = new ArrayList<String>();
-		files.addAll(allocationFiles);
-		files.add(usageModelFile);
-		if (accuracyInfluenceAnalysisEnabled) {
-			files.add(accuracyInformationModelFile);
-		}
+    /**
+     * @return Returns the ID of the Eclipse plug-in project to be generated as temporary storage
+     *         for models and, if applicable, code.
+     */
+    public String getStoragePluginID() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(temporaryDataLocation);
+        if (isAccuracyInfluenceAnalysisEnabled()) {
+            sb.append("_" + accuracyInfluenceAnalysisState);
+        }
+        return sb.toString();
+    }
 
-		return files;
-	}
+    /**
+     * Sets the name of the Eclipse plug-in project which will be generated as temporary storage for
+     * models and, if applicable, code.
+     *
+     * @param pluginID
+     *            The name of the project containing the generated code
+     */
+    public void setStoragePluginID(String pluginID) {
+        checkFixed();
+        this.temporaryDataLocation = pluginID;
+    }
 
-	/**
-	 * @return Returns the filename of the PCM's middleware completion
-	 *         repository
-	 */
-	public String getMiddlewareFile() {
-		return middlewareFile;
-	}
+    /**
+     * @return Returns a list of string URIs containing all model files needed for a full PCM
+     *         instance
+     */
+    public List<String> getPCMModelFiles() {
+        ArrayList<String> files = new ArrayList<String>();
+        files.addAll(allocationFiles);
+        files.add(usageModelFile);
+        if (accuracyInfluenceAnalysisEnabled) {
+            files.add(accuracyInformationModelFile);
+        }
 
-	/**
-	 * Sets the filename of the PCM's middleware completion repository
-	 *
-	 * @param middlewareFile
-	 */
-	public void setMiddlewareFile(String middlewareFile) {
-		checkFixed();
-		this.middlewareFile = middlewareFile;
-	}
+        return files;
+    }
 
-	/**
-	 * @return Returns the filename of the PCM's middleware completion
-	 *         repository. If the repository was not set before, the default file will be returned.
-	 */
-	public String getEventMiddlewareFile() {
-		if(eventMiddlewareFile != null){
-			return eventMiddlewareFile;
-		} else {
-			return ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE;
-		}
-	}
+    /**
+     * @return Returns the filename of the PCM's RMI middleware repository repository
+     */
+    public String getRMIMiddlewareFile() {
+        return rmiMiddlewareFile;
+    }
 
-	/**
-	 * Sets the filename of the PCM's middleware completion repository
-	 *
-	 * @param eventMiddlewareFile
-	 */
-	public void setEventMiddlewareFile(String eventMiddlewareFile) {
-		checkFixed();
-		this.eventMiddlewareFile = eventMiddlewareFile;
-	}
+    /**
+     * Sets the filename of the PCM's RMI middleware repository
+     *
+     * @param middlewareFile
+     */
+    public void setRMIMiddlewareFile(String rmiMiddlewareFile) {
+        checkFixed();
+        this.rmiMiddlewareFile = rmiMiddlewareFile;
+    }
 
-	public List<String> getAllocationFiles() {
-		return allocationFiles;
-	}
+    /**
+     * @return Returns the filename of the PCM's middleware completion repository. If the repository
+     *         was not set before, the default file will be returned.
+     */
+    public String getEventMiddlewareFile() {
+        if (eventMiddlewareFile != null) {
+            return eventMiddlewareFile;
+        } else {
+            return ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE;
+        }
+    }
 
-	public void setAllocationFiles(List<String> allocationFile) {
-		checkFixed();
-		this.allocationFiles = allocationFile;
-	}
+    /**
+     * Sets the filename of the PCM's middleware completion repository
+     *
+     * @param eventMiddlewareFile
+     */
+    public void setEventMiddlewareFile(String eventMiddlewareFile) {
+        checkFixed();
+        this.eventMiddlewareFile = eventMiddlewareFile;
+    }
 
-	public String getUsageModelFile() {
-		return usageModelFile;
-	}
+    public List<String> getAllocationFiles() {
+        return allocationFiles;
+    }
 
-	public void setUsageModelFile(String usageModelFile) {
-		checkFixed();
-		this.usageModelFile = usageModelFile;
-	}
-	
+    public void setAllocationFiles(List<String> allocationFile) {
+        checkFixed();
+        this.allocationFiles = allocationFile;
+    }
 
-	public boolean isOverwriteWithoutAsking() {
-		return overwriteWithoutAsking;
-	}
+    public String getUsageModelFile() {
+        return usageModelFile;
+    }
 
-	public void setOverwriteWithoutAsking(boolean overwriteWithoutAsking) {
-		this.overwriteWithoutAsking = overwriteWithoutAsking;
-	}
+    public void setUsageModelFile(String usageModelFile) {
+        checkFixed();
+        this.usageModelFile = usageModelFile;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see
-	 * de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration
-	 * #validateAndFreeze()
-	 */
-	@Override
-	public void validateAndFreeze() throws InvalidWorkflowJobConfigurationException {
-		super.validateAndFreeze();
-		for (String fileURI : getPCMModelFiles()) {
-			if (fileURI == null) {
+    public boolean isOverwriteWithoutAsking() {
+        return overwriteWithoutAsking;
+    }
+
+    public void setOverwriteWithoutAsking(boolean overwriteWithoutAsking) {
+        this.overwriteWithoutAsking = overwriteWithoutAsking;
+    }
+
+    public String getBaseProjectID() {
+        return baseProjectID;
+    }
+
+    public void setBaseProjectID(String baseProjectID) {
+        this.baseProjectID = baseProjectID;
+    }
+
+    public List<String> getModelPaths() {
+        return modelPaths;
+    }
+
+    public void setModelPaths(List<String> modelPaths) {
+        this.modelPaths = modelPaths;
+    }
+    
+    public String getGeneratedProjectPath() {
+        return generatedProjectPath;
+    }
+
+    public void setGeneratedProjectPath(String generatedProjectPath) {
+        this.generatedProjectPath = generatedProjectPath;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration
+     * #validateAndFreeze()
+     */
+    @Override
+    public void validateAndFreeze() throws InvalidWorkflowJobConfigurationException {
+        super.validateAndFreeze();
+        for (String fileURI : getPCMModelFiles()) {
+            if (fileURI == null) {
                 throw new InvalidWorkflowJobConfigurationException(
-						"Workflow configuration is invalid, not all PCM models are set");
+                        "Workflow configuration is invalid, not all PCM models are set");
             }
-			URI fileLocation = URI.createURI(fileURI);
-			// TODO: Check whether file exists
-		}
-	}
+            URI fileLocation = URI.createURI(fileURI);
+            // TODO: Check whether file exists
+        }
+    }
 
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		AbstractPCMWorkflowRunConfiguration config = (AbstractPCMWorkflowRunConfiguration) super.clone();
-		config.accuracyInfluenceAnalysisEnabled = this.accuracyInfluenceAnalysisEnabled;
-		config.accuracyInfluenceAnalysisState = this.accuracyInfluenceAnalysisState;
-		config.accuracyInformationModelFile = new String(this.accuracyInformationModelFile);
-		ArrayList<String> newAllocationFiles = new ArrayList<String>(this.allocationFiles.size());
-		for (String allocationFile : this.allocationFiles) {
-			newAllocationFiles.add(new String(allocationFile));
-		}
-		config.allocationFiles = newAllocationFiles;
-		config.deleteTemporaryDataAfterAnalysis = this.deleteTemporaryDataAfterAnalysis;
-		config.eventMiddlewareFile = new String(this.eventMiddlewareFile);
-		config.middlewareFile = new String(this.middlewareFile);
-		config.temporaryDataLocation = new String(temporaryDataLocation);
-		config.usageModelFile = new String(usageModelFile);
-		config.accuracyInfluenceIssueReceivingJob = this.accuracyInfluenceIssueReceivingJob;
-		return config;
-	}
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        AbstractPCMWorkflowRunConfiguration config = (AbstractPCMWorkflowRunConfiguration) super.clone();
+        config.accuracyInfluenceAnalysisEnabled = this.accuracyInfluenceAnalysisEnabled;
+        config.accuracyInfluenceAnalysisState = this.accuracyInfluenceAnalysisState;
+        config.accuracyInformationModelFile = new String(this.accuracyInformationModelFile);
+        ArrayList<String> newAllocationFiles = new ArrayList<String>(this.allocationFiles.size());
+        for (String allocationFile : this.allocationFiles) {
+            newAllocationFiles.add(new String(allocationFile));
+        }
+        config.allocationFiles = newAllocationFiles;
+        config.deleteTemporaryDataAfterAnalysis = this.deleteTemporaryDataAfterAnalysis;
+        config.eventMiddlewareFile = new String(this.eventMiddlewareFile);
+        config.rmiMiddlewareFile = new String(this.rmiMiddlewareFile);
+        config.temporaryDataLocation = new String(temporaryDataLocation);
+        config.usageModelFile = new String(usageModelFile);
+        config.accuracyInfluenceIssueReceivingJob = this.accuracyInfluenceIssueReceivingJob;
+        return config;
+    }
 
-	public AbstractPCMWorkflowRunConfiguration getClone() {
-		try {
-			return (AbstractPCMWorkflowRunConfiguration) clone();
-		} catch (CloneNotSupportedException e) {
-			if(LOGGER.isEnabledFor(Level.FATAL)) {
+    public AbstractPCMWorkflowRunConfiguration getClone() {
+        try {
+            return (AbstractPCMWorkflowRunConfiguration) clone();
+        } catch (CloneNotSupportedException e) {
+            if (LOGGER.isEnabledFor(Level.FATAL)) {
                 LOGGER.fatal("Could not clone configuration.", e);
             }
-			return null;
-		}
-	}
+            return null;
+        }
+    }
 }

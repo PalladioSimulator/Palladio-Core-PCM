@@ -27,7 +27,7 @@ public class LoadPCMModelsIntoBlackboardJob extends SequentialBlackboardInteract
      * ID of the blackboard partition containing the fully loaded parametric middleware completions.
      * The blackboard partition is ensured to be of type {@link PCMResourceSetPartition}
      */
-    public static final String MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.middleware";
+    public static final String RMI_MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.rmimiddleware";
 
     /**
      * ID of the blackboard partition containing the fully loaded parametric event middleware

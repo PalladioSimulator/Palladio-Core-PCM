@@ -20,8 +20,8 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	private static final Logger LOGGER = Logger.getLogger(PreparePCMBlackboardPartionJob.class);
 	private MDSDBlackboard blackboard;
 
-	static final URI PCM_PALLADIO_RESOURCE_TYPE_URI = URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype");
-	static final URI PCM_PALLADIO_PRIMITIVE_TYPE_REPOSITORY_URI = URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository");
+	public static final URI PCM_PALLADIO_RESOURCE_TYPE_URI = URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype");
+	public static final URI PCM_PALLADIO_PRIMITIVE_TYPE_REPOSITORY_URI = URI.createURI("pathmap://PCM_MODELS/PrimitiveTypes.repository");
 
 	@Override
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
@@ -34,7 +34,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, myPartion);
 		
 		ResourceSetPartition middlewareRepositoryPartition = new ResourceSetPartition();
-		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
+		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID, middlewareRepositoryPartition);
 		
 		ResourceSetPartition eventMiddlewareRepositoryPartition = new ResourceSetPartition();
 		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID, eventMiddlewareRepositoryPartition);
@@ -58,7 +58,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
 		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID);
-		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.MIDDLEWARE_PARTITION_ID);
+		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID);
 		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 	}
 

@@ -14,7 +14,7 @@ public class ConstantsContainer {
 	public static final String SYSTEM_FILE = "systemFile";
 	public static final String ALLOCATION_FILE = "allocationFile";
 	public static final String USAGE_FILE = "usageFile";
-	public static final String MWREPOSITORY_FILE = "mwRepositoryFile";
+	public static final String RMI_MIDDLEWARE_REPOSITORY_FILE = "rmiRepositoryFile";
 	public static final String EVENT_MIDDLEWARE_REPOSITORY_FILE = "eventMiddlewareRepositoryFile";
 	public static final String ACCURACY_QUALITY_ANNOTATION_FILE = "accuracyQualityAnnotationFile";
 	public static final String SENSITIVITY_MODEL_FILE = "sensitivityModelFile";
@@ -48,7 +48,6 @@ public class ConstantsContainer {
 	public static final String MAXIMUM_TEXT = "maximum";
 	public static final String STEP_WIDTH_TEXT = "stepwidth";
 	public static final String RUN_NO = "runNo";
-
 	// Output path settings
 	public static final String EAROUT_PATH = "earOutpath";
 	public static final String INTERFACESOUT_PATH = "interfacesOutpath";
@@ -61,6 +60,13 @@ public class ConstantsContainer {
 	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI_STUBS = "Java SE RMI Code Stubs";
 	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI = "Java SE RMI Performance Prototype";
 
+    // Rerun Simulation identifiers
+    public static final String BASE_PROJECT_ID = "baseProjectID";
+    public static final String GENERATED_PROJECT_PATH = "generatedProjectPath";
+    public static final String REGENERATE_ALLOCATION = "regenerateAllocation";
+    public static final String REGENERATE_USAGE = "regenerateUsage";
+    public static final String REGENERATE_SYSTEM = "regenerateSystem";
+	
 	// Simulation features
 	public static final String FEATURE_CONFIG = "featureConfig";
 	public static final String FEATURE_CONFIG_TARGET = "featureConfigTarget";
@@ -83,7 +89,7 @@ public class ConstantsContainer {
 	//BRG
 	// private static final String PCM_RESOURCETYPE_FILE_URI = "pathmap://PCM_MODELS/Palladio.resourcetype";
 	/** Default URI of the middleware repository file. */
-	public static final String DEFAULT_MIDDLEWARE_REPOSITORY_FILE = "pathmap://PCM_MODELS/Glassfish.repository";
+	public static final String DEFAULT_RMI_MIDDLEWARE_REPOSITORY_FILE = "pathmap://PCM_MODELS/Glassfish.repository";
 	/** Default URI of the allocation model file. */
 	public static final String DEFAULT_ALLOCATION_FILE = "";
 	/** Default URI of the usage model file. */
