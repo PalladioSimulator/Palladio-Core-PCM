@@ -8,7 +8,7 @@
     importOrganizing="true" cleanup="true">
   <foreignModel>pcmmeasuringpoint.ecore</foreignModel>
   <genPackages prefix="Pcmmeasuringpoint" basePackage="org.palladiosimulator" resource="XML"
-      disposableProviderFactory="true" ecorePackage="pcmmeasuringpoint.ecore#/">
+      disposableProviderFactory="true" childCreationExtenders="true" ecorePackage="pcmmeasuringpoint.ecore#/">
     <genClasses ecoreClass="pcmmeasuringpoint.ecore#//AssemblyOperationMeasuringPoint"/>
     <genClasses ecoreClass="pcmmeasuringpoint.ecore#//AssemblyPassiveResourceMeasuringPoint"/>
     <genClasses ecoreClass="pcmmeasuringpoint.ecore#//ActiveResourceMeasuringPoint"/>
@@ -49,6 +49,10 @@
     </genClasses>
     <genClasses image="false" ecoreClass="pcmmeasuringpoint.ecore#//EntryLevelSystemCallReference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pcmmeasuringpoint.ecore#//EntryLevelSystemCallReference/entryLevelSystemCall"/>
+    </genClasses>
+    <genClasses ecoreClass="pcmmeasuringpoint.ecore#//ResourceEnvironmentMeasuringPoint"/>
+    <genClasses image="false" ecoreClass="pcmmeasuringpoint.ecore#//ResourceEnvironmentReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference pcmmeasuringpoint.ecore#//ResourceEnvironmentReference/resourceEnvironment"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

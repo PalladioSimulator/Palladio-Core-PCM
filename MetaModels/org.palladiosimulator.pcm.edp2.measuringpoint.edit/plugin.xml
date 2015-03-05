@@ -19,4 +19,11 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated pcmmeasuringpoint -->
+      <extender
+            uri="http://palladiosimulator.org/EDP2/MeasuringPoint/0.9.1"
+            class="org.palladiosimulator.pcmmeasuringpoint.provider.PcmmeasuringpointItemProviderAdapterFactory$MeasuringpointChildCreationExtender"/>
+   </extension>
+
 </plugin>

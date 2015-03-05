@@ -132,13 +132,22 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY = OPERATION_REFERENCE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = OPERATION_REFERENCE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Assembly Operation Measuring Point</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_OPERATION_MEASURING_POINT_FEATURE_COUNT = OPERATION_REFERENCE_FEATURE_COUNT + 1;
+    int ASSEMBLY_OPERATION_MEASURING_POINT_FEATURE_COUNT = OPERATION_REFERENCE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '
@@ -200,13 +209,22 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE = ASSEMBLY_REFERENCE_FEATURE_COUNT + 0;
 
     /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY = ASSEMBLY_REFERENCE_FEATURE_COUNT + 1;
+
+    /**
      * The number of structural features of the '<em>Assembly Passive Resource Measuring Point</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = ASSEMBLY_REFERENCE_FEATURE_COUNT + 1;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = ASSEMBLY_REFERENCE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '
@@ -219,6 +237,15 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      */
     int ACTIVE_RESOURCE_MEASURING_POINT = 2;
+
+    /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ACTIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
 
     /**
      * The feature id for the '<em><b>Active Resource</b></em>' reference. <!-- begin-user-doc -->
@@ -278,13 +305,22 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = OPERATION_REFERENCE__OPERATION_SIGNATURE;
 
     /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = OPERATION_REFERENCE_FEATURE_COUNT + 0;
+
+    /**
      * The feature id for the '<em><b>System</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_MEASURING_POINT__SYSTEM = OPERATION_REFERENCE_FEATURE_COUNT + 0;
+    int SYSTEM_OPERATION_MEASURING_POINT__SYSTEM = OPERATION_REFERENCE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>System Operation Measuring Point</em>' class.
@@ -293,7 +329,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_MEASURING_POINT_FEATURE_COUNT = OPERATION_REFERENCE_FEATURE_COUNT + 1;
+    int SYSTEM_OPERATION_MEASURING_POINT_FEATURE_COUNT = OPERATION_REFERENCE_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '
@@ -404,6 +440,15 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int LINKING_RESOURCE_MEASURING_POINT = 9;
 
     /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int LINKING_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+
+    /**
      * The feature id for the '<em><b>Linking Resource</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -461,6 +506,15 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      */
     int SUB_SYSTEM_OPERATION_MEASURING_POINT = 11;
+
+    /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SUB_SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
 
     /**
      * The feature id for the '<em><b>Subsystem</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -540,6 +594,15 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int USAGE_SCENARIO_MEASURING_POINT = 13;
 
     /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int USAGE_SCENARIO_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+
+    /**
      * The feature id for the '<em><b>Usage Scenario</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -599,6 +662,15 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT = 15;
 
     /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+
+    /**
      * The feature id for the '<em><b>Entry Level System Call</b></em>' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -627,6 +699,15 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      */
     int EXTERNAL_CALL_ACTION_MEASURING_POINT = 16;
+
+    /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int EXTERNAL_CALL_ACTION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
 
     /**
      * The feature id for the '<em><b>External Call</b></em>' reference. <!-- begin-user-doc -->
@@ -758,13 +839,22 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT;
 
     /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 0;
+
+    /**
      * The number of structural features of the '<em>Resource Environment Measuring Point</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT_FEATURE_COUNT = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 0;
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT_FEATURE_COUNT = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '

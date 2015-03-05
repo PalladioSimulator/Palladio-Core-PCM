@@ -4,14 +4,20 @@ package org.palladiosimulator.pcmmeasuringpoint.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -19,6 +25,10 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
+import org.palladiosimulator.edp2.models.measuringpoint.util.MeasuringpointSwitch;
+import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointAdapterFactory;
 
 /**
@@ -453,6 +463,130 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
         }
         if (this.resourceEnvironmentMeasuringPointItemProvider != null) {
             this.resourceEnvironmentMeasuringPointItemProvider.dispose();
+        }
+    }
+
+    /**
+     * A child creation extender for the {@link MeasuringpointPackage}. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    public static class MeasuringpointChildCreationExtender implements IChildCreationExtender {
+        /**
+         * The switch for creating child descriptors specific to each extended class. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        protected static class CreationSwitch extends MeasuringpointSwitch<Object> {
+            /**
+             * The child descriptors being populated. <!-- begin-user-doc --> <!-- end-user-doc -->
+             *
+             * @generated
+             */
+            protected List<Object> newChildDescriptors;
+
+            /**
+             * The domain in which to create the children. <!-- begin-user-doc --> <!-- end-user-doc
+             * -->
+             *
+             * @generated
+             */
+            protected EditingDomain editingDomain;
+
+            /**
+             * Creates the a switch for populating child descriptors in the given domain. <!--
+             * begin-user-doc --> <!-- end-user-doc -->
+             *
+             * @generated
+             */
+            CreationSwitch(final List<Object> newChildDescriptors, final EditingDomain editingDomain) {
+                this.newChildDescriptors = newChildDescriptors;
+                this.editingDomain = editingDomain;
+            }
+
+            /**
+             * <!-- begin-user-doc --> <!-- end-user-doc -->
+             *
+             * @generated
+             */
+            @Override
+            public Object caseMeasuringPointRepository(final MeasuringPointRepository object) {
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyOperationMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyPassiveResourceMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createActiveResourceMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createSystemOperationMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createLinkingResourceMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createSubSystemOperationMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createUsageScenarioMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createEntryLevelSystemCallMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createExternalCallActionMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createResourceEnvironmentMeasuringPoint()));
+
+                return null;
+            }
+
+            /**
+             * <!-- begin-user-doc --> <!-- end-user-doc -->
+             *
+             * @generated
+             */
+            protected CommandParameter createChildParameter(final Object feature, final Object child) {
+                return new CommandParameter(null, feature, child);
+            }
+
+        }
+
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        @Override
+        public Collection<Object> getNewChildDescriptors(final Object object, final EditingDomain editingDomain) {
+            final ArrayList<Object> result = new ArrayList<Object>();
+            new CreationSwitch(result, editingDomain).doSwitch((EObject) object);
+            return result;
+        }
+
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        @Override
+        public ResourceLocator getResourceLocator() {
+            return PcmmeasuringpointEditPlugin.INSTANCE;
         }
     }
 
