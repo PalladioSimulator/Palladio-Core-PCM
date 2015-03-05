@@ -77,17 +77,8 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 
     public void addActiveResource(final ProcessingResourceSpecification activeResource,
             final String[] providedInterfaceIds, final String resourceContainerID, final String schedulingStrategyID) {
-        final ScheduledResource r = new ScheduledResource(activeResource, myModel, resourceContainerID,
-                schedulingStrategyID);
-        final String resourceType = activeResource.getActiveResourceType_ActiveResourceSpecification().getId();
-        activeResources.put(resourceType, r);
-
-        // Currently, resources can also be looked up by the provided interface id
-        if (providedInterfaceIds != null) {
-            for (final String providedInterfaceId : providedInterfaceIds) {
-                activeResourceProvidedInterfaces.put(providedInterfaceId, resourceType);
-            }
-        }
+        final ScheduledResource r = addActiveResourceWithoutCalculators(activeResource, providedInterfaceIds,
+                resourceContainerID, schedulingStrategyID);
 
         // setup calculators
         // TODO: setup waiting time calculator
@@ -111,6 +102,23 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
             // Use an OverallUtilizationCalculator by default.
             CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
         }
+    }
+
+    public ScheduledResource addActiveResourceWithoutCalculators(final ProcessingResourceSpecification activeResource,
+            final String[] providedInterfaceIds, final String resourceContainerID, final String schedulingStrategyID) {
+        final ScheduledResource scheduledResource = new ScheduledResource(activeResource, myModel, resourceContainerID,
+                schedulingStrategyID);
+        final String resourceType = activeResource.getActiveResourceType_ActiveResourceSpecification().getId();
+
+        activeResources.put(resourceType, scheduledResource);
+        // Currently, resources can also be looked up by the provided interface id
+        if (providedInterfaceIds != null) {
+            for (final String providedInterfaceId : providedInterfaceIds) {
+                activeResourceProvidedInterfaces.put(providedInterfaceId, resourceType);
+            }
+        }
+
+        return scheduledResource;
     }
 
     private IPassiveResource getSimplePassiveResource(final PassiveResource resource,

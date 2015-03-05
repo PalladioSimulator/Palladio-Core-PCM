@@ -6,7 +6,7 @@ import javax.measure.unit.SI;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.palladiosimulator.measurementframework.Measurement;
+import org.palladiosimulator.measurementframework.MeasuringValue;
 import org.palladiosimulator.measurementframework.listener.IMeasurementSourceListener;
 import org.palladiosimulator.metricspec.constants.MetricDescriptionConstants;
 
@@ -78,7 +78,7 @@ public class ConfidenceStopCondition implements SimCondition, IMeasurementSource
     }
 
     @Override
-    public void newMeasurementAvailable(final Measurement resultTuple) {
+    public void newMeasurementAvailable(final MeasuringValue resultTuple) {
         final Measure<Double, Duration> responseTimeMeasure = resultTuple
                 .getMeasureForMetric(MetricDescriptionConstants.RESPONSE_TIME_METRIC);
         final double responseTime = responseTimeMeasure.doubleValue(SI.SECOND);
