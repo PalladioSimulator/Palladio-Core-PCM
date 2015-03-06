@@ -7,7 +7,6 @@ import org.eclipse.jface.text.rules.IToken;
 /**
  * The Class ANTLRTokenWrapper.
  */
-@Deprecated
 public class ANTLRTokenWrapper implements IToken {
 
     /** The token. */

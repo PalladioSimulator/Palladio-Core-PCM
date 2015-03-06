@@ -36,7 +36,6 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 /**
  * The Class StochasticExpressionEditDialog.
  */
-@Deprecated
 public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDialog {
 
     /** The expected type. */

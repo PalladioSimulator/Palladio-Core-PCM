@@ -27,7 +27,6 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * 
  * @author Snowball
  */
-@Deprecated
 public class StoExCompletionProcessor implements IContentAssistProcessor {
 
     /** The default characterisations. */

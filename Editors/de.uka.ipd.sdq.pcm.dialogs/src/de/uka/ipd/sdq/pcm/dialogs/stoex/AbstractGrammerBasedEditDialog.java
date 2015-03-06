@@ -62,7 +62,6 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
  * @author Snowball
  * @author joerg henss
  */
-@Deprecated
 public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /** The dialog title. */
