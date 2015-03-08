@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
 import org.palladiosimulator.edp2.util.MeasuringPointUtility;
@@ -47,6 +48,10 @@ public final class CalculatorHelper {
     /** Default EMF factory for pcm measuring points. */
     private static final PcmmeasuringpointFactory PCM_MEASURINGPOINT_FACTORY = PcmmeasuringpointFactory.eINSTANCE;
 
+    /** Default reporsitory where measuring points are attached to. */
+    private static final MeasuringPointRepository MEASURING_POINT_REPOSITORY = MEASURINGPOINT_FACTORY
+            .createMeasuringPointRepository();
+
     /**
      * Sets up a {@link WaitingTimeCalculator} for the specified resource. Also a
      * {@link IPassiveResourceSensor} will be registered at the resource which gets notified of
@@ -57,12 +62,13 @@ public final class CalculatorHelper {
      * @param resource
      *            the resource
      * @param model
-     *            The Simucom Model
+     *            the Simucom Model
      */
-    public static void setupWaitingTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
+    public static void setupWaitingTimeCalculator(final IPassiveResource resource, final SimuComModel model,
+            final MeasuringPoint measuringPoint) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
         final List<Probe> startStopProbes = buildStartStopProbes(model);
-        ctx.getCalculatorFactory().buildWaitingTimeCalculator(createMeasuringPoint(resource), startStopProbes);
+        ctx.getCalculatorFactory().buildWaitingTimeCalculator(measuringPoint, startStopProbes);
 
         resource.addObserver(new IPassiveResourceSensor() {
 
@@ -86,6 +92,18 @@ public final class CalculatorHelper {
     }
 
     /**
+     * Convenient method in case measuring point has to be created anew.
+     * 
+     * @param resource
+     *            the resource
+     * @param model
+     *            the Simucom Model
+     */
+    public static void setupWaitingTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
+        setupWaitingTimeCalculator(resource, model, createMeasuringPoint(resource));
+    }
+
+    /**
      * Sets up a {@link HoldingTimeCalculator} for the specified resource. Also a
      * {@link IPassiveResourceSensor} will be registered at the resource which gets notified of
      * events that are relevant for calculating the hold time. When such an event arrives, an
@@ -95,10 +113,11 @@ public final class CalculatorHelper {
      * @param r
      *            the resource
      */
-    public static void setupHoldTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
+    public static void setupHoldTimeCalculator(final IPassiveResource resource, final SimuComModel model,
+            final MeasuringPoint measuringPoint) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
         final List<Probe> startStopProbes = buildStartStopProbes(model);
-        ctx.getCalculatorFactory().buildHoldingTimeCalculator(createMeasuringPoint(resource), startStopProbes);
+        ctx.getCalculatorFactory().buildHoldingTimeCalculator(measuringPoint, startStopProbes);
 
         resource.addObserver(new IPassiveResourceSensor() {
 
@@ -117,6 +136,18 @@ public final class CalculatorHelper {
                 ((TriggeredProbe) startStopProbes.get(1)).takeMeasurement(new RequestContext(process.getId()));
             }
         });
+    }
+
+    /**
+     * Convenient method in case measuring point has to be created anew.
+     * 
+     * @param resource
+     *            the resource
+     * @param model
+     *            the Simucom Model
+     */
+    public static void setupHoldTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
+        setupHoldTimeCalculator(resource, model, createMeasuringPoint(resource));
     }
 
     /**
@@ -137,12 +168,24 @@ public final class CalculatorHelper {
      * @param scheduledResource
      *            the resource
      */
-    public static void setupDemandCalculator(final AbstractScheduledResource scheduledResource, final SimuComModel model) {
+    public static void setupDemandCalculator(final AbstractScheduledResource scheduledResource,
+            final SimuComModel model, final MeasuringPoint measuringPoint) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
         final Probe scheduledResourceProbe = getEventProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakeScheduledResourceDemandProbe(scheduledResource));
-        ctx.getCalculatorFactory().buildResourceDemandCalculator(createMeasuringPoint(scheduledResource),
-                scheduledResourceProbe);
+        ctx.getCalculatorFactory().buildResourceDemandCalculator(measuringPoint, scheduledResourceProbe);
+    }
+
+    /**
+     * Convenient method in case measuring point has to be created anew.
+     * 
+     * @param scheduledResource
+     *            the resource
+     * @param model
+     *            the Simucom Model
+     */
+    public static void setupDemandCalculator(final AbstractScheduledResource scheduledResource, final SimuComModel model) {
+        setupDemandCalculator(scheduledResource, model, createMeasuringPoint(scheduledResource));
     }
 
     /**
@@ -155,29 +198,42 @@ public final class CalculatorHelper {
      *            the resource
      */
     public static void setupActiveResourceStateCalculator(final AbstractScheduledResource scheduledResource,
-            final SimuComModel model) {
+            final SimuComModel model, final ActiveResourceMeasuringPoint measuringPoint) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
+        final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
+                new TakeScheduledResourceStateProbe(scheduledResource, measuringPoint.getReplicaID()));
+        ctx.getCalculatorFactory().buildStateOfActiveResourceCalculator(measuringPoint, scheduledResourceProbe);
 
+        scheduledResource.addStateListener(new IStateListener() {
+            @Override
+            public void stateChanged(final long state, final int instanceId) {
+                scheduledResourceProbe.takeMeasurement();
+            }
+        }, measuringPoint.getReplicaID());
+    }
+
+    /**
+     * Convenient method in case measuring point has to be created anew.
+     * 
+     * @param resource
+     *            the scheduledResource
+     * @param model
+     *            the Simucom Model
+     */
+    public static void setupActiveResourceStateCalculator(final AbstractScheduledResource scheduledResource,
+            final SimuComModel model) {
         // setup a calculator for each instance
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
-            final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(
-                    model.getSimulationControl(), new TakeScheduledResourceStateProbe(scheduledResource, instance));
-            ctx.getCalculatorFactory().buildStateOfActiveResourceCalculator(
-                    createMeasuringPoint(scheduledResource, instance), scheduledResourceProbe);
-
-            scheduledResource.addStateListener(new IStateListener() {
-                @Override
-                public void stateChanged(final long state, final int instanceId) {
-                    scheduledResourceProbe.takeMeasurement();
-                }
-            }, instance);
+            setupActiveResourceStateCalculator(scheduledResource, model,
+                    (ActiveResourceMeasuringPoint) createMeasuringPoint(scheduledResource, instance));
         }
     }
 
-    public static void setupOverallUtilizationCalculator(final AbstractScheduledResource r, final SimuComModel model) {
+    public static void setupOverallUtilizationCalculator(final AbstractScheduledResource resource,
+            final SimuComModel model, final MeasuringPoint measuringPoint) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
-        r.addOverallUtilizationListener(new IOverallUtilizationListener() {
+        resource.addOverallUtilizationListener(new IOverallUtilizationListener() {
 
             @Override
             public void utilizationChanged(final double resourceDemand, final double totalTime) {
@@ -213,13 +269,26 @@ public final class CalculatorHelper {
         });
     }
 
-    public static void setupPassiveResourceStateCalculator(final IPassiveResource resource, final SimuComModel model) {
+    /**
+     * Convenient method in case measuring point has to be created anew.
+     * 
+     * @param scheduledResource
+     *            the resource
+     * @param model
+     *            the Simucom Model
+     */
+    public static void setupOverallUtilizationCalculator(final AbstractScheduledResource resource,
+            final SimuComModel model) {
+        setupOverallUtilizationCalculator(resource, model, createMeasuringPoint(resource));
+    }
+
+    public static void setupPassiveResourceStateCalculator(final IPassiveResource resource, final SimuComModel model,
+            final MeasuringPoint measuringPoint) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
-        final MeasuringPoint mp = createMeasuringPoint(resource);
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakePassiveResourceStateProbe(resource));
-        ctx.getCalculatorFactory().buildStateOfPassiveResourceCalculator(mp, scheduledResourceProbe);
+        ctx.getCalculatorFactory().buildStateOfPassiveResourceCalculator(measuringPoint, scheduledResourceProbe);
 
         resource.addObserver(new IPassiveResourceSensor() {
 
@@ -240,12 +309,24 @@ public final class CalculatorHelper {
         });
     }
 
-    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
+    /**
+     * Convenient method in case measuring point has to be created anew.
+     * 
+     * @param scheduledResource
+     *            the resource
+     * @param model
+     *            the Simucom Model
+     */
+    public static void setupPassiveResourceStateCalculator(final IPassiveResource resource, final SimuComModel model) {
+        setupPassiveResourceStateCalculator(resource, model, createMeasuringPoint(resource));
+    }
+
+    public static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
             final TriggeredProbe additionalProbe) {
         return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
     }
 
-    protected static EventProbeList getEventProbeSetWithCurrentTime(final ISimulationControl control,
+    public static EventProbeList getEventProbeSetWithCurrentTime(final ISimulationControl control,
             final EventProbe<?> additionalProbe) {
         return new EventProbeList(additionalProbe, Arrays.asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(
                 control)));
@@ -268,6 +349,7 @@ public final class CalculatorHelper {
         final ResourceURIMeasuringPoint measuringPoint = MEASURINGPOINT_FACTORY.createResourceURIMeasuringPoint();
         measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getResource()));
         measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
+        MEASURING_POINT_REPOSITORY.getMeasuringPoints().add(measuringPoint);
         return measuringPoint;
     }
 
@@ -300,6 +382,7 @@ public final class CalculatorHelper {
             throw new IllegalArgumentException("Unknown variant of AbstractScheduledResource");
         }
 
+        MEASURING_POINT_REPOSITORY.getMeasuringPoints().add(measuringPoint);
         return measuringPoint;
     }
 }
