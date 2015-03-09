@@ -455,13 +455,6 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="org.palladiosimulator.pcm.edp2.measuringpoint.editor"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.pcm.codegen.simucom"
          download-size="0"
          install-size="0"
