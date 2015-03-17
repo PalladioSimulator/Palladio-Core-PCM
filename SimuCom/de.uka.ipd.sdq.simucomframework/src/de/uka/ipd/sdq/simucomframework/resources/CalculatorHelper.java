@@ -198,10 +198,8 @@ public final class CalculatorHelper {
      *            the resource
      */
     public static void setupActiveResourceStateCalculator(final AbstractScheduledResource scheduledResource,
-            final SimuComModel model, final MeasuringPoint measuringPoint) {
+            final SimuComModel model, final MeasuringPoint measuringPoint, final int replicaID) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
-        
-        final int replicaID = getReplicaID(measuringPoint);
         
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakeScheduledResourceStateProbe(scheduledResource, replicaID));
@@ -214,13 +212,6 @@ public final class CalculatorHelper {
             }
         }, replicaID);
     }
-
-    private static int getReplicaID(MeasuringPoint measuringPoint) {
-		if (measuringPoint instanceof ActiveResourceMeasuringPoint){
-			return ((ActiveResourceMeasuringPoint)measuringPoint).getReplicaID();
-		}
-		else return 0;
-	}
 
 	/**
      * Convenient method in case measuring point has to be created anew.
@@ -235,8 +226,7 @@ public final class CalculatorHelper {
         // setup a calculator for each instance
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
         	MeasuringPoint measurementPoint = createMeasuringPoint(scheduledResource, instance);
-            setupActiveResourceStateCalculator(scheduledResource, model,
-            		measurementPoint);
+            setupActiveResourceStateCalculator(scheduledResource, model, measurementPoint, instance);
         }
     }
 
@@ -371,7 +361,6 @@ public final class CalculatorHelper {
     private static MeasuringPoint createMeasuringPoint(final AbstractScheduledResource scheduledResource,
             final int replicaID) {
         final ResourceURIMeasuringPoint measuringPoint = MEASURINGPOINT_FACTORY.createResourceURIMeasuringPoint();
-        MeasuringPoint measuringPointToReturn = null;
 
         if (scheduledResource instanceof ScheduledResource) {
             final ScheduledResource resource = (ScheduledResource) scheduledResource;
@@ -380,8 +369,6 @@ public final class CalculatorHelper {
             mp.setActiveResource(resource.getActiveResource());
             mp.setReplicaID(replicaID);
             
-            measuringPointToReturn = mp;
-
             measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getActiveResource()));
             measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
             
@@ -391,8 +378,6 @@ public final class CalculatorHelper {
             final LinkingResourceMeasuringPoint mp = PCM_MEASURINGPOINT_FACTORY.createLinkingResourceMeasuringPoint();
             mp.setLinkingResource(resource.getLinkingResource());
             
-            measuringPointToReturn = mp;
-
             measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getLinkingResource()));
             measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         } else {
@@ -400,7 +385,6 @@ public final class CalculatorHelper {
         }
 
         MEASURING_POINT_REPOSITORY.getMeasuringPoints().add(measuringPoint);
-        MEASURING_POINT_REPOSITORY.getMeasuringPoints().add(measuringPointToReturn);
-        return measuringPointToReturn;
+        return measuringPoint;
     }
 }
