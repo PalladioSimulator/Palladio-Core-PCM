@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint;
 import org.palladiosimulator.probeframework.calculator.Calculator;
@@ -207,6 +208,9 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
         if (model.getConfiguration().getSimulateFailures()) {
             final StringMeasuringPoint mp = this.measuringpointFactory.createStringMeasuringPoint();
             mp.setMeasuringPoint("System execution results");
+            MeasuringPointRepository myMeasurementPointRepository = MeasuringpointFactory.eINSTANCE.createMeasuringPointRepository();
+            myMeasurementPointRepository.getMeasuringPoints().add(mp);
+            mp.setMeasuringPointRepository(myMeasurementPointRepository);
 
             model.getProbeFrameworkContext()
                     .getCalculatorFactory()

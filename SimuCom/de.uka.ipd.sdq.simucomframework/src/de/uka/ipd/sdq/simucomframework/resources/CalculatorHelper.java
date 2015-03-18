@@ -351,6 +351,7 @@ public final class CalculatorHelper {
         measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getResource()));
         measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         MEASURING_POINT_REPOSITORY.getMeasuringPoints().add(measuringPoint);
+        measuringPoint.setMeasuringPointRepository(MEASURING_POINT_REPOSITORY);
         return measuringPoint;
     }
 
@@ -380,11 +381,13 @@ public final class CalculatorHelper {
             
             measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(resource.getLinkingResource()));
             measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
+
         } else {
             throw new IllegalArgumentException("Unknown variant of AbstractScheduledResource");
         }
 
         MEASURING_POINT_REPOSITORY.getMeasuringPoints().add(measuringPoint);
+        measuringPoint.setMeasuringPointRepository(MEASURING_POINT_REPOSITORY);
         return measuringPoint;
     }
 }
