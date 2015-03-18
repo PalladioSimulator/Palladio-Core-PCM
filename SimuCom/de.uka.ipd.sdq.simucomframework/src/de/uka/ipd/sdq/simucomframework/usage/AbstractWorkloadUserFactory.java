@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
 import org.palladiosimulator.edp2.util.MeasuringPointUtility;
@@ -30,6 +31,8 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
 
     /** Default EMF factory for pcm measuring points. */
     private static final PcmmeasuringpointFactory PCM_MEASURINGPOINT_FACTORY = PcmmeasuringpointFactory.eINSTANCE;
+    
+    
 
     public AbstractWorkloadUserFactory(final SimuComModel model, final UsageScenario usageScenario) {
         super();
@@ -54,6 +57,12 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
         final ResourceURIMeasuringPoint measuringPoint = MEASURINGPOINT_FACTORY.createResourceURIMeasuringPoint();
         measuringPoint.setResourceURI(EMFLoadHelper.getResourceURI(usageScenario));
         measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
+        
+        MeasuringPointRepository myMeasurementPointRepository = MEASURINGPOINT_FACTORY.createMeasuringPointRepository();
+		myMeasurementPointRepository.getMeasuringPoints().add(mp);
+		myMeasurementPointRepository.getMeasuringPoints().add(measuringPoint);
+		mp.setMeasuringPointRepository(myMeasurementPointRepository);
+		measuringPoint.setMeasuringPointRepository(myMeasurementPointRepository);
 
         return this.calculatorFactory.buildResponseTimeCalculator(measuringPoint, this.usageStartStopProbes);
     }
