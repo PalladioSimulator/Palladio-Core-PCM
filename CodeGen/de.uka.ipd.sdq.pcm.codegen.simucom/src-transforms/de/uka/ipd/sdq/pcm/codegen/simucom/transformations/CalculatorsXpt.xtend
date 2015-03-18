@@ -14,6 +14,11 @@ class CalculatorsXpt {
 			// TODO get rid of StringMeasuringPoint and use a more concrete one.
 			org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint mp = measuringpointFactory.createStringMeasuringPoint();
 			mp.setMeasuringPoint("«s»");
+			
+			org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository myMeasurementPointRepository = 
+					org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory.eINSTANCE.createMeasuringPointRepository();
+			myMeasurementPointRepository.getMeasuringPoints().add(mp);
+			mp.setMeasuringPointRepository(myMeasurementPointRepository);
 		
 			getModel().getProbeFrameworkContext().getCalculatorFactory().buildResponseTimeCalculator(mp,probes);
 			this.startStopProbes.put("«s»",probes);
