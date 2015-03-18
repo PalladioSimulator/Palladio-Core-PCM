@@ -69,12 +69,12 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         }
 
         ensurePluginLoaded(context, "org.eclipse.equinox.event");
-        unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
+        unloadPluginIfExists(context, "de.uka.ipd.sdq.temporary");
 
         try {
             loadBundle(config, simulationBundle, eventAdmin, isRemoteRun);
         } catch (Exception e) {
-            unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
+            unloadPluginIfExists(context, "de.uka.ipd.sdq.temporary");
             sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
             throw new RuntimeException("Simulation preparation failed", e);
         } finally {
@@ -90,7 +90,7 @@ public class SimulationDockServiceImpl implements SimulationDockService {
         } catch (Exception e) {
             throw new RuntimeException("Simulation failed", e);
         } finally {
-            unloadPluginIfExists(context, "de.uka.ipd.sdq.codegen.simucominstance");
+            unloadPluginIfExists(context, "de.uka.ipd.sdq.temporary");
             sendEvent("de/uka/ipd/sdq/simucomframework/simucomdock/DOCK_IDLE");
         }
     }
