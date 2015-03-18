@@ -1260,7 +1260,7 @@ public class ContextWrapper implements Cloneable {
 								.getSpecification());
 					} catch (Exception e) {
 						throw new RuntimeException(
-								"Error calculating MeanTotalInputParameterBytesize.");
+								"Error calculating MeanTotalInputParameterBytesize.", e);
 					}
 
 					meanTotalOutputParameterBytesize += pmf.getExpectedValue();
