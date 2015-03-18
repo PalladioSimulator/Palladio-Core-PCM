@@ -435,14 +435,14 @@ public class MarkovTransformation {
         // As a first step, solve parametric dependencies of the PCM instance:
         try {
             runDSolver(scenario, markovSource);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
 
             // The parametric dependencies could not be solved:
             LOGGER.error("Solving of parametric dependencies caused exception: " + e.getMessage() + " [" + e.getClass()
                     + "]");
             e.printStackTrace();
 
-            return null;
+            throw e;
         }
 
         // Second, the PCM instance is transformed into a Markov Chain instance
