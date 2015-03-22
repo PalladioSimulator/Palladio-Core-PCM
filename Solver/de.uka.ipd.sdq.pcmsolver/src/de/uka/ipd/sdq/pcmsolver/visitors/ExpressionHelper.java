@@ -1,10 +1,12 @@
 package de.uka.ipd.sdq.pcmsolver.visitors;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
@@ -17,6 +19,8 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 public class ExpressionHelper {
+	
+	private static Logger logger = Logger.getLogger(ExpressionHelper.class.getName());
 
 	/**
 	 * @param specification
@@ -52,7 +56,21 @@ public class ExpressionHelper {
 		Expression expr = parseToExpression(specification);
 		
 		ExpressionInferTypeVisitor inferTypeVisitor = new ExpressionInferTypeVisitor();
-		inferTypeVisitor.doSwitch(expr);
+		
+		try {
+			
+			inferTypeVisitor.doSwitch(expr);
+			
+		} catch (UnsupportedOperationException e){
+			// might be thrown if the inferred types are not compatible. However, sometimes variables are 
+			// interpreted to strictly (e.g. characterization VALUE is assumed to be ANY_PMF), but maybe they
+			// actually are of a type that is easier to handle.
+			logger.error("Infering the type failed with an "+e.getClass().getName()+". I will try to ignore this and continue. Details:\n"
+					+ e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
+			
+			e.printStackTrace();
+			
+		}
 
 		HashMap<Expression, TypeEnum> typeAnnotation = inferTypeVisitor
 				.getTypeAnnotation();
