@@ -11,17 +11,13 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
-import org.modelversioning.emfprofileapplication.ProfileApplication;
-
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
@@ -110,7 +106,6 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
         EList<AssemblyContext> assContexts = system.getAssemblyContexts__ComposedStructure();
         
         
-        //TODO wenn funktioniert, schleife ueber assembly Contexts
         for (AssemblyContext assContext : assContexts){
        Collection<ProfileApplicationDecorator> decos = ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext);
                 //ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext.get(1))
