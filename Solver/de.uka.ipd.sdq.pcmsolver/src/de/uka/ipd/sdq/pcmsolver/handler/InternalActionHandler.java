@@ -78,7 +78,7 @@ public class InternalActionHandler{
 	 * @param prd
 	 * @param prs
 	 */
-	private void createActualResourceDemand(InternalAction action, ParametricResourceDemand prd, ProcessingResourceSpecification prs) {
+	protected void createActualResourceDemand(InternalAction action, ParametricResourceDemand prd, ProcessingResourceSpecification prs) {
 		// TODO: include current branch conditions and loop iterations
 		
 		String spec = prd.getSpecification_ParametericResourceDemand().getSpecification();
@@ -89,7 +89,15 @@ public class InternalActionHandler{
 //		spec = spec.replaceAll("IntPMF", "DoublePDF");
 //		spec = spec.replaceAll("DoublePMF", "DoublePDF");
 		
-		String actResDemSpecification = getSolvedSpecification(spec, prs);
+		// quickly incorporate processing rate
+		/* As both divisor and divident may evaluate to an integer and the first may be smaller  
+		 * than the latter, I added the factor *1.0 so that it is not falsely rounded to 0 
+		 * (without *1.0, e.g. (4) / 20 would result in a demand of 0 instead of 0.2) 
+		 */
+		spec = "("+ spec+") / (("+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification()+")*1.0)";
+		logger.debug("Actual Resource Demand (Expression): "+spec);
+		
+		String actResDemSpecification = getSolvedResourceDemandSpecification(spec);
 		
 //		actResDemSpecification = actResDemSpecification.replaceAll("IntPMF", "DoublePDF");
 //		actResDemSpecification = actResDemSpecification.replaceAll("DoublePMF", "DoublePDF");
@@ -126,16 +134,8 @@ public class InternalActionHandler{
 	 * @param prs
 	 * @return A String with the solved expression. 
 	 */
-	private String getSolvedSpecification(String specification, ProcessingResourceSpecification prs) {
+	protected String getSolvedResourceDemandSpecification(String specification) {
 
-		// quickly incorporate processing rate
-		/* As both divisor and divident may evaluate to an integer and the first may be smaller  
-		 * than the latter, I added the factor *1.0 so that it is not falsely rounded to 0 
-		 * (without *1.0, e.g. (4) / 20 would result in a demand of 0 instead of 0.2) 
-		 */
-		specification = "("+ specification+") / (("+prs.getProcessingRate_ProcessingResourceSpecification().getSpecification()+")*1.0)";
-		logger.debug("Actual Resource Demand (Expression): "+specification);
-		
 		Expression solvedExpr = (Expression) ExpressionHelper
 				.getSolvedExpression(specification, visitor.getContextWrapper());
 		
