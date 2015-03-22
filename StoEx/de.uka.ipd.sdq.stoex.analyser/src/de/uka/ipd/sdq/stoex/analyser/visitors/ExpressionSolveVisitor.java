@@ -316,7 +316,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	}
 	
 	@Override
-	public ProbabilityFunctionLiteral caseFunctionLiteral(FunctionLiteral object) {
+	public Expression caseFunctionLiteral(FunctionLiteral object) {
 		for (Expression e : object.getParameters_FunctionLiteral())
 			doSwitch(e);
 		
@@ -347,6 +347,10 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 				} else if (solvedParam instanceof DoubleLiteral) {
 						IntLiteral intLit = StoexFactory.eINSTANCE.createIntLiteral();
 						intLit.setValue((int)Math.round(((DoubleLiteral)solvedParam).getValue()));
+						return intLit;
+				} else if (solvedParam instanceof IntLiteral){
+					// no need to Trunc as this is already an Integer
+					return solvedParam;
 				} else
 					throw new ExpressionSolvingFailedException("Function Trunc is only supported supported for a DoublePDF or a single double parameter!", object);
 			}
