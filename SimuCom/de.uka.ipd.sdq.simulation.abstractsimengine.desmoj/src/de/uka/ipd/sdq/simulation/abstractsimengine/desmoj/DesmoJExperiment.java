@@ -54,7 +54,11 @@ public class DesmoJExperiment extends AbstractExperiment {
 			
 			@Override
 			public boolean check() {
-				return checkStopConditions();
+				boolean stop = checkStopConditions();
+				if (stop){
+					stop();
+				}
+				return stop; 
 			}
 		});
         this.experiment.start();
