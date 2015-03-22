@@ -111,7 +111,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			typeAnnotation.put(expr, TypeEnum.ANY);
 			//	throw new UnsupportedOperationException("Power expression is not supported fo non-numeric base or exponent");
 		}
-			
+
 		return expr;
 	}
 	
@@ -264,6 +264,11 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	 * @param rightType
 	 */
 	private void inferIntAndDouble(Expression expr, TypeEnum leftType, TypeEnum rightType) {
+		
+		if (leftType == null || rightType == null){
+			return;
+		}
+		
 		if (leftType == TypeEnum.INT && rightType == TypeEnum.INT){
 			typeAnnotation.put(expr, TypeEnum.INT);
 		} else if (isIntPMF(leftType) && isIntPMF(rightType)){
@@ -277,7 +282,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		} else if (isDoubleIntPDF(leftType) && isDoubleIntPDF(rightType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE_PDF);
 		} else {
-			throw new UnsupportedOperationException("Type inference of "+leftType.name()+" and "+rightType.name()+" failed. Incompatible types for operation.");
+			logger.error("Type inference of "+leftType.name()+" and "+rightType.name()+" failed. Incompatible types for operation. Will try to continue.");
 		}
 	}
 
@@ -289,9 +294,9 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	private TypeEnum getTypeOfChild(Expression expr) {
 		Expression childExpr = (Expression)doSwitch(expr);
 		TypeEnum type = typeAnnotation.get(childExpr);
-		if (type == null) {
-			throw new TypeInferenceFailedException(expr);
-        }
+		//if (type == null) {
+		//	throw new TypeInferenceFailedException(expr);
+        //}
 		return type;
 	}
 
