@@ -571,15 +571,17 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 	}
 
 	/**
-	 * @param expr
+	 * @param exprType: Can be null, then this method tries to get the type from the expressions
+	 * @param left
+	 * @param right
 	 * @param op
 	 * @return
 	 * @throws ProbabilitySumNotOneException
 	 */
 	private Expression handleComputation(TypeEnum exprType, Expression left,
 			Expression right, TermProductOperation op) {
-
-		if (exprType == TypeEnum.ANY_PMF){
+		
+		if (exprType == null || exprType == TypeEnum.ANY_PMF){
 			if (left instanceof ProbabilityFunctionLiteral){
 				exprType = resolveActualType(exprType, left);
 			} else if (right instanceof ProbabilityFunctionLiteral){
