@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringPointItemProvider;
+import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
 /**
@@ -24,7 +25,7 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public LinkingResourceMeasuringPointItemProvider(final AdapterFactory adapterFactory) {
@@ -34,7 +35,7 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -50,7 +51,7 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
     /**
      * This adds a property descriptor for the Linking Resource feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addLinkingResourcePropertyDescriptor(final Object object) {
@@ -59,13 +60,13 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
                 this.getString("_UI_LinkingResourceReference_linkingResource_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_LinkingResourceReference_linkingResource_feature",
                         "_UI_LinkingResourceReference_type"),
-                PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, false, true,
-                null, null, null));
+                        PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, false, true,
+                        null, null, null));
     }
 
     /**
      * This returns LinkingResourceMeasuringPoint.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,14 +83,16 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_LinkingResourceMeasuringPoint_type");
+        final String label = ((LinkingResourceMeasuringPoint) object).getStringRepresentation();
+        return label == null || label.length() == 0 ? this.getString("_UI_LinkingResourceMeasuringPoint_type") : this
+                .getString("_UI_LinkingResourceMeasuringPoint_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,7 +104,7 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -112,7 +115,7 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

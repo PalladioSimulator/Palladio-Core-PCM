@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * @generated
  */
 public abstract class PassiveResourceReferenceImpl extends MinimalEObjectImpl.Container implements
-PassiveResourceReference {
+        PassiveResourceReference {
     /**
      * The cached value of the '{@link #getPassiveResource() <em>Passive Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

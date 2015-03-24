@@ -37,11 +37,11 @@ import org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointAdapterFact
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory implements
-        ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -61,14 +61,14 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PcmmeasuringpointItemProviderAdapterFactory() {
@@ -83,7 +83,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyOperationMeasuringPointItemProvider assemblyOperationMeasuringPointItemProvider;
@@ -108,7 +108,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyPassiveResourceMeasuringPointItemProvider assemblyPassiveResourceMeasuringPointItemProvider;
@@ -209,7 +209,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SubSystemOperationMeasuringPointItemProvider subSystemOperationMeasuringPointItemProvider;
@@ -259,7 +259,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EntryLevelSystemCallMeasuringPointItemProvider entryLevelSystemCallMeasuringPointItemProvider;
@@ -285,7 +285,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExternalCallActionMeasuringPointItemProvider externalCallActionMeasuringPointItemProvider;
@@ -310,7 +310,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceEnvironmentMeasuringPointItemProvider resourceEnvironmentMeasuringPointItemProvider;
@@ -334,7 +334,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -345,7 +345,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -355,7 +355,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -376,7 +376,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -393,7 +393,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -403,7 +403,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -429,7 +429,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -469,7 +469,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * A child creation extender for the {@link MeasuringpointPackage}. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static class MeasuringpointChildCreationExtender implements IChildCreationExtender {
@@ -482,7 +482,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
         protected static class CreationSwitch extends MeasuringpointSwitch<Object> {
             /**
              * The child descriptors being populated. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
+             * 
              * @generated
              */
             protected List<Object> newChildDescriptors;
@@ -508,7 +508,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
             /**
              * <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
+             * 
              * @generated
              */
             @Override
@@ -558,7 +558,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
             /**
              * <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
+             * 
              * @generated
              */
             protected CommandParameter createChildParameter(final Object feature, final Object child) {
@@ -569,7 +569,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
         /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         @Override
@@ -581,7 +581,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
         /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         @Override

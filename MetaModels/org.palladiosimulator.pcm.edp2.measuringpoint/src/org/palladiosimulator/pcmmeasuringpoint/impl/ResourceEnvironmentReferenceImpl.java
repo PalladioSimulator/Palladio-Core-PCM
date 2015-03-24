@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  * @generated
  */
 public abstract class ResourceEnvironmentReferenceImpl extends MinimalEObjectImpl.Container implements
-ResourceEnvironmentReference {
+        ResourceEnvironmentReference {
     /**
      * The cached value of the '{@link #getResourceEnvironment() <em>Resource Environment</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->

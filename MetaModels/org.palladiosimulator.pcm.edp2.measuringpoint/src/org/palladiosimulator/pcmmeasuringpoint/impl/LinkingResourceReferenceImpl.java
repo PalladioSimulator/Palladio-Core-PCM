@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
  * @generated
  */
 public abstract class LinkingResourceReferenceImpl extends MinimalEObjectImpl.Container implements
-LinkingResourceReference {
+        LinkingResourceReference {
     /**
      * The cached value of the '{@link #getLinkingResource() <em>Linking Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

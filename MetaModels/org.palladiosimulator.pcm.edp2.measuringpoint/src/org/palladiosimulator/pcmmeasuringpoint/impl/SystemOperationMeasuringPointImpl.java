@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
@@ -26,6 +27,12 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getMeasuringPointRepository
  * <em>Measuring Point Repository</em>}</li>
  * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getStringRepresentation
+ * <em>String Representation</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getResourceURIRepresentation
+ * <em>Resource URI Representation</em>}</li>
+ * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getSystem
  * <em>System</em>}</li>
  * </ul>
@@ -34,6 +41,27 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * @generated
  */
 public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl implements SystemOperationMeasuringPoint {
+    /**
+     * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getStringRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String STRING_REPRESENTATION_EDEFAULT = null;
+
+    /**
+     * The default value of the '{@link #getResourceURIRepresentation()
+     * <em>Resource URI Representation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getResourceURIRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_URI_REPRESENTATION_EDEFAULT = null;
+
     /**
      * The cached value of the '{@link #getSystem() <em>System</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
@@ -118,6 +146,41 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
                     PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
                     newMeasuringPointRepository, newMeasuringPointRepository));
         }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.system == null || this.role == null || this.operationSignature == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+
+        final StringBuilder result = new StringBuilder();
+
+        result.append(this.system.getEntityName());
+        result.append(".");
+        result.append(this.role.getEntityName());
+        result.append(".");
+        result.append(this.operationSignature.getEntityName());
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.operationSignature == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.operationSignature);
     }
 
     /**
@@ -222,6 +285,10 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
         switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository();
+        case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
+            return this.getStringRepresentation();
+        case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return this.getResourceURIRepresentation();
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM:
             if (resolve) {
                 return this.getSystem();
@@ -277,6 +344,12 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
         switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository() != null;
+        case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
+            return STRING_REPRESENTATION_EDEFAULT == null ? this.getStringRepresentation() != null
+                    : !STRING_REPRESENTATION_EDEFAULT.equals(this.getStringRepresentation());
+        case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return RESOURCE_URI_REPRESENTATION_EDEFAULT == null ? this.getResourceURIRepresentation() != null
+                    : !RESOURCE_URI_REPRESENTATION_EDEFAULT.equals(this.getResourceURIRepresentation());
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM:
             return this.system != null;
         }
@@ -294,6 +367,10 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
             switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
+            case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }
@@ -320,6 +397,10 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
             switch (baseFeatureID) {
             case MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION:
+                return PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__STRING_REPRESENTATION;
+            case MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }

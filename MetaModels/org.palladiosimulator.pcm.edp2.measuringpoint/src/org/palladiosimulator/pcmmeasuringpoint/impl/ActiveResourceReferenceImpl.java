@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
  * @generated
  */
 public abstract class ActiveResourceReferenceImpl extends MinimalEObjectImpl.Container implements
-ActiveResourceReference {
+        ActiveResourceReference {
     /**
      * The cached value of the '{@link #getActiveResource() <em>Active Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
@@ -199,6 +201,37 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
             }
         }
         return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.linkingResource == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        final StringBuilder result = new StringBuilder();
+
+        result.append("Linking Resource: ");
+        result.append(this.linkingResource.getEntityName());
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.linkingResource == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.linkingResource);
     }
 
 } // LinkingResourceMeasuringPointImpl

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
@@ -30,13 +31,19 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getMeasuringPointRepository
  * <em>Measuring Point Repository</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getStringRepresentation
+ * <em>String Representation</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getResourceURIRepresentation
+ * <em>Resource URI Representation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl implements
-AssemblyOperationMeasuringPoint {
+        AssemblyOperationMeasuringPoint {
     /**
      * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -46,6 +53,27 @@ AssemblyOperationMeasuringPoint {
      * @ordered
      */
     protected AssemblyContext assembly;
+
+    /**
+     * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getStringRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String STRING_REPRESENTATION_EDEFAULT = null;
+
+    /**
+     * The default value of the '{@link #getResourceURIRepresentation()
+     * <em>Resource URI Representation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getResourceURIRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_URI_REPRESENTATION_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -171,6 +199,41 @@ AssemblyOperationMeasuringPoint {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.assembly == null || this.role == null || this.operationSignature == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        final StringBuilder result = new StringBuilder();
+
+        result.append("Operation: ");
+        result.append(this.assembly.getEntityName());
+        result.append(".");
+        result.append(this.role.getEntityName());
+        result.append(".");
+        result.append(this.operationSignature.getEntityName());
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.operationSignature == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.operationSignature);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -231,6 +294,10 @@ AssemblyOperationMeasuringPoint {
             return this.basicGetAssembly();
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository();
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
+            return this.getStringRepresentation();
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return this.getResourceURIRepresentation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -283,6 +350,12 @@ AssemblyOperationMeasuringPoint {
             return this.assembly != null;
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository() != null;
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
+            return STRING_REPRESENTATION_EDEFAULT == null ? this.getStringRepresentation() != null
+                    : !STRING_REPRESENTATION_EDEFAULT.equals(this.getStringRepresentation());
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return RESOURCE_URI_REPRESENTATION_EDEFAULT == null ? this.getResourceURIRepresentation() != null
+                    : !RESOURCE_URI_REPRESENTATION_EDEFAULT.equals(this.getResourceURIRepresentation());
         }
         return super.eIsSet(featureID);
     }
@@ -306,6 +379,10 @@ AssemblyOperationMeasuringPoint {
             switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
+            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }
@@ -332,6 +409,10 @@ AssemblyOperationMeasuringPoint {
             switch (baseFeatureID) {
             case MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION:
+                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION;
+            case MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }

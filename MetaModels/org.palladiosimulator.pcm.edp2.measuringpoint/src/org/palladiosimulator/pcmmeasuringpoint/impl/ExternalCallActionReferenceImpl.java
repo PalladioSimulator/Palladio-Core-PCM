@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
  * @generated
  */
 public abstract class ExternalCallActionReferenceImpl extends MinimalEObjectImpl.Container implements
-ExternalCallActionReference {
+        ExternalCallActionReference {
     /**
      * The cached value of the '{@link #getExternalCall() <em>External Call</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

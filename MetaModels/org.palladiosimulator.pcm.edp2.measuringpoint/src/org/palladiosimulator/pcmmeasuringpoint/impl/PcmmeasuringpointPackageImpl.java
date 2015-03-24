@@ -242,7 +242,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         // Obtain or create and register package
         final PcmmeasuringpointPackageImpl thePcmmeasuringpointPackage = (PcmmeasuringpointPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof PcmmeasuringpointPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new PcmmeasuringpointPackageImpl());
+                : new PcmmeasuringpointPackageImpl());
 
         isInited = true;
 
@@ -760,7 +760,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(this.getUsageScenarioReference());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes()
-                .add(theMeasuringpointPackage.getMeasuringPoint());
+        .add(theMeasuringpointPackage.getMeasuringPoint());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes().add(this.getEntryLevelSystemCallReference());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(this.getExternalCallActionReference());

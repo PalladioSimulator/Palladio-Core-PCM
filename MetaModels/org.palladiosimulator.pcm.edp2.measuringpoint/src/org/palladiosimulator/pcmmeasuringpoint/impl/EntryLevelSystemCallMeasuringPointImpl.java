@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
@@ -29,7 +31,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
  * @generated
  */
 public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl implements
-EntryLevelSystemCallMeasuringPoint {
+        EntryLevelSystemCallMeasuringPoint {
     /**
      * The cached value of the '{@link #getEntryLevelSystemCall() <em>Entry Level System Call</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -200,6 +202,48 @@ EntryLevelSystemCallMeasuringPoint {
             }
         }
         return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.entryLevelSystemCall == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+
+        final StringBuilder result = new StringBuilder();
+
+        result.append("SystemCall ");
+        result.append(this.entryLevelSystemCall.getEntityName());
+        result.append(" to ");
+        result.append(this.entryLevelSystemCall.getProvidedRole_EntryLevelSystemCall()
+                .getProvidingEntity_ProvidedRole().getEntityName());
+        result.append("->");
+        result.append(this.entryLevelSystemCall.getProvidedRole_EntryLevelSystemCall().getEntityName());
+        result.append("->");
+        result.append(this.entryLevelSystemCall.getOperationSignature__EntryLevelSystemCall().getEntityName());
+        result.append(" [");
+        result.append(this.entryLevelSystemCall.getId());
+        result.append("]");
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.entryLevelSystemCall == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.entryLevelSystemCall);
     }
 
 } // EntryLevelSystemCallMeasuringPointImpl

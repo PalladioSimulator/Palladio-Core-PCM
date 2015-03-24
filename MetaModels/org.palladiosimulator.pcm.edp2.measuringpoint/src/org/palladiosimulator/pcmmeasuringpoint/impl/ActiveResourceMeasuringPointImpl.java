@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference;
@@ -279,6 +281,40 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
         result.append(this.replicaID);
         result.append(')');
         return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.activeResource == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+
+        final StringBuilder result = new StringBuilder();
+        result.append(this.activeResource.getActiveResourceType_ActiveResourceSpecification().getEntityName());
+        result.append(" [");
+        result.append(String.valueOf(this.replicaID));
+        result.append("] in ");
+        result.append(this.activeResource.getResourceContainer_ProcessingResourceSpecification().getEntityName());
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.activeResource == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.activeResource);
     }
 
 } // ActiveResourceMeasuringPointImpl

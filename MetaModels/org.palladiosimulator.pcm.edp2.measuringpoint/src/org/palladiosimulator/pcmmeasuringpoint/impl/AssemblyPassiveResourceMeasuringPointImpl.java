@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
@@ -30,13 +31,19 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getMeasuringPointRepository
  * <em>Measuring Point Repository</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getStringRepresentation
+ * <em>String Representation</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getResourceURIRepresentation
+ * <em>Resource URI Representation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReferenceImpl implements
-AssemblyPassiveResourceMeasuringPoint {
+        AssemblyPassiveResourceMeasuringPoint {
     /**
      * The cached value of the '{@link #getPassiveResource() <em>Passive Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -46,6 +53,27 @@ AssemblyPassiveResourceMeasuringPoint {
      * @ordered
      */
     protected PassiveResource passiveResource;
+
+    /**
+     * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getStringRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String STRING_REPRESENTATION_EDEFAULT = null;
+
+    /**
+     * The default value of the '{@link #getResourceURIRepresentation()
+     * <em>Resource URI Representation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getResourceURIRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_URI_REPRESENTATION_EDEFAULT = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -172,6 +200,39 @@ AssemblyPassiveResourceMeasuringPoint {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.assembly == null || this.passiveResource == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        final StringBuilder result = new StringBuilder();
+
+        result.append("Passive Resource: ");
+        result.append(this.assembly.getEntityName());
+        result.append(".");
+        result.append(this.passiveResource.getEntityName());
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.passiveResource == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.passiveResource);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -232,6 +293,10 @@ AssemblyPassiveResourceMeasuringPoint {
             return this.basicGetPassiveResource();
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository();
+        case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__STRING_REPRESENTATION:
+            return this.getStringRepresentation();
+        case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return this.getResourceURIRepresentation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -284,6 +349,12 @@ AssemblyPassiveResourceMeasuringPoint {
             return this.passiveResource != null;
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository() != null;
+        case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__STRING_REPRESENTATION:
+            return STRING_REPRESENTATION_EDEFAULT == null ? this.getStringRepresentation() != null
+                    : !STRING_REPRESENTATION_EDEFAULT.equals(this.getStringRepresentation());
+        case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return RESOURCE_URI_REPRESENTATION_EDEFAULT == null ? this.getResourceURIRepresentation() != null
+                    : !RESOURCE_URI_REPRESENTATION_EDEFAULT.equals(this.getResourceURIRepresentation());
         }
         return super.eIsSet(featureID);
     }
@@ -307,6 +378,10 @@ AssemblyPassiveResourceMeasuringPoint {
             switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__STRING_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
+            case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }
@@ -333,6 +408,10 @@ AssemblyPassiveResourceMeasuringPoint {
             switch (baseFeatureID) {
             case MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION:
+                return PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__STRING_REPRESENTATION;
+            case MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }

@@ -20,5 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
- org.palladiosimulator.edp2.util;bundle-version="1.0.0"
+ org.palladiosimulator.edp2.util;bundle-version="1.0.0",
+ org.palladiosimulator.commons
 Bundle-ActivationPolicy: lazy

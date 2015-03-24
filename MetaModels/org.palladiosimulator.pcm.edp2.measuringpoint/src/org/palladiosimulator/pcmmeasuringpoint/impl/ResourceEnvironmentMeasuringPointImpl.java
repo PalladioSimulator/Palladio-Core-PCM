@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
@@ -23,13 +24,39 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getMeasuringPointRepository
  * <em>Measuring Point Repository</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getStringRepresentation
+ * <em>String Representation</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getResourceURIRepresentation
+ * <em>Resource URI Representation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentReferenceImpl implements
-ResourceEnvironmentMeasuringPoint {
+        ResourceEnvironmentMeasuringPoint {
+    /**
+     * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #getStringRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String STRING_REPRESENTATION_EDEFAULT = null;
+    /**
+     * The default value of the '{@link #getResourceURIRepresentation()
+     * <em>Resource URI Representation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @see #getResourceURIRepresentation()
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_URI_REPRESENTATION_EDEFAULT = null;
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -109,6 +136,38 @@ ResourceEnvironmentMeasuringPoint {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.resourceEnvironment == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+
+        final StringBuilder result = new StringBuilder();
+
+        result.append("Resource Environment: ");
+        result.append(this.resourceEnvironment.getEntityName());
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.resourceEnvironment == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.resourceEnvironment);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -164,6 +223,10 @@ ResourceEnvironmentMeasuringPoint {
         switch (featureID) {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository();
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION:
+            return this.getStringRepresentation();
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return this.getResourceURIRepresentation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -208,6 +271,12 @@ ResourceEnvironmentMeasuringPoint {
         switch (featureID) {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository() != null;
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION:
+            return STRING_REPRESENTATION_EDEFAULT == null ? this.getStringRepresentation() != null
+                    : !STRING_REPRESENTATION_EDEFAULT.equals(this.getStringRepresentation());
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+            return RESOURCE_URI_REPRESENTATION_EDEFAULT == null ? this.getResourceURIRepresentation() != null
+                    : !RESOURCE_URI_REPRESENTATION_EDEFAULT.equals(this.getResourceURIRepresentation());
         }
         return super.eIsSet(featureID);
     }
@@ -223,6 +292,10 @@ ResourceEnvironmentMeasuringPoint {
             switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
+            case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }
@@ -241,6 +314,10 @@ ResourceEnvironmentMeasuringPoint {
             switch (baseFeatureID) {
             case MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY:
                 return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+            case MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION:
+                return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION;
+            case MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
+                return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
             default:
                 return -1;
             }

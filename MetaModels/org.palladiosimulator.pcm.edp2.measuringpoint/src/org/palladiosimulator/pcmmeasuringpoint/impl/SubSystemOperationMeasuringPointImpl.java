@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
@@ -38,7 +40,7 @@ import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
  * @generated
  */
 public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl implements
-SubSystemOperationMeasuringPoint {
+        SubSystemOperationMeasuringPoint {
     /**
      * The cached value of the '{@link #getSubsystem() <em>Subsystem</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -365,6 +367,42 @@ SubSystemOperationMeasuringPoint {
             }
         }
         return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.subsystem == null || this.role == null || this.operationSignature == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+
+        final StringBuilder result = new StringBuilder();
+
+        result.append("Sub System Operation: ");
+        result.append(this.subsystem.getEntityName());
+        result.append(".");
+        result.append(this.role.getEntityName());
+        result.append(".");
+        result.append(this.operationSignature.getEntityName());
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.operationSignature == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.operationSignature);
     }
 
 } // SubSystemOperationMeasuringPointImpl

@@ -22,15 +22,15 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemReference} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SubSystemReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SubSystemReferenceItemProvider(final AdapterFactory adapterFactory) {
@@ -40,7 +40,7 @@ public class SubSystemReferenceItemProvider extends ItemProviderAdapter implemen
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -56,14 +56,14 @@ public class SubSystemReferenceItemProvider extends ItemProviderAdapter implemen
     /**
      * This adds a property descriptor for the Subsystem feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addSubsystemPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory)
-                .getRootAdapterFactory(), this.getResourceLocator(), this
-                .getString("_UI_SubSystemReference_subsystem_feature"), this.getString(
+        .add(this.createItemPropertyDescriptor(((ComposeableAdapterFactory) this.adapterFactory)
+                        .getRootAdapterFactory(), this.getResourceLocator(), this
+                        .getString("_UI_SubSystemReference_subsystem_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_SubSystemReference_subsystem_feature",
                         "_UI_SubSystemReference_type"),
                         PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, true, false, true, null,
@@ -85,7 +85,7 @@ public class SubSystemReferenceItemProvider extends ItemProviderAdapter implemen
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public class SubSystemReferenceItemProvider extends ItemProviderAdapter implemen
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class SubSystemReferenceItemProvider extends ItemProviderAdapter implemen
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

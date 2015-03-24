@@ -26,11 +26,11 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * @generated
  */
 public class PassiveResourceReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PassiveResourceReferenceItemProvider(final AdapterFactory adapterFactory) {
@@ -40,7 +40,7 @@ public class PassiveResourceReferenceItemProvider extends ItemProviderAdapter im
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -56,7 +56,7 @@ public class PassiveResourceReferenceItemProvider extends ItemProviderAdapter im
     /**
      * This adds a property descriptor for the Passive Resource feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addPassiveResourcePropertyDescriptor(final Object object) {
@@ -65,8 +65,8 @@ public class PassiveResourceReferenceItemProvider extends ItemProviderAdapter im
                 this.getString("_UI_PassiveResourceReference_passiveResource_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_PassiveResourceReference_passiveResource_feature",
                         "_UI_PassiveResourceReference_type"),
-                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, false, true,
-                null, null, null));
+                        PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, false, true,
+                        null, null, null));
     }
 
     /**
@@ -84,7 +84,7 @@ public class PassiveResourceReferenceItemProvider extends ItemProviderAdapter im
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class PassiveResourceReferenceItemProvider extends ItemProviderAdapter im
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public class PassiveResourceReferenceItemProvider extends ItemProviderAdapter im
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

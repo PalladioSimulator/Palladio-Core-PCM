@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
  * @generated
  */
 public abstract class EntryLevelSystemCallReferenceImpl extends MinimalEObjectImpl.Container implements
-EntryLevelSystemCallReference {
+        EntryLevelSystemCallReference {
     /**
      * The cached value of the '{@link #getEntryLevelSystemCall() <em>Entry Level System Call</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
@@ -29,7 +31,7 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
  * @generated
  */
 public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl implements
-ExternalCallActionMeasuringPoint {
+        ExternalCallActionMeasuringPoint {
     /**
      * The cached value of the '{@link #getExternalCall() <em>External Call</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -200,6 +202,47 @@ ExternalCallActionMeasuringPoint {
             }
         }
         return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getStringRepresentation() {
+        if (this.externalCall == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+
+        final StringBuilder result = new StringBuilder();
+
+        result.append("ExternalCall ");
+        result.append(this.externalCall.getEntityName());
+        result.append(" from ");
+        result.append(this.externalCall.getRole_ExternalService().getRequiringEntity_RequiredRole().getEntityName());
+        result.append(" to ");
+        result.append(this.externalCall.getRole_ExternalService().getEntityName());
+        result.append("->");
+        result.append(this.externalCall.getCalledService_ExternalService().getEntityName());
+        result.append(" [");
+        result.append(this.externalCall.getId());
+        result.append("]");
+
+        return result.toString();
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated NOT
+     */
+    @Override
+    public String getResourceURIRepresentation() {
+        if (this.externalCall == null)
+            return "";
+        EcoreUtil.resolveAll(this);
+        return EMFLoadHelper.getResourceURI(this.externalCall);
     }
 
 } // ExternalCallActionMeasuringPointImpl
