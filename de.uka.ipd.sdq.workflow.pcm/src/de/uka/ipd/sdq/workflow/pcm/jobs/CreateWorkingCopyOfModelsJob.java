@@ -7,32 +7,17 @@ import java.util.List;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IWorkspaceRoot;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.modelversioning.emfprofile.IProfileFacade;
-import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.application.registry.ProfileApplicationDecorator;
-import org.modelversioning.emfprofile.application.registry.ProfileApplicationRegistry;
-import org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationDecoratorImpl;
-import org.modelversioning.emfprofile.application.registry.internal.ProfileApplicationRegistryImpl;
-import org.modelversioning.emfprofile.registry.IProfileRegistry;
-import org.modelversioning.emfprofileapplication.EMFProfileApplicationFactory;
-import org.modelversioning.emfprofileapplication.EMFProfileApplicationPackage;
-import org.modelversioning.emfprofileapplication.ProfileApplication;
-import org.modelversioning.emfprofileapplication.ProfileImport;
-
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
@@ -45,8 +30,6 @@ import de.uka.ipd.sdq.workflow.mdsd.blackboard.ModelLocation;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
-import edu.kit.ipd.sdq.mdsd.profiles.builder.ProfileProjectBuilder;
-import edu.kit.ipd.sdq.mdsd.profiles.nature.ProfileProjectNature;
 import edu.kit.ipd.sdq.mdsd.profiles.registry.ProfileApplicationFileRegistry;
 
 /**
@@ -211,77 +194,6 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
                 workingCopyPartition);
         
         configuration.setModelPaths(originalModelPaths);
-        
-        
-      //Begin edit
-        PCMResourceSetPartition partition2 = (PCMResourceSetPartition) this.blackboard
-                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-        ResourceSet resourceSet2 = partition2.getResourceSet();
-        //get profile path. get the stereotypable object to get the existing 
-        //profileapplicationdecorators and the paths
-        String pcmModelPartitionId1 = LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID;
-        ModelLocation systemModelLocation1 = null;
-        ModelLocation profileApplicationFileLoc = null;
-        
- 		partition.resolveAllProxies();
- 		for (Resource r : partition2.getResourceSet().getResources()) {
- 			URI modelURI = r.getURI();
- 			String fileExtension = modelURI.fileExtension();
- 			if(fileExtension.equals("system")){
- 				systemModelLocation1 = new ModelLocation(pcmModelPartitionId1, modelURI);
- 			}
- 			if(fileExtension.equals("xmi")){
- 				profileApplicationFileLoc = new ModelLocation(pcmModelPartitionId1, modelURI);
- 			}
- 		}
- 		
- 		//get the System
- 		URI modelID1 = systemModelLocation1.getModelID();
- 		ResourceSetPartition resPartition1 = blackboard.getPartition(systemModelLocation1.getPartitionID());
-		List<EObject> contents1 = resPartition1.getContents(modelID1);
-		de.uka.ipd.sdq.pcm.system.System system1 = (de.uka.ipd.sdq.pcm.system.System) EcoreUtil.getObjectByType(contents1, SystemPackage.eINSTANCE.getSystem());
-        EList<AssemblyContext> assContexts1 = system1.getAssemblyContexts__ComposedStructure();
-       
-        Collection<Profile>profiles = IProfileRegistry.INSTANCE.getRegisteredProfiles();
-        
-       // EList<ProfileApplication>paaa = assContexts1.get(0).getProfileApplications();
-       // ProfileApplication papp = paaa.get(0);
-      //IFile f = (IFile) resourceSet2.getResources().get(10); 
-       //EReference ff = EMFProfileApplicationPackage.eINSTANCE.getProfileApplication_ImportedProfiles();
-        //IFile appFile = ((ProfileApplicationDecoratorImpl) papp).getProfileApplicationFile();
-        //ProfileApplicationRegistry.INSTANCE.loadProfileApplicationForModel(modelId, profileApplicationFile, resourceSet2);
-        
-        /*try {
-			new ProfileApplicationDecoratorImpl(f, resourceSet2);
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-        //new ProfileApplicationDecoratorImpl(profileApplicationFile, profiles, resourceSet2);
-        //ProfileApplicationFileRegistry.INSTANCE.getOrCreateProfileApplicationDecorator(assContexts.get(0), profile);
-        
-        //TODO wenn funktioniert, schleife ueber assembly Contexts
-        for (AssemblyContext assContext : assContexts1){
-       //Collection<ProfileApplicationDecorator> deco = ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext);
-            
-       ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext);
-        
-        }
-        //ProfileApplication pro = profileApplications.get(0);
-        
-        final IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-        final IProject[] projects = root.getProjects();
-
-        for (final IProject project : projects) {
-            Collection<IFile> files =
-			        ProfileProjectBuilder
-			                .findProfileApplicationFiles(project);}
-
-        
-        //End edit
         
         
     }
