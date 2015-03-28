@@ -47,7 +47,7 @@ public final class CalculatorHelper {
     /** Default EMF factory for pcm measuring points. */
     private static final PcmmeasuringpointFactory PCM_MEASURINGPOINT_FACTORY = PcmmeasuringpointFactory.eINSTANCE;
 
-    /** Default reporsitory where measuring points are attached to. */
+    /** Default repository where measuring points are attached to. */
     private static final MeasuringPointRepository MEASURING_POINT_REPOSITORY = MEASURINGPOINT_FACTORY
             .createMeasuringPointRepository();
 
