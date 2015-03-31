@@ -83,42 +83,38 @@ public class CreateWorkingCopyOfModelsJob implements IJob, IBlackboardInteractin
                 .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
         ResourceSet resourceSet = partition.getResourceSet();
         
-      //Begin edit
-        //get profile path. get the stereotypable object to geht the existing 
-        //profileapplicationdecorators and the paths
-        String pcmModelPartitionId = LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID;
-        ModelLocation systemModelLocation = null;
-       
- 		partition.resolveAllProxies();
- 		for (Resource r : partition.getResourceSet().getResources()) {
- 			URI modelURI = r.getURI();
- 			String fileExtension = modelURI.fileExtension();
- 			if(fileExtension.equals("system")){
- 				systemModelLocation = new ModelLocation(pcmModelPartitionId, modelURI);
- 			}
- 		}
- 		
- 		//get the System
- 		URI modelID = systemModelLocation.getModelID();
- 		ResourceSetPartition resPartition = blackboard.getPartition(systemModelLocation.getPartitionID());
+		// Begin edit
+		// get profile path. get the stereotypable object to get the existing
+		// profile application decorators and the paths
+		String pcmModelPartitionId = LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID;
+		ModelLocation systemModelLocation = null;
+
+		partition.resolveAllProxies();
+		for (Resource r : partition.getResourceSet().getResources()) {
+			URI modelURI = r.getURI();
+			String fileExtension = modelURI.fileExtension();
+			if (fileExtension.equals("system")) {
+				systemModelLocation = new ModelLocation(pcmModelPartitionId,
+						modelURI);
+			}
+		}
+
+		// get the System
+		URI modelID = systemModelLocation.getModelID();
+		ResourceSetPartition resPartition = blackboard
+				.getPartition(systemModelLocation.getPartitionID());
 		List<EObject> contents = resPartition.getContents(modelID);
-		de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System) EcoreUtil.getObjectByType(contents, SystemPackage.eINSTANCE.getSystem());
-        EList<AssemblyContext> assContexts = system.getAssemblyContexts__ComposedStructure();
-       
-      //  ProfileImport prof = assContexts.get(1).getAllProfileApplications().get(0).getImportedProfiles().get(0);
-        
-       // resourceSet.createResource(URI.createURI(prof.getLocation()));
-        
-       for (AssemblyContext assContext : assContexts){
-       Collection<ProfileApplicationDecorator> decos = ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext);
-                //ProfileApplicationFileRegistry.INSTANCE.getAllExistingProfileApplicationDecorators(assContext.get(1))
-        for(ProfileApplicationDecorator dec : decos){
-        	
-        }
-        }
-        //ProfileApplication pro = profileApplications.get(0);
-        
-        //End edit
+		de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System) EcoreUtil
+				.getObjectByType(contents, SystemPackage.eINSTANCE.getSystem());
+		EList<AssemblyContext> assContexts = system
+				.getAssemblyContexts__ComposedStructure();
+
+		for (AssemblyContext assContext : assContexts) {
+			Collection<ProfileApplicationDecorator> decos = ProfileApplicationFileRegistry.INSTANCE
+					.getAllExistingProfileApplicationDecorators(assContext);
+		}
+
+		// End edit
         
         PCMResourceSetPartition workingCopyPartition = new PCMResourceSetPartition();
 
