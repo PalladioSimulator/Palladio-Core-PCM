@@ -23,7 +23,7 @@ import com.google.inject.Module;
  */
 public class PCMStoExActivator extends AbstractUIPlugin {
 	
-	public static final String ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX_PCMSTOEX = "org.palladiosimulator.pcm.pcmstoex.PCMStoEx";
+	public static final String ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX = "org.palladiosimulator.pcm.pcmstoex.PCMStoEx";
 	
 	private static final Logger logger = Logger.getLogger(PCMStoExActivator.class);
 	
@@ -73,7 +73,7 @@ public class PCMStoExActivator extends AbstractUIPlugin {
 	}
 
 	protected Module getRuntimeModule(String grammar) {
-		if (ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX_PCMSTOEX.equals(grammar)) {
+		if (ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX.equals(grammar)) {
 			return new org.palladiosimulator.pcm.pcmstoex.PCMStoExRuntimeModule();
 		}
 		
@@ -81,7 +81,7 @@ public class PCMStoExActivator extends AbstractUIPlugin {
 	}
 	
 	protected Module getUiModule(String grammar) {
-		if (ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX_PCMSTOEX.equals(grammar)) {
+		if (ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX.equals(grammar)) {
 			return new org.palladiosimulator.pcm.pcmstoex.ui.PCMStoExUiModule(this);
 		}
 		
