@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExParser;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
@@ -17,8 +18,6 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionSolveVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
-import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
 public class ExpressionSolveVisitorTest extends TestCase {
 
@@ -38,10 +37,7 @@ public class ExpressionSolveVisitorTest extends TestCase {
 	}
 	
 	public void testExpressionHelper(String exprString, String expectedResultString) throws RecognitionException{
-		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-				new ANTLRStringStream(exprString));
-		StochasticExpressionsParser parser = new StochasticExpressionsParser(
-				new CommonTokenStream(lexer));
+		PCMStoExParser parser = new PCMStoExParser(exprString);
 
 		Expression expr = parser.expression();
 		
