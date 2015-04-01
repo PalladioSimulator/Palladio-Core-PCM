@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * @author Roman Andrej
  *
  */
+@Deprecated
 public class StoExTextCellEditor extends TextCellEditor {
 	
 	/**

@@ -17,11 +17,11 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
+import org.palladiosimulator.pcm.pcmstoex.ui.adapter.StochasticExpressionEditDialog;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 import de.uka.ipd.sdq.stoex.RandomVariable;
@@ -120,7 +120,7 @@ public class ComponentParametersEditorSection extends EditorSection {
 				dialog.setInitialExpression(randVar);
 				dialog.open();
 				if (dialog.getReturnCode() == Dialog.OK) {
-					return new PCMStoExPrettyPrintVisitor().prettyPrint(dialog
+					return new PCMStoExSerializer().prettyPrint(dialog
 							.getResult());
 				}
 
