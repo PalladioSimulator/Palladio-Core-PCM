@@ -9,6 +9,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.analyser,
- org.junit
+ org.junit,
+ de.uka.ipd.sdq.pcm
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

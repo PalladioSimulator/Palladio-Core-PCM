@@ -1,12 +1,12 @@
 package de.uka.ipd.sdq.pcm.stochasticexpressions.tests;
 
 import junit.framework.TestCase;
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExParser;
 
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IfElseExpression;
@@ -120,10 +120,8 @@ public class TypeInferTests extends TestCase {
 	}
 	
 	private Expression parser(String expression) throws RecognitionException {
-		PCMStoExLexer lexer = new PCMStoExLexer(
-				new ANTLRStringStream(expression));
 		Expression formula = null;
-		formula = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
+		formula = new PCMStoExParser(expression).expression();
 		return formula;
 	}
 }
