@@ -14,10 +14,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
+import org.palladiosimulator.pcm.pcmstoex.ui.adapter.StochasticExpressionEditDialog;
 
-import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
@@ -72,7 +72,7 @@ public class PalladioAdapterFactoryContentProvider extends
 						dialog.setInitialExpression(randVar);
 						dialog.open();
 						if (dialog.getReturnCode() == Dialog.OK) {
-							String result = new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
+							String result = new PCMStoExSerializer().prettyPrint(dialog.getResult());
 							return result;
 						}
 						return null;
