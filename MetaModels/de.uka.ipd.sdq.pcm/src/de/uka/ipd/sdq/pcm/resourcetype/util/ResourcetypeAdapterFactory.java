@@ -27,28 +27,28 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage
  * @generated
  */
 public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static ResourcetypePackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourcetypeAdapterFactory() {
@@ -61,12 +61,12 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     *
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType(final Object object) {
+    public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -79,87 +79,87 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourcetypeSwitch<Adapter> modelSwitch = new ResourcetypeSwitch<Adapter>() {
         @Override
-        public Adapter caseResourceSignature(final ResourceSignature object) {
-            return ResourcetypeAdapterFactory.this.createResourceSignatureAdapter();
+        public Adapter caseResourceSignature(ResourceSignature object) {
+            return createResourceSignatureAdapter();
         }
 
         @Override
-        public Adapter caseProcessingResourceType(final ProcessingResourceType object) {
-            return ResourcetypeAdapterFactory.this.createProcessingResourceTypeAdapter();
+        public Adapter caseProcessingResourceType(ProcessingResourceType object) {
+            return createProcessingResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceType(final ResourceType object) {
-            return ResourcetypeAdapterFactory.this.createResourceTypeAdapter();
+        public Adapter caseResourceType(ResourceType object) {
+            return createResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceRepository(final ResourceRepository object) {
-            return ResourcetypeAdapterFactory.this.createResourceRepositoryAdapter();
+        public Adapter caseResourceRepository(ResourceRepository object) {
+            return createResourceRepositoryAdapter();
         }
 
         @Override
-        public Adapter caseSchedulingPolicy(final SchedulingPolicy object) {
-            return ResourcetypeAdapterFactory.this.createSchedulingPolicyAdapter();
+        public Adapter caseSchedulingPolicy(SchedulingPolicy object) {
+            return createSchedulingPolicyAdapter();
         }
 
         @Override
-        public Adapter caseCommunicationLinkResourceType(final CommunicationLinkResourceType object) {
-            return ResourcetypeAdapterFactory.this.createCommunicationLinkResourceTypeAdapter();
+        public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
+            return createCommunicationLinkResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterface(final ResourceInterface object) {
-            return ResourcetypeAdapterFactory.this.createResourceInterfaceAdapter();
+        public Adapter caseResourceInterface(ResourceInterface object) {
+            return createResourceInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
-            return ResourcetypeAdapterFactory.this.createIdentifierAdapter();
+        public Adapter caseIdentifier(Identifier object) {
+            return createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
-            return ResourcetypeAdapterFactory.this.createNamedElementAdapter();
+        public Adapter caseNamedElement(NamedElement object) {
+            return createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
-            return ResourcetypeAdapterFactory.this.createEntityAdapter();
+        public Adapter caseEntity(Entity object) {
+            return createEntityAdapter();
         }
 
         @Override
-        public Adapter caseUnitCarryingElement(final UnitCarryingElement object) {
-            return ResourcetypeAdapterFactory.this.createUnitCarryingElementAdapter();
+        public Adapter caseUnitCarryingElement(UnitCarryingElement object) {
+            return createUnitCarryingElementAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceProvidingEntity(final ResourceInterfaceProvidingEntity object) {
-            return ResourcetypeAdapterFactory.this.createResourceInterfaceProvidingEntityAdapter();
+        public Adapter caseResourceInterfaceProvidingEntity(ResourceInterfaceProvidingEntity object) {
+            return createResourceInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
-            return ResourcetypeAdapterFactory.this.createEObjectAdapter();
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter(final Notifier target) {
-        return this.modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(Notifier target) {
+        return modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -168,7 +168,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature
      * @generated
@@ -183,7 +183,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceType
      * @generated
@@ -198,7 +198,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository
      * @generated
@@ -213,7 +213,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy
      * @generated
@@ -228,7 +228,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * <em>Communication Link Resource Type</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType
      * @generated
@@ -243,7 +243,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface
      * @generated
@@ -258,7 +258,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * <em>Processing Resource Type</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType
      * @generated
@@ -272,7 +272,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -287,7 +287,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
      * @generated
@@ -301,7 +301,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.Entity
      * @generated
@@ -316,7 +316,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity
      * @generated
@@ -331,7 +331,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.units.UnitCarryingElement
      * @generated
@@ -343,7 +343,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @generated
      */

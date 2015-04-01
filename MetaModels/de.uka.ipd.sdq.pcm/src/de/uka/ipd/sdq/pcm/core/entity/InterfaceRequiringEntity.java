@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  *
  * <!-- begin-model-doc --> All Entities that require an Interface are represented by this class.
  * Prominent inheriting classes are all component types, for example.
- *
+ * 
  * Two roles can be identified a software entity can take relative to an interface. Any entity can
  * claim to implement the functionality specified in an interface as well as to request that
  * functionality. This is reflected in the Palladio Component Model by a set of abstract
@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * request functionality offered by entities providing this functionality. Similarly, the
  * meta-classInterfaceProvidingEntity is inherited by all entities which can potentially offer
  * interface implementations.
- *
+ * 
  * See also: Interface, RequiredRole <!-- end-model-doc -->
  *
  * <p>
@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 public interface InterfaceRequiringEntity extends Entity, ResourceInterfaceRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public interface InterfaceRequiringEntity extends Entity, ResourceInterfaceRequi
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Roles Interface Requiring Entity</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity()

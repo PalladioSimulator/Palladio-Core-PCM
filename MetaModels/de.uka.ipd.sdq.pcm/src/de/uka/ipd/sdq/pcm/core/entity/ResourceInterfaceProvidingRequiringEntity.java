@@ -15,10 +15,10 @@ package de.uka.ipd.sdq.pcm.core.entity;
  * @generated
  */
 public interface ResourceInterfaceProvidingRequiringEntity extends ResourceInterfaceRequiringEntity,
-ResourceInterfaceProvidingEntity {
+        ResourceInterfaceProvidingEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

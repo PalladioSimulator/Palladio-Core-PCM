@@ -16,30 +16,30 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static ProtocolFactory init() {
         try {
-            final ProtocolFactory theProtocolFactory = (ProtocolFactory) EPackage.Registry.INSTANCE
+            ProtocolFactory theProtocolFactory = (ProtocolFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ProtocolPackage.eNS_URI);
             if (theProtocolFactory != null) {
                 return theProtocolFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ProtocolFactoryImpl();
@@ -47,7 +47,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProtocolFactoryImpl() {
@@ -56,11 +56,11 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -69,17 +69,17 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProtocolPackage getProtocolPackage() {
-        return (ProtocolPackage) this.getEPackage();
+        return (ProtocolPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

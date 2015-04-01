@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implements AssemblyInfrastructureConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,7 +52,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * The cached value of the '{@link #getProvidedRole__AssemblyInfrastructureConnector()
      * <em>Provided Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getProvidedRole__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
@@ -63,7 +63,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * The cached value of the '{@link #getRequiredRole__AssemblyInfrastructureConnector()
      * <em>Required Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRequiredRole__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
@@ -75,7 +75,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * {@link #getProvidingAssemblyContext__AssemblyInfrastructureConnector()
      * <em>Providing Assembly Context Assembly Infrastructure Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getProvidingAssemblyContext__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
@@ -87,7 +87,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * {@link #getRequiringAssemblyContext__AssemblyInfrastructureConnector()
      * <em>Requiring Assembly Context Assembly Infrastructure Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getRequiringAssemblyContext__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
@@ -96,7 +96,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyInfrastructureConnectorImpl() {
@@ -105,7 +105,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -115,275 +115,257 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureProvidedRole getProvidedRole__AssemblyInfrastructureConnector() {
-        if (this.providedRole__AssemblyInfrastructureConnector != null
-                && ((EObject) this.providedRole__AssemblyInfrastructureConnector).eIsProxy()) {
-            final InternalEObject oldProvidedRole__AssemblyInfrastructureConnector = (InternalEObject) this.providedRole__AssemblyInfrastructureConnector;
-            this.providedRole__AssemblyInfrastructureConnector = (InfrastructureProvidedRole) this
-                    .eResolveProxy(oldProvidedRole__AssemblyInfrastructureConnector);
-            if (this.providedRole__AssemblyInfrastructureConnector != oldProvidedRole__AssemblyInfrastructureConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (providedRole__AssemblyInfrastructureConnector != null
+                && ((EObject) providedRole__AssemblyInfrastructureConnector).eIsProxy()) {
+            InternalEObject oldProvidedRole__AssemblyInfrastructureConnector = (InternalEObject) providedRole__AssemblyInfrastructureConnector;
+            providedRole__AssemblyInfrastructureConnector = (InfrastructureProvidedRole) eResolveProxy(oldProvidedRole__AssemblyInfrastructureConnector);
+            if (providedRole__AssemblyInfrastructureConnector != oldProvidedRole__AssemblyInfrastructureConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                             oldProvidedRole__AssemblyInfrastructureConnector,
-                            this.providedRole__AssemblyInfrastructureConnector));
-                }
+                            providedRole__AssemblyInfrastructureConnector));
             }
         }
-        return this.providedRole__AssemblyInfrastructureConnector;
+        return providedRole__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureProvidedRole basicGetProvidedRole__AssemblyInfrastructureConnector() {
-        return this.providedRole__AssemblyInfrastructureConnector;
+        return providedRole__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProvidedRole__AssemblyInfrastructureConnector(
-            final InfrastructureProvidedRole newProvidedRole__AssemblyInfrastructureConnector) {
-        final InfrastructureProvidedRole oldProvidedRole__AssemblyInfrastructureConnector = this.providedRole__AssemblyInfrastructureConnector;
-        this.providedRole__AssemblyInfrastructureConnector = newProvidedRole__AssemblyInfrastructureConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
+            InfrastructureProvidedRole newProvidedRole__AssemblyInfrastructureConnector) {
+        InfrastructureProvidedRole oldProvidedRole__AssemblyInfrastructureConnector = providedRole__AssemblyInfrastructureConnector;
+        providedRole__AssemblyInfrastructureConnector = newProvidedRole__AssemblyInfrastructureConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                    oldProvidedRole__AssemblyInfrastructureConnector,
-                    this.providedRole__AssemblyInfrastructureConnector));
-        }
+                    oldProvidedRole__AssemblyInfrastructureConnector, providedRole__AssemblyInfrastructureConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getRequiredRole__AssemblyInfrastructureConnector() {
-        if (this.requiredRole__AssemblyInfrastructureConnector != null
-                && ((EObject) this.requiredRole__AssemblyInfrastructureConnector).eIsProxy()) {
-            final InternalEObject oldRequiredRole__AssemblyInfrastructureConnector = (InternalEObject) this.requiredRole__AssemblyInfrastructureConnector;
-            this.requiredRole__AssemblyInfrastructureConnector = (InfrastructureRequiredRole) this
-                    .eResolveProxy(oldRequiredRole__AssemblyInfrastructureConnector);
-            if (this.requiredRole__AssemblyInfrastructureConnector != oldRequiredRole__AssemblyInfrastructureConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (requiredRole__AssemblyInfrastructureConnector != null
+                && ((EObject) requiredRole__AssemblyInfrastructureConnector).eIsProxy()) {
+            InternalEObject oldRequiredRole__AssemblyInfrastructureConnector = (InternalEObject) requiredRole__AssemblyInfrastructureConnector;
+            requiredRole__AssemblyInfrastructureConnector = (InfrastructureRequiredRole) eResolveProxy(oldRequiredRole__AssemblyInfrastructureConnector);
+            if (requiredRole__AssemblyInfrastructureConnector != oldRequiredRole__AssemblyInfrastructureConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                             oldRequiredRole__AssemblyInfrastructureConnector,
-                            this.requiredRole__AssemblyInfrastructureConnector));
-                }
+                            requiredRole__AssemblyInfrastructureConnector));
             }
         }
-        return this.requiredRole__AssemblyInfrastructureConnector;
+        return requiredRole__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__AssemblyInfrastructureConnector() {
-        return this.requiredRole__AssemblyInfrastructureConnector;
+        return requiredRole__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredRole__AssemblyInfrastructureConnector(
-            final InfrastructureRequiredRole newRequiredRole__AssemblyInfrastructureConnector) {
-        final InfrastructureRequiredRole oldRequiredRole__AssemblyInfrastructureConnector = this.requiredRole__AssemblyInfrastructureConnector;
-        this.requiredRole__AssemblyInfrastructureConnector = newRequiredRole__AssemblyInfrastructureConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
+            InfrastructureRequiredRole newRequiredRole__AssemblyInfrastructureConnector) {
+        InfrastructureRequiredRole oldRequiredRole__AssemblyInfrastructureConnector = requiredRole__AssemblyInfrastructureConnector;
+        requiredRole__AssemblyInfrastructureConnector = newRequiredRole__AssemblyInfrastructureConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                    oldRequiredRole__AssemblyInfrastructureConnector,
-                    this.requiredRole__AssemblyInfrastructureConnector));
-        }
+                    oldRequiredRole__AssemblyInfrastructureConnector, requiredRole__AssemblyInfrastructureConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getProvidingAssemblyContext__AssemblyInfrastructureConnector() {
-        if (this.providingAssemblyContext__AssemblyInfrastructureConnector != null
-                && ((EObject) this.providingAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
-            final InternalEObject oldProvidingAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) this.providingAssemblyContext__AssemblyInfrastructureConnector;
-            this.providingAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) this
-                    .eResolveProxy(oldProvidingAssemblyContext__AssemblyInfrastructureConnector);
-            if (this.providingAssemblyContext__AssemblyInfrastructureConnector != oldProvidingAssemblyContext__AssemblyInfrastructureConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (providingAssemblyContext__AssemblyInfrastructureConnector != null
+                && ((EObject) providingAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
+            InternalEObject oldProvidingAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) providingAssemblyContext__AssemblyInfrastructureConnector;
+            providingAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) eResolveProxy(oldProvidingAssemblyContext__AssemblyInfrastructureConnector);
+            if (providingAssemblyContext__AssemblyInfrastructureConnector != oldProvidingAssemblyContext__AssemblyInfrastructureConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                             oldProvidingAssemblyContext__AssemblyInfrastructureConnector,
-                            this.providingAssemblyContext__AssemblyInfrastructureConnector));
-                }
+                            providingAssemblyContext__AssemblyInfrastructureConnector));
             }
         }
-        return this.providingAssemblyContext__AssemblyInfrastructureConnector;
+        return providingAssemblyContext__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext__AssemblyInfrastructureConnector() {
-        return this.providingAssemblyContext__AssemblyInfrastructureConnector;
+        return providingAssemblyContext__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProvidingAssemblyContext__AssemblyInfrastructureConnector(
-            final AssemblyContext newProvidingAssemblyContext__AssemblyInfrastructureConnector) {
-        final AssemblyContext oldProvidingAssemblyContext__AssemblyInfrastructureConnector = this.providingAssemblyContext__AssemblyInfrastructureConnector;
-        this.providingAssemblyContext__AssemblyInfrastructureConnector = newProvidingAssemblyContext__AssemblyInfrastructureConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
+            AssemblyContext newProvidingAssemblyContext__AssemblyInfrastructureConnector) {
+        AssemblyContext oldProvidingAssemblyContext__AssemblyInfrastructureConnector = providingAssemblyContext__AssemblyInfrastructureConnector;
+        providingAssemblyContext__AssemblyInfrastructureConnector = newProvidingAssemblyContext__AssemblyInfrastructureConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                     oldProvidingAssemblyContext__AssemblyInfrastructureConnector,
-                    this.providingAssemblyContext__AssemblyInfrastructureConnector));
-        }
+                    providingAssemblyContext__AssemblyInfrastructureConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getRequiringAssemblyContext__AssemblyInfrastructureConnector() {
-        if (this.requiringAssemblyContext__AssemblyInfrastructureConnector != null
-                && ((EObject) this.requiringAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
-            final InternalEObject oldRequiringAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) this.requiringAssemblyContext__AssemblyInfrastructureConnector;
-            this.requiringAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) this
-                    .eResolveProxy(oldRequiringAssemblyContext__AssemblyInfrastructureConnector);
-            if (this.requiringAssemblyContext__AssemblyInfrastructureConnector != oldRequiringAssemblyContext__AssemblyInfrastructureConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
+        if (requiringAssemblyContext__AssemblyInfrastructureConnector != null
+                && ((EObject) requiringAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
+            InternalEObject oldRequiringAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) requiringAssemblyContext__AssemblyInfrastructureConnector;
+            requiringAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) eResolveProxy(oldRequiringAssemblyContext__AssemblyInfrastructureConnector);
+            if (requiringAssemblyContext__AssemblyInfrastructureConnector != oldRequiringAssemblyContext__AssemblyInfrastructureConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(
                             this,
                             Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                             oldRequiringAssemblyContext__AssemblyInfrastructureConnector,
-                            this.requiringAssemblyContext__AssemblyInfrastructureConnector));
-                }
+                            requiringAssemblyContext__AssemblyInfrastructureConnector));
             }
         }
-        return this.requiringAssemblyContext__AssemblyInfrastructureConnector;
+        return requiringAssemblyContext__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext__AssemblyInfrastructureConnector() {
-        return this.requiringAssemblyContext__AssemblyInfrastructureConnector;
+        return requiringAssemblyContext__AssemblyInfrastructureConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiringAssemblyContext__AssemblyInfrastructureConnector(
-            final AssemblyContext newRequiringAssemblyContext__AssemblyInfrastructureConnector) {
-        final AssemblyContext oldRequiringAssemblyContext__AssemblyInfrastructureConnector = this.requiringAssemblyContext__AssemblyInfrastructureConnector;
-        this.requiringAssemblyContext__AssemblyInfrastructureConnector = newRequiringAssemblyContext__AssemblyInfrastructureConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
+            AssemblyContext newRequiringAssemblyContext__AssemblyInfrastructureConnector) {
+        AssemblyContext oldRequiringAssemblyContext__AssemblyInfrastructureConnector = requiringAssemblyContext__AssemblyInfrastructureConnector;
+        requiringAssemblyContext__AssemblyInfrastructureConnector = newRequiringAssemblyContext__AssemblyInfrastructureConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
                     this,
                     Notification.SET,
                     CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                     oldRequiringAssemblyContext__AssemblyInfrastructureConnector,
-                    this.requiringAssemblyContext__AssemblyInfrastructureConnector));
-        }
+                    requiringAssemblyContext__AssemblyInfrastructureConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            if (resolve) {
-                return this.getProvidedRole__AssemblyInfrastructureConnector();
-            }
-            return this.basicGetProvidedRole__AssemblyInfrastructureConnector();
+            if (resolve)
+                return getProvidedRole__AssemblyInfrastructureConnector();
+            return basicGetProvidedRole__AssemblyInfrastructureConnector();
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            if (resolve) {
-                return this.getRequiredRole__AssemblyInfrastructureConnector();
-            }
-            return this.basicGetRequiredRole__AssemblyInfrastructureConnector();
+            if (resolve)
+                return getRequiredRole__AssemblyInfrastructureConnector();
+            return basicGetRequiredRole__AssemblyInfrastructureConnector();
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            if (resolve) {
-                return this.getProvidingAssemblyContext__AssemblyInfrastructureConnector();
-            }
-            return this.basicGetProvidingAssemblyContext__AssemblyInfrastructureConnector();
+            if (resolve)
+                return getProvidingAssemblyContext__AssemblyInfrastructureConnector();
+            return basicGetProvidingAssemblyContext__AssemblyInfrastructureConnector();
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            if (resolve) {
-                return this.getRequiringAssemblyContext__AssemblyInfrastructureConnector();
-            }
-            return this.basicGetRequiringAssemblyContext__AssemblyInfrastructureConnector();
+            if (resolve)
+                return getRequiringAssemblyContext__AssemblyInfrastructureConnector();
+            return basicGetRequiringAssemblyContext__AssemblyInfrastructureConnector();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setProvidedRole__AssemblyInfrastructureConnector((InfrastructureProvidedRole) newValue);
+            setProvidedRole__AssemblyInfrastructureConnector((InfrastructureProvidedRole) newValue);
             return;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setRequiredRole__AssemblyInfrastructureConnector((InfrastructureRequiredRole) newValue);
+            setRequiredRole__AssemblyInfrastructureConnector((InfrastructureRequiredRole) newValue);
             return;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setProvidingAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) newValue);
+            setProvidingAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) newValue);
             return;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setRequiringAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) newValue);
+            setRequiringAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -391,23 +373,23 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setProvidedRole__AssemblyInfrastructureConnector((InfrastructureProvidedRole) null);
+            setProvidedRole__AssemblyInfrastructureConnector((InfrastructureProvidedRole) null);
             return;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setRequiredRole__AssemblyInfrastructureConnector((InfrastructureRequiredRole) null);
+            setRequiredRole__AssemblyInfrastructureConnector((InfrastructureRequiredRole) null);
             return;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setProvidingAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) null);
+            setProvidingAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) null);
             return;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            this.setRequiringAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) null);
+            setRequiringAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) null);
             return;
         }
         super.eUnset(featureID);
@@ -415,20 +397,20 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            return this.providedRole__AssemblyInfrastructureConnector != null;
+            return providedRole__AssemblyInfrastructureConnector != null;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            return this.requiredRole__AssemblyInfrastructureConnector != null;
+            return requiredRole__AssemblyInfrastructureConnector != null;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            return this.providingAssemblyContext__AssemblyInfrastructureConnector != null;
+            return providingAssemblyContext__AssemblyInfrastructureConnector != null;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
-            return this.requiringAssemblyContext__AssemblyInfrastructureConnector != null;
+            return requiringAssemblyContext__AssemblyInfrastructureConnector != null;
         }
         return super.eIsSet(featureID);
     }

@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 public interface ProvidedInfrastructureDelegationConnector extends DelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>' reference.
      * @see #setInnerProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
@@ -63,7 +63,7 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
      * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>} ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Inner Provided Role Provided Infrastructure Delegation Connector</em> '
@@ -83,7 +83,7 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>' reference.
      * @see #setOuterProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
@@ -98,7 +98,7 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector
      * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>} ' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Outer Provided Role Provided Infrastructure Delegation Connector</em> '
@@ -118,7 +118,7 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Assembly Context Provided Infrastructure Delegation Connector</em>' reference.
      * @see #setAssemblyContext__ProvidedInfrastructureDelegationConnector(AssemblyContext)
@@ -133,7 +133,7 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
      * <em>Assembly Context Provided Infrastructure Delegation Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Assembly Context Provided Infrastructure Delegation Connector</em> '

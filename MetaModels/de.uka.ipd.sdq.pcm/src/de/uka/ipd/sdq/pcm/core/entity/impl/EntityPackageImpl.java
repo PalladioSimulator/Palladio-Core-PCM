@@ -72,90 +72,90 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceProvidedRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass interfaceProvidingRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass interfaceProvidingEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass interfaceRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceInterfaceRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceRequiredRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceInterfaceProvidingEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass composedProvidingRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass namedElementEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceInterfaceProvidingRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass entityEClass = null;
@@ -168,7 +168,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#eNS_URI
      * @see #init()
@@ -180,7 +180,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -188,24 +188,23 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
     /**
      * Creates, registers, and initializes the <b>Package</b> for this model, and for any others
      * upon which it depends.
-     *
+     * 
      * <p>
      * This method is used to initialize {@link EntityPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
      * @generated
      */
     public static EntityPackage init() {
-        if (isInited) {
+        if (isInited)
             return (EntityPackage) EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
-        }
 
         // Obtain or create and register package
-        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
+        EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
                 .get(eNS_URI) : new EntityPackageImpl());
 
         isInited = true;
@@ -216,63 +215,60 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
-        final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+        PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
-        final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+        CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
-        final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
+        CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-        final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
+        UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
-        final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
+        RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
-        final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
+        ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-        final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
+        ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
-        final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+        ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-        final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
+        ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
-        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
+        SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
                 .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-        final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
+        SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
-        final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SeffPerformancePackage.eNS_URI) : SeffPerformancePackage.eINSTANCE);
+        SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
-        final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SeffReliabilityPackage.eNS_URI) : SeffReliabilityPackage.eINSTANCE);
+        QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
-        final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
+        QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
-        final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(QosPerformancePackage.eNS_URI) : QosPerformancePackage.eINSTANCE);
+        QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
-        final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(QosReliabilityPackage.eNS_URI) : QosReliabilityPackage.eINSTANCE);
+        SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
-        final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+        ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-        final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
+        AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
-        final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
+                .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
+        SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
+                .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
         // Create package meta-data objects
         theEntityPackage.createPackageContents();
@@ -320,7 +316,6 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theEntityPackage, new EValidator.Descriptor() {
-            @Override
             public EValidator getEValidator() {
                 return EntityValidator.INSTANCE;
             }
@@ -336,217 +331,217 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getResourceProvidedRole() {
-        return this.resourceProvidedRoleEClass;
+        return resourceProvidedRoleEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole() {
-        return (EReference) this.resourceProvidedRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) resourceProvidedRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getResourceProvidedRole_ProvidedResourceInterface__ResourceProvidedRole() {
-        return (EReference) this.resourceProvidedRoleEClass.getEStructuralFeatures().get(1);
+        return (EReference) resourceProvidedRoleEClass.getEStructuralFeatures().get(1);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getInterfaceProvidingRequiringEntity() {
-        return this.interfaceProvidingRequiringEntityEClass;
+        return interfaceProvidingRequiringEntityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getInterfaceProvidingEntity() {
-        return this.interfaceProvidingEntityEClass;
+        return interfaceProvidingEntityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity() {
-        return (EReference) this.interfaceProvidingEntityEClass.getEStructuralFeatures().get(0);
+        return (EReference) interfaceProvidingEntityEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getInterfaceRequiringEntity() {
-        return this.interfaceRequiringEntityEClass;
+        return interfaceRequiringEntityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity() {
-        return (EReference) this.interfaceRequiringEntityEClass.getEStructuralFeatures().get(0);
+        return (EReference) interfaceRequiringEntityEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getResourceInterfaceRequiringEntity() {
-        return this.resourceInterfaceRequiringEntityEClass;
+        return resourceInterfaceRequiringEntityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity() {
-        return (EReference) this.resourceInterfaceRequiringEntityEClass.getEStructuralFeatures().get(0);
+        return (EReference) resourceInterfaceRequiringEntityEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getResourceRequiredRole() {
-        return this.resourceRequiredRoleEClass;
+        return resourceRequiredRoleEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole() {
-        return (EReference) this.resourceRequiredRoleEClass.getEStructuralFeatures().get(0);
+        return (EReference) resourceRequiredRoleEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole() {
-        return (EReference) this.resourceRequiredRoleEClass.getEStructuralFeatures().get(1);
+        return (EReference) resourceRequiredRoleEClass.getEStructuralFeatures().get(1);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getResourceInterfaceProvidingEntity() {
-        return this.resourceInterfaceProvidingEntityEClass;
+        return resourceInterfaceProvidingEntityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EReference getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity() {
-        return (EReference) this.resourceInterfaceProvidingEntityEClass.getEStructuralFeatures().get(0);
+        return (EReference) resourceInterfaceProvidingEntityEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getComposedProvidingRequiringEntity() {
-        return this.composedProvidingRequiringEntityEClass;
+        return composedProvidingRequiringEntityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getNamedElement() {
-        return this.namedElementEClass;
+        return namedElementEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EAttribute getNamedElement_EntityName() {
-        return (EAttribute) this.namedElementEClass.getEStructuralFeatures().get(0);
+        return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getResourceInterfaceProvidingRequiringEntity() {
-        return this.resourceInterfaceProvidingRequiringEntityEClass;
+        return resourceInterfaceProvidingRequiringEntityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EClass getEntity() {
-        return this.entityEClass;
+        return entityEClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EntityFactory getEntityFactory() {
-        return (EntityFactory) this.getEFactoryInstance();
+        return (EntityFactory) getEFactoryInstance();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -554,60 +549,58 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
-        if (this.isCreated) {
+        if (isCreated)
             return;
-        }
-        this.isCreated = true;
+        isCreated = true;
 
         // Create classes and their features
-        this.resourceProvidedRoleEClass = this.createEClass(RESOURCE_PROVIDED_ROLE);
-        this.createEReference(this.resourceProvidedRoleEClass,
+        resourceProvidedRoleEClass = createEClass(RESOURCE_PROVIDED_ROLE);
+        createEReference(resourceProvidedRoleEClass,
                 RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE);
-        this.createEReference(this.resourceProvidedRoleEClass,
+        createEReference(resourceProvidedRoleEClass,
                 RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE);
 
-        this.interfaceProvidingRequiringEntityEClass = this.createEClass(INTERFACE_PROVIDING_REQUIRING_ENTITY);
+        interfaceProvidingRequiringEntityEClass = createEClass(INTERFACE_PROVIDING_REQUIRING_ENTITY);
 
-        this.interfaceProvidingEntityEClass = this.createEClass(INTERFACE_PROVIDING_ENTITY);
-        this.createEReference(this.interfaceProvidingEntityEClass,
+        interfaceProvidingEntityEClass = createEClass(INTERFACE_PROVIDING_ENTITY);
+        createEReference(interfaceProvidingEntityEClass,
                 INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
 
-        this.interfaceRequiringEntityEClass = this.createEClass(INTERFACE_REQUIRING_ENTITY);
-        this.createEReference(this.interfaceRequiringEntityEClass,
+        interfaceRequiringEntityEClass = createEClass(INTERFACE_REQUIRING_ENTITY);
+        createEReference(interfaceRequiringEntityEClass,
                 INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
 
-        this.resourceInterfaceRequiringEntityEClass = this.createEClass(RESOURCE_INTERFACE_REQUIRING_ENTITY);
-        this.createEReference(this.resourceInterfaceRequiringEntityEClass,
+        resourceInterfaceRequiringEntityEClass = createEClass(RESOURCE_INTERFACE_REQUIRING_ENTITY);
+        createEReference(resourceInterfaceRequiringEntityEClass,
                 RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY);
 
-        this.resourceRequiredRoleEClass = this.createEClass(RESOURCE_REQUIRED_ROLE);
-        this.createEReference(this.resourceRequiredRoleEClass,
+        resourceRequiredRoleEClass = createEClass(RESOURCE_REQUIRED_ROLE);
+        createEReference(resourceRequiredRoleEClass,
                 RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE);
-        this.createEReference(this.resourceRequiredRoleEClass,
+        createEReference(resourceRequiredRoleEClass,
                 RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
 
-        this.resourceInterfaceProvidingEntityEClass = this.createEClass(RESOURCE_INTERFACE_PROVIDING_ENTITY);
-        this.createEReference(this.resourceInterfaceProvidingEntityEClass,
+        resourceInterfaceProvidingEntityEClass = createEClass(RESOURCE_INTERFACE_PROVIDING_ENTITY);
+        createEReference(resourceInterfaceProvidingEntityEClass,
                 RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
 
-        this.composedProvidingRequiringEntityEClass = this.createEClass(COMPOSED_PROVIDING_REQUIRING_ENTITY);
+        composedProvidingRequiringEntityEClass = createEClass(COMPOSED_PROVIDING_REQUIRING_ENTITY);
 
-        this.namedElementEClass = this.createEClass(NAMED_ELEMENT);
-        this.createEAttribute(this.namedElementEClass, NAMED_ELEMENT__ENTITY_NAME);
+        namedElementEClass = createEClass(NAMED_ELEMENT);
+        createEAttribute(namedElementEClass, NAMED_ELEMENT__ENTITY_NAME);
 
-        this.resourceInterfaceProvidingRequiringEntityEClass = this
-                .createEClass(RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY);
+        resourceInterfaceProvidingRequiringEntityEClass = createEClass(RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY);
 
-        this.entityEClass = this.createEClass(ENTITY);
+        entityEClass = createEClass(ENTITY);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -615,28 +608,27 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
-        if (this.isInitialized) {
+        if (isInitialized)
             return;
-        }
-        this.isInitialized = true;
+        isInitialized = true;
 
         // Initialize package
-        this.setName(eNAME);
-        this.setNsPrefix(eNS_PREFIX);
-        this.setNsURI(eNS_URI);
+        setName(eNAME);
+        setNsPrefix(eNS_PREFIX);
+        setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+        RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
                 .getEPackage(RepositoryPackage.eNS_URI);
-        final ResourcetypePackage theResourcetypePackage = (ResourcetypePackage) EPackage.Registry.INSTANCE
+        ResourcetypePackage theResourcetypePackage = (ResourcetypePackage) EPackage.Registry.INSTANCE
                 .getEPackage(ResourcetypePackage.eNS_URI);
-        final CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
+        CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI);
-        final IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
+        IdentifierPackage theIdentifierPackage = (IdentifierPackage) EPackage.Registry.INSTANCE
                 .getEPackage(IdentifierPackage.eNS_URI);
 
         // Create type parameters
@@ -644,117 +636,113 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         // Set bounds for type parameters
 
         // Add supertypes to classes
-        this.resourceProvidedRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
-        this.interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingEntity());
-        this.interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceRequiringEntity());
-        this.interfaceProvidingEntityEClass.getESuperTypes().add(this.getEntity());
-        this.interfaceRequiringEntityEClass.getESuperTypes().add(this.getEntity());
-        this.interfaceRequiringEntityEClass.getESuperTypes().add(this.getResourceInterfaceRequiringEntity());
-        this.resourceInterfaceRequiringEntityEClass.getESuperTypes().add(this.getEntity());
-        this.resourceRequiredRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
-        this.resourceInterfaceProvidingEntityEClass.getESuperTypes().add(this.getEntity());
-        this.composedProvidingRequiringEntityEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
-        this.composedProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingRequiringEntity());
-        this.resourceInterfaceProvidingRequiringEntityEClass.getESuperTypes().add(
-                this.getResourceInterfaceRequiringEntity());
-        this.resourceInterfaceProvidingRequiringEntityEClass.getESuperTypes().add(
-                this.getResourceInterfaceProvidingEntity());
-        this.entityEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-        this.entityEClass.getESuperTypes().add(this.getNamedElement());
+        resourceProvidedRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
+        interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingEntity());
+        interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceRequiringEntity());
+        interfaceProvidingEntityEClass.getESuperTypes().add(this.getEntity());
+        interfaceRequiringEntityEClass.getESuperTypes().add(this.getEntity());
+        interfaceRequiringEntityEClass.getESuperTypes().add(this.getResourceInterfaceRequiringEntity());
+        resourceInterfaceRequiringEntityEClass.getESuperTypes().add(this.getEntity());
+        resourceRequiredRoleEClass.getESuperTypes().add(theRepositoryPackage.getRole());
+        resourceInterfaceProvidingEntityEClass.getESuperTypes().add(this.getEntity());
+        composedProvidingRequiringEntityEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
+        composedProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingRequiringEntity());
+        resourceInterfaceProvidingRequiringEntityEClass.getESuperTypes()
+                .add(this.getResourceInterfaceRequiringEntity());
+        resourceInterfaceProvidingRequiringEntityEClass.getESuperTypes()
+                .add(this.getResourceInterfaceProvidingEntity());
+        entityEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+        entityEClass.getESuperTypes().add(this.getNamedElement());
 
         // Initialize classes and features; add operations and parameters
-        this.initEClass(this.resourceProvidedRoleEClass, ResourceProvidedRole.class, "ResourceProvidedRole",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole(),
+        initEClass(resourceProvidedRoleEClass, ResourceProvidedRole.class, "ResourceProvidedRole", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole(),
                 this.getResourceInterfaceProvidingEntity(),
                 this.getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity(),
                 "resourceInterfaceProvidingEntity__ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getResourceProvidedRole_ProvidedResourceInterface__ResourceProvidedRole(),
+        initEReference(getResourceProvidedRole_ProvidedResourceInterface__ResourceProvidedRole(),
                 theResourcetypePackage.getResourceInterface(), null, "providedResourceInterface__ResourceProvidedRole",
                 null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.interfaceProvidingRequiringEntityEClass, InterfaceProvidingRequiringEntity.class,
+        initEClass(interfaceProvidingRequiringEntityEClass, InterfaceProvidingRequiringEntity.class,
                 "InterfaceProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        this.initEClass(this.interfaceProvidingEntityEClass, InterfaceProvidingEntity.class,
-                "InterfaceProvidingEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(),
+        initEClass(interfaceProvidingEntityEClass, InterfaceProvidingEntity.class, "InterfaceProvidingEntity",
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(),
                 theRepositoryPackage.getProvidedRole(),
                 theRepositoryPackage.getProvidedRole_ProvidingEntity_ProvidedRole(),
                 "providedRoles_InterfaceProvidingEntity", null, 0, -1, InterfaceProvidingEntity.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        this.initEClass(this.interfaceRequiringEntityEClass, InterfaceRequiringEntity.class,
-                "InterfaceRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(),
+        initEClass(interfaceRequiringEntityEClass, InterfaceRequiringEntity.class, "InterfaceRequiringEntity",
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(),
                 theRepositoryPackage.getRequiredRole(),
                 theRepositoryPackage.getRequiredRole_RequiringEntity_RequiredRole(),
                 "requiredRoles_InterfaceRequiringEntity", null, 0, -1, InterfaceRequiringEntity.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        this.initEClass(this.resourceInterfaceRequiringEntityEClass, ResourceInterfaceRequiringEntity.class,
+        initEClass(resourceInterfaceRequiringEntityEClass, ResourceInterfaceRequiringEntity.class,
                 "ResourceInterfaceRequiringEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(
-                this.getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity(),
+        initEReference(getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity(),
                 this.getResourceRequiredRole(),
                 this.getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole(),
                 "resourceRequiredRoles__ResourceInterfaceRequiringEntity", null, 0, -1,
                 ResourceInterfaceRequiringEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(this.getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole(),
+        initEClass(resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole", !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEReference(getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole(),
                 theResourcetypePackage.getResourceInterface(), null, "requiredResourceInterface__ResourceRequiredRole",
                 null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole(),
+        initEReference(getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole(),
                 this.getResourceInterfaceRequiringEntity(),
                 this.getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity(),
                 "resourceInterfaceRequiringEntity__ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.resourceInterfaceProvidingEntityEClass, ResourceInterfaceProvidingEntity.class,
+        initEClass(resourceInterfaceProvidingEntityEClass, ResourceInterfaceProvidingEntity.class,
                 "ResourceInterfaceProvidingEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(
-                this.getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity(),
+        initEReference(getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity(),
                 this.getResourceProvidedRole(),
                 this.getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole(),
                 "resourceProvidedRoles__ResourceInterfaceProvidingEntity", null, 0, -1,
                 ResourceInterfaceProvidingEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.composedProvidingRequiringEntityEClass, ComposedProvidingRequiringEntity.class,
+        initEClass(composedProvidingRequiringEntityEClass, ComposedProvidingRequiringEntity.class,
                 "ComposedProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        final EOperation op = this.addEOperation(this.composedProvidingRequiringEntityEClass,
-                this.ecorePackage.getEBoolean(), "ProvidedRolesMustBeBound", 0, 1, IS_UNIQUE, IS_ORDERED);
-        this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-        final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
-        EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        EOperation op = addEOperation(composedProvidingRequiringEntityEClass, ecorePackage.getEBoolean(),
+                "ProvidedRolesMustBeBound", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+        EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+        EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
+        g2 = createEGenericType(ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
-        this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+        addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
+        initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getNamedElement_EntityName(), this.ecorePackage.getEString(), "entityName", "aName",
-                1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        initEAttribute(getNamedElement_EntityName(), ecorePackage.getEString(), "entityName", "aName", 1, 1,
+                NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.resourceInterfaceProvidingRequiringEntityEClass,
-                ResourceInterfaceProvidingRequiringEntity.class, "ResourceInterfaceProvidingRequiringEntity",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        initEClass(resourceInterfaceProvidingRequiringEntityEClass, ResourceInterfaceProvidingRequiringEntity.class,
+                "ResourceInterfaceProvidingRequiringEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        this.initEClass(this.entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+        initEClass(entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     }
 
 } // EntityPackageImpl

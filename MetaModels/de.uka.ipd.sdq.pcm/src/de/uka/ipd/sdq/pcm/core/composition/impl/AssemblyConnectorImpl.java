@@ -54,7 +54,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -63,7 +63,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getRequiringAssemblyContext_AssemblyConnector()
      * <em>Requiring Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRequiringAssemblyContext_AssemblyConnector()
      * @generated
      * @ordered
@@ -74,7 +74,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getProvidingAssemblyContext_AssemblyConnector()
      * <em>Providing Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getProvidingAssemblyContext_AssemblyConnector()
      * @generated
      * @ordered
@@ -85,7 +85,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getProvidedRole_AssemblyConnector()
      * <em>Provided Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getProvidedRole_AssemblyConnector()
      * @generated
      * @ordered
@@ -96,7 +96,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getRequiredRole_AssemblyConnector()
      * <em>Required Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getRequiredRole_AssemblyConnector()
      * @generated
      * @ordered
@@ -105,7 +105,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyConnectorImpl() {
@@ -114,7 +114,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -124,196 +124,182 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getRequiringAssemblyContext_AssemblyConnector() {
-        if (this.requiringAssemblyContext_AssemblyConnector != null
-                && ((EObject) this.requiringAssemblyContext_AssemblyConnector).eIsProxy()) {
-            final InternalEObject oldRequiringAssemblyContext_AssemblyConnector = (InternalEObject) this.requiringAssemblyContext_AssemblyConnector;
-            this.requiringAssemblyContext_AssemblyConnector = (AssemblyContext) this
-                    .eResolveProxy(oldRequiringAssemblyContext_AssemblyConnector);
-            if (this.requiringAssemblyContext_AssemblyConnector != oldRequiringAssemblyContext_AssemblyConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (requiringAssemblyContext_AssemblyConnector != null
+                && ((EObject) requiringAssemblyContext_AssemblyConnector).eIsProxy()) {
+            InternalEObject oldRequiringAssemblyContext_AssemblyConnector = (InternalEObject) requiringAssemblyContext_AssemblyConnector;
+            requiringAssemblyContext_AssemblyConnector = (AssemblyContext) eResolveProxy(oldRequiringAssemblyContext_AssemblyConnector);
+            if (requiringAssemblyContext_AssemblyConnector != oldRequiringAssemblyContext_AssemblyConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR,
-                            oldRequiringAssemblyContext_AssemblyConnector,
-                            this.requiringAssemblyContext_AssemblyConnector));
-                }
+                            oldRequiringAssemblyContext_AssemblyConnector, requiringAssemblyContext_AssemblyConnector));
             }
         }
-        return this.requiringAssemblyContext_AssemblyConnector;
+        return requiringAssemblyContext_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext_AssemblyConnector() {
-        return this.requiringAssemblyContext_AssemblyConnector;
+        return requiringAssemblyContext_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiringAssemblyContext_AssemblyConnector(
-            final AssemblyContext newRequiringAssemblyContext_AssemblyConnector) {
-        final AssemblyContext oldRequiringAssemblyContext_AssemblyConnector = this.requiringAssemblyContext_AssemblyConnector;
-        this.requiringAssemblyContext_AssemblyConnector = newRequiringAssemblyContext_AssemblyConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+            AssemblyContext newRequiringAssemblyContext_AssemblyConnector) {
+        AssemblyContext oldRequiringAssemblyContext_AssemblyConnector = requiringAssemblyContext_AssemblyConnector;
+        requiringAssemblyContext_AssemblyConnector = newRequiringAssemblyContext_AssemblyConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR,
-                    oldRequiringAssemblyContext_AssemblyConnector, this.requiringAssemblyContext_AssemblyConnector));
-        }
+                    oldRequiringAssemblyContext_AssemblyConnector, requiringAssemblyContext_AssemblyConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getProvidingAssemblyContext_AssemblyConnector() {
-        if (this.providingAssemblyContext_AssemblyConnector != null
-                && ((EObject) this.providingAssemblyContext_AssemblyConnector).eIsProxy()) {
-            final InternalEObject oldProvidingAssemblyContext_AssemblyConnector = (InternalEObject) this.providingAssemblyContext_AssemblyConnector;
-            this.providingAssemblyContext_AssemblyConnector = (AssemblyContext) this
-                    .eResolveProxy(oldProvidingAssemblyContext_AssemblyConnector);
-            if (this.providingAssemblyContext_AssemblyConnector != oldProvidingAssemblyContext_AssemblyConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (providingAssemblyContext_AssemblyConnector != null
+                && ((EObject) providingAssemblyContext_AssemblyConnector).eIsProxy()) {
+            InternalEObject oldProvidingAssemblyContext_AssemblyConnector = (InternalEObject) providingAssemblyContext_AssemblyConnector;
+            providingAssemblyContext_AssemblyConnector = (AssemblyContext) eResolveProxy(oldProvidingAssemblyContext_AssemblyConnector);
+            if (providingAssemblyContext_AssemblyConnector != oldProvidingAssemblyContext_AssemblyConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR,
-                            oldProvidingAssemblyContext_AssemblyConnector,
-                            this.providingAssemblyContext_AssemblyConnector));
-                }
+                            oldProvidingAssemblyContext_AssemblyConnector, providingAssemblyContext_AssemblyConnector));
             }
         }
-        return this.providingAssemblyContext_AssemblyConnector;
+        return providingAssemblyContext_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext_AssemblyConnector() {
-        return this.providingAssemblyContext_AssemblyConnector;
+        return providingAssemblyContext_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProvidingAssemblyContext_AssemblyConnector(
-            final AssemblyContext newProvidingAssemblyContext_AssemblyConnector) {
-        final AssemblyContext oldProvidingAssemblyContext_AssemblyConnector = this.providingAssemblyContext_AssemblyConnector;
-        this.providingAssemblyContext_AssemblyConnector = newProvidingAssemblyContext_AssemblyConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+            AssemblyContext newProvidingAssemblyContext_AssemblyConnector) {
+        AssemblyContext oldProvidingAssemblyContext_AssemblyConnector = providingAssemblyContext_AssemblyConnector;
+        providingAssemblyContext_AssemblyConnector = newProvidingAssemblyContext_AssemblyConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR,
-                    oldProvidingAssemblyContext_AssemblyConnector, this.providingAssemblyContext_AssemblyConnector));
-        }
+                    oldProvidingAssemblyContext_AssemblyConnector, providingAssemblyContext_AssemblyConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationProvidedRole getProvidedRole_AssemblyConnector() {
-        if (this.providedRole_AssemblyConnector != null && ((EObject) this.providedRole_AssemblyConnector).eIsProxy()) {
-            final InternalEObject oldProvidedRole_AssemblyConnector = (InternalEObject) this.providedRole_AssemblyConnector;
-            this.providedRole_AssemblyConnector = (OperationProvidedRole) this
-                    .eResolveProxy(oldProvidedRole_AssemblyConnector);
-            if (this.providedRole_AssemblyConnector != oldProvidedRole_AssemblyConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (providedRole_AssemblyConnector != null && ((EObject) providedRole_AssemblyConnector).eIsProxy()) {
+            InternalEObject oldProvidedRole_AssemblyConnector = (InternalEObject) providedRole_AssemblyConnector;
+            providedRole_AssemblyConnector = (OperationProvidedRole) eResolveProxy(oldProvidedRole_AssemblyConnector);
+            if (providedRole_AssemblyConnector != oldProvidedRole_AssemblyConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR,
-                            oldProvidedRole_AssemblyConnector, this.providedRole_AssemblyConnector));
-                }
+                            oldProvidedRole_AssemblyConnector, providedRole_AssemblyConnector));
             }
         }
-        return this.providedRole_AssemblyConnector;
+        return providedRole_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationProvidedRole basicGetProvidedRole_AssemblyConnector() {
-        return this.providedRole_AssemblyConnector;
+        return providedRole_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void setProvidedRole_AssemblyConnector(final OperationProvidedRole newProvidedRole_AssemblyConnector) {
-        final OperationProvidedRole oldProvidedRole_AssemblyConnector = this.providedRole_AssemblyConnector;
-        this.providedRole_AssemblyConnector = newProvidedRole_AssemblyConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setProvidedRole_AssemblyConnector(OperationProvidedRole newProvidedRole_AssemblyConnector) {
+        OperationProvidedRole oldProvidedRole_AssemblyConnector = providedRole_AssemblyConnector;
+        providedRole_AssemblyConnector = newProvidedRole_AssemblyConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR,
-                    oldProvidedRole_AssemblyConnector, this.providedRole_AssemblyConnector));
-        }
+                    oldProvidedRole_AssemblyConnector, providedRole_AssemblyConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationRequiredRole getRequiredRole_AssemblyConnector() {
-        if (this.requiredRole_AssemblyConnector != null && ((EObject) this.requiredRole_AssemblyConnector).eIsProxy()) {
-            final InternalEObject oldRequiredRole_AssemblyConnector = (InternalEObject) this.requiredRole_AssemblyConnector;
-            this.requiredRole_AssemblyConnector = (OperationRequiredRole) this
-                    .eResolveProxy(oldRequiredRole_AssemblyConnector);
-            if (this.requiredRole_AssemblyConnector != oldRequiredRole_AssemblyConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (requiredRole_AssemblyConnector != null && ((EObject) requiredRole_AssemblyConnector).eIsProxy()) {
+            InternalEObject oldRequiredRole_AssemblyConnector = (InternalEObject) requiredRole_AssemblyConnector;
+            requiredRole_AssemblyConnector = (OperationRequiredRole) eResolveProxy(oldRequiredRole_AssemblyConnector);
+            if (requiredRole_AssemblyConnector != oldRequiredRole_AssemblyConnector) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR,
-                            oldRequiredRole_AssemblyConnector, this.requiredRole_AssemblyConnector));
-                }
+                            oldRequiredRole_AssemblyConnector, requiredRole_AssemblyConnector));
             }
         }
-        return this.requiredRole_AssemblyConnector;
+        return requiredRole_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRequiredRole_AssemblyConnector() {
-        return this.requiredRole_AssemblyConnector;
+        return requiredRole_AssemblyConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void setRequiredRole_AssemblyConnector(final OperationRequiredRole newRequiredRole_AssemblyConnector) {
-        final OperationRequiredRole oldRequiredRole_AssemblyConnector = this.requiredRole_AssemblyConnector;
-        this.requiredRole_AssemblyConnector = newRequiredRole_AssemblyConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setRequiredRole_AssemblyConnector(OperationRequiredRole newRequiredRole_AssemblyConnector) {
+        OperationRequiredRole oldRequiredRole_AssemblyConnector = requiredRole_AssemblyConnector;
+        requiredRole_AssemblyConnector = newRequiredRole_AssemblyConnector;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR,
-                    oldRequiredRole_AssemblyConnector, this.requiredRole_AssemblyConnector));
-        }
+                    oldRequiredRole_AssemblyConnector, requiredRole_AssemblyConnector));
     }
 
     /**
@@ -321,7 +307,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -335,7 +321,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -345,38 +331,35 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
             try {
                 ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                        .check(this)) {
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        CompositionValidator.DIAGNOSTIC_SOURCE,
-                        CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                CompositionValidator.DIAGNOSTIC_SOURCE,
+                                CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -388,7 +371,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -402,7 +385,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -412,38 +395,35 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
             try {
                 ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                        .check(this)) {
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        CompositionValidator.DIAGNOSTIC_SOURCE,
-                        CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                CompositionValidator.DIAGNOSTIC_SOURCE,
+                                CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -455,7 +435,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Interfaces Must Match</em>}' operation. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -468,7 +448,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Interfaces Must Match</em>}' invariant operation. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -478,19 +458,19 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean AssemblyConnectorsReferencedInterfacesMustMatch(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean AssemblyConnectorsReferencedInterfacesMustMatch(DiagnosticChain diagnostics,
+            Map<Object, Object> context) {
         if (ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
             try {
                 ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
@@ -501,12 +481,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
                         CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "AssemblyConnectorsReferencedInterfacesMustMatch",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "AssemblyConnectorsReferencedInterfacesMustMatch",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -515,55 +491,51 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            if (resolve) {
-                return this.getRequiringAssemblyContext_AssemblyConnector();
-            }
-            return this.basicGetRequiringAssemblyContext_AssemblyConnector();
+            if (resolve)
+                return getRequiringAssemblyContext_AssemblyConnector();
+            return basicGetRequiringAssemblyContext_AssemblyConnector();
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            if (resolve) {
-                return this.getProvidingAssemblyContext_AssemblyConnector();
-            }
-            return this.basicGetProvidingAssemblyContext_AssemblyConnector();
+            if (resolve)
+                return getProvidingAssemblyContext_AssemblyConnector();
+            return basicGetProvidingAssemblyContext_AssemblyConnector();
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-            if (resolve) {
-                return this.getProvidedRole_AssemblyConnector();
-            }
-            return this.basicGetProvidedRole_AssemblyConnector();
+            if (resolve)
+                return getProvidedRole_AssemblyConnector();
+            return basicGetProvidedRole_AssemblyConnector();
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-            if (resolve) {
-                return this.getRequiredRole_AssemblyConnector();
-            }
-            return this.basicGetRequiredRole_AssemblyConnector();
+            if (resolve)
+                return getRequiredRole_AssemblyConnector();
+            return basicGetRequiredRole_AssemblyConnector();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            this.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) newValue);
+            setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) newValue);
             return;
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            this.setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) newValue);
+            setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) newValue);
             return;
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-            this.setProvidedRole_AssemblyConnector((OperationProvidedRole) newValue);
+            setProvidedRole_AssemblyConnector((OperationProvidedRole) newValue);
             return;
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-            this.setRequiredRole_AssemblyConnector((OperationRequiredRole) newValue);
+            setRequiredRole_AssemblyConnector((OperationRequiredRole) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -571,23 +543,23 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            this.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) null);
+            setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) null);
             return;
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            this.setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) null);
+            setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) null);
             return;
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-            this.setProvidedRole_AssemblyConnector((OperationProvidedRole) null);
+            setProvidedRole_AssemblyConnector((OperationProvidedRole) null);
             return;
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-            this.setRequiredRole_AssemblyConnector((OperationRequiredRole) null);
+            setRequiredRole_AssemblyConnector((OperationRequiredRole) null);
             return;
         }
         super.eUnset(featureID);
@@ -595,20 +567,20 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            return this.requiringAssemblyContext_AssemblyConnector != null;
+            return requiringAssemblyContext_AssemblyConnector != null;
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
-            return this.providingAssemblyContext_AssemblyConnector != null;
+            return providingAssemblyContext_AssemblyConnector != null;
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR:
-            return this.providedRole_AssemblyConnector != null;
+            return providedRole_AssemblyConnector != null;
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR:
-            return this.requiredRole_AssemblyConnector != null;
+            return requiredRole_AssemblyConnector != null;
         }
         return super.eIsSet(featureID);
     }
@@ -616,7 +588,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -17,29 +17,29 @@ import de.uka.ipd.sdq.pcm.PcmPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static PcmFactory init() {
         try {
-            final PcmFactory thePcmFactory = (PcmFactory) EPackage.Registry.INSTANCE.getEFactory(PcmPackage.eNS_URI);
+            PcmFactory thePcmFactory = (PcmFactory) EPackage.Registry.INSTANCE.getEFactory(PcmPackage.eNS_URI);
             if (thePcmFactory != null) {
                 return thePcmFactory;
             }
-        } catch (final Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new PcmFactoryImpl();
@@ -47,7 +47,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PcmFactoryImpl() {
@@ -56,14 +56,14 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public EObject create(final EClass eClass) {
+    public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
         case PcmPackage.DUMMY_CLASS:
-            return this.createDummyClass();
+            return (EObject) createDummyClass();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -71,28 +71,28 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public DummyClass createDummyClass() {
-        final DummyClassImpl dummyClass = new DummyClassImpl();
+        DummyClassImpl dummyClass = new DummyClassImpl();
         return dummyClass;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PcmPackage getPcmPackage() {
-        return (PcmPackage) this.getEPackage();
+        return (PcmPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

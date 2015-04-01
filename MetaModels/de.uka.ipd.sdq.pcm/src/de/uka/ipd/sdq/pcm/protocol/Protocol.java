@@ -15,7 +15,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * an interface. Protocols of provided interfaces specify the order in which services have to be
  * called by clients. Protocols of required interfaces specify the actual order in which the
  * component calls required services.
- *
+ * 
  * Besides finite state machines, different formalisms can be used to model protocols. The PCM does
  * not restrict the protocol modelling formalisms. For example, Petri nets or regular expressions
  * could model interface protocols. However, the choice of a formalism does influence possible
@@ -46,7 +46,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface Protocol extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public interface Protocol extends EStereotypableObject {
      * --> <!-- end-user-doc --> <!-- begin-model-doc --> Multiple protocols following different
      * formalisms are supported by the PCM and distinguished by a protocol ID. <!-- end-model-doc
      * -->
-     *
+     * 
      * @return the value of the '<em>Protocol Type ID</em>' attribute.
      * @see #setProtocolTypeID(String)
      * @see de.uka.ipd.sdq.pcm.protocol.ProtocolPackage#getProtocol_ProtocolTypeID()
@@ -68,7 +68,7 @@ public interface Protocol extends EStereotypableObject {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID
      * <em>Protocol Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Protocol Type ID</em>' attribute.
      * @see #getProtocolTypeID()

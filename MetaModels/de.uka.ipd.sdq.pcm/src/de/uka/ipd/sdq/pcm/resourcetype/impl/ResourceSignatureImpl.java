@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -46,7 +47,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 public class ResourceSignatureImpl extends EntityImpl implements ResourceSignature {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -55,7 +56,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
      * The cached value of the '{@link #getParameter__ResourceSignature()
      * <em>Parameter Resource Signature</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameter__ResourceSignature()
      * @generated
      * @ordered
@@ -65,7 +66,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     /**
      * The default value of the '{@link #getResourceServiceId() <em>Resource Service Id</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceServiceId()
      * @generated
      * @ordered
@@ -75,7 +76,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     /**
      * The cached value of the '{@link #getResourceServiceId() <em>Resource Service Id</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceServiceId()
      * @generated
      * @ordered
@@ -84,7 +85,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceSignatureImpl() {
@@ -93,7 +94,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -103,150 +104,141 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EList<Parameter> getParameter__ResourceSignature() {
-        if (this.parameter__ResourceSignature == null) {
-            this.parameter__ResourceSignature = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class,
-                    this, ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE,
+        if (parameter__ResourceSignature == null) {
+            parameter__ResourceSignature = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this,
+                    ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE,
                     RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER);
         }
-        return this.parameter__ResourceSignature;
+        return parameter__ResourceSignature;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public int getResourceServiceId() {
-        return this.resourceServiceId;
+        return resourceServiceId;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void setResourceServiceId(final int newResourceServiceId) {
-        final int oldResourceServiceId = this.resourceServiceId;
-        this.resourceServiceId = newResourceServiceId;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setResourceServiceId(int newResourceServiceId) {
+        int oldResourceServiceId = resourceServiceId;
+        resourceServiceId = newResourceServiceId;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID, oldResourceServiceId,
-                    this.resourceServiceId));
-        }
+                    resourceServiceId));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceInterface getResourceInterface__ResourceSignature() {
-        if (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE) {
+        if (eContainerFeatureID() != ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE)
             return null;
-        }
-        return (ResourceInterface) this.eInternalContainer();
+        return (ResourceInterface) eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceInterface__ResourceSignature(
-            final ResourceInterface newResourceInterface__ResourceSignature, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newResourceInterface__ResourceSignature,
+            ResourceInterface newResourceInterface__ResourceSignature, NotificationChain msgs) {
+        msgs = eBasicSetContainer((InternalEObject) newResourceInterface__ResourceSignature,
                 ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void setResourceInterface__ResourceSignature(final ResourceInterface newResourceInterface__ResourceSignature) {
-        if (newResourceInterface__ResourceSignature != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE && newResourceInterface__ResourceSignature != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceInterface__ResourceSignature)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
+    public void setResourceInterface__ResourceSignature(ResourceInterface newResourceInterface__ResourceSignature) {
+        if (newResourceInterface__ResourceSignature != eInternalContainer()
+                || (eContainerFeatureID() != ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE && newResourceInterface__ResourceSignature != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newResourceInterface__ResourceSignature))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceInterface__ResourceSignature != null) {
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newResourceInterface__ResourceSignature != null)
                 msgs = ((InternalEObject) newResourceInterface__ResourceSignature).eInverseAdd(this,
                         ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE,
                         ResourceInterface.class, msgs);
-            }
-            msgs = this.basicSetResourceInterface__ResourceSignature(newResourceInterface__ResourceSignature, msgs);
-            if (msgs != null) {
+            msgs = basicSetResourceInterface__ResourceSignature(newResourceInterface__ResourceSignature, msgs);
+            if (msgs != null)
                 msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE,
                     newResourceInterface__ResourceSignature, newResourceInterface__ResourceSignature));
-        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameter__ResourceSignature())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getParameter__ResourceSignature()).basicAdd(
+                    otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetResourceInterface__ResourceSignature((ResourceInterface) otherEnd, msgs);
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetResourceInterface__ResourceSignature((ResourceInterface) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-            return ((InternalEList<?>) this.getParameter__ResourceSignature()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) getParameter__ResourceSignature()).basicRemove(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
-            return this.basicSetResourceInterface__ResourceSignature(null, msgs);
+            return basicSetResourceInterface__ResourceSignature(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+        switch (eContainerFeatureID()) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
-            return this.eInternalContainer().eInverseRemove(this,
+            return eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE,
                     ResourceInterface.class, msgs);
         }
@@ -255,40 +247,40 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-            return this.getParameter__ResourceSignature();
+            return getParameter__ResourceSignature();
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
-            return this.getResourceServiceId();
+            return getResourceServiceId();
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
-            return this.getResourceInterface__ResourceSignature();
+            return getResourceInterface__ResourceSignature();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-            this.getParameter__ResourceSignature().clear();
-            this.getParameter__ResourceSignature().addAll((Collection<? extends Parameter>) newValue);
+            getParameter__ResourceSignature().clear();
+            getParameter__ResourceSignature().addAll((Collection<? extends Parameter>) newValue);
             return;
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
-            this.setResourceServiceId((Integer) newValue);
+            setResourceServiceId((Integer) newValue);
             return;
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
-            this.setResourceInterface__ResourceSignature((ResourceInterface) newValue);
+            setResourceInterface__ResourceSignature((ResourceInterface) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -296,20 +288,20 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-            this.getParameter__ResourceSignature().clear();
+            getParameter__ResourceSignature().clear();
             return;
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
-            this.setResourceServiceId(RESOURCE_SERVICE_ID_EDEFAULT);
+            setResourceServiceId(RESOURCE_SERVICE_ID_EDEFAULT);
             return;
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
-            this.setResourceInterface__ResourceSignature((ResourceInterface) null);
+            setResourceInterface__ResourceSignature((ResourceInterface) null);
             return;
         }
         super.eUnset(featureID);
@@ -317,36 +309,35 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-            return this.parameter__ResourceSignature != null && !this.parameter__ResourceSignature.isEmpty();
+            return parameter__ResourceSignature != null && !parameter__ResourceSignature.isEmpty();
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
-            return this.resourceServiceId != RESOURCE_SERVICE_ID_EDEFAULT;
+            return resourceServiceId != RESOURCE_SERVICE_ID_EDEFAULT;
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
-            return this.getResourceInterface__ResourceSignature() != null;
+            return getResourceInterface__ResourceSignature() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (resourceServiceId: ");
-        result.append(this.resourceServiceId);
+        result.append(resourceServiceId);
         result.append(')');
         return result.toString();
     }

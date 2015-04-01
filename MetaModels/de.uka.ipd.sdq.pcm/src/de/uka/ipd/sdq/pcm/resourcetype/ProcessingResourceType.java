@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType;
 public interface ProcessingResourceType extends ResourceType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +49,7 @@ public interface ProcessingResourceType extends ResourceType {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Hardware Induced Failure Type Processing Resource Type</em>'
      *         reference.
      * @see #setHardwareInducedFailureType__ProcessingResourceType(HardwareInducedFailureType)
@@ -65,7 +65,7 @@ public interface ProcessingResourceType extends ResourceType {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
      * <em>Hardware Induced Failure Type Processing Resource Type</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Hardware Induced Failure Type Processing Resource Type</em> ' reference.

@@ -34,10 +34,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceProvidedRole;
  * @generated
  */
 public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInterfaceRequiringEntityImpl implements
-ResourceInterfaceProvidingRequiringEntity {
+        ResourceInterfaceProvidingRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ ResourceInterfaceProvidingRequiringEntity {
      * {@link #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * <em>Resource Provided Roles Resource Interface Providing Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @generated
      * @ordered
@@ -56,7 +56,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceProvidingRequiringEntityImpl() {
@@ -65,7 +65,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,49 +75,47 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EList<ResourceProvidedRole> getResourceProvidedRoles__ResourceInterfaceProvidingEntity() {
-        if (this.resourceProvidedRoles__ResourceInterfaceProvidingEntity == null) {
-            this.resourceProvidedRoles__ResourceInterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ResourceProvidedRole>(
+        if (resourceProvidedRoles__ResourceInterfaceProvidingEntity == null) {
+            resourceProvidedRoles__ResourceInterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ResourceProvidedRole>(
                     ResourceProvidedRole.class,
                     this,
                     EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
                     EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE);
         }
-        return this.resourceProvidedRoles__ResourceInterfaceProvidingEntity;
+        return resourceProvidedRoles__ResourceInterfaceProvidingEntity;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
+    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<?>) this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicRemove(
+            return ((InternalEList<?>) getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicRemove(
                     otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -125,30 +123,30 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity();
+            return getResourceProvidedRoles__ResourceInterfaceProvidingEntity();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
-            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().addAll(
+            getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
+            getResourceProvidedRoles__ResourceInterfaceProvidingEntity().addAll(
                     (Collection<? extends ResourceProvidedRole>) newValue);
             return;
         }
@@ -157,14 +155,14 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
+            getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
             return;
         }
         super.eUnset(featureID);
@@ -172,26 +170,26 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return this.resourceProvidedRoles__ResourceInterfaceProvidingEntity != null
-            && !this.resourceProvidedRoles__ResourceInterfaceProvidingEntity.isEmpty();
+            return resourceProvidedRoles__ResourceInterfaceProvidingEntity != null
+                    && !resourceProvidedRoles__ResourceInterfaceProvidingEntity.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+    public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
         if (baseClass == ResourceInterfaceProvidingEntity.class) {
             switch (derivedFeatureID) {
             case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
@@ -205,11 +203,11 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+    public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
         if (baseClass == ResourceInterfaceProvidingEntity.class) {
             switch (baseFeatureID) {
             case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:

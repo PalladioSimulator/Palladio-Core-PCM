@@ -39,7 +39,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface FailureOccurrenceDescription extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,7 +52,7 @@ public interface FailureOccurrenceDescription extends EStereotypableObject {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Failure Probability</em>' attribute.
      * @see #setFailureProbability(double)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription_FailureProbability()
@@ -65,7 +65,7 @@ public interface FailureOccurrenceDescription extends EStereotypableObject {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
      * <em>Failure Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Failure Probability</em>' attribute.
      * @see #getFailureProbability()
@@ -75,7 +75,7 @@ public interface FailureOccurrenceDescription extends EStereotypableObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     *
+     * 
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

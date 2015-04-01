@@ -7,6 +7,10 @@ import java.util.Collections;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.RecognitionException;
 
+/**
+ * @deprecated Since StoEx migration to Xtext
+ */
+@Deprecated
 public class MyPCMStoExLexer extends PCMStoExLexer {
 
     private ArrayList<ErrorEntry> list;

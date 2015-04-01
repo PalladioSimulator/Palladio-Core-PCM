@@ -52,7 +52,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 public interface ProcessingResourceSpecification extends Identifier {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -62,7 +62,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * <code>"0.0"</code>. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      * The Mean Time To Repair (MTTR) of a physical resource is the expected timespan from breakdown
      * of this physical resource to its repair or replacement. <!-- end-model-doc -->
-     *
+     * 
      * @return the value of the '<em>MTTR</em>' attribute.
      * @see #setMTTR(double)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_MTTR()
@@ -75,7 +75,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR
      * <em>MTTR</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>MTTR</em>' attribute.
      * @see #getMTTR()
@@ -88,7 +88,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * <code>"0.0"</code>. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      * The Mean Time To Failure (MTTF) of a physical resource is the expected timespan from the
      * start of its usage until breakdown. <!-- end-model-doc -->
-     *
+     * 
      * @return the value of the '<em>MTTF</em>' attribute.
      * @see #setMTTF(double)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_MTTF()
@@ -101,7 +101,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF
      * <em>MTTF</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>MTTF</em>' attribute.
      * @see #getMTTF()
@@ -126,7 +126,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * failure ONLY IF the SEFF contains an InternalAction that accesses&nbsp;the resource.
      * </p>
      * <!-- end-model-doc -->
-     *
+     * 
      * @return the value of the '<em>Required By Container</em>' attribute.
      * @see #setRequiredByContainer(boolean)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_RequiredByContainer()
@@ -139,7 +139,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer
      * <em>Required By Container</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Required By Container</em>' attribute.
      * @see #isRequiredByContainer()
@@ -155,7 +155,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Scheduling Policy</em>' reference.
      * @see #setSchedulingPolicy(SchedulingPolicy)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_SchedulingPolicy()
@@ -168,7 +168,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy
      * <em>Scheduling Policy</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Scheduling Policy</em>' reference.
      * @see #getSchedulingPolicy()
@@ -184,7 +184,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Active Resource Type Active Resource Specification</em>'
      *         reference.
      * @see #setActiveResourceType_ActiveResourceSpecification(ProcessingResourceType)
@@ -199,7 +199,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification
      * <em>Active Resource Type Active Resource Specification</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Active Resource Type Active Resource Specification</em>'
      *            reference.
@@ -219,7 +219,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * containment reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the ' <em>Processing Rate Processing Resource Specification</em>'
      *         containment reference.
      * @see #setProcessingRate_ProcessingResourceSpecification(PCMRandomVariable)
@@ -236,7 +236,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification
      * <em>Processing Rate Processing Resource Specification</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the ' <em>Processing Rate Processing Resource Specification</em>'
      *            containment reference.
@@ -257,7 +257,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * queue, i.e., one queue with multiple servers.<br />
      * </p>
      * <!-- end-model-doc -->
-     *
+     * 
      * @return the value of the '<em>Number Of Replicas</em>' attribute.
      * @see #setNumberOfReplicas(int)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_NumberOfReplicas()
@@ -270,7 +270,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas
      * <em>Number Of Replicas</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Number Of Replicas</em>' attribute.
      * @see #getNumberOfReplicas()
@@ -289,7 +289,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Container Processing Resource Specification</em>'
      *         container reference.
      * @see #setResourceContainer_ProcessingResourceSpecification(ResourceContainer)
@@ -306,7 +306,7 @@ public interface ProcessingResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getResourceContainer_ProcessingResourceSpecification
      * <em>Resource Container Processing Resource Specification</em>}' container reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Resource Container Processing Resource Specification</em>' container

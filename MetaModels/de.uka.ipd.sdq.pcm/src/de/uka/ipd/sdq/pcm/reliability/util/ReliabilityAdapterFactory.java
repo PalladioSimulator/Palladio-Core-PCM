@@ -26,28 +26,28 @@ import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage
  * @generated
  */
 public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static ReliabilityPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ReliabilityAdapterFactory() {
@@ -60,12 +60,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     *
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType(final Object object) {
+    public boolean isFactoryForType(Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -78,82 +78,82 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ReliabilitySwitch<Adapter> modelSwitch = new ReliabilitySwitch<Adapter>() {
         @Override
-        public Adapter caseFailureOccurrenceDescription(final FailureOccurrenceDescription object) {
-            return ReliabilityAdapterFactory.this.createFailureOccurrenceDescriptionAdapter();
+        public Adapter caseFailureOccurrenceDescription(FailureOccurrenceDescription object) {
+            return createFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseHardwareInducedFailureType(final HardwareInducedFailureType object) {
-            return ReliabilityAdapterFactory.this.createHardwareInducedFailureTypeAdapter();
+        public Adapter caseHardwareInducedFailureType(HardwareInducedFailureType object) {
+            return createHardwareInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseSoftwareInducedFailureType(final SoftwareInducedFailureType object) {
-            return ReliabilityAdapterFactory.this.createSoftwareInducedFailureTypeAdapter();
+        public Adapter caseSoftwareInducedFailureType(SoftwareInducedFailureType object) {
+            return createSoftwareInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseInternalFailureOccurrenceDescription(final InternalFailureOccurrenceDescription object) {
-            return ReliabilityAdapterFactory.this.createInternalFailureOccurrenceDescriptionAdapter();
+        public Adapter caseInternalFailureOccurrenceDescription(InternalFailureOccurrenceDescription object) {
+            return createInternalFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseNetworkInducedFailureType(final NetworkInducedFailureType object) {
-            return ReliabilityAdapterFactory.this.createNetworkInducedFailureTypeAdapter();
+        public Adapter caseNetworkInducedFailureType(NetworkInducedFailureType object) {
+            return createNetworkInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseExternalFailureOccurrenceDescription(final ExternalFailureOccurrenceDescription object) {
-            return ReliabilityAdapterFactory.this.createExternalFailureOccurrenceDescriptionAdapter();
+        public Adapter caseExternalFailureOccurrenceDescription(ExternalFailureOccurrenceDescription object) {
+            return createExternalFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseResourceTimeoutFailureType(final ResourceTimeoutFailureType object) {
-            return ReliabilityAdapterFactory.this.createResourceTimeoutFailureTypeAdapter();
+        public Adapter caseResourceTimeoutFailureType(ResourceTimeoutFailureType object) {
+            return createResourceTimeoutFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseFailureType(final FailureType object) {
-            return ReliabilityAdapterFactory.this.createFailureTypeAdapter();
+        public Adapter caseFailureType(FailureType object) {
+            return createFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
-            return ReliabilityAdapterFactory.this.createIdentifierAdapter();
+        public Adapter caseIdentifier(Identifier object) {
+            return createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
-            return ReliabilityAdapterFactory.this.createNamedElementAdapter();
+        public Adapter caseNamedElement(NamedElement object) {
+            return createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
-            return ReliabilityAdapterFactory.this.createEntityAdapter();
+        public Adapter caseEntity(Entity object) {
+            return createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
-            return ReliabilityAdapterFactory.this.createEObjectAdapter();
+        public Adapter defaultCase(EObject object) {
+            return createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter(final Notifier target) {
-        return this.modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(Notifier target) {
+        return modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -162,7 +162,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription
      * @generated
@@ -177,7 +177,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Hardware Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType
      * @generated
@@ -192,7 +192,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>External Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription
      * @generated
@@ -207,7 +207,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Timeout Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType
      * @generated
@@ -222,7 +222,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Network Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType
      * @generated
@@ -237,7 +237,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Internal Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription
      * @generated
@@ -252,7 +252,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Software Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
      * @generated
@@ -267,7 +267,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.reliability.FailureType
      * @generated
@@ -281,7 +281,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -296,7 +296,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
      * @generated
@@ -310,7 +310,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.Entity
      * @generated
@@ -322,7 +322,7 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @generated
      */

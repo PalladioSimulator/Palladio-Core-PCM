@@ -39,10 +39,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * @generated
  */
 public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObjectImpl implements
-FailureOccurrenceDescription {
+        FailureOccurrenceDescription {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,7 +50,7 @@ FailureOccurrenceDescription {
     /**
      * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -60,7 +60,7 @@ FailureOccurrenceDescription {
     /**
      * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -69,7 +69,7 @@ FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected FailureOccurrenceDescriptionImpl() {
@@ -78,7 +78,7 @@ FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,28 +88,27 @@ FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public double getFailureProbability() {
-        return this.failureProbability;
+        return failureProbability;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void setFailureProbability(final double newFailureProbability) {
-        final double oldFailureProbability = this.failureProbability;
-        this.failureProbability = newFailureProbability;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setFailureProbability(double newFailureProbability) {
+        double oldFailureProbability = failureProbability;
+        failureProbability = newFailureProbability;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
                     ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY, oldFailureProbability,
-                    this.failureProbability));
-        }
+                    failureProbability));
     }
 
     /**
@@ -117,7 +116,7 @@ FailureOccurrenceDescription {
      * {@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Ensure Valid Failure Probability Range</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -130,7 +129,7 @@ FailureOccurrenceDescription {
      * {@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Ensure Valid Failure Probability Range</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -140,31 +139,33 @@ FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean EnsureValidFailureProbabilityRange(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean EnsureValidFailureProbabilityRange(DiagnosticChain diagnostics, Map<Object, Object> context) {
         if (ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(ReliabilityPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION);
             try {
                 ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, ReliabilityValidator.DIAGNOSTIC_SOURCE,
-                        ReliabilityValidator.FAILURE_OCCURRENCE_DESCRIPTION__ENSURE_VALID_FAILURE_PROBABILITY_RANGE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "EnsureValidFailureProbabilityRange", EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                    this
-                }));
+                diagnostics
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                ReliabilityValidator.DIAGNOSTIC_SOURCE,
+                                ReliabilityValidator.FAILURE_OCCURRENCE_DESCRIPTION__ENSURE_VALID_FAILURE_PROBABILITY_RANGE,
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "EnsureValidFailureProbabilityRange",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -173,28 +174,28 @@ FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+    public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            return this.getFailureProbability();
+            return getFailureProbability();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eSet(final int featureID, final Object newValue) {
+    public void eSet(int featureID, Object newValue) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            this.setFailureProbability((Double) newValue);
+            setFailureProbability((Double) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -202,14 +203,14 @@ FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public void eUnset(final int featureID) {
+    public void eUnset(int featureID) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            this.setFailureProbability(FAILURE_PROBABILITY_EDEFAULT);
+            setFailureProbability(FAILURE_PROBABILITY_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -217,32 +218,31 @@ FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public boolean eIsSet(final int featureID) {
+    public boolean eIsSet(int featureID) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            return this.failureProbability != FAILURE_PROBABILITY_EDEFAULT;
+            return failureProbability != FAILURE_PROBABILITY_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public String toString() {
-        if (this.eIsProxy()) {
+        if (eIsProxy())
             return super.toString();
-        }
 
-        final StringBuffer result = new StringBuffer(super.toString());
+        StringBuffer result = new StringBuffer(super.toString());
         result.append(" (failureProbability: ");
-        result.append(this.failureProbability);
+        result.append(failureProbability);
         result.append(')');
         return result.toString();
     }
@@ -250,7 +250,7 @@ FailureOccurrenceDescription {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
