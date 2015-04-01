@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.pcmsolver.transformations;
 
 import org.apache.log4j.Logger;
+import org.palladiosimulator.commons.stoex.adapter.StoExSerializer;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
@@ -24,7 +25,6 @@ import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NumericLiteral;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.analyser.probfunction.ProbfunctionHelper;
-import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 /**
  * Wraps the actual content of an expression to allow computation with it. 
@@ -75,7 +75,7 @@ public class ExpressionToPDFWrapper {
 		} else {
 			String solvedExprString = null;
 			if (rdExpression != null){
-				solvedExprString = new StoExPrettyPrintVisitor().doSwitch(rdExpression).toString();
+				solvedExprString = new StoExSerializer().valueOf(rdExpression);
 			}
 			throw new IllegalArgumentException("Handling expression "+solvedExprString+" in the ResourceDemandWrapper failed, could not cast it to "+ProbabilityFunctionLiteral.class+" or "+ FunctionLiteral.class);
 		}
