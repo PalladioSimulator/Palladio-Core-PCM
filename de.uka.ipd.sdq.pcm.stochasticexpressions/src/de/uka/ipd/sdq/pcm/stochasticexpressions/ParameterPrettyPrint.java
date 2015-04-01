@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch;
  * @author Steffen Becker
  *
  */
+@Deprecated
 public class ParameterPrettyPrint extends ParameterSwitch<String> {
 
 	/**

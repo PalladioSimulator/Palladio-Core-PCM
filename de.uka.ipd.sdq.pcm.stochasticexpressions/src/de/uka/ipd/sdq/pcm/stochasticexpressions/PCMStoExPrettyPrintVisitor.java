@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
+@Deprecated
 public class PCMStoExPrettyPrintVisitor {
     
     private class PCMStoExPrettyPrintVisitorInner extends StoExPrettyPrintVisitor {
