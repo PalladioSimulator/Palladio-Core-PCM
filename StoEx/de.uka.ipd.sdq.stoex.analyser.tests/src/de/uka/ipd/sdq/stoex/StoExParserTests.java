@@ -10,7 +10,7 @@ import org.junit.Test;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
-
+@Deprecated
 public class StoExParserTests
 {
 
