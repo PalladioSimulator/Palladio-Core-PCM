@@ -155,8 +155,9 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
      */
     @Override
     public String getStringRepresentation() {
-        if (this.system == null || this.role == null || this.operationSignature == null)
+        if (this.system == null || this.role == null || this.operationSignature == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
@@ -177,8 +178,9 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.operationSignature == null)
+        if (this.operationSignature == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.operationSignature);
     }

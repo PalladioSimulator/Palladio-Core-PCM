@@ -140,8 +140,9 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
      */
     @Override
     public String getStringRepresentation() {
-        if (this.resourceEnvironment == null)
+        if (this.resourceEnvironment == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
@@ -159,8 +160,9 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.resourceEnvironment == null)
+        if (this.resourceEnvironment == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.resourceEnvironment);
     }

@@ -204,8 +204,9 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
      */
     @Override
     public String getStringRepresentation() {
-        if (this.assembly == null || this.passiveResource == null)
+        if (this.assembly == null || this.passiveResource == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
@@ -224,8 +225,9 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.passiveResource == null)
+        if (this.passiveResource == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.passiveResource);
     }

@@ -211,8 +211,9 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
      */
     @Override
     public String getStringRepresentation() {
-        if (this.entryLevelSystemCall == null)
+        if (this.entryLevelSystemCall == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
@@ -240,8 +241,9 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.entryLevelSystemCall == null)
+        if (this.entryLevelSystemCall == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.entryLevelSystemCall);
     }

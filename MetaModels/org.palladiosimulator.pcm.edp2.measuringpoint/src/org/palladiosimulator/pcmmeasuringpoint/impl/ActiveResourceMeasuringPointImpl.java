@@ -290,8 +290,9 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public String getStringRepresentation() {
-        if (this.activeResource == null)
+        if (this.activeResource == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
@@ -311,8 +312,9 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.activeResource == null)
+        if (this.activeResource == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.activeResource);
     }

@@ -211,8 +211,9 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getStringRepresentation() {
-        if (this.externalCall == null)
+        if (this.externalCall == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
@@ -239,8 +240,9 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.externalCall == null)
+        if (this.externalCall == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.externalCall);
     }

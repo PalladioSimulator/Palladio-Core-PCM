@@ -203,8 +203,9 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
      */
     @Override
     public String getStringRepresentation() {
-        if (this.assembly == null || this.role == null || this.operationSignature == null)
+        if (this.assembly == null || this.role == null || this.operationSignature == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
@@ -225,8 +226,9 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.operationSignature == null)
+        if (this.operationSignature == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.operationSignature);
     }

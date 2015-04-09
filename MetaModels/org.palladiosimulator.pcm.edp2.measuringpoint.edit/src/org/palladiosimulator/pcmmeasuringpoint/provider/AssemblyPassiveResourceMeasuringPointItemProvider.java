@@ -96,7 +96,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends AssemblyR
                 this.getString("_UI_MeasuringPoint_stringRepresentation_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_MeasuringPoint_stringRepresentation_feature",
                         "_UI_MeasuringPoint_type"),
-                        MeasuringpointPackage.Literals.MEASURING_POINT__STRING_REPRESENTATION, true, false, false,
+                        MeasuringpointPackage.Literals.MEASURING_POINT__STRING_REPRESENTATION, false, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
@@ -112,7 +112,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends AssemblyR
                 this.getString("_UI_MeasuringPoint_resourceURIRepresentation_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_MeasuringPoint_resourceURIRepresentation_feature",
                         "_UI_MeasuringPoint_type"),
-                        MeasuringpointPackage.Literals.MEASURING_POINT__RESOURCE_URI_REPRESENTATION, true, false, false,
+                        MeasuringpointPackage.Literals.MEASURING_POINT__RESOURCE_URI_REPRESENTATION, false, false, false,
                         ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 

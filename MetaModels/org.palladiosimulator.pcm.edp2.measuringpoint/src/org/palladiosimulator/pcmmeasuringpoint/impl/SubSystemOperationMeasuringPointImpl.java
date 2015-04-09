@@ -376,8 +376,9 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getStringRepresentation() {
-        if (this.subsystem == null || this.role == null || this.operationSignature == null)
+        if (this.subsystem == null || this.role == null || this.operationSignature == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
@@ -399,8 +400,9 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.operationSignature == null)
+        if (this.operationSignature == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.operationSignature);
     }

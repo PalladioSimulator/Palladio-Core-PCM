@@ -210,8 +210,9 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public String getStringRepresentation() {
-        if (this.usageScenario == null)
+        if (this.usageScenario == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
@@ -228,8 +229,9 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.usageScenario == null)
+        if (this.usageScenario == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.usageScenario);
     }

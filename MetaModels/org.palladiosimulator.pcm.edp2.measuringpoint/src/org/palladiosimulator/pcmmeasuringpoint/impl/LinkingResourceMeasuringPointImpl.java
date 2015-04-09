@@ -210,8 +210,9 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public String getStringRepresentation() {
-        if (this.linkingResource == null)
+        if (this.linkingResource == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
@@ -228,8 +229,9 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.linkingResource == null)
+        if (this.linkingResource == null) {
             return "";
+        }
         EcoreUtil.resolveAll(this);
         return EMFLoadHelper.getResourceURI(this.linkingResource);
     }
