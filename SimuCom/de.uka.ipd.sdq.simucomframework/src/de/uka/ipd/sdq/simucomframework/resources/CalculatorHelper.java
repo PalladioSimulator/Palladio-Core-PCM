@@ -205,10 +205,12 @@ public final class CalculatorHelper {
         ctx.getCalculatorFactory().buildStateOfActiveResourceCalculator(measuringPoint, scheduledResourceProbe);
 
         scheduledResource.addStateListener(new IStateListener() {
+            
             @Override
             public void stateChanged(final long state, final int instanceId) {
                 scheduledResourceProbe.takeMeasurement();
             }
+            
         }, replicaID);
     }
 
@@ -229,43 +231,20 @@ public final class CalculatorHelper {
         }
     }
 
-    public static void setupOverallUtilizationCalculator(final AbstractScheduledResource resource,
+    public static void setupOverallUtilizationCalculator(final AbstractScheduledResource scheduledResource,
             final SimuComModel model, final MeasuringPoint measuringPoint) {
-        final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
+        final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
+                new TakeScheduledResourceStateProbe(scheduledResource, 0));
+        model.getProbeFrameworkContext().getCalculatorFactory()
+                .buildOverallStateOfActiveResourceCalculator(measuringPoint, scheduledResourceProbe);
 
-        resource.addOverallUtilizationListener(new IOverallUtilizationListener() {
+        scheduledResource.addOverallUtilizationListener(new IOverallUtilizationListener() {
 
             @Override
             public void utilizationChanged(final double resourceDemand, final double totalTime) {
-
-                // FIXME following line was commented-out. Make code working again.
-                // ctx.getCalculatorFactory().buildOverallUtilizationCalculator(r.getDescription(),
-                // null);
-                // FIXME: Define a new probe which results in the overall observed utilisation and
-                // hands it to the calculator
-                // // FIXME This is a hack that allows to add samples to the blackboard even when
-                // // the simulation has stopped.
-                // if (!(ctx.getSampleBlackboard() instanceof
-                // DiscardInvalidMeasurementsBlackboardDecorator)) {
-                // return;
-                // }
-                // final DiscardInvalidMeasurementsBlackboardDecorator blackboard =
-                // (DiscardInvalidMeasurementsBlackboardDecorator) ctx
-                // .getSampleBlackboard();
-                //
-                // // build ProbeSetSamples and publish them on the blackboard
-                // // TODO maybe null instead of empty string is better here
-                // final RequestContext context = new RequestContext("");
-                // blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(takeTimeSample(0.0,
-                // ctx),
-                // takeStateProbe(1l, ctx), context, "", stateProbeSetID));
-                // blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
-                // takeTimeSample(resourceDemand, ctx), takeStateProbe(0l, ctx), context, "",
-                // stateProbeSetID));
-                // blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
-                // takeTimeSample(totalTime, ctx), takeStateProbe(1l, ctx), context, "",
-                // stateProbeSetID));
+                scheduledResourceProbe.takeMeasurement();
             }
+
         });
     }
 

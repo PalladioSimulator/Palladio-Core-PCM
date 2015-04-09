@@ -33,11 +33,9 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
             final ISchedulableProcess last = process;
             toNow();
             running_processes.remove(last);
-            // fire changes of the queue length only, if there is one single core.
-            // With more cores, one cannot say on which core a job has been processed.
-            if (getCapacity() == 1) {
-                fireStateChange(running_processes.size(), 0);
-            }
+
+            fireStateChange(running_processes.size(), 0);
+
             fireDemandCompleted(last);
             LoggingWrapper.log(last + " finished.");
             scheduleNextEvent();
@@ -111,11 +109,9 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
         }
 
         running_processes.put(process, demand);
-        // fire changes of the queue length only, if there is one single core.
-        // With more cores, one cannot say on which core a job has been processed.
-        if (getCapacity() == 1) {
-            fireStateChange(running_processes.size(), 0);
-        }
+
+        fireStateChange(running_processes.size(), 0);
+
         scheduleNextEvent();
         process.passivate();
     }

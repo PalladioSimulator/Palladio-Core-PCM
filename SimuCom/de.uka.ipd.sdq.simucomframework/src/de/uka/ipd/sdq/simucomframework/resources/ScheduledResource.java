@@ -229,4 +229,19 @@ public class ScheduledResource extends AbstractScheduledResource {
         }
         return repairTimeSample;
     }
+
+    @Override
+    public void update(final long state, final int instanceId) {
+        if (getNumberOfInstances() == 1) {
+            super.update(state, instanceId);
+        } else {
+            // calculate overall utilization and inform listeners
+            final double totalTime = getModel().getSimulationControl().getCurrentSimulationTime()
+                    * getNumberOfInstances();
+            if (totalDemandedTime > totalTime) {
+                totalDemandedTime = totalTime;
+            }
+            fireOverallUtilization(totalDemandedTime, totalTime);
+        }
+    }
 }
