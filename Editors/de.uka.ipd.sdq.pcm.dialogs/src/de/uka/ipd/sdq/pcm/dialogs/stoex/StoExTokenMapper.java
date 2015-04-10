@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
  * 
  * @author Steffen Becker
  */
+@Deprecated
 public class StoExTokenMapper implements ITokenMapper {
 
     /**

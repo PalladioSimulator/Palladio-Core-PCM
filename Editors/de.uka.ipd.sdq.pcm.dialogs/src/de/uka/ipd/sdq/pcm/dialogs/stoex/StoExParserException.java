@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.errorhandling.IIssue;
 /**
  * The Class StoExParserException.
  */
+@Deprecated
 public class StoExParserException extends Exception {
 
     /** The Constant serialVersionUID. */
