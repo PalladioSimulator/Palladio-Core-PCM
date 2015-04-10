@@ -28,6 +28,7 @@
   <rm:locator pattern="^org\.palladiosimulator\.metricspec.*" searchPathRef="metricspec" failOnError="false"/>
   <rm:locator pattern="^org\.palladiosimulator\.measurementframework.*" searchPathRef="measurementframework" failOnError="false"/>
   <rm:locator pattern="^org\.palladiosimulator\.servicelevelobjective.*" searchPathRef="ServiceLevelObjectives" failOnError="false"/>
+  <rm:locator pattern="^org\.palladiosimulator\.simulizar.*" searchPathRef="SimuLizar" failOnError="false"/>
   <rm:locator pattern="^de\.itemis\.xtext\..*" searchPathRef="itemis" failOnError="false"/>
   <rm:locator pattern="^org\.antlr\..*" searchPathRef="itemis" failOnError="false"/>
   <rm:locator searchPathRef="MDSDProfiles" failOnError="false"/>
@@ -187,6 +188,13 @@
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/servicelevelobjectives/nightly/"/>
+    </rm:provider>
+  </rm:searchPath>
+    <rm:searchPath name="SimuLizar">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/simulizar/nightly/"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="MDSDProfiles">

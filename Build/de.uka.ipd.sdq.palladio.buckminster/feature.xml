@@ -27,6 +27,7 @@ PCM Core build.
       <discovery label="Luna" url="http://download.eclipse.org/releases/luna"/>
       <discovery label="Third Party Wrapper" url="http://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly"/>
       <discovery label="Service Level Objectives" url="http://sdqweb.ipd.kit.edu/eclipse/servicelevelobjectives/nightly/"/>
+      <discovery label="SimuLizar" url="http://sdqweb.ipd.kit.edu/eclipse/simulizar/nightly/"/>
    </url>
 
    <includes
