@@ -584,7 +584,13 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			} else if (left instanceof ProbabilityFunctionLiteral
 					&& right instanceof ProbabilityFunctionLiteral) {
 				return handle(extractIPMFFromLiteral(left),extractIPMFFromLiteral(right), op);
-			} else 
+			} else if (left instanceof NumericLiteral 
+					&& right instanceof ProbabilityFunctionLiteral){
+				return handle(extractIPMFFromLiteral(right), extractDoubleFromLiteral(left), op);
+			} else if (left instanceof ProbabilityFunctionLiteral
+					&& right instanceof NumericLiteral){
+				return handle(extractIPMFFromLiteral(left), extractDoubleFromLiteral(right), op);
+			} else
 				throw new UnsupportedComputationException(right, left, op, exprType);
 		case DOUBLE_PMF:
 			if (left instanceof NumericLiteral && right instanceof NumericLiteral) {
@@ -786,7 +792,7 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		try {
 			resultIPMF = operation.compute(iIntPMF, doubleValue);
 		} catch (Exception e) {
-			logger.error("Calculation with PMF and int failed!");
+			logger.error("Calculation with PMF and double failed!");
 			e.printStackTrace();
 		}
 		//logger.debug("Result: "+resultIPMF.getSamples().toString());
