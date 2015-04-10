@@ -11,7 +11,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities."/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+    <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Random variables are used to describe user and component behaviour. They allow not only constant values (e.g., 3 loop iterations), but also probabilistic values (e.g., 2 loop iterations with a probability of 0.4 and 3 loop iterations with a probability of 0.6). They are well-suited for capturing uncertainty when modelling systems during early development stages. Examples where developers may use random variables are:&#xD;&#xA;- Characterisations of Input Parameters: Describes the QoS relevant characteristics of parameters of component services.&#xD;&#xA;- Inter-Arrival Time: Describes how much time passes between the arrival of two subsequent users.&#xD;&#xA;- Think Time: Describes how much time passes between the execution of a user scenario and the start of the next execution of this scenario.&#xD;&#xA;- Loop Iteration Count: Describes the number of repetitions of a loop.&#xD;&#xA;- Guarded Branch Transitions: Used to determine whether to conditionally execute a certain behaviour.&#xD;&#xA;&#xD;&#xA;PCMRandomVariable extends RandomVariable in a way, that the only type of variables available in the PCMRandomVariable are references to variable characterisations like a.NUMBER_OF_ELEMENTS. The corresponding editors ensure that the user can enter only valid expressions."/>
       </eAnnotations>
@@ -1689,7 +1689,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="hardwareInducedFailureType__ProcessingResourceType"
           ordered="false" eType="#//reliability/HardwareInducedFailureType" eOpposite="#//reliability/HardwareInducedFailureType/processingResourceType__HardwareInducedFailureType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement #//core/entity/ResourceInterfaceProvidingEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity ../../de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement #//core/entity/ResourceInterfaceProvidingEntity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract superclass of any resource"/>
       </eAnnotations>
@@ -1788,7 +1788,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall_OutputParameterUsage"
           ordered="false" eType="#//usagemodel/EntryLevelSystemCall" eOpposite="#//usagemodel/EntryLevelSystemCall/outputParameterUsages_EntryLevelSystemCall"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference__VariableUsage"
-          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation">
@@ -1811,7 +1811,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsage_VariableCharacterisation"
           ordered="false" eType="#//parameter/VariableUsage" eOpposite="#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A characterised variable is a special variable which contains a performance abstraction of a data type. It can be transformed in a named reference and a variable characterisation. It has to end always with a variable characterisation type. Examples are &quot;a.NUMBER_OF_ELEMENTS&quot; or &quot;array.STRUCTURE&quot;."/>
       </eAnnotations>
