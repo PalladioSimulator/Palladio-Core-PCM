@@ -98,6 +98,9 @@ public class RepositorySwitch<T> {
      * @generated
      */
     public T doSwitch(final EObject theEObject) {
+        if (theEObject == null) {
+            throw new IllegalArgumentException("Passed eObject was null!");
+        }
         return this.doSwitch(theEObject.eClass(), theEObject);
     }
 
