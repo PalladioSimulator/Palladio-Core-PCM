@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
@@ -96,7 +96,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
     @Override
     public Object caseCharacterisedVariable(CharacterisedVariable object) {
-        String variableID = new PCMStoExPrettyPrintVisitor().prettyPrint(object);
+        String variableID = new PCMStoExSerializer().prettyPrint(object);
         try {
             Object value = this.myStackFrame.getValue(variableID);
             if (value instanceof EvaluationProxy) {
@@ -161,7 +161,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
                     + " to " + rightExpr.getClass().getName());
         }
 
-        int result = ((Comparable) leftExpr).compareTo(rightExpr);
+        int result = ((Comparable<Object>) leftExpr).compareTo(rightExpr);
         switch (object.getOperation()) {
         case EQUALS:
             return result == 0;
