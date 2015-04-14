@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
@@ -18,7 +19,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonRe
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ParametricResourceDemandItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * The customized parametric resource demand edit part class.
@@ -85,7 +85,7 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
         if (this.resolveSemanticElement() instanceof ParametricResourceDemand) {
             final ParametricResourceDemand demand = (ParametricResourceDemand) this.resolveSemanticElement();
             if (demand.getRequiredResource_ParametricResourceDemand() != null) {
-                text = new PCMStoExPrettyPrintVisitor().prettyPrint(demand.getSpecification_ParametericResourceDemand()
+                text = new PCMStoExSerializer().prettyPrint(demand.getSpecification_ParametericResourceDemand()
                         .getExpression());
                 if (text == null) {
                     text = "";
