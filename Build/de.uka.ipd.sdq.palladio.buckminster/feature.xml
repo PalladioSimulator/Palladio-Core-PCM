@@ -102,6 +102,10 @@ PCM Core build.
          id="edu.kit.ipd.sdq.mdsd.profiles.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.palladiosimulator.stoex.sdk"
+         version="0.0.0"/>
+
    <plugin
          id="de.uka.ipd.sdq.codegen.simucontroller.tests"
          download-size="0"
