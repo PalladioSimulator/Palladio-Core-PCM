@@ -103,7 +103,7 @@ PCM Core build.
          version="0.0.0"/>
 
    <includes
-         id="org.palladiosimulator.pcm.stoex.sdk"
+         id="org.palladiosimulator.pcm.pcmstoex.sdk"
          version="0.0.0"/>
 
    <plugin
