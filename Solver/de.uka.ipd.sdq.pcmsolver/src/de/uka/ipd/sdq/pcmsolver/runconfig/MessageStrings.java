@@ -65,4 +65,11 @@ public class MessageStrings {
 	public static final String SAVE_RESULTS_TO_FILE_ENABLED = "saveResultsToFileEnabled";
 	public static final String SAVE_FILE_DEFAULT = "saveFileDefault";
 
+	/* LINE solver related message strings */
+	public static final String SHOW_HTML_RESULT = "showHtmlResult";
+	public static final String PERFENGINE_SOLVER = "LINE";
+	public static final String DEBUG_PERF_ENG = "PerfEngineDebug";
+	public static final String PERF_ENG_OUT_DIR = "perfengOutputDir";
+	public static final String PERF_ENG_PROP_FILE = "perfEngPropFile";
+
 }

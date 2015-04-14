@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package de.uka.ipd.sdq.pcmsolver.runconfig;
 
 import org.eclipse.core.runtime.CoreException;
@@ -76,11 +79,15 @@ public class PCMSolverConfigurationBasedConfigBuilder extends
 		config.setSolver(hasAttribute(MessageStrings.SOLVER) ? getStringAttribute(MessageStrings.SOLVER)
 				: MessageStrings.SRE_SOLVER);
 
-		// Set further properties which are specific for the LQN Solver:
+		// Set further properties which are specific for the LQN Solver and the performance engine:
 		config.setLqnsOutput(hasAttribute(MessageStrings.LQNS_OUTPUT) ? getStringAttribute(MessageStrings.LQNS_OUTPUT)
 				: MessageStrings.LQN_OUTPUT_HUMAN);
 		config.setLqnsOutputDir(hasAttribute(MessageStrings.LQNS_OUTPUT_DIR) ? getStringAttribute(MessageStrings.LQNS_OUTPUT_DIR)
 				: System.getProperty("user.dir"));
+		config.setPerfEngOutputDir(hasAttribute(MessageStrings.PERF_ENG_OUT_DIR) ? getStringAttribute(MessageStrings.PERF_ENG_OUT_DIR)
+				: System.getProperty("user.dir"));
+		config.setPerfEngPropFile(hasAttribute(MessageStrings.PERF_ENG_PROP_FILE) ? getStringAttribute(MessageStrings.PERF_ENG_PROP_FILE)
+				: System.getProperty("user.dir")+System.getProperty("file.separator")+"LINE.properties");
 		config.setLqsimOutput(hasAttribute(MessageStrings.LQSIM_OUTPUT) ? getStringAttribute(MessageStrings.LQSIM_OUTPUT)
 				: MessageStrings.LQN_OUTPUT_HUMAN);
 		config.setLqsimOutputDir(hasAttribute(MessageStrings.LQSIM_OUTPUT_DIR) ? getStringAttribute(MessageStrings.LQSIM_OUTPUT_DIR)
@@ -118,6 +125,13 @@ public class PCMSolverConfigurationBasedConfigBuilder extends
 		config.setStopOnMessageLossLQNS(hasAttribute(MessageStrings.STOP_ON_MESSAGE_LOSS_LQNS) 
 				? getBooleanAttribute(MessageStrings.STOP_ON_MESSAGE_LOSS_LQNS)
 				: true);
+		
+		
+		
+		config.setDebugPerfEngine(hasAttribute(MessageStrings.DEBUG_PERF_ENG) 
+				? getBooleanAttribute(MessageStrings.DEBUG_PERF_ENG)
+				: false);
+		
 		config.setStopOnMessageLossLQSim(hasAttribute(MessageStrings.STOP_ON_MESSAGE_LOSS_LQSIM) 
 				? getBooleanAttribute(MessageStrings.STOP_ON_MESSAGE_LOSS_LQSIM)
 				: true);
@@ -125,5 +139,9 @@ public class PCMSolverConfigurationBasedConfigBuilder extends
 		config.setInfiniteTaskMultiplicity(hasAttribute(MessageStrings.INFINITE_TASK_MULTIPLICITY) 
 				? getBooleanAttribute(MessageStrings.INFINITE_TASK_MULTIPLICITY)
 				: true);
+				
+		config.setShowHtmlResults(hasAttribute(MessageStrings.SHOW_HTML_RESULT)? 
+				getBooleanAttribute(MessageStrings.SHOW_HTML_RESULT):
+				true);
 	}
 }
