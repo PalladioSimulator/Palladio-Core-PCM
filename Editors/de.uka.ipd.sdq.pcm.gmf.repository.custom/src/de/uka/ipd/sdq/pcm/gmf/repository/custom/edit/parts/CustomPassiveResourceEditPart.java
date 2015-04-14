@@ -7,10 +7,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * A custom passive resource EditPart.
@@ -43,7 +43,7 @@ public class CustomPassiveResourceEditPart extends PassiveResourceEditPart {
         if (resolveSemanticElement() instanceof PassiveResource) {
             PassiveResource pr = (PassiveResource) resolveSemanticElement();
             if (pr.getCapacity_PassiveResource() != null) {
-                stoex = new PCMStoExPrettyPrintVisitor().prettyPrint(pr.getCapacity_PassiveResource().getExpression());
+                stoex = new PCMStoExSerializer().prettyPrint(pr.getCapacity_PassiveResource().getExpression());
             }
             text = pr.getEntityName();
             if (stoex == null) {
