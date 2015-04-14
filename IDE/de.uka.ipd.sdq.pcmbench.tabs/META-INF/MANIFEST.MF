@@ -4,10 +4,10 @@ Bundle-Name: PCMBench Tabbed Property Sheets
 Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.tabs;singleton:=true
 Bundle-Version: 2.0.1.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
-Require-Bundle: org.eclipse.ui.views.properties.tabbed,
- org.eclipse.emf,
- org.eclipse.emf.edit.ui,
- org.eclipse.emf.transaction,
+Require-Bundle: org.eclipse.ui.views.properties.tabbed;bundle-version="3.6.0",
+ org.eclipse.emf;bundle-version="2.6.0",
+ org.eclipse.emf.edit.ui;bundle-version="2.10.2",
+ org.eclipse.emf.transaction;bundle-version="1.8.0",
  de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
  de.uka.ipd.sdq.pcm.edit;bundle-version="3.6.0",
  de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0",
@@ -16,7 +16,7 @@ Require-Bundle: org.eclipse.ui.views.properties.tabbed,
  de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
  de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
  de.uka.ipd.sdq.pcm.stochasticexpressions;bundle-version="2.0.0",
- org.palladiosimulator.pcm.pcmstoex.ui
+ org.palladiosimulator.pcm.pcmstoex.ui;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator
 Export-Package: de.uka.ipd.sdq.pcmbench.tabs,

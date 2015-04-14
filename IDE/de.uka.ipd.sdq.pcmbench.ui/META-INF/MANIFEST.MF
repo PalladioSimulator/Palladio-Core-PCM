@@ -5,16 +5,16 @@ Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.ui; singleton:=true
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.ui.PCMBenchUIPlugin
 Bundle-Vendor: sdq.ipd.uka.de
-Require-Bundle: org.eclipse.ui,
- org.eclipse.ui.console;bundle-version="3.5.100",
- org.eclipse.debug.ui,
- org.eclipse.core.runtime,
- org.eclipse.emf.edit,
- org.eclipse.emf,
- de.uka.ipd.sdq.pcm,
- org.eclipse.emf.edit.ui,
- org.eclipse.ui.forms;bundle-version="3.5.200",
- org.eclipse.ui.ide
+Require-Bundle: org.eclipse.ui;bundle-version="3.106.1",
+ org.eclipse.ui.console;bundle-version="3.5.300",
+ org.eclipse.debug.ui;bundle-version="3.10.2",
+ org.eclipse.core.runtime;bundle-version="3.10.0",
+ org.eclipse.emf.edit;bundle-version="2.10.1",
+ org.eclipse.emf;bundle-version="2.6.0",
+ de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
+ org.eclipse.emf.edit.ui;bundle-version="2.10.2",
+ org.eclipse.ui.forms;bundle-version="3.6.100",
+ org.eclipse.ui.ide;bundle-version="3.10.2"
 Export-Package: de.uka.ipd.sdq.pcmbench.ui,
  de.uka.ipd.sdq.pcmbench.ui.provider,
  de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware

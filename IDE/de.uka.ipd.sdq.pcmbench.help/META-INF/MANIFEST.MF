@@ -4,9 +4,9 @@ Bundle-Name: PCMBench Help Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.help;singleton:=true
 Bundle-Version: 2.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
-Require-Bundle: org.eclipse.ui,
- org.eclipse.help,
- org.eclipse.help.ui,
- org.eclipse.ui.intro,
- org.eclipse.help.webapp,
- org.eclipse.ui.intro.universal
+Require-Bundle: org.eclipse.ui;bundle-version="3.106.1",
+ org.eclipse.help;bundle-version="3.6.0",
+ org.eclipse.help.ui;bundle-version="4.0.100",
+ org.eclipse.ui.intro;bundle-version="3.4.200",
+ org.eclipse.help.webapp;bundle-version="3.6.301",
+ org.eclipse.ui.intro.universal;bundle-version="3.2.701"

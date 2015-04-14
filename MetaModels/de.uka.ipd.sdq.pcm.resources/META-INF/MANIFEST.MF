@@ -3,6 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Resources Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.resources;singleton:=true
 Bundle-Version: 3.6.0.qualifier
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0"
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
