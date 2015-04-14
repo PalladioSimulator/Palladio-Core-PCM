@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 /**
  * The Class StoExParser.
  */
+@Deprecated
 public class StoExParser implements IParser {
 
     /*
