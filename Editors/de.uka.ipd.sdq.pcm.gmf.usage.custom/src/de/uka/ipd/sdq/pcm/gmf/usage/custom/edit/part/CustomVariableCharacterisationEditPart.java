@@ -9,10 +9,10 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
 
 /**
@@ -55,7 +55,7 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
         text = vc.getType().getLiteral() + " = ";
         Expression expression = vc.getSpecification_VariableCharacterisation().getExpression();
         if (expression != null) {
-            text += new PCMStoExPrettyPrintVisitor().prettyPrint(expression);
+            text += new PCMStoExSerializer().prettyPrint(expression);
         }
         if (text == null || text.length() == 0) {
             text = getLabelTextHelper(getFigure());
