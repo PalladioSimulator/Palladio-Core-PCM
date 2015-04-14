@@ -5,7 +5,7 @@ Bundle-Vendor: My Company
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.palladiosimulator.pcm.pcmstoex.tests;singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.palladiosimulator.pcm.pcmstoex.ui,
+Require-Bundle: org.palladiosimulator.pcm.pcmstoex.ui;bundle-version="1.0.0",
  org.eclipse.core.runtime,
  org.eclipse.xtext.junit4,
  org.eclipse.ui.workbench;resolution:=optional,
@@ -16,8 +16,7 @@ Require-Bundle: org.palladiosimulator.pcm.pcmstoex.ui,
  de.uka.ipd.sdq.probfunction.math,
  org.junit,
  de.uka.ipd.sdq.pcm
-Import-Package: de.uka.ipd.sdq.stoex,
- org.apache.log4j,
+Import-Package: org.apache.log4j,
  org.hamcrest.core,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",
