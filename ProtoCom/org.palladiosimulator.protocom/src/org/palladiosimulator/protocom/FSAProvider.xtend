@@ -6,7 +6,6 @@ import com.google.inject.Provider
 import java.util.HashMap
 import java.util.Map
 import org.eclipse.core.runtime.NullProgressMonitor
-import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2
 import org.eclipse.xtext.generator.AbstractFileSystemAccess2
 import org.eclipse.xtext.generator.OutputConfiguration
 
@@ -27,7 +26,7 @@ class FSAProvider implements Provider<AbstractFileSystemAccess2> {
 	
 	override AbstractFileSystemAccess2 get() {
 
-		val EclipseResourceFileSystemAccess2 fsa = injector.getInstance(typeof(EclipseResourceFileSystemAccess2)) 
+		val PCMEclipseResourceFileSystemAccess2 fsa = injector.getInstance(typeof(PCMEclipseResourceFileSystemAccess2)) 
 		
 		// Inject into FSA...
 		fsa.setOutputConfigurations(defaultConfig())
