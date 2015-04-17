@@ -23,7 +23,7 @@ class AssemblyContextAdapter extends ModelAdapter<AssemblyContext> {
 	}
 	
 	def getEncapsulatedComponent() {
-		// TODO: Add support for CompositeComponent
+		// FIXME Consider CompositeComponents and InfrastructureComponents
 		new BasicComponentAdapter(entity.encapsulatedComponent__AssemblyContext as BasicComponent)
 	}
 }

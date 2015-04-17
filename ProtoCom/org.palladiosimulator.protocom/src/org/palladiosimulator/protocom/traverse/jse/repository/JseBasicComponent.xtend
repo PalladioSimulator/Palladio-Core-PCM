@@ -24,13 +24,13 @@ import org.palladiosimulator.protocom.traverse.framework.repository.XBasicCompon
 class JseBasicComponent extends XBasicComponent {
 	override generate() {
 
-		// Interface. Necessity of this one is debatable. For now it is included, because the current ProtoCom uses it as well.
+		// interface and class for the component.
+		// Necessity of interface is debatable. For now it is included, because the original ProtoCom used it as well.
 		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new PojoComponentClassInterface(entity))) 
-
-		// Class for this component.
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new PojoBasicComponentClass(entity)))
 
-		// Context pattern.
+
+		// interface and class for the context.
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new PojoBasicComponentContextClass(entity)))
 		generatedFiles.add(
 			injector.getInstance(typeof(JInterface)).createFor(new PojoBasicComponentContextInterface(entity)))

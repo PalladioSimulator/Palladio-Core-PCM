@@ -4,10 +4,10 @@ import com.google.inject.Inject
 import com.google.inject.Injector
 import com.google.inject.name.Named
 import org.eclipse.core.runtime.NullProgressMonitor
-import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2
 import org.eclipse.xtext.generator.AbstractFileSystemAccess2
 import org.palladiosimulator.protocom.FSAProvider
 import org.palladiosimulator.protocom.ProtoComProjectFactory
+import org.palladiosimulator.protocom.PCMEclipseResourceFileSystemAccess2
 
 /**
  * Abstract class representing generated files.
@@ -78,7 +78,7 @@ abstract class GeneratedFile<L extends ICompilationUnit> implements ICompilation
 	 	}
 	
 	 	var protoComProject = ProtoComProjectFactory.getProject(myProjectURI, path);
-		var EclipseResourceFileSystemAccess2 fsa2 = injector.getInstance(typeof(EclipseResourceFileSystemAccess2))
+		var PCMEclipseResourceFileSystemAccess2 fsa2 = injector.getInstance(typeof(PCMEclipseResourceFileSystemAccess2))
 		
 		fsa2.setMonitor(mon) 
 		fsa2.setProject(protoComProject.getIProject)

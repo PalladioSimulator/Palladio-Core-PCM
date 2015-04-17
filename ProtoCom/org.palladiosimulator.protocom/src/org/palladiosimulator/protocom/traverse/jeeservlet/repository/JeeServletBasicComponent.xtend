@@ -10,21 +10,25 @@ import org.palladiosimulator.protocom.tech.servlet.repository.ServletBasicCompon
 import org.palladiosimulator.protocom.tech.servlet.repository.ServletBasicComponentPortClass
 import org.palladiosimulator.protocom.model.repository.BasicComponentAdapter
 
+/**
+ * @author Christian Klaussner
+ * @author Sebastian Lehrig
+ */
 class JeeServletBasicComponent extends XBasicComponent {
 	override protected generate() {
 		
-		// Class and interface for the component.
+		// interface and class for the component.
 		val adapter = new BasicComponentAdapter(entity)
+		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletComponentClassInterface(entity)))
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentClass(adapter, entity)))
 		
-		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletComponentClassInterface(entity)))
 		
-		// Class and interface for the context.
-		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentContextClass(adapter, entity)))
+		// interface and class for the context.
 		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletBasicComponentContextInterface(entity)))
-		
+		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentContextClass(adapter, entity)))
 		entity.providedRoles_InterfaceProvidingEntity.forEach[
 			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentPortClass(it)))
 		]
+		
 	}	
 }

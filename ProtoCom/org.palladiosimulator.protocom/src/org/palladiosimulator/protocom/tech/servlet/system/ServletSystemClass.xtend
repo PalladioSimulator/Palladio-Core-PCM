@@ -39,12 +39,14 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		
 		// Port IDs.
 		for (assemblyContext : entity.assemblyContexts) {
-			result += new JField()
-				.withName(assemblyContext.safeName + "ID")
-				.withType("String")
-				//«JavaNames::portClassName(assemblyContext.encapsulatedComponent.entity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»
-				.withInitialization('''"«assemblyContext.encapsulatedComponent.operationProvidedRoles.get(0).portClassName»_«assemblyContext.id»"''')
-		}
+			if(assemblyContext.encapsulatedComponent.operationProvidedRoles.size > 0) { // check for Infrastructure components
+				result += new JField()
+					.withName(assemblyContext.safeName + "ID")
+					.withType("String")
+					//«JavaNames::portClassName(assemblyContext.encapsulatedComponent.entity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].get(0) as OperationProvidedRole)»_«assemblyContext.id»
+					.withInitialization('''"«assemblyContext.encapsulatedComponent.operationProvidedRoles.get(0).portClassName»_«assemblyContext.id»"''')
+			}
+		} 
 		
 		result
 	}

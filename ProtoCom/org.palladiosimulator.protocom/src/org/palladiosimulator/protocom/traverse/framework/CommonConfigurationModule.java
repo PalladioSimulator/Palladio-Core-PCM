@@ -12,8 +12,13 @@ import org.eclipse.xtext.builder.impl.QueuedBuildData;
 import org.eclipse.xtext.builder.impl.ToBeBuiltComputer;
 import org.eclipse.xtext.builder.resourceloader.IResourceLoader;
 import org.eclipse.xtext.builder.resourceloader.ResourceLoaderProviders;
+import org.eclipse.xtext.builder.trace.StorageAwareTrace;
+import org.eclipse.xtext.builder.trace.TraceForStorageProvider;
 import org.eclipse.xtext.builder.trace.TraceMarkers;
 import org.eclipse.xtext.generator.AbstractFileSystemAccess2;
+import org.eclipse.xtext.generator.trace.DefaultTraceURIConverter;
+import org.eclipse.xtext.generator.trace.ITraceForStorageProvider;
+import org.eclipse.xtext.generator.trace.ITraceURIConverter;
 import org.eclipse.xtext.generator.trace.TraceFileNameProvider;
 import org.eclipse.xtext.generator.trace.TraceRegionSerializer;
 import org.eclipse.xtext.resource.IExternalContentSupport;
@@ -22,6 +27,7 @@ import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.ui.containers.WorkspaceProjectsStateHelper;
 import org.eclipse.xtext.ui.editor.DirtyStateManager;
 import org.eclipse.xtext.ui.editor.IDirtyStateManager;
+import org.eclipse.xtext.ui.generator.trace.ExtensibleTraceURIConverter;
 import org.eclipse.xtext.ui.notification.IStateChangeEventBroker;
 import org.eclipse.xtext.ui.notification.StateChangeEventBroker;
 import org.eclipse.xtext.ui.resource.IResourceSetProvider;
@@ -36,6 +42,7 @@ import org.eclipse.xtext.ui.util.IJdtHelper;
 import org.palladiosimulator.protocom.FSAProvider;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.PrivateModule;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
@@ -76,9 +83,26 @@ public class CommonConfigurationModule extends AbstractModule {
         bind(String.class).annotatedWith(Names.named("ProjectURI")).toInstance(getProjectURI());
 
         // Trace
-        bind(TraceMarkers.class).toInstance(new TraceMarkers());
-        bind(TraceFileNameProvider.class).toInstance(new TraceFileNameProvider());
-        bind(TraceRegionSerializer.class).toInstance(new TraceRegionSerializer());
+        binder().install(new PrivateModule() {
+
+            @Override
+            protected void configure() {
+                bind(ITraceForStorageProvider.class).to(TraceForStorageProvider.class);
+                bind(ITraceURIConverter.class).to(DefaultTraceURIConverter.class);
+                bind(DefaultTraceURIConverter.class).to(ExtensibleTraceURIConverter.class);
+
+                bind(TraceFileNameProvider.class);
+                bind(TraceMarkers.class);
+                bind(TraceRegionSerializer.class);
+                bind(StorageAwareTrace.class);
+
+                expose(ITraceURIConverter.class);
+                expose(TraceFileNameProvider.class);
+                expose(ITraceForStorageProvider.class);
+                expose(StorageAwareTrace.class);
+            }
+
+        });
 
         // Storage
         bind(IWorkspace.class).to(Workspace.class);

@@ -2,12 +2,17 @@ package org.palladiosimulator.protocom.tech.servlet.repository
 
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole
-import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.tech.servlet.ServletClass
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.repository.SinkRole
 
+/**
+ * @author Christian Klaussner
+ * @author Sebastian Lehrig
+ */
 class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 	new(ProvidedRole pcmEntity) {
 		super(pcmEntity)
@@ -26,9 +31,7 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 	}
 	
 	override interfaces() {
-		if (pcmEntity instanceof OperationProvidedRole) {
-			#[JavaNames::fqn(pcmEntity.providedInterface__OperationProvidedRole)]
-		}
+		#[ providedRoleInterface(pcmEntity)	]
 	}
 	
 	override annotations() {
@@ -95,7 +98,7 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 		"/src/" + JavaNames::fqnToDirectoryPath(JavaNames::fqnPortPackage(pcmEntity)) + "/" + JavaNames::portClassName(pcmEntity) + ".java"
 	}
 	
-	def providedRoleMethods(OperationProvidedRole role) {
+	def dispatch providedRoleMethods(OperationProvidedRole role) {
 		role.providedInterface__OperationProvidedRole.signatures__OperationInterface.map[
 			new JMethod()
 				.withName(JavaNames::javaSignature(it))
@@ -112,5 +115,36 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 					return result;
 				''')
 		] 
+	}
+	
+	def dispatch providedRoleMethods(InfrastructureProvidedRole role) {
+		role.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface.map[	
+			new JMethod()
+				.withName(JavaNames::javaSignature(it))
+				.withReturnType('''«stackFrame»<Object>''')
+				.withParameters('''«stackContext» ctx''')
+				.withImplementation("return null;")
+		] 
+	}
+	
+		/**
+	 * TODO Implement SinkRoles?
+	 */
+	def dispatch providedRoleMethods(SinkRole role) {
+	}
+	
+	def dispatch providedRoleInterface(OperationProvidedRole role) {
+		JavaNames::fqn(role.providedInterface__OperationProvidedRole)
+	}
+	
+	def dispatch providedRoleInterface(InfrastructureProvidedRole role) {
+		JavaNames::fqn(role.providedInterface__InfrastructureProvidedRole)
+	}
+
+	/**
+	 * TODO Implement SinkRoles?
+	 */
+	def dispatch providedRoleInterface(SinkRole role) {
+		""
 	}
 }

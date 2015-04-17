@@ -12,7 +12,14 @@ import org.palladiosimulator.protocom.model.seff.LoopActionAdapter
 import org.palladiosimulator.protocom.model.seff.ProbabilisticBranchTransitionAdapter
 import org.palladiosimulator.protocom.model.seff.StartActionAdapter
 import org.palladiosimulator.protocom.model.seff.StopActionAdapter
+import org.palladiosimulator.protocom.model.seff.ForkActionAdapter
+import org.palladiosimulator.protocom.model.seff.AcquireActionAdapter
+import org.palladiosimulator.protocom.model.seff.ReleaseActionAdapter
 
+/**
+ * @author Christian Klaussner
+ * @author Sebastian Lehrig
+ */
 class PcmServletProtoAction {
 	protected val frameworkBase = "org.palladiosimulator.protocom.framework.java.ee"
 	
@@ -60,6 +67,15 @@ class PcmServletProtoAction {
 		}
 		'''
 	}
+	
+	private def dispatch action(ForkActionAdapter action) {
+		'''
+		«FOR forkedBehaviour : action.asynchronousForkedBehaviours»
+				FIXME Add fork with ID «forkedBehaviour.id»
+		«ENDFOR»
+		'''
+	}
+	
 	
 	private def dispatch action(ExternalCallActionAdapter action) {
 		'''
@@ -113,6 +129,14 @@ class PcmServletProtoAction {
 			«actions(action.start)»
 		}
 		'''
+	}
+	
+	private def dispatch action(AcquireActionAdapter action) {
+		"FIXME AcquireActions not supported yet"
+	}
+	
+	private def dispatch action(ReleaseActionAdapter action) {
+		"FIXME ReleaseActions not supported yet"
 	}
 	
 	private def dispatch action(StartActionAdapter action) {

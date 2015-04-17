@@ -39,5 +39,4 @@ public class JseConfigurationModule extends CommonConfigurationModule {
         bind(XResourceEnvironment.class).to(JseResourceEnvironment.class);
         bind(XUsageScenario.class).to(JseUsageScenario.class);
     }
-
 }
