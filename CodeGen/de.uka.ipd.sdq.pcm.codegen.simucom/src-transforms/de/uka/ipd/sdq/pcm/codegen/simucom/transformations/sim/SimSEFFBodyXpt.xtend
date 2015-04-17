@@ -221,7 +221,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 					new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx, this.assemblyContext.getId(), false){
 						public void executeBehaviour() {
 							try {
-								«f.steps_Behaviour.findStart().ActionsAsCalls»
+								«f.steps_Behaviour.findStart().actionsAsCalls»
 							} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 								if (ctx.getModel().getConfig().getSimulateFailures()) {
 									ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
