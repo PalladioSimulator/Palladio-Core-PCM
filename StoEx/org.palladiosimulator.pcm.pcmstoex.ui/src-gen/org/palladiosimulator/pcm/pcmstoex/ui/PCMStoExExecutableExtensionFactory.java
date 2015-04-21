@@ -23,7 +23,7 @@ public class PCMStoExExecutableExtensionFactory extends AbstractGuiceAwareExecut
 	
 	@Override
 	protected Injector getInjector() {
-		return PCMStoExActivator.getInstance().getInjector(PCMStoExActivator.ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX);
+		return PCMStoExActivator.getInstance().getInjector(PCMStoExActivator.ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX_PCMSTOEX);
 	}
 	
 }

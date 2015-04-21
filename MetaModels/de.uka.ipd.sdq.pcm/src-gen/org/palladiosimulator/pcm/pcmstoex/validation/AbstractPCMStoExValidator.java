@@ -11,7 +11,7 @@ public class AbstractPCMStoExValidator extends org.palladiosimulator.commons.sto
 
 	@Override
 	protected List<EPackage> getEPackages() {
-	    List<EPackage> result = new ArrayList<EPackage>();
+	    List<EPackage> result = new ArrayList<EPackage>(super.getEPackages());
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://sdq.ipd.uka.de/StochasticExpressions/2.2"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0"));
 	    result.add(EPackage.Registry.INSTANCE.getEPackage("http://sdq.ipd.uka.de/Units/2.1"));

@@ -25,58 +25,58 @@ public class InternalPCMStoExParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DOT", "RULE_CONDDELIMITER", "RULE_ELSEDELIMITER", "RULE_POW", "RULE_NOT", "RULE_DOUBLE", "RULE_SQUARE_PAREN_L", "RULE_SQUARE_PAREN_R", "RULE_LPAREN", "RULE_RPAREN", "RULE_ID", "RULE_COLON", "RULE_BOOLEAN_KEYWORDS", "RULE_STRING", "RULE_DECINT", "RULE_DOUBLEPDF", "RULE_INTPMF", "RULE_DOUBLEPMF", "RULE_ENUMPMF", "RULE_ORDERED_DEF", "RULE_BOOLPMF", "RULE_SEMI", "RULE_DIGIT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'-'", "'/'", "'*'", "'TYPE'", "'BYTESIZE'", "'NUMBER_OF_ELEMENTS'", "'VALUE'", "'STRUCTURE'", "'AND'", "'OR'", "'XOR'", "'>'", "'<'", "'=='", "'<>'", "'>='", "'<='", "'+'", "'%'", "'_'", "'unitless'", "'B'", "'s'", "'m'"
     };
-    public static final int RULE_ID=14;
-    public static final int RULE_CONDDELIMITER=5;
-    public static final int RULE_ANY_OTHER=30;
-    public static final int RULE_DOUBLEPMF=21;
-    public static final int RULE_DOUBLEPDF=19;
+    public static final int T__50=50;
+    public static final int RULE_BOOLEAN_KEYWORDS=16;
+    public static final int RULE_LPAREN=12;
+    public static final int RULE_SQUARE_PAREN_L=10;
     public static final int RULE_ENUMPMF=22;
-    public static final int EOF=-1;
-    public static final int RULE_NOT=8;
     public static final int T__51=51;
+    public static final int RULE_SQUARE_PAREN_R=11;
     public static final int T__52=52;
-    public static final int RULE_DOT=4;
     public static final int T__53=53;
     public static final int T__54=54;
-    public static final int RULE_POW=7;
-    public static final int RULE_LPAREN=12;
+    public static final int RULE_ID=14;
+    public static final int RULE_DIGIT=26;
+    public static final int RULE_COLON=15;
     public static final int RULE_BOOLPMF=24;
     public static final int RULE_ORDERED_DEF=23;
-    public static final int T__50=50;
-    public static final int RULE_ELSEDELIMITER=6;
-    public static final int RULE_SEMI=25;
-    public static final int T__42=42;
-    public static final int T__43=43;
-    public static final int T__40=40;
-    public static final int T__41=41;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__44=44;
-    public static final int T__45=45;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int RULE_SL_COMMENT=28;
-    public static final int RULE_DOUBLE=9;
     public static final int RULE_ML_COMMENT=27;
-    public static final int T__31=31;
-    public static final int RULE_COLON=15;
-    public static final int T__32=32;
+    public static final int RULE_ELSEDELIMITER=6;
+    public static final int RULE_INTPMF=20;
     public static final int RULE_STRING=17;
+    public static final int RULE_NOT=8;
+    public static final int RULE_DOUBLEPMF=21;
+    public static final int RULE_POW=7;
+    public static final int RULE_SL_COMMENT=28;
+    public static final int T__37=37;
+    public static final int RULE_DOUBLE=9;
+    public static final int T__38=38;
+    public static final int RULE_CONDDELIMITER=5;
+    public static final int T__39=39;
     public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
-    public static final int T__37=37;
-    public static final int T__38=38;
-    public static final int T__39=39;
     public static final int RULE_DECINT=18;
-    public static final int RULE_INTPMF=20;
-    public static final int RULE_RPAREN=13;
+    public static final int RULE_DOT=4;
+    public static final int EOF=-1;
+    public static final int T__31=31;
+    public static final int T__32=32;
     public static final int RULE_WS=29;
-    public static final int RULE_DIGIT=26;
-    public static final int RULE_BOOLEAN_KEYWORDS=16;
-    public static final int RULE_SQUARE_PAREN_R=11;
-    public static final int RULE_SQUARE_PAREN_L=10;
+    public static final int RULE_DOUBLEPDF=19;
+    public static final int RULE_ANY_OTHER=30;
+    public static final int RULE_RPAREN=13;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int RULE_SEMI=25;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
 
     // delegates
     // delegators
@@ -8699,11 +8699,11 @@ public class InternalPCMStoExParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred27_InternalPCMStoEx() {
+    public final boolean synpred22_InternalPCMStoEx() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred27_InternalPCMStoEx_fragment(); // can never throw exception
+            synpred22_InternalPCMStoEx_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -8727,11 +8727,11 @@ public class InternalPCMStoExParser extends AbstractInternalAntlrParser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred22_InternalPCMStoEx() {
+    public final boolean synpred27_InternalPCMStoEx() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred22_InternalPCMStoEx_fragment(); // can never throw exception
+            synpred27_InternalPCMStoEx_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -8754,17 +8754,16 @@ public class InternalPCMStoExParser extends AbstractInternalAntlrParser {
     static final String DFA9_maxS =
         "\1\30\4\uffff\1\14\4\uffff";
     static final String DFA9_acceptS =
-        "\1\uffff\1\1\1\2\1\3\1\4\1\uffff\1\7\1\10\1\6\1\5";
+        "\1\uffff\1\1\1\2\1\3\1\4\1\uffff\1\7\1\10\1\5\1\6";
     static final String DFA9_specialS =
         "\12\uffff}>";
     static final String[] DFA9_transitionS = {
-            "\1\2\2\uffff\1\6\1\uffff\1\5\1\uffff\1\4\1\3\1\1\4\7\1\uffff"+
-            "\1\7",
+            "\1\2\2\uffff\1\6\1\uffff\1\5\1\uffff\1\4\1\3\1\1\4\7\1\uffff\1\7",
             "",
             "",
             "",
             "",
-            "\1\10\7\uffff\1\11",
+            "\1\11\7\uffff\1\10",
             "",
             "",
             "",
