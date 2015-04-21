@@ -115,10 +115,6 @@ PCM Core build.
          id="org.palladiosimulator.protocom.source.feature"
          version="0.0.0"/>
 
-   <includes
-         id="de.uka.ipd.sdq.simucom.source.feature"
-         version="0.0.0"/>
-
    <plugin
          id="de.uka.ipd.sdq.codegen.simucontroller.tests"
          download-size="0"
