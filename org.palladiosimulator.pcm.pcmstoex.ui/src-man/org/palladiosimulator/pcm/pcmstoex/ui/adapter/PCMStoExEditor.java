@@ -33,7 +33,7 @@ public class PCMStoExEditor extends StoExEditor {
     @Override
     protected Injector getInjector() {
         PCMStoExActivator activator = PCMStoExActivator.getInstance();
-        return activator.getInjector(PCMStoExActivator.ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX);
+        return activator.getInjector(PCMStoExActivator.ORG_PALLADIOSIMULATOR_PCM_PCMSTOEX_PCMSTOEX);
     }
 
     @Override
@@ -52,7 +52,8 @@ public class PCMStoExEditor extends StoExEditor {
      * @return the {@link PCMStoExProposalProvider}
      */
     public PCMStoExProposalProvider getPCMProposalProvider() {
-        PCMStoExProposalProvider p = (PCMStoExProposalProvider) getInjectorInstance().getInstance(IContentProposalProvider.class);
+        PCMStoExProposalProvider p = (PCMStoExProposalProvider) getInjectorInstance().getInstance(
+                IContentProposalProvider.class);
         return p;
     }
 

@@ -15,7 +15,8 @@ Require-Bundle: org.palladiosimulator.pcm.pcmstoex.ui;bundle-version="1.0.0",
  de.uka.ipd.sdq.stoex.analyser,
  de.uka.ipd.sdq.probfunction.math,
  org.junit,
- de.uka.ipd.sdq.pcm
+ de.uka.ipd.sdq.pcm,
+ org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j,
  org.hamcrest.core,
  org.junit;version="4.5.0",
