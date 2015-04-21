@@ -31,6 +31,8 @@
   
   <rm:locator pattern="^org\.palladiosimulator\.measurementframework.*" searchPathRef="measurementframework" failOnError="false"/>
   
+  <rm:locator pattern="^org\.apache\..*" searchPathRef="thirdparty" failOnError="false" />
+  
   <rm:locator searchPathRef="eclipse-release" failOnError="false"/>
   
   <rm:locator searchPathRef="orbit" failOnError="false"/>
