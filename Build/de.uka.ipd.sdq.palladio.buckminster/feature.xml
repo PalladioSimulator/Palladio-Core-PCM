@@ -28,7 +28,7 @@ PCM Core build.
       <discovery label="Eclipse Orbit" url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
       <discovery label="Eclipse EMF" url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
       <discovery label="Luna" url="http://download.eclipse.org/releases/luna"/>
-      <discovery label="Third Party Wrapper" url="http://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly"/>    
+      <discovery label="Third Party Wrapper" url="http://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly"/>
    </url>
 
    <includes
@@ -105,6 +105,18 @@ PCM Core build.
 
    <includes
          id="org.palladiosimulator.pcm.pcmstoex.sdk"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.protocom.javaee.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.protocom.source.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="de.uka.ipd.sdq.simucom.source.feature"
          version="0.0.0"/>
 
    <plugin
