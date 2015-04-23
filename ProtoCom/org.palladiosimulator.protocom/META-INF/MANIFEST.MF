@@ -40,4 +40,3 @@ Export-Package: org.palladiosimulator.protocom,
  org.palladiosimulator.protocom.traverse.jse,
  org.palladiosimulator.protocom.traverse.jsestub
 Bundle-Vendor: palladiosimulator.org
-Import-Package: com.google.inject
