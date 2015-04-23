@@ -35,302 +35,289 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl#getInternalFailureOccurrenceDescriptions__InternalAction
- * <em>Internal Failure Occurrence Descriptions Internal Action</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl#getInternalFailureOccurrenceDescriptions__InternalAction <em>Internal Failure Occurrence Descriptions Internal Action</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class InternalActionImpl extends AbstractInternalControlFlowActionImpl implements InternalAction {
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+public class InternalActionImpl extends AbstractInternalControlFlowActionImpl
+		implements InternalAction {
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
-    /**
-     * The cached value of the '{@link #getInternalFailureOccurrenceDescriptions__InternalAction()
-     * <em>Internal Failure Occurrence Descriptions Internal Action</em>}' containment reference
-     * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInternalFailureOccurrenceDescriptions__InternalAction()
-     * @generated
-     * @ordered
-     */
-    protected EList<InternalFailureOccurrenceDescription> internalFailureOccurrenceDescriptions__InternalAction;
+	/**
+	 * The cached value of the '{@link #getInternalFailureOccurrenceDescriptions__InternalAction() <em>Internal Failure Occurrence Descriptions Internal Action</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #getInternalFailureOccurrenceDescriptions__InternalAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InternalFailureOccurrenceDescription> internalFailureOccurrenceDescriptions__InternalAction;
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected InternalActionImpl() {
-        super();
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InternalActionImpl() {
+		super();
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    protected EClass eStaticClass() {
-        return SeffPackage.Literals.INTERNAL_ACTION;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EClass eStaticClass() {
+		return SeffPackage.Literals.INTERNAL_ACTION;
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public EList<InternalFailureOccurrenceDescription> getInternalFailureOccurrenceDescriptions__InternalAction() {
-        if (this.internalFailureOccurrenceDescriptions__InternalAction == null) {
-            this.internalFailureOccurrenceDescriptions__InternalAction = new EObjectContainmentWithInverseEList<InternalFailureOccurrenceDescription>(
-                    InternalFailureOccurrenceDescription.class,
-                    this,
-                    SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION,
-                    ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
-        }
-        return this.internalFailureOccurrenceDescriptions__InternalAction;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<InternalFailureOccurrenceDescription> getInternalFailureOccurrenceDescriptions__InternalAction() {
+		if (internalFailureOccurrenceDescriptions__InternalAction == null) {
+			internalFailureOccurrenceDescriptions__InternalAction = new EObjectContainmentWithInverseEList<InternalFailureOccurrenceDescription>(
+					InternalFailureOccurrenceDescription.class,
+					this,
+					SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION,
+					ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
+		}
+		return internalFailureOccurrenceDescriptions__InternalAction;
+	}
 
-    /**
-     * The cached OCL expression body for the '
-     * {@link #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Multiple Internal Occurrence Descriptions Per Failure Type Not Allowed</em>}' operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
-     *      java.util.Map)
-     * @generated
-     * @ordered
-     */
-    protected static final String MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription  | x<>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription <> y.softwareInducedFailureType__InternalFailureOccurrenceDescription )\n"
-            + "";
+	/**
+	 * The cached OCL expression body for the '{@link #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Multiple Internal Occurrence Descriptions Per Failure Type Not Allowed</em>}' operation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription  | x<>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription <> y.softwareInducedFailureType__InternalFailureOccurrenceDescription )\n"
+			+ "";
 
-    /**
-     * The cached OCL invariant for the '
-     * {@link #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Multiple Internal Occurrence Descriptions Per Failure Type Not Allowed</em>}' invariant
-     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
-     *      java.util.Map)
-     * @generated
-     * @ordered
-     */
-    protected static Constraint MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	/**
+	 * The cached OCL invariant for the '{@link #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Multiple Internal Occurrence Descriptions Per Failure Type Not Allowed</em>}' invariant operation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public boolean MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
-            helper.setContext(SeffPackage.Literals.INTERNAL_ACTION);
-            try {
-                MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
-                throw new UnsupportedOperationException(pe.getLocalizedMessage());
-            }
-        }
-        if (!EOCL_ENV.createQuery(
-                MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        SeffValidator.DIAGNOSTIC_SOURCE,
-                        SeffValidator.INTERNAL_ACTION__MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
-            }
-            return false;
-        }
-        return true;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(SeffPackage.Literals.INTERNAL_ACTION);
+			try {
+				MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+						.createInvariant(MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			} catch (ParserException pe) {
+				throw new UnsupportedOperationException(
+						pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV
+				.createQuery(
+						MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+				.check(this)) {
+			if (diagnostics != null) {
+				diagnostics
+						.add(new BasicDiagnostic(
+								Diagnostic.ERROR,
+								SeffValidator.DIAGNOSTIC_SOURCE,
+								SeffValidator.INTERNAL_ACTION__MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED,
+								EcorePlugin.INSTANCE
+										.getString(
+												"_UI_GenericInvariant_diagnostic",
+												new Object[] {
+														"MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed",
+														EObjectValidator
+																.getObjectLabel(
+																		this,
+																		context) }),
+								new Object[] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
 
-    /**
-     * The cached OCL expression body for the '
-     * {@link #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Sum Of Internal Action Failure Probabilities Must Not Exceed1</em>}' operation. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
-     *      java.util.Map)
-     * @generated
-     * @ordered
-     */
-    protected static final String SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()<=1.0\n"
-            + "";
+	/**
+	 * The cached OCL expression body for the '
+	 * {@link #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * <em>Sum Of Internal Action Failure Probabilities Must Not Exceed1</em>}' operation. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 *
+	 * @see #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
+	 *      java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()<=1.0\n"
+			+ "";
 
-    /**
-     * The cached OCL invariant for the '
-     * {@link #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Sum Of Internal Action Failure Probabilities Must Not Exceed1</em>}' invariant operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
-     *      java.util.Map)
-     * @generated
-     * @ordered
-     */
-    protected static Constraint SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	/**
+	 * The cached OCL invariant for the '{@link #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Sum Of Internal Action Failure Probabilities Must Not Exceed1</em>}' invariant operation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @see #SumOfInternalActionFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public boolean SumOfInternalActionFailureProbabilitiesMustNotExceed1(final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
-        if (SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
-            helper.setContext(SeffPackage.Literals.INTERNAL_ACTION);
-            try {
-                SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
-                throw new UnsupportedOperationException(pe.getLocalizedMessage());
-            }
-        }
-        if (!EOCL_ENV.createQuery(
-                SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
-                        this)) {
-            if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
-                        SeffValidator.INTERNAL_ACTION__SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "SumOfInternalActionFailureProbabilitiesMustNotExceed1",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
-            }
-            return false;
-        }
-        return true;
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean SumOfInternalActionFailureProbabilitiesMustNotExceed1(
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(SeffPackage.Literals.INTERNAL_ACTION);
+			try {
+				SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+						.createInvariant(SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			} catch (ParserException pe) {
+				throw new UnsupportedOperationException(
+						pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV
+				.createQuery(
+						SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+				.check(this)) {
+			if (diagnostics != null) {
+				diagnostics
+						.add(new BasicDiagnostic(
+								Diagnostic.ERROR,
+								SeffValidator.DIAGNOSTIC_SOURCE,
+								SeffValidator.INTERNAL_ACTION__SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1,
+								EcorePlugin.INSTANCE
+										.getString(
+												"_UI_GenericInvariant_diagnostic",
+												new Object[] {
+														"SumOfInternalActionFailureProbabilitiesMustNotExceed1",
+														EObjectValidator
+																.getObjectLabel(
+																		this,
+																		context) }),
+								new Object[] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
-        switch (featureID) {
-        case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getInternalFailureOccurrenceDescriptions__InternalAction()).basicAdd(otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
+			return ((InternalEList<InternalEObject>) (InternalEList<?>) getInternalFailureOccurrenceDescriptions__InternalAction())
+					.basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
-        switch (featureID) {
-        case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
-            return ((InternalEList<?>) this.getInternalFailureOccurrenceDescriptions__InternalAction()).basicRemove(
-                    otherEnd, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd,
+			int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
+			return ((InternalEList<?>) getInternalFailureOccurrenceDescriptions__InternalAction())
+					.basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
-        case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
-            return this.getInternalFailureOccurrenceDescriptions__InternalAction();
-        }
-        return super.eGet(featureID, resolve, coreType);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+		case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
+			return getInternalFailureOccurrenceDescriptions__InternalAction();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @SuppressWarnings("unchecked")
-    @Override
-    public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
-        case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
-            this.getInternalFailureOccurrenceDescriptions__InternalAction().clear();
-            this.getInternalFailureOccurrenceDescriptions__InternalAction().addAll(
-                    (Collection<? extends InternalFailureOccurrenceDescription>) newValue);
-            return;
-        }
-        super.eSet(featureID, newValue);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+		case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
+			getInternalFailureOccurrenceDescriptions__InternalAction().clear();
+			getInternalFailureOccurrenceDescriptions__InternalAction()
+					.addAll((Collection<? extends InternalFailureOccurrenceDescription>) newValue);
+			return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public void eUnset(final int featureID) {
-        switch (featureID) {
-        case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
-            this.getInternalFailureOccurrenceDescriptions__InternalAction().clear();
-            return;
-        }
-        super.eUnset(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+		case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
+			getInternalFailureOccurrenceDescriptions__InternalAction().clear();
+			return;
+		}
+		super.eUnset(featureID);
+	}
 
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public boolean eIsSet(final int featureID) {
-        switch (featureID) {
-        case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
-            return this.internalFailureOccurrenceDescriptions__InternalAction != null
-            && !this.internalFailureOccurrenceDescriptions__InternalAction.isEmpty();
-        }
-        return super.eIsSet(featureID);
-    }
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+		case SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION:
+			return internalFailureOccurrenceDescriptions__InternalAction != null
+					&& !internalFailureOccurrenceDescriptions__InternalAction
+							.isEmpty();
+		}
+		return super.eIsSet(featureID);
+	}
 
-    /**
-     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    protected static final OCL EOCL_ENV = OCL.newInstance();
+	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // InternalActionImpl

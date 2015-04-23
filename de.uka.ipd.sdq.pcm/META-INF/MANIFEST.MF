@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: de.uka.ipd.sdq.pcm;singleton:=true
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm_new;singleton:=true
 Bundle-Version: 3.6.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName

@@ -12,9 +12,7 @@ package de.uka.ipd.sdq.pcm.repository;
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
- * <em>Provided Interface Infrastructure Provided Role</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole <em>Provided Interface Infrastructure Provided Role</em>}</li>
  * </ul>
  * </p>
  *
@@ -23,43 +21,37 @@ package de.uka.ipd.sdq.pcm.repository;
  * @generated
  */
 public interface InfrastructureProvidedRole extends ProvidedRole {
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
-    /**
-     * Returns the value of the '<em><b>Provided Interface Infrastructure Provided Role</b></em>'
-     * reference. <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the ' <em>Provided Interface Infrastructure Provided Role</em>' reference
-     * isn't clear, there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-     *
-     * @return the value of the '<em>Provided Interface Infrastructure Provided Role</em>'
-     *         reference.
-     * @see #setProvidedInterface__InfrastructureProvidedRole(InfrastructureInterface)
-     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole()
-     * @model required="true" ordered="false"
-     * @generated
-     */
-    InfrastructureInterface getProvidedInterface__InfrastructureProvidedRole();
+	/**
+	 * Returns the value of the '<em><b>Provided Interface Infrastructure Provided Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the ' <em>Provided Interface Infrastructure Provided Role</em>' reference
+	 * isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Provided Interface Infrastructure Provided Role</em>' reference.
+	 * @see #setProvidedInterface__InfrastructureProvidedRole(InfrastructureInterface)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	InfrastructureInterface getProvidedInterface__InfrastructureProvidedRole();
 
-    /**
-     * Sets the value of the '
-     * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
-     * <em>Provided Interface Infrastructure Provided Role</em>}' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @param value
-     *            the new value of the '<em>Provided Interface Infrastructure Provided Role</em>'
-     *            reference.
-     * @see #getProvidedInterface__InfrastructureProvidedRole()
-     * @generated
-     */
-    void setProvidedInterface__InfrastructureProvidedRole(InfrastructureInterface value);
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole <em>Provided Interface Infrastructure Provided Role</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Provided Interface Infrastructure Provided Role</em>' reference.
+	 * @see #getProvidedInterface__InfrastructureProvidedRole()
+	 * @generated
+	 */
+	void setProvidedInterface__InfrastructureProvidedRole(
+			InfrastructureInterface value);
 
 } // InfrastructureProvidedRole
