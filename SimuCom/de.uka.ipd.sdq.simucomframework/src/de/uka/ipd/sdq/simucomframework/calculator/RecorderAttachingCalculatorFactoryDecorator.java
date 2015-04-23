@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
  * Factory class to create @see {@link Calculator}s used in a SimuCom simulation run.
- * 
+ *
  * @author Steffen Becker, Philipp Merkle, Sebastian Lehrig
  */
 public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorFactory {
@@ -98,12 +98,12 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     }
 
     @Override
-    public Calculator buildStateOfPassiveResourceCalculator(MeasuringPoint measuringPoint, Probe probe) {
+    public Calculator buildStateOfPassiveResourceCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
         return setupRecorder(decoratedCalculatorFactory.buildStateOfPassiveResourceCalculator(measuringPoint, probe));
     }
 
     @Override
-    public Calculator buildOverallStateOfPassiveResourceCalculator(MeasuringPoint measuringPoint, Probe probe) {
+    public Calculator buildOverallStateOfPassiveResourceCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
         return setupRecorder(decoratedCalculatorFactory.buildOverallStateOfPassiveResourceCalculator(measuringPoint,
                 probe));
     }
@@ -124,6 +124,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
         return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(measuringPoint, probe));
     }
 
+
     /**
      * {@inheritDoc}
      */
@@ -131,6 +132,16 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     public Calculator buildNumberOfResourceContainersCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
         return setupRecorder(decoratedCalculatorFactory
                 .buildNumberOfResourceContainersCalculator(measuringPoint, probe));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Calculator buildReconfigurationTimeCalculator(final MeasuringPoint measuringPoint, final List<Probe> probes) {
+        // TODO: Check whether this is correct?!
+        return setupRecorder(decoratedCalculatorFactory
+                .buildReconfigurationTimeCalculator(measuringPoint, probes));
     }
 
     private Calculator setupRecorder(final Calculator calculator) {
