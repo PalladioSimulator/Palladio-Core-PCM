@@ -1,8 +1,8 @@
 package org.palladiosimulator.protocom.framework.tests;
 
-import java.io.IOException;
+import static org.junit.Assert.assertTrue;
 
-import junit.framework.Assert;
+import java.io.IOException;
 
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
@@ -19,8 +19,8 @@ public class PassiveResourcesTest {
 
     @Before
     public void initialise() {
-        PassiveResource pr1 = new PassiveResource(CAPACITY, PR1);
-        PassiveResource pr2 = new PassiveResource(CAPACITY + 1, PR2);
+        final PassiveResource pr1 = new PassiveResource(CAPACITY, PR1);
+        final PassiveResource pr2 = new PassiveResource(CAPACITY + 1, PR2);
         PassiveResourceRegistry.singleton().addPassiveResource(pr1);
         PassiveResourceRegistry.singleton().addPassiveResource(pr2);
 
@@ -29,27 +29,27 @@ public class PassiveResourcesTest {
 
     @Test
     public void testPassiveResources() throws IOException, InterruptedException {
-        ThreadGroup tg = new ThreadGroup("Acquiring Threads");
+        final ThreadGroup tg = new ThreadGroup("Acquiring Threads");
 
         PassiveResourceRegistry.singleton().getResource(PR1).acquire();
 
-        AcquiringThread at = new AcquiringThread();
+        final AcquiringThread at = new AcquiringThread();
         new Thread(tg, at).start();
 
         Thread.sleep(1000);
-        Assert.assertTrue(tg.activeCount() == 1);
+        assertTrue(tg.activeCount() == 1);
 
         PassiveResourceRegistry.singleton().getResource(PR1).release();
 
         Thread.sleep(100);
-        Assert.assertTrue(tg.activeCount() == 0);
+        assertTrue(tg.activeCount() == 0);
 
         PassiveResourceRegistry.singleton().getResource(PR2).acquire();
         PassiveResourceRegistry.singleton().getResource(PR2).acquire();
         PassiveResourceRegistry.singleton().getResource(PR2).release();
         PassiveResourceRegistry.singleton().getResource(PR2).release();
 
-        TryingThread tt = new TryingThread();
+        final TryingThread tt = new TryingThread();
         new Thread(tg, tt).start();
 
         Thread.sleep(100);
@@ -57,16 +57,18 @@ public class PassiveResourcesTest {
     }
 
     class TryingThread implements Runnable {
+        @Override
         public void run() {
             PassiveResourceRegistry.singleton().getResource(PR2).acquire();
             PassiveResourceRegistry.singleton().getResource(PR2).acquire();
             PassiveResourceRegistry.singleton().getResource(PR2).acquire();
 
-            Assert.assertTrue(false);
+            assertTrue(false);
         }
     }
 
     class AcquiringThread implements Runnable {
+        @Override
         public void run() {
             PassiveResourceRegistry.singleton().getResource(PR1).acquire();
             Logger.getLogger(PassiveResource.class.getName()).debug("ACQUIRED! ");

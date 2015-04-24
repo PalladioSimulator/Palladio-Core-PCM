@@ -7,10 +7,9 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.palladiosimulator.protocom.framework.java.se.strategies.DemandConsumerStrategiesRegistry;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
@@ -26,22 +25,9 @@ public class PrototypePlatformTests {
     private static final String CALIBRATION_PATH = "../..";
     private static final Logger LOGGER = Logger.getLogger(PrototypePlatformTests.class.getName());
 
-    static {
-        BasicConfigurator.configure();
-    }
-
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         LOGGER.setLevel(Level.INFO);
-
-        /*
-         * This is done by the Strategy Register itself at the moment, but will be needed later.
-         */
-        LOGGER.info("Pls pin processor! Press a key when ready.");
-        /*
-         * try { System.in.read(); } catch (IOException e) { // TODO Auto-generated catch block
-         * e.printStackTrace(); }
-         */
         LOGGER.info("Initialising Testbed");
         final IDemandStrategy cpuStrategy = new FibonacciDemand();
         cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, CPU_PROCESSING_RATE, CALIBRATION_PATH);
@@ -68,6 +54,39 @@ public class PrototypePlatformTests {
             testConsumeCPUUnits(ERROR_LEVEL, TEST_ITERATIONS, OUTLIER_RATIO, unitsToConsume);
 
         }
+    }
+
+    @Test
+    public void testConsumeHDD() throws IOException {
+
+        final ReadLargeChunksDemand hddStrategy = (ReadLargeChunksDemand) DemandConsumerStrategiesRegistry.singleton()
+                .getStrategyFor(ResourceTypeEnum.HDD);
+
+        assertEquals(hddStrategy.getClass(), ReadLargeChunksDemand.class);
+
+        final BufferedWriter bw = new BufferedWriter(new FileWriter("testConsumeHDDResults.csv"));
+        bw.write("SizeRead;Time");
+        bw.newLine();
+
+        hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 0.0, CALIBRATION_PATH);
+
+        final boolean random = true;
+
+        final int iterations = 100;
+
+        final double demand = 1000000;
+        // warmup
+        for (int i = 0; i < 100; i++) {
+            hddStrategy.consume(demand);
+        }
+
+        if (!random) {
+            consumeDecreasingHDDDemand(hddStrategy, bw, iterations);
+        } else {
+            consumeRandomHDDDemand(hddStrategy, bw, iterations);
+        }
+
+        // TODO: Noch mehr Tests.
     }
 
     private void testConsumeCPUUnits(final double ERROR_LEVEL, final int TEST_ITERATIONS, final double OUTLIER_RATIO,
@@ -103,39 +122,6 @@ public class PrototypePlatformTests {
                 + unitsToConsume + " workunits.");
         assertTrue("There have been more than " + TEST_ITERATIONS * OUTLIER_RATIO + " outliers for " + unitsToConsume
                 + " work units: " + countOutliers, countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);
-    }
-
-    @Test
-    public void testConsumeHDD() throws IOException {
-
-        final ReadLargeChunksDemand hddStrategy = (ReadLargeChunksDemand) DemandConsumerStrategiesRegistry.singleton()
-                .getStrategyFor(ResourceTypeEnum.HDD);
-
-        assertEquals(hddStrategy.getClass(), ReadLargeChunksDemand.class);
-
-        final BufferedWriter bw = new BufferedWriter(new FileWriter("testConsumeHDDResults.csv"));
-        bw.write("SizeRead;Time");
-        bw.newLine();
-
-        hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 0.0, CALIBRATION_PATH);
-
-        final boolean random = true;
-
-        final int iterations = 100;
-
-        final double demand = 1000000;
-        // warmup
-        for (int i = 0; i < 100; i++) {
-            hddStrategy.consume(demand);
-        }
-
-        if (!random) {
-            consumeDecreasingHDDDemand(hddStrategy, bw, iterations);
-        } else {
-            consumeRandomHDDDemand(hddStrategy, bw, iterations);
-        }
-
-        // TODO: Noch mehr Tests.
     }
 
     private void consumeRandomHDDDemand(final ReadLargeChunksDemand hddStrategy, final BufferedWriter bw, final int iterations)
