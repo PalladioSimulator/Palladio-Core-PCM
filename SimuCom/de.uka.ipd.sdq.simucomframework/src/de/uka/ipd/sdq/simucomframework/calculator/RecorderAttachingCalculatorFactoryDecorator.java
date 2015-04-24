@@ -103,7 +103,8 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     }
 
     @Override
-    public Calculator buildOverallStateOfPassiveResourceCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+    public Calculator buildOverallStateOfPassiveResourceCalculator(final MeasuringPoint measuringPoint,
+            final Probe probe) {
         return setupRecorder(decoratedCalculatorFactory.buildOverallStateOfPassiveResourceCalculator(measuringPoint,
                 probe));
     }
@@ -124,7 +125,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
         return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(measuringPoint, probe));
     }
 
-
     /**
      * {@inheritDoc}
      */
@@ -132,16 +132,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     public Calculator buildNumberOfResourceContainersCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
         return setupRecorder(decoratedCalculatorFactory
                 .buildNumberOfResourceContainersCalculator(measuringPoint, probe));
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Calculator buildReconfigurationTimeCalculator(final MeasuringPoint measuringPoint, final List<Probe> probes) {
-        // TODO: Check whether this is correct?!
-        return setupRecorder(decoratedCalculatorFactory
-                .buildReconfigurationTimeCalculator(measuringPoint, probes));
     }
 
     private Calculator setupRecorder(final Calculator calculator) {
@@ -159,5 +149,10 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
         calculator.addObserver(recorder);
 
         return calculator;
+    }
+
+    @Override
+    public Calculator buildReconfigurationTimeCalculator(MeasuringPoint measuringPoint, List<Probe> probes) {
+        return setupRecorder(decoratedCalculatorFactory.buildReconfigurationTimeCalculator(measuringPoint, probes));
     }
 }
