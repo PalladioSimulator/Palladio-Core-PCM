@@ -9,6 +9,8 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtext.resource.impl.BinaryGrammarResourceFactoryImpl;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
@@ -25,10 +27,15 @@ public class StoExVisitorTests extends TestCase {
 
     @Override
     public void setUp() {
+
+        // FIX for xtext StoEx: Register xtextbin in the Resource Factory
+        if (!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("xtextbin"))
+            Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xtextbin",
+                    new BinaryGrammarResourceFactoryImpl());
+
         IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
-        probFunctionFactory.setRandomGenerator(new SimuComDefaultRandomNumberGenerator(new long[] {
-                1, 2, 3, 4, 5, 6
-        }));
+        probFunctionFactory
+                .setRandomGenerator(new SimuComDefaultRandomNumberGenerator(new long[] { 1, 2, 3, 4, 5, 6 }));
         StoExCache.initialiseStoExCache(probFunctionFactory);
 
         PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
