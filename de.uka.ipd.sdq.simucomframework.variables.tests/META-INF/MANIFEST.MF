@@ -9,6 +9,8 @@ Require-Bundle: org.junit,
  org.apache.log4j,
  de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.probfunction.math,
- org.apache.commons.math
+ org.apache.commons.math,
+ org.eclipse.xtext.junit4,
+ org.palladiosimulator.commons.stoex
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

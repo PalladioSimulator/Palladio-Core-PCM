@@ -9,8 +9,6 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
-import org.eclipse.xtext.junit4.XtextRunner;
-import org.junit.runner.RunWith;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
@@ -22,18 +20,11 @@ import de.uka.ipd.sdq.simucomframework.variables.functions.MaxFunction;
 import de.uka.ipd.sdq.simucomframework.variables.functions.MinDeviationFunction;
 import de.uka.ipd.sdq.simucomframework.variables.functions.MinFunction;
 
-@RunWith(XtextRunner.class)
 public class StoExVisitorTests extends TestCase {
     private static final Logger LOGGER = Logger.getLogger(StoExVisitorTests.class.getName());
 
     @Override
     public void setUp() {
-
-        // FIX for xtext StoEx: Register xtextbin in the Resource Factory
-        // if
-        // (!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("xtextbin"))
-        // Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xtextbin",
-        // new BinaryGrammarResourceFactoryImpl());
 
         IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
         probFunctionFactory
