@@ -11,7 +11,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.eclipse.xtext.junit4.XtextRunner;
 import org.junit.runner.RunWith;
-import org.palladiosimulator.commons.stoex.StoExStandaloneSetup;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
@@ -29,8 +28,6 @@ public class StoExVisitorTests extends TestCase {
 
     @Override
     public void setUp() {
-
-        StoExStandaloneSetup.doSetup();
 
         // FIX for xtext StoEx: Register xtextbin in the Resource Factory
         // if
