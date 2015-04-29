@@ -90,7 +90,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		{
 			«val counterID = ba.id.javaVariableName»
 			«IF ba.branches_Branch.head instanceof ProbabilisticBranchTransition»
-				double u«counterID» = (Double)ctx.evaluate("DoublePDF[(1;1.0)]",Double.class);
+				double u«counterID» = (Double)ctx.evaluate("DoublePDF[(1.0;1.0)]",Double.class);
 				double sum«counterID» = 0;
 				«FOR b : ba.branches_Branch SEPARATOR ""»«b.branchTransition(counterID)»«ENDFOR»
 			«ELSE»
