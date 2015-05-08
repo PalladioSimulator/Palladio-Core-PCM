@@ -15,6 +15,7 @@ import org.palladiosimulator.protocom.model.seff.StopActionAdapter
 import org.palladiosimulator.protocom.model.seff.ForkActionAdapter
 import org.palladiosimulator.protocom.model.seff.AcquireActionAdapter
 import org.palladiosimulator.protocom.model.seff.ReleaseActionAdapter
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 
 /**
  * @author Christian Klaussner
@@ -38,8 +39,8 @@ class PcmServletProtoAction {
 	private def dispatch action(BranchActionAdapter action) {
 		'''
 		«IF ProbabilisticBranchTransitionAdapter.isInstance(action.branchTransitions.get(0))»
-			double u«action.id» = (Double) ctx.evaluate("DoublePDF[(1.0;1.0)]", Double.class);
-			double sum«action.id» = 0;
+			double u«JavaNames::javaVariableName(action.id)» = (Double) ctx.evaluate("DoublePDF[(1.0;1.0)]", Double.class);
+			double sum«JavaNames::javaVariableName(action.id)» = 0;
 			
 			«FOR transition : action.branchTransitions»
 				«branchTransition(action, transition)»
@@ -54,7 +55,7 @@ class PcmServletProtoAction {
 	
 	private def dispatch branchTransition(BranchActionAdapter action, ProbabilisticBranchTransitionAdapter transition) {
 		'''
-		if (sum«action.id» <= u«action.id» && u«action.id» < sum«action.id» + «transition.probability») {
+		if (sum«JavaNames::javaVariableName(action.id)» <= u«JavaNames::javaVariableName(JavaNames::javaVariableName(action.id))» && u«JavaNames::javaVariableName(JavaNames::javaVariableName(action.id))» < sum«JavaNames::javaVariableName(JavaNames::javaVariableName(action.id))» + «transition.probability») {
 			«actions(transition.start)»
 		}
 		'''
@@ -123,9 +124,9 @@ class PcmServletProtoAction {
 	
 	private def dispatch action(LoopActionAdapter action) {
 		'''
-		int maxIterationCount«action.id» = ctx.evaluate("«action.safeSpecification(action.iterationCount)»", Integer.class);
+		int maxIterationCount«JavaNames::javaVariableName(action.id)» = ctx.evaluate("«action.safeSpecification(action.iterationCount)»", Integer.class);
 		
-		for (int iterationCount«action.id» = 0; iterationCount«action.id» < maxIterationCount«action.id»; iterationCount«action.id»++) {
+		for (int iterationCount«JavaNames::javaVariableName(action.id)» = 0; iterationCount«JavaNames::javaVariableName(action.id)» < maxIterationCount«JavaNames::javaVariableName(action.id)»; iterationCount«JavaNames::javaVariableName(action.id)»++) {
 			«actions(action.start)»
 		}
 		'''
