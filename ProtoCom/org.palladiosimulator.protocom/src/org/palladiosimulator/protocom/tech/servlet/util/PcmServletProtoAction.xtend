@@ -38,7 +38,7 @@ class PcmServletProtoAction {
 	private def dispatch action(BranchActionAdapter action) {
 		'''
 		«IF ProbabilisticBranchTransitionAdapter.isInstance(action.branchTransitions.get(0))»
-			double u«action.id» = (Double) ctx.evaluate("DoublePDF[(1;1.0)]", Double.class);
+			double u«action.id» = (Double) ctx.evaluate("DoublePDF[(1.0;1.0)]", Double.class);
 			double sum«action.id» = 0;
 			
 			«FOR transition : action.branchTransitions»

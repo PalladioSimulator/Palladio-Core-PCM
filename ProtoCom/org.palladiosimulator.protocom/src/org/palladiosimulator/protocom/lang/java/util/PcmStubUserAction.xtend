@@ -57,7 +57,7 @@ class PcmStubUserAction extends PcmUserAction {
 	 */
 	dispatch override String userAction(Branch userAction) {
 		'''
-			double u«JavaNames::javaVariableName(userAction.id)» = ctx.evaluate("DoublePDF[(1;1.0)]", Double.class);
+			double u«JavaNames::javaVariableName(userAction.id)» = ctx.evaluate("DoublePDF[(1.0;1.0)]", Double.class);
 			double sum«JavaNames::javaVariableName(userAction.id)» = 0;
 			
 			«FOR transition : userAction.branchTransitions_Branch»

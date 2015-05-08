@@ -91,7 +91,7 @@ class PcmProtoAction extends PcmAction {
 	dispatch override String action(BranchAction action) {
 		'''
 		«IF ProbabilisticBranchTransition.isInstance(action.branches_Branch.get(0))»
-			double u«JavaNames::javaVariableName(action.id)» = (Double) ctx.evaluate("DoublePDF[(1;1.0)]", Double.class);
+			double u«JavaNames::javaVariableName(action.id)» = (Double) ctx.evaluate("DoublePDF[(1.0;1.0)]", Double.class);
 			double sum«JavaNames::javaVariableName(action.id)» = 0;
 			
 			«FOR branch : action.branches_Branch»
