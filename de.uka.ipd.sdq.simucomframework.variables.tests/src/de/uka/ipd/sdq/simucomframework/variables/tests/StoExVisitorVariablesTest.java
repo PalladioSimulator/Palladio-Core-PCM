@@ -34,9 +34,7 @@ public class StoExVisitorVariablesTest extends TestCase {
         Map<String, Object> m = reg.getExtensionToFactoryMap();
 
         // FIX for xtext StoEx: Register xtextbin in the Resource Factory
-        if
-
-        (!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("xtextbin"))
+        if (!Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().containsKey("xtextbin"))
             Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xtextbin",
                     new BinaryGrammarResourceFactoryImpl());
 
