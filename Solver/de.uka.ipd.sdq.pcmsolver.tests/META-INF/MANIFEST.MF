@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: de.uka.ipd.sdq.pcmsolver.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.pcmsolver.tests.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.junit,
+ LQNModel,
+ org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: de.uka.ipd.sdq.pcmsolver.tests
