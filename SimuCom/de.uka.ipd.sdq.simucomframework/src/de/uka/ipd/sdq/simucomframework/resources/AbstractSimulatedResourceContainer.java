@@ -38,8 +38,8 @@ public abstract class AbstractSimulatedResourceContainer {
         super();
         this.myModel = myModel;
         this.myContainerID = myContainerID;
-        if (LOGGER.isEnabledFor(Level.INFO)) {
-            LOGGER.info("Simulated Resource Container created. ContainerID " + myContainerID);
+        if (LOGGER.isEnabledFor(Level.DEBUG)) {
+            LOGGER.debug("Simulated Resource Container created. ContainerID " + myContainerID);
         }
     }
 

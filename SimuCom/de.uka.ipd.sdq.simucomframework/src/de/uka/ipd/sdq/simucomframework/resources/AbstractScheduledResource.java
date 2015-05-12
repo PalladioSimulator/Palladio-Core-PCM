@@ -64,8 +64,8 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
         this.resourceContainerID = resourceContainerID;
         this.requiredByContainer = requiredByContainer;
 
-        if (LOGGER.isEnabledFor(Level.INFO)) {
-            LOGGER.info("Creating Simulated Active Resource: " + this.getName());
+        if (LOGGER.isEnabledFor(Level.DEBUG)) {
+            LOGGER.debug("Creating Simulated Active Resource: " + this.getName());
         }
 
         myResourceStatus = SimucomstatusFactory.eINSTANCE.createActiveResouce();
