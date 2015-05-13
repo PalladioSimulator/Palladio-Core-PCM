@@ -236,9 +236,11 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 		«FOR f : fa.asynchronousForkedBehaviours_ForkAction SEPARATOR " "»
 			«f.steps_Behaviour.findStart().actionsAsMethods»
 		«ENDFOR»
-		«FOR f : fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR " "»
-			«f.steps_Behaviour.findStart().actionsAsMethods»
-		«ENDFOR»
+		«IF fa.synchronisingBehaviours_ForkAction != null»
+			«FOR f : fa.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint SEPARATOR " "»
+				«f.steps_Behaviour.findStart().actionsAsMethods»
+			«ENDFOR»
+		«ENDIF»
 	'''
 	
 	// overwritten template methods	
