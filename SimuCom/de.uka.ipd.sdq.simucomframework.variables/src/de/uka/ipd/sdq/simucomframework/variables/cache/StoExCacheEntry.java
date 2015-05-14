@@ -5,9 +5,10 @@ import java.util.Iterator;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.nodemodel.INode;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExParser;
 
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
@@ -39,13 +40,14 @@ public class StoExCacheEntry {
      */
     public StoExCacheEntry(String spec) {
         this.spec = spec;
+        PCMStoExLexer lexer = new PCMStoExLexer(new ANTLRStringStream(spec));
         Expression formula = null;
         try {
-            PCMStoExParser parser = new PCMStoExParser(spec);
+            MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
             formula = parser.expression();
             if (parser.hasErrors()) {
-                for (INode error : parser.getErrors()) {
-                    throw new RuntimeException("Expression not parsable \"" + spec + "\"");
+                for (ErrorEntry error : parser.getErrors()) {
+                    throw new RuntimeException("Expression not parsable \"" + spec + "\"", error.getEx());
                 }
             }
 
