@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.window.Window;
 import org.eclipse.ui.PlatformUI;
-import org.palladiosimulator.pcm.pcmstoex.ui.adapter.StochasticExpressionEditDialog;
 
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;

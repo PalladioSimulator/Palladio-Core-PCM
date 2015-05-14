@@ -16,7 +16,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 /**
  * The Class StoExParserProvider.
  */
-@Deprecated
 public class StoExParserProvider extends AbstractProvider implements IParserProvider {
 
     /*
