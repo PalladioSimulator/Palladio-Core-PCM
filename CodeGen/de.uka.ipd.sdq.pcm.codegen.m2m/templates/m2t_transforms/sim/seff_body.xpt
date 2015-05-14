@@ -66,7 +66,7 @@
 	{
 		«LET this.id.javaVariableName() AS counterID»
 			«IF ProbabilisticBranchTransition.isInstance(this.branches_Branch.get(0))»
-				double u«counterID» = (Double)ctx.evaluate("DoublePDF[(1.0;1.0)]",Double.class);
+				double u«counterID» = (Double)ctx.evaluate("DoublePDF[(1;1.0)]",Double.class);
 				double sum«counterID» = 0;
 				«EXPAND BranchTransition(counterID) FOREACH this.branches_Branch SEPARATOR ""»
 			«ELSE»
