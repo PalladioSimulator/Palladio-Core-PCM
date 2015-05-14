@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.pcmsolver.transformations.pcm2lqn;
 import java.math.BigInteger;
 import java.util.List;
 
+import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
@@ -383,7 +384,7 @@ public class UsageModel2Lqn extends UsagemodelSwitch<String> {
 					.getSpecification());
 		} catch (StringNotPDFException e) {
 			e.printStackTrace();
-		} catch (RuntimeException e) {
+		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}
 		if (pmf != null) {

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
+import org.antlr.runtime.RecognitionException;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
@@ -1259,7 +1260,7 @@ public class ContextWrapper implements Cloneable {
 								.getSpecification());
 					} catch (Exception e) {
 						throw new RuntimeException(
-								"Error calculating MeanTotalInputParameterBytesize.");
+								"Error calculating MeanTotalInputParameterBytesize.", e);
 					}
 
 					meanTotalOutputParameterBytesize += pmf.getExpectedValue();
@@ -1481,7 +1482,7 @@ public class ContextWrapper implements Cloneable {
 				pmf = ManagedPMF.createFromString(spec);
 			} catch (StringNotPDFException e) {
 				e.printStackTrace();
-			} catch (RuntimeException e) {
+			} catch (RecognitionException e) {
 				e.printStackTrace();
 			}
 			loopIters.put(li.getLoopaction_LoopIteration(), pmf);

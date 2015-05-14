@@ -1,31 +1,38 @@
 package de.uka.ipd.sdq.pcmsolver.visitors;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExParser;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
+import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.pcmsolver.transformations.ContextWrapper;
 import de.uka.ipd.sdq.pcmsolver.transformations.ExpressionToPDFWrapper;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
+import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 public class ExpressionHelper {
+	
+	private static Logger logger = Logger.getLogger(ExpressionHelper.class.getName());
 
 	/**
 	 * @param specification
 	 */
 	public static Expression parseToExpression(String specification) {
 		Expression expression = null;
-		PCMStoExParser parser = new PCMStoExParser(specification);
+		PCMStoExLexer lexer = new PCMStoExLexer(
+				new ANTLRStringStream(specification));
+		PCMStoExParser parser = new PCMStoExParser(new CommonTokenStream(lexer));
 		try {
 			expression = parser.expression();
-		} catch (RuntimeException e) {
+		} catch (RecognitionException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -35,7 +42,7 @@ public class ExpressionHelper {
 	public static String getSolvedExpressionAsString(String specification, ContextWrapper ctxWrp){
 		Expression solvedExpression = getSolvedExpression(specification, ctxWrp);
 		
-		String solvedExprString = new PCMStoExSerializer().valueOf(solvedExpression);
+		String solvedExprString = new StoExPrettyPrintVisitor().doSwitch(solvedExpression).toString();
 		
 		if (solvedExpression == null){
 			throw new RuntimeException("Could not print solved expression "+specification);
@@ -49,7 +56,21 @@ public class ExpressionHelper {
 		Expression expr = parseToExpression(specification);
 		
 		ExpressionInferTypeVisitor inferTypeVisitor = new ExpressionInferTypeVisitor();
-		inferTypeVisitor.doSwitch(expr);
+		
+		try {
+			
+			inferTypeVisitor.doSwitch(expr);
+			
+		} catch (UnsupportedOperationException e){
+			// might be thrown if the inferred types are not compatible. However, sometimes variables are 
+			// interpreted to strictly (e.g. characterization VALUE is assumed to be ANY_PMF), but maybe they
+			// actually are of a type that is easier to handle.
+			logger.error("Infering the type failed with an "+e.getClass().getName()+". I will try to ignore this and continue. Details:\n"
+					+ e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
+			
+			e.printStackTrace();
+			
+		}
 
 		HashMap<Expression, TypeEnum> typeAnnotation = inferTypeVisitor
 				.getTypeAnnotation();
