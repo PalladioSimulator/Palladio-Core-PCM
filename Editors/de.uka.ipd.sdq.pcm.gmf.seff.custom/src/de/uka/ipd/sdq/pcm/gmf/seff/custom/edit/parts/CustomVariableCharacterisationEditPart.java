@@ -7,10 +7,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
 
 /**
@@ -48,7 +48,7 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
             if (vc.getSpecification_VariableCharacterisation() != null) {
                 final Expression expression = vc.getSpecification_VariableCharacterisation().getExpression();
                 if (expression != null) {
-                    text += new PCMStoExSerializer().prettyPrint(expression);
+                    text += new PCMStoExPrettyPrintVisitor().prettyPrint(expression);
                 }
             } else {
                 text = null;

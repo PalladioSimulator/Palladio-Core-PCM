@@ -10,10 +10,10 @@ import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * The customized variable usage edit part class.
@@ -77,7 +77,7 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
             if (variableUsage == null) {
                 fFigureVariableUsageReferenceLabelFigure.setText("<not set>");
             } else {
-                fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExSerializer()
+                fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
                         .prettyPrint(variableUsage.getNamedReference__VariableUsage()));
             }
             fFigureVariableUsageReferenceLabelFigure.setBorder(new MarginBorder(CustomVariableUsageEditPart.this

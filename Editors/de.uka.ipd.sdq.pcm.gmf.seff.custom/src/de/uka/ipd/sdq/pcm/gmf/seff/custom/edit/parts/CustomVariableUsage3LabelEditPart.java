@@ -6,10 +6,10 @@ package de.uka.ipd.sdq.pcm.gmf.seff.custom.edit.parts;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3LabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * The customized variable usage3 label edit part classw.
@@ -41,7 +41,7 @@ public class CustomVariableUsage3LabelEditPart extends VariableUsage3LabelEditPa
                 // customized
                 final VariableUsage usage = (VariableUsage) this.resolveSemanticElement();
                 if (usage.getNamedReference__VariableUsage() != null) {
-                    text = new PCMStoExSerializer().prettyPrint(usage.getNamedReference__VariableUsage());
+                    text = new PCMStoExPrettyPrintVisitor().prettyPrint(usage.getNamedReference__VariableUsage());
                 }
             } else {
                 if (parserElement != null && this.getParser() != null) {
