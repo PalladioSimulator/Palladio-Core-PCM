@@ -4,8 +4,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 public class EventFilterTabItemProvider  extends ItemProviderDecorator implements
@@ -13,7 +13,7 @@ ITableItemLabelProvider, IItemLabelProvider {
 
 public EventFilterTabItemProvider(AdapterFactory factory) {
 super(factory);
-new PCMStoExSerializer();
+new PCMStoExPrettyPrintVisitor();
 }
 
 /* (non-Javadoc)

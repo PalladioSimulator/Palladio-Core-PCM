@@ -10,13 +10,13 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.TableItem;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 
 /**
@@ -190,9 +190,9 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 		EList<VariableUsage> variables = context
 				.getConfigParameterUsages__AssemblyContext();
 
-		String newName = new PCMStoExSerializer().prettyPrint(newVariable);
+		String newName = new PCMStoExPrettyPrintVisitor().prettyPrint(newVariable);
 		for (VariableUsage existedVariable : variables) {
-			String existedName = new PCMStoExSerializer().prettyPrint(existedVariable);
+			String existedName = new PCMStoExPrettyPrintVisitor().prettyPrint(existedVariable);
 			if (newName.equals(existedName)) {
 				return existedVariable;
 			}
