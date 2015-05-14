@@ -21,30 +21,30 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static EntityFactory init() {
         try {
-            EntityFactory theEntityFactory = (EntityFactory) EPackage.Registry.INSTANCE
+            final EntityFactory theEntityFactory = (EntityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(EntityPackage.eNS_URI);
             if (theEntityFactory != null) {
                 return theEntityFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new EntityFactoryImpl();
@@ -52,7 +52,7 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EntityFactoryImpl() {
@@ -61,22 +61,22 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case EntityPackage.RESOURCE_PROVIDED_ROLE:
-            return (EObject) createResourceProvidedRole();
+            return this.createResourceProvidedRole();
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return (EObject) createResourceInterfaceRequiringEntity();
+            return this.createResourceInterfaceRequiringEntity();
         case EntityPackage.RESOURCE_REQUIRED_ROLE:
-            return (EObject) createResourceRequiredRole();
+            return this.createResourceRequiredRole();
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return (EObject) createResourceInterfaceProvidingEntity();
+            return this.createResourceInterfaceProvidingEntity();
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY:
-            return (EObject) createResourceInterfaceProvidingRequiringEntity();
+            return this.createResourceInterfaceProvidingRequiringEntity();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -84,72 +84,72 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceProvidedRole createResourceProvidedRole() {
-        ResourceProvidedRoleImpl resourceProvidedRole = new ResourceProvidedRoleImpl();
+        final ResourceProvidedRoleImpl resourceProvidedRole = new ResourceProvidedRoleImpl();
         return resourceProvidedRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceInterfaceRequiringEntity createResourceInterfaceRequiringEntity() {
-        ResourceInterfaceRequiringEntityImpl resourceInterfaceRequiringEntity = new ResourceInterfaceRequiringEntityImpl();
+        final ResourceInterfaceRequiringEntityImpl resourceInterfaceRequiringEntity = new ResourceInterfaceRequiringEntityImpl();
         return resourceInterfaceRequiringEntity;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceRequiredRole createResourceRequiredRole() {
-        ResourceRequiredRoleImpl resourceRequiredRole = new ResourceRequiredRoleImpl();
+        final ResourceRequiredRoleImpl resourceRequiredRole = new ResourceRequiredRoleImpl();
         return resourceRequiredRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceInterfaceProvidingEntity createResourceInterfaceProvidingEntity() {
-        ResourceInterfaceProvidingEntityImpl resourceInterfaceProvidingEntity = new ResourceInterfaceProvidingEntityImpl();
+        final ResourceInterfaceProvidingEntityImpl resourceInterfaceProvidingEntity = new ResourceInterfaceProvidingEntityImpl();
         return resourceInterfaceProvidingEntity;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public ResourceInterfaceProvidingRequiringEntity createResourceInterfaceProvidingRequiringEntity() {
-        ResourceInterfaceProvidingRequiringEntityImpl resourceInterfaceProvidingRequiringEntity = new ResourceInterfaceProvidingRequiringEntityImpl();
+        final ResourceInterfaceProvidingRequiringEntityImpl resourceInterfaceProvidingRequiringEntity = new ResourceInterfaceProvidingRequiringEntityImpl();
         return resourceInterfaceProvidingRequiringEntity;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public EntityPackage getEntityPackage() {
-        return (EntityPackage) getEPackage();
+        return (EntityPackage) this.getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

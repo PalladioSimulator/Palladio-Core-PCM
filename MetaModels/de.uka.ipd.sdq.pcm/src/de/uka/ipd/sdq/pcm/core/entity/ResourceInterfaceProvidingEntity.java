@@ -27,7 +27,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ResourceInterfaceProvidingEntity extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -46,7 +46,7 @@ public interface ResourceInterfaceProvidingEntity extends Entity {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Resource Provided Roles Resource Interface Providing Entity</em>' containment
      *         reference list.

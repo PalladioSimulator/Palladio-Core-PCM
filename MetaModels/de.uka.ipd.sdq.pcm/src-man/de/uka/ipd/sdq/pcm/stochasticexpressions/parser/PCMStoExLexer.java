@@ -11,10 +11,6 @@ import org.antlr.runtime.MismatchedSetException;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.RecognizerSharedState;
 
-/**
- * @deprecated Since StoEx migration to Xtext
- */
-@Deprecated
 public class PCMStoExLexer extends Lexer {
     public static final int INNER = 43;
     public static final int MOD = 17;

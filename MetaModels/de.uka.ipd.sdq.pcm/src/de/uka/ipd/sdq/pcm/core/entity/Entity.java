@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 public interface Entity extends Identifier, NamedElement {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

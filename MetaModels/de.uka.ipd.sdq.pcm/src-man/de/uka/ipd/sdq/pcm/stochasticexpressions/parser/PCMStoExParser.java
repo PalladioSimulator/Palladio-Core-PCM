@@ -58,10 +58,6 @@ import de.uka.ipd.sdq.stoex.VariableReference;
 
 //import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
-/**
- * @deprecated Since StoEx migration to Xtext
- */
-@Deprecated
 public class PCMStoExParser extends Parser {
     public static final String[] tokenNames = new String[] { "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "OR",
             "XOR", "GREATER", "LESS", "EQUAL", "NOTEQUAL", "GREATEREQUAL", "LESSEQUAL", "PLUS", "MINUS", "MUL", "DIV",

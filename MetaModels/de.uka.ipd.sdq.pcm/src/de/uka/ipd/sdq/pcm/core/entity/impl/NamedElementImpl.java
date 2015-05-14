@@ -29,7 +29,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
 public abstract class NamedElementImpl extends EStereotypableObjectImpl implements NamedElement {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -37,7 +37,7 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
     /**
      * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -47,7 +47,7 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
     /**
      * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -56,7 +56,7 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected NamedElementImpl() {
@@ -65,7 +65,7 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -75,52 +75,53 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public String getEntityName() {
-        return entityName;
+        return this.entityName;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setEntityName(String newEntityName) {
-        String oldEntityName = entityName;
-        entityName = newEntityName;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.NAMED_ELEMENT__ENTITY_NAME,
-                    oldEntityName, entityName));
+    public void setEntityName(final String newEntityName) {
+        final String oldEntityName = this.entityName;
+        this.entityName = newEntityName;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.NAMED_ELEMENT__ENTITY_NAME,
+                    oldEntityName, this.entityName));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            return getEntityName();
+            return this.getEntityName();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            setEntityName((String) newValue);
+            this.setEntityName((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -128,14 +129,14 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            setEntityName(ENTITY_NAME_EDEFAULT);
+            this.setEntityName(ENTITY_NAME_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
@@ -143,31 +144,33 @@ public abstract class NamedElementImpl extends EStereotypableObjectImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? entityName != null : !ENTITY_NAME_EDEFAULT.equals(entityName);
+            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
+                    .equals(this.entityName);
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy())
+        if (this.eIsProxy()) {
             return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (entityName: ");
-        result.append(entityName);
+        result.append(this.entityName);
         result.append(')');
         return result.toString();
     }

@@ -5,7 +5,6 @@ import org.antlr.runtime.RecognitionException;
 import de.uka.ipd.sdq.errorhandling.IIssue;
 import de.uka.ipd.sdq.errorhandling.SeverityEnum;
 
-@Deprecated
 public class ErrorEntry implements IIssue {
     private RecognitionException ex = null;
     private String errorText = null;

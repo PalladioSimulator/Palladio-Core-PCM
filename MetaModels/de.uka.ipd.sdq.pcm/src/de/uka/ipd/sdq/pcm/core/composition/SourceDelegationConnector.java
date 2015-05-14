@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 public interface SourceDelegationConnector extends DelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Inner Source Role Source Role</em>' reference.
      * @see #setInnerSourceRole__SourceRole(SourceRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSourceDelegationConnector_InnerSourceRole__SourceRole()
@@ -59,7 +59,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole
      * <em>Inner Source Role Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Inner Source Role Source Role</em>' reference.
      * @see #getInnerSourceRole__SourceRole()
@@ -75,7 +75,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Outer Source Role Source Role</em>' reference.
      * @see #setOuterSourceRole__SourceRole(SourceRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSourceDelegationConnector_OuterSourceRole__SourceRole()
@@ -89,7 +89,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getOuterSourceRole__SourceRole
      * <em>Outer Source Role Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Outer Source Role Source Role</em>' reference.
      * @see #getOuterSourceRole__SourceRole()
@@ -105,7 +105,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Context Source Delegation Connector</em>' reference.
      * @see #setAssemblyContext__SourceDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector()
@@ -119,7 +119,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
      * <em>Assembly Context Source Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Assembly Context Source Delegation Connector</em>'
      *            reference.

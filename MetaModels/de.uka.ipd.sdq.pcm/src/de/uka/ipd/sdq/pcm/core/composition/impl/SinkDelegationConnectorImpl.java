@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 public class SinkDelegationConnectorImpl extends DelegationConnectorImpl implements SinkDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      * The cached value of the '{@link #getAssemblyContext__SinkDelegationConnector()
      * <em>Assembly Context Sink Delegation Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getAssemblyContext__SinkDelegationConnector()
      * @generated
      * @ordered
@@ -58,7 +58,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
     /**
      * The cached value of the '{@link #getInnerSinkRole__SinkRole()
      * <em>Inner Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInnerSinkRole__SinkRole()
      * @generated
      * @ordered
@@ -68,7 +68,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
     /**
      * The cached value of the '{@link #getOuterSinkRole__SinkRole()
      * <em>Outer Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getOuterSinkRole__SinkRole()
      * @generated
      * @ordered
@@ -77,7 +77,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SinkDelegationConnectorImpl() {
@@ -86,7 +86,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -96,177 +96,188 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__SinkDelegationConnector() {
-        if (assemblyContext__SinkDelegationConnector != null
-                && ((EObject) assemblyContext__SinkDelegationConnector).eIsProxy()) {
-            InternalEObject oldAssemblyContext__SinkDelegationConnector = (InternalEObject) assemblyContext__SinkDelegationConnector;
-            assemblyContext__SinkDelegationConnector = (AssemblyContext) eResolveProxy(oldAssemblyContext__SinkDelegationConnector);
-            if (assemblyContext__SinkDelegationConnector != oldAssemblyContext__SinkDelegationConnector) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.assemblyContext__SinkDelegationConnector != null
+                && ((EObject) this.assemblyContext__SinkDelegationConnector).eIsProxy()) {
+            final InternalEObject oldAssemblyContext__SinkDelegationConnector = (InternalEObject) this.assemblyContext__SinkDelegationConnector;
+            this.assemblyContext__SinkDelegationConnector = (AssemblyContext) this
+                    .eResolveProxy(oldAssemblyContext__SinkDelegationConnector);
+            if (this.assemblyContext__SinkDelegationConnector != oldAssemblyContext__SinkDelegationConnector) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR,
-                            oldAssemblyContext__SinkDelegationConnector, assemblyContext__SinkDelegationConnector));
+                            oldAssemblyContext__SinkDelegationConnector, this.assemblyContext__SinkDelegationConnector));
+                }
             }
         }
-        return assemblyContext__SinkDelegationConnector;
+        return this.assemblyContext__SinkDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__SinkDelegationConnector() {
-        return assemblyContext__SinkDelegationConnector;
+        return this.assemblyContext__SinkDelegationConnector;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setAssemblyContext__SinkDelegationConnector(AssemblyContext newAssemblyContext__SinkDelegationConnector) {
-        AssemblyContext oldAssemblyContext__SinkDelegationConnector = assemblyContext__SinkDelegationConnector;
-        assemblyContext__SinkDelegationConnector = newAssemblyContext__SinkDelegationConnector;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setAssemblyContext__SinkDelegationConnector(
+            final AssemblyContext newAssemblyContext__SinkDelegationConnector) {
+        final AssemblyContext oldAssemblyContext__SinkDelegationConnector = this.assemblyContext__SinkDelegationConnector;
+        this.assemblyContext__SinkDelegationConnector = newAssemblyContext__SinkDelegationConnector;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR,
-                    oldAssemblyContext__SinkDelegationConnector, assemblyContext__SinkDelegationConnector));
+                    oldAssemblyContext__SinkDelegationConnector, this.assemblyContext__SinkDelegationConnector));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SinkRole getInnerSinkRole__SinkRole() {
-        if (innerSinkRole__SinkRole != null && ((EObject) innerSinkRole__SinkRole).eIsProxy()) {
-            InternalEObject oldInnerSinkRole__SinkRole = (InternalEObject) innerSinkRole__SinkRole;
-            innerSinkRole__SinkRole = (SinkRole) eResolveProxy(oldInnerSinkRole__SinkRole);
-            if (innerSinkRole__SinkRole != oldInnerSinkRole__SinkRole) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.innerSinkRole__SinkRole != null && ((EObject) this.innerSinkRole__SinkRole).eIsProxy()) {
+            final InternalEObject oldInnerSinkRole__SinkRole = (InternalEObject) this.innerSinkRole__SinkRole;
+            this.innerSinkRole__SinkRole = (SinkRole) this.eResolveProxy(oldInnerSinkRole__SinkRole);
+            if (this.innerSinkRole__SinkRole != oldInnerSinkRole__SinkRole) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE,
-                            oldInnerSinkRole__SinkRole, innerSinkRole__SinkRole));
+                            oldInnerSinkRole__SinkRole, this.innerSinkRole__SinkRole));
+                }
             }
         }
-        return innerSinkRole__SinkRole;
+        return this.innerSinkRole__SinkRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SinkRole basicGetInnerSinkRole__SinkRole() {
-        return innerSinkRole__SinkRole;
+        return this.innerSinkRole__SinkRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setInnerSinkRole__SinkRole(SinkRole newInnerSinkRole__SinkRole) {
-        SinkRole oldInnerSinkRole__SinkRole = innerSinkRole__SinkRole;
-        innerSinkRole__SinkRole = newInnerSinkRole__SinkRole;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setInnerSinkRole__SinkRole(final SinkRole newInnerSinkRole__SinkRole) {
+        final SinkRole oldInnerSinkRole__SinkRole = this.innerSinkRole__SinkRole;
+        this.innerSinkRole__SinkRole = newInnerSinkRole__SinkRole;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE,
-                    oldInnerSinkRole__SinkRole, innerSinkRole__SinkRole));
+                    oldInnerSinkRole__SinkRole, this.innerSinkRole__SinkRole));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SinkRole getOuterSinkRole__SinkRole() {
-        if (outerSinkRole__SinkRole != null && ((EObject) outerSinkRole__SinkRole).eIsProxy()) {
-            InternalEObject oldOuterSinkRole__SinkRole = (InternalEObject) outerSinkRole__SinkRole;
-            outerSinkRole__SinkRole = (SinkRole) eResolveProxy(oldOuterSinkRole__SinkRole);
-            if (outerSinkRole__SinkRole != oldOuterSinkRole__SinkRole) {
-                if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+        if (this.outerSinkRole__SinkRole != null && ((EObject) this.outerSinkRole__SinkRole).eIsProxy()) {
+            final InternalEObject oldOuterSinkRole__SinkRole = (InternalEObject) this.outerSinkRole__SinkRole;
+            this.outerSinkRole__SinkRole = (SinkRole) this.eResolveProxy(oldOuterSinkRole__SinkRole);
+            if (this.outerSinkRole__SinkRole != oldOuterSinkRole__SinkRole) {
+                if (this.eNotificationRequired()) {
+                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompositionPackage.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE,
-                            oldOuterSinkRole__SinkRole, outerSinkRole__SinkRole));
+                            oldOuterSinkRole__SinkRole, this.outerSinkRole__SinkRole));
+                }
             }
         }
-        return outerSinkRole__SinkRole;
+        return this.outerSinkRole__SinkRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SinkRole basicGetOuterSinkRole__SinkRole() {
-        return outerSinkRole__SinkRole;
+        return this.outerSinkRole__SinkRole;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setOuterSinkRole__SinkRole(SinkRole newOuterSinkRole__SinkRole) {
-        SinkRole oldOuterSinkRole__SinkRole = outerSinkRole__SinkRole;
-        outerSinkRole__SinkRole = newOuterSinkRole__SinkRole;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET,
+    public void setOuterSinkRole__SinkRole(final SinkRole newOuterSinkRole__SinkRole) {
+        final SinkRole oldOuterSinkRole__SinkRole = this.outerSinkRole__SinkRole;
+        this.outerSinkRole__SinkRole = newOuterSinkRole__SinkRole;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
                     CompositionPackage.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE,
-                    oldOuterSinkRole__SinkRole, outerSinkRole__SinkRole));
+                    oldOuterSinkRole__SinkRole, this.outerSinkRole__SinkRole));
+        }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
-            if (resolve)
-                return getAssemblyContext__SinkDelegationConnector();
-            return basicGetAssemblyContext__SinkDelegationConnector();
+            if (resolve) {
+                return this.getAssemblyContext__SinkDelegationConnector();
+            }
+            return this.basicGetAssemblyContext__SinkDelegationConnector();
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE:
-            if (resolve)
-                return getInnerSinkRole__SinkRole();
-            return basicGetInnerSinkRole__SinkRole();
+            if (resolve) {
+                return this.getInnerSinkRole__SinkRole();
+            }
+            return this.basicGetInnerSinkRole__SinkRole();
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE:
-            if (resolve)
-                return getOuterSinkRole__SinkRole();
-            return basicGetOuterSinkRole__SinkRole();
+            if (resolve) {
+                return this.getOuterSinkRole__SinkRole();
+            }
+            return this.basicGetOuterSinkRole__SinkRole();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
-            setAssemblyContext__SinkDelegationConnector((AssemblyContext) newValue);
+            this.setAssemblyContext__SinkDelegationConnector((AssemblyContext) newValue);
             return;
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE:
-            setInnerSinkRole__SinkRole((SinkRole) newValue);
+            this.setInnerSinkRole__SinkRole((SinkRole) newValue);
             return;
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE:
-            setOuterSinkRole__SinkRole((SinkRole) newValue);
+            this.setOuterSinkRole__SinkRole((SinkRole) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -274,20 +285,20 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
-            setAssemblyContext__SinkDelegationConnector((AssemblyContext) null);
+            this.setAssemblyContext__SinkDelegationConnector((AssemblyContext) null);
             return;
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE:
-            setInnerSinkRole__SinkRole((SinkRole) null);
+            this.setInnerSinkRole__SinkRole((SinkRole) null);
             return;
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE:
-            setOuterSinkRole__SinkRole((SinkRole) null);
+            this.setOuterSinkRole__SinkRole((SinkRole) null);
             return;
         }
         super.eUnset(featureID);
@@ -295,18 +306,18 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
-            return assemblyContext__SinkDelegationConnector != null;
+            return this.assemblyContext__SinkDelegationConnector != null;
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE:
-            return innerSinkRole__SinkRole != null;
+            return this.innerSinkRole__SinkRole != null;
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE:
-            return outerSinkRole__SinkRole != null;
+            return this.outerSinkRole__SinkRole != null;
         }
         return super.eIsSet(featureID);
     }

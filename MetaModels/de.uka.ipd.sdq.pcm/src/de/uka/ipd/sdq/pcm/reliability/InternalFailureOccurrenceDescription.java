@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.pcm.seff.InternalAction;
 public interface InternalFailureOccurrenceDescription extends FailureOccurrenceDescription {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Software Induced Failure Type Internal Failure Occurrence Description</em> '
      *         reference.
@@ -74,7 +74,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
      * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getSoftwareInducedFailureType__InternalFailureOccurrenceDescription
      * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Software Induced Failure Type Internal Failure Occurrence Description</em>'
@@ -88,7 +88,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      * ResourceTimeoutFailures are software-induced failure types, but are not annotated to
      * InternalActions (they are only meant for passive resource timeouts).
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -111,7 +111,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Internal Action Internal Failure Occurrence Description</em>'
      *         container reference.
      * @see #setInternalAction__InternalFailureOccurrenceDescription(InternalAction)
@@ -128,7 +128,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
      * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
      * <em>Internal Action Internal Failure Occurrence Description</em>}' container reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Internal Action Internal Failure Occurrence Description</em> ' container

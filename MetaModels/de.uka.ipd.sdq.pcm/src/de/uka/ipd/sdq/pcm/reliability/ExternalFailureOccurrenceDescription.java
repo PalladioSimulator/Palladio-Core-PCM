@@ -40,7 +40,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnn
 public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceDescription {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -58,7 +58,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Specified Reliability Annotation External Failure Occurrence Description</em> '
      *         container reference.
@@ -76,7 +76,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
      * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Specified Reliability Annotation External Failure Occurrence Description</em>'
@@ -95,7 +95,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the ' <em>Failure Type External Failure Occurrence Description</em>'
      *         reference.
      * @see #setFailureType__ExternalFailureOccurrenceDescription(FailureType)
@@ -110,7 +110,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription
      * <em>Failure Type External Failure Occurrence Description</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Failure Type External Failure Occurrence Description</em>' reference.
@@ -126,7 +126,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * are&nbsp;not&nbsp;annotated&nbsp;to&nbsp;system-external
      * calls&nbsp;(they&nbsp;are&nbsp;only&nbsp;meant<br />
      * for&nbsp;passive&nbsp;resource&nbsp;timeouts).
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 public interface NetworkInducedFailureType extends FailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public interface NetworkInducedFailureType extends FailureType {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Communication Link Resource Type Network Induced Failure Type</em>' reference.
      * @see #setCommunicationLinkResourceType__NetworkInducedFailureType(CommunicationLinkResourceType)
@@ -74,7 +74,7 @@ public interface NetworkInducedFailureType extends FailureType {
      * {@link de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType
      * <em>Communication Link Resource Type Network Induced Failure Type</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Communication Link Resource Type Network Induced Failure Type</em> '
@@ -86,7 +86,7 @@ public interface NetworkInducedFailureType extends FailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

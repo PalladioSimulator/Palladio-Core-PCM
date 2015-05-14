@@ -17,30 +17,30 @@ import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static SubsystemFactory init() {
         try {
-            SubsystemFactory theSubsystemFactory = (SubsystemFactory) EPackage.Registry.INSTANCE
+            final SubsystemFactory theSubsystemFactory = (SubsystemFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SubsystemPackage.eNS_URI);
             if (theSubsystemFactory != null) {
                 return theSubsystemFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SubsystemFactoryImpl();
@@ -48,7 +48,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SubsystemFactoryImpl() {
@@ -57,14 +57,14 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case SubsystemPackage.SUB_SYSTEM:
-            return (EObject) createSubSystem();
+            return this.createSubSystem();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -72,28 +72,28 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SubSystem createSubSystem() {
-        SubSystemImpl subSystem = new SubSystemImpl();
+        final SubSystemImpl subSystem = new SubSystemImpl();
         return subSystem;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public SubsystemPackage getSubsystemPackage() {
-        return (SubsystemPackage) getEPackage();
+        return (SubsystemPackage) this.getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

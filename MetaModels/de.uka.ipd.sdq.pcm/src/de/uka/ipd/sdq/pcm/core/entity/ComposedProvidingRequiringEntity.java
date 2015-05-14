@@ -19,12 +19,12 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
  * InterfaceProvidingRequiringEntity and a ComposedStructure. It is inherited by all classes that,
  * on the one hand, claim to implement the functionality specified in an interface as well as to
  * request that functionality, and, on the other hand, are composed out of some inner entities.
- * 
+ *
  * Valid ComposedProvidingRequiringEntities need to have their ProvidedRoles bound to ProvidedRoles
  * of the contained entities.
- * 
+ *
  * Prominent examples are System, SubSystem, and CompositeComponents
- * 
+ *
  * TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure
  * does not make sense at the moment, because the ComposedStructure already talks about inner
  * provided / required delegation connectors, which only make sense if there are outer roles for
@@ -42,7 +42,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 public interface ComposedProvidingRequiringEntity extends ComposedStructure, InterfaceProvidingRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,7 +52,7 @@ public interface ComposedProvidingRequiringEntity extends ComposedStructure, Int
      * ensures that all outer provided roles of a system have a provided delegation conector that
      * binds them to something. It does not check whether the binding is correct (inner role not
      * null and matching interfaces).
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

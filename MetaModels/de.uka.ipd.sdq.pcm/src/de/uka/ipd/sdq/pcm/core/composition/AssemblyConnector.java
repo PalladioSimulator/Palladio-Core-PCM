@@ -46,7 +46,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 public interface AssemblyConnector extends Connector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public interface AssemblyConnector extends Connector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Requiring Assembly Context Assembly Connector</em>' reference.
      * @see #setRequiringAssemblyContext_AssemblyConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector()
@@ -73,7 +73,7 @@ public interface AssemblyConnector extends Connector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
      * <em>Requiring Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Requiring Assembly Context Assembly Connector</em>'
      *            reference.
@@ -90,7 +90,7 @@ public interface AssemblyConnector extends Connector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Providing Assembly Context Assembly Connector</em>' reference.
      * @see #setProvidingAssemblyContext_AssemblyConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector()
@@ -104,7 +104,7 @@ public interface AssemblyConnector extends Connector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
      * <em>Providing Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Providing Assembly Context Assembly Connector</em>'
      *            reference.
@@ -121,7 +121,7 @@ public interface AssemblyConnector extends Connector {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Provided Role Assembly Connector</em>' reference.
      * @see #setProvidedRole_AssemblyConnector(OperationProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ProvidedRole_AssemblyConnector()
@@ -135,7 +135,7 @@ public interface AssemblyConnector extends Connector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
      * <em>Provided Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Provided Role Assembly Connector</em>' reference.
      * @see #getProvidedRole_AssemblyConnector()
@@ -151,7 +151,7 @@ public interface AssemblyConnector extends Connector {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Role Assembly Connector</em>' reference.
      * @see #setRequiredRole_AssemblyConnector(OperationRequiredRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_RequiredRole_AssemblyConnector()
@@ -165,7 +165,7 @@ public interface AssemblyConnector extends Connector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
      * <em>Required Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Required Role Assembly Connector</em>' reference.
      * @see #getRequiredRole_AssemblyConnector()
@@ -178,7 +178,7 @@ public interface AssemblyConnector extends Connector {
      * references an assembly context and a provided role on the provider side. This constraint
      * ensures that the referenced provided role is really available in the referenced assembly
      * context.
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -195,7 +195,7 @@ public interface AssemblyConnector extends Connector {
      * references an assembly context and a required role on the client side. This constraint
      * ensures that the referenced required role is really available in the referenced assembly
      * context.
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
@@ -215,7 +215,7 @@ public interface AssemblyConnector extends Connector {
      * Interface B referenced by the requiredRole as transitively defined by the
      * parentInterface__Interface property. That means that either Interface A is the
      * parentInterface__Interface of Interface B, or there is a set of Interfaces
-     * 
+     *
      * @param diagnostics
      *            The chain of diagnostics to which problems are to be appended.
      * @param context

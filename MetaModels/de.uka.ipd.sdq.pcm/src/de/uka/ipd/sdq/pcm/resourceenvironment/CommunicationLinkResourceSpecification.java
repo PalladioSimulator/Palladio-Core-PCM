@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 public interface CommunicationLinkResourceSpecification extends Identifier {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +61,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Linking Resource Communication Link Resource Specification</em>
      *         ' container reference.
      * @see #setLinkingResource_CommunicationLinkResourceSpecification(LinkingResource)
@@ -78,7 +78,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification
      * <em>Linking Resource Communication Link Resource Specification</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Linking Resource Communication Link Resource Specification</em>' container
@@ -93,7 +93,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * is <code>"0.0"</code>. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      * Specifies the probability that a service call over this communication link fails. The failure
      * could be due to message loss or overload, for example. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Failure Probability</em>' attribute.
      * @see #setFailureProbability(double)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_FailureProbability()
@@ -106,7 +106,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability
      * <em>Failure Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Failure Probability</em>' attribute.
      * @see #getFailureProbability()
@@ -124,7 +124,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Communication Link Resource Type Communication Link Resource Specification</em>'
      *         reference.
@@ -140,7 +140,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification
      * <em>Communication Link Resource Type Communication Link Resource Specification</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Communication Link Resource Type Communication Link Resource Specification</em>
@@ -165,7 +165,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * takes to receive the receiver. In synchronous communication (call and return), the latency is
      * added twice to the duration, once for the call and once for the response. <!-- end-model-doc
      * -->
-     * 
+     *
      * @return the value of the ' <em>Latency Communication Link Resource Specification</em>'
      *         containment reference.
      * @see #setLatency_CommunicationLinkResourceSpecification(PCMRandomVariable)
@@ -182,7 +182,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification
      * <em>Latency Communication Link Resource Specification</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the ' <em>Latency Communication Link Resource Specification</em>'
      *            containment reference.
@@ -204,7 +204,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * </p>
      * <!-- end-user-doc --> <!-- begin-model-doc --> Specifies the maximum throughput of this
      * linking resource in byte per simulated time unit. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the ' <em>Throughput Communication Link Resource Specification</em>'
      *         containment reference.
      * @see #setThroughput_CommunicationLinkResourceSpecification(PCMRandomVariable)
@@ -221,7 +221,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification
      * <em>Throughput Communication Link Resource Specification</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Throughput Communication Link Resource Specification</em>' containment

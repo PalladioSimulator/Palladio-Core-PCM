@@ -23,28 +23,28 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage
  * @generated
  */
 public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static ResourceenvironmentPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceenvironmentAdapterFactory() {
@@ -57,12 +57,12 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     * 
+     *
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
     @Override
-    public boolean isFactoryForType(Object object) {
+    public boolean isFactoryForType(final Object object) {
         if (object == modelPackage) {
             return true;
         }
@@ -75,67 +75,67 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceenvironmentSwitch<Adapter> modelSwitch = new ResourceenvironmentSwitch<Adapter>() {
         @Override
-        public Adapter caseResourceEnvironment(ResourceEnvironment object) {
-            return createResourceEnvironmentAdapter();
+        public Adapter caseResourceEnvironment(final ResourceEnvironment object) {
+            return ResourceenvironmentAdapterFactory.this.createResourceEnvironmentAdapter();
         }
 
         @Override
-        public Adapter caseLinkingResource(LinkingResource object) {
-            return createLinkingResourceAdapter();
+        public Adapter caseLinkingResource(final LinkingResource object) {
+            return ResourceenvironmentAdapterFactory.this.createLinkingResourceAdapter();
         }
 
         @Override
-        public Adapter caseResourceContainer(ResourceContainer object) {
-            return createResourceContainerAdapter();
+        public Adapter caseResourceContainer(final ResourceContainer object) {
+            return ResourceenvironmentAdapterFactory.this.createResourceContainerAdapter();
         }
 
         @Override
-        public Adapter caseProcessingResourceSpecification(ProcessingResourceSpecification object) {
-            return createProcessingResourceSpecificationAdapter();
+        public Adapter caseProcessingResourceSpecification(final ProcessingResourceSpecification object) {
+            return ResourceenvironmentAdapterFactory.this.createProcessingResourceSpecificationAdapter();
         }
 
         @Override
-        public Adapter caseCommunicationLinkResourceSpecification(CommunicationLinkResourceSpecification object) {
-            return createCommunicationLinkResourceSpecificationAdapter();
+        public Adapter caseCommunicationLinkResourceSpecification(final CommunicationLinkResourceSpecification object) {
+            return ResourceenvironmentAdapterFactory.this.createCommunicationLinkResourceSpecificationAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(NamedElement object) {
-            return createNamedElementAdapter();
+        public Adapter caseNamedElement(final NamedElement object) {
+            return ResourceenvironmentAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(Identifier object) {
-            return createIdentifierAdapter();
+        public Adapter caseIdentifier(final Identifier object) {
+            return ResourceenvironmentAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseEntity(Entity object) {
-            return createEntityAdapter();
+        public Adapter caseEntity(final Entity object) {
+            return ResourceenvironmentAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(EObject object) {
-            return createEObjectAdapter();
+        public Adapter defaultCase(final EObject object) {
+            return ResourceenvironmentAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
-    public Adapter createAdapter(Notifier target) {
-        return modelSwitch.doSwitch((EObject) target);
+    public Adapter createAdapter(final Notifier target) {
+        return this.modelSwitch.doSwitch((EObject) target);
     }
 
     /**
@@ -144,7 +144,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Environment</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
      * @generated
@@ -159,7 +159,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource
      * @generated
@@ -174,7 +174,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
      * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer
      * @generated
@@ -189,7 +189,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * <em>Processing Resource Specification</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification
      * @generated
@@ -204,7 +204,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * <em>Communication Link Resource Specification</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification
      * @generated
@@ -219,7 +219,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
      * @generated
@@ -233,7 +233,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -247,7 +247,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.Entity
      * @generated
@@ -259,7 +259,7 @@ public class ResourceenvironmentAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @generated
      */

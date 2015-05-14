@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
 public interface ResourceType extends Entity, UnitCarryingElement, ResourceInterfaceProvidingEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public interface ResourceType extends Entity, UnitCarryingElement, ResourceInter
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Repository Resource Type</em>' container reference.
      * @see #setResourceRepository_ResourceType(ResourceRepository)
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceType_ResourceRepository_ResourceType()
@@ -61,7 +61,7 @@ public interface ResourceType extends Entity, UnitCarryingElement, ResourceInter
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
      * <em>Resource Repository Resource Type</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Repository Resource Type</em>' container
      *            reference.
