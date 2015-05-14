@@ -12,10 +12,10 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.palladiosimulator.pcm.pcmstoex.adapter.PCMStoExSerializer;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * The Class CustomVariableUsageEditPart.
@@ -92,7 +92,7 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
         private void createContents() {
 
             fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
-            fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExSerializer()
+            fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
                     .prettyPrint(((VariableUsage) resolveSemanticElement()).getNamedReference__VariableUsage()));
             fFigureVariableUsageReferenceLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
