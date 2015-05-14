@@ -6,7 +6,6 @@ import org.eclipse.jface.text.IDocument;
 /**
  * The Class ParserHelper.
  */
-@Deprecated
 public class ParserHelper {
     
     /** The Constant EOL. */
