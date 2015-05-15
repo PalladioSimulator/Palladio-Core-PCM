@@ -7,9 +7,10 @@ import java.util.ArrayList;
  * The Registry singleton provides methods for registering and accessing remote objects.
  * Communication with registered objects is performed over HTTP.
  *
- * @author Christian Klaussner
+ * @author Christian Klaussner, Sebastian Lehrig
  */
 public final class Registry {
+	private static final String REGISTRY_PATH = "/registry";
 	private static Registry instance;
 
 	/**
@@ -67,7 +68,7 @@ public final class Registry {
 		params.add(new Parameter("action", "register"));
 		params.add(new Parameter("entry", entry.toJson()));
 
-		String responseString = Request.get(location, "/Registry", params);
+		String responseString = Request.get(location, REGISTRY_PATH, params);
 		StringResponse response = StringResponse.fromJson(responseString);
 
 		if (response.getError() == Response.ALREADY_EXISTS) {
@@ -86,7 +87,7 @@ public final class Registry {
 		params.add(new Parameter("action", "unregister"));
 		params.add(new Parameter("name", name));
 
-		String responseString = Request.get(location, "/Registry", params);
+		String responseString = Request.get(location, REGISTRY_PATH, params);
 		StringResponse response = StringResponse.fromJson(responseString);
 
 		if (response.getError() == Response.INVALID) {
@@ -106,7 +107,7 @@ public final class Registry {
 		params.add(new Parameter("action", "lookup"));
 		params.add(new Parameter("name", name));
 
-		String responseString = Request.get(location, "/Registry", params);
+		String responseString = Request.get(location, REGISTRY_PATH, params);
 		StringResponse response = StringResponse.fromJson(responseString);
 
 		if (response.getError() != Response.OK) {
