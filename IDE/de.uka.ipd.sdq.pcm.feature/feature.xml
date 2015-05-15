@@ -126,11 +126,9 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="edu.kit.ipd.sdq.mdsd.profiles" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.modelversioning.emfprofile" version="1.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext" version="2.8.2" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.commons.stoex" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.util" version="2.8.2" match="greaterOrEqual"/>
       <import plugin="org.antlr.runtime" version="3.2.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.common.types" version="2.8.2" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.commons.stoex.adapter" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.eclipse.xtext.xbase.lib"/>
@@ -161,7 +159,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.pcm.pcmstoex.ui" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.transaction" version="1.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface.text" version="3.9.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi.util" version="3.3.0" match="greaterOrEqual"/>
