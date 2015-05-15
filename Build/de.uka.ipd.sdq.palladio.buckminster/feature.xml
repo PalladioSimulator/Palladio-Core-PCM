@@ -104,16 +104,27 @@ PCM Core build.
          version="0.0.0"/>
 
    <includes
-         id="org.palladiosimulator.pcm.pcmstoex.sdk"
-         version="0.0.0"/>
-
-   <includes
          id="org.palladiosimulator.protocom.javaee.source.feature"
          version="0.0.0"/>
 
    <includes
          id="org.palladiosimulator.protocom.source.feature"
          version="0.0.0"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.pcm.stochasticexpressions.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.stoex.analyser.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.codegen.simucontroller.tests"
@@ -129,13 +140,6 @@ PCM Core build.
          install-size="0"
          version="0.0.0"
          fragment="true"
-         unpack="false"/>
-
-   <plugin
-         id="org.palladiosimulator.pcm.pcmstoex.tests"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
          unpack="false"/>
 
    <plugin
