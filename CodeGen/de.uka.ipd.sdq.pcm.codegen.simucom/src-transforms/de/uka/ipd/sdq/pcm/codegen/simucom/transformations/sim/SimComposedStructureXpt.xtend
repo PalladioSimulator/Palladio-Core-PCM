@@ -58,9 +58,8 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 		public «cpre.className()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 		this.model = model; 
 		«ELSE»
-		public «cpre.className()» (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
-	    /* The assembly context contains this Assembly Context's id plus potentially Assembly Context's ids of its parents in the system. */
-		this.assemblyContext = assemblyContext;
+		public «cpre.className()» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+	    this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel(assemblyContextURI);
 	
 		
 		this.model = model;
