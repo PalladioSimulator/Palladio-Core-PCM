@@ -38,10 +38,13 @@ public class ForkExecutor {
         }
         double start = parent.getModel().getSimulationControl().getCurrentSimulationTime();
         for (ForkedBehaviourProcess p : forks) {
+        	if (LOGGER.isDebugEnabled()){
+        		LOGGER.debug("scheduling child forked behaviour process "+p.getId()+" at time 0");
+        	}
             p.scheduleAt(0);
         }
         while (checkIfRemainingChildrenRun()) {
-            parent.passivate();
+        		parent.passivate();
         }
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("Forks took: " + (parent.getModel().getSimulationControl().getCurrentSimulationTime() - start));
