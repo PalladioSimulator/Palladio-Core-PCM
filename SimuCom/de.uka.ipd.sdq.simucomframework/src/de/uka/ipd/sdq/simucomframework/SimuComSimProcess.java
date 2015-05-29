@@ -74,7 +74,7 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
         this.addProcessListener(this);
 
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Create SimuComSimProcess with id " + getRawId());
+            LOGGER.debug("Create SimuComSimProcess with id " + getRawId() + " ["+this.getId()+"]");
         }
     }
 
@@ -100,7 +100,7 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
      */
     protected void addProcessToSimStatus() {
         if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Starting simulation process " + this.getName());
+            LOGGER.debug("Starting simulation process " + this.getId());
         }
 
         if (isDebug) {
@@ -247,5 +247,6 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     public SimuComModel getModel() {
         return (SimuComModel) super.getModel();
     }
+
 
 }
