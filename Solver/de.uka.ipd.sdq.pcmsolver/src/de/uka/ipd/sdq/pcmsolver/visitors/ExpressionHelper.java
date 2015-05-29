@@ -50,11 +50,14 @@ public class ExpressionHelper {
 		
 		return solvedExprString;
 	}
-	
+		
 	public static Expression getSolvedExpression(String specification,
 			ContextWrapper ctxWrp) {
 		Expression expr = parseToExpression(specification);
-		
+		return getSolvedExpression(expr, ctxWrp);
+	}
+	
+	public static Expression getSolvedExpression(Expression expr, ContextWrapper ctxWrp){
 		ExpressionInferTypeVisitor inferTypeVisitor = new ExpressionInferTypeVisitor();
 		
 		try {

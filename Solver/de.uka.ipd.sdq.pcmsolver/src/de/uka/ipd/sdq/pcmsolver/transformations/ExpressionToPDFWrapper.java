@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
@@ -75,12 +76,23 @@ public class ExpressionToPDFWrapper {
 		} else {
 			String solvedExprString = null;
 			if (rdExpression != null){
-				solvedExprString = new StoExPrettyPrintVisitor().doSwitch(rdExpression).toString();
+				try {
+					// try solving last, as this is probably most time-consuming. 
+					Expression solvedExpression = ExpressionHelper.getSolvedExpression(rdExpression, null);
+					// if the content of the Expression has been changed by solving, try again to call this method 
+					String oldExpressionString = new StoExPrettyPrintVisitor().doSwitch(rdExpression).toString();
+					solvedExprString = new StoExPrettyPrintVisitor().doSwitch(solvedExpression).toString();
+					if (!oldExpressionString.equals(solvedExprString)){
+						return createExpressionToPDFWrapper(solvedExpression);
+					}
+				} catch (Exception e){
+					throw new IllegalArgumentException("Handling expression "+solvedExprString+" in the ResourceDemandWrapper failed, could not solve it. Note that it must not contain parameters as there is no context to solve them against.", e);
+				}
 			}
 			throw new IllegalArgumentException("Handling expression "+solvedExprString+" in the ResourceDemandWrapper failed, could not cast it to "+ProbabilityFunctionLiteral.class+" or "+ FunctionLiteral.class);
 		}
 	}
-
+	
 	public ExpressionToPDFWrapper(Double meanValue){
 		this.meanValue = meanValue;
 		this.standardDeviation = new Double(0);
