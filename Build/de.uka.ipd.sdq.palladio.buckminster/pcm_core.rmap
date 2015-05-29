@@ -13,8 +13,8 @@
   <rm:locator pattern="^org\.jscience*" searchPathRef="ProbeFramework" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="FeatureModel" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="WorkflowEngine" failOnError="false"/>
-  <rm:locator pattern="^org\.rosuda\..*" searchPathRef="thirdparty" failOnError="false" />
-  <rm:locator pattern="^org\.apache\..*" searchPathRef="thirdparty" failOnError="false" />
+  <rm:locator pattern="^org\.rosuda\..*" searchPathRef="thirdparty" failOnError="false"/>
+  <rm:locator pattern="^org\.apache\..*" searchPathRef="thirdparty" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.m2m\..*" searchPathRef="m2m" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.gmf\..*" searchPathRef="m2m" failOnError="false"/>
   <rm:locator pattern="^de\.ikv\.medini\.qvt\..*" searchPathRef="mediniqvt" failOnError="false"/>
@@ -37,7 +37,7 @@
   <rm:locator searchPathRef="luna" failOnError="false"/>
   <rm:locator searchPathRef="orbit" failOnError="false"/>
   <rm:locator searchPathRef="orbitintegration" failOnError="false"/>
-  
+  <rm:locator searchPathRef="PalladioCoreSimucom" failOnError="false"/>
   <rm:searchPath name="monitor">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
@@ -45,7 +45,6 @@
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/monitorrepository/nightly/"/>
     </rm:provider>
   </rm:searchPath>
-    
   <rm:searchPath name="thirdparty">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
@@ -208,7 +207,7 @@
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/servicelevelobjectives/nightly/"/>
     </rm:provider>
   </rm:searchPath>
-    <rm:searchPath name="SimuLizar">
+  <rm:searchPath name="SimuLizar">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
@@ -220,6 +219,13 @@
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly/"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="PalladioCoreSimucom">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn">
+      <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/SimuCom/{0}">
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
     </rm:provider>
   </rm:searchPath>
 </rm:rmap>
