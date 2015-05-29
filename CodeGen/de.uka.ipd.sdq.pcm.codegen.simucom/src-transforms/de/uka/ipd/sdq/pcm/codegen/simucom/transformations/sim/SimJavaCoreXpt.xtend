@@ -155,7 +155,7 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 				if (this.myComponentStackFrame.getContents().size() > 0) {
 					methodBodyStackFrame.addVariables(this.myComponentStackFrame);
 				}
-				«seff.steps_Behaviour.findStart().actionsAsCalls»
+				«seff.steps_Behaviour.findStart().actionsAsCalls("ctx")»
 				return resultStackFrame;
 			«ENDIF»
 «««	   	 «ENDPROTECT»
@@ -183,7 +183,7 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 			if (this.myComponentStackFrame.getContents().size() > 0) {
 				methodBodyStackFrame.addVariables(this.myComponentStackFrame);
 			}
-			«seff.steps_Behaviour.findStart().actionsAsCalls»
+			«seff.steps_Behaviour.findStart().actionsAsCalls("ctx")»
 			return resultStackFrame;   
 		«ENDIF»
 «««	   	  «ENDPROTECT»
@@ -194,10 +194,10 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	  «ENDIF»
 	'''
 	
-	def String actionsAsCalls(AbstractAction aa) '''
-		action«javaVariableName(aa.id)»(ctx, resultStackFrame, methodBodyStackFrame);
+	def String actionsAsCalls(AbstractAction aa, String contextName) '''
+		action«javaVariableName(aa.id)»(«contextName», resultStackFrame, methodBodyStackFrame);
 	   «IF !(aa instanceof StopAction)»
-	      «aa.successor_AbstractAction.actionsAsCalls»
+	      «aa.successor_AbstractAction.actionsAsCalls(contextName)»
 	   «ENDIF»
 	'''
 	

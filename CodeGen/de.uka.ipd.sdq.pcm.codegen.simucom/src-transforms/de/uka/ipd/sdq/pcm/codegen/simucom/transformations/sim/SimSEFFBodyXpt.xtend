@@ -42,7 +42,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
 			ctx.evaluateInner(loopFrame, "«cir.parameter_CollectionIteratorAction.parameterName».INNER");
 
-			«cir.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls»
+			«cir.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls("ctx")»
 			ctx.getStack().removeStackFrame();
 		}
 	'''
@@ -51,7 +51,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	override dispatch action(LoopAction la) '''
 	   for (int iterationCount«la.id.javaVariableName()» = 0, maxIterationCount«la.id.javaVariableName()» = (Integer)ctx.evaluate("«la.iterationCount_LoopAction.specification.specificationString()»",Integer.class);
 	            iterationCount«la.id.javaVariableName()» < maxIterationCount«la.id.javaVariableName()»; iterationCount«la.id.javaVariableName()»++){
-	       «la.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls»
+	       «la.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls("ctx")»
 	   }
 	'''
 	
@@ -110,14 +110,14 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	def dispatch branchTransition(GuardedBranchTransition gbt, String counterNumber) '''
 		if ((Boolean)ctx.evaluate("«gbt.branchCondition_GuardedBranchTransition.specification.specificationString()»") == true)
 		{
-			«gbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCalls»
+			«gbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCalls("ctx")»
 		}
 	'''
 	
 	def dispatch branchTransition(ProbabilisticBranchTransition pbt, String counterNumber) '''
 		if (sum«counterNumber» <= u«counterNumber» && u«counterNumber» < sum«counterNumber» + «pbt.branchProbability» )
 		{
-			«pbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCalls»
+			«pbt.branchBehaviour_BranchTransition.steps_Behaviour.findStart().actionsAsCalls("ctx")»
 		}
 		sum«counterNumber» += «pbt.branchProbability»;
 	'''
@@ -204,7 +204,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx, this.assemblyContext.getId(), true, ctx.getThread().getPriority()){
 					public void executeBehaviour() {
 						try {
-							«f.steps_Behaviour.findStart().actionsAsCalls»
+							«f.steps_Behaviour.findStart().actionsAsCalls("this.myContext")»
 						} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 							if (ctx.getModel().getConfig().getSimulateFailures()) {
 								ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
@@ -221,7 +221,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 					new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx, this.assemblyContext.getId(), false){
 						public void executeBehaviour() {
 							try {
-								«f.steps_Behaviour.findStart().actionsAsCalls»
+								«f.steps_Behaviour.findStart().actionsAsCalls("this.myContext")»
 							} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 								if (ctx.getModel().getConfig().getSimulateFailures()) {
 									ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
