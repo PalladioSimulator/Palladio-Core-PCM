@@ -1263,7 +1263,7 @@ public class ContextWrapper implements Cloneable {
 								"Error calculating MeanTotalInputParameterBytesize.", e);
 					}
 
-					meanTotalOutputParameterBytesize += pmf.getExpectedValue();
+					meanTotalOutputParameterBytesize += pmf.getExpectedValueDouble();
 				}
 			}
 		}
