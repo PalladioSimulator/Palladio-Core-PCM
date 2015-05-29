@@ -20,10 +20,6 @@ public class PCMSolverWorkflowRunConfiguration extends
 	private String logFile;
 	private String lqnsOutput;
 	private String lqnsOutputDir;
-	
-	/** The output directory for the PerfEng solver. */
-	private String perfEngOutputDir;
-	private String perfEngPropFile;
 
 	private String lqsimBlocks;
 	private String lqsimOutput;
@@ -65,8 +61,6 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	private boolean stopOnMessageLossLQNS;
 	private boolean stopOnMessageLossLQSim;
-	
-	private boolean debugPerfEngine;
 
 	private boolean isInfiniteTaskMultiplicity;
 
@@ -92,10 +86,6 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	public String getConvValue() {
 		return convValue;
-	}
-	
-	public boolean getDebugPerfEng() {
-		return this.debugPerfEngine;
 	}
 
 	public int getDebugLevel() {
@@ -167,15 +157,7 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public long getNumberOfEvaluatedSystemStates() {
 		return numberOfEvaluatedSystemStates;
 	}
-	
-	public String getPerfEngOutputDir() {
-		return perfEngOutputDir;
-	}
 
-	public String getPerfEngPropFile() {
-		return perfEngPropFile;
-	}
-	
 	public int getNumberOfExactDecimalPlaces() {
 		return numberOfExactDecimalPlaces;
 	}
@@ -267,15 +249,6 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public boolean isReliabilityAnalysis() {
 		return this.isReliabilityAnalysis;
 	}
-	
-	/**
-	 * Show HTML results of reliability analysis. For HTML results of LQN solver analysis, see {@link #getLqnsOutput()}.
-	 *
-	 * @return true, if is show html results
-	 */
-	public boolean isShowHtmlResults() {
-		return this.isShowHtmlResults;
-	}
 
 	public boolean isSolvingTimeLimitEnabled() {
 		return solvingTimeLimitEnabled;
@@ -291,10 +264,6 @@ public class PCMSolverWorkflowRunConfiguration extends
 
 	public void setDebugLevel(int debugLevel) {
 		this.debugLevel = debugLevel;
-	}
-	
-	public void setDebugPerfEngine(boolean b) {
-		this.debugPerfEngine = b;
 	}
 
 	@Override
@@ -400,14 +369,6 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public void setOutputFilename(String outputFilename) {
 		this.outputFilename = outputFilename;
 	}
-	
-	public void setPerfEngOutputDir(String perfEngOutDir) {
-		this.perfEngOutputDir = perfEngOutDir;
-	}
-
-	public void setPerfEngPropFile(String perfEngPropFile) {
-		this.perfEngPropFile = perfEngPropFile;
-	}
 
 	public void setPrintInt(String printInt) {
 		this.printInt = printInt;
@@ -420,7 +381,7 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public void setPrintMarkovStatistics(boolean printMarkovStatistics) {
 		this.printMarkovStatistics = printMarkovStatistics;
 	}
-	
+
 	public void setSensitivityModelEnabled(boolean sensitivityModelEnabled) {
 		this.sensitivityModelEnabled = sensitivityModelEnabled;
 	}
@@ -440,7 +401,7 @@ public class PCMSolverWorkflowRunConfiguration extends
 	public void setReliabilityAnalysis(boolean isReliabilityAnalysis) {
 		this.isReliabilityAnalysis = isReliabilityAnalysis;
 	}
-	
+
 	public void setSolver(String solver) {
 		this.solver = solver;
 	}
@@ -481,6 +442,15 @@ public class PCMSolverWorkflowRunConfiguration extends
 		return saveResultsToFileEnabled;
 	}
 	
+	/**
+	 * Show HTML results of reliability analysis. For HTML results of LQN solver analysis, see 
+	 * {@link #getLqnsOutput()}. 
+	 * @return
+	 */
+	public boolean isShowHtmlResults() {
+		return this.isShowHtmlResults;
+	}
+
 	public void setSaveResultsToFileEnabled(boolean saveResultsToFileEnabled) {
 		this.saveResultsToFileEnabled = saveResultsToFileEnabled;
 	}

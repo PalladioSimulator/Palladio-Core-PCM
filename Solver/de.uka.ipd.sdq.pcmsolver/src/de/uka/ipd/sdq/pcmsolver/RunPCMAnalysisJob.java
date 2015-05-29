@@ -67,7 +67,7 @@ public class RunPCMAnalysisJob implements
 					"Invoked reliability analysis using wrong job class!");
 		} else if (configuration.getSolver().equals(MessageStrings.SRE_SOLVER)) {
 			strategy = new Pcm2RegExStrategy(configuration);
-		} else if (configuration.getSolver().equals(MessageStrings.LQNS_SOLVER)|| configuration.getSolver().equals(MessageStrings.PERFENGINE_SOLVER)) {
+		} else if (configuration.getSolver().equals(MessageStrings.LQNS_SOLVER)) {
 			strategy = new Pcm2LqnStrategy(configuration);
 		} else if (configuration.getSolver()
 				.equals(MessageStrings.LQSIM_SOLVER)) {
