@@ -42,8 +42,7 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -119,6 +118,9 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
+import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationItemProviderAdapterFactory;
+import org.palladiosimulator.mdsdprofiles.provider.MdsdprofilesItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
@@ -182,9 +184,11 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     protected TreeViewer contentOutlineViewer;
 
     /**
+     * This is the property sheet page.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected PropertySheetPage propertySheetPage;
+    protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
 
     /**
      * @generated
@@ -258,7 +262,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
                     setCurrentViewer(contentOutlineViewer);
                 }
             } else if (p instanceof PropertySheet) {
-                if (((PropertySheet) p).getCurrentPage() == propertySheetPage) {
+                if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
                     getActionBarContributor().setActiveEditor(EntityEditor.this);
                     handleActivate();
                 }
@@ -351,6 +355,14 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
         @Override
         protected void unsetTarget(Resource target) {
             basicUnsetTarget(target);
+            resourceToDiagnosticMap.remove(target);
+            if (updateProblemIndication) {
+                getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                    public void run() {
+                        updateProblemIndication();
+                    }
+                });
+            }
         }
     };
 
@@ -380,6 +392,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
                                     }
                                 }
                             }
+                            return false;
                         }
 
                         return true;
@@ -582,14 +595,17 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
         adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
         adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
         adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new MdsdprofilesItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new EMFProfileItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new EMFProfileApplicationItemProviderAdapterFactory());
         adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
         // Create the command stack that will notify this editor as commands are executed.
         //
         BasicCommandStack commandStack = new BasicCommandStack();
 
-        // Add a listener to set the most recent command's affected objects to be the selection of
-        // the viewer with focus.
+        // Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
         //
         commandStack.addCommandStackListener(new CommandStackListener() {
             public void commandStackChanged(final EventObject event) {
@@ -603,8 +619,13 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
                         if (mostRecentCommand != null) {
                             setSelectionToViewer(mostRecentCommand.getAffectedObjects());
                         }
-                        if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
-                            propertySheetPage.refresh();
+                        for (Iterator<PropertySheetPage> i = propertySheetPages.iterator(); i.hasNext();) {
+                            PropertySheetPage propertySheetPage = i.next();
+                            if (propertySheetPage.getControl().isDisposed()) {
+                                i.remove();
+                            } else {
+                                propertySheetPage.refresh();
+                            }
                         }
                     }
                 });
@@ -648,6 +669,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public EditingDomain getEditingDomain() {
         return editingDomain;
     }
@@ -756,6 +778,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public Viewer getViewer() {
         return currentViewer;
     }
@@ -1186,22 +1209,21 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     public IPropertySheetPage getPropertySheetPage() {
-        if (propertySheetPage == null) {
-            propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
-                @Override
-                public void setSelectionToViewer(List<?> selection) {
-                    EntityEditor.this.setSelectionToViewer(selection);
-                    EntityEditor.this.setFocus();
-                }
+        PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
+            @Override
+            public void setSelectionToViewer(List<?> selection) {
+                EntityEditor.this.setSelectionToViewer(selection);
+                EntityEditor.this.setFocus();
+            }
 
-                @Override
-                public void setActionBars(IActionBars actionBars) {
-                    super.setActionBars(actionBars);
-                    getActionBarContributor().shareGlobalActions(this, actionBars);
-                }
-            };
-            propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
-        }
+            @Override
+            public void setActionBars(IActionBars actionBars) {
+                super.setActionBars(actionBars);
+                getActionBarContributor().shareGlobalActions(this, actionBars);
+            }
+        };
+        propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+        propertySheetPages.add(propertySheetPage);
 
         return propertySheetPage;
     }
@@ -1217,8 +1239,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
                 //
                 Object selectedElement = selectedElements.next();
 
-                // If it's the selection viewer, then we want it to select the same selection as
-                // this selection.
+                // If it's the selection viewer, then we want it to select the same selection as this selection.
                 //
                 if (currentViewerPane.getViewer() == selectionViewer) {
                     ArrayList<Object> selectionList = new ArrayList<Object>();
@@ -1260,8 +1281,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
         final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
         saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 
-        // Do the work within an operation because this is a long running activity that modifies the
-        // workbench.
+        // Do the work within an operation because this is a long running activity that modifies the workbench.
         //
         WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
             // This is the method that gets invoked when the operation runs.
@@ -1364,20 +1384,11 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public void gotoMarker(IMarker marker) {
-        try {
-            if (marker.getType().equals(EValidator.MARKER)) {
-                String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
-                if (uriAttribute != null) {
-                    URI uri = URI.createURI(uriAttribute);
-                    EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
-                    if (eObject != null) {
-                        setSelectionToViewer(Collections.singleton(editingDomain.getWrapper(eObject)));
-                    }
-                }
-            }
-        } catch (CoreException exception) {
-            PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+        List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
+        if (!targetObjects.isEmpty()) {
+            setSelectionToViewer(targetObjects);
         }
     }
 
@@ -1410,6 +1421,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public void addSelectionChangedListener(ISelectionChangedListener listener) {
         selectionChangedListeners.add(listener);
     }
@@ -1417,6 +1429,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public void removeSelectionChangedListener(ISelectionChangedListener listener) {
         selectionChangedListeners.remove(listener);
     }
@@ -1424,6 +1437,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public ISelection getSelection() {
         return editorSelection;
     }
@@ -1431,6 +1445,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public void setSelection(ISelection selection) {
         editorSelection = selection;
 
@@ -1489,6 +1504,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
     /**
      * @generated
      */
+    @Override
     public void menuAboutToShow(IMenuManager menuManager) {
         ((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
     }
@@ -1531,7 +1547,7 @@ public class EntityEditor extends MultiPageEditorPart implements IEditingDomainP
             getActionBarContributor().setActiveEditor(null);
         }
 
-        if (propertySheetPage != null) {
+        for (PropertySheetPage propertySheetPage : propertySheetPages) {
             propertySheetPage.dispose();
         }
 

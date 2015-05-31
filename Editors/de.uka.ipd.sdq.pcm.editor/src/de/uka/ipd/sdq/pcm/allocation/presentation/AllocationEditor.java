@@ -42,8 +42,6 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -110,6 +108,9 @@ import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
+import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationItemProviderAdapterFactory;
+import org.palladiosimulator.mdsdprofiles.provider.MdsdprofilesItemProviderAdapterFactory;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
@@ -129,14 +130,17 @@ import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
@@ -144,6 +148,7 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -163,7 +168,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * This is the one adapter factory used for providing views of the model. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     protected AdapterFactory adapterFactory;
@@ -184,9 +189,11 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     protected TreeViewer contentOutlineViewer;
 
     /**
+     * This is the property sheet page.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected PropertySheetPage propertySheetPage;
+    protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
 
     /**
      * @generated
@@ -260,7 +267,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
                     setCurrentViewer(contentOutlineViewer);
                 }
             } else if (p instanceof PropertySheet) {
-                if (((PropertySheet) p).getCurrentPage() == propertySheetPage) {
+                if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
                     getActionBarContributor().setActiveEditor(AllocationEditor.this);
                     handleActivate();
                 }
@@ -353,6 +360,14 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
         @Override
         protected void unsetTarget(Resource target) {
             basicUnsetTarget(target);
+            resourceToDiagnosticMap.remove(target);
+            if (updateProblemIndication) {
+                getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                    public void run() {
+                        updateProblemIndication();
+                    }
+                });
+            }
         }
     };
 
@@ -382,6 +397,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
                                     }
                                 }
                             }
+                            return false;
                         }
 
                         return true;
@@ -554,18 +570,18 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * This sets up the editing domain for the model editor. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated not
      */
     protected void initializeEditingDomain() {
         // Create an adapter factory that yields item providers.
         //
-        ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
+        final ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
                 // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) adapterFactory;
+                return (PalladioItemProviderAdapterFactory) AllocationEditor.this.adapterFactory;
             }
         };
 
@@ -593,30 +609,37 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
         compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
         compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-        adapterFactory = new PalladioItemProviderAdapterFactory(compAdapterFactory);
+        this.adapterFactory = new PalladioItemProviderAdapterFactory(compAdapterFactory);
 
         // Create the command stack that will notify this editor as commands are executed.
         //
-        BasicCommandStack commandStack = new BasicCommandStack();
+        final BasicCommandStack commandStack = new BasicCommandStack();
 
         // Add a listener to set the most recent command's affected objects to be the selection of
         // the viewer with focus.
         //
         commandStack.addCommandStackListener(new CommandStackListener() {
+            @Override
             public void commandStackChanged(final EventObject event) {
-                getContainer().getDisplay().asyncExec(new Runnable() {
+                AllocationEditor.this.getContainer().getDisplay().asyncExec(new Runnable() {
+                    @Override
                     public void run() {
-                        firePropertyChange(IEditorPart.PROP_DIRTY);
+                        AllocationEditor.this.firePropertyChange(IEditorPart.PROP_DIRTY);
 
                         // Try to select the affected objects.
                         //
-                        Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
+                        final Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
                         if (mostRecentCommand != null) {
-                            setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+                            AllocationEditor.this.setSelectionToViewer(mostRecentCommand.getAffectedObjects());
                         }
-                        if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
-                            propertySheetPage.refresh();
+
+                        for (final PropertySheetPage propertySheetPage : AllocationEditor.this.propertySheetPages) {
+                            if (!propertySheetPage.getControl().isDisposed()) {
+                                propertySheetPage.refresh();
+                            }
+
                         }
+
                     }
                 });
             }
@@ -624,7 +647,8 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
 
         // Create the editing domain with a special command stack.
         //
-        editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+        this.editingDomain = new AdapterFactoryEditingDomain(this.adapterFactory, commandStack,
+                new HashMap<Resource, Boolean>());
     }
 
     /**
@@ -659,6 +683,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public EditingDomain getEditingDomain() {
         return editingDomain;
     }
@@ -767,6 +792,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public Viewer getViewer() {
         return currentViewer;
     }
@@ -1197,22 +1223,21 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
      * @generated
      */
     public IPropertySheetPage getPropertySheetPage() {
-        if (propertySheetPage == null) {
-            propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
-                @Override
-                public void setSelectionToViewer(List<?> selection) {
-                    AllocationEditor.this.setSelectionToViewer(selection);
-                    AllocationEditor.this.setFocus();
-                }
+        PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
+            @Override
+            public void setSelectionToViewer(List<?> selection) {
+                AllocationEditor.this.setSelectionToViewer(selection);
+                AllocationEditor.this.setFocus();
+            }
 
-                @Override
-                public void setActionBars(IActionBars actionBars) {
-                    super.setActionBars(actionBars);
-                    getActionBarContributor().shareGlobalActions(this, actionBars);
-                }
-            };
-            propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
-        }
+            @Override
+            public void setActionBars(IActionBars actionBars) {
+                super.setActionBars(actionBars);
+                getActionBarContributor().shareGlobalActions(this, actionBars);
+            }
+        };
+        propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+        propertySheetPages.add(propertySheetPage);
 
         return propertySheetPage;
     }
@@ -1228,8 +1253,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
                 //
                 Object selectedElement = selectedElements.next();
 
-                // If it's the selection viewer, then we want it to select the same selection as
-                // this selection.
+                // If it's the selection viewer, then we want it to select the same selection as this selection.
                 //
                 if (currentViewerPane.getViewer() == selectionViewer) {
                     ArrayList<Object> selectionList = new ArrayList<Object>();
@@ -1271,8 +1295,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
         final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
         saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 
-        // Do the work within an operation because this is a long running activity that modifies the
-        // workbench.
+        // Do the work within an operation because this is a long running activity that modifies the workbench.
         //
         WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
             // This is the method that gets invoked when the operation runs.
@@ -1375,20 +1398,11 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void gotoMarker(IMarker marker) {
-        try {
-            if (marker.getType().equals(EValidator.MARKER)) {
-                String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
-                if (uriAttribute != null) {
-                    URI uri = URI.createURI(uriAttribute);
-                    EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
-                    if (eObject != null) {
-                        setSelectionToViewer(Collections.singleton(editingDomain.getWrapper(eObject)));
-                    }
-                }
-            }
-        } catch (CoreException exception) {
-            PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+        List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
+        if (!targetObjects.isEmpty()) {
+            setSelectionToViewer(targetObjects);
         }
     }
 
@@ -1421,6 +1435,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void addSelectionChangedListener(ISelectionChangedListener listener) {
         selectionChangedListeners.add(listener);
     }
@@ -1428,6 +1443,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void removeSelectionChangedListener(ISelectionChangedListener listener) {
         selectionChangedListeners.remove(listener);
     }
@@ -1435,6 +1451,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public ISelection getSelection() {
         return editorSelection;
     }
@@ -1442,6 +1459,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void setSelection(ISelection selection) {
         editorSelection = selection;
 
@@ -1500,6 +1518,7 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void menuAboutToShow(IMenuManager menuManager) {
         ((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
     }
@@ -1527,29 +1546,29 @@ public class AllocationEditor extends MultiPageEditorPart implements IEditingDom
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     @Override
     public void dispose() {
-        updateProblemIndication = false;
+        this.updateProblemIndication = false;
 
-        ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
+        ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.resourceChangeListener);
 
-        getSite().getPage().removePartListener(partListener);
+        this.getSite().getPage().removePartListener(this.partListener);
 
-        ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
+        ((PalladioItemProviderAdapterFactory) this.adapterFactory).dispose();
 
-        if (getActionBarContributor().getActiveEditor() == this) {
-            getActionBarContributor().setActiveEditor(null);
+        if (this.getActionBarContributor().getActiveEditor() == this) {
+            this.getActionBarContributor().setActiveEditor(null);
         }
 
-        if (propertySheetPage != null) {
+        for (final PropertySheetPage propertySheetPage : this.propertySheetPages) {
             propertySheetPage.dispose();
         }
 
-        if (contentOutlinePage != null) {
-            contentOutlinePage.dispose();
+        if (this.contentOutlinePage != null) {
+            this.contentOutlinePage.dispose();
         }
 
         super.dispose();

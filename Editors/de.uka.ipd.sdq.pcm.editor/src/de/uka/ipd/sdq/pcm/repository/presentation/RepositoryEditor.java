@@ -42,8 +42,6 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -65,6 +63,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -110,6 +109,9 @@ import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
+import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationItemProviderAdapterFactory;
+import org.palladiosimulator.mdsdprofiles.provider.MdsdprofilesItemProviderAdapterFactory;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
@@ -129,14 +131,17 @@ import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
@@ -145,6 +150,7 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
+import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -164,7 +170,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * This is the one adapter factory used for providing views of the model. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     protected AdapterFactory adapterFactory;
@@ -185,9 +191,11 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     protected TreeViewer contentOutlineViewer;
 
     /**
+     * This is the property sheet page.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
-    protected PropertySheetPage propertySheetPage;
+    protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
 
     /**
      * @generated
@@ -261,7 +269,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
                     setCurrentViewer(contentOutlineViewer);
                 }
             } else if (p instanceof PropertySheet) {
-                if (((PropertySheet) p).getCurrentPage() == propertySheetPage) {
+                if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
                     getActionBarContributor().setActiveEditor(RepositoryEditor.this);
                     handleActivate();
                 }
@@ -354,6 +362,14 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
         @Override
         protected void unsetTarget(Resource target) {
             basicUnsetTarget(target);
+            resourceToDiagnosticMap.remove(target);
+            if (updateProblemIndication) {
+                getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                    public void run() {
+                        updateProblemIndication();
+                    }
+                });
+            }
         }
     };
 
@@ -383,6 +399,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
                                     }
                                 }
                             }
+                            return false;
                         }
 
                         return true;
@@ -555,18 +572,18 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * This sets up the editing domain for the model editor. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated not
      */
     protected void initializeEditingDomain() {
         // Create an adapter factory that yields item providers.
         //
-        ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
+        final ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
                 // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) adapterFactory;
+                return (PalladioItemProviderAdapterFactory) RepositoryEditor.this.adapterFactory;
             }
         };
 
@@ -595,29 +612,33 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
         compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
         compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-        adapterFactory = new PalladioItemProviderAdapterFactory(compAdapterFactory);
+        this.adapterFactory = new PalladioItemProviderAdapterFactory(compAdapterFactory);
 
         // Create the command stack that will notify this editor as commands are executed.
         //
-        BasicCommandStack commandStack = new BasicCommandStack();
+        final BasicCommandStack commandStack = new BasicCommandStack();
 
         // Add a listener to set the most recent command's affected objects to be the selection of
         // the viewer with focus.
         //
         commandStack.addCommandStackListener(new CommandStackListener() {
+            @Override
             public void commandStackChanged(final EventObject event) {
-                getContainer().getDisplay().asyncExec(new Runnable() {
+                RepositoryEditor.this.getContainer().getDisplay().asyncExec(new Runnable() {
+                    @Override
                     public void run() {
-                        firePropertyChange(IEditorPart.PROP_DIRTY);
+                        RepositoryEditor.this.firePropertyChange(IEditorPart.PROP_DIRTY);
 
                         // Try to select the affected objects.
                         //
-                        Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
+                        final Command mostRecentCommand = ((CommandStack) event.getSource()).getMostRecentCommand();
                         if (mostRecentCommand != null) {
-                            setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+                            RepositoryEditor.this.setSelectionToViewer(mostRecentCommand.getAffectedObjects());
                         }
-                        if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
-                            propertySheetPage.refresh();
+                        for (final PropertySheetPage propertySheetPage : RepositoryEditor.this.propertySheetPages) {
+                            if (!propertySheetPage.getControl().isDisposed()) {
+                                propertySheetPage.refresh();
+                            }
                         }
                     }
                 });
@@ -626,7 +647,8 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
 
         // Create the editing domain with a special command stack.
         //
-        editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+        this.editingDomain = new AdapterFactoryEditingDomain(this.adapterFactory, commandStack,
+                new HashMap<Resource, Boolean>());
     }
 
     /**
@@ -661,6 +683,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public EditingDomain getEditingDomain() {
         return editingDomain;
     }
@@ -769,6 +792,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public Viewer getViewer() {
         return currentViewer;
     }
@@ -794,47 +818,47 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * This is the method called to load a resource into the editing domain's resource set based on
      * the editor's input. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     public void createModel() {
         // Assumes that the input is a file object.
         //
-        IFileEditorInput modelFile = (IFileEditorInput) getEditorInput();
-        URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
+        final IFileEditorInput modelFile = (IFileEditorInput) this.getEditorInput();
+        final URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
         Exception exception = null;
         Resource resource = null;
         try {
             // Load the resource through the editing domain.
             //
-            resource = editingDomain.getResourceSet().getResource(resourceURI, true);
-        } catch (Exception e) {
+            resource = this.editingDomain.getResourceSet().getResource(resourceURI, true);
+        } catch (final Exception e) {
             exception = e;
-            resource = editingDomain.getResourceSet().getResource(resourceURI, false);
+            resource = this.editingDomain.getResourceSet().getResource(resourceURI, false);
         }
 
-        Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
+        final Diagnostic diagnostic = this.analyzeResourceProblems(resource, exception);
         if (diagnostic.getSeverity() != Diagnostic.OK) {
-            resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+            this.resourceToDiagnosticMap.put(resource, this.analyzeResourceProblems(resource, exception));
         }
-        editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
+        this.editingDomain.getResourceSet().eAdapters().add(this.problemIndicationAdapter);
 
-        AddExtraResource("pathmap://PCM_MODELS/PrimitiveTypes.repository");
-        AddExtraResource("pathmap://PCM_MODELS/Palladio.resourcetype");
-        AddExtraResource("pathmap://PCM_MODELS/FailureTypes.repository");
+        this.AddExtraResource("pathmap://PCM_MODELS/PrimitiveTypes.repository");
+        this.AddExtraResource("pathmap://PCM_MODELS/Palladio.resourcetype");
+        this.AddExtraResource("pathmap://PCM_MODELS/FailureTypes.repository");
     }
 
     /**
      * Adds the extra resource.
-     * 
+     *
      * @param uri
      *            the uri
      */
-    private void AddExtraResource(String uri) {
-        Resource extraResource = editingDomain.getResourceSet().getResource(URI.createURI(uri), true);
+    private void AddExtraResource(final String uri) {
+        final Resource extraResource = this.editingDomain.getResourceSet().getResource(URI.createURI(uri), true);
         try {
             extraResource.load(new HashMap<Object, Object>());
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // FIXME: Empty catch block!
         }
     }
@@ -1223,29 +1247,31 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * This accesses a cached version of the property sheet. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the property sheet page
      * @generated not
      */
     public IPropertySheetPage getPropertySheetPage() {
-        if (propertySheetPage == null) {
-            propertySheetPage = new ExtendedPropertySheetPage(editingDomain) {
+        if (this.propertySheetPages.isEmpty()) {
+            final PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(this.editingDomain) {
                 @Override
-                public void setSelectionToViewer(List<?> selection) {
+                public void setSelectionToViewer(final List<?> selection) {
                     RepositoryEditor.this.setSelectionToViewer(selection);
                     RepositoryEditor.this.setFocus();
                 }
 
                 @Override
-                public void setActionBars(IActionBars actionBars) {
+                public void setActionBars(final IActionBars actionBars) {
                     super.setActionBars(actionBars);
-                    getActionBarContributor().shareGlobalActions(this, actionBars);
+                    RepositoryEditor.this.getActionBarContributor().shareGlobalActions(this, actionBars);
                 }
             };
-            propertySheetPage.setPropertySourceProvider(new PalladioAdapterFactoryContentProvider(adapterFactory));
+
+            propertySheetPage.setPropertySourceProvider(new PalladioAdapterFactoryContentProvider(this.adapterFactory));
+            this.propertySheetPages.add(propertySheetPage);
         }
 
-        return propertySheetPage;
+        return this.propertySheetPages.get(0);
     }
 
     /**
@@ -1259,8 +1285,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
                 //
                 Object selectedElement = selectedElements.next();
 
-                // If it's the selection viewer, then we want it to select the same selection as
-                // this selection.
+                // If it's the selection viewer, then we want it to select the same selection as this selection.
                 //
                 if (currentViewerPane.getViewer() == selectionViewer) {
                     ArrayList<Object> selectionList = new ArrayList<Object>();
@@ -1302,8 +1327,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
         final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
         saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 
-        // Do the work within an operation because this is a long running activity that modifies the
-        // workbench.
+        // Do the work within an operation because this is a long running activity that modifies the workbench.
         //
         WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
             // This is the method that gets invoked when the operation runs.
@@ -1406,20 +1430,11 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void gotoMarker(IMarker marker) {
-        try {
-            if (marker.getType().equals(EValidator.MARKER)) {
-                String uriAttribute = marker.getAttribute(EValidator.URI_ATTRIBUTE, null);
-                if (uriAttribute != null) {
-                    URI uri = URI.createURI(uriAttribute);
-                    EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
-                    if (eObject != null) {
-                        setSelectionToViewer(Collections.singleton(editingDomain.getWrapper(eObject)));
-                    }
-                }
-            }
-        } catch (CoreException exception) {
-            PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
+        List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
+        if (!targetObjects.isEmpty()) {
+            setSelectionToViewer(targetObjects);
         }
     }
 
@@ -1452,6 +1467,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void addSelectionChangedListener(ISelectionChangedListener listener) {
         selectionChangedListeners.add(listener);
     }
@@ -1459,6 +1475,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void removeSelectionChangedListener(ISelectionChangedListener listener) {
         selectionChangedListeners.remove(listener);
     }
@@ -1466,6 +1483,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public ISelection getSelection() {
         return editorSelection;
     }
@@ -1473,6 +1491,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void setSelection(ISelection selection) {
         editorSelection = selection;
 
@@ -1531,6 +1550,7 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
     /**
      * @generated
      */
+    @Override
     public void menuAboutToShow(IMenuManager menuManager) {
         ((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
     }
@@ -1558,29 +1578,29 @@ public class RepositoryEditor extends MultiPageEditorPart implements IEditingDom
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated not
      */
     @Override
     public void dispose() {
-        updateProblemIndication = false;
+        this.updateProblemIndication = false;
 
-        ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
+        ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.resourceChangeListener);
 
-        getSite().getPage().removePartListener(partListener);
+        this.getSite().getPage().removePartListener(this.partListener);
 
-        ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
+        ((PalladioItemProviderAdapterFactory) this.adapterFactory).dispose();
 
-        if (getActionBarContributor().getActiveEditor() == this) {
-            getActionBarContributor().setActiveEditor(null);
+        if (this.getActionBarContributor().getActiveEditor() == this) {
+            this.getActionBarContributor().setActiveEditor(null);
         }
 
-        if (propertySheetPage != null) {
+        for (final PropertySheetPage propertySheetPage : this.propertySheetPages) {
             propertySheetPage.dispose();
         }
 
-        if (contentOutlinePage != null) {
-            contentOutlinePage.dispose();
+        if (this.contentOutlinePage != null) {
+            this.contentOutlinePage.dispose();
         }
 
         super.dispose();

@@ -8,6 +8,10 @@ package de.uka.ipd.sdq.pcm.core.presentation;
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.provider.EcoreEditPlugin;
+import org.modelversioning.emfprofile.provider.EMFProfileEditPlugin;
+import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationEditPlugin;
+import org.palladiosimulator.mdsdprofiles.provider.MdsdprofilesEditPlugin;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
@@ -38,7 +42,9 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
      */
     public PalladioComponentModelEditorPlugin() {
         super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE,
-                StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
+                StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, EcoreEditPlugin.INSTANCE,
+                MdsdprofilesEditPlugin.INSTANCE, EMFProfileEditPlugin.INSTANCE,
+                EMFProfileApplicationEditPlugin.INSTANCE, });
     }
 
     /**

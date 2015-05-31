@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: de.uka.ipd.sdq.pcm.editor; singleton:=true
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.editor;singleton:=true
 Bundle-Version: 3.6.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin$Implementation
@@ -10,11 +10,14 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.pcm.allocation.presentation,
  de.uka.ipd.sdq.pcm.core.composition.presentation,
+ de.uka.ipd.sdq.pcm.core.entity.presentation,
  de.uka.ipd.sdq.pcm.core.presentation,
  de.uka.ipd.sdq.pcm.parameter.presentation,
+ de.uka.ipd.sdq.pcm.presentation,
  de.uka.ipd.sdq.pcm.qosannotations.qos_performance.presentation,
  de.uka.ipd.sdq.pcm.qosannotations.presentation,
  de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.presentation,
+ de.uka.ipd.sdq.pcm.reliability.presentation,
  de.uka.ipd.sdq.pcm.repository.presentation,
  de.uka.ipd.sdq.pcm.resourceenvironment.presentation,
  de.uka.ipd.sdq.pcm.resourcetype.presentation,
@@ -33,6 +36,9 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
+ org.palladiosimulator.mdsdprofiles.edit;visibility:=reexport,
+ org.modelversioning.emfprofile.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  de.uka.ipd.sdq.pcmbench.ui,
  de.uka.ipd.sdq.pcmbench.propertytabs,
