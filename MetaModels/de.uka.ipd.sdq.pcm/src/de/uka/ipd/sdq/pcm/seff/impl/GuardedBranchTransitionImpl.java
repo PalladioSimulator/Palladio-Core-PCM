@@ -33,13 +33,13 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl implements GuardedBranchTransition {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getBranchCondition_GuardedBranchTransition()
+     * The cached value of the '{@link #getBranchCondition_GuardedBranchTransition()
      * <em>Branch Condition Guarded Branch Transition</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -51,7 +51,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected GuardedBranchTransitionImpl() {
@@ -60,7 +60,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,7 +80,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchCondition_GuardedBranchTransition(
@@ -102,7 +102,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,7 +154,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -169,7 +169,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -183,7 +183,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -198,7 +198,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,7 +213,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

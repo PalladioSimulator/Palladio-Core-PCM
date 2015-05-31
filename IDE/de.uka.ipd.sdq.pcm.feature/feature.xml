@@ -123,25 +123,17 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.uml2.types" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="edu.kit.ipd.sdq.mdsd.profiles" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.modelversioning.emfprofile" version="1.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext" version="2.8.2" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.util" version="2.8.2" match="greaterOrEqual"/>
-      <import plugin="org.antlr.runtime" version="3.2.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.common.types" version="2.8.2" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
-      <import plugin="org.apache.log4j"/>
-      <import plugin="org.eclipse.xtext.xbase.lib"/>
+      <import plugin="de.uka.ipd.sdq.pcm"/>
       <import plugin="org.eclipse.emf.edit" version="2.10.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction.edit" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.stoex.edit" version="2.2.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.units.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.uml2.common.edit" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources" version="3.9.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui" version="2.10.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.ide" version="3.10.2" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.propertytabs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.databinding" version="1.4.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.databinding.property" version="1.4.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui" version="3.106.1" match="greaterOrEqual"/>
@@ -149,7 +141,8 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.debug.ui" version="3.10.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.forms" version="3.6.100" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcm"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
+      <import plugin="org.apache.log4j"/>
       <import plugin="org.eclipse.help" version="3.6.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help.ui" version="4.0.100" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.intro" version="3.4.200" match="greaterOrEqual"/>
@@ -161,14 +154,20 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.transaction" version="1.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface.text" version="3.9.2" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi.util" version="3.3.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.8.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ui.editors" version="3.8.200" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.completions.edit" version="1.0.0" match="greaterOrEqual"/>
       <import feature="de.uka.ipd.sdq.sensorframework.visualisation.feature" version="3.3.1.201209131537"/>
       <import feature="de.uka.ipd.sdq.identifier.feature" version="1.1.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.uml2.common.edit" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.mdsdprofiles" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.palladiosimulator.mdsdprofiles.edit"/>
+      <import plugin="org.modelversioning.emfprofile.edit"/>
+      <import plugin="de.uka.ipd.sdq.pcm.edit"/>
+      <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

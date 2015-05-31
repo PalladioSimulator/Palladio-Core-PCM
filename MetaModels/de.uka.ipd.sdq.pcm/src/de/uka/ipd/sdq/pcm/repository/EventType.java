@@ -32,7 +32,7 @@ package de.uka.ipd.sdq.pcm.repository;
 public interface EventType extends Signature {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public interface EventType extends Signature {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Event Group Event Type</em>' container reference.
      * @see #setEventGroup__EventType(EventGroup)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getEventType_EventGroup__EventType()
@@ -62,7 +62,7 @@ public interface EventType extends Signature {
      * {@link de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType
      * <em>Event Group Event Type</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Event Group Event Type</em>' container reference.
      * @see #getEventGroup__EventType()
@@ -80,7 +80,7 @@ public interface EventType extends Signature {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parameter Event Type</em>' containment reference.
      * @see #setParameter__EventType(Parameter)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getEventType_Parameter__EventType()
@@ -95,7 +95,7 @@ public interface EventType extends Signature {
      * {@link de.uka.ipd.sdq.pcm.repository.EventType#getParameter__EventType
      * <em>Parameter Event Type</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Parameter Event Type</em>' containment reference.
      * @see #getParameter__EventType()

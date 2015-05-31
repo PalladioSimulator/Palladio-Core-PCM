@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -38,7 +37,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public class CollectionDataTypeImpl extends EntityImpl implements CollectionDataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +46,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      * The cached value of the '{@link #getInnerType_CollectionDataType()
      * <em>Inner Type Collection Data Type</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getInnerType_CollectionDataType()
      * @generated
      * @ordered
@@ -56,7 +55,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CollectionDataTypeImpl() {
@@ -65,7 +64,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +74,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,7 +87,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
@@ -100,7 +99,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,12 +130,12 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public DataType getInnerType_CollectionDataType() {
-        if (this.innerType_CollectionDataType != null && ((EObject) this.innerType_CollectionDataType).eIsProxy()) {
+        if (this.innerType_CollectionDataType != null && this.innerType_CollectionDataType.eIsProxy()) {
             final InternalEObject oldInnerType_CollectionDataType = (InternalEObject) this.innerType_CollectionDataType;
             this.innerType_CollectionDataType = (DataType) this.eResolveProxy(oldInnerType_CollectionDataType);
             if (this.innerType_CollectionDataType != oldInnerType_CollectionDataType) {
@@ -152,7 +151,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetInnerType_CollectionDataType() {
@@ -161,7 +160,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,7 +176,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +193,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +208,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,7 +223,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +242,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,7 +260,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +278,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -295,7 +294,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +312,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

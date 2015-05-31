@@ -7,7 +7,6 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -39,7 +38,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 public class SourceDelegationConnectorImpl extends DelegationConnectorImpl implements SourceDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +53,6 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @ordered
      */
     protected SourceRole innerSourceRole__SourceRole;
-
     /**
      * The cached value of the '{@link #getOuterSourceRole__SourceRole()
      * <em>Outer Source Role Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -65,12 +63,11 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * @ordered
      */
     protected SourceRole outerSourceRole__SourceRole;
-
     /**
      * The cached value of the '{@link #getAssemblyContext__SourceDelegationConnector()
      * <em>Assembly Context Source Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext__SourceDelegationConnector()
      * @generated
      * @ordered
@@ -79,7 +76,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SourceDelegationConnectorImpl() {
@@ -88,7 +85,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,12 +95,12 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SourceRole getInnerSourceRole__SourceRole() {
-        if (this.innerSourceRole__SourceRole != null && ((EObject) this.innerSourceRole__SourceRole).eIsProxy()) {
+        if (this.innerSourceRole__SourceRole != null && this.innerSourceRole__SourceRole.eIsProxy()) {
             final InternalEObject oldInnerSourceRole__SourceRole = (InternalEObject) this.innerSourceRole__SourceRole;
             this.innerSourceRole__SourceRole = (SourceRole) this.eResolveProxy(oldInnerSourceRole__SourceRole);
             if (this.innerSourceRole__SourceRole != oldInnerSourceRole__SourceRole) {
@@ -119,7 +116,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetInnerSourceRole__SourceRole() {
@@ -128,7 +125,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,12 +141,12 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SourceRole getOuterSourceRole__SourceRole() {
-        if (this.outerSourceRole__SourceRole != null && ((EObject) this.outerSourceRole__SourceRole).eIsProxy()) {
+        if (this.outerSourceRole__SourceRole != null && this.outerSourceRole__SourceRole.eIsProxy()) {
             final InternalEObject oldOuterSourceRole__SourceRole = (InternalEObject) this.outerSourceRole__SourceRole;
             this.outerSourceRole__SourceRole = (SourceRole) this.eResolveProxy(oldOuterSourceRole__SourceRole);
             if (this.outerSourceRole__SourceRole != oldOuterSourceRole__SourceRole) {
@@ -165,7 +162,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetOuterSourceRole__SourceRole() {
@@ -174,7 +171,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,13 +187,13 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__SourceDelegationConnector() {
         if (this.assemblyContext__SourceDelegationConnector != null
-                && ((EObject) this.assemblyContext__SourceDelegationConnector).eIsProxy()) {
+                && this.assemblyContext__SourceDelegationConnector.eIsProxy()) {
             final InternalEObject oldAssemblyContext__SourceDelegationConnector = (InternalEObject) this.assemblyContext__SourceDelegationConnector;
             this.assemblyContext__SourceDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__SourceDelegationConnector);
@@ -216,7 +213,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__SourceDelegationConnector() {
@@ -225,7 +222,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +239,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,7 +266,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -290,7 +287,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,7 +308,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

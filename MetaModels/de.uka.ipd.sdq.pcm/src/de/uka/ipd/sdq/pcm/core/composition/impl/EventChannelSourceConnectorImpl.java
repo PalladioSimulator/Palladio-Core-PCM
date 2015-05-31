@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -41,7 +40,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 public class EventChannelSourceConnectorImpl extends ConnectorImpl implements EventChannelSourceConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,29 +49,27 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      * The cached value of the '{@link #getSourceRole__EventChannelSourceRole()
      * <em>Source Role Event Channel Source Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getSourceRole__EventChannelSourceRole()
      * @generated
      * @ordered
      */
     protected SourceRole sourceRole__EventChannelSourceRole;
-
     /**
      * The cached value of the '{@link #getAssemblyContext__EventChannelSourceConnector()
      * <em>Assembly Context Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext__EventChannelSourceConnector()
      * @generated
      * @ordered
      */
     protected AssemblyContext assemblyContext__EventChannelSourceConnector;
-
     /**
      * The cached value of the '{@link #getEventChannel__EventChannelSourceConnector()
      * <em>Event Channel Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getEventChannel__EventChannelSourceConnector()
      * @generated
      * @ordered
@@ -81,7 +78,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventChannelSourceConnectorImpl() {
@@ -90,7 +87,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,13 +97,12 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SourceRole getSourceRole__EventChannelSourceRole() {
-        if (this.sourceRole__EventChannelSourceRole != null
-                && ((EObject) this.sourceRole__EventChannelSourceRole).eIsProxy()) {
+        if (this.sourceRole__EventChannelSourceRole != null && this.sourceRole__EventChannelSourceRole.eIsProxy()) {
             final InternalEObject oldSourceRole__EventChannelSourceRole = (InternalEObject) this.sourceRole__EventChannelSourceRole;
             this.sourceRole__EventChannelSourceRole = (SourceRole) this
                     .eResolveProxy(oldSourceRole__EventChannelSourceRole);
@@ -123,7 +119,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__EventChannelSourceRole() {
@@ -132,7 +128,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,13 +144,13 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__EventChannelSourceConnector() {
         if (this.assemblyContext__EventChannelSourceConnector != null
-                && ((EObject) this.assemblyContext__EventChannelSourceConnector).eIsProxy()) {
+                && this.assemblyContext__EventChannelSourceConnector.eIsProxy()) {
             final InternalEObject oldAssemblyContext__EventChannelSourceConnector = (InternalEObject) this.assemblyContext__EventChannelSourceConnector;
             this.assemblyContext__EventChannelSourceConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__EventChannelSourceConnector);
@@ -174,7 +170,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__EventChannelSourceConnector() {
@@ -183,7 +179,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,13 +196,13 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventChannel getEventChannel__EventChannelSourceConnector() {
         if (this.eventChannel__EventChannelSourceConnector != null
-                && ((EObject) this.eventChannel__EventChannelSourceConnector).eIsProxy()) {
+                && this.eventChannel__EventChannelSourceConnector.eIsProxy()) {
             final InternalEObject oldEventChannel__EventChannelSourceConnector = (InternalEObject) this.eventChannel__EventChannelSourceConnector;
             this.eventChannel__EventChannelSourceConnector = (EventChannel) this
                     .eResolveProxy(oldEventChannel__EventChannelSourceConnector);
@@ -226,7 +222,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventChannel basicGetEventChannel__EventChannelSourceConnector() {
@@ -235,7 +231,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventChannel__EventChannelSourceConnector(
@@ -257,7 +253,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -289,7 +285,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -308,7 +304,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,7 +319,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -350,7 +346,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -371,7 +367,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -392,7 +388,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

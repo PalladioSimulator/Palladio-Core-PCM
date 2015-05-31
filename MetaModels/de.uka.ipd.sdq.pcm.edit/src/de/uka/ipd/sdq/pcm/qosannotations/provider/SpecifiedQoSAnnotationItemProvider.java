@@ -27,14 +27,14 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +42,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SpecifiedQoSAnnotationItemProvider(final AdapterFactory adapterFactory) {
@@ -52,7 +52,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -79,8 +79,8 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
                         "_UI_PropertyDescriptor_description",
                         "_UI_SpecifiedQoSAnnotation_signature_SpecifiedQoSAnnation_feature",
                         "_UI_SpecifiedQoSAnnotation_type"),
-                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION, true, false,
-                true, null, null, null));
+                        QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION, true, false,
+                        true, null, null, null));
     }
 
     /**
@@ -96,8 +96,8 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
                         "_UI_PropertyDescriptor_description",
                         "_UI_SpecifiedQoSAnnotation_role_SpecifiedQoSAnnotation_feature",
                         "_UI_SpecifiedQoSAnnotation_type"),
-                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION, true, false,
-                true, null, null, null));
+                        QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION, true, false,
+                        true, null, null, null));
     }
 
     /**
@@ -115,7 +115,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -138,7 +138,7 @@ public class SpecifiedQoSAnnotationItemProvider extends ItemProviderAdapter impl
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

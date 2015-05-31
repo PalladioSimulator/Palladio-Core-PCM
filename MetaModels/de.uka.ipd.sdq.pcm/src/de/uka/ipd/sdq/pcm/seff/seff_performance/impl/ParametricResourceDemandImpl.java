@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -22,6 +21,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
+import org.palladiosimulator.mdsdprofiles.impl.StereotypableElementImpl;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
@@ -31,7 +31,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -53,16 +52,16 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class ParametricResourceDemandImpl extends EStereotypableObjectImpl implements ParametricResourceDemand {
+public class ParametricResourceDemandImpl extends StereotypableElementImpl implements ParametricResourceDemand {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getSpecification_ParametericResourceDemand()
+     * The cached value of the '{@link #getSpecification_ParametericResourceDemand()
      * <em>Specification Parameteric Resource Demand</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -76,7 +75,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * The cached value of the '{@link #getRequiredResource_ParametricResourceDemand()
      * <em>Required Resource Parametric Resource Demand</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRequiredResource_ParametricResourceDemand()
      * @generated
      * @ordered
@@ -85,7 +84,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParametricResourceDemandImpl() {
@@ -94,7 +93,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,7 +103,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +113,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecification_ParametericResourceDemand(
@@ -136,7 +135,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,13 +167,13 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProcessingResourceType getRequiredResource_ParametricResourceDemand() {
         if (this.requiredResource_ParametricResourceDemand != null
-                && ((EObject) this.requiredResource_ParametricResourceDemand).eIsProxy()) {
+                && this.requiredResource_ParametricResourceDemand.eIsProxy()) {
             final InternalEObject oldRequiredResource_ParametricResourceDemand = (InternalEObject) this.requiredResource_ParametricResourceDemand;
             this.requiredResource_ParametricResourceDemand = (ProcessingResourceType) this
                     .eResolveProxy(oldRequiredResource_ParametricResourceDemand);
@@ -194,7 +193,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceType basicGetRequiredResource_ParametricResourceDemand() {
@@ -203,7 +202,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -220,7 +219,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +232,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAction_ParametricResourceDemand(
@@ -245,7 +244,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -281,7 +280,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -294,7 +293,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
      * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -304,7 +303,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,10 +334,8 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
                                 "_UI_GenericInvariant_diagnostic",
                                 new Object[] {
                                         "DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -347,7 +344,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -374,7 +371,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -391,7 +388,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -407,7 +404,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -428,7 +425,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -449,7 +446,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -470,7 +467,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -489,7 +486,7 @@ public class ParametricResourceDemandImpl extends EStereotypableObjectImpl imple
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -49,7 +48,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 public class AssemblyEventConnectorImpl extends ConnectorImpl implements AssemblyEventConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -58,48 +57,44 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * The cached value of the '{@link #getSinkRole__AssemblyEventConnector()
      * <em>Sink Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getSinkRole__AssemblyEventConnector()
      * @generated
      * @ordered
      */
     protected SinkRole sinkRole__AssemblyEventConnector;
-
     /**
      * The cached value of the '{@link #getSourceRole__AssemblyEventConnector()
      * <em>Source Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getSourceRole__AssemblyEventConnector()
      * @generated
      * @ordered
      */
     protected SourceRole sourceRole__AssemblyEventConnector;
-
     /**
      * The cached value of the '{@link #getSinkAssemblyContext__AssemblyEventConnector()
      * <em>Sink Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getSinkAssemblyContext__AssemblyEventConnector()
      * @generated
      * @ordered
      */
     protected AssemblyContext sinkAssemblyContext__AssemblyEventConnector;
-
     /**
      * The cached value of the '{@link #getSourceAssemblyContext__AssemblyEventConnector()
      * <em>Source Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSourceAssemblyContext__AssemblyEventConnector()
      * @generated
      * @ordered
      */
     protected AssemblyContext sourceAssemblyContext__AssemblyEventConnector;
-
     /**
-     * The cached value of the ' {@link #getFilterCondition__AssemblyEventConnector()
+     * The cached value of the '{@link #getFilterCondition__AssemblyEventConnector()
      * <em>Filter Condition Assembly Event Connector</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -111,7 +106,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyEventConnectorImpl() {
@@ -120,7 +115,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,13 +125,12 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SinkRole getSinkRole__AssemblyEventConnector() {
-        if (this.sinkRole__AssemblyEventConnector != null
-                && ((EObject) this.sinkRole__AssemblyEventConnector).eIsProxy()) {
+        if (this.sinkRole__AssemblyEventConnector != null && this.sinkRole__AssemblyEventConnector.eIsProxy()) {
             final InternalEObject oldSinkRole__AssemblyEventConnector = (InternalEObject) this.sinkRole__AssemblyEventConnector;
             this.sinkRole__AssemblyEventConnector = (SinkRole) this.eResolveProxy(oldSinkRole__AssemblyEventConnector);
             if (this.sinkRole__AssemblyEventConnector != oldSinkRole__AssemblyEventConnector) {
@@ -152,7 +146,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SinkRole basicGetSinkRole__AssemblyEventConnector() {
@@ -161,7 +155,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,13 +171,12 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SourceRole getSourceRole__AssemblyEventConnector() {
-        if (this.sourceRole__AssemblyEventConnector != null
-                && ((EObject) this.sourceRole__AssemblyEventConnector).eIsProxy()) {
+        if (this.sourceRole__AssemblyEventConnector != null && this.sourceRole__AssemblyEventConnector.eIsProxy()) {
             final InternalEObject oldSourceRole__AssemblyEventConnector = (InternalEObject) this.sourceRole__AssemblyEventConnector;
             this.sourceRole__AssemblyEventConnector = (SourceRole) this
                     .eResolveProxy(oldSourceRole__AssemblyEventConnector);
@@ -200,7 +193,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__AssemblyEventConnector() {
@@ -209,7 +202,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,13 +218,13 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getSinkAssemblyContext__AssemblyEventConnector() {
         if (this.sinkAssemblyContext__AssemblyEventConnector != null
-                && ((EObject) this.sinkAssemblyContext__AssemblyEventConnector).eIsProxy()) {
+                && this.sinkAssemblyContext__AssemblyEventConnector.eIsProxy()) {
             final InternalEObject oldSinkAssemblyContext__AssemblyEventConnector = (InternalEObject) this.sinkAssemblyContext__AssemblyEventConnector;
             this.sinkAssemblyContext__AssemblyEventConnector = (AssemblyContext) this
                     .eResolveProxy(oldSinkAssemblyContext__AssemblyEventConnector);
@@ -251,7 +244,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetSinkAssemblyContext__AssemblyEventConnector() {
@@ -260,7 +253,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -277,13 +270,13 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getSourceAssemblyContext__AssemblyEventConnector() {
         if (this.sourceAssemblyContext__AssemblyEventConnector != null
-                && ((EObject) this.sourceAssemblyContext__AssemblyEventConnector).eIsProxy()) {
+                && this.sourceAssemblyContext__AssemblyEventConnector.eIsProxy()) {
             final InternalEObject oldSourceAssemblyContext__AssemblyEventConnector = (InternalEObject) this.sourceAssemblyContext__AssemblyEventConnector;
             this.sourceAssemblyContext__AssemblyEventConnector = (AssemblyContext) this
                     .eResolveProxy(oldSourceAssemblyContext__AssemblyEventConnector);
@@ -303,7 +296,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetSourceAssemblyContext__AssemblyEventConnector() {
@@ -312,7 +305,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -330,7 +323,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -340,7 +333,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetFilterCondition__AssemblyEventConnector(
@@ -362,7 +355,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -394,7 +387,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -416,7 +409,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -431,7 +424,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -465,7 +458,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -492,7 +485,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -519,7 +512,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

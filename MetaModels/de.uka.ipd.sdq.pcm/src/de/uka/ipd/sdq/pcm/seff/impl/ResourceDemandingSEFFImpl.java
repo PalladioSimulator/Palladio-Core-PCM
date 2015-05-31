@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -73,7 +72,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class ResourceDemandingSEFFImpl extends IdentifierImpl implements ResourceDemandingSEFF {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -101,7 +100,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     /**
      * The cached value of the '{@link #getDescribedService__SEFF() <em>Described Service SEFF</em>}
      * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getDescribedService__SEFF()
      * @generated
      * @ordered
@@ -111,7 +110,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     /**
      * The cached value of the '{@link #getSteps_Behaviour() <em>Steps Behaviour</em>}' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSteps_Behaviour()
      * @generated
      * @ordered
@@ -119,7 +118,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     protected EList<AbstractAction> steps_Behaviour;
 
     /**
-     * The cached value of the ' {@link #getResourceDemandingInternalBehaviours()
+     * The cached value of the '{@link #getResourceDemandingInternalBehaviours()
      * <em>Resource Demanding Internal Behaviours</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -131,7 +130,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceDemandingSEFFImpl() {
@@ -140,7 +139,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,7 +149,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,7 +159,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,12 +174,12 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Signature getDescribedService__SEFF() {
-        if (this.describedService__SEFF != null && ((EObject) this.describedService__SEFF).eIsProxy()) {
+        if (this.describedService__SEFF != null && this.describedService__SEFF.eIsProxy()) {
             final InternalEObject oldDescribedService__SEFF = (InternalEObject) this.describedService__SEFF;
             this.describedService__SEFF = (Signature) this.eResolveProxy(oldDescribedService__SEFF);
             if (this.describedService__SEFF != oldDescribedService__SEFF) {
@@ -196,7 +195,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Signature basicGetDescribedService__SEFF() {
@@ -205,7 +204,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +220,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -234,7 +233,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBasicComponent_ServiceEffectSpecification(
@@ -246,7 +245,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,7 +279,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -293,7 +292,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -305,7 +304,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -338,7 +337,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -351,7 +350,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -364,7 +363,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -399,9 +398,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<AbstractAction> getSteps_Behaviour() {
         if (this.steps_Behaviour == null) {
@@ -414,9 +414,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceDemandingInternalBehaviour> getResourceDemandingInternalBehaviours() {
         if (this.resourceDemandingInternalBehaviours == null) {
@@ -434,7 +435,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -452,7 +453,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -462,7 +463,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -490,10 +491,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
                         SeffValidator.SERVICE_EFFECT_SPECIFICATION__REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -504,7 +502,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -516,7 +514,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -525,7 +523,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -544,11 +542,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION, EcorePlugin.INSTANCE
-                        .getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "ExactlyOneStopAction", EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                    this
-                }));
+                        .getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStopAction",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -559,7 +554,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -571,7 +566,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -580,7 +575,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -599,11 +594,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION, EcorePlugin.INSTANCE
-                        .getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "ExactlyOneStartAction", EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                    this
-                }));
+                        .getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStartAction",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -615,7 +607,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -628,7 +620,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -638,7 +630,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -666,10 +658,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -678,7 +667,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -713,7 +702,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -736,7 +725,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -759,7 +748,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -788,7 +777,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -825,7 +814,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -858,9 +847,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -886,7 +876,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -920,7 +910,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -954,7 +944,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -973,7 +963,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

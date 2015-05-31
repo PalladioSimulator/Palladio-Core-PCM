@@ -20,13 +20,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CompleteComponentTypeItemProvider extends RepositoryComponentItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +34,7 @@ public class CompleteComponentTypeItemProvider extends RepositoryComponentItemPr
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CompleteComponentTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class CompleteComponentTypeItemProvider extends RepositoryComponentItemPr
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,13 +70,13 @@ public class CompleteComponentTypeItemProvider extends RepositoryComponentItemPr
                         "_UI_PropertyDescriptor_description",
                         "_UI_CompleteComponentType_parentProvidesComponentTypes_feature",
                         "_UI_CompleteComponentType_type"),
-                RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES, true, false, true,
-                null, null, null));
+                        RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES, true, false, true,
+                        null, null, null));
     }
 
     /**
      * This returns CompleteComponentType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,7 +101,7 @@ public class CompleteComponentTypeItemProvider extends RepositoryComponentItemPr
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class CompleteComponentTypeItemProvider extends RepositoryComponentItemPr
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -22,13 +22,13 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTransitionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -36,7 +36,7 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProbabilisticBranchTransitionItemProvider(final AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
     /**
      * This adds a property descriptor for the Branch Probability feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addBranchProbabilityPropertyDescriptor(final Object object) {
@@ -72,13 +72,13 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
                         "_UI_PropertyDescriptor_description",
                         "_UI_ProbabilisticBranchTransition_branchProbability_feature",
                         "_UI_ProbabilisticBranchTransition_type"),
-                SeffPackage.Literals.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY, true, false, false,
-                ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+                        SeffPackage.Literals.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY, true, false, false,
+                        ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
 
     /**
      * This returns ProbabilisticBranchTransition.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class ProbabilisticBranchTransitionItemProvider extends AbstractBranchTra
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

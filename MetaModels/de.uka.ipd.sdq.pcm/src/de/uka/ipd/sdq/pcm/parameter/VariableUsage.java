@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.pcm.parameter;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
@@ -16,7 +17,6 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Variable Usage</b></em>'.
@@ -63,13 +63,12 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage()
  * @model
- * @extends EStereotypableObject
  * @generated
  */
-public interface VariableUsage extends EStereotypableObject {
+public interface VariableUsage extends EObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -106,7 +105,7 @@ public interface VariableUsage extends EStereotypableObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>User Data Variable Usage</em>' container reference.
      * @see #setUserData_VariableUsage(UserData)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_UserData_VariableUsage()
@@ -121,7 +120,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage
      * <em>User Data Variable Usage</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>User Data Variable Usage</em>' container reference.
      * @see #getUserData_VariableUsage()
@@ -139,7 +138,7 @@ public interface VariableUsage extends EStereotypableObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Synchronisation Point Variable Usage</em>' container reference.
      * @see #setSynchronisationPoint_VariableUsage(SynchronisationPoint)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_SynchronisationPoint_VariableUsage()
@@ -154,7 +153,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage
      * <em>Synchronisation Point Variable Usage</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Synchronisation Point Variable Usage</em>' container
      *            reference.
@@ -173,7 +172,7 @@ public interface VariableUsage extends EStereotypableObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Call Action Variable Usage</em>' container reference.
      * @see #setCallAction__VariableUsage(CallAction)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_CallAction__VariableUsage()
@@ -188,7 +187,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction__VariableUsage
      * <em>Call Action Variable Usage</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Call Action Variable Usage</em>' container reference.
      * @see #getCallAction__VariableUsage()
@@ -206,7 +205,7 @@ public interface VariableUsage extends EStereotypableObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Call Return Action Variable Usage</em>' container reference.
      * @see #setCallReturnAction__VariableUsage(CallReturnAction)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_CallReturnAction__VariableUsage()
@@ -221,7 +220,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage
      * <em>Call Return Action Variable Usage</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Call Return Action Variable Usage</em>' container
      *            reference.
@@ -240,7 +239,7 @@ public interface VariableUsage extends EStereotypableObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Set Variable Action Variable Usage</em>' container reference.
      * @see #setSetVariableAction_VariableUsage(SetVariableAction)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_SetVariableAction_VariableUsage()
@@ -255,7 +254,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
      * <em>Set Variable Action Variable Usage</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Set Variable Action Variable Usage</em>' container
      *            reference.
@@ -274,7 +273,7 @@ public interface VariableUsage extends EStereotypableObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Assembly Context Variable Usage</em>' container reference.
      * @see #setAssemblyContext__VariableUsage(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_AssemblyContext__VariableUsage()
@@ -289,7 +288,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
      * <em>Assembly Context Variable Usage</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Assembly Context Variable Usage</em>' container
      *            reference.
@@ -308,7 +307,7 @@ public interface VariableUsage extends EStereotypableObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Entry Level System Call Input Parameter Usage</em>' container
      *         reference.
      * @see #setEntryLevelSystemCall_InputParameterUsage(EntryLevelSystemCall)
@@ -343,7 +342,7 @@ public interface VariableUsage extends EStereotypableObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Entry Level System Call Output Parameter Usage</em>' container
      *         reference.
      * @see #setEntryLevelSystemCall_OutputParameterUsage(EntryLevelSystemCall)
@@ -400,7 +399,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
      * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>
@@ -419,7 +418,7 @@ public interface VariableUsage extends EStereotypableObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Named Reference Variable Usage</em>' containment reference.
      * @see #setNamedReference__VariableUsage(AbstractNamedReference)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_NamedReference__VariableUsage()
@@ -433,7 +432,7 @@ public interface VariableUsage extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference__VariableUsage
      * <em>Named Reference Variable Usage</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Named Reference Variable Usage</em>' containment
      *            reference.

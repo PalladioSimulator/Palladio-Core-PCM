@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -46,7 +45,7 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 public class EventChannelSinkConnectorImpl extends ConnectorImpl implements EventChannelSinkConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -55,15 +54,14 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      * The cached value of the '{@link #getSinkRole__EventChannelSinkConnector()
      * <em>Sink Role Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getSinkRole__EventChannelSinkConnector()
      * @generated
      * @ordered
      */
     protected SinkRole sinkRole__EventChannelSinkConnector;
-
     /**
-     * The cached value of the ' {@link #getFilterCondition__EventChannelSinkConnector()
+     * The cached value of the '{@link #getFilterCondition__EventChannelSinkConnector()
      * <em>Filter Condition Event Channel Sink Connector</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -72,23 +70,21 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      * @ordered
      */
     protected PCMRandomVariable filterCondition__EventChannelSinkConnector;
-
     /**
      * The cached value of the '{@link #getAssemblyContext__EventChannelSinkConnector()
      * <em>Assembly Context Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext__EventChannelSinkConnector()
      * @generated
      * @ordered
      */
     protected AssemblyContext assemblyContext__EventChannelSinkConnector;
-
     /**
      * The cached value of the '{@link #getEventChannel__EventChannelSinkConnector()
      * <em>Event Channel Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getEventChannel__EventChannelSinkConnector()
      * @generated
      * @ordered
@@ -97,7 +93,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventChannelSinkConnectorImpl() {
@@ -106,7 +102,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,13 +112,12 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SinkRole getSinkRole__EventChannelSinkConnector() {
-        if (this.sinkRole__EventChannelSinkConnector != null
-                && ((EObject) this.sinkRole__EventChannelSinkConnector).eIsProxy()) {
+        if (this.sinkRole__EventChannelSinkConnector != null && this.sinkRole__EventChannelSinkConnector.eIsProxy()) {
             final InternalEObject oldSinkRole__EventChannelSinkConnector = (InternalEObject) this.sinkRole__EventChannelSinkConnector;
             this.sinkRole__EventChannelSinkConnector = (SinkRole) this
                     .eResolveProxy(oldSinkRole__EventChannelSinkConnector);
@@ -139,7 +134,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SinkRole basicGetSinkRole__EventChannelSinkConnector() {
@@ -148,7 +143,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +159,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -174,7 +169,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetFilterCondition__EventChannelSinkConnector(
@@ -196,7 +191,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -228,13 +223,13 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__EventChannelSinkConnector() {
         if (this.assemblyContext__EventChannelSinkConnector != null
-                && ((EObject) this.assemblyContext__EventChannelSinkConnector).eIsProxy()) {
+                && this.assemblyContext__EventChannelSinkConnector.eIsProxy()) {
             final InternalEObject oldAssemblyContext__EventChannelSinkConnector = (InternalEObject) this.assemblyContext__EventChannelSinkConnector;
             this.assemblyContext__EventChannelSinkConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__EventChannelSinkConnector);
@@ -254,7 +249,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__EventChannelSinkConnector() {
@@ -263,7 +258,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,13 +275,13 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventChannel getEventChannel__EventChannelSinkConnector() {
         if (this.eventChannel__EventChannelSinkConnector != null
-                && ((EObject) this.eventChannel__EventChannelSinkConnector).eIsProxy()) {
+                && this.eventChannel__EventChannelSinkConnector.eIsProxy()) {
             final InternalEObject oldEventChannel__EventChannelSinkConnector = (InternalEObject) this.eventChannel__EventChannelSinkConnector;
             this.eventChannel__EventChannelSinkConnector = (EventChannel) this
                     .eResolveProxy(oldEventChannel__EventChannelSinkConnector);
@@ -305,7 +300,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventChannel basicGetEventChannel__EventChannelSinkConnector() {
@@ -314,7 +309,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventChannel__EventChannelSinkConnector(
@@ -336,7 +331,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -367,7 +362,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -396,7 +391,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -413,7 +408,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -442,7 +437,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -466,7 +461,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -490,7 +485,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -5,9 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations;
 
+import org.eclipse.emf.ecore.EObject;
+
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -16,8 +17,9 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <!-- begin-model-doc -->
  * <p>
  * SpecifiedQoSAnnotations&nbsp;(as&nbsp;an&nbsp;abstract&nbsp;class)&nbsp;associate&nbsp;specified&
- * nbsp ;(see&nbsp;QoSAnnotation)&nbsp;QoS&nbsp;properties&nbsp;to&nbsp;services&nbsp;of&nbsp;
- * components .&
+ * nbsp
+ * ;(see&nbsp;QoSAnnotation)&nbsp;QoS&nbsp;properties&nbsp;to&nbsp;services&nbsp;of&nbsp;components
+ * .&
  * nbsp;A&nbsp;service&nbsp;is&nbsp;thereby&nbsp;determined&nbsp;by&nbsp;a&nbsp;Signature&nbsp;and&
  * nbsp;a&nbsp;Role&nbsp;(i.e.,&nbsp;an&nbsp;interface&nbsp;bound&nbsp;to&nbsp;a&nbsp;component).
  * </p>
@@ -40,13 +42,12 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  *
  * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedQoSAnnotation()
  * @model abstract="true"
- * @extends EStereotypableObject
  * @generated
  */
-public interface SpecifiedQoSAnnotation extends EStereotypableObject {
+public interface SpecifiedQoSAnnotation extends EObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -73,7 +74,7 @@ public interface SpecifiedQoSAnnotation extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation
      * <em>Signature Specified Qo SAnnation</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Signature Specified Qo SAnnation</em>' reference.
      * @see #getSignature_SpecifiedQoSAnnation()
@@ -121,7 +122,7 @@ public interface SpecifiedQoSAnnotation extends EStereotypableObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Qos Annotations Specified Qo SAnnotation</em>' container
      *         reference.
      * @see #setQosAnnotations_SpecifiedQoSAnnotation(QoSAnnotations)
@@ -138,7 +139,7 @@ public interface SpecifiedQoSAnnotation extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
      * <em>Qos Annotations Specified Qo SAnnotation</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Qos Annotations Specified Qo SAnnotation</em>' container
      *            reference.

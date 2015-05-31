@@ -49,13 +49,13 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 public class ResourceContainerImpl extends EntityImpl implements ResourceContainer {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getActiveResourceSpecifications_ResourceContainer()
+     * The cached value of the '{@link #getActiveResourceSpecifications_ResourceContainer()
      * <em>Active Resource Specifications Resource Container</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -64,9 +64,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
      * @ordered
      */
     protected EList<ProcessingResourceSpecification> activeResourceSpecifications_ResourceContainer;
-
     /**
-     * The cached value of the ' {@link #getNestedResourceContainers__ResourceContainer()
+     * The cached value of the '{@link #getNestedResourceContainers__ResourceContainer()
      * <em>Nested Resource Containers Resource Container</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -78,7 +77,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceContainerImpl() {
@@ -87,7 +86,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,9 +96,10 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer() {
         if (this.activeResourceSpecifications_ResourceContainer == null) {
@@ -114,7 +114,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceEnvironment_ResourceContainer(
@@ -139,7 +139,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,9 +172,10 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceContainer> getNestedResourceContainers__ResourceContainer() {
         if (this.nestedResourceContainers__ResourceContainer == null) {
@@ -188,7 +189,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -201,7 +202,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentResourceContainer__ResourceContainer(
@@ -213,7 +214,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -247,7 +248,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -276,7 +277,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -299,7 +300,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -319,7 +320,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -339,7 +340,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -368,7 +369,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -392,9 +393,10 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

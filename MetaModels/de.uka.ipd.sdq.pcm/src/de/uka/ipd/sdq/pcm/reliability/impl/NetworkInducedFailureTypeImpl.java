@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -45,7 +44,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements NetworkInducedFailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,7 +63,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected NetworkInducedFailureTypeImpl() {
@@ -73,7 +72,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -83,13 +82,13 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CommunicationLinkResourceType getCommunicationLinkResourceType__NetworkInducedFailureType() {
         if (this.communicationLinkResourceType__NetworkInducedFailureType != null
-                && ((EObject) this.communicationLinkResourceType__NetworkInducedFailureType).eIsProxy()) {
+                && this.communicationLinkResourceType__NetworkInducedFailureType.eIsProxy()) {
             final InternalEObject oldCommunicationLinkResourceType__NetworkInducedFailureType = (InternalEObject) this.communicationLinkResourceType__NetworkInducedFailureType;
             this.communicationLinkResourceType__NetworkInducedFailureType = (CommunicationLinkResourceType) this
                     .eResolveProxy(oldCommunicationLinkResourceType__NetworkInducedFailureType);
@@ -109,7 +108,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CommunicationLinkResourceType basicGetCommunicationLinkResourceType__NetworkInducedFailureType() {
@@ -118,7 +117,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
@@ -144,7 +143,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +198,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * {@link #NetworkInducedFailureTypeHasCommunicationLinkResourceType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Network Induced Failure Type Has Communication Link Resource Type</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NetworkInducedFailureTypeHasCommunicationLinkResourceType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -209,7 +208,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,12 +234,9 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
                         ReliabilityValidator.DIAGNOSTIC_SOURCE,
                         ReliabilityValidator.NETWORK_INDUCED_FAILURE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_HAS_COMMUNICATION_LINK_RESOURCE_TYPE,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                "NetworkInducedFailureTypeHasCommunicationLinkResourceType",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                new Object[] { "NetworkInducedFailureTypeHasCommunicationLinkResourceType",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -249,7 +245,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -271,7 +267,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -286,7 +282,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +299,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -318,7 +314,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,7 +329,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -348,7 +344,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -24,13 +24,13 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class RecoveryActionItemProvider extends AbstractInternalControlFlowActionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +38,7 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RecoveryActionItemProvider(final AdapterFactory adapterFactory) {
@@ -48,7 +48,7 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,8 +73,8 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
                 this.getString("_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_RecoveryAction_primaryBehaviour__RecoveryAction_feature", "_UI_RecoveryAction_type"),
-                SeffReliabilityPackage.Literals.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION, true, false, true,
-                null, null, null));
+                        SeffReliabilityPackage.Literals.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION, true, false, true,
+                        null, null, null));
     }
 
     /**
@@ -91,14 +91,14 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION);
+            .add(SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
 
     /**
      * This returns RecoveryAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -136,7 +136,7 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,7 +154,7 @@ public class RecoveryActionItemProvider extends AbstractInternalControlFlowActio
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

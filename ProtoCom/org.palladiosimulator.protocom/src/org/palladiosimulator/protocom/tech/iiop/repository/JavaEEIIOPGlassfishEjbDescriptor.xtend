@@ -50,7 +50,7 @@ class JavaEEIIOPGlassfishEjbDescriptor extends JavaEEIIOPDescriptor<AllocationCo
 					getStereotypeApplications("IIOP")
 				if(resourceContainerAppliedStereotypes != null){
 					for (stereotypeApplication : resourceContainerAppliedStereotypes) {
-						var ipValue = stereotypeApplication.eGet(stereotypeApplication.stereotype.getTaggedValue("IpAddress")).toString
+						var ipValue = stereotypeApplication.eGet(stereotypeApplication.extension.source.getTaggedValue("IpAddress")).toString
 						assemblyConnectorIPHashMap.put(connector, ipValue)
 					}
 				}

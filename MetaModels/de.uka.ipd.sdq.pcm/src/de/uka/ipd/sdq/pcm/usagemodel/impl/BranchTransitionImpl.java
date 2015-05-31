@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.mdsdprofiles.impl.StereotypableElementImpl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Branch Transition</b></em>
@@ -36,10 +36,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class BranchTransitionImpl extends EStereotypableObjectImpl implements BranchTransition {
+public class BranchTransitionImpl extends StereotypableElementImpl implements BranchTransition {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
     /**
      * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -57,7 +57,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
     /**
      * The cached value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -68,7 +68,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
      * The cached value of the '{@link #getBranchedBehaviour_BranchTransition()
      * <em>Branched Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchedBehaviour_BranchTransition()
      * @generated
      * @ordered
@@ -77,7 +77,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BranchTransitionImpl() {
@@ -86,7 +86,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranch_BranchTransition(final Branch newBranch_BranchTransition,
@@ -147,7 +147,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +178,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -188,7 +188,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchedBehaviour_BranchTransition(
@@ -210,7 +210,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +264,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -281,7 +281,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -296,7 +296,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -314,7 +314,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,7 +335,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -356,7 +356,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -374,7 +374,7 @@ public class BranchTransitionImpl extends EStereotypableObjectImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

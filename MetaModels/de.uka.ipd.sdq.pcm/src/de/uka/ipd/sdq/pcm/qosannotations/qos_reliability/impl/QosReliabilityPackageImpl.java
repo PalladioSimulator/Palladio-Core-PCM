@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.uml2.types.TypesPackage;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.PcmPackage;
@@ -59,20 +58,20 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliabilityPackage {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass specifiedReliabilityAnnotationEClass = null;
@@ -85,7 +84,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage#eNS_URI
      * @see #init()
@@ -97,7 +96,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -110,7 +109,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
      * This method is used to initialize {@link QosReliabilityPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -131,7 +130,6 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
         // Initialize simple dependencies
         IdentifierPackage.eINSTANCE.eClass();
         StoexPackage.eINSTANCE.eClass();
-        TypesPackage.eINSTANCE.eClass();
 
         // Obtain or create and register interdependencies
         final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
@@ -254,7 +252,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +262,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -274,7 +272,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -284,7 +282,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -292,7 +290,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -309,7 +307,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -317,7 +315,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {

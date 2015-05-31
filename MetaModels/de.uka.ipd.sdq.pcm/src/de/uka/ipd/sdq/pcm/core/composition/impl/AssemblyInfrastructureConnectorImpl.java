@@ -7,7 +7,6 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -43,7 +42,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implements AssemblyInfrastructureConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,24 +51,22 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * The cached value of the '{@link #getProvidedRole__AssemblyInfrastructureConnector()
      * <em>Provided Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getProvidedRole__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
      */
     protected InfrastructureProvidedRole providedRole__AssemblyInfrastructureConnector;
-
     /**
      * The cached value of the '{@link #getRequiredRole__AssemblyInfrastructureConnector()
      * <em>Required Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRequiredRole__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
      */
     protected InfrastructureRequiredRole requiredRole__AssemblyInfrastructureConnector;
-
     /**
      * The cached value of the '
      * {@link #getProvidingAssemblyContext__AssemblyInfrastructureConnector()
@@ -81,7 +78,6 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @ordered
      */
     protected AssemblyContext providingAssemblyContext__AssemblyInfrastructureConnector;
-
     /**
      * The cached value of the '
      * {@link #getRequiringAssemblyContext__AssemblyInfrastructureConnector()
@@ -96,7 +92,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyInfrastructureConnectorImpl() {
@@ -105,7 +101,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -115,13 +111,13 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureProvidedRole getProvidedRole__AssemblyInfrastructureConnector() {
         if (this.providedRole__AssemblyInfrastructureConnector != null
-                && ((EObject) this.providedRole__AssemblyInfrastructureConnector).eIsProxy()) {
+                && this.providedRole__AssemblyInfrastructureConnector.eIsProxy()) {
             final InternalEObject oldProvidedRole__AssemblyInfrastructureConnector = (InternalEObject) this.providedRole__AssemblyInfrastructureConnector;
             this.providedRole__AssemblyInfrastructureConnector = (InfrastructureProvidedRole) this
                     .eResolveProxy(oldProvidedRole__AssemblyInfrastructureConnector);
@@ -141,7 +137,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureProvidedRole basicGetProvidedRole__AssemblyInfrastructureConnector() {
@@ -150,7 +146,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -170,13 +166,13 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getRequiredRole__AssemblyInfrastructureConnector() {
         if (this.requiredRole__AssemblyInfrastructureConnector != null
-                && ((EObject) this.requiredRole__AssemblyInfrastructureConnector).eIsProxy()) {
+                && this.requiredRole__AssemblyInfrastructureConnector.eIsProxy()) {
             final InternalEObject oldRequiredRole__AssemblyInfrastructureConnector = (InternalEObject) this.requiredRole__AssemblyInfrastructureConnector;
             this.requiredRole__AssemblyInfrastructureConnector = (InfrastructureRequiredRole) this
                     .eResolveProxy(oldRequiredRole__AssemblyInfrastructureConnector);
@@ -196,7 +192,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__AssemblyInfrastructureConnector() {
@@ -205,7 +201,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,13 +221,13 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getProvidingAssemblyContext__AssemblyInfrastructureConnector() {
         if (this.providingAssemblyContext__AssemblyInfrastructureConnector != null
-                && ((EObject) this.providingAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
+                && this.providingAssemblyContext__AssemblyInfrastructureConnector.eIsProxy()) {
             final InternalEObject oldProvidingAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) this.providingAssemblyContext__AssemblyInfrastructureConnector;
             this.providingAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) this
                     .eResolveProxy(oldProvidingAssemblyContext__AssemblyInfrastructureConnector);
@@ -251,7 +247,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext__AssemblyInfrastructureConnector() {
@@ -260,7 +256,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,13 +276,13 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getRequiringAssemblyContext__AssemblyInfrastructureConnector() {
         if (this.requiringAssemblyContext__AssemblyInfrastructureConnector != null
-                && ((EObject) this.requiringAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
+                && this.requiringAssemblyContext__AssemblyInfrastructureConnector.eIsProxy()) {
             final InternalEObject oldRequiringAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) this.requiringAssemblyContext__AssemblyInfrastructureConnector;
             this.requiringAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) this
                     .eResolveProxy(oldRequiringAssemblyContext__AssemblyInfrastructureConnector);
@@ -306,7 +302,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext__AssemblyInfrastructureConnector() {
@@ -315,7 +311,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,7 +331,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -367,7 +363,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -391,7 +387,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -415,7 +411,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

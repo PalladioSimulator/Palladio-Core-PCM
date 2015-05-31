@@ -36,13 +36,13 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 public class CallReturnActionImpl extends CallActionImpl implements CallReturnAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getReturnVariableUsage__CallReturnAction()
+     * The cached value of the '{@link #getReturnVariableUsage__CallReturnAction()
      * <em>Return Variable Usage Call Return Action</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -54,7 +54,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CallReturnActionImpl() {
@@ -63,7 +63,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,9 +73,10 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getReturnVariableUsage__CallReturnAction() {
         if (this.returnVariableUsage__CallReturnAction == null) {
@@ -89,7 +90,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -106,7 +107,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +122,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +136,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -152,7 +153,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -167,9 +168,10 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

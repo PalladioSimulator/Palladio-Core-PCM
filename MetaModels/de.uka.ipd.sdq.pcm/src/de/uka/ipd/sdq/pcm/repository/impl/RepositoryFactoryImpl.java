@@ -45,20 +45,20 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static RepositoryFactory init() {
@@ -76,7 +76,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RepositoryFactoryImpl() {
@@ -85,7 +85,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -167,7 +167,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,7 +219,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -230,7 +230,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ComponentType createComponentTypeFromString(final EDataType eDataType, final String initialValue) {
@@ -255,7 +255,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public String convertComponentTypeToString(final EDataType eDataType, final Object instanceValue) {
@@ -264,7 +264,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -275,7 +275,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -286,7 +286,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +297,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -308,7 +308,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -319,7 +319,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -330,7 +330,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +341,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -352,7 +352,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -363,7 +363,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -374,7 +374,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -385,7 +385,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -396,7 +396,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -407,7 +407,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -418,7 +418,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -429,7 +429,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -440,7 +440,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -451,7 +451,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -462,7 +462,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -473,7 +473,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -484,7 +484,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ParameterModifier createParameterModifierFromString(final EDataType eDataType, final String initialValue) {
@@ -498,7 +498,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public String convertParameterModifierToString(final EDataType eDataType, final Object instanceValue) {
@@ -507,7 +507,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PrimitiveTypeEnum createPrimitiveTypeEnumFromString(final EDataType eDataType, final String initialValue) {
@@ -521,7 +521,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public String convertPrimitiveTypeEnumToString(final EDataType eDataType, final Object instanceValue) {
@@ -530,7 +530,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -540,7 +540,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

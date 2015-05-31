@@ -19,13 +19,13 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.SinkRole} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SinkRoleItemProvider extends ProvidedRoleItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -33,7 +33,7 @@ public class SinkRoleItemProvider extends ProvidedRoleItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SinkRoleItemProvider(final AdapterFactory adapterFactory) {
@@ -43,7 +43,7 @@ public class SinkRoleItemProvider extends ProvidedRoleItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -59,7 +59,7 @@ public class SinkRoleItemProvider extends ProvidedRoleItemProvider {
     /**
      * This adds a property descriptor for the Event Group Sink Role feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addEventGroup__SinkRolePropertyDescriptor(final Object object) {
@@ -68,12 +68,12 @@ public class SinkRoleItemProvider extends ProvidedRoleItemProvider {
                 this.getString("_UI_SinkRole_eventGroup__SinkRole_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_SinkRole_eventGroup__SinkRole_feature",
                         "_UI_SinkRole_type"), RepositoryPackage.Literals.SINK_ROLE__EVENT_GROUP_SINK_ROLE, true, false,
-                true, null, null, null));
+                        true, null, null, null));
     }
 
     /**
      * This returns SinkRole.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,7 +98,7 @@ public class SinkRoleItemProvider extends ProvidedRoleItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class SinkRoleItemProvider extends ProvidedRoleItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
@@ -18,7 +19,6 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -38,10 +38,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class VariableCharacterisationImpl extends EStereotypableObjectImpl implements VariableCharacterisation {
+public class VariableCharacterisationImpl extends MinimalEObjectImpl.Container implements VariableCharacterisation {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +49,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -59,7 +59,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -70,7 +70,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
      * The cached value of the '{@link #getSpecification_VariableCharacterisation()
      * <em>Specification Variable Characterisation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSpecification_VariableCharacterisation()
      * @generated
      * @ordered
@@ -79,7 +79,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected VariableCharacterisationImpl() {
@@ -88,7 +88,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,7 +98,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecification_VariableCharacterisation(
@@ -155,7 +155,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +199,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetVariableUsage_VariableCharacterisation(
@@ -211,7 +211,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +243,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +268,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -285,7 +285,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -301,7 +301,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -319,7 +319,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -340,7 +340,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -361,7 +361,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -379,7 +379,7 @@ public class VariableCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

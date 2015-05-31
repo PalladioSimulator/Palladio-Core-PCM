@@ -20,13 +20,13 @@ import de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConne
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class RequiredInfrastructureDelegationConnectorItemProvider extends DelegationConnectorItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +34,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RequiredInfrastructureDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -62,19 +62,19 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds a property descriptor for the Inner Required Role Required Infrastructure
      * Delegation Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addInnerRequiredRole__RequiredInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_RequiredInfrastructureDelegationConnector_innerRequiredRole__RequiredInfrastructureDelegationConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_RequiredInfrastructureDelegationConnector_innerRequiredRole__RequiredInfrastructureDelegationConnector_feature",
-                                "_UI_RequiredInfrastructureDelegationConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_RequiredInfrastructureDelegationConnector_innerRequiredRole__RequiredInfrastructureDelegationConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_RequiredInfrastructureDelegationConnector_innerRequiredRole__RequiredInfrastructureDelegationConnector_feature",
+                        "_UI_RequiredInfrastructureDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -82,19 +82,19 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds a property descriptor for the Outer Required Role Required Infrastructure
      * Delegation Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addOuterRequiredRole__RequiredInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_RequiredInfrastructureDelegationConnector_outerRequiredRole__RequiredInfrastructureDelegationConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_RequiredInfrastructureDelegationConnector_outerRequiredRole__RequiredInfrastructureDelegationConnector_feature",
-                                "_UI_RequiredInfrastructureDelegationConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_RequiredInfrastructureDelegationConnector_outerRequiredRole__RequiredInfrastructureDelegationConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_RequiredInfrastructureDelegationConnector_outerRequiredRole__RequiredInfrastructureDelegationConnector_feature",
+                        "_UI_RequiredInfrastructureDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -102,19 +102,19 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds a property descriptor for the Assembly Context Required Infrastructure Delegation
      * Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addAssemblyContext__RequiredInfrastructureDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_RequiredInfrastructureDelegationConnector_assemblyContext__RequiredInfrastructureDelegationConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_RequiredInfrastructureDelegationConnector_assemblyContext__RequiredInfrastructureDelegationConnector_feature",
-                                "_UI_RequiredInfrastructureDelegationConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_RequiredInfrastructureDelegationConnector_assemblyContext__RequiredInfrastructureDelegationConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_RequiredInfrastructureDelegationConnector_assemblyContext__RequiredInfrastructureDelegationConnector_feature",
+                        "_UI_RequiredInfrastructureDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -122,7 +122,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This returns RequiredInfrastructureDelegationConnector.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +149,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,7 +161,7 @@ public class RequiredInfrastructureDelegationConnectorItemProvider extends Deleg
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

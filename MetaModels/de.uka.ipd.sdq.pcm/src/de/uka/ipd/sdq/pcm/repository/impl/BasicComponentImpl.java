@@ -50,13 +50,13 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 public class BasicComponentImpl extends ImplementationComponentTypeImpl implements BasicComponent {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getServiceEffectSpecifications__BasicComponent()
+     * The cached value of the '{@link #getServiceEffectSpecifications__BasicComponent()
      * <em>Service Effect Specifications Basic Component</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -70,7 +70,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
      * The cached value of the '{@link #getPassiveResource_BasicComponent()
      * <em>Passive Resource Basic Component</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getPassiveResource_BasicComponent()
      * @generated
      * @ordered
@@ -79,7 +79,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BasicComponentImpl() {
@@ -88,7 +88,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,9 +98,10 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent() {
         if (this.serviceEffectSpecifications__BasicComponent == null) {
@@ -114,9 +115,10 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<PassiveResource> getPassiveResource_BasicComponent() {
         if (this.passiveResource_BasicComponent == null) {
@@ -131,7 +133,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
      * The cached OCL expression body for the '
      * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Seff Type Used Twice</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -144,7 +146,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
      * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Seff Type Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -153,7 +155,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,11 +174,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE, EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "NoSeffTypeUsedTwice", EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                "_UI_GenericInvariant_diagnostic", new Object[] { "NoSeffTypeUsedTwice",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -185,7 +184,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -205,7 +204,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +222,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -239,7 +238,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -261,7 +260,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,9 +278,10 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

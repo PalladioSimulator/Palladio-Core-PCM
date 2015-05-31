@@ -63,7 +63,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl implements CompositeComponent {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -72,7 +72,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      * The cached value of the '{@link #getParentCompleteComponentTypes()
      * <em>Parent Complete Component Types</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getParentCompleteComponentTypes()
      * @generated
      * @ordered
@@ -83,7 +83,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType()
      * <em>Component Parameter Usage Implementation Component Type</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getComponentParameterUsage_ImplementationComponentType()
      * @generated
      * @ordered
@@ -93,7 +93,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     /**
      * The default value of the '{@link #getComponentType() <em>Component Type</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getComponentType()
      * @generated
      * @ordered
@@ -112,7 +112,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompositeComponentImpl() {
@@ -121,7 +121,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,7 +131,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__RepositoryComponent(
@@ -156,7 +156,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -187,9 +187,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<CompleteComponentType> getParentCompleteComponentTypes() {
         if (this.parentCompleteComponentTypes == null) {
@@ -202,9 +203,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
         if (this.componentParameterUsage_ImplementationComponentType == null) {
@@ -217,7 +219,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -227,7 +229,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -296,7 +298,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,14 +322,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
                         Diagnostic.ERROR,
                         RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "RequiredInterfacesHaveToConformToCompleteType",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "RequiredInterfacesHaveToConformToCompleteType",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -387,7 +385,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -411,14 +409,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
                         Diagnostic.ERROR,
                         RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "providedInterfacesHaveToConformToCompleteType",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "providedInterfacesHaveToConformToCompleteType",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -458,7 +452,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -482,14 +476,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
                         Diagnostic.ERROR,
                         RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "ProvidedInterfaceHaveToConformToComponentType",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ProvidedInterfaceHaveToConformToComponentType",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -534,7 +524,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      * {@link #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provide Same Or More Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -544,7 +534,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -568,14 +558,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
                         Diagnostic.ERROR,
                         RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "ProvideSameOrMoreInterfacesAsCompleteComponentType",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ProvideSameOrMoreInterfacesAsCompleteComponentType",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -617,7 +603,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      * {@link #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Require Same Or Fewer Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -627,7 +613,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -652,14 +638,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
                         Diagnostic.ERROR,
                         RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "RequireSameOrFewerInterfacesAsCompleteComponentType",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "RequireSameOrFewerInterfacesAsCompleteComponentType",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -668,7 +650,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -685,7 +667,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -703,7 +685,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -718,7 +700,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -738,7 +720,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -766,7 +748,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -790,9 +772,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -811,7 +794,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -841,7 +824,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -871,7 +854,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -21,13 +21,13 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.CallReturnAction} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CallReturnActionItemProvider extends CallActionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -35,7 +35,7 @@ public class CallReturnActionItemProvider extends CallActionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CallReturnActionItemProvider(final AdapterFactory adapterFactory) {
@@ -45,7 +45,7 @@ public class CallReturnActionItemProvider extends CallActionItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,14 +71,14 @@ public class CallReturnActionItemProvider extends CallActionItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-            .add(SeffPackage.Literals.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION);
+                    .add(SeffPackage.Literals.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class CallReturnActionItemProvider extends CallActionItemProvider {
 
     /**
      * This returns CallReturnAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,14 +107,16 @@ public class CallReturnActionItemProvider extends CallActionItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_CallReturnAction_type");
+        final String label = ((CallReturnAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_CallReturnAction_type") : this
+                .getString("_UI_CallReturnAction_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +134,7 @@ public class CallReturnActionItemProvider extends CallActionItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,9 +162,10 @@ public class CallReturnActionItemProvider extends CallActionItemProvider {
                 || childFeature == SeffPackage.Literals.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION;
 
         if (qualify) {
-            return this.getString("_UI_CreateChild_text2", new Object[] {
-                    this.getTypeText(childObject), this.getFeatureText(childFeature), this.getTypeText(owner)
-            });
+            return this.getString(
+                    "_UI_CreateChild_text2",
+                    new Object[] { this.getTypeText(childObject), this.getFeatureText(childFeature),
+                            this.getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }

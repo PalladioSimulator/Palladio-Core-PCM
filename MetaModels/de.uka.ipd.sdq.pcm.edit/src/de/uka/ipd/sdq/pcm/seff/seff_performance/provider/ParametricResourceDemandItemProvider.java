@@ -14,14 +14,9 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.palladiosimulator.mdsdprofiles.provider.StereotypableElementItemProvider;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
@@ -34,11 +29,10 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
  *
  * @generated
  */
-public class ParametricResourceDemandItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ParametricResourceDemandItemProvider extends StereotypableElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -46,7 +40,7 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ParametricResourceDemandItemProvider(final AdapterFactory adapterFactory) {
@@ -56,7 +50,7 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,18 +66,18 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
     /**
      * This adds a property descriptor for the Required Resource Parametric Resource Demand feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addRequiredResource_ParametricResourceDemandPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature"),
-                        this.getString("_UI_PropertyDescriptor_description",
-                                "_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature",
-                                "_UI_ParametricResourceDemand_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_ParametricResourceDemand_requiredResource_ParametricResourceDemand_feature",
+                        "_UI_ParametricResourceDemand_type"),
                         SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
                         true, false, true, null, null, null));
     }
@@ -102,14 +96,14 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND);
+            .add(SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +116,7 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
 
     /**
      * This returns ParametricResourceDemand.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,7 +139,7 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +157,7 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +172,7 @@ public class ParametricResourceDemandItemProvider extends ItemProviderAdapter im
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

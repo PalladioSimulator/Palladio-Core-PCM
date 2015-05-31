@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 public interface Delay extends AbstractUserAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public interface Delay extends AbstractUserAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Time Specification Delay</em>' containment reference.
      * @see #setTimeSpecification_Delay(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getDelay_TimeSpecification_Delay()
@@ -62,7 +62,7 @@ public interface Delay extends AbstractUserAction {
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTimeSpecification_Delay
      * <em>Time Specification Delay</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Time Specification Delay</em>' containment reference.
      * @see #getTimeSpecification_Delay()

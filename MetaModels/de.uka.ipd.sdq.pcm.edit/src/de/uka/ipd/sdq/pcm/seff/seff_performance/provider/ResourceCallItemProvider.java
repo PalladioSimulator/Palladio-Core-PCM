@@ -24,13 +24,13 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ResourceCallItemProvider extends CallActionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +38,7 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceCallItemProvider(final AdapterFactory adapterFactory) {
@@ -48,7 +48,7 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,14 +74,14 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
                 this.getString("_UI_ResourceCall_resourceRequiredRole__ResourceCall_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_ResourceCall_resourceRequiredRole__ResourceCall_feature", "_UI_ResourceCall_type"),
-                SeffPerformancePackage.Literals.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL, true, false, true,
-                null, null, null));
+                        SeffPerformancePackage.Literals.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL, true, false, true,
+                        null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Signature Resource Call feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addSignature__ResourceCallPropertyDescriptor(final Object object) {
@@ -90,8 +90,8 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
                 this.getString("_UI_ResourceCall_signature__ResourceCall_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_ResourceCall_signature__ResourceCall_feature",
                         "_UI_ResourceCall_type"),
-                SeffPerformancePackage.Literals.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL, true, false, true, null, null,
-                null));
+                        SeffPerformancePackage.Literals.RESOURCE_CALL__SIGNATURE_RESOURCE_CALL, true, false, true, null, null,
+                        null));
     }
 
     /**
@@ -114,7 +114,7 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
 
     /**
      * This returns ResourceCall.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -143,14 +143,16 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_ResourceCall_type");
+        final String label = ((ResourceCall) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceCall_type") : this
+                .getString("_UI_ResourceCall_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +170,7 @@ public class ResourceCallItemProvider extends CallActionItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

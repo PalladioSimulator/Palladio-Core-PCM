@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -50,7 +49,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl implements ProvidedDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +58,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * The cached value of the '{@link #getInnerProvidedRole_ProvidedDelegationConnector()
      * <em>Inner Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInnerProvidedRole_ProvidedDelegationConnector()
      * @generated
      * @ordered
@@ -70,7 +69,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * The cached value of the '{@link #getOuterProvidedRole_ProvidedDelegationConnector()
      * <em>Outer Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getOuterProvidedRole_ProvidedDelegationConnector()
      * @generated
      * @ordered
@@ -81,7 +80,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * The cached value of the '{@link #getAssemblyContext_ProvidedDelegationConnector()
      * <em>Assembly Context Provided Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext_ProvidedDelegationConnector()
      * @generated
      * @ordered
@@ -90,7 +89,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProvidedDelegationConnectorImpl() {
@@ -99,7 +98,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,13 +108,13 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationProvidedRole getInnerProvidedRole_ProvidedDelegationConnector() {
         if (this.innerProvidedRole_ProvidedDelegationConnector != null
-                && ((EObject) this.innerProvidedRole_ProvidedDelegationConnector).eIsProxy()) {
+                && this.innerProvidedRole_ProvidedDelegationConnector.eIsProxy()) {
             final InternalEObject oldInnerProvidedRole_ProvidedDelegationConnector = (InternalEObject) this.innerProvidedRole_ProvidedDelegationConnector;
             this.innerProvidedRole_ProvidedDelegationConnector = (OperationProvidedRole) this
                     .eResolveProxy(oldInnerProvidedRole_ProvidedDelegationConnector);
@@ -135,7 +134,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationProvidedRole basicGetInnerProvidedRole_ProvidedDelegationConnector() {
@@ -144,7 +143,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,13 +163,13 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationProvidedRole getOuterProvidedRole_ProvidedDelegationConnector() {
         if (this.outerProvidedRole_ProvidedDelegationConnector != null
-                && ((EObject) this.outerProvidedRole_ProvidedDelegationConnector).eIsProxy()) {
+                && this.outerProvidedRole_ProvidedDelegationConnector.eIsProxy()) {
             final InternalEObject oldOuterProvidedRole_ProvidedDelegationConnector = (InternalEObject) this.outerProvidedRole_ProvidedDelegationConnector;
             this.outerProvidedRole_ProvidedDelegationConnector = (OperationProvidedRole) this
                     .eResolveProxy(oldOuterProvidedRole_ProvidedDelegationConnector);
@@ -190,7 +189,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationProvidedRole basicGetOuterProvidedRole_ProvidedDelegationConnector() {
@@ -199,7 +198,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,13 +218,13 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext_ProvidedDelegationConnector() {
         if (this.assemblyContext_ProvidedDelegationConnector != null
-                && ((EObject) this.assemblyContext_ProvidedDelegationConnector).eIsProxy()) {
+                && this.assemblyContext_ProvidedDelegationConnector.eIsProxy()) {
             final InternalEObject oldAssemblyContext_ProvidedDelegationConnector = (InternalEObject) this.assemblyContext_ProvidedDelegationConnector;
             this.assemblyContext_ProvidedDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext_ProvidedDelegationConnector);
@@ -245,7 +244,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ProvidedDelegationConnector() {
@@ -254,7 +253,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -274,7 +273,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -287,7 +286,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -297,7 +296,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -328,10 +327,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
                                 "_UI_GenericInvariant_diagnostic",
                                 new Object[] {
                                         "ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -343,7 +340,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Component Of Assembly Context And Inner Role Providing Component Need To Be The Same</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -356,7 +353,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Component Of Assembly Context And Inner Role Providing Component Need To Be The Same</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -366,7 +363,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -394,10 +391,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
                         CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -406,7 +400,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -433,7 +427,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -454,7 +448,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -475,7 +469,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -494,7 +488,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

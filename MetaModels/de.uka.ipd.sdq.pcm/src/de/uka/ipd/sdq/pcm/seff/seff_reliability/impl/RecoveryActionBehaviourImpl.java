@@ -67,7 +67,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl implements RecoveryActionBehaviour {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -75,7 +75,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     /**
      * The cached value of the '{@link #getSteps_Behaviour() <em>Steps Behaviour</em>}' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSteps_Behaviour()
      * @generated
      * @ordered
@@ -83,7 +83,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     protected EList<AbstractAction> steps_Behaviour;
 
     /**
-     * The cached value of the ' {@link #getFailureHandlingAlternatives__RecoveryActionBehaviour()
+     * The cached value of the '{@link #getFailureHandlingAlternatives__RecoveryActionBehaviour()
      * <em>Failure Handling Alternatives Recovery Action Behaviour</em>}' reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -95,7 +95,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RecoveryActionBehaviourImpl() {
@@ -104,7 +104,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +114,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -140,7 +140,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -188,7 +188,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -204,7 +204,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,9 +241,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<AbstractAction> getSteps_Behaviour() {
         if (this.steps_Behaviour == null) {
@@ -256,9 +257,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<RecoveryActionBehaviour> getFailureHandlingAlternatives__RecoveryActionBehaviour() {
         if (this.failureHandlingAlternatives__RecoveryActionBehaviour == null) {
@@ -272,7 +274,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -285,7 +287,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRecoveryAction__RecoveryActionBehaviour(
@@ -297,7 +299,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,7 +335,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -345,7 +347,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -354,7 +356,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -373,11 +375,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION, EcorePlugin.INSTANCE
-                        .getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "ExactlyOneStopAction", EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                    this
-                }));
+                        .getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStopAction",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -388,7 +387,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -400,7 +399,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -409,7 +408,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -428,11 +427,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION, EcorePlugin.INSTANCE
-                        .getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "ExactlyOneStartAction", EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                    this
-                }));
+                        .getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStartAction",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -444,7 +440,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -457,7 +453,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -467,7 +463,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -495,10 +491,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
                         SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -510,7 +503,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * {@link #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Recovery Action Behaviour Has Only One Predecessor</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -536,7 +529,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -562,12 +555,9 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
                         SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "RecoveryActionBehaviourHasOnlyOnePredecessor",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                                new Object[] { "RecoveryActionBehaviourHasOnlyOnePredecessor",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -602,7 +592,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -626,14 +616,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
                         Diagnostic.ERROR,
                         SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
                         SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "RecoveryActionBehaviourIsNotSuccessorOfItself",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "RecoveryActionBehaviourIsNotSuccessorOfItself",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -645,7 +631,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * {@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -661,7 +647,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * {@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -671,7 +657,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -698,10 +684,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
                         SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -710,7 +693,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -742,7 +725,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -763,7 +746,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -786,7 +769,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -808,7 +791,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -839,7 +822,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -866,9 +849,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -889,7 +873,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -911,7 +895,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -934,7 +918,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

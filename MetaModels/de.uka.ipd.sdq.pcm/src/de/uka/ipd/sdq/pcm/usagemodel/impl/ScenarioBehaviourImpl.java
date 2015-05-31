@@ -59,7 +59,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
 public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehaviour {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +68,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      * The cached value of the '{@link #getActions_ScenarioBehaviour()
      * <em>Actions Scenario Behaviour</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getActions_ScenarioBehaviour()
      * @generated
      * @ordered
@@ -77,7 +77,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ScenarioBehaviourImpl() {
@@ -86,7 +86,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,9 +96,10 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<AbstractUserAction> getActions_ScenarioBehaviour() {
         if (this.actions_ScenarioBehaviour == null) {
@@ -113,7 +114,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      * The cached OCL expression body for the '
      * {@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactlyonestart</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -124,7 +125,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      * The cached OCL invariant for the '
      * {@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactlyonestart</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -133,7 +134,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -152,11 +153,9 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTART, EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "Exactlyonestart", EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "Exactlyonestart", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -167,7 +166,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      * The cached OCL expression body for the '
      * {@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactlyonestop</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -178,7 +177,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      * The cached OCL invariant for the '
      * {@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactlyonestop</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -187,7 +186,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -206,11 +205,9 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTOP, EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "Exactlyonestop", EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "Exactlyonestop", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -235,7 +232,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      * {@link #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -245,7 +242,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -272,10 +269,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -284,7 +278,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +291,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchTransition_ScenarioBehaviour(
@@ -309,7 +303,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +335,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -354,7 +348,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLoop_ScenarioBehaviour(final Loop newLoop_ScenarioBehaviour, NotificationChain msgs) {
@@ -365,7 +359,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -396,7 +390,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -409,7 +403,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUsageScenario_SenarioBehaviour(
@@ -421,7 +415,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -452,7 +446,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -483,7 +477,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -504,7 +498,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -526,7 +520,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -546,7 +540,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -572,7 +566,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -596,9 +590,10 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -617,7 +612,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

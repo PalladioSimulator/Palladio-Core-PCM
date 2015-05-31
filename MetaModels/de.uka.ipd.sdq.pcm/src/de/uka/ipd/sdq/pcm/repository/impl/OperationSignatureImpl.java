@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -57,7 +56,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 public class OperationSignatureImpl extends SignatureImpl implements OperationSignature {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -66,7 +65,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * The cached value of the '{@link #getParameters__OperationSignature()
      * <em>Parameters Operation Signature</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameters__OperationSignature()
      * @generated
      * @ordered
@@ -77,7 +76,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * The cached value of the '{@link #getReturnType__OperationSignature()
      * <em>Return Type Operation Signature</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getReturnType__OperationSignature()
      * @generated
      * @ordered
@@ -86,7 +85,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OperationSignatureImpl() {
@@ -95,7 +94,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -105,7 +104,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +117,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInterface__OperationSignature(
@@ -130,7 +129,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,7 +164,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * {@link #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Parameter Names Have To Be Unique For ASignature</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -189,7 +188,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,12 +211,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
                         RepositoryValidator.OPERATION_SIGNATURE__PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "ParameterNamesHaveToBeUniqueForASignature",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "ParameterNamesHaveToBeUniqueForASignature",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -226,12 +221,12 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public DataType getReturnType__OperationSignature() {
-        if (this.returnType__OperationSignature != null && ((EObject) this.returnType__OperationSignature).eIsProxy()) {
+        if (this.returnType__OperationSignature != null && this.returnType__OperationSignature.eIsProxy()) {
             final InternalEObject oldReturnType__OperationSignature = (InternalEObject) this.returnType__OperationSignature;
             this.returnType__OperationSignature = (DataType) this.eResolveProxy(oldReturnType__OperationSignature);
             if (this.returnType__OperationSignature != oldReturnType__OperationSignature) {
@@ -247,7 +242,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetReturnType__OperationSignature() {
@@ -256,7 +251,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -272,9 +267,10 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<Parameter> getParameters__OperationSignature() {
         if (this.parameters__OperationSignature == null) {
@@ -287,7 +283,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -308,7 +304,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -325,7 +321,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +337,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -362,7 +358,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -385,7 +381,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -406,9 +402,10 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -425,7 +422,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

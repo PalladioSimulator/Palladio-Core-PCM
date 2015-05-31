@@ -8,10 +8,10 @@ package de.uka.ipd.sdq.pcm.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Protocol</b></em>'. <!--
@@ -26,10 +26,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public abstract class ProtocolImpl extends EStereotypableObjectImpl implements Protocol {
+public abstract class ProtocolImpl extends MinimalEObjectImpl.Container implements Protocol {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -37,7 +37,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
     /**
      * The default value of the '{@link #getProtocolTypeID() <em>Protocol Type ID</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getProtocolTypeID()
      * @generated
      * @ordered
@@ -47,7 +47,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
     /**
      * The cached value of the '{@link #getProtocolTypeID() <em>Protocol Type ID</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getProtocolTypeID()
      * @generated
      * @ordered
@@ -56,7 +56,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProtocolImpl() {
@@ -65,7 +65,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +85,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +114,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -129,7 +129,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public abstract class ProtocolImpl extends EStereotypableObjectImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

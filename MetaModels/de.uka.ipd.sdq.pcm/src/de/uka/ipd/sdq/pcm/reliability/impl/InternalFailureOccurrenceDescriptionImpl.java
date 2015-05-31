@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -51,7 +50,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 InternalFailureOccurrenceDescription {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +60,7 @@ InternalFailureOccurrenceDescription {
      * {@link #getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
      * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
      * @generated
      * @ordered
@@ -70,7 +69,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InternalFailureOccurrenceDescriptionImpl() {
@@ -79,7 +78,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,13 +88,13 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SoftwareInducedFailureType getSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
         if (this.softwareInducedFailureType__InternalFailureOccurrenceDescription != null
-                && ((EObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription).eIsProxy()) {
+                && this.softwareInducedFailureType__InternalFailureOccurrenceDescription.eIsProxy()) {
             final InternalEObject oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription = (InternalEObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription;
             this.softwareInducedFailureType__InternalFailureOccurrenceDescription = (SoftwareInducedFailureType) this
                     .eResolveProxy(oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription);
@@ -115,7 +114,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SoftwareInducedFailureType basicGetSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
@@ -124,7 +123,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSoftwareInducedFailureType__InternalFailureOccurrenceDescription(
@@ -150,7 +149,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -192,7 +191,7 @@ InternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -205,7 +204,7 @@ InternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -215,7 +214,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,10 +242,7 @@ InternalFailureOccurrenceDescription {
                         ReliabilityValidator.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -255,7 +251,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +264,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInternalAction__InternalFailureOccurrenceDescription(
@@ -283,7 +279,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,7 +316,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -347,7 +343,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -364,7 +360,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -380,7 +376,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -399,7 +395,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -417,7 +413,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -435,7 +431,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

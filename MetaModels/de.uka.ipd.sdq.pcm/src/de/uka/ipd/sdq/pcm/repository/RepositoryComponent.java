@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
      * {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
      * <em>Repository Repository Component</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Repository Repository Component</em>' container
      *            reference.

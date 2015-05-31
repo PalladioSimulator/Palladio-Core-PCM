@@ -11,18 +11,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 import de.uka.ipd.sdq.pcm.seff.InternalCallAction;
@@ -40,9 +34,6 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getId <em>Id</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getEntityName <em>Entity Name
- * </em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getPredecessor_AbstractAction <em>
  * Predecessor Abstract Action</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.InternalCallActionImpl#getSuccessor_AbstractAction <em>
@@ -67,50 +58,10 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 public class InternalCallActionImpl extends CallActionImpl implements InternalCallAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-    /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEntityName()
-     * @generated
-     * @ordered
-     */
-    protected static final String ENTITY_NAME_EDEFAULT = "aName";
-
-    /**
-     * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEntityName()
-     * @generated
-     * @ordered
-     */
-    protected String entityName = ENTITY_NAME_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getPredecessor_AbstractAction()
@@ -122,53 +73,48 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @ordered
      */
     protected AbstractAction predecessor_AbstractAction;
-
     /**
      * The cached value of the '{@link #getSuccessor_AbstractAction()
      * <em>Successor Abstract Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSuccessor_AbstractAction()
      * @generated
      * @ordered
      */
     protected AbstractAction successor_AbstractAction;
-
     /**
      * The cached value of the '{@link #getResourceDemand_Action() <em>Resource Demand Action</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceDemand_Action()
      * @generated
      * @ordered
      */
     protected EList<ParametricResourceDemand> resourceDemand_Action;
-
     /**
      * The cached value of the '{@link #getInfrastructureCall__Action()
      * <em>Infrastructure Call Action</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getInfrastructureCall__Action()
      * @generated
      * @ordered
      */
     protected EList<InfrastructureCall> infrastructureCall__Action;
-
     /**
      * The cached value of the '{@link #getResourceCall__Action() <em>Resource Call Action</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceCall__Action()
      * @generated
      * @ordered
      */
     protected EList<ResourceCall> resourceCall__Action;
-
     /**
      * The cached value of the '{@link #getCalledResourceDemandingInternalBehaviour()
      * <em>Called Resource Demanding Internal Behaviour</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getCalledResourceDemandingInternalBehaviour()
      * @generated
      * @ordered
@@ -177,7 +123,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InternalCallActionImpl() {
@@ -186,7 +132,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -196,62 +142,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String getId() {
-        return this.id;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public void setId(final String newId) {
-        final String oldId = this.id;
-        this.id = newId;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.INTERNAL_CALL_ACTION__ID, oldId,
-                    this.id));
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String getEntityName() {
-        return this.entityName;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public void setEntityName(final String newEntityName) {
-        final String oldEntityName = this.entityName;
-        this.entityName = newEntityName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME,
-                    oldEntityName, this.entityName));
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractAction getPredecessor_AbstractAction() {
-        if (this.predecessor_AbstractAction != null && ((EObject) this.predecessor_AbstractAction).eIsProxy()) {
+        if (this.predecessor_AbstractAction != null && this.predecessor_AbstractAction.eIsProxy()) {
             final InternalEObject oldPredecessor_AbstractAction = (InternalEObject) this.predecessor_AbstractAction;
             this.predecessor_AbstractAction = (AbstractAction) this.eResolveProxy(oldPredecessor_AbstractAction);
             if (this.predecessor_AbstractAction != oldPredecessor_AbstractAction) {
@@ -267,7 +163,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractAction basicGetPredecessor_AbstractAction() {
@@ -276,7 +172,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPredecessor_AbstractAction(final AbstractAction newPredecessor_AbstractAction,
@@ -298,7 +194,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -326,12 +222,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractAction getSuccessor_AbstractAction() {
-        if (this.successor_AbstractAction != null && ((EObject) this.successor_AbstractAction).eIsProxy()) {
+        if (this.successor_AbstractAction != null && this.successor_AbstractAction.eIsProxy()) {
             final InternalEObject oldSuccessor_AbstractAction = (InternalEObject) this.successor_AbstractAction;
             this.successor_AbstractAction = (AbstractAction) this.eResolveProxy(oldSuccessor_AbstractAction);
             if (this.successor_AbstractAction != oldSuccessor_AbstractAction) {
@@ -347,7 +243,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractAction basicGetSuccessor_AbstractAction() {
@@ -356,7 +252,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSuccessor_AbstractAction(final AbstractAction newSuccessor_AbstractAction,
@@ -378,7 +274,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -406,7 +302,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -419,7 +315,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceDemandingBehaviour_AbstractAction(
@@ -431,7 +327,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -465,9 +361,10 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ParametricResourceDemand> getResourceDemand_Action() {
         if (this.resourceDemand_Action == null) {
@@ -480,9 +377,10 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<InfrastructureCall> getInfrastructureCall__Action() {
         if (this.infrastructureCall__Action == null) {
@@ -495,9 +393,10 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceCall> getResourceCall__Action() {
         if (this.resourceCall__Action == null) {
@@ -510,13 +409,13 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceDemandingInternalBehaviour getCalledResourceDemandingInternalBehaviour() {
         if (this.calledResourceDemandingInternalBehaviour != null
-                && ((EObject) this.calledResourceDemandingInternalBehaviour).eIsProxy()) {
+                && this.calledResourceDemandingInternalBehaviour.eIsProxy()) {
             final InternalEObject oldCalledResourceDemandingInternalBehaviour = (InternalEObject) this.calledResourceDemandingInternalBehaviour;
             this.calledResourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour) this
                     .eResolveProxy(oldCalledResourceDemandingInternalBehaviour);
@@ -533,7 +432,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceDemandingInternalBehaviour basicGetCalledResourceDemandingInternalBehaviour() {
@@ -542,7 +441,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -559,7 +458,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -598,7 +497,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -623,7 +522,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -638,16 +537,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            return this.getId();
-        case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            return this.getEntityName();
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             if (resolve) {
                 return this.getPredecessor_AbstractAction();
@@ -677,19 +572,13 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            this.setId((String) newValue);
-            return;
-        case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            this.setEntityName((String) newValue);
-            return;
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             this.setPredecessor_AbstractAction((AbstractAction) newValue);
             return;
@@ -720,18 +609,12 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            this.setId(ID_EDEFAULT);
-            return;
-        case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            this.setEntityName(ENTITY_NAME_EDEFAULT);
-            return;
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             this.setPredecessor_AbstractAction((AbstractAction) null);
             return;
@@ -759,17 +642,13 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case SeffPackage.INTERNAL_CALL_ACTION__ID:
-            return ID_EDEFAULT == null ? this.id != null : !ID_EDEFAULT.equals(this.id);
-        case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
-                    .equals(this.entityName);
         case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             return this.predecessor_AbstractAction != null;
         case SeffPackage.INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION:
@@ -790,33 +669,11 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == Identifier.class) {
-            switch (derivedFeatureID) {
-            case SeffPackage.INTERNAL_CALL_ACTION__ID:
-                return IdentifierPackage.IDENTIFIER__ID;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == NamedElement.class) {
-            switch (derivedFeatureID) {
-            case SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME:
-                return EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == Entity.class) {
-            switch (derivedFeatureID) {
-            default:
-                return -1;
-            }
-        }
         if (baseClass == AbstractAction.class) {
             switch (derivedFeatureID) {
             case SeffPackage.INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION:
@@ -846,33 +703,11 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == Identifier.class) {
-            switch (baseFeatureID) {
-            case IdentifierPackage.IDENTIFIER__ID:
-                return SeffPackage.INTERNAL_CALL_ACTION__ID;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == NamedElement.class) {
-            switch (baseFeatureID) {
-            case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-                return SeffPackage.INTERNAL_CALL_ACTION__ENTITY_NAME;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == Entity.class) {
-            switch (baseFeatureID) {
-            default:
-                return -1;
-            }
-        }
         if (baseClass == AbstractAction.class) {
             switch (baseFeatureID) {
             case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
@@ -898,26 +733,6 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
             }
         }
         return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (id: ");
-        result.append(this.id);
-        result.append(", entityName: ");
-        result.append(this.entityName);
-        result.append(')');
-        return result.toString();
     }
 
 } // InternalCallActionImpl

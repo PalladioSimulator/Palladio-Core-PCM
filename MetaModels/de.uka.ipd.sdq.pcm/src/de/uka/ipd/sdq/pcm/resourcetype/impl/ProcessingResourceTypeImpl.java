@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -34,13 +33,13 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements ProcessingResourceType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getHardwareInducedFailureType__ProcessingResourceType()
+     * The cached value of the '{@link #getHardwareInducedFailureType__ProcessingResourceType()
      * <em>Hardware Induced Failure Type Processing Resource Type</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -52,7 +51,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProcessingResourceTypeImpl() {
@@ -61,7 +60,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,13 +70,13 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public HardwareInducedFailureType getHardwareInducedFailureType__ProcessingResourceType() {
         if (this.hardwareInducedFailureType__ProcessingResourceType != null
-                && ((EObject) this.hardwareInducedFailureType__ProcessingResourceType).eIsProxy()) {
+                && this.hardwareInducedFailureType__ProcessingResourceType.eIsProxy()) {
             final InternalEObject oldHardwareInducedFailureType__ProcessingResourceType = (InternalEObject) this.hardwareInducedFailureType__ProcessingResourceType;
             this.hardwareInducedFailureType__ProcessingResourceType = (HardwareInducedFailureType) this
                     .eResolveProxy(oldHardwareInducedFailureType__ProcessingResourceType);
@@ -97,7 +96,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public HardwareInducedFailureType basicGetHardwareInducedFailureType__ProcessingResourceType() {
@@ -106,7 +105,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetHardwareInducedFailureType__ProcessingResourceType(
@@ -132,7 +131,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -171,7 +170,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +192,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +207,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,7 +224,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +239,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,7 +254,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

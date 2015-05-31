@@ -41,7 +41,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements InterfaceRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,15 +51,14 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
      * {@link #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * <em>Resource Required Roles Resource Interface Requiring Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * @generated
      * @ordered
      */
     protected EList<ResourceRequiredRole> resourceRequiredRoles__ResourceInterfaceRequiringEntity;
-
     /**
-     * The cached value of the ' {@link #getRequiredRoles_InterfaceRequiringEntity()
+     * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity()
      * <em>Required Roles Interface Requiring Entity</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -71,7 +70,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InterfaceRequiringEntityImpl() {
@@ -80,7 +79,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -90,9 +89,10 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceRequiredRole> getResourceRequiredRoles__ResourceInterfaceRequiringEntity() {
         if (this.resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
@@ -107,9 +107,10 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<RequiredRole> getRequiredRoles_InterfaceRequiringEntity() {
         if (this.requiredRoles_InterfaceRequiringEntity == null) {
@@ -123,7 +124,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -143,7 +144,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,7 +162,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,7 +178,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -199,7 +200,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -217,9 +218,10 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -235,7 +237,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -253,7 +255,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

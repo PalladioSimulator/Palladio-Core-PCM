@@ -23,13 +23,13 @@ import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -37,7 +37,7 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventChannelSinkConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,28 +72,28 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_EventChannelSinkConnector_sinkRole__EventChannelSinkConnector_feature"), this
-                .getString("_UI_PropertyDescriptor_description",
-                        "_UI_EventChannelSinkConnector_sinkRole__EventChannelSinkConnector_feature",
-                        "_UI_EventChannelSinkConnector_type"),
-                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR, true,
-                false, true, null, null, null));
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_EventChannelSinkConnector_sinkRole__EventChannelSinkConnector_feature",
+                                "_UI_EventChannelSinkConnector_type"),
+                        CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR, true,
+                        false, true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Assembly Context Event Channel Sink Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addAssemblyContext__EventChannelSinkConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_EventChannelSinkConnector_assemblyContext__EventChannelSinkConnector_feature"),
-                        this.getString("_UI_PropertyDescriptor_description",
-                                "_UI_EventChannelSinkConnector_assemblyContext__EventChannelSinkConnector_feature",
-                                "_UI_EventChannelSinkConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_EventChannelSinkConnector_assemblyContext__EventChannelSinkConnector_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_EventChannelSinkConnector_assemblyContext__EventChannelSinkConnector_feature",
+                        "_UI_EventChannelSinkConnector_type"),
                         CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -101,18 +101,18 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
     /**
      * This adds a property descriptor for the Event Channel Event Channel Sink Connector feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addEventChannel__EventChannelSinkConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_EventChannelSinkConnector_eventChannel__EventChannelSinkConnector_feature"), this
-                .getString("_UI_PropertyDescriptor_description",
-                        "_UI_EventChannelSinkConnector_eventChannel__EventChannelSinkConnector_feature",
-                        "_UI_EventChannelSinkConnector_type"),
-                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR,
-                true, false, true, null, null, null));
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_EventChannelSinkConnector_eventChannel__EventChannelSinkConnector_feature",
+                                "_UI_EventChannelSinkConnector_type"),
+                        CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR,
+                        true, false, true, null, null, null));
     }
 
     /**
@@ -129,14 +129,14 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR);
+            .add(CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +149,7 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
 
     /**
      * This returns EventChannelSinkConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -174,7 +174,7 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -192,7 +192,7 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,10 +200,10 @@ public class EventChannelSinkConnectorItemProvider extends ConnectorItemProvider
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
-                .add(this
-                .createChildParameter(
-                        CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
-                        CoreFactory.eINSTANCE.createPCMRandomVariable()));
+        .add(this
+                        .createChildParameter(
+                                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
+                                CoreFactory.eINSTANCE.createPCMRandomVariable()));
     }
 
 }

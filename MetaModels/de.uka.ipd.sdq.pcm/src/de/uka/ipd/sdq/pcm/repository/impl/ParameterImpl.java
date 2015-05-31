@@ -8,9 +8,9 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
@@ -22,7 +22,6 @@ import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Parameter</b></em>'. <!--
@@ -50,10 +49,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class ParameterImpl extends EStereotypableObjectImpl implements Parameter {
+public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +60,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
     /**
      * The cached value of the '{@link #getDataType__Parameter() <em>Data Type Parameter</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getDataType__Parameter()
      * @generated
      * @ordered
@@ -71,7 +70,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
     /**
      * The default value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameterName()
      * @generated
      * @ordered
@@ -91,7 +90,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
     /**
      * The default value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getModifier__Parameter()
      * @generated
      * @ordered
@@ -101,7 +100,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
     /**
      * The cached value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getModifier__Parameter()
      * @generated
      * @ordered
@@ -110,7 +109,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterImpl() {
@@ -119,7 +118,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -129,7 +128,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +138,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,7 +153,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +163,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -180,7 +179,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +192,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetOperationSignature__Parameter(
@@ -205,7 +204,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -237,12 +236,12 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public DataType getDataType__Parameter() {
-        if (this.dataType__Parameter != null && ((EObject) this.dataType__Parameter).eIsProxy()) {
+        if (this.dataType__Parameter != null && this.dataType__Parameter.eIsProxy()) {
             final InternalEObject oldDataType__Parameter = (InternalEObject) this.dataType__Parameter;
             this.dataType__Parameter = (DataType) this.eResolveProxy(oldDataType__Parameter);
             if (this.dataType__Parameter != oldDataType__Parameter) {
@@ -258,7 +257,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetDataType__Parameter() {
@@ -267,7 +266,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -282,7 +281,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -295,7 +294,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceSignature__Parameter(
@@ -307,7 +306,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -339,7 +338,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -352,7 +351,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInfrastructureSignature__Parameter(
@@ -364,7 +363,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -397,7 +396,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -410,7 +409,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventType__Parameter(final EventType newEventType__Parameter,
@@ -422,7 +421,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -452,7 +451,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -484,7 +483,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -505,7 +504,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -532,7 +531,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -561,7 +560,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -594,7 +593,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -627,7 +626,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -654,7 +653,7 @@ public class ParameterImpl extends EStereotypableObjectImpl implements Parameter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

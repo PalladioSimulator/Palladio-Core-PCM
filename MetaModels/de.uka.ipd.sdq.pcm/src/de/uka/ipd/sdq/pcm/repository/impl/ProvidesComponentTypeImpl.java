@@ -32,14 +32,14 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implements ProvidesComponentType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProvidesComponentTypeImpl() {
@@ -48,7 +48,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -74,7 +74,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -84,7 +84,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -112,10 +112,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
                         RepositoryValidator.PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -125,7 +122,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

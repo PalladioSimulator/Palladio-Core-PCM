@@ -50,7 +50,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 public interface ResourceDemandingBehaviour extends Identifier {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -65,7 +65,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
@@ -101,7 +101,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
@@ -138,7 +138,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Steps Behaviour</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_Steps_Behaviour()
      * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction

@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -60,7 +59,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
 public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,7 +68,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * The cached value of the '{@link #getResourceRequiredRole__ResourceCall()
      * <em>Resource Required Role Resource Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getResourceRequiredRole__ResourceCall()
      * @generated
      * @ordered
@@ -79,7 +78,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     /**
      * The cached value of the '{@link #getSignature__ResourceCall()
      * <em>Signature Resource Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSignature__ResourceCall()
      * @generated
      * @ordered
@@ -90,7 +89,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * The cached value of the '{@link #getNumberOfCalls__ResourceCall()
      * <em>Number Of Calls Resource Call</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getNumberOfCalls__ResourceCall()
      * @generated
      * @ordered
@@ -99,7 +98,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceCallImpl() {
@@ -108,7 +107,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +117,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,7 +130,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAction__ResourceCall(
@@ -143,7 +142,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,13 +174,12 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceRequiredRole getResourceRequiredRole__ResourceCall() {
-        if (this.resourceRequiredRole__ResourceCall != null
-                && ((EObject) this.resourceRequiredRole__ResourceCall).eIsProxy()) {
+        if (this.resourceRequiredRole__ResourceCall != null && this.resourceRequiredRole__ResourceCall.eIsProxy()) {
             final InternalEObject oldResourceRequiredRole__ResourceCall = (InternalEObject) this.resourceRequiredRole__ResourceCall;
             this.resourceRequiredRole__ResourceCall = (ResourceRequiredRole) this
                     .eResolveProxy(oldResourceRequiredRole__ResourceCall);
@@ -198,7 +196,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetResourceRequiredRole__ResourceCall() {
@@ -207,7 +205,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,12 +221,12 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceSignature getSignature__ResourceCall() {
-        if (this.signature__ResourceCall != null && ((EObject) this.signature__ResourceCall).eIsProxy()) {
+        if (this.signature__ResourceCall != null && this.signature__ResourceCall.eIsProxy()) {
             final InternalEObject oldSignature__ResourceCall = (InternalEObject) this.signature__ResourceCall;
             this.signature__ResourceCall = (ResourceSignature) this.eResolveProxy(oldSignature__ResourceCall);
             if (this.signature__ResourceCall != oldSignature__ResourceCall) {
@@ -244,7 +242,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceSignature basicGetSignature__ResourceCall() {
@@ -253,7 +251,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,7 +267,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +277,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__ResourceCall(
@@ -301,7 +299,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -357,7 +355,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -380,12 +378,8 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
                         SeffPerformanceValidator.RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "ResourceSignatureBelongsToResourceRequiredRole",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "ResourceSignatureBelongsToResourceRequiredRole",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -420,7 +414,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -443,12 +437,8 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
                         SeffPerformanceValidator.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "ResourceRequiredRoleMustBeReferencedByComponent",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "ResourceRequiredRoleMustBeReferencedByComponent",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -460,7 +450,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -473,7 +463,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -483,7 +473,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -511,10 +501,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
                         SeffPerformanceValidator.RESOURCE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -523,7 +510,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -546,7 +533,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -563,7 +550,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -579,7 +566,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -605,7 +592,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -629,7 +616,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -653,7 +640,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -674,7 +661,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

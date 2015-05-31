@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -33,7 +34,6 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Variable Usage</b></em>'.
@@ -75,16 +75,16 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class VariableUsageImpl extends EStereotypableObjectImpl implements VariableUsage {
+public class VariableUsageImpl extends MinimalEObjectImpl.Container implements VariableUsage {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getVariableCharacterisation_VariableUsage()
+     * The cached value of the '{@link #getVariableCharacterisation_VariableUsage()
      * <em>Variable Characterisation Variable Usage</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -98,7 +98,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
      * The cached value of the '{@link #getNamedReference__VariableUsage()
      * <em>Named Reference Variable Usage</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getNamedReference__VariableUsage()
      * @generated
      * @ordered
@@ -107,7 +107,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected VariableUsageImpl() {
@@ -116,7 +116,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,9 +126,10 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableCharacterisation> getVariableCharacterisation_VariableUsage() {
         if (this.variableCharacterisation_VariableUsage == null) {
@@ -142,7 +143,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -155,7 +156,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUserData_VariableUsage(final UserData newUserData_VariableUsage,
@@ -167,7 +168,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -198,7 +199,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +212,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSynchronisationPoint_VariableUsage(
@@ -223,7 +224,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,7 +256,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +269,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCallAction__VariableUsage(final CallAction newCallAction__VariableUsage,
@@ -280,7 +281,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,7 +312,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -324,7 +325,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCallReturnAction__VariableUsage(
@@ -336,7 +337,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -368,7 +369,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -381,7 +382,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSetVariableAction_VariableUsage(
@@ -393,7 +394,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -425,7 +426,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -438,7 +439,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAssemblyContext__VariableUsage(
@@ -450,7 +451,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -482,7 +483,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -495,7 +496,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEntryLevelSystemCall_InputParameterUsage(
@@ -507,7 +508,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -541,7 +542,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -554,7 +555,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEntryLevelSystemCall_OutputParameterUsage(
@@ -566,7 +567,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -600,7 +601,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -613,7 +614,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
@@ -629,7 +630,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -669,7 +670,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -679,7 +680,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetNamedReference__VariableUsage(
@@ -701,7 +702,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -730,7 +731,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -792,7 +793,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -827,7 +828,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -876,7 +877,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -910,7 +911,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -958,7 +959,7 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1003,9 +1004,10 @@ public class VariableUsageImpl extends EStereotypableObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -69,7 +68,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class ExternalCallActionImpl extends AbstractActionImpl implements ExternalCallAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -78,7 +77,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * The cached value of the '{@link #getInputVariableUsages__CallAction()
      * <em>Input Variable Usages Call Action</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInputVariableUsages__CallAction()
      * @generated
      * @ordered
@@ -86,7 +85,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     protected EList<VariableUsage> inputVariableUsages__CallAction;
 
     /**
-     * The cached value of the ' {@link #getReturnVariableUsage__CallReturnAction()
+     * The cached value of the '{@link #getReturnVariableUsage__CallReturnAction()
      * <em>Return Variable Usage Call Return Action</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -100,7 +99,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * The cached value of the '{@link #getFailureTypes_FailureHandlingEntity()
      * <em>Failure Types Failure Handling Entity</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getFailureTypes_FailureHandlingEntity()
      * @generated
      * @ordered
@@ -111,7 +110,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * The cached value of the '{@link #getCalledService_ExternalService()
      * <em>Called Service External Service</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getCalledService_ExternalService()
      * @generated
      * @ordered
@@ -121,7 +120,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     /**
      * The cached value of the '{@link #getRole_ExternalService() <em>Role External Service</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getRole_ExternalService()
      * @generated
      * @ordered
@@ -150,7 +149,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExternalCallActionImpl() {
@@ -159,7 +158,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -169,9 +168,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
         if (this.inputVariableUsages__CallAction == null) {
@@ -184,9 +184,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getReturnVariableUsage__CallReturnAction() {
         if (this.returnVariableUsage__CallReturnAction == null) {
@@ -200,9 +201,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<FailureType> getFailureTypes_FailureHandlingEntity() {
         if (this.failureTypes_FailureHandlingEntity == null) {
@@ -214,12 +216,12 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationSignature getCalledService_ExternalService() {
-        if (this.calledService_ExternalService != null && ((EObject) this.calledService_ExternalService).eIsProxy()) {
+        if (this.calledService_ExternalService != null && this.calledService_ExternalService.eIsProxy()) {
             final InternalEObject oldCalledService_ExternalService = (InternalEObject) this.calledService_ExternalService;
             this.calledService_ExternalService = (OperationSignature) this
                     .eResolveProxy(oldCalledService_ExternalService);
@@ -236,7 +238,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetCalledService_ExternalService() {
@@ -245,7 +247,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,12 +263,12 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationRequiredRole getRole_ExternalService() {
-        if (this.role_ExternalService != null && ((EObject) this.role_ExternalService).eIsProxy()) {
+        if (this.role_ExternalService != null && this.role_ExternalService.eIsProxy()) {
             final InternalEObject oldRole_ExternalService = (InternalEObject) this.role_ExternalService;
             this.role_ExternalService = (OperationRequiredRole) this.eResolveProxy(oldRole_ExternalService);
             if (this.role_ExternalService != oldRole_ExternalService) {
@@ -282,7 +284,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRole_ExternalService() {
@@ -291,7 +293,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -307,7 +309,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -317,7 +319,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +336,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * The cached OCL expression body for the '
      * {@link #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Belongs To Role</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -346,7 +348,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      * {@link #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Belongs To Role</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -355,7 +357,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -374,11 +376,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.EXTERNAL_CALL_ACTION__SIGNATURE_BELONGS_TO_ROLE, EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "SignatureBelongsToRole", EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                "_UI_GenericInvariant_diagnostic", new Object[] { "SignatureBelongsToRole",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -413,7 +412,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -436,12 +435,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
                         SeffValidator.EXTERNAL_CALL_ACTION__OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "OperationRequiredRoleMustBeReferencedByContainer",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "OperationRequiredRoleMustBeReferencedByContainer",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -450,7 +445,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -470,7 +465,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -487,7 +482,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -517,7 +512,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -551,7 +546,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -581,9 +576,10 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -607,7 +603,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -641,7 +637,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -675,7 +671,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -694,7 +690,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

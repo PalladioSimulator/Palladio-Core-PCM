@@ -20,13 +20,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class OperationProvidedRoleItemProvider extends ProvidedRoleItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +34,7 @@ public class OperationProvidedRoleItemProvider extends ProvidedRoleItemProvider 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationProvidedRoleItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class OperationProvidedRoleItemProvider extends ProvidedRoleItemProvider 
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,23 +60,23 @@ public class OperationProvidedRoleItemProvider extends ProvidedRoleItemProvider 
     /**
      * This adds a property descriptor for the Provided Interface Operation Provided Role feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addProvidedInterface__OperationProvidedRolePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_OperationProvidedRole_providedInterface__OperationProvidedRole_feature"), this
-                .getString("_UI_PropertyDescriptor_description",
-                        "_UI_OperationProvidedRole_providedInterface__OperationProvidedRole_feature",
-                        "_UI_OperationProvidedRole_type"),
-                RepositoryPackage.Literals.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE, true,
-                false, true, null, null, null));
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_OperationProvidedRole_providedInterface__OperationProvidedRole_feature",
+                                "_UI_OperationProvidedRole_type"),
+                        RepositoryPackage.Literals.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE, true,
+                        false, true, null, null, null));
     }
 
     /**
      * This returns OperationProvidedRole.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,7 +101,7 @@ public class OperationProvidedRoleItemProvider extends ProvidedRoleItemProvider 
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class OperationProvidedRoleItemProvider extends ProvidedRoleItemProvider 
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

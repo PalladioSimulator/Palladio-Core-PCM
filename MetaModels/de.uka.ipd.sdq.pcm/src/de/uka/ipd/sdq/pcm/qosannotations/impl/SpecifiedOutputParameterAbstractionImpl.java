@@ -11,9 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -25,7 +25,6 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -50,11 +49,11 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public abstract class SpecifiedOutputParameterAbstractionImpl extends EStereotypableObjectImpl implements
+public abstract class SpecifiedOutputParameterAbstractionImpl extends MinimalEObjectImpl.Container implements
 SpecifiedOutputParameterAbstraction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -63,7 +62,7 @@ SpecifiedOutputParameterAbstraction {
      * The cached value of the '{@link #getSignature_SpecifiedOutputParameterAbstraction()
      * <em>Signature Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSignature_SpecifiedOutputParameterAbstraction()
      * @generated
      * @ordered
@@ -74,7 +73,7 @@ SpecifiedOutputParameterAbstraction {
      * The cached value of the '{@link #getRole_SpecifiedOutputParameterAbstraction()
      * <em>Role Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRole_SpecifiedOutputParameterAbstraction()
      * @generated
      * @ordered
@@ -86,7 +85,7 @@ SpecifiedOutputParameterAbstraction {
      * {@link #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
      * <em>Expected External Outputs Specified Output Parameter Abstraction</em>}' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
      * @generated
      * @ordered
@@ -95,7 +94,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SpecifiedOutputParameterAbstractionImpl() {
@@ -104,7 +103,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +113,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +126,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQosAnnotations_SpecifiedOutputParameterAbstraction(
@@ -142,7 +141,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,13 +178,13 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Signature getSignature_SpecifiedOutputParameterAbstraction() {
         if (this.signature_SpecifiedOutputParameterAbstraction != null
-                && ((EObject) this.signature_SpecifiedOutputParameterAbstraction).eIsProxy()) {
+                && this.signature_SpecifiedOutputParameterAbstraction.eIsProxy()) {
             final InternalEObject oldSignature_SpecifiedOutputParameterAbstraction = (InternalEObject) this.signature_SpecifiedOutputParameterAbstraction;
             this.signature_SpecifiedOutputParameterAbstraction = (Signature) this
                     .eResolveProxy(oldSignature_SpecifiedOutputParameterAbstraction);
@@ -205,7 +204,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Signature basicGetSignature_SpecifiedOutputParameterAbstraction() {
@@ -214,7 +213,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -234,13 +233,13 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Role getRole_SpecifiedOutputParameterAbstraction() {
         if (this.role_SpecifiedOutputParameterAbstraction != null
-                && ((EObject) this.role_SpecifiedOutputParameterAbstraction).eIsProxy()) {
+                && this.role_SpecifiedOutputParameterAbstraction.eIsProxy()) {
             final InternalEObject oldRole_SpecifiedOutputParameterAbstraction = (InternalEObject) this.role_SpecifiedOutputParameterAbstraction;
             this.role_SpecifiedOutputParameterAbstraction = (Role) this
                     .eResolveProxy(oldRole_SpecifiedOutputParameterAbstraction);
@@ -259,7 +258,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Role basicGetRole_SpecifiedOutputParameterAbstraction() {
@@ -268,7 +267,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -286,9 +285,10 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
         if (this.expectedExternalOutputs_SpecifiedOutputParameterAbstraction == null) {
@@ -303,7 +303,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -324,7 +324,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -342,7 +342,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -358,7 +358,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -384,7 +384,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -411,7 +411,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -435,9 +435,10 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

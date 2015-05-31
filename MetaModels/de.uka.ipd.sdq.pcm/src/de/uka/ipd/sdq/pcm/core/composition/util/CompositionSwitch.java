@@ -3,7 +3,9 @@ package de.uka.ipd.sdq.pcm.core.composition.util;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.mdsdprofiles.StereotypableElement;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
@@ -34,28 +36,28 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage
  * @generated
  */
 public class CompositionSwitch<T> {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static CompositionPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CompositionSwitch() {
@@ -67,7 +69,7 @@ public class CompositionSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -78,7 +80,7 @@ public class CompositionSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -94,7 +96,7 @@ public class CompositionSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -116,6 +118,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(delegationConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(delegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(delegationConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -133,6 +141,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(connector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(connector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(connector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -148,6 +162,12 @@ public class CompositionSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(composedStructure);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(composedStructure);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(composedStructure);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -175,6 +195,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(eventChannel);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(eventChannel);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(eventChannel);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -195,6 +221,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(eventChannelSourceConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(eventChannelSourceConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(eventChannelSourceConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -213,6 +245,12 @@ public class CompositionSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(eventChannelSinkConnector);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(eventChannelSinkConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(eventChannelSinkConnector);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -238,6 +276,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(providedDelegationConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(providedDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(providedDelegationConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -261,6 +305,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(requiredDelegationConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(requiredDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(requiredDelegationConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -281,6 +331,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(assemblyConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(assemblyConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(assemblyConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -299,6 +355,12 @@ public class CompositionSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(assemblyEventConnector);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(assemblyEventConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(assemblyEventConnector);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -324,6 +386,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(sourceDelegationConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(sourceDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(sourceDelegationConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -347,6 +415,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(sinkDelegationConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(sinkDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(sinkDelegationConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -365,6 +439,12 @@ public class CompositionSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(assemblyInfrastructureConnector);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(assemblyInfrastructureConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(assemblyInfrastructureConnector);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -390,6 +470,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(providedInfrastructureDelegationConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(providedInfrastructureDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(providedInfrastructureDelegationConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -411,6 +497,12 @@ public class CompositionSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(requiredInfrastructureDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(requiredInfrastructureDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(requiredInfrastructureDelegationConnector);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -436,6 +528,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(requiredResourceDelegationConnector);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(requiredResourceDelegationConnector);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(requiredResourceDelegationConnector);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -453,6 +551,12 @@ public class CompositionSwitch<T> {
                 result = this.caseNamedElement(assemblyContext);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(assemblyContext);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(assemblyContext);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -466,7 +570,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Delegation Connector</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -497,7 +601,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>
@@ -513,7 +617,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Resource Required Delegation Connector</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -529,7 +633,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Event Channel</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Event Channel</em>'.
@@ -544,7 +648,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Provided Delegation Connector</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -560,7 +664,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Required Delegation Connector</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -576,7 +680,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Assembly Connector</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Assembly Connector</em>
@@ -592,7 +696,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Assembly Event Connector</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -608,7 +712,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Source Delegation Connector</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -624,7 +728,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Sink Delegation Connector</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -640,7 +744,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Assembly Infrastructure Connector</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -657,7 +761,7 @@ public class CompositionSwitch<T> {
      * <em>Provided Infrastructure Delegation Connector</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -674,7 +778,7 @@ public class CompositionSwitch<T> {
      * <em>Required Infrastructure Delegation Connector</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -690,7 +794,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Required Resource Delegation Connector</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -706,7 +810,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Event Channel Sink Connector</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -722,7 +826,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Event Channel Source Connector</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -738,7 +842,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Assembly Context</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Assembly Context</em>'.
@@ -746,6 +850,37 @@ public class CompositionSwitch<T> {
      * @generated
      */
     public T caseAssemblyContext(final AssemblyContext object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>EModel Element</em>'.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EModel Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEModelElement(final EModelElement object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Stereotypable Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStereotypableElement(final StereotypableElement object) {
         return null;
     }
 
@@ -768,7 +903,7 @@ public class CompositionSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.

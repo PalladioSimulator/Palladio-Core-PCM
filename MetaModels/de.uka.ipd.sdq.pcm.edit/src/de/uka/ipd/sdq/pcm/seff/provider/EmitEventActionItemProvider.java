@@ -22,13 +22,13 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class EmitEventActionItemProvider extends AbstractActionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -36,7 +36,7 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EmitEventActionItemProvider(final AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,8 +72,8 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
                 this.getString("_UI_EmitEventAction_eventType__EmitEventAction_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_EmitEventAction_eventType__EmitEventAction_feature",
                         "_UI_EmitEventAction_type"),
-                SeffPackage.Literals.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, true, false, true, null, null,
-                null));
+                        SeffPackage.Literals.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, true, false, true, null, null,
+                        null));
     }
 
     /**
@@ -88,8 +88,8 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
                 this.getString("_UI_EmitEventAction_sourceRole__EmitEventAction_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_EmitEventAction_sourceRole__EmitEventAction_feature", "_UI_EmitEventAction_type"),
-                SeffPackage.Literals.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION, true, false, true, null, null,
-                null));
+                        SeffPackage.Literals.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION, true, false, true, null, null,
+                        null));
     }
 
     /**
@@ -112,7 +112,7 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
 
     /**
      * This returns EmitEventAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,7 +150,7 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public class EmitEventActionItemProvider extends AbstractActionItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

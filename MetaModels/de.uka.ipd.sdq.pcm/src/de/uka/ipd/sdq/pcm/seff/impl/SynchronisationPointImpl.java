@@ -17,13 +17,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -45,16 +45,16 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class SynchronisationPointImpl extends EStereotypableObjectImpl implements SynchronisationPoint {
+public class SynchronisationPointImpl extends EntityImpl implements SynchronisationPoint {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getOutputParameterUsage_SynchronisationPoint()
+     * The cached value of the '{@link #getOutputParameterUsage_SynchronisationPoint()
      * <em>Output Parameter Usage Synchronisation Point</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -63,12 +63,11 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
      * @ordered
      */
     protected EList<VariableUsage> outputParameterUsage_SynchronisationPoint;
-
     /**
      * The cached value of the '{@link #getSynchronousForkedBehaviours_SynchronisationPoint()
      * <em>Synchronous Forked Behaviours Synchronisation Point</em>}' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSynchronousForkedBehaviours_SynchronisationPoint()
      * @generated
      * @ordered
@@ -77,7 +76,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SynchronisationPointImpl() {
@@ -86,7 +85,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,9 +95,10 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getOutputParameterUsage_SynchronisationPoint() {
         if (this.outputParameterUsage_SynchronisationPoint == null) {
@@ -112,7 +112,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetForkAction_SynchronisationPoint(
@@ -137,7 +137,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,9 +168,10 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ForkedBehaviour> getSynchronousForkedBehaviours_SynchronisationPoint() {
         if (this.synchronousForkedBehaviours_SynchronisationPoint == null) {
@@ -184,7 +185,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -208,7 +209,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -228,7 +229,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +244,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,7 +262,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -286,7 +287,7 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -307,9 +308,10 @@ public class SynchronisationPointImpl extends EStereotypableObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

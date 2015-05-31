@@ -47,7 +47,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,13 +56,12 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * The cached value of the '{@link #getParentType_CompositeDataType()
      * <em>Parent Type Composite Data Type</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getParentType_CompositeDataType()
      * @generated
      * @ordered
      */
     protected EList<CompositeDataType> parentType_CompositeDataType;
-
     /**
      * The cached value of the '{@link #getInnerDeclaration_CompositeDataType()
      * <em>Inner Declaration Composite Data Type</em>}' containment reference list. <!--
@@ -76,7 +75,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompositeDataTypeImpl() {
@@ -85,7 +84,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +94,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +107,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
@@ -120,7 +119,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -151,9 +150,10 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<CompositeDataType> getParentType_CompositeDataType() {
         if (this.parentType_CompositeDataType == null) {
@@ -165,9 +165,10 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<InnerDeclaration> getInnerDeclaration_CompositeDataType() {
         if (this.innerDeclaration_CompositeDataType == null) {
@@ -181,7 +182,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -202,7 +203,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,7 +220,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -234,7 +235,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -252,7 +253,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -276,7 +277,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,9 +298,10 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -316,7 +318,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +336,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

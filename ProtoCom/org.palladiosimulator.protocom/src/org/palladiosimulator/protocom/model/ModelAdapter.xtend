@@ -1,13 +1,13 @@
 package org.palladiosimulator.protocom.model
 
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject
+import org.palladiosimulator.mdsdprofiles.StereotypableElement
 
 /**
  * Base class for all PCM model adapters.
  * @author Christian Klaussner
  */
-abstract class ModelAdapter<T extends EStereotypableObject> {
+abstract class ModelAdapter<T extends StereotypableElement> {
 	protected val T entity
 	
 	new(T entity) {

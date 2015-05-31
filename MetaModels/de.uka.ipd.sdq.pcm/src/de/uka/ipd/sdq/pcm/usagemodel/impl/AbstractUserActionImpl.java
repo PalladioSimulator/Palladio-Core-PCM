@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -39,7 +38,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 public abstract class AbstractUserActionImpl extends EntityImpl implements AbstractUserAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +52,6 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @ordered
      */
     protected AbstractUserAction successor;
-
     /**
      * The cached value of the '{@link #getPredecessor() <em>Predecessor</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -66,7 +64,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AbstractUserActionImpl() {
@@ -75,7 +73,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,12 +83,12 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractUserAction getSuccessor() {
-        if (this.successor != null && ((EObject) this.successor).eIsProxy()) {
+        if (this.successor != null && this.successor.eIsProxy()) {
             final InternalEObject oldSuccessor = (InternalEObject) this.successor;
             this.successor = (AbstractUserAction) this.eResolveProxy(oldSuccessor);
             if (this.successor != oldSuccessor) {
@@ -105,7 +103,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractUserAction basicGetSuccessor() {
@@ -114,7 +112,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSuccessor(final AbstractUserAction newSuccessor, NotificationChain msgs) {
@@ -134,7 +132,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,12 +159,12 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractUserAction getPredecessor() {
-        if (this.predecessor != null && ((EObject) this.predecessor).eIsProxy()) {
+        if (this.predecessor != null && this.predecessor.eIsProxy()) {
             final InternalEObject oldPredecessor = (InternalEObject) this.predecessor;
             this.predecessor = (AbstractUserAction) this.eResolveProxy(oldPredecessor);
             if (this.predecessor != oldPredecessor) {
@@ -181,7 +179,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractUserAction basicGetPredecessor() {
@@ -190,7 +188,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPredecessor(final AbstractUserAction newPredecessor, NotificationChain msgs) {
@@ -210,7 +208,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -237,7 +235,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -250,7 +248,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetScenarioBehaviour_AbstractUserAction(
@@ -262,7 +260,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -294,7 +292,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,7 +321,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -342,7 +340,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -357,7 +355,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -381,7 +379,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -402,7 +400,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -423,7 +421,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

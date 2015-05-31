@@ -32,14 +32,14 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class StartActionImpl extends AbstractInternalControlFlowActionImpl implements StartAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected StartActionImpl() {
@@ -48,7 +48,7 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
      * {@link #StartActionPredecessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Start Action Predecessor Must Not Be Defined</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #StartActionPredecessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -83,7 +83,7 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -106,12 +106,9 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
                         SeffValidator.START_ACTION__START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED, EcorePlugin.INSTANCE
                         .getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "StartActionPredecessorMustNotBeDefined",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "StartActionPredecessorMustNotBeDefined",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -121,7 +118,7 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -42,13 +42,13 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public class InfrastructureSignatureImpl extends SignatureImpl implements InfrastructureSignature {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getParameters__InfrastructureSignature()
+     * The cached value of the '{@link #getParameters__InfrastructureSignature()
      * <em>Parameters Infrastructure Signature</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -60,7 +60,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InfrastructureSignatureImpl() {
@@ -69,7 +69,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -79,9 +79,10 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<Parameter> getParameters__InfrastructureSignature() {
         if (this.parameters__InfrastructureSignature == null) {
@@ -95,7 +96,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +109,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInfrastructureInterface__InfrastructureSignature(
@@ -120,7 +121,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -155,7 +156,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -177,7 +178,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +195,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +211,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +227,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -246,7 +247,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,9 +265,10 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

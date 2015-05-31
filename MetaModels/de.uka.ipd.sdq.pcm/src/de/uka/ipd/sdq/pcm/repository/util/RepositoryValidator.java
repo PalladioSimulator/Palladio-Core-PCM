@@ -54,21 +54,21 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage
  * @generated
  */
 public class RepositoryValidator extends EObjectValidator {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final RepositoryValidator INSTANCE = new RepositoryValidator();
@@ -77,7 +77,7 @@ public class RepositoryValidator extends EObjectValidator {
      * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
      * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -87,7 +87,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Seff
      * Type Used Twice' of 'Basic Component'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final int BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE = 1;
@@ -140,7 +140,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Protocol
      * Type ID Used Twice' of 'Interface'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final int INTERFACE__NO_PROTOCOL_TYPE_ID_USED_TWICE = 7;
@@ -149,7 +149,7 @@ public class RepositoryValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Parameter
      * Names Have To Be Unique For ASignature' of 'Operation Signature'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final int OPERATION_SIGNATURE__PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE = 8;
@@ -158,7 +158,7 @@ public class RepositoryValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Signatures
      * Have To Be Unique For An Interface' of 'Operation Interface'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final int OPERATION_INTERFACE__SIGNATURES_HAVE_TO_BE_UNIQUE_FOR_AN_INTERFACE = 9;
@@ -167,7 +167,7 @@ public class RepositoryValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least
      * One Interface Has To Be Provided Or Required By AUsefull Complete Component Type' of
      * 'Complete Component Type'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final int COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE = 10;
@@ -185,7 +185,7 @@ public class RepositoryValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least
      * One Interface Has To Be Provided By AUsefull Provides Component Type' of 'Provides Component
      * Type'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final int PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE = 12;
@@ -193,7 +193,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 12;
@@ -201,28 +201,28 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
      * The cached base package validator. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompositionValidator compositionValidator;
 
     /**
      * The cached base package validator. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EntityValidator entityValidator;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RepositoryValidator() {
@@ -233,7 +233,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -330,7 +330,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validatePassiveResource(final PassiveResource passiveResource, final DiagnosticChain diagnostics,
@@ -340,7 +340,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateBasicComponent(final BasicComponent basicComponent, final DiagnosticChain diagnostics,
@@ -406,7 +406,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateImplementationComponentType(final ImplementationComponentType implementationComponentType,
@@ -459,7 +459,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the RequiredInterfacesHaveToConformToCompleteType constraint of '
      * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(
@@ -471,7 +471,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the providedInterfacesHaveToConformToCompleteType constraint of '
      * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(
@@ -483,7 +483,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the ProvidedInterfaceHaveToConformToComponentType constraint of '
      * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(
@@ -495,7 +495,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the ProvideSameOrMoreInterfacesAsCompleteComponentType constraint of '
      * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(
@@ -507,7 +507,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the RequireSameOrFewerInterfacesAsCompleteComponentType constraint of '
      * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(
@@ -518,7 +518,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateRepositoryComponent(final RepositoryComponent repositoryComponent,
@@ -528,7 +528,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateRequiredRole(final RequiredRole requiredRole, final DiagnosticChain diagnostics,
@@ -538,7 +538,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateRole(final Role role, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
@@ -547,7 +547,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInterface(final Interface interface_, final DiagnosticChain diagnostics,
@@ -593,7 +593,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateRepository(final Repository repository, final DiagnosticChain diagnostics,
@@ -603,7 +603,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateDataType(final DataType dataType, final DiagnosticChain diagnostics,
@@ -613,7 +613,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateRequiredCharacterisation(final RequiredCharacterisation requiredCharacterisation,
@@ -623,7 +623,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateParameter(final Parameter parameter, final DiagnosticChain diagnostics,
@@ -633,7 +633,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateComponentType(final ComponentType componentType, final DiagnosticChain diagnostics,
@@ -643,7 +643,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateOperationSignature(final OperationSignature operationSignature,
@@ -680,7 +680,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the ParameterNamesHaveToBeUniqueForASignature constraint of '
      * <em>Operation Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateOperationSignature_ParameterNamesHaveToBeUniqueForASignature(
@@ -691,7 +691,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateSignature(final Signature signature, final DiagnosticChain diagnostics,
@@ -701,7 +701,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateExceptionType(final ExceptionType exceptionType, final DiagnosticChain diagnostics,
@@ -711,7 +711,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateOperationInterface(final OperationInterface operationInterface,
@@ -751,7 +751,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the SignaturesHaveToBeUniqueForAnInterface constraint of '
      * <em>Operation Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateOperationInterface_SignaturesHaveToBeUniqueForAnInterface(
@@ -762,7 +762,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInfrastructureSignature(final InfrastructureSignature infrastructureSignature,
@@ -772,7 +772,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInfrastructureRequiredRole(final InfrastructureRequiredRole infrastructureRequiredRole,
@@ -782,7 +782,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateEventType(final EventType eventType, final DiagnosticChain diagnostics,
@@ -792,7 +792,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateEventGroup(final EventGroup eventGroup, final DiagnosticChain diagnostics,
@@ -827,7 +827,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateCompleteComponentType(final CompleteComponentType completeComponentType,
@@ -883,7 +883,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the providedInterfacesHaveToConformToProvidedType2 constraint of '
      * <em>Complete Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateCompleteComponentType_providedInterfacesHaveToConformToProvidedType2(
@@ -894,7 +894,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateProvidesComponentType(final ProvidesComponentType providesComponentType,
@@ -932,7 +932,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Validates the AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType constraint of
      * '<em>Provides Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(
@@ -944,7 +944,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateOperationRequiredRole(final OperationRequiredRole operationRequiredRole,
@@ -954,7 +954,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateSourceRole(final SourceRole sourceRole, final DiagnosticChain diagnostics,
@@ -964,7 +964,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInfrastructureProvidedRole(final InfrastructureProvidedRole infrastructureProvidedRole,
@@ -974,7 +974,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateOperationProvidedRole(final OperationProvidedRole operationProvidedRole,
@@ -984,7 +984,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateCompositeComponent(final CompositeComponent compositeComponent,
@@ -1049,7 +1049,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateSinkRole(final SinkRole sinkRole, final DiagnosticChain diagnostics,
@@ -1059,7 +1059,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validatePrimitiveDataType(final PrimitiveDataType primitiveDataType,
@@ -1069,7 +1069,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateCollectionDataType(final CollectionDataType collectionDataType,
@@ -1079,7 +1079,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateCompositeDataType(final CompositeDataType compositeDataType,
@@ -1089,7 +1089,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInnerDeclaration(final InnerDeclaration innerDeclaration, final DiagnosticChain diagnostics,
@@ -1099,7 +1099,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInfrastructureInterface(final InfrastructureInterface infrastructureInterface,
@@ -1134,7 +1134,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateProvidedRole(final ProvidedRole providedRole, final DiagnosticChain diagnostics,
@@ -1144,7 +1144,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateParameterModifier(final ParameterModifier parameterModifier,
@@ -1154,7 +1154,7 @@ public class RepositoryValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validatePrimitiveTypeEnum(final PrimitiveTypeEnum primitiveTypeEnum,
@@ -1165,7 +1165,7 @@ public class RepositoryValidator extends EObjectValidator {
     /**
      * Returns the resource locator that will be used to fetch messages for this validator's
      * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -62,7 +61,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
 public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements EntryLevelSystemCall {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -71,7 +70,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      * The cached value of the '{@link #getProvidedRole_EntryLevelSystemCall()
      * <em>Provided Role Entry Level System Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getProvidedRole_EntryLevelSystemCall()
      * @generated
      * @ordered
@@ -82,7 +81,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      * The cached value of the '{@link #getOperationSignature__EntryLevelSystemCall()
      * <em>Operation Signature Entry Level System Call</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getOperationSignature__EntryLevelSystemCall()
      * @generated
      * @ordered
@@ -90,7 +89,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     protected OperationSignature operationSignature__EntryLevelSystemCall;
 
     /**
-     * The cached value of the ' {@link #getOutputParameterUsages_EntryLevelSystemCall()
+     * The cached value of the '{@link #getOutputParameterUsages_EntryLevelSystemCall()
      * <em>Output Parameter Usages Entry Level System Call</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -121,7 +120,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     protected int priority = PRIORITY_EDEFAULT;
 
     /**
-     * The cached value of the ' {@link #getInputParameterUsages_EntryLevelSystemCall()
+     * The cached value of the '{@link #getInputParameterUsages_EntryLevelSystemCall()
      * <em>Input Parameter Usages Entry Level System Call</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -133,7 +132,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EntryLevelSystemCallImpl() {
@@ -142,7 +141,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -152,9 +151,10 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getInputParameterUsages_EntryLevelSystemCall() {
         if (this.inputParameterUsages_EntryLevelSystemCall == null) {
@@ -168,7 +168,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +178,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      * {@link #EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Entry Level System Call Must Reference Provided Role Of ASystem</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -219,7 +219,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,12 +245,9 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
                         UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.ENTRY_LEVEL_SYSTEM_CALL__ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                "EntryLevelSystemCallMustReferenceProvidedRoleOfASystem",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                new Object[] { "EntryLevelSystemCallMustReferenceProvidedRoleOfASystem",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -275,7 +272,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      * {@link #EntryLevelSystemCallSignatureMustMatchItsProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Entry Level System Call Signature Must Match Its Provided Role</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EntryLevelSystemCallSignatureMustMatchItsProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -285,7 +282,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,12 +308,9 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
                         UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.ENTRY_LEVEL_SYSTEM_CALL__ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                "EntryLevelSystemCallSignatureMustMatchItsProvidedRole",
-                                EObjectValidator.getObjectLabel(this, context)
-                        }), new Object[] {
-                            this
-                        }));
+                                new Object[] { "EntryLevelSystemCallSignatureMustMatchItsProvidedRole",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -325,13 +319,12 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationProvidedRole getProvidedRole_EntryLevelSystemCall() {
-        if (this.providedRole_EntryLevelSystemCall != null
-                && ((EObject) this.providedRole_EntryLevelSystemCall).eIsProxy()) {
+        if (this.providedRole_EntryLevelSystemCall != null && this.providedRole_EntryLevelSystemCall.eIsProxy()) {
             final InternalEObject oldProvidedRole_EntryLevelSystemCall = (InternalEObject) this.providedRole_EntryLevelSystemCall;
             this.providedRole_EntryLevelSystemCall = (OperationProvidedRole) this
                     .eResolveProxy(oldProvidedRole_EntryLevelSystemCall);
@@ -348,7 +341,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationProvidedRole basicGetProvidedRole_EntryLevelSystemCall() {
@@ -357,7 +350,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -373,13 +366,13 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationSignature getOperationSignature__EntryLevelSystemCall() {
         if (this.operationSignature__EntryLevelSystemCall != null
-                && ((EObject) this.operationSignature__EntryLevelSystemCall).eIsProxy()) {
+                && this.operationSignature__EntryLevelSystemCall.eIsProxy()) {
             final InternalEObject oldOperationSignature__EntryLevelSystemCall = (InternalEObject) this.operationSignature__EntryLevelSystemCall;
             this.operationSignature__EntryLevelSystemCall = (OperationSignature) this
                     .eResolveProxy(oldOperationSignature__EntryLevelSystemCall);
@@ -396,7 +389,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetOperationSignature__EntryLevelSystemCall() {
@@ -405,7 +398,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -422,9 +415,10 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getOutputParameterUsages_EntryLevelSystemCall() {
         if (this.outputParameterUsages_EntryLevelSystemCall == null) {
@@ -438,7 +432,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -458,7 +452,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -476,7 +470,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -504,7 +498,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -534,7 +528,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -561,9 +555,10 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -585,7 +580,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -604,7 +599,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

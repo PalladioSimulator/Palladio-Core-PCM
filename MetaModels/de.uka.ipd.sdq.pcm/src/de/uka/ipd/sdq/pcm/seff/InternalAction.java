@@ -46,7 +46,7 @@ import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 public interface InternalAction extends AbstractInternalControlFlowAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,7 +64,7 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Internal Failure Occurrence Descriptions Internal Action</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction_InternalFailureOccurrenceDescriptions__InternalAction()

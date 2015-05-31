@@ -43,13 +43,13 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterface {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getResourceSignatures__ResourceInterface()
+     * The cached value of the '{@link #getResourceSignatures__ResourceInterface()
      * <em>Resource Signatures Resource Interface</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -61,7 +61,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceImpl() {
@@ -70,7 +70,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,7 +80,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,7 +93,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceRepository__ResourceInterface(
@@ -105,7 +105,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -138,9 +138,10 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceSignature> getResourceSignatures__ResourceInterface() {
         if (this.resourceSignatures__ResourceInterface == null) {
@@ -154,7 +155,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -175,7 +176,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -192,7 +193,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +209,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,7 +225,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -244,7 +245,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -262,9 +263,10 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

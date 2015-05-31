@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 public class RequiredDelegationConnectorItemProvider extends DelegationConnectorItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +34,7 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RequiredDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -62,19 +62,19 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
     /**
      * This adds a property descriptor for the Inner Required Role Required Delegation Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addInnerRequiredRole_RequiredDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_RequiredDelegationConnector_innerRequiredRole_RequiredDelegationConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_RequiredDelegationConnector_innerRequiredRole_RequiredDelegationConnector_feature",
-                                "_UI_RequiredDelegationConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_RequiredDelegationConnector_innerRequiredRole_RequiredDelegationConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_RequiredDelegationConnector_innerRequiredRole_RequiredDelegationConnector_feature",
+                        "_UI_RequiredDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -82,19 +82,19 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
     /**
      * This adds a property descriptor for the Outer Required Role Required Delegation Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addOuterRequiredRole_RequiredDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_RequiredDelegationConnector_outerRequiredRole_RequiredDelegationConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_RequiredDelegationConnector_outerRequiredRole_RequiredDelegationConnector_feature",
-                                "_UI_RequiredDelegationConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_RequiredDelegationConnector_outerRequiredRole_RequiredDelegationConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_RequiredDelegationConnector_outerRequiredRole_RequiredDelegationConnector_feature",
+                        "_UI_RequiredDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -102,25 +102,25 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
     /**
      * This adds a property descriptor for the Assembly Context Required Delegation Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addAssemblyContext_RequiredDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature"),
-                        this.getString("_UI_PropertyDescriptor_description",
-                                "_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature",
-                                "_UI_RequiredDelegationConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_RequiredDelegationConnector_assemblyContext_RequiredDelegationConnector_feature",
+                        "_UI_RequiredDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
 
     /**
      * This returns RequiredDelegationConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public class RequiredDelegationConnectorItemProvider extends DelegationConnector
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

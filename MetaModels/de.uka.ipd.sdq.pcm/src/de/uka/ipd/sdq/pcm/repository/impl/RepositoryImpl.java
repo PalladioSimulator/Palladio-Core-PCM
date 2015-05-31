@@ -15,8 +15,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.palladiosimulator.mdsdprofiles.impl.ProfileableElementImpl;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.repository.DataType;
@@ -31,6 +36,8 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getId <em>Id</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getEntityName <em>Entity Name</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryDescription <em>
  * Repository Description</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getComponents__Repository <em>
@@ -46,18 +53,58 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  *
  * @generated
  */
-public class RepositoryImpl extends EntityImpl implements Repository {
+public class RepositoryImpl extends ProfileableElementImpl implements Repository {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
+     * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected static final String ID_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @see #getId()
+     * @generated
+     * @ordered
+     */
+    protected String id = ID_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #getEntityName()
+     * @generated
+     * @ordered
+     */
+    protected static final String ENTITY_NAME_EDEFAULT = "aName";
+
+    /**
+     * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #getEntityName()
+     * @generated
+     * @ordered
+     */
+    protected String entityName = ENTITY_NAME_EDEFAULT;
+
+    /**
      * The default value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}
      * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getRepositoryDescription()
      * @generated
      * @ordered
@@ -67,7 +114,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getRepositoryDescription()
      * @generated
      * @ordered
@@ -77,7 +124,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getComponents__Repository() <em>Components Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getComponents__Repository()
      * @generated
      * @ordered
@@ -87,7 +134,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInterfaces__Repository()
      * @generated
      * @ordered
@@ -98,7 +145,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      * The cached value of the '{@link #getFailureTypes__Repository()
      * <em>Failure Types Repository</em>}' containment reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getFailureTypes__Repository()
      * @generated
      * @ordered
@@ -108,7 +155,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The cached value of the '{@link #getDataTypes__Repository() <em>Data Types Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getDataTypes__Repository()
      * @generated
      * @ordered
@@ -117,7 +164,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RepositoryImpl() {
@@ -126,7 +173,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -136,7 +183,56 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public String getId() {
+        return this.id;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void setId(final String newId) {
+        final String oldId = this.id;
+        this.id = newId;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.REPOSITORY__ID, oldId, this.id));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public String getEntityName() {
+        return this.entityName;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void setEntityName(final String newEntityName) {
+        final String oldEntityName = this.entityName;
+        this.entityName = newEntityName;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.REPOSITORY__ENTITY_NAME,
+                    oldEntityName, this.entityName));
+        }
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -146,7 +242,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -162,9 +258,10 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<RepositoryComponent> getComponents__Repository() {
         if (this.components__Repository == null) {
@@ -177,9 +274,10 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<FailureType> getFailureTypes__Repository() {
         if (this.failureTypes__Repository == null) {
@@ -192,9 +290,10 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<DataType> getDataTypes__Repository() {
         if (this.dataTypes__Repository == null) {
@@ -207,9 +306,10 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<Interface> getInterfaces__Repository() {
         if (this.interfaces__Repository == null) {
@@ -222,7 +322,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -248,7 +348,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,12 +369,16 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
+        case RepositoryPackage.REPOSITORY__ID:
+            return this.getId();
+        case RepositoryPackage.REPOSITORY__ENTITY_NAME:
+            return this.getEntityName();
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             return this.getRepositoryDescription();
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
@@ -291,13 +395,19 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
+        case RepositoryPackage.REPOSITORY__ID:
+            this.setId((String) newValue);
+            return;
+        case RepositoryPackage.REPOSITORY__ENTITY_NAME:
+            this.setEntityName((String) newValue);
+            return;
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             this.setRepositoryDescription((String) newValue);
             return;
@@ -323,12 +433,18 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
+        case RepositoryPackage.REPOSITORY__ID:
+            this.setId(ID_EDEFAULT);
+            return;
+        case RepositoryPackage.REPOSITORY__ENTITY_NAME:
+            this.setEntityName(ENTITY_NAME_EDEFAULT);
+            return;
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             this.setRepositoryDescription(REPOSITORY_DESCRIPTION_EDEFAULT);
             return;
@@ -350,12 +466,18 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
+        case RepositoryPackage.REPOSITORY__ID:
+            return ID_EDEFAULT == null ? this.id != null : !ID_EDEFAULT.equals(this.id);
+        case RepositoryPackage.REPOSITORY__ENTITY_NAME:
+            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
+                    .equals(this.entityName);
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             return REPOSITORY_DESCRIPTION_EDEFAULT == null ? this.repositoryDescription != null
             : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(this.repositoryDescription);
@@ -373,7 +495,71 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
+        if (baseClass == Identifier.class) {
+            switch (derivedFeatureID) {
+            case RepositoryPackage.REPOSITORY__ID:
+                return IdentifierPackage.IDENTIFIER__ID;
+            default:
+                return -1;
+            }
+        }
+        if (baseClass == NamedElement.class) {
+            switch (derivedFeatureID) {
+            case RepositoryPackage.REPOSITORY__ENTITY_NAME:
+                return EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
+            default:
+                return -1;
+            }
+        }
+        if (baseClass == Entity.class) {
+            switch (derivedFeatureID) {
+            default:
+                return -1;
+            }
+        }
+        return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
+        if (baseClass == Identifier.class) {
+            switch (baseFeatureID) {
+            case IdentifierPackage.IDENTIFIER__ID:
+                return RepositoryPackage.REPOSITORY__ID;
+            default:
+                return -1;
+            }
+        }
+        if (baseClass == NamedElement.class) {
+            switch (baseFeatureID) {
+            case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
+                return RepositoryPackage.REPOSITORY__ENTITY_NAME;
+            default:
+                return -1;
+            }
+        }
+        if (baseClass == Entity.class) {
+            switch (baseFeatureID) {
+            default:
+                return -1;
+            }
+        }
+        return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -383,7 +569,11 @@ public class RepositoryImpl extends EntityImpl implements Repository {
         }
 
         final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (repositoryDescription: ");
+        result.append(" (id: ");
+        result.append(this.id);
+        result.append(", entityName: ");
+        result.append(this.entityName);
+        result.append(", repositoryDescription: ");
         result.append(this.repositoryDescription);
         result.append(')');
         return result.toString();

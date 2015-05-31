@@ -12,7 +12,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -45,7 +44,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl implements AcquireAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +53,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      * The cached value of the '{@link #getPassiveresource_AcquireAction()
      * <em>Passiveresource Acquire Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getPassiveresource_AcquireAction()
      * @generated
      * @ordered
@@ -103,7 +102,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AcquireActionImpl() {
@@ -112,7 +111,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,12 +121,12 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PassiveResource getPassiveresource_AcquireAction() {
-        if (this.passiveresource_AcquireAction != null && ((EObject) this.passiveresource_AcquireAction).eIsProxy()) {
+        if (this.passiveresource_AcquireAction != null && this.passiveresource_AcquireAction.eIsProxy()) {
             final InternalEObject oldPassiveresource_AcquireAction = (InternalEObject) this.passiveresource_AcquireAction;
             this.passiveresource_AcquireAction = (PassiveResource) this.eResolveProxy(oldPassiveresource_AcquireAction);
             if (this.passiveresource_AcquireAction != oldPassiveresource_AcquireAction) {
@@ -143,7 +142,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PassiveResource basicGetPassiveresource_AcquireAction() {
@@ -152,7 +151,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +167,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +177,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +192,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +202,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -244,7 +243,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -267,12 +266,8 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
                         SeffValidator.ACQUIRE_ACTION__TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "TimeoutValueOfAcquireActionMustNotBeNegative",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "TimeoutValueOfAcquireActionMustNotBeNegative",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -281,7 +276,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -302,7 +297,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,7 +318,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -344,7 +339,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -362,7 +357,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -383,7 +378,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

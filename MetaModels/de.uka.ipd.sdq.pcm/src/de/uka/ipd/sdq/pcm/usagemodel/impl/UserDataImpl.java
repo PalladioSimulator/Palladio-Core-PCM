@@ -11,12 +11,12 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.palladiosimulator.mdsdprofiles.impl.StereotypableElementImpl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -24,7 +24,6 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>User Data</b></em>'. <!--
@@ -43,10 +42,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
+public class UserDataImpl extends StereotypableElementImpl implements UserData {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -75,7 +74,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected UserDataImpl() {
@@ -84,7 +83,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,7 +93,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +106,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUsageModel_UserData(final UsageModel newUsageModel_UserData, NotificationChain msgs) {
@@ -118,7 +117,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,12 +147,12 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext_userData() {
-        if (this.assemblyContext_userData != null && ((EObject) this.assemblyContext_userData).eIsProxy()) {
+        if (this.assemblyContext_userData != null && this.assemblyContext_userData.eIsProxy()) {
             final InternalEObject oldAssemblyContext_userData = (InternalEObject) this.assemblyContext_userData;
             this.assemblyContext_userData = (AssemblyContext) this.eResolveProxy(oldAssemblyContext_userData);
             if (this.assemblyContext_userData != oldAssemblyContext_userData) {
@@ -169,7 +168,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_userData() {
@@ -178,7 +177,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,9 +193,10 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getUserDataParameterUsages_UserData() {
         if (this.userDataParameterUsages_UserData == null) {
@@ -209,7 +209,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -230,7 +230,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -247,7 +247,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -262,7 +262,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -283,7 +283,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -306,7 +306,7 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -327,9 +327,10 @@ public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

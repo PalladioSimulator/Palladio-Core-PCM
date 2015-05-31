@@ -28,21 +28,21 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage
  * @generated
  */
 public class EntityValidator extends EObjectValidator {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final EntityValidator INSTANCE = new EntityValidator();
@@ -51,7 +51,7 @@ public class EntityValidator extends EObjectValidator {
      * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
      * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -62,7 +62,7 @@ public class EntityValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided
      * Roles Must Be Bound' of 'Composed Providing Requiring Entity'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_MUST_BE_BOUND = 1;
@@ -70,7 +70,7 @@ public class EntityValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
@@ -78,21 +78,21 @@ public class EntityValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
      * The cached base package validator. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompositionValidator compositionValidator;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EntityValidator() {
@@ -102,7 +102,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,7 +154,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateResourceProvidedRole(final ResourceProvidedRole resourceProvidedRole,
@@ -164,7 +164,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateNamedElement(final NamedElement namedElement, final DiagnosticChain diagnostics,
@@ -174,7 +174,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateResourceInterfaceProvidingRequiringEntity(
@@ -185,7 +185,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInterfaceProvidingEntity(final InterfaceProvidingEntity interfaceProvidingEntity,
@@ -195,7 +195,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInterfaceProvidingRequiringEntity(
@@ -206,7 +206,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateInterfaceRequiringEntity(final InterfaceRequiringEntity interfaceRequiringEntity,
@@ -216,7 +216,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateResourceInterfaceRequiringEntity(
@@ -227,7 +227,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateResourceRequiredRole(final ResourceRequiredRole resourceRequiredRole,
@@ -237,7 +237,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateComposedProvidingRequiringEntity(
@@ -285,7 +285,7 @@ public class EntityValidator extends EObjectValidator {
     /**
      * Validates the ProvidedRolesMustBeBound constraint of '
      * <em>Composed Providing Requiring Entity</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(
@@ -296,7 +296,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateResourceInterfaceProvidingEntity(
@@ -307,7 +307,7 @@ public class EntityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public boolean validateEntity(final Entity entity, final DiagnosticChain diagnostics,
@@ -318,7 +318,7 @@ public class EntityValidator extends EObjectValidator {
     /**
      * Returns the resource locator that will be used to fetch messages for this validator's
      * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

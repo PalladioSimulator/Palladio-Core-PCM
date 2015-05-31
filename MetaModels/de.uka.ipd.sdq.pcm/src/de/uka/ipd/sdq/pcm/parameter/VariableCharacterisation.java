@@ -5,8 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
+import org.eclipse.emf.ecore.EObject;
+
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -39,13 +40,12 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model
- * @extends EStereotypableObject
  * @generated
  */
-public interface VariableCharacterisation extends EStereotypableObject {
+public interface VariableCharacterisation extends EObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,7 +69,7 @@ public interface VariableCharacterisation extends EStereotypableObject {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType
      * <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Type</em>' attribute.
      * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
@@ -104,7 +104,7 @@ public interface VariableCharacterisation extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
      * <em>Specification Variable Characterisation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Specification Variable Characterisation</em>'
      *            containment reference.
@@ -123,7 +123,7 @@ public interface VariableCharacterisation extends EStereotypableObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Variable Usage Variable Characterisation</em>' container
      *         reference.
      * @see #setVariableUsage_VariableCharacterisation(VariableUsage)
@@ -139,7 +139,7 @@ public interface VariableCharacterisation extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
      * <em>Variable Usage Variable Characterisation</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Variable Usage Variable Characterisation</em>' container
      *            reference.

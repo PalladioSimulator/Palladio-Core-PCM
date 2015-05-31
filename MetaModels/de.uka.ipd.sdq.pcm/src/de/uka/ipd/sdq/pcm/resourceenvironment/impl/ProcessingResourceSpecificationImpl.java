@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -60,7 +59,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 public class ProcessingResourceSpecificationImpl extends IdentifierImpl implements ProcessingResourceSpecification {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +67,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The default value of the '{@link #getMTTR() <em>MTTR</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getMTTR()
      * @generated
      * @ordered
@@ -78,7 +77,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The cached value of the '{@link #getMTTR() <em>MTTR</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getMTTR()
      * @generated
      * @ordered
@@ -88,7 +87,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The default value of the '{@link #getMTTF() <em>MTTF</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getMTTF()
      * @generated
      * @ordered
@@ -98,7 +97,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The cached value of the '{@link #getMTTF() <em>MTTF</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getMTTF()
      * @generated
      * @ordered
@@ -108,7 +107,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The default value of the '{@link #isRequiredByContainer() <em>Required By Container</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #isRequiredByContainer()
      * @generated
      * @ordered
@@ -118,7 +117,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The cached value of the '{@link #isRequiredByContainer() <em>Required By Container</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #isRequiredByContainer()
      * @generated
      * @ordered
@@ -128,7 +127,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The cached value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSchedulingPolicy()
      * @generated
      * @ordered
@@ -139,7 +138,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      * The cached value of the '{@link #getActiveResourceType_ActiveResourceSpecification()
      * <em>Active Resource Type Active Resource Specification</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getActiveResourceType_ActiveResourceSpecification()
      * @generated
      * @ordered
@@ -147,7 +146,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     protected ProcessingResourceType activeResourceType_ActiveResourceSpecification;
 
     /**
-     * The cached value of the ' {@link #getProcessingRate_ProcessingResourceSpecification()
+     * The cached value of the '{@link #getProcessingRate_ProcessingResourceSpecification()
      * <em>Processing Rate Processing Resource Specification</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -160,7 +159,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The default value of the '{@link #getNumberOfReplicas() <em>Number Of Replicas</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getNumberOfReplicas()
      * @generated
      * @ordered
@@ -170,7 +169,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The cached value of the '{@link #getNumberOfReplicas() <em>Number Of Replicas</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getNumberOfReplicas()
      * @generated
      * @ordered
@@ -179,7 +178,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProcessingResourceSpecificationImpl() {
@@ -188,7 +187,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -198,7 +197,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +207,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +222,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +232,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -248,7 +247,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +257,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -274,12 +273,12 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SchedulingPolicy getSchedulingPolicy() {
-        if (this.schedulingPolicy != null && ((EObject) this.schedulingPolicy).eIsProxy()) {
+        if (this.schedulingPolicy != null && this.schedulingPolicy.eIsProxy()) {
             final InternalEObject oldSchedulingPolicy = (InternalEObject) this.schedulingPolicy;
             this.schedulingPolicy = (SchedulingPolicy) this.eResolveProxy(oldSchedulingPolicy);
             if (this.schedulingPolicy != oldSchedulingPolicy) {
@@ -295,7 +294,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SchedulingPolicy basicGetSchedulingPolicy() {
@@ -304,7 +303,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,13 +319,13 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProcessingResourceType getActiveResourceType_ActiveResourceSpecification() {
         if (this.activeResourceType_ActiveResourceSpecification != null
-                && ((EObject) this.activeResourceType_ActiveResourceSpecification).eIsProxy()) {
+                && this.activeResourceType_ActiveResourceSpecification.eIsProxy()) {
             final InternalEObject oldActiveResourceType_ActiveResourceSpecification = (InternalEObject) this.activeResourceType_ActiveResourceSpecification;
             this.activeResourceType_ActiveResourceSpecification = (ProcessingResourceType) this
                     .eResolveProxy(oldActiveResourceType_ActiveResourceSpecification);
@@ -346,7 +345,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceType basicGetActiveResourceType_ActiveResourceSpecification() {
@@ -355,7 +354,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -375,7 +374,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -385,7 +384,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetProcessingRate_ProcessingResourceSpecification(
@@ -410,7 +409,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -449,7 +448,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -459,7 +458,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -475,7 +474,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -488,7 +487,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceContainer_ProcessingResourceSpecification(
@@ -503,7 +502,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -542,7 +541,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -569,7 +568,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -586,7 +585,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -602,7 +601,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -636,7 +635,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -672,7 +671,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -708,7 +707,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -736,7 +735,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

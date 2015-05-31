@@ -8,9 +8,9 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
@@ -18,7 +18,6 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -38,10 +37,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class RequiredCharacterisationImpl extends EStereotypableObjectImpl implements RequiredCharacterisation {
+public class RequiredCharacterisationImpl extends MinimalEObjectImpl.Container implements RequiredCharacterisation {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +48,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -59,7 +58,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
     /**
      * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -78,7 +77,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RequiredCharacterisationImpl() {
@@ -87,7 +86,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +96,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +106,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,12 +121,12 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Parameter getParameter() {
-        if (this.parameter != null && ((EObject) this.parameter).eIsProxy()) {
+        if (this.parameter != null && this.parameter.eIsProxy()) {
             final InternalEObject oldParameter = (InternalEObject) this.parameter;
             this.parameter = (Parameter) this.eResolveProxy(oldParameter);
             if (this.parameter != oldParameter) {
@@ -142,7 +141,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Parameter basicGetParameter() {
@@ -151,7 +150,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -166,7 +165,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +178,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInterface_RequiredCharacterisation(
@@ -191,7 +190,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -222,7 +221,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -239,7 +238,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -254,7 +253,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,7 +268,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -290,7 +289,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,7 +310,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -332,7 +331,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -350,7 +349,7 @@ public class RequiredCharacterisationImpl extends EStereotypableObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

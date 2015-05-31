@@ -13,12 +13,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.palladiosimulator.mdsdprofiles.impl.ProfileableElementImpl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Usage Model</b></em>'.
@@ -35,10 +35,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class UsageModelImpl extends EStereotypableObjectImpl implements UsageModel {
+public class UsageModelImpl extends ProfileableElementImpl implements UsageModel {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
      * The cached value of the '{@link #getUsageScenario_UsageModel()
      * <em>Usage Scenario Usage Model</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getUsageScenario_UsageModel()
      * @generated
      * @ordered
@@ -57,7 +57,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
     /**
      * The cached value of the '{@link #getUserData_UsageModel() <em>User Data Usage Model</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getUserData_UsageModel()
      * @generated
      * @ordered
@@ -66,7 +66,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected UsageModelImpl() {
@@ -75,7 +75,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,9 +85,10 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<UserData> getUserData_UsageModel() {
         if (this.userData_UsageModel == null) {
@@ -100,9 +101,10 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<UsageScenario> getUsageScenario_UsageModel() {
         if (this.usageScenario_UsageModel == null) {
@@ -115,7 +117,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -135,7 +137,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -152,7 +154,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +170,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -189,7 +191,7 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -207,9 +209,10 @@ public class UsageModelImpl extends EStereotypableObjectImpl implements UsageMod
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

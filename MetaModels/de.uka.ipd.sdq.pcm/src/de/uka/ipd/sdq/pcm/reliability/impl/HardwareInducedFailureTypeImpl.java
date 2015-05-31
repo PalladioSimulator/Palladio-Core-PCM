@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -45,13 +44,13 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements HardwareInducedFailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getProcessingResourceType__HardwareInducedFailureType()
+     * The cached value of the '{@link #getProcessingResourceType__HardwareInducedFailureType()
      * <em>Processing Resource Type Hardware Induced Failure Type</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -63,7 +62,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected HardwareInducedFailureTypeImpl() {
@@ -72,7 +71,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,13 +81,13 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProcessingResourceType getProcessingResourceType__HardwareInducedFailureType() {
         if (this.processingResourceType__HardwareInducedFailureType != null
-                && ((EObject) this.processingResourceType__HardwareInducedFailureType).eIsProxy()) {
+                && this.processingResourceType__HardwareInducedFailureType.eIsProxy()) {
             final InternalEObject oldProcessingResourceType__HardwareInducedFailureType = (InternalEObject) this.processingResourceType__HardwareInducedFailureType;
             this.processingResourceType__HardwareInducedFailureType = (ProcessingResourceType) this
                     .eResolveProxy(oldProcessingResourceType__HardwareInducedFailureType);
@@ -108,7 +107,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceType basicGetProcessingResourceType__HardwareInducedFailureType() {
@@ -117,7 +116,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetProcessingResourceType__HardwareInducedFailureType(
@@ -142,7 +141,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +196,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      * {@link #HardwareInducedFailureTypeHasProcessingResourceType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Hardware Induced Failure Type Has Processing Resource Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #HardwareInducedFailureTypeHasProcessingResourceType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -207,7 +206,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -231,14 +230,10 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
                         Diagnostic.ERROR,
                         ReliabilityValidator.DIAGNOSTIC_SOURCE,
                         ReliabilityValidator.HARDWARE_INDUCED_FAILURE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "HardwareInducedFailureTypeHasProcessingResourceType",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "HardwareInducedFailureTypeHasProcessingResourceType",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -247,7 +242,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,7 +264,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -284,7 +279,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -301,7 +296,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -316,7 +311,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -331,7 +326,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -346,7 +341,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

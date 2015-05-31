@@ -13,15 +13,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.palladiosimulator.mdsdprofiles.provider.StereotypableElementItemProvider;
 
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
@@ -30,14 +25,13 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
-public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ServiceEffectSpecificationItemProvider extends StereotypableElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +39,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ServiceEffectSpecificationItemProvider(final AdapterFactory adapterFactory) {
@@ -55,7 +49,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +66,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
     /**
      * This adds a property descriptor for the Seff Type ID feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addSeffTypeIDPropertyDescriptor(final Object object) {
@@ -81,14 +75,14 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
                 this.getString("_UI_ServiceEffectSpecification_seffTypeID_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_seffTypeID_feature",
                         "_UI_ServiceEffectSpecification_type"),
-                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, true, false, false,
-                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                        SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, true, false, false,
+                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Described Service SEFF feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addDescribedService__SEFFPropertyDescriptor(final Object object) {
@@ -98,8 +92,8 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
                         "_UI_PropertyDescriptor_description",
                         "_UI_ServiceEffectSpecification_describedService__SEFF_feature",
                         "_UI_ServiceEffectSpecification_type"),
-                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, true, false, true, null,
-                null, null));
+                        SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, true, false, true, null,
+                        null, null));
     }
 
     /**
@@ -119,7 +113,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,7 +131,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +142,7 @@ public class ServiceEffectSpecificationItemProvider extends ItemProviderAdapter 
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

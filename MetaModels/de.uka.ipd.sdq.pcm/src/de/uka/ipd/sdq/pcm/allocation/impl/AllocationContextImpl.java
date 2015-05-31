@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -58,7 +57,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 public class AllocationContextImpl extends EntityImpl implements AllocationContext {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -67,7 +66,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * The cached value of the '{@link #getResourceContainer_AllocationContext()
      * <em>Resource Container Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getResourceContainer_AllocationContext()
      * @generated
      * @ordered
@@ -78,7 +77,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * The cached value of the '{@link #getAssemblyContext_AllocationContext()
      * <em>Assembly Context Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext_AllocationContext()
      * @generated
      * @ordered
@@ -89,7 +88,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * The cached value of the '{@link #getEventChannel__AllocationContext()
      * <em>Event Channel Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getEventChannel__AllocationContext()
      * @generated
      * @ordered
@@ -98,7 +97,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AllocationContextImpl() {
@@ -107,7 +106,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -117,13 +116,12 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceContainer getResourceContainer_AllocationContext() {
-        if (this.resourceContainer_AllocationContext != null
-                && ((EObject) this.resourceContainer_AllocationContext).eIsProxy()) {
+        if (this.resourceContainer_AllocationContext != null && this.resourceContainer_AllocationContext.eIsProxy()) {
             final InternalEObject oldResourceContainer_AllocationContext = (InternalEObject) this.resourceContainer_AllocationContext;
             this.resourceContainer_AllocationContext = (ResourceContainer) this
                     .eResolveProxy(oldResourceContainer_AllocationContext);
@@ -140,7 +138,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceContainer basicGetResourceContainer_AllocationContext() {
@@ -149,7 +147,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,13 +163,12 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext_AllocationContext() {
-        if (this.assemblyContext_AllocationContext != null
-                && ((EObject) this.assemblyContext_AllocationContext).eIsProxy()) {
+        if (this.assemblyContext_AllocationContext != null && this.assemblyContext_AllocationContext.eIsProxy()) {
             final InternalEObject oldAssemblyContext_AllocationContext = (InternalEObject) this.assemblyContext_AllocationContext;
             this.assemblyContext_AllocationContext = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext_AllocationContext);
@@ -188,7 +185,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_AllocationContext() {
@@ -197,7 +194,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,7 +210,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +223,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAllocation_AllocationContext(final Allocation newAllocation_AllocationContext,
@@ -238,7 +235,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,12 +266,12 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventChannel getEventChannel__AllocationContext() {
-        if (this.eventChannel__AllocationContext != null && ((EObject) this.eventChannel__AllocationContext).eIsProxy()) {
+        if (this.eventChannel__AllocationContext != null && this.eventChannel__AllocationContext.eIsProxy()) {
             final InternalEObject oldEventChannel__AllocationContext = (InternalEObject) this.eventChannel__AllocationContext;
             this.eventChannel__AllocationContext = (EventChannel) this
                     .eResolveProxy(oldEventChannel__AllocationContext);
@@ -291,7 +288,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventChannel basicGetEventChannel__AllocationContext() {
@@ -300,7 +297,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -332,7 +329,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * {@link #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>One Assembly Context Or One Event Channel Should Be Referred</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -342,7 +339,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -367,14 +364,10 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
                         Diagnostic.ERROR,
                         AllocationValidator.DIAGNOSTIC_SOURCE,
                         AllocationValidator.ALLOCATION_CONTEXT__ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "OneAssemblyContextOrOneEventChannelShouldBeReferred",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                            this
-                        }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "OneAssemblyContextOrOneEventChannelShouldBeReferred",
+                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -383,7 +376,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -400,7 +393,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -415,7 +408,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -430,7 +423,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -459,7 +452,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -483,7 +476,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -507,7 +500,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -528,7 +521,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

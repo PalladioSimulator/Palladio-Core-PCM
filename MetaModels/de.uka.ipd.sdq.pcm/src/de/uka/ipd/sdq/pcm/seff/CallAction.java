@@ -7,8 +7,8 @@ package de.uka.ipd.sdq.pcm.seff;
 
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Call Action</b></em>'. <!--
@@ -27,13 +27,12 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getCallAction()
  * @model abstract="true"
- * @extends EStereotypableObject
  * @generated
  */
-public interface CallAction extends EStereotypableObject {
+public interface CallAction extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +48,7 @@ public interface CallAction extends EStereotypableObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Input Variable Usages Call Action</em>' containment reference
      *         list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getCallAction_InputVariableUsages__CallAction()

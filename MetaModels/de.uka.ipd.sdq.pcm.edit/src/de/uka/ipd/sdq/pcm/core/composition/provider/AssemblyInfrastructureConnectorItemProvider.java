@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +34,7 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyInfrastructureConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -63,19 +63,19 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
     /**
      * This adds a property descriptor for the Provided Role Assembly Infrastructure Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addProvidedRole__AssemblyInfrastructureConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_AssemblyInfrastructureConnector_providedRole__AssemblyInfrastructureConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_AssemblyInfrastructureConnector_providedRole__AssemblyInfrastructureConnector_feature",
-                                "_UI_AssemblyInfrastructureConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_AssemblyInfrastructureConnector_providedRole__AssemblyInfrastructureConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_AssemblyInfrastructureConnector_providedRole__AssemblyInfrastructureConnector_feature",
+                        "_UI_AssemblyInfrastructureConnector_type"),
                         CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -83,19 +83,19 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
     /**
      * This adds a property descriptor for the Required Role Assembly Infrastructure Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addRequiredRole__AssemblyInfrastructureConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_AssemblyInfrastructureConnector_requiredRole__AssemblyInfrastructureConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_AssemblyInfrastructureConnector_requiredRole__AssemblyInfrastructureConnector_feature",
-                                "_UI_AssemblyInfrastructureConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_AssemblyInfrastructureConnector_requiredRole__AssemblyInfrastructureConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_AssemblyInfrastructureConnector_requiredRole__AssemblyInfrastructureConnector_feature",
+                        "_UI_AssemblyInfrastructureConnector_type"),
                         CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -103,19 +103,19 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
     /**
      * This adds a property descriptor for the Providing Assembly Context Assembly Infrastructure
      * Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addProvidingAssemblyContext__AssemblyInfrastructureConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_AssemblyInfrastructureConnector_providingAssemblyContext__AssemblyInfrastructureConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_AssemblyInfrastructureConnector_providingAssemblyContext__AssemblyInfrastructureConnector_feature",
-                                "_UI_AssemblyInfrastructureConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_AssemblyInfrastructureConnector_providingAssemblyContext__AssemblyInfrastructureConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_AssemblyInfrastructureConnector_providingAssemblyContext__AssemblyInfrastructureConnector_feature",
+                        "_UI_AssemblyInfrastructureConnector_type"),
                         CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -123,19 +123,19 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
     /**
      * This adds a property descriptor for the Requiring Assembly Context Assembly Infrastructure
      * Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addRequiringAssemblyContext__AssemblyInfrastructureConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-                .add(this.createItemPropertyDescriptor(
-                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                        this.getResourceLocator(),
-                        this.getString("_UI_AssemblyInfrastructureConnector_requiringAssemblyContext__AssemblyInfrastructureConnector_feature"),
-                        this.getString(
-                                "_UI_PropertyDescriptor_description",
-                                "_UI_AssemblyInfrastructureConnector_requiringAssemblyContext__AssemblyInfrastructureConnector_feature",
-                                "_UI_AssemblyInfrastructureConnector_type"),
+        .add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                this.getResourceLocator(),
+                this.getString("_UI_AssemblyInfrastructureConnector_requiringAssemblyContext__AssemblyInfrastructureConnector_feature"),
+                this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_AssemblyInfrastructureConnector_requiringAssemblyContext__AssemblyInfrastructureConnector_feature",
+                        "_UI_AssemblyInfrastructureConnector_type"),
                         CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -169,7 +169,7 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ public class AssemblyInfrastructureConnectorItemProvider extends ConnectorItemPr
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

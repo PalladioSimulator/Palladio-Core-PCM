@@ -24,13 +24,13 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +38,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EntryLevelSystemCallItemProvider(final AdapterFactory adapterFactory) {
@@ -48,7 +48,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,31 +76,31 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
                         "_UI_PropertyDescriptor_description",
                         "_UI_EntryLevelSystemCall_providedRole_EntryLevelSystemCall_feature",
                         "_UI_EntryLevelSystemCall_type"),
-                UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL, true, false,
-                true, null, null, null));
+                        UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL, true, false,
+                        true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Operation Signature Entry Level System Call feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addOperationSignature__EntryLevelSystemCallPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_EntryLevelSystemCall_operationSignature__EntryLevelSystemCall_feature"), this
-                .getString("_UI_PropertyDescriptor_description",
-                        "_UI_EntryLevelSystemCall_operationSignature__EntryLevelSystemCall_feature",
-                        "_UI_EntryLevelSystemCall_type"),
-                UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL, true,
-                false, true, null, null, null));
+                        .getString("_UI_PropertyDescriptor_description",
+                                "_UI_EntryLevelSystemCall_operationSignature__EntryLevelSystemCall_feature",
+                                "_UI_EntryLevelSystemCall_type"),
+                        UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL, true,
+                        false, true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Priority feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addPriorityPropertyDescriptor(final Object object) {
@@ -109,7 +109,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
                 this.getString("_UI_EntryLevelSystemCall_priority_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_EntryLevelSystemCall_priority_feature",
                         "_UI_EntryLevelSystemCall_type"), UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__PRIORITY,
-                true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+                        true, false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -126,16 +126,16 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
+            .add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
             this.childrenFeatures
-                    .add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
+            .add(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
 
     /**
      * This returns EntryLevelSystemCall.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -229,9 +229,10 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
                 || childFeature == UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL;
 
         if (qualify) {
-            return this.getString("_UI_CreateChild_text2", new Object[] {
-                    this.getTypeText(childObject), this.getFeatureText(childFeature), this.getTypeText(owner)
-            });
+            return this.getString(
+                    "_UI_CreateChild_text2",
+                    new Object[] { this.getTypeText(childObject), this.getFeatureText(childFeature),
+                            this.getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }

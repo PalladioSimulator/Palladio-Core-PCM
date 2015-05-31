@@ -10,18 +10,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.seff.CallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -32,11 +25,10 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public class CallActionItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class CallActionItemProvider extends EntityItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -44,7 +36,7 @@ public class CallActionItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CallActionItemProvider(final AdapterFactory adapterFactory) {
@@ -54,7 +46,7 @@ public class CallActionItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -86,7 +78,7 @@ public class CallActionItemProvider extends ItemProviderAdapter implements IEdit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -105,14 +97,16 @@ public class CallActionItemProvider extends ItemProviderAdapter implements IEdit
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_CallAction_type");
+        final String label = ((CallAction) object).getId();
+        return label == null || label.length() == 0 ? this.getString("_UI_CallAction_type") : this
+                .getString("_UI_CallAction_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +124,7 @@ public class CallActionItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,17 +134,6 @@ public class CallActionItemProvider extends ItemProviderAdapter implements IEdit
         newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
                 ParameterFactory.eINSTANCE.createVariableUsage()));
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

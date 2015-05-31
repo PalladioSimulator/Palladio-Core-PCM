@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
 public interface BranchAction extends AbstractInternalControlFlowAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Branches Branch</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchAction_Branches_Branch()
      * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition

@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -51,7 +50,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 CommunicationLinkResourceSpecification {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +58,7 @@ CommunicationLinkResourceSpecification {
     /**
      * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -69,7 +68,7 @@ CommunicationLinkResourceSpecification {
     /**
      * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -81,7 +80,7 @@ CommunicationLinkResourceSpecification {
      * {@link #getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()
      * <em>Communication Link Resource Type Communication Link Resource Specification</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()
      * @generated
      * @ordered
@@ -89,7 +88,7 @@ CommunicationLinkResourceSpecification {
     protected CommunicationLinkResourceType communicationLinkResourceType_CommunicationLinkResourceSpecification;
 
     /**
-     * The cached value of the ' {@link #getLatency_CommunicationLinkResourceSpecification()
+     * The cached value of the '{@link #getLatency_CommunicationLinkResourceSpecification()
      * <em>Latency Communication Link Resource Specification</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -100,7 +99,7 @@ CommunicationLinkResourceSpecification {
     protected PCMRandomVariable latency_CommunicationLinkResourceSpecification;
 
     /**
-     * The cached value of the ' {@link #getThroughput_CommunicationLinkResourceSpecification()
+     * The cached value of the '{@link #getThroughput_CommunicationLinkResourceSpecification()
      * <em>Throughput Communication Link Resource Specification</em>}' containment reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -112,7 +111,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CommunicationLinkResourceSpecificationImpl() {
@@ -121,7 +120,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,7 +130,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +143,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLinkingResource_CommunicationLinkResourceSpecification(
@@ -159,7 +158,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -198,7 +197,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +207,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,13 +223,13 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CommunicationLinkResourceType getCommunicationLinkResourceType_CommunicationLinkResourceSpecification() {
         if (this.communicationLinkResourceType_CommunicationLinkResourceSpecification != null
-                && ((EObject) this.communicationLinkResourceType_CommunicationLinkResourceSpecification).eIsProxy()) {
+                && this.communicationLinkResourceType_CommunicationLinkResourceSpecification.eIsProxy()) {
             final InternalEObject oldCommunicationLinkResourceType_CommunicationLinkResourceSpecification = (InternalEObject) this.communicationLinkResourceType_CommunicationLinkResourceSpecification;
             this.communicationLinkResourceType_CommunicationLinkResourceSpecification = (CommunicationLinkResourceType) this
                     .eResolveProxy(oldCommunicationLinkResourceType_CommunicationLinkResourceSpecification);
@@ -250,7 +249,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CommunicationLinkResourceType basicGetCommunicationLinkResourceType_CommunicationLinkResourceSpecification() {
@@ -259,7 +258,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +278,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -289,7 +288,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLatency_CommunicationLinkResourceSpecification(
@@ -314,7 +313,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -353,7 +352,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -363,7 +362,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetThroughput_CommunicationLinkResourceSpecification(
@@ -388,7 +387,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -427,7 +426,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -465,7 +464,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -484,7 +483,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -503,7 +502,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -528,7 +527,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -555,7 +554,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -582,7 +581,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -604,7 +603,7 @@ CommunicationLinkResourceSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

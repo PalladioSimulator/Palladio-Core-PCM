@@ -7,7 +7,6 @@ package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -33,7 +32,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 ComponentSpecifiedExecutionTime {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +41,7 @@ ComponentSpecifiedExecutionTime {
      * The cached value of the '{@link #getAssemblyContext_ComponentSpecifiedExecutionTime()
      * <em>Assembly Context Component Specified Execution Time</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext_ComponentSpecifiedExecutionTime()
      * @generated
      * @ordered
@@ -51,7 +50,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ComponentSpecifiedExecutionTimeImpl() {
@@ -60,7 +59,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,13 +69,13 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext_ComponentSpecifiedExecutionTime() {
         if (this.assemblyContext_ComponentSpecifiedExecutionTime != null
-                && ((EObject) this.assemblyContext_ComponentSpecifiedExecutionTime).eIsProxy()) {
+                && this.assemblyContext_ComponentSpecifiedExecutionTime.eIsProxy()) {
             final InternalEObject oldAssemblyContext_ComponentSpecifiedExecutionTime = (InternalEObject) this.assemblyContext_ComponentSpecifiedExecutionTime;
             this.assemblyContext_ComponentSpecifiedExecutionTime = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext_ComponentSpecifiedExecutionTime);
@@ -96,7 +95,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ComponentSpecifiedExecutionTime() {
@@ -105,7 +104,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +124,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +141,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +156,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +171,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

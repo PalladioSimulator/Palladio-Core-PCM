@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 public class BranchActionImpl extends AbstractInternalControlFlowActionImpl implements BranchAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,7 +52,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
     /**
      * The cached value of the '{@link #getBranches_Branch() <em>Branches Branch</em>}' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranches_Branch()
      * @generated
      * @ordered
@@ -61,7 +61,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BranchActionImpl() {
@@ -70,7 +70,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,9 +80,10 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<AbstractBranchTransition> getBranches_Branch() {
         if (this.branches_Branch == null) {
@@ -112,7 +113,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * {@link #EitherGuardedBranchesOrProbabilisiticBranchTransitions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Either Guarded Branches Or Probabilisitic Branch Transitions</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EitherGuardedBranchesOrProbabilisiticBranchTransitions(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -122,7 +123,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,14 +145,9 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
                         SeffValidator.BRANCH_ACTION__EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "EitherGuardedBranchesOrProbabilisiticBranchTransitions",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EitherGuardedBranchesOrProbabilisiticBranchTransitions",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -189,7 +185,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,12 +208,8 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
                         SeffValidator.BRANCH_ACTION__ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "AllProbabilisticBranchProbabilitiesMustSumUpTo1",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "AllProbabilisticBranchProbabilitiesMustSumUpTo1",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -226,7 +218,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -243,7 +235,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +250,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -272,7 +264,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -289,7 +281,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -304,9 +296,10 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -319,7 +312,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

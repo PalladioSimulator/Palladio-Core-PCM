@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
     public OpenWorkloadUserFactory(final SimuComModel model, final String usageScenarioURI) {
-        this(model, (UsageScenario) EMFLoadHelper.loadModel(usageScenarioURI));
+        this(model, (UsageScenario) EMFLoadHelper.loadAndResolveEObject(usageScenarioURI));
     }
 
     public OpenWorkloadUserFactory(final SimuComModel model, UsageScenario usageScenario) {

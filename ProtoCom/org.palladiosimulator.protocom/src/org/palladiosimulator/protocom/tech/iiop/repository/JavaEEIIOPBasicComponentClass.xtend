@@ -127,7 +127,7 @@ class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponent> {
 		var basicComponentAppliedStereotypes = pcmEntity.getStereotypeApplications("Stateless")
 		if(basicComponentAppliedStereotypes != null){
 			for(appliedStatelessStereotype : basicComponentAppliedStereotypes){
-				isStateless = appliedStatelessStereotype.eGet(appliedStatelessStereotype.stereotype.getTaggedValue("isStateless"))
+				isStateless = appliedStatelessStereotype.eGet(appliedStatelessStereotype.extension.source.getTaggedValue("isStateless"))
 			}
 		}
 		

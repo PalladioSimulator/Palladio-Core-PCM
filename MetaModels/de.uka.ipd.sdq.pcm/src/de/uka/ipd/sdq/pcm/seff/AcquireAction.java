@@ -73,7 +73,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -100,7 +100,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
      * {@link de.uka.ipd.sdq.pcm.seff.AcquireAction#getPassiveresource_AcquireAction
      * <em>Passiveresource Acquire Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Passiveresource Acquire Action</em>' reference.
      * @see #getPassiveresource_AcquireAction()
@@ -158,7 +158,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.AcquireAction#isTimeout
      * <em>Timeout</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Timeout</em>' attribute.
      * @see #isTimeout()
@@ -190,7 +190,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.AcquireAction#getTimeoutValue
      * <em>Timeout Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Timeout Value</em>' attribute.
      * @see #getTimeoutValue()

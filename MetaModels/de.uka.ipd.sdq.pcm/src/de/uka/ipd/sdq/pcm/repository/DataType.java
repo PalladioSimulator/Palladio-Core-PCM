@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Data Type</b></em>'. <!--
@@ -24,13 +24,12 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getDataType()
  * @model abstract="true"
- * @extends EStereotypableObject
  * @generated
  */
-public interface DataType extends EStereotypableObject {
+public interface DataType extends EObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +55,7 @@ public interface DataType extends EStereotypableObject {
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.DataType#getRepository__DataType
      * <em>Repository Data Type</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Repository Data Type</em>' container reference.
      * @see #getRepository__DataType()

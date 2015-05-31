@@ -7,7 +7,6 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -32,7 +31,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements OperationProvidedRole {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +40,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
      * The cached value of the '{@link #getProvidedInterface__OperationProvidedRole()
      * <em>Provided Interface Operation Provided Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getProvidedInterface__OperationProvidedRole()
      * @generated
      * @ordered
@@ -50,7 +49,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OperationProvidedRoleImpl() {
@@ -59,7 +58,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,13 +68,13 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationInterface getProvidedInterface__OperationProvidedRole() {
         if (this.providedInterface__OperationProvidedRole != null
-                && ((EObject) this.providedInterface__OperationProvidedRole).eIsProxy()) {
+                && this.providedInterface__OperationProvidedRole.eIsProxy()) {
             final InternalEObject oldProvidedInterface__OperationProvidedRole = (InternalEObject) this.providedInterface__OperationProvidedRole;
             this.providedInterface__OperationProvidedRole = (OperationInterface) this
                     .eResolveProxy(oldProvidedInterface__OperationProvidedRole);
@@ -92,7 +91,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationInterface basicGetProvidedInterface__OperationProvidedRole() {
@@ -101,7 +100,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +117,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +134,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,7 +149,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,7 +164,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

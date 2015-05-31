@@ -49,7 +49,7 @@ import de.uka.ipd.sdq.units.UnitsPackage;
 public abstract class ResourceTypeImpl extends EntityImpl implements ResourceType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      * {@link #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * <em>Resource Provided Roles Resource Interface Providing Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @generated
      * @ordered
@@ -68,7 +68,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceTypeImpl() {
@@ -77,7 +77,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,7 +101,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUnit(final Unit newUnit, final NotificationChain msgs) {
@@ -140,9 +140,10 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceProvidedRole> getResourceProvidedRoles__ResourceInterfaceProvidingEntity() {
         if (this.resourceProvidedRoles__ResourceInterfaceProvidingEntity == null) {
@@ -156,7 +157,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -169,7 +170,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceRepository_ResourceType(
@@ -181,7 +182,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,7 +214,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -234,7 +235,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -254,7 +255,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +271,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,7 +289,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -312,7 +313,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,9 +334,10 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -352,7 +354,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -378,7 +380,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

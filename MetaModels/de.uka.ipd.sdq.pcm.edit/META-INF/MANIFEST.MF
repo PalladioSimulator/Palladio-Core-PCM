@@ -40,5 +40,11 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.uml2.types;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.edit;visibility:=reexport,
+ org.palladiosimulator.mdsdprofiles;visibility:=reexport,
+ org.palladiosimulator.mdsdprofiles.edit;visibility:=reexport,
+ org.modelversioning.emfprofile;visibility:=reexport,
+ org.modelversioning.emfprofile.edit;visibility:=reexport,
  org.eclipse.uml2.common.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

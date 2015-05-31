@@ -126,7 +126,7 @@ public abstract class Context extends StackContext {
 
     public IPassiveResource getPassiveRessourceInContext(final String resourceURI,
             final AssemblyContext assemblyContext, AbstractSimulatedResourceContainer resourceContainer, long capacity) {
-        final PassiveResource resource = (PassiveResource) EMFLoadHelper.loadModel(resourceURI);
+        final PassiveResource resource = (PassiveResource) EMFLoadHelper.loadAndResolveEObject(resourceURI);
         IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContext.getId() + resource.getId());
 
         if (pr == null) {

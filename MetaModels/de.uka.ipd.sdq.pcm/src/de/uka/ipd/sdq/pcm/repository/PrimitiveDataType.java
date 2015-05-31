@@ -26,7 +26,7 @@ package de.uka.ipd.sdq.pcm.repository;
 public interface PrimitiveDataType extends DataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,7 +50,7 @@ public interface PrimitiveDataType extends DataType {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType#getType
      * <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Type</em>' attribute.
      * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -19,7 +20,6 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -41,16 +41,16 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements ResourceRepository {
+public class ResourceRepositoryImpl extends MinimalEObjectImpl.Container implements ResourceRepository {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the ' {@link #getResourceInterfaces__ResourceRepository()
+     * The cached value of the '{@link #getResourceInterfaces__ResourceRepository()
      * <em>Resource Interfaces Resource Repository</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -61,7 +61,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
     protected EList<ResourceInterface> resourceInterfaces__ResourceRepository;
 
     /**
-     * The cached value of the ' {@link #getSchedulingPolicies__ResourceRepository()
+     * The cached value of the '{@link #getSchedulingPolicies__ResourceRepository()
      * <em>Scheduling Policies Resource Repository</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -72,7 +72,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
     protected EList<SchedulingPolicy> schedulingPolicies__ResourceRepository;
 
     /**
-     * The cached value of the ' {@link #getAvailableResourceTypes_ResourceRepository()
+     * The cached value of the '{@link #getAvailableResourceTypes_ResourceRepository()
      * <em>Available Resource Types Resource Repository</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -84,7 +84,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceRepositoryImpl() {
@@ -93,7 +93,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -103,9 +103,10 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceInterface> getResourceInterfaces__ResourceRepository() {
         if (this.resourceInterfaces__ResourceRepository == null) {
@@ -119,9 +120,10 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<SchedulingPolicy> getSchedulingPolicies__ResourceRepository() {
         if (this.schedulingPolicies__ResourceRepository == null) {
@@ -135,9 +137,10 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceType> getAvailableResourceTypes_ResourceRepository() {
         if (this.availableResourceTypes_ResourceRepository == null) {
@@ -151,7 +154,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -174,7 +177,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +196,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +214,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -236,7 +239,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,9 +260,10 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

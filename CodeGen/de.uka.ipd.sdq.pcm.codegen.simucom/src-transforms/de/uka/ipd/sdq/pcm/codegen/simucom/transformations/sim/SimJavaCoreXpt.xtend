@@ -80,7 +80,7 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 		«rc.passiveResourceDecls»
 		
 		public «rc.javaName()» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
-			this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel(assemblyContextURI);
+			this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadAndResolveEObject(assemblyContextURI);
 			this.model = model;
 			
 			«rc.initCalculatorsTM»

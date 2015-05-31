@@ -7,8 +7,8 @@ package de.uka.ipd.sdq.pcm.seff;
 
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -34,13 +34,12 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint()
  * @model
- * @extends EStereotypableObject
  * @generated
  */
-public interface SynchronisationPoint extends EStereotypableObject {
+public interface SynchronisationPoint extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +55,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Output Parameter Usage Synchronisation Point</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint()
@@ -76,7 +75,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Fork Action Synchronisation Point</em>' container reference.
      * @see #setForkAction_SynchronisationPoint(ForkAction)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint_ForkAction_SynchronisationPoint()
@@ -92,7 +91,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
      * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
      * <em>Fork Action Synchronisation Point</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Fork Action Synchronisation Point</em>' container
      *            reference.
@@ -112,7 +111,7 @@ public interface SynchronisationPoint extends EStereotypableObject {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Synchronous Forked Behaviours Synchronisation Point</em>'
      *         containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint()

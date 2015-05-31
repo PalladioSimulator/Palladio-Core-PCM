@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -52,7 +51,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.util.SeffReliabilityValidator;
 public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl implements RecoveryAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +60,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      * The cached value of the '{@link #getPrimaryBehaviour__RecoveryAction()
      * <em>Primary Behaviour Recovery Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getPrimaryBehaviour__RecoveryAction()
      * @generated
      * @ordered
@@ -69,7 +68,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     protected RecoveryActionBehaviour primaryBehaviour__RecoveryAction;
 
     /**
-     * The cached value of the ' {@link #getRecoveryActionBehaviours__RecoveryAction()
+     * The cached value of the '{@link #getRecoveryActionBehaviours__RecoveryAction()
      * <em>Recovery Action Behaviours Recovery Action</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -81,7 +80,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RecoveryActionImpl() {
@@ -90,7 +89,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,13 +99,12 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public RecoveryActionBehaviour getPrimaryBehaviour__RecoveryAction() {
-        if (this.primaryBehaviour__RecoveryAction != null
-                && ((EObject) this.primaryBehaviour__RecoveryAction).eIsProxy()) {
+        if (this.primaryBehaviour__RecoveryAction != null && this.primaryBehaviour__RecoveryAction.eIsProxy()) {
             final InternalEObject oldPrimaryBehaviour__RecoveryAction = (InternalEObject) this.primaryBehaviour__RecoveryAction;
             this.primaryBehaviour__RecoveryAction = (RecoveryActionBehaviour) this
                     .eResolveProxy(oldPrimaryBehaviour__RecoveryAction);
@@ -123,7 +121,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RecoveryActionBehaviour basicGetPrimaryBehaviour__RecoveryAction() {
@@ -132,7 +130,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,9 +146,10 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<RecoveryActionBehaviour> getRecoveryActionBehaviours__RecoveryAction() {
         if (this.recoveryActionBehaviours__RecoveryAction == null) {
@@ -167,7 +166,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      * {@link #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Primary Behaviour Of Recovery Action Must Be Set</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -190,7 +189,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,12 +212,8 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
                         SeffReliabilityValidator.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET,
                         EcorePlugin.INSTANCE.getString(
                                 "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "PrimaryBehaviourOfRecoveryActionMustBeSet",
-                                        EObjectValidator.getObjectLabel(this, context)
-                                }), new Object[] {
-                    this
-                }));
+                                new Object[] { "PrimaryBehaviourOfRecoveryActionMustBeSet",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -227,7 +222,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -244,7 +239,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -259,7 +254,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -278,7 +273,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -299,7 +294,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -317,9 +312,10 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -335,7 +331,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

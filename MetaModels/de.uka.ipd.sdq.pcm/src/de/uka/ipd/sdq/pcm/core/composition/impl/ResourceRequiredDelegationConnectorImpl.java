@@ -8,16 +8,15 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -39,11 +38,11 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class ResourceRequiredDelegationConnectorImpl extends EStereotypableObjectImpl implements
+public class ResourceRequiredDelegationConnectorImpl extends MinimalEObjectImpl.Container implements
 ResourceRequiredDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +52,7 @@ ResourceRequiredDelegationConnector {
      * {@link #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
      * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @generated
      * @ordered
@@ -65,7 +64,7 @@ ResourceRequiredDelegationConnector {
      * {@link #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
      * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @generated
      * @ordered
@@ -74,7 +73,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceRequiredDelegationConnectorImpl() {
@@ -83,7 +82,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,7 +92,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -106,7 +105,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentStructure_ResourceRequiredDelegationConnector(
@@ -121,7 +120,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,13 +159,13 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
         if (this.innerResourceRequiredRole_ResourceRequiredDelegationConnector != null
-                && ((EObject) this.innerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
+                && this.innerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
             final InternalEObject oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject) this.innerResourceRequiredRole_ResourceRequiredDelegationConnector;
             this.innerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole) this
                     .eResolveProxy(oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector);
@@ -186,7 +185,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
@@ -195,7 +194,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -215,13 +214,13 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
         if (this.outerResourceRequiredRole_ResourceRequiredDelegationConnector != null
-                && ((EObject) this.outerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
+                && this.outerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
             final InternalEObject oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject) this.outerResourceRequiredRole_ResourceRequiredDelegationConnector;
             this.outerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole) this
                     .eResolveProxy(oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector);
@@ -241,7 +240,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
@@ -250,7 +249,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +269,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,7 +286,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -302,7 +301,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -318,7 +317,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -342,7 +341,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -363,7 +362,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -384,7 +383,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 public abstract class SignatureImpl extends EntityImpl implements Signature {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,17 +47,16 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
     /**
      * The cached value of the '{@link #getExceptions__Signature() <em>Exceptions Signature</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptions__Signature()
      * @generated
      * @ordered
      */
     protected EList<ExceptionType> exceptions__Signature;
-
     /**
      * The cached value of the '{@link #getFailureType() <em>Failure Type</em>}' reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureType()
      * @generated
      * @ordered
@@ -66,7 +65,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SignatureImpl() {
@@ -75,7 +74,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,9 +84,10 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ExceptionType> getExceptions__Signature() {
         if (this.exceptions__Signature == null) {
@@ -99,9 +99,10 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<FailureType> getFailureType() {
         if (this.failureType == null) {
@@ -113,7 +114,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -128,7 +129,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +145,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -165,7 +166,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -183,9 +184,10 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

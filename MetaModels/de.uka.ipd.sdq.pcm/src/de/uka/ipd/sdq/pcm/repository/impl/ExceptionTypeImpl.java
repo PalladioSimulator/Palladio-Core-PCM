@@ -8,10 +8,10 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Exception Type</b></em>'.
@@ -28,10 +28,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class ExceptionTypeImpl extends EStereotypableObjectImpl implements ExceptionType {
+public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements ExceptionType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -39,7 +39,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
     /**
      * The default value of the '{@link #getExceptionName() <em>Exception Name</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionName()
      * @generated
      * @ordered
@@ -59,7 +59,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
     /**
      * The default value of the '{@link #getExceptionMessage() <em>Exception Message</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionMessage()
      * @generated
      * @ordered
@@ -69,7 +69,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
     /**
      * The cached value of the '{@link #getExceptionMessage() <em>Exception Message</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionMessage()
      * @generated
      * @ordered
@@ -78,7 +78,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExceptionTypeImpl() {
@@ -87,7 +87,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +132,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +199,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -217,7 +217,7 @@ public class ExceptionTypeImpl extends EStereotypableObjectImpl implements Excep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

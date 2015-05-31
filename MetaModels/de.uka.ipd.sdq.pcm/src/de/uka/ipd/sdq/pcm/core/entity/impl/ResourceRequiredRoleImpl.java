@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.core.entity.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -39,7 +38,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequiredRole {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +47,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
      * The cached value of the '{@link #getRequiredResourceInterface__ResourceRequiredRole()
      * <em>Required Resource Interface Resource Required Role</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getRequiredResourceInterface__ResourceRequiredRole()
      * @generated
      * @ordered
@@ -57,7 +56,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceRequiredRoleImpl() {
@@ -66,7 +65,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,13 +75,13 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceInterface getRequiredResourceInterface__ResourceRequiredRole() {
         if (this.requiredResourceInterface__ResourceRequiredRole != null
-                && ((EObject) this.requiredResourceInterface__ResourceRequiredRole).eIsProxy()) {
+                && this.requiredResourceInterface__ResourceRequiredRole.eIsProxy()) {
             final InternalEObject oldRequiredResourceInterface__ResourceRequiredRole = (InternalEObject) this.requiredResourceInterface__ResourceRequiredRole;
             this.requiredResourceInterface__ResourceRequiredRole = (ResourceInterface) this
                     .eResolveProxy(oldRequiredResourceInterface__ResourceRequiredRole);
@@ -100,7 +99,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterface basicGetRequiredResourceInterface__ResourceRequiredRole() {
@@ -109,7 +108,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +126,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +139,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceInterfaceRequiringEntity__ResourceRequiredRole(
@@ -153,7 +152,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +189,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +207,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +222,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +241,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,7 +260,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +278,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +296,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

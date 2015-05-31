@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 public class FailureHandlingEntityItemProvider extends EntityItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -35,7 +35,7 @@ public class FailureHandlingEntityItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public FailureHandlingEntityItemProvider(final AdapterFactory adapterFactory) {
@@ -45,7 +45,7 @@ public class FailureHandlingEntityItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,8 +71,8 @@ public class FailureHandlingEntityItemProvider extends EntityItemProvider {
                         "_UI_PropertyDescriptor_description",
                         "_UI_FailureHandlingEntity_failureTypes_FailureHandlingEntity_feature",
                         "_UI_FailureHandlingEntity_type"),
-                SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY, true,
-                false, true, null, null, null));
+                        SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY, true,
+                        false, true, null, null, null));
     }
 
     /**
@@ -92,7 +92,7 @@ public class FailureHandlingEntityItemProvider extends EntityItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ public class FailureHandlingEntityItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

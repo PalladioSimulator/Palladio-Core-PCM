@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.CallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Call Action</b></em>'.
@@ -33,10 +33,10 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public abstract class CallActionImpl extends EStereotypableObjectImpl implements CallAction {
+public abstract class CallActionImpl extends EntityImpl implements CallAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
      * The cached value of the '{@link #getInputVariableUsages__CallAction()
      * <em>Input Variable Usages Call Action</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInputVariableUsages__CallAction()
      * @generated
      * @ordered
@@ -54,7 +54,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CallActionImpl() {
@@ -63,7 +63,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,9 +73,10 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
         if (this.inputVariableUsages__CallAction == null) {
@@ -88,7 +89,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -105,7 +106,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,7 +121,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +135,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -151,7 +152,7 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -166,9 +167,10 @@ public abstract class CallActionImpl extends EStereotypableObjectImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

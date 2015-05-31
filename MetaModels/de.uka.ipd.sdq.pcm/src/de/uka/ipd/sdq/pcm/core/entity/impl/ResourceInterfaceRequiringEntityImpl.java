@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements ResourceInterfaceRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
      * {@link #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * <em>Resource Required Roles Resource Interface Requiring Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * @generated
      * @ordered
@@ -54,7 +54,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceRequiringEntityImpl() {
@@ -63,7 +63,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,9 +73,10 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceRequiredRole> getResourceRequiredRoles__ResourceInterfaceRequiringEntity() {
         if (this.resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
@@ -90,7 +91,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -107,7 +108,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +124,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,7 +138,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -155,7 +156,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -170,9 +171,10 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

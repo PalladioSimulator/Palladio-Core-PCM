@@ -21,13 +21,13 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.InternalAction} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class InternalActionItemProvider extends AbstractInternalControlFlowActionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -35,7 +35,7 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InternalActionItemProvider(final AdapterFactory adapterFactory) {
@@ -45,7 +45,7 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,14 +71,14 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(SeffPackage.Literals.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION);
+            .add(SeffPackage.Literals.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
 
     /**
      * This returns InternalAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +118,7 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -136,7 +136,7 @@ public class InternalActionItemProvider extends AbstractInternalControlFlowActio
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

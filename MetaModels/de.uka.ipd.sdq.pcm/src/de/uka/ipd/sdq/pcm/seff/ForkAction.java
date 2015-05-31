@@ -46,7 +46,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ForkAction extends AbstractInternalControlFlowAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -62,7 +62,7 @@ public interface ForkAction extends AbstractInternalControlFlowAction {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Asynchronous Forked Behaviours Fork Action</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkAction_AsynchronousForkedBehaviours_ForkAction()
@@ -82,7 +82,7 @@ public interface ForkAction extends AbstractInternalControlFlowAction {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Synchronising Behaviours Fork Action</em>' containment
      *         reference.
      * @see #setSynchronisingBehaviours_ForkAction(SynchronisationPoint)
@@ -98,7 +98,7 @@ public interface ForkAction extends AbstractInternalControlFlowAction {
      * {@link de.uka.ipd.sdq.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction
      * <em>Synchronising Behaviours Fork Action</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Synchronising Behaviours Fork Action</em>' containment
      *            reference.

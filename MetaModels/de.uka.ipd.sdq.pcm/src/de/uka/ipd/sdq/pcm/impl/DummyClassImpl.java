@@ -6,10 +6,10 @@
 package de.uka.ipd.sdq.pcm.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import de.uka.ipd.sdq.pcm.DummyClass;
 import de.uka.ipd.sdq.pcm.PcmPackage;
-import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Dummy Class</b></em>'.
@@ -19,17 +19,17 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  *
  * @generated
  */
-public class DummyClassImpl extends EStereotypableObjectImpl implements DummyClass {
+public class DummyClassImpl extends MinimalEObjectImpl.Container implements DummyClass {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected DummyClassImpl() {
@@ -38,7 +38,7 @@ public class DummyClassImpl extends EStereotypableObjectImpl implements DummyCla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

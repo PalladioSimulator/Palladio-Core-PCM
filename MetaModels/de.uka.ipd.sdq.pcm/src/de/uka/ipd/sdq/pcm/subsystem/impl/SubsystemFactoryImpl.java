@@ -17,20 +17,20 @@ import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static SubsystemFactory init() {
@@ -48,7 +48,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SubsystemFactoryImpl() {
@@ -57,7 +57,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,7 +93,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

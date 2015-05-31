@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -51,7 +50,7 @@ import de.uka.ipd.sdq.pcm.repository.EventGroup;
 public class EventChannelImpl extends EntityImpl implements EventChannel {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,29 +58,27 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
     /**
      * The cached value of the '{@link #getEventGroup__EventChannel()
      * <em>Event Group Event Channel</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getEventGroup__EventChannel()
      * @generated
      * @ordered
      */
     protected EventGroup eventGroup__EventChannel;
-
     /**
      * The cached value of the '{@link #getEventChannelSourceConnector__EventChannel()
      * <em>Event Channel Source Connector Event Channel</em>}' reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getEventChannelSourceConnector__EventChannel()
      * @generated
      * @ordered
      */
     protected EList<EventChannelSourceConnector> eventChannelSourceConnector__EventChannel;
-
     /**
      * The cached value of the '{@link #getEventChannelSinkConnector__EventChannel()
      * <em>Event Channel Sink Connector Event Channel</em>}' reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getEventChannelSinkConnector__EventChannel()
      * @generated
      * @ordered
@@ -90,7 +87,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventChannelImpl() {
@@ -99,7 +96,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,12 +106,12 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventGroup getEventGroup__EventChannel() {
-        if (this.eventGroup__EventChannel != null && ((EObject) this.eventGroup__EventChannel).eIsProxy()) {
+        if (this.eventGroup__EventChannel != null && this.eventGroup__EventChannel.eIsProxy()) {
             final InternalEObject oldEventGroup__EventChannel = (InternalEObject) this.eventGroup__EventChannel;
             this.eventGroup__EventChannel = (EventGroup) this.eResolveProxy(oldEventGroup__EventChannel);
             if (this.eventGroup__EventChannel != oldEventGroup__EventChannel) {
@@ -130,7 +127,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventGroup basicGetEventGroup__EventChannel() {
@@ -139,7 +136,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -155,9 +152,10 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<EventChannelSourceConnector> getEventChannelSourceConnector__EventChannel() {
         if (this.eventChannelSourceConnector__EventChannel == null) {
@@ -171,9 +169,10 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<EventChannelSinkConnector> getEventChannelSinkConnector__EventChannel() {
         if (this.eventChannelSinkConnector__EventChannel == null) {
@@ -187,7 +186,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +199,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentStructure__EventChannel(
@@ -212,7 +211,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -244,7 +243,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -268,7 +267,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,7 +286,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +302,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -326,7 +325,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -355,7 +354,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -379,9 +378,10 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

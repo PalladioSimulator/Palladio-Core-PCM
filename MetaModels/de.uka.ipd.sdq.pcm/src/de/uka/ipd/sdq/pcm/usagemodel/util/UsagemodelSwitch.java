@@ -8,7 +8,10 @@ package de.uka.ipd.sdq.pcm.usagemodel.util;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.mdsdprofiles.ProfileableElement;
+import org.palladiosimulator.mdsdprofiles.StereotypableElement;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -36,28 +39,28 @@ import de.uka.ipd.sdq.pcm.usagemodel.Workload;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage
  * @generated
  */
 public class UsagemodelSwitch<T> {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static UsagemodelPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public UsagemodelSwitch() {
@@ -69,7 +72,7 @@ public class UsagemodelSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -80,7 +83,7 @@ public class UsagemodelSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -96,7 +99,7 @@ public class UsagemodelSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -105,6 +108,12 @@ public class UsagemodelSwitch<T> {
         case UsagemodelPackage.WORKLOAD: {
             final Workload workload = (Workload) theEObject;
             T result = this.caseWorkload(workload);
+            if (result == null) {
+                result = this.caseStereotypableElement(workload);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(workload);
+            }
             if (result == null) {
                 result = this.defaultCase(theEObject);
             }
@@ -123,6 +132,12 @@ public class UsagemodelSwitch<T> {
                 result = this.caseNamedElement(usageScenario);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(usageScenario);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(usageScenario);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -131,6 +146,12 @@ public class UsagemodelSwitch<T> {
             final UserData userData = (UserData) theEObject;
             T result = this.caseUserData(userData);
             if (result == null) {
+                result = this.caseStereotypableElement(userData);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(userData);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -138,6 +159,15 @@ public class UsagemodelSwitch<T> {
         case UsagemodelPackage.USAGE_MODEL: {
             final UsageModel usageModel = (UsageModel) theEObject;
             T result = this.caseUsageModel(usageModel);
+            if (result == null) {
+                result = this.caseProfileableElement(usageModel);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(usageModel);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(usageModel);
+            }
             if (result == null) {
                 result = this.defaultCase(theEObject);
             }
@@ -159,6 +189,12 @@ public class UsagemodelSwitch<T> {
                 result = this.caseNamedElement(entryLevelSystemCall);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(entryLevelSystemCall);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(entryLevelSystemCall);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -174,6 +210,12 @@ public class UsagemodelSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(abstractUserAction);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(abstractUserAction);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(abstractUserAction);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -193,6 +235,12 @@ public class UsagemodelSwitch<T> {
                 result = this.caseNamedElement(scenarioBehaviour);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(scenarioBehaviour);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(scenarioBehaviour);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -200,6 +248,12 @@ public class UsagemodelSwitch<T> {
         case UsagemodelPackage.BRANCH_TRANSITION: {
             final BranchTransition branchTransition = (BranchTransition) theEObject;
             T result = this.caseBranchTransition(branchTransition);
+            if (result == null) {
+                result = this.caseStereotypableElement(branchTransition);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(branchTransition);
+            }
             if (result == null) {
                 result = this.defaultCase(theEObject);
             }
@@ -219,6 +273,12 @@ public class UsagemodelSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(branch);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(branch);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(branch);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -241,6 +301,12 @@ public class UsagemodelSwitch<T> {
                 result = this.caseNamedElement(loop);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(loop);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(loop);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -259,6 +325,12 @@ public class UsagemodelSwitch<T> {
             }
             if (result == null) {
                 result = this.caseNamedElement(stop);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(stop);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(stop);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -281,6 +353,12 @@ public class UsagemodelSwitch<T> {
                 result = this.caseNamedElement(start);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(start);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(start);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -290,6 +368,12 @@ public class UsagemodelSwitch<T> {
             T result = this.caseOpenWorkload(openWorkload);
             if (result == null) {
                 result = this.caseWorkload(openWorkload);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(openWorkload);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(openWorkload);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -312,6 +396,12 @@ public class UsagemodelSwitch<T> {
                 result = this.caseNamedElement(delay);
             }
             if (result == null) {
+                result = this.caseStereotypableElement(delay);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(delay);
+            }
+            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -321,6 +411,12 @@ public class UsagemodelSwitch<T> {
             T result = this.caseClosedWorkload(closedWorkload);
             if (result == null) {
                 result = this.caseWorkload(closedWorkload);
+            }
+            if (result == null) {
+                result = this.caseStereotypableElement(closedWorkload);
+            }
+            if (result == null) {
+                result = this.caseEModelElement(closedWorkload);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -351,7 +447,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Usage Scenario</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Usage Scenario</em>'.
@@ -366,7 +462,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Scenario Behaviour</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Scenario Behaviour</em>
@@ -382,7 +478,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Abstract User Action</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -398,7 +494,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Branch Transition</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Branch Transition</em>'.
@@ -488,7 +584,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Open Workload</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Open Workload</em>'.
@@ -503,7 +599,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Entry Level System Call</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -519,7 +615,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Closed Workload</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Closed Workload</em>'.
@@ -527,6 +623,37 @@ public class UsagemodelSwitch<T> {
      * @generated
      */
     public T caseClosedWorkload(final ClosedWorkload object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>EModel Element</em>'.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>EModel Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseEModelElement(final EModelElement object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Stereotypable Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseStereotypableElement(final StereotypableElement object) {
         return null;
     }
 
@@ -579,7 +706,7 @@ public class UsagemodelSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
@@ -602,6 +729,22 @@ public class UsagemodelSwitch<T> {
      * @generated
      */
     public T caseEntity(final Entity object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '<em>Profileable Element</em>
+     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Profileable Element</em>
+     *         '.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseProfileableElement(final ProfileableElement object) {
         return null;
     }
 

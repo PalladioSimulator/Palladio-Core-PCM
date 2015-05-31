@@ -24,13 +24,13 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +38,7 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ExternalCallActionItemProvider(final AdapterFactory adapterFactory) {
@@ -48,7 +48,7 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,8 +77,8 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
                         "_UI_PropertyDescriptor_description",
                         "_UI_FailureHandlingEntity_failureTypes_FailureHandlingEntity_feature",
                         "_UI_FailureHandlingEntity_type"),
-                SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY, true,
-                false, true, null, null, null));
+                        SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY, true,
+                        false, true, null, null, null));
     }
 
     /**
@@ -93,14 +93,14 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
                 this.getString("_UI_ExternalCallAction_calledService_ExternalService_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_ExternalCallAction_calledService_ExternalService_feature", "_UI_ExternalCallAction_type"),
-                SeffPackage.Literals.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE, true, false, true, null,
-                null, null));
+                        SeffPackage.Literals.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE, true, false, true, null,
+                        null, null));
     }
 
     /**
      * This adds a property descriptor for the Role External Service feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addRole_ExternalServicePropertyDescriptor(final Object object) {
@@ -109,13 +109,13 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
                 this.getString("_UI_ExternalCallAction_role_ExternalService_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_ExternalCallAction_role_ExternalService_feature",
                         "_UI_ExternalCallAction_type"),
-                SeffPackage.Literals.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE, true, false, true, null, null, null));
+                        SeffPackage.Literals.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE, true, false, true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Retry Count feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addRetryCountPropertyDescriptor(final Object object) {
@@ -124,7 +124,7 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
                 this.getString("_UI_ExternalCallAction_retryCount_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_ExternalCallAction_retryCount_feature",
                         "_UI_ExternalCallAction_type"), SeffPackage.Literals.EXTERNAL_CALL_ACTION__RETRY_COUNT, true,
-                false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+                        false, false, ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -142,14 +142,14 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(SeffPackage.Literals.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION);
             this.childrenFeatures
-            .add(SeffPackage.Literals.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION);
+                    .add(SeffPackage.Literals.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -162,7 +162,7 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
 
     /**
      * This returns ExternalCallAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -187,7 +187,7 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,9 +241,10 @@ public class ExternalCallActionItemProvider extends AbstractActionItemProvider {
                 || childFeature == SeffPackage.Literals.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION;
 
         if (qualify) {
-            return this.getString("_UI_CreateChild_text2", new Object[] {
-                    this.getTypeText(childObject), this.getFeatureText(childFeature), this.getTypeText(owner)
-            });
+            return this.getString(
+                    "_UI_CreateChild_text2",
+                    new Object[] { this.getTypeText(childObject), this.getFeatureText(childFeature),
+                            this.getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }

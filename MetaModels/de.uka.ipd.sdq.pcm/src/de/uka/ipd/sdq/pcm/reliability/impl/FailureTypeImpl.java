@@ -34,14 +34,14 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 public abstract class FailureTypeImpl extends EntityImpl implements FailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected FailureTypeImpl() {
@@ -50,7 +50,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,7 +60,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__FailureType(final Repository newRepository__FailureType,
@@ -85,7 +85,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,7 +177,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -192,7 +192,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -207,7 +207,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

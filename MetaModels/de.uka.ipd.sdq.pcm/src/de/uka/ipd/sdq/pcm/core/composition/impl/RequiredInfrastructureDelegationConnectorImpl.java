@@ -7,7 +7,6 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -40,7 +39,7 @@ public class RequiredInfrastructureDelegationConnectorImpl extends DelegationCon
 RequiredInfrastructureDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +47,7 @@ RequiredInfrastructureDelegationConnector {
     /**
      * The cached value of the '
      * {@link #getInnerRequiredRole__RequiredInfrastructureDelegationConnector()
-     * <em>Inner Required Role Required Infrastructure Delegation Connector</em>} ' reference. <!--
+     * <em>Inner Required Role Required Infrastructure Delegation Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getInnerRequiredRole__RequiredInfrastructureDelegationConnector()
@@ -56,11 +55,10 @@ RequiredInfrastructureDelegationConnector {
      * @ordered
      */
     protected InfrastructureRequiredRole innerRequiredRole__RequiredInfrastructureDelegationConnector;
-
     /**
      * The cached value of the '
      * {@link #getOuterRequiredRole__RequiredInfrastructureDelegationConnector()
-     * <em>Outer Required Role Required Infrastructure Delegation Connector</em>} ' reference. <!--
+     * <em>Outer Required Role Required Infrastructure Delegation Connector</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #getOuterRequiredRole__RequiredInfrastructureDelegationConnector()
@@ -68,7 +66,6 @@ RequiredInfrastructureDelegationConnector {
      * @ordered
      */
     protected InfrastructureRequiredRole outerRequiredRole__RequiredInfrastructureDelegationConnector;
-
     /**
      * The cached value of the '
      * {@link #getAssemblyContext__RequiredInfrastructureDelegationConnector()
@@ -83,7 +80,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RequiredInfrastructureDelegationConnectorImpl() {
@@ -92,7 +89,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -102,13 +99,13 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getInnerRequiredRole__RequiredInfrastructureDelegationConnector() {
         if (this.innerRequiredRole__RequiredInfrastructureDelegationConnector != null
-                && ((EObject) this.innerRequiredRole__RequiredInfrastructureDelegationConnector).eIsProxy()) {
+                && this.innerRequiredRole__RequiredInfrastructureDelegationConnector.eIsProxy()) {
             final InternalEObject oldInnerRequiredRole__RequiredInfrastructureDelegationConnector = (InternalEObject) this.innerRequiredRole__RequiredInfrastructureDelegationConnector;
             this.innerRequiredRole__RequiredInfrastructureDelegationConnector = (InfrastructureRequiredRole) this
                     .eResolveProxy(oldInnerRequiredRole__RequiredInfrastructureDelegationConnector);
@@ -128,7 +125,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetInnerRequiredRole__RequiredInfrastructureDelegationConnector() {
@@ -137,7 +134,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,13 +154,13 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getOuterRequiredRole__RequiredInfrastructureDelegationConnector() {
         if (this.outerRequiredRole__RequiredInfrastructureDelegationConnector != null
-                && ((EObject) this.outerRequiredRole__RequiredInfrastructureDelegationConnector).eIsProxy()) {
+                && this.outerRequiredRole__RequiredInfrastructureDelegationConnector.eIsProxy()) {
             final InternalEObject oldOuterRequiredRole__RequiredInfrastructureDelegationConnector = (InternalEObject) this.outerRequiredRole__RequiredInfrastructureDelegationConnector;
             this.outerRequiredRole__RequiredInfrastructureDelegationConnector = (InfrastructureRequiredRole) this
                     .eResolveProxy(oldOuterRequiredRole__RequiredInfrastructureDelegationConnector);
@@ -183,7 +180,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetOuterRequiredRole__RequiredInfrastructureDelegationConnector() {
@@ -192,7 +189,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,13 +209,13 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__RequiredInfrastructureDelegationConnector() {
         if (this.assemblyContext__RequiredInfrastructureDelegationConnector != null
-                && ((EObject) this.assemblyContext__RequiredInfrastructureDelegationConnector).eIsProxy()) {
+                && this.assemblyContext__RequiredInfrastructureDelegationConnector.eIsProxy()) {
             final InternalEObject oldAssemblyContext__RequiredInfrastructureDelegationConnector = (InternalEObject) this.assemblyContext__RequiredInfrastructureDelegationConnector;
             this.assemblyContext__RequiredInfrastructureDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__RequiredInfrastructureDelegationConnector);
@@ -238,7 +235,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__RequiredInfrastructureDelegationConnector() {
@@ -247,7 +244,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -267,7 +264,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -294,7 +291,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -315,7 +312,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -336,7 +333,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

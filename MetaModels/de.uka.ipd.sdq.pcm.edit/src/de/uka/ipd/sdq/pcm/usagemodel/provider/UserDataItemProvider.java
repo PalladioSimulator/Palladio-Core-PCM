@@ -14,14 +14,9 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IChildCreationExtender;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.palladiosimulator.mdsdprofiles.provider.StereotypableElementItemProvider;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -30,14 +25,13 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.UserData} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
-public class UserDataItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class UserDataItemProvider extends StereotypableElementItemProvider {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +39,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public UserDataItemProvider(final AdapterFactory adapterFactory) {
@@ -55,7 +49,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,7 +74,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
                 this.getString("_UI_UserData_assemblyContext_userData_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_UserData_assemblyContext_userData_feature",
                         "_UI_UserData_type"), UsagemodelPackage.Literals.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA, true,
-                false, true, null, null, null));
+                        false, true, null, null, null));
     }
 
     /**
@@ -103,7 +97,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,7 +110,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
 
     /**
      * This returns UserData.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +133,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +151,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +166,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

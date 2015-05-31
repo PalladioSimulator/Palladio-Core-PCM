@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -45,7 +44,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 public class EmitEventActionImpl extends AbstractActionImpl implements EmitEventAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,13 +53,12 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * The cached value of the '{@link #getInputVariableUsages__CallAction()
      * <em>Input Variable Usages Call Action</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInputVariableUsages__CallAction()
      * @generated
      * @ordered
      */
     protected EList<VariableUsage> inputVariableUsages__CallAction;
-
     /**
      * The cached value of the '{@link #getEventType__EmitEventAction()
      * <em>Event Type Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -71,7 +69,6 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @ordered
      */
     protected EventType eventType__EmitEventAction;
-
     /**
      * The cached value of the '{@link #getSourceRole__EmitEventAction()
      * <em>Source Role Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -85,7 +82,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EmitEventActionImpl() {
@@ -94,7 +91,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,9 +101,10 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
         if (this.inputVariableUsages__CallAction == null) {
@@ -119,12 +117,12 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventType getEventType__EmitEventAction() {
-        if (this.eventType__EmitEventAction != null && ((EObject) this.eventType__EmitEventAction).eIsProxy()) {
+        if (this.eventType__EmitEventAction != null && this.eventType__EmitEventAction.eIsProxy()) {
             final InternalEObject oldEventType__EmitEventAction = (InternalEObject) this.eventType__EmitEventAction;
             this.eventType__EmitEventAction = (EventType) this.eResolveProxy(oldEventType__EmitEventAction);
             if (this.eventType__EmitEventAction != oldEventType__EmitEventAction) {
@@ -140,7 +138,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventType basicGetEventType__EmitEventAction() {
@@ -149,7 +147,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,12 +163,12 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SourceRole getSourceRole__EmitEventAction() {
-        if (this.sourceRole__EmitEventAction != null && ((EObject) this.sourceRole__EmitEventAction).eIsProxy()) {
+        if (this.sourceRole__EmitEventAction != null && this.sourceRole__EmitEventAction.eIsProxy()) {
             final InternalEObject oldSourceRole__EmitEventAction = (InternalEObject) this.sourceRole__EmitEventAction;
             this.sourceRole__EmitEventAction = (SourceRole) this.eResolveProxy(oldSourceRole__EmitEventAction);
             if (this.sourceRole__EmitEventAction != oldSourceRole__EmitEventAction) {
@@ -186,7 +184,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__EmitEventAction() {
@@ -195,7 +193,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +209,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -228,7 +226,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +241,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -267,7 +265,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -290,7 +288,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,9 +309,10 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
@@ -329,7 +328,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -347,7 +346,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -45,7 +45,7 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
 AbstractInternalControlFlowAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,28 +53,26 @@ AbstractInternalControlFlowAction {
     /**
      * The cached value of the '{@link #getResourceDemand_Action() <em>Resource Demand Action</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceDemand_Action()
      * @generated
      * @ordered
      */
     protected EList<ParametricResourceDemand> resourceDemand_Action;
-
     /**
      * The cached value of the '{@link #getInfrastructureCall__Action()
      * <em>Infrastructure Call Action</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getInfrastructureCall__Action()
      * @generated
      * @ordered
      */
     protected EList<InfrastructureCall> infrastructureCall__Action;
-
     /**
      * The cached value of the '{@link #getResourceCall__Action() <em>Resource Call Action</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceCall__Action()
      * @generated
      * @ordered
@@ -83,7 +81,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AbstractInternalControlFlowActionImpl() {
@@ -92,7 +90,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -102,9 +100,10 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ParametricResourceDemand> getResourceDemand_Action() {
         if (this.resourceDemand_Action == null) {
@@ -118,9 +117,10 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<InfrastructureCall> getInfrastructureCall__Action() {
         if (this.infrastructureCall__Action == null) {
@@ -134,9 +134,10 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceCall> getResourceCall__Action() {
         if (this.resourceCall__Action == null) {
@@ -149,7 +150,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -172,7 +173,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,7 +192,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +210,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -234,7 +235,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,9 +256,10 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

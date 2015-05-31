@@ -7,7 +7,6 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -32,7 +31,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 public class CollectionIteratorActionImpl extends AbstractLoopActionImpl implements CollectionIteratorAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +40,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
      * The cached value of the '{@link #getParameter_CollectionIteratorAction()
      * <em>Parameter Collection Iterator Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getParameter_CollectionIteratorAction()
      * @generated
      * @ordered
@@ -50,7 +49,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CollectionIteratorActionImpl() {
@@ -59,7 +58,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,13 +68,12 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Parameter getParameter_CollectionIteratorAction() {
-        if (this.parameter_CollectionIteratorAction != null
-                && ((EObject) this.parameter_CollectionIteratorAction).eIsProxy()) {
+        if (this.parameter_CollectionIteratorAction != null && this.parameter_CollectionIteratorAction.eIsProxy()) {
             final InternalEObject oldParameter_CollectionIteratorAction = (InternalEObject) this.parameter_CollectionIteratorAction;
             this.parameter_CollectionIteratorAction = (Parameter) this
                     .eResolveProxy(oldParameter_CollectionIteratorAction);
@@ -92,7 +90,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Parameter basicGetParameter_CollectionIteratorAction() {
@@ -101,7 +99,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -117,7 +115,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +132,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +147,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +162,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

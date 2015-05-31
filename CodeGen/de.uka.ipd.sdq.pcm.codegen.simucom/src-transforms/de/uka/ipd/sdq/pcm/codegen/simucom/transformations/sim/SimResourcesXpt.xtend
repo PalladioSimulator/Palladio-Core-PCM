@@ -220,7 +220,7 @@ class SimResourcesXpt extends ResourcesXpt {
 	
 	def linkingResourceAdd(CommunicationLinkResourceSpecification clrs) '''
 		rc.addActiveResource(
-		     (de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel("«clrs.linkingResource_CommunicationLinkResourceSpecification.getResourceURI()»"),
+		     (de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadAndResolveEObject("«clrs.linkingResource_CommunicationLinkResourceSpecification.getResourceURI()»"),
 		rc.getResourceContainerID());
 	'''
 	
@@ -245,7 +245,7 @@ class SimResourcesXpt extends ResourcesXpt {
 			«ENDFOR»
 		«ENDIF»
 		rc.addActiveResource(
-		(de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadModel("«prs.getResourceURI()»"),
+		(de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification) org.palladiosimulator.commons.emfutils.EMFLoadHelper.loadAndResolveEObject("«prs.getResourceURI()»"),
 		«prs.activeResourceType_ActiveResourceSpecification.id.javaVariableName()»_provInterfaces,
 		rc.getResourceContainerID(),
 			«prs.schedulingStrategy(prs.eContainer as ResourceContainer)»

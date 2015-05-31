@@ -2,7 +2,6 @@ package org.palladiosimulator.pcm.profiles.util.helper;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,6 +25,8 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * Note: As long as Palladio Core provides support for Java 1.6, we cannot use Java 1.8
  * implementations.
  * 
+ * TODO this class
+ * 
  * @author Daria Giacinto, Sebastian Lehrig, Max Schettler
  */
 public final class ProfileHelper {
@@ -38,23 +39,7 @@ public final class ProfileHelper {
     }
 
     /**
-     * Checks whether the given {@link Entity} has a {@link Stereotype} with the given name applied.
-     * 
-     * @param pcmEntity
-     *            the entity to check
-     * @param stereotypeName
-     *            the stereotypes name
-     * @return
-     */
-    public static boolean hasAppliedStereotype(final Entity pcmEntity, final String stereotypeName) {
-        if (pcmEntity.getAppliedStereotype(stereotypeName) != null) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Checks, whether every {@link Entity} in the given set has a stereotype with the given name
+     * Checks whether every {@link Entity} in the given set has a stereotype with the given name
      * applied.
      * 
      * @param pcmEntitySet
@@ -65,14 +50,13 @@ public final class ProfileHelper {
      * @see #hasAppliedStereotype(Entity, String)
      */
     public static boolean hasAppliedStereotype(final Set<Entity> pcmEntitySet, final String stereotypeName) {
-        final Iterator<Entity> iterator = pcmEntitySet.iterator();
-        while (iterator.hasNext()) {
-            final Entity stereotypable = iterator.next();
-            if (stereotypable.getAppliedStereotype(stereotypeName) != null) {
-                return true;
+        for (final Entity entity : pcmEntitySet) {
+            if (!entity.isStereotypeApplied(stereotypeName)) {
+                return false;
             }
         }
-        return false;
+
+        return true;
 
         // Java 8:
         // return pcmEntitySet.stream().allMatch(
@@ -80,7 +64,7 @@ public final class ProfileHelper {
     }
 
     /**
-     * Checks, whether in the given set exactly one of its members has an applied {@link Stereotype}
+     * Checks whether in the given set exactly one of its members has an applied {@link Stereotype}
      * of the given name.
      * 
      * @param pcmEntitySet
@@ -92,16 +76,14 @@ public final class ProfileHelper {
      */
     public static boolean appliedStereotypesEqualsOne(final Set<Entity> pcmEntitySet, final String stereotypeName) {
         int appliedStereotypes = 0;
-        Iterator<Entity> iterator = pcmEntitySet.iterator();
 
-        while (iterator.hasNext()) {
-            Entity stereotypable = iterator.next();
-            if (stereotypable.getAppliedStereotype(stereotypeName) != null) {
+        for (final Entity entity : pcmEntitySet) {
+            if (entity.isStereotypeApplied(stereotypeName)) {
                 appliedStereotypes++;
             }
         }
 
-        if (appliedStereotypes > 1) {
+        if (appliedStereotypes != 1) {
             return false;
         }
         return true;
@@ -109,38 +91,6 @@ public final class ProfileHelper {
         // Java 8:
         // return pcmEntitySet.stream().filter(entity -> hasAppliedStereotype(entity,
         // stereotypeName)).count() == 1;
-    }
-
-    /**
-     * Applies the {@link Stereotype} to the given {@link Entity}.
-     * 
-     * @param pcmEntity
-     *            the entity to apply the stereotype to
-     * @param stereotypeName
-     *            the stereotype`s name
-     */
-    public static void applyStereotype(final Entity pcmEntity, final String stereotypeName) {
-        final Stereotype stereotype = pcmEntity.getApplicableStereotype(stereotypeName);
-        if (stereotype != null) {
-            pcmEntity.applyStereotype(stereotype);
-            pcmEntity.saveContainingProfileApplication();
-        }
-    }
-
-    /**
-     * Removes all applications of the {@link Stereotype} from the {@link Entity}.
-     * 
-     * @param pcmEntity
-     *            the entity
-     * @param stereotypeName
-     *            the steretype`s name
-     */
-    public static void removeStereotypeApplications(final Entity pcmEntity, final String stereotypeName) {
-        final Stereotype stereotype = pcmEntity.getAppliedStereotype(stereotypeName);
-        if (stereotype != null) {
-            pcmEntity.removeAllStereotypeApplications(stereotype);
-            // pcmEntity.saveContainingProfileApplication();
-        }
     }
 
     /**
@@ -160,7 +110,7 @@ public final class ProfileHelper {
         List<StereotypeApplication> stereotypeApplications = pcmEntity.getStereotypeApplications(stereotypeName);
         StereotypeApplication stereotypeApplication = stereotypeApplications.get(0);
         setValueOfEStructuralFeature(stereotypeApplication, taggedValueName, value);
-        pcmEntity.saveContainingProfileApplication();
+        // pcmEntity.saveContainingProfileApplication();
 
     }
 
@@ -247,7 +197,7 @@ public final class ProfileHelper {
     private static void setValueOfEStructuralFeature(final StereotypeApplication stereotypeApplication,
             final String taggedValueName, final Object newValue) {
 
-        final Stereotype stereotype = stereotypeApplication.getStereotype();
+        final Stereotype stereotype = stereotypeApplication.getExtension().getSource();
         if (stereotype != null) {
             EStructuralFeature taggedValue = stereotype.getTaggedValue(taggedValueName);
             stereotypeApplication.eSet(taggedValue, newValue);
@@ -273,7 +223,7 @@ public final class ProfileHelper {
                 .getStereotypeApplications(stereotypeName);
         StereotypeApplication stereotypeApplication = pcmEntityStereotypeApplications.get(0);
 
-        Stereotype stereotype = stereotypeApplication.getStereotype();
+        Stereotype stereotype = stereotypeApplication.getExtension().getSource();
 
         EStructuralFeature taggedValue = stereotype.getTaggedValue(taggedValueName);
 

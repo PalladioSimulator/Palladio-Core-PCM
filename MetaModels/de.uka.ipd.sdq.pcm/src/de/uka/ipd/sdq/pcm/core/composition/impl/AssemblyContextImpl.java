@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -49,7 +48,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -58,15 +57,14 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
      * The cached value of the '{@link #getEncapsulatedComponent__AssemblyContext()
      * <em>Encapsulated Component Assembly Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getEncapsulatedComponent__AssemblyContext()
      * @generated
      * @ordered
      */
     protected RepositoryComponent encapsulatedComponent__AssemblyContext;
-
     /**
-     * The cached value of the ' {@link #getConfigParameterUsages__AssemblyContext()
+     * The cached value of the '{@link #getConfigParameterUsages__AssemblyContext()
      * <em>Config Parameter Usages Assembly Context</em>}' containment reference list. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -78,7 +76,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyContextImpl() {
@@ -87,7 +85,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +95,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +108,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentStructure__AssemblyContext(
@@ -122,7 +120,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,13 +152,13 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public RepositoryComponent getEncapsulatedComponent__AssemblyContext() {
         if (this.encapsulatedComponent__AssemblyContext != null
-                && ((EObject) this.encapsulatedComponent__AssemblyContext).eIsProxy()) {
+                && this.encapsulatedComponent__AssemblyContext.eIsProxy()) {
             final InternalEObject oldEncapsulatedComponent__AssemblyContext = (InternalEObject) this.encapsulatedComponent__AssemblyContext;
             this.encapsulatedComponent__AssemblyContext = (RepositoryComponent) this
                     .eResolveProxy(oldEncapsulatedComponent__AssemblyContext);
@@ -177,7 +175,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RepositoryComponent basicGetEncapsulatedComponent__AssemblyContext() {
@@ -186,7 +184,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,9 +201,10 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getConfigParameterUsages__AssemblyContext() {
         if (this.configParameterUsages__AssemblyContext == null) {
@@ -219,7 +218,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -240,7 +239,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +256,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -273,7 +272,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -294,7 +293,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -317,7 +316,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -338,9 +337,10 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {

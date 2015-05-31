@@ -78,7 +78,7 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
 public interface Signature extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

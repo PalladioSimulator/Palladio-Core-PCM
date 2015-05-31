@@ -7,7 +7,6 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -39,7 +38,7 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 public class SinkDelegationConnectorImpl extends DelegationConnectorImpl implements SinkDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,27 +47,25 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      * The cached value of the '{@link #getAssemblyContext__SinkDelegationConnector()
      * <em>Assembly Context Sink Delegation Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext__SinkDelegationConnector()
      * @generated
      * @ordered
      */
     protected AssemblyContext assemblyContext__SinkDelegationConnector;
-
     /**
      * The cached value of the '{@link #getInnerSinkRole__SinkRole()
      * <em>Inner Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInnerSinkRole__SinkRole()
      * @generated
      * @ordered
      */
     protected SinkRole innerSinkRole__SinkRole;
-
     /**
      * The cached value of the '{@link #getOuterSinkRole__SinkRole()
      * <em>Outer Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getOuterSinkRole__SinkRole()
      * @generated
      * @ordered
@@ -77,7 +74,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SinkDelegationConnectorImpl() {
@@ -86,7 +83,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,13 +93,13 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__SinkDelegationConnector() {
         if (this.assemblyContext__SinkDelegationConnector != null
-                && ((EObject) this.assemblyContext__SinkDelegationConnector).eIsProxy()) {
+                && this.assemblyContext__SinkDelegationConnector.eIsProxy()) {
             final InternalEObject oldAssemblyContext__SinkDelegationConnector = (InternalEObject) this.assemblyContext__SinkDelegationConnector;
             this.assemblyContext__SinkDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__SinkDelegationConnector);
@@ -119,7 +116,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__SinkDelegationConnector() {
@@ -128,7 +125,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,12 +142,12 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SinkRole getInnerSinkRole__SinkRole() {
-        if (this.innerSinkRole__SinkRole != null && ((EObject) this.innerSinkRole__SinkRole).eIsProxy()) {
+        if (this.innerSinkRole__SinkRole != null && this.innerSinkRole__SinkRole.eIsProxy()) {
             final InternalEObject oldInnerSinkRole__SinkRole = (InternalEObject) this.innerSinkRole__SinkRole;
             this.innerSinkRole__SinkRole = (SinkRole) this.eResolveProxy(oldInnerSinkRole__SinkRole);
             if (this.innerSinkRole__SinkRole != oldInnerSinkRole__SinkRole) {
@@ -166,7 +163,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SinkRole basicGetInnerSinkRole__SinkRole() {
@@ -175,7 +172,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,12 +188,12 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SinkRole getOuterSinkRole__SinkRole() {
-        if (this.outerSinkRole__SinkRole != null && ((EObject) this.outerSinkRole__SinkRole).eIsProxy()) {
+        if (this.outerSinkRole__SinkRole != null && this.outerSinkRole__SinkRole.eIsProxy()) {
             final InternalEObject oldOuterSinkRole__SinkRole = (InternalEObject) this.outerSinkRole__SinkRole;
             this.outerSinkRole__SinkRole = (SinkRole) this.eResolveProxy(oldOuterSinkRole__SinkRole);
             if (this.outerSinkRole__SinkRole != oldOuterSinkRole__SinkRole) {
@@ -212,7 +209,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SinkRole basicGetOuterSinkRole__SinkRole() {
@@ -221,7 +218,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -237,7 +234,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +261,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -285,7 +282,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -306,7 +303,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

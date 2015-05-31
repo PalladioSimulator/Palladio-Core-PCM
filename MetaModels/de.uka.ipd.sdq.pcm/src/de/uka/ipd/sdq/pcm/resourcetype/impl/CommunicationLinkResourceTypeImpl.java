@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -34,7 +33,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implements CommunicationLinkResourceType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +52,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CommunicationLinkResourceTypeImpl() {
@@ -62,7 +61,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,13 +71,13 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NetworkInducedFailureType getNetworkInducedFailureType__CommunicationLinkResourceType() {
         if (this.networkInducedFailureType__CommunicationLinkResourceType != null
-                && ((EObject) this.networkInducedFailureType__CommunicationLinkResourceType).eIsProxy()) {
+                && this.networkInducedFailureType__CommunicationLinkResourceType.eIsProxy()) {
             final InternalEObject oldNetworkInducedFailureType__CommunicationLinkResourceType = (InternalEObject) this.networkInducedFailureType__CommunicationLinkResourceType;
             this.networkInducedFailureType__CommunicationLinkResourceType = (NetworkInducedFailureType) this
                     .eResolveProxy(oldNetworkInducedFailureType__CommunicationLinkResourceType);
@@ -98,7 +97,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NetworkInducedFailureType basicGetNetworkInducedFailureType__CommunicationLinkResourceType() {
@@ -107,7 +106,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetNetworkInducedFailureType__CommunicationLinkResourceType(
@@ -133,7 +132,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +171,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +193,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +208,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +225,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +240,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -256,7 +255,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

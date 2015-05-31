@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.reliability.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -35,7 +34,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 ResourceTimeoutFailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -44,7 +43,7 @@ ResourceTimeoutFailureType {
      * The cached value of the '{@link #getPassiveResource__ResourceTimeoutFailureType()
      * <em>Passive Resource Resource Timeout Failure Type</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getPassiveResource__ResourceTimeoutFailureType()
      * @generated
      * @ordered
@@ -53,7 +52,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceTimeoutFailureTypeImpl() {
@@ -62,7 +61,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,13 +71,13 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PassiveResource getPassiveResource__ResourceTimeoutFailureType() {
         if (this.passiveResource__ResourceTimeoutFailureType != null
-                && ((EObject) this.passiveResource__ResourceTimeoutFailureType).eIsProxy()) {
+                && this.passiveResource__ResourceTimeoutFailureType.eIsProxy()) {
             final InternalEObject oldPassiveResource__ResourceTimeoutFailureType = (InternalEObject) this.passiveResource__ResourceTimeoutFailureType;
             this.passiveResource__ResourceTimeoutFailureType = (PassiveResource) this
                     .eResolveProxy(oldPassiveResource__ResourceTimeoutFailureType);
@@ -98,7 +97,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PassiveResource basicGetPassiveResource__ResourceTimeoutFailureType() {
@@ -107,7 +106,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPassiveResource__ResourceTimeoutFailureType(
@@ -129,7 +128,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,7 +160,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -180,7 +179,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -195,7 +194,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,7 +211,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -227,7 +226,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +241,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
