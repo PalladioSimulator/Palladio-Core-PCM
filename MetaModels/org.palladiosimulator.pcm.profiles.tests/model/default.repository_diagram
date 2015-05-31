@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0 http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//repository" xmi:id="_MiCwIAOdEeW7RJF7nLqWPA" type="PCM Repository Model" name="default.repository_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_Nksf8AOdEeW7RJF7nLqWPA" type="2102" fontName=".Helvetica Neue DeskInterface">
+    <children xmi:type="notation:DecorationNode" xmi:id="_NktuEAOdEeW7RJF7nLqWPA" type="5102"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_NktuEQOdEeW7RJF7nLqWPA" type="7102">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_NktuEgOdEeW7RJF7nLqWPA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_NktuEwOdEeW7RJF7nLqWPA"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_NkuVIAOdEeW7RJF7nLqWPA" type="7103">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_NkuVIQOdEeW7RJF7nLqWPA" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_NkuVIgOdEeW7RJF7nLqWPA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_NkuVIwOdEeW7RJF7nLqWPA"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_NkuVJAOdEeW7RJF7nLqWPA" type="7104">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_NkuVJQOdEeW7RJF7nLqWPA" showTitle="true"/>
+    </children>
+    <element xmi:type="repository:BasicComponent" href="default.repository#_NknAYAOdEeW7RJF7nLqWPA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Nksf8QOdEeW7RJF7nLqWPA" x="295" y="145"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_QYrqgAOdEeW7RJF7nLqWPA" type="2107" fontName=".Helvetica Neue DeskInterface">
+    <children xmi:type="notation:DecorationNode" xmi:id="_QYrqggOdEeW7RJF7nLqWPA" type="5108"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_QYrqgwOdEeW7RJF7nLqWPA" type="7106">
+      <children xmi:type="notation:Node" xmi:id="_Uo47cAOdEeW7RJF7nLqWPA" type="3106">
+        <element xmi:type="repository:OperationSignature" href="default.repository#_Uo3tUAOdEeW7RJF7nLqWPA"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Uo47cQOdEeW7RJF7nLqWPA"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_QYrqhAOdEeW7RJF7nLqWPA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_QYrqhQOdEeW7RJF7nLqWPA"/>
+    </children>
+    <element xmi:type="repository:OperationInterface" href="default.repository#_QYmyAAOdEeW7RJF7nLqWPA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QYrqgQOdEeW7RJF7nLqWPA" x="280" y="40" width="195"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_MiCwIQOdEeW7RJF7nLqWPA"/>
+  <element xmi:type="repository:Repository" href="default.repository#_Mh6NQAOdEeW7RJF7nLqWPA"/>
+  <edges xmi:type="notation:Connector" xmi:id="_XlEYsAOdEeW7RJF7nLqWPA" type="4105" source="_Nksf8AOdEeW7RJF7nLqWPA" target="_QYrqgAOdEeW7RJF7nLqWPA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_XlEYswOdEeW7RJF7nLqWPA" type="6105">
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_XlEYtAOdEeW7RJF7nLqWPA"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XlEYtQOdEeW7RJF7nLqWPA" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_XlEYsQOdEeW7RJF7nLqWPA" fontName=".Helvetica Neue DeskInterface"/>
+    <element xmi:type="repository:OperationProvidedRole" href="default.repository#_Xk4ygAOdEeW7RJF7nLqWPA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XlEYsgOdEeW7RJF7nLqWPA" points="[0, -14, -11, 85]$[-86, -105, -97, -6]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XlG08AOdEeW7RJF7nLqWPA" id="(0.4930555555555556,0.1794871794871795)"/>
+  </edges>
+</notation:Diagram>
