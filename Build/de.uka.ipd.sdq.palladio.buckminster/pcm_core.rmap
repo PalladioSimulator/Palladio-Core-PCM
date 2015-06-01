@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
-  <rm:locator searchPathRef="localresources" failOnError="false"/>
+  <rm:locator searchPathRef="MDSDProfiles" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="SDQ_Commons" failOnError="false"/>
   <rm:locator pattern="^edu\.kit\.ipd\.sdq\..*" searchPathRef="SDQ_Commons" failOnError="false"/>
   <rm:locator pattern="^org\.palladiosimulator\..*" searchPathRef="SDQ_Commons" failOnError="false"/>
+  <rm:locator searchPathRef="localresources" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="SensorFramework" failOnError="false"/>
   <rm:locator pattern="^org\.hibernate*" searchPathRef="SensorFramework" failOnError="false"/>
   <rm:locator pattern="^org\.palladiosimulator\..*" searchPathRef="ProbeFramework" failOnError="false"/>
@@ -33,7 +34,6 @@
   <rm:locator pattern="^org\.palladiosimulator\.simulizar.*" searchPathRef="SimuLizar" failOnError="false"/>
   <rm:locator pattern="^de\.itemis\.xtext\..*" searchPathRef="itemis" failOnError="false"/>
   <rm:locator pattern="^org\.antlr\..*" searchPathRef="itemis" failOnError="false"/>
-  <rm:locator searchPathRef="MDSDProfiles" failOnError="false"/>
   <rm:locator searchPathRef="luna" failOnError="false"/>
   <rm:locator searchPathRef="orbit" failOnError="false"/>
   <rm:locator searchPathRef="orbitintegration" failOnError="false"/>
