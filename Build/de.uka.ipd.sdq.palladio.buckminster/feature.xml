@@ -4,31 +4,31 @@
       label="PCM Core - Buckminster Feature"
       version="1.0.0">
 
-   <description url="http://palladiosimulator.org">
+   <description url="https://palladiosimulator.org">
       This feature contains the buckminster build structure for the
 PCM Core build.
    </description>
 
    <url>
-      <discovery label="Palladio Commons" url="http://sdqweb.ipd.kit.edu/eclipse/commons/nightly/"/>
-      <discovery label="MDSD Profiles" url="http://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly"/>
-      <discovery label="Service Level Objectives" url="http://sdqweb.ipd.kit.edu/eclipse/servicelevelobjectives/nightly/"/>
-      <discovery label="Palladio Workflow Engine" url="http://sdqweb.ipd.kit.edu/eclipse/workflowengine/nightly"/>
-      <discovery label="Palladio Feature Model" url="http://sdqweb.ipd.kit.edu/eclipse/featuremodel/nightly"/>
-      <discovery label="Quality Analysis Lab - ProbeFramework" url="http://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly"/>
-      <discovery label="Quality Analysis Lab - Recorder Framework" url="http://sdqweb.ipd.kit.edu/eclipse/recorderframework/nightly"/>
-      <discovery label="Quality Analysis Lab - Recorder - EDP2" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly"/>
-      <discovery label="Quality Analysis Lab - Recorder - Sensor Framework" url="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/nightly"/>
+      <discovery label="Palladio Commons" url="https://sdqweb.ipd.kit.edu/eclipse/commons/nightly/"/>
+      <discovery label="MDSD Profiles" url="https://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly"/>
+      <discovery label="Service Level Objectives" url="https://sdqweb.ipd.kit.edu/eclipse/servicelevelobjectives/nightly/"/>
+      <discovery label="Palladio Workflow Engine" url="https://sdqweb.ipd.kit.edu/eclipse/workflowengine/nightly"/>
+      <discovery label="Palladio Feature Model" url="https://sdqweb.ipd.kit.edu/eclipse/featuremodel/nightly"/>
+      <discovery label="Quality Analysis Lab - ProbeFramework" url="https://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly"/>
+      <discovery label="Quality Analysis Lab - Recorder Framework" url="https://sdqweb.ipd.kit.edu/eclipse/recorderframework/nightly"/>
+      <discovery label="Quality Analysis Lab - Recorder - EDP2" url="https://sdqweb.ipd.kit.edu/eclipse/edp2/nightly"/>
+      <discovery label="Quality Analysis Lab - Recorder - Sensor Framework" url="https://sdqweb.ipd.kit.edu/eclipse/sensorframework/nightly"/>
       <discovery label="Palladio Analysis - ProtoCom" url="https://sdqweb.ipd.kit.edu/eclipse/protocom/nightly"/>
-      <discovery label="Palladio Analysis - SimuLizar" url="http://sdqweb.ipd.kit.edu/eclipse/simulizar/nightly/"/>
-      <discovery label="Medini QVT" url="http://www.ikv.de/qvt/update-site-indigo"/>
-      <discovery label="Guava" url="http://guava-osgi.googlecode.com/svn/trunk/repository"/>
-      <discovery label="Eclipse TMF Xtext" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases"/>
-      <discovery label="Eclipse M2T Xpand" url="http://download.eclipse.org/modeling/m2t/xpand/updates/releases"/>
-      <discovery label="Eclipse Orbit" url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
-      <discovery label="Eclipse EMF" url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
-      <discovery label="Luna" url="http://download.eclipse.org/releases/luna"/>
-      <discovery label="Third Party Wrapper" url="http://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly"/>
+      <discovery label="Palladio Analysis - SimuLizar" url="https://sdqweb.ipd.kit.edu/eclipse/simulizar/nightly/"/>
+      <discovery label="Medini QVT" url="https://www.ikv.de/qvt/update-site-indigo"/>
+      <discovery label="Guava" url="https://guava-osgi.googlecode.com/svn/trunk/repository"/>
+      <discovery label="Eclipse TMF Xtext" url="https://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases"/>
+      <discovery label="Eclipse M2T Xpand" url="https://download.eclipse.org/modeling/m2t/xpand/updates/releases"/>
+      <discovery label="Eclipse Orbit" url="https://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
+      <discovery label="Eclipse EMF" url="https://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+      <discovery label="Luna" url="https://download.eclipse.org/releases/luna"/>
+      <discovery label="Third Party Wrapper" url="https://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly"/>
    </url>
 
    <includes
