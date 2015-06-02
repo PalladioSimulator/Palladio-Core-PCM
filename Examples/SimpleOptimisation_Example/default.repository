@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0" xmlns:repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0" xmlns:seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_zIeaYJutEd6drucJ1qoe4Q" entityName="defaultRepository">
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0" xmlns:reliability="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0" xmlns:repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0" xmlns:seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_zIeaYJutEd6drucJ1qoe4Q" entityName="defaultRepository">
   <components__Repository xsi:type="repository:BasicComponent" id="_6e51YJutEd6drucJ1qoe4Q" entityName="C1">
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_DcmJIJuuEd6drucJ1qoe4Q" entityName="Provided_Interface1_C1" providedInterface__OperationProvidedRole="_2ADrgJutEd6drucJ1qoe4Q"/>
     <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_D7vjQJuuEd6drucJ1qoe4Q" entityName="Required_Interface2_C1" requiredInterface__OperationRequiredRole="_3HbjQJutEd6drucJ1qoe4Q"/>
@@ -12,7 +12,7 @@
           <specification_ParametericResourceDemand specification="LognormMoments(0.8,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.1"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.1" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:BranchAction" id="_L6Gg8JuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_J4eAYJuuEd6drucJ1qoe4Q" successor_AbstractAction="_DcmJI5uuEd6drucJ1qoe4Q">
         <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_SRlUoLwGEeS77pO_9q9bzA" branchProbability="0.2">
@@ -57,7 +57,7 @@
           <specification_ParametericResourceDemand specification="LognormMoments(0.6,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.05"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.05" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_ZdplgJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_YCTo4JuuEd6drucJ1qoe4Q" successor_AbstractAction="_Hcma45uuEd6drucJ1qoe4Q" calledService_ExternalService="_SSKjcbwGEeS77pO_9q9bzA" role_ExternalService="_H0ldEJuuEd6drucJ1qoe4Q">
         <inputVariableUsages__CallAction>
@@ -80,7 +80,7 @@
           <specification_ParametericResourceDemand specification="LognormMoments(0.5,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.02"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.02" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_3YTbYJuuEd6drucJ1qoe4Q" predecessor_AbstractAction="_1ose8JuuEd6drucJ1qoe4Q" successor_AbstractAction="_FR3os5uuEd6drucJ1qoe4Q" calledService_ExternalService="_SSKjcbwGEeS77pO_9q9bzA" role_ExternalService="_GnszMJuuEd6drucJ1qoe4Q">
         <inputVariableUsages__CallAction>
@@ -102,7 +102,7 @@
           <specification_ParametericResourceDemand specification="LognormMoments(0.4,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.01"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.01" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
@@ -117,14 +117,14 @@
           <specification_ParametericResourceDemand specification="LognormMoments(0.2,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.01"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.01" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:InternalAction" id="_q4WacJuxEd6drucJ1qoe4Q" entityName="C6" predecessor_AbstractAction="_p5dwUJuxEd6drucJ1qoe4Q" successor_AbstractAction="_66nKoJ7GEd6Y0ZIX-BIknQ">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.3,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.01"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.01" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_66nKoJ7GEd6Y0ZIX-BIknQ" predecessor_AbstractAction="_q4WacJuxEd6drucJ1qoe4Q" successor_AbstractAction="_mzSCg5uxEd6drucJ1qoe4Q" calledService_ExternalService="_SSKjcbwGEeS77pO_9q9bzA" role_ExternalService="_nXfi0JuxEd6drucJ1qoe4Q">
         <inputVariableUsages__CallAction>
@@ -146,14 +146,14 @@
           <specification_ParametericResourceDemand specification="LognormMoments(0.3,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.05"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.05" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:InternalAction" id="_c8KsEJu0Ed6drucJ1qoe4Q" entityName="C8" predecessor_AbstractAction="_cLutoJu0Ed6drucJ1qoe4Q" successor_AbstractAction="_Vs4a45u0Ed6drucJ1qoe4Q">
         <resourceDemand_Action>
           <specification_ParametericResourceDemand specification="LognormMoments(0.4,c.VALUE)"/>
           <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
         </resourceDemand_Action>
-        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.05"/>
+        <internalFailureOccurrenceDescriptions__InternalAction failureProbability="0.05" softwareInducedFailureType__InternalFailureOccurrenceDescription="_t7TL6QkkEeWU0ah4wXQmjg"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
@@ -207,4 +207,5 @@
       </parameters__OperationSignature>
     </signatures__OperationInterface>
   </interfaces__Repository>
+  <failureTypes__Repository xsi:type="reliability:SoftwareInducedFailureType" id="_t7TL6QkkEeWU0ah4wXQmjg" entityName="Software Bug" internalFailureOccurrenceDescriptions__SoftwareInducedFailureType="//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@internalFailureOccurrenceDescriptions__InternalAction.0 //@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@internalFailureOccurrenceDescriptions__InternalAction.0 //@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@internalFailureOccurrenceDescriptions__InternalAction.0 //@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@internalFailureOccurrenceDescriptions__InternalAction.0 //@components__Repository.4/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@internalFailureOccurrenceDescriptions__InternalAction.0 //@components__Repository.4/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.3/@internalFailureOccurrenceDescriptions__InternalAction.0 //@components__Repository.5/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@internalFailureOccurrenceDescriptions__InternalAction.0 //@components__Repository.5/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.3/@internalFailureOccurrenceDescriptions__InternalAction.0"/>
 </repository:Repository>
