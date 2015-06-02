@@ -119,6 +119,8 @@ public final class CalculatorHelper {
         ctx.getCalculatorFactory().buildHoldingTimeCalculator(measuringPoint, startStopProbes);
 
         resource.addObserver(new IPassiveResourceSensor() {
+        	
+        	long capacity = resource.getCapacity();
 
             @Override
             public void request(final ISchedulableProcess process, final long num) {
@@ -127,12 +129,27 @@ public final class CalculatorHelper {
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement(new RequestContext(process.getId()));
+            	if (this.capacity == 1){
+            		// XXX workaround for passive resources with capacity one that works across request contexts. To be removed if TODO below is fixed. 
+            		((TriggeredProbe) startStopProbes.get(0)).takeMeasurement(new RequestContext("1"));
+            	} else {
+            		// need to try to match the request context. 
+            		// FIXME: does not work if acquire and release come from different request contexts, such as different forks of a thread (confirmed) or different requests by open users (speculated).
+            		// I have also updated Calculator.java, so please remove LOGGER statement there after fixing this. 
+            		((TriggeredProbe) startStopProbes.get(0)).takeMeasurement(new RequestContext(process.getId()));
+            	}
+                
             }
 
             @Override
             public void release(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe) startStopProbes.get(1)).takeMeasurement(new RequestContext(process.getId()));
+            	if (this.capacity == 1){
+            		// XXX workaround, see acquire above. 
+            		((TriggeredProbe) startStopProbes.get(1)).takeMeasurement(new RequestContext("1"));
+            	} else {
+            		// FIXME see acquire above. 
+            		((TriggeredProbe) startStopProbes.get(1)).takeMeasurement(new RequestContext(process.getId()));
+            	}
             }
         });
     }
