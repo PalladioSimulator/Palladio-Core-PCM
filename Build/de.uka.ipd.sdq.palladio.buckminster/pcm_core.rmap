@@ -112,7 +112,7 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="https://www.ikv.de/qvt/update-site-indigo/"/>
+      <rm:uri format="http://www.ikv.de/qvt/update-site-indigo/"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="google_guava">

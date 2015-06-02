@@ -21,13 +21,13 @@ PCM Core build.
       <discovery label="Quality Analysis Lab - Recorder - Sensor Framework" url="https://sdqweb.ipd.kit.edu/eclipse/sensorframework/nightly"/>
       <discovery label="Palladio Analysis - ProtoCom" url="https://sdqweb.ipd.kit.edu/eclipse/protocom/nightly"/>
       <discovery label="Palladio Analysis - SimuLizar" url="https://sdqweb.ipd.kit.edu/eclipse/simulizar/nightly/"/>
-      <discovery label="Medini QVT" url="https://www.ikv.de/qvt/update-site-indigo"/>
+      <discovery label="Medini QVT" url="http://www.ikv.de/qvt/update-site-indigo"/>
       <discovery label="Guava" url="https://guava-osgi.googlecode.com/svn/trunk/repository"/>
-      <discovery label="Eclipse TMF Xtext" url="https://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases"/>
-      <discovery label="Eclipse M2T Xpand" url="https://download.eclipse.org/modeling/m2t/xpand/updates/releases"/>
-      <discovery label="Eclipse Orbit" url="https://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
-      <discovery label="Eclipse EMF" url="https://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
-      <discovery label="Luna" url="https://download.eclipse.org/releases/luna"/>
+      <discovery label="Eclipse TMF Xtext" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases"/>
+      <discovery label="Eclipse M2T Xpand" url="http://download.eclipse.org/modeling/m2t/xpand/updates/releases"/>
+      <discovery label="Eclipse Orbit" url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
+      <discovery label="Eclipse EMF" url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
+      <discovery label="Luna" url="http://download.eclipse.org/releases/luna"/>
       <discovery label="Third Party Wrapper" url="https://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly"/>
    </url>
 
