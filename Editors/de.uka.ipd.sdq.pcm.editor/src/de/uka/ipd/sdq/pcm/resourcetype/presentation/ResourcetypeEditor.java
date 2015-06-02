@@ -108,9 +108,6 @@ import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
-import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationItemProviderAdapterFactory;
-import org.palladiosimulator.mdsdprofiles.provider.MdsdprofilesItemProviderAdapterFactory;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
@@ -121,6 +118,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.palladiosimulator.mdsdprofiles.provider.StereotypableElementDecoratorAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
@@ -130,17 +128,14 @@ import de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
@@ -148,7 +143,6 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -189,8 +183,8 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
     protected TreeViewer contentOutlineViewer;
 
     /**
-     * This is the property sheet page.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * This is the property sheet page. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
@@ -259,6 +253,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
      * @generated
      */
     protected IPartListener partListener = new IPartListener() {
+        @Override
         public void partActivated(IWorkbenchPart p) {
             if (p instanceof ContentOutline) {
                 if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
@@ -276,18 +271,22 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
             }
         }
 
+        @Override
         public void partBroughtToTop(IWorkbenchPart p) {
             // Ignore.
         }
 
+        @Override
         public void partClosed(IWorkbenchPart p) {
             // Ignore.
         }
 
+        @Override
         public void partDeactivated(IWorkbenchPart p) {
             // Ignore.
         }
 
+        @Override
         public void partOpened(IWorkbenchPart p) {
             // Ignore.
         }
@@ -339,6 +338,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
 
                     if (updateProblemIndication) {
                         getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                            @Override
                             public void run() {
                                 updateProblemIndication();
                             }
@@ -363,6 +363,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
             resourceToDiagnosticMap.remove(target);
             if (updateProblemIndication) {
                 getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                    @Override
                     public void run() {
                         updateProblemIndication();
                     }
@@ -375,6 +376,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
      * @generated
      */
     protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
+        @Override
         public void resourceChanged(IResourceChangeEvent event) {
             IResourceDelta delta = event.getDelta();
             try {
@@ -383,6 +385,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
                     protected Collection<Resource> changedResources = new ArrayList<Resource>();
                     protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
+                    @Override
                     public boolean visit(IResourceDelta delta) {
                         if (delta.getResource().getType() == IResource.FILE) {
                             if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
@@ -417,6 +420,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
 
                 if (!visitor.getRemovedResources().isEmpty()) {
                     getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                        @Override
                         public void run() {
                             removedResources.addAll(visitor.getRemovedResources());
                             if (!isDirty()) {
@@ -428,6 +432,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
 
                 if (!visitor.getChangedResources().isEmpty()) {
                     getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                        @Override
                         public void run() {
                             changedResources.addAll(visitor.getChangedResources());
                             if (getSite().getPage().getActiveEditor() == ResourcetypeEditor.this) {
@@ -610,7 +615,8 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
         compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
         compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-        this.adapterFactory = new PalladioItemProviderAdapterFactory(compAdapterFactory);
+        this.adapterFactory = new StereotypableElementDecoratorAdapterFactory(new PalladioItemProviderAdapterFactory(
+                compAdapterFactory));
 
         // Create the command stack that will notify this editor as commands are executed.
         //
@@ -667,6 +673,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
         //
         if (theSelection != null && !theSelection.isEmpty()) {
             Runnable runnable = new Runnable() {
+                @Override
                 public void run() {
                     // Try to select the items in the current content viewer of the editor.
                     //
@@ -760,6 +767,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
                 selectionChangedListener = new ISelectionChangedListener() {
                     // This just notifies those things that are affected by the section.
                     //
+                    @Override
                     public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
                         setSelection(selectionChangedEvent.getSelection());
                     }
@@ -1070,6 +1078,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
             }
 
             getSite().getShell().getDisplay().asyncExec(new Runnable() {
+                @Override
                 public void run() {
                     setActivePage(0);
                 }
@@ -1093,6 +1102,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
         });
 
         getSite().getShell().getDisplay().asyncExec(new Runnable() {
+            @Override
             public void run() {
                 updateProblemIndication();
             }
@@ -1209,6 +1219,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
             contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
                 // This ensures that we handle selections correctly.
                 //
+                @Override
                 public void selectionChanged(SelectionChangedEvent event) {
                     handleContentOutlineSelection(event.getSelection());
                 }
@@ -1252,7 +1263,8 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
                 //
                 Object selectedElement = selectedElements.next();
 
-                // If it's the selection viewer, then we want it to select the same selection as this selection.
+                // If it's the selection viewer, then we want it to select the same selection as
+                // this selection.
                 //
                 if (currentViewerPane.getViewer() == selectionViewer) {
                     ArrayList<Object> selectionList = new ArrayList<Object>();
@@ -1294,7 +1306,8 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
         final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
         saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 
-        // Do the work within an operation because this is a long running activity that modifies the workbench.
+        // Do the work within an operation because this is a long running activity that modifies the
+        // workbench.
         //
         WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
             // This is the method that gets invoked when the operation runs.
