@@ -586,8 +586,7 @@ public class UsagemodelEditor extends MultiPageEditorPart implements IEditingDom
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) UsagemodelEditor.this.adapterFactory;
+                return (ComposeableAdapterFactory) UsagemodelEditor.this.adapterFactory;
             }
         };
 

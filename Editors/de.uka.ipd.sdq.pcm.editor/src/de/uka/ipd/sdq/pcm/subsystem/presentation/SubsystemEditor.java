@@ -585,8 +585,7 @@ public class SubsystemEditor extends MultiPageEditorPart implements IEditingDoma
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) SubsystemEditor.this.adapterFactory;
+                return (ComposeableAdapterFactory) SubsystemEditor.this.adapterFactory;
             }
         };
 

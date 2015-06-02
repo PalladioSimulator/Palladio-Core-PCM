@@ -96,6 +96,7 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
     /**
      * @generated
      */
+    @Override
     public void start(BundleContext context) throws Exception {
         super.start(context);
         instance = this;
@@ -110,6 +111,7 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
      * @throws Exception
      *             an Exception
      */
+    @Override
     public void stop(BundleContext context) throws Exception {
         ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
         adapterFactory = null;
@@ -140,8 +142,7 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
 
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) adapterFactory;
+                return (ComposeableAdapterFactory) adapterFactory;
             }
 
         };

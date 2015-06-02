@@ -585,8 +585,7 @@ public class ResourcetypeEditor extends MultiPageEditorPart implements IEditingD
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) ResourcetypeEditor.this.adapterFactory;
+                return (ComposeableAdapterFactory) ResourcetypeEditor.this.adapterFactory;
             }
         };
 

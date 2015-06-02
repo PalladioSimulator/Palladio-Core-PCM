@@ -95,6 +95,7 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
     /**
      * @generated
      */
+    @Override
     public void start(BundleContext context) throws Exception {
         super.start(context);
         instance = this;
@@ -111,6 +112,7 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
      *             the exception
      * @generated not
      */
+    @Override
     public void stop(BundleContext context) throws Exception {
         ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
         adapterFactory = null;
@@ -138,8 +140,7 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
 
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) adapterFactory;
+                return (ComposeableAdapterFactory) adapterFactory;
             }
 
         };

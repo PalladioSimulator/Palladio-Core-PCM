@@ -101,6 +101,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     /**
      * @generated
      */
+    @Override
     public void start(BundleContext context) throws Exception {
         super.start(context);
         instance = this;
@@ -117,6 +118,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
      *             the exception
      * @generated not
      */
+    @Override
     public void stop(BundleContext context) throws Exception {
         ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
         adapterFactory = null;
@@ -144,8 +146,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
 
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) adapterFactory;
+                return (ComposeableAdapterFactory) adapterFactory;
             }
 
         };

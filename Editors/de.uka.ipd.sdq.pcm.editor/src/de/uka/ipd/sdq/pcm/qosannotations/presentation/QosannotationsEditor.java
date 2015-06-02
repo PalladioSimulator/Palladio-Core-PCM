@@ -586,8 +586,7 @@ public class QosannotationsEditor extends MultiPageEditorPart implements IEditin
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) QosannotationsEditor.this.adapterFactory;
+                return (ComposeableAdapterFactory) QosannotationsEditor.this.adapterFactory;
             }
         };
 

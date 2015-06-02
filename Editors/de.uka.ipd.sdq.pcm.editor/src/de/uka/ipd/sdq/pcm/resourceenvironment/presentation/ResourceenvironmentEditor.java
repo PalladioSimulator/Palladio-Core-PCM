@@ -586,8 +586,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
-                return (PalladioItemProviderAdapterFactory) ResourceenvironmentEditor.this.adapterFactory;
+                return (ComposeableAdapterFactory) ResourceenvironmentEditor.this.adapterFactory;
             }
         };
 

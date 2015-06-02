@@ -149,7 +149,7 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
  * @generated
  */
 public class SystemEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
-IMenuListener, IViewerProvider, IGotoMarker {
+        IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * @generated
      */
@@ -586,7 +586,6 @@ IMenuListener, IViewerProvider, IGotoMarker {
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                // TODO Auto-generated method stub
                 return (ComposeableAdapterFactory) SystemEditor.this.adapterFactory;
             }
         };
@@ -871,8 +870,8 @@ IMenuListener, IViewerProvider, IGotoMarker {
      */
     public Diagnostic analyzeResourceProblems(final Resource resource, final Exception exception) {
         if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
-            final BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, "de.uka.ipd.sdq.pcm.editor", 0,
-                    getString("_UI_CreateModelError_message", resource.getURI()),
+            final BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, "de.uka.ipd.sdq.pcm.editor",
+                    0, getString("_UI_CreateModelError_message", resource.getURI()),
                     new Object[] { exception == null ? (Object) resource : exception });
             basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
             return basicDiagnostic;
@@ -1387,7 +1386,8 @@ IMenuListener, IViewerProvider, IGotoMarker {
     protected boolean isPersisted(final Resource resource) {
         boolean result = false;
         try {
-            final InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+            final InputStream stream = editingDomain.getResourceSet().getURIConverter()
+                    .createInputStream(resource.getURI());
             if (stream != null) {
                 result = true;
                 stream.close();
@@ -1431,7 +1431,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
         setPartName(editorInput.getName());
         final IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null ? getActionBars()
                 .getStatusLineManager().getProgressMonitor() : new NullProgressMonitor();
-                doSave(progressMonitor);
+        doSave(progressMonitor);
     }
 
     /**
@@ -1524,7 +1524,8 @@ IMenuListener, IViewerProvider, IGotoMarker {
                     break;
                 }
                 case 1: {
-                    final String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+                    final String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator()
+                            .next());
                     statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
                     break;
                 }
