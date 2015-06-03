@@ -52,6 +52,7 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -150,6 +151,7 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
  */
 public class ResourceenvironmentEditor extends MultiPageEditorPart implements IEditingDomainProvider,
         ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+
     /**
      * @generated
      */
@@ -254,16 +256,17 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     protected IPartListener partListener = new IPartListener() {
+
         @Override
-        public void partActivated(IWorkbenchPart p) {
+        public void partActivated(final IWorkbenchPart p) {
             if (p instanceof ContentOutline) {
-                if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
+                if (((ContentOutline) p).getCurrentPage() == ResourceenvironmentEditor.this.contentOutlinePage) {
                     getActionBarContributor().setActiveEditor(ResourceenvironmentEditor.this);
 
-                    setCurrentViewer(contentOutlineViewer);
+                    setCurrentViewer(ResourceenvironmentEditor.this.contentOutlineViewer);
                 }
             } else if (p instanceof PropertySheet) {
-                if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
+                if (ResourceenvironmentEditor.this.propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
                     getActionBarContributor().setActiveEditor(ResourceenvironmentEditor.this);
                     handleActivate();
                 }
@@ -273,22 +276,22 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
         }
 
         @Override
-        public void partBroughtToTop(IWorkbenchPart p) {
+        public void partBroughtToTop(final IWorkbenchPart p) {
             // Ignore.
         }
 
         @Override
-        public void partClosed(IWorkbenchPart p) {
+        public void partClosed(final IWorkbenchPart p) {
             // Ignore.
         }
 
         @Override
-        public void partDeactivated(IWorkbenchPart p) {
+        public void partDeactivated(final IWorkbenchPart p) {
             // Ignore.
         }
 
         @Override
-        public void partOpened(IWorkbenchPart p) {
+        public void partOpened(final IWorkbenchPart p) {
             // Ignore.
         }
     };
@@ -322,23 +325,25 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
+
         @Override
-        public void notifyChanged(Notification notification) {
+        public void notifyChanged(final Notification notification) {
             if (notification.getNotifier() instanceof Resource) {
                 switch (notification.getFeatureID(Resource.class)) {
                 case Resource.RESOURCE__IS_LOADED:
                 case Resource.RESOURCE__ERRORS:
                 case Resource.RESOURCE__WARNINGS: {
-                    Resource resource = (Resource) notification.getNotifier();
-                    Diagnostic diagnostic = analyzeResourceProblems(resource, null);
+                    final Resource resource = (Resource) notification.getNotifier();
+                    final Diagnostic diagnostic = analyzeResourceProblems(resource, null);
                     if (diagnostic.getSeverity() != Diagnostic.OK) {
-                        resourceToDiagnosticMap.put(resource, diagnostic);
+                        ResourceenvironmentEditor.this.resourceToDiagnosticMap.put(resource, diagnostic);
                     } else {
-                        resourceToDiagnosticMap.remove(resource);
+                        ResourceenvironmentEditor.this.resourceToDiagnosticMap.remove(resource);
                     }
 
-                    if (updateProblemIndication) {
+                    if (ResourceenvironmentEditor.this.updateProblemIndication) {
                         getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                             @Override
                             public void run() {
                                 updateProblemIndication();
@@ -354,16 +359,17 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
         }
 
         @Override
-        protected void setTarget(Resource target) {
+        protected void setTarget(final Resource target) {
             basicSetTarget(target);
         }
 
         @Override
-        protected void unsetTarget(Resource target) {
+        protected void unsetTarget(final Resource target) {
             basicUnsetTarget(target);
-            resourceToDiagnosticMap.remove(target);
-            if (updateProblemIndication) {
+            ResourceenvironmentEditor.this.resourceToDiagnosticMap.remove(target);
+            if (ResourceenvironmentEditor.this.updateProblemIndication) {
                 getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                     @Override
                     public void run() {
                         updateProblemIndication();
@@ -377,27 +383,29 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
+
         @Override
-        public void resourceChanged(IResourceChangeEvent event) {
-            IResourceDelta delta = event.getDelta();
+        public void resourceChanged(final IResourceChangeEvent event) {
+            final IResourceDelta delta = event.getDelta();
             try {
                 class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-                    protected ResourceSet resourceSet = editingDomain.getResourceSet();
+
+                    protected ResourceSet resourceSet = ResourceenvironmentEditor.this.editingDomain.getResourceSet();
                     protected Collection<Resource> changedResources = new ArrayList<Resource>();
                     protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
                     @Override
-                    public boolean visit(IResourceDelta delta) {
+                    public boolean visit(final IResourceDelta delta) {
                         if (delta.getResource().getType() == IResource.FILE) {
                             if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
                                     && delta.getFlags() != IResourceDelta.MARKERS) {
-                                Resource resource = resourceSet.getResource(
+                                final Resource resource = this.resourceSet.getResource(
                                         URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
                                 if (resource != null) {
                                     if (delta.getKind() == IResourceDelta.REMOVED) {
-                                        removedResources.add(resource);
-                                    } else if (!savedResources.remove(resource)) {
-                                        changedResources.add(resource);
+                                        this.removedResources.add(resource);
+                                    } else if (!ResourceenvironmentEditor.this.savedResources.remove(resource)) {
+                                        this.changedResources.add(resource);
                                     }
                                 }
                             }
@@ -408,11 +416,11 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                     }
 
                     public Collection<Resource> getChangedResources() {
-                        return changedResources;
+                        return this.changedResources;
                     }
 
                     public Collection<Resource> getRemovedResources() {
-                        return removedResources;
+                        return this.removedResources;
                     }
                 }
 
@@ -421,9 +429,10 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
 
                 if (!visitor.getRemovedResources().isEmpty()) {
                     getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                         @Override
                         public void run() {
-                            removedResources.addAll(visitor.getRemovedResources());
+                            ResourceenvironmentEditor.this.removedResources.addAll(visitor.getRemovedResources());
                             if (!isDirty()) {
                                 getSite().getPage().closeEditor(ResourceenvironmentEditor.this, false);
                             }
@@ -433,16 +442,17 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
 
                 if (!visitor.getChangedResources().isEmpty()) {
                     getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                         @Override
                         public void run() {
-                            changedResources.addAll(visitor.getChangedResources());
+                            ResourceenvironmentEditor.this.changedResources.addAll(visitor.getChangedResources());
                             if (getSite().getPage().getActiveEditor() == ResourceenvironmentEditor.this) {
                                 handleActivate();
                             }
                         }
                     });
                 }
-            } catch (CoreException exception) {
+            } catch (final CoreException exception) {
                 PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
             }
         }
@@ -454,27 +464,27 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     protected void handleActivate() {
         // Recompute the read only state.
         //
-        if (editingDomain.getResourceToReadOnlyMap() != null) {
-            editingDomain.getResourceToReadOnlyMap().clear();
+        if (this.editingDomain.getResourceToReadOnlyMap() != null) {
+            this.editingDomain.getResourceToReadOnlyMap().clear();
 
             // Refresh any actions that may become enabled or disabled.
             //
             setSelection(getSelection());
         }
 
-        if (!removedResources.isEmpty()) {
+        if (!this.removedResources.isEmpty()) {
             if (handleDirtyConflict()) {
                 getSite().getPage().closeEditor(ResourceenvironmentEditor.this, false);
             } else {
-                removedResources.clear();
-                changedResources.clear();
-                savedResources.clear();
+                this.removedResources.clear();
+                this.changedResources.clear();
+                this.savedResources.clear();
             }
-        } else if (!changedResources.isEmpty()) {
-            changedResources.removeAll(savedResources);
+        } else if (!this.changedResources.isEmpty()) {
+            this.changedResources.removeAll(this.savedResources);
             handleChangedResources();
-            changedResources.clear();
-            savedResources.clear();
+            this.changedResources.clear();
+            this.savedResources.clear();
         }
     }
 
@@ -482,31 +492,31 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     protected void handleChangedResources() {
-        if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
+        if (!this.changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
             if (isDirty()) {
-                changedResources.addAll(editingDomain.getResourceSet().getResources());
+                this.changedResources.addAll(this.editingDomain.getResourceSet().getResources());
             }
-            editingDomain.getCommandStack().flush();
+            this.editingDomain.getCommandStack().flush();
 
-            updateProblemIndication = false;
-            for (Resource resource : changedResources) {
+            this.updateProblemIndication = false;
+            for (final Resource resource : this.changedResources) {
                 if (resource.isLoaded()) {
                     resource.unload();
                     try {
                         resource.load(Collections.EMPTY_MAP);
-                    } catch (IOException exception) {
-                        if (!resourceToDiagnosticMap.containsKey(resource)) {
-                            resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+                    } catch (final IOException exception) {
+                        if (!this.resourceToDiagnosticMap.containsKey(resource)) {
+                            this.resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
                         }
                     }
                 }
             }
 
-            if (AdapterFactoryEditingDomain.isStale(editorSelection)) {
+            if (AdapterFactoryEditingDomain.isStale(this.editorSelection)) {
                 setSelection(StructuredSelection.EMPTY);
             }
 
-            updateProblemIndication = true;
+            this.updateProblemIndication = true;
             updateProblemIndication();
         }
     }
@@ -515,10 +525,10 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     protected void updateProblemIndication() {
-        if (updateProblemIndication) {
-            BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "de.uka.ipd.sdq.pcm.editor", 0, null,
-                    new Object[] { editingDomain.getResourceSet() });
-            for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
+        if (this.updateProblemIndication) {
+            final BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "de.uka.ipd.sdq.pcm.editor", 0, null,
+                    new Object[] { this.editingDomain.getResourceSet() });
+            for (final Diagnostic childDiagnostic : this.resourceToDiagnosticMap.values()) {
                 if (childDiagnostic.getSeverity() != Diagnostic.OK) {
                     diagnostic.add(childDiagnostic);
                 }
@@ -531,25 +541,25 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                     setActivePage(lastEditorPage);
                 }
             } else if (diagnostic.getSeverity() != Diagnostic.OK) {
-                ProblemEditorPart problemEditorPart = new ProblemEditorPart();
+                final ProblemEditorPart problemEditorPart = new ProblemEditorPart();
                 problemEditorPart.setDiagnostic(diagnostic);
-                problemEditorPart.setMarkerHelper(markerHelper);
+                problemEditorPart.setMarkerHelper(this.markerHelper);
                 try {
                     addPage(++lastEditorPage, problemEditorPart, getEditorInput());
                     setPageText(lastEditorPage, problemEditorPart.getPartName());
                     setActivePage(lastEditorPage);
                     showTabs();
-                } catch (PartInitException exception) {
+                } catch (final PartInitException exception) {
                     PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
                 }
             }
 
-            if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
-                markerHelper.deleteMarkers(editingDomain.getResourceSet());
+            if (this.markerHelper.hasMarkers(this.editingDomain.getResourceSet())) {
+                this.markerHelper.deleteMarkers(this.editingDomain.getResourceSet());
                 if (diagnostic.getSeverity() != Diagnostic.OK) {
                     try {
-                        markerHelper.createMarkers(diagnostic);
-                    } catch (CoreException exception) {
+                        this.markerHelper.createMarkers(diagnostic);
+                    } catch (final CoreException exception) {
                         PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
                     }
                 }
@@ -584,6 +594,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
         //
         final ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
+
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
                 return (ComposeableAdapterFactory) ResourceenvironmentEditor.this.adapterFactory;
@@ -626,9 +637,11 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
         // the viewer with focus.
         //
         commandStack.addCommandStackListener(new CommandStackListener() {
+
             @Override
             public void commandStackChanged(final EventObject event) {
                 ResourceenvironmentEditor.this.getContainer().getDisplay().asyncExec(new Runnable() {
+
                     @Override
                     public void run() {
                         ResourceenvironmentEditor.this.firePropertyChange(IEditorPart.PROP_DIRTY);
@@ -659,25 +672,27 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     @Override
-    protected void firePropertyChange(int action) {
+    protected void firePropertyChange(final int action) {
         super.firePropertyChange(action);
     }
 
     /**
      * @generated
      */
-    public void setSelectionToViewer(Collection<?> collection) {
+    public void setSelectionToViewer(final Collection<?> collection) {
         final Collection<?> theSelection = collection;
         // Make sure it's okay.
         //
         if (theSelection != null && !theSelection.isEmpty()) {
-            Runnable runnable = new Runnable() {
+            final Runnable runnable = new Runnable() {
+
                 @Override
                 public void run() {
                     // Try to select the items in the current content viewer of the editor.
                     //
-                    if (currentViewer != null) {
-                        currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
+                    if (ResourceenvironmentEditor.this.currentViewer != null) {
+                        ResourceenvironmentEditor.this.currentViewer.setSelection(
+                                new StructuredSelection(theSelection.toArray()), true);
                     }
                 }
             };
@@ -690,17 +705,18 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      */
     @Override
     public EditingDomain getEditingDomain() {
-        return editingDomain;
+        return this.editingDomain;
     }
 
     /**
      * @generated
      */
     public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+
         /**
          * @generated
          */
-        public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
+        public ReverseAdapterFactoryContentProvider(final AdapterFactory adapterFactory) {
             super(adapterFactory);
         }
 
@@ -708,8 +724,8 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
          * @generated
          */
         @Override
-        public Object[] getElements(Object object) {
-            Object parent = super.getParent(object);
+        public Object[] getElements(final Object object) {
+            final Object parent = super.getParent(object);
             return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
         }
 
@@ -717,8 +733,8 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
          * @generated
          */
         @Override
-        public Object[] getChildren(Object object) {
-            Object parent = super.getParent(object);
+        public Object[] getChildren(final Object object) {
+            final Object parent = super.getParent(object);
             return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
         }
 
@@ -726,8 +742,8 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
          * @generated
          */
         @Override
-        public boolean hasChildren(Object object) {
-            Object parent = super.getParent(object);
+        public boolean hasChildren(final Object object) {
+            final Object parent = super.getParent(object);
             return parent != null;
         }
 
@@ -735,7 +751,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
          * @generated
          */
         @Override
-        public Object getParent(Object object) {
+        public Object getParent(final Object object) {
             return null;
         }
     }
@@ -743,31 +759,32 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     /**
      * @generated
      */
-    public void setCurrentViewerPane(ViewerPane viewerPane) {
-        if (currentViewerPane != viewerPane) {
-            if (currentViewerPane != null) {
-                currentViewerPane.showFocus(false);
+    public void setCurrentViewerPane(final ViewerPane viewerPane) {
+        if (this.currentViewerPane != viewerPane) {
+            if (this.currentViewerPane != null) {
+                this.currentViewerPane.showFocus(false);
             }
-            currentViewerPane = viewerPane;
+            this.currentViewerPane = viewerPane;
         }
-        setCurrentViewer(currentViewerPane.getViewer());
+        setCurrentViewer(this.currentViewerPane.getViewer());
     }
 
     /**
      * @generated
      */
-    public void setCurrentViewer(Viewer viewer) {
+    public void setCurrentViewer(final Viewer viewer) {
         // If it is changing...
         //
-        if (currentViewer != viewer) {
-            if (selectionChangedListener == null) {
+        if (this.currentViewer != viewer) {
+            if (this.selectionChangedListener == null) {
                 // Create the listener on demand.
                 //
-                selectionChangedListener = new ISelectionChangedListener() {
+                this.selectionChangedListener = new ISelectionChangedListener() {
+
                     // This just notifies those things that are affected by the section.
                     //
                     @Override
-                    public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
+                    public void selectionChanged(final SelectionChangedEvent selectionChangedEvent) {
                         setSelection(selectionChangedEvent.getSelection());
                     }
                 };
@@ -775,23 +792,23 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
 
             // Stop listening to the old one.
             //
-            if (currentViewer != null) {
-                currentViewer.removeSelectionChangedListener(selectionChangedListener);
+            if (this.currentViewer != null) {
+                this.currentViewer.removeSelectionChangedListener(this.selectionChangedListener);
             }
 
             // Start listening to the new one.
             //
             if (viewer != null) {
-                viewer.addSelectionChangedListener(selectionChangedListener);
+                viewer.addSelectionChangedListener(this.selectionChangedListener);
             }
 
             // Remember it.
             //
-            currentViewer = viewer;
+            this.currentViewer = viewer;
 
             // Set the editors selection based on the current viewer's selection.
             //
-            setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
+            setSelection(this.currentViewer == null ? StructuredSelection.EMPTY : this.currentViewer.getSelection());
         }
     }
 
@@ -800,25 +817,25 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      */
     @Override
     public Viewer getViewer() {
-        return currentViewer;
+        return this.currentViewer;
     }
 
     /**
      * @generated
      */
-    protected void createContextMenuFor(StructuredViewer viewer) {
-        MenuManager contextMenu = new MenuManager("#PopUp");
+    protected void createContextMenuFor(final StructuredViewer viewer) {
+        final MenuManager contextMenu = new MenuManager("#PopUp");
         contextMenu.add(new Separator("additions"));
         contextMenu.setRemoveAllWhenShown(true);
         contextMenu.addMenuListener(this);
-        Menu menu = contextMenu.createContextMenu(viewer.getControl());
+        final Menu menu = contextMenu.createContextMenu(viewer.getControl());
         viewer.getControl().setMenu(menu);
         getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
-        int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-        Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
+        final int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
+        final Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
         viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-        viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+        viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(this.editingDomain, viewer));
     }
 
     /**
@@ -870,10 +887,10 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     /**
      * @generated
      */
-    public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
+    public Diagnostic analyzeResourceProblems(final Resource resource, final Exception exception) {
         if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
-            BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, "de.uka.ipd.sdq.pcm.editor", 0,
-                    getString("_UI_CreateModelError_message", resource.getURI()),
+            final BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, "de.uka.ipd.sdq.pcm.editor",
+                    0, getString("_UI_CreateModelError_message", resource.getURI()),
                     new Object[] { exception == null ? (Object) resource : exception });
             basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
             return basicDiagnostic;
@@ -900,11 +917,12 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
             // Create a page for the selection tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+                final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+
                     @Override
-                    public Viewer createViewer(Composite composite) {
-                        Tree tree = new Tree(composite, SWT.MULTI);
-                        TreeViewer newTreeViewer = new TreeViewer(tree);
+                    public Viewer createViewer(final Composite composite) {
+                        final Tree tree = new Tree(composite, SWT.MULTI);
+                        final TreeViewer newTreeViewer = new TreeViewer(tree);
                         return newTreeViewer;
                     }
 
@@ -916,30 +934,31 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                 };
                 viewerPane.createControl(getContainer());
 
-                selectionViewer = (TreeViewer) viewerPane.getViewer();
-                selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
+                this.selectionViewer = (TreeViewer) viewerPane.getViewer();
+                this.selectionViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
 
-                selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-                selectionViewer.setInput(editingDomain.getResourceSet());
-                selectionViewer.setSelection(
-                        new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-                viewerPane.setTitle(editingDomain.getResourceSet());
+                this.selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
+                this.selectionViewer.setInput(this.editingDomain.getResourceSet());
+                this.selectionViewer.setSelection(new StructuredSelection(this.editingDomain.getResourceSet()
+                        .getResources().get(0)), true);
+                viewerPane.setTitle(this.editingDomain.getResourceSet());
 
-                new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
+                new AdapterFactoryTreeEditor(this.selectionViewer.getTree(), this.adapterFactory);
 
-                createContextMenuFor(selectionViewer);
-                int pageIndex = addPage(viewerPane.getControl());
+                createContextMenuFor(this.selectionViewer);
+                final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_SelectionPage_label"));
             }
 
             // Create a page for the parent tree view.
             //
             {
-                ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+                final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+
                     @Override
-                    public Viewer createViewer(Composite composite) {
-                        Tree tree = new Tree(composite, SWT.MULTI);
-                        TreeViewer newTreeViewer = new TreeViewer(tree);
+                    public Viewer createViewer(final Composite composite) {
+                        final Tree tree = new Tree(composite, SWT.MULTI);
+                        final TreeViewer newTreeViewer = new TreeViewer(tree);
                         return newTreeViewer;
                     }
 
@@ -951,22 +970,23 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                 };
                 viewerPane.createControl(getContainer());
 
-                parentViewer = (TreeViewer) viewerPane.getViewer();
-                parentViewer.setAutoExpandLevel(30);
-                parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(adapterFactory));
-                parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.parentViewer = (TreeViewer) viewerPane.getViewer();
+                this.parentViewer.setAutoExpandLevel(30);
+                this.parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(this.adapterFactory));
+                this.parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(parentViewer);
-                int pageIndex = addPage(viewerPane.getControl());
+                createContextMenuFor(this.parentViewer);
+                final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_ParentPage_label"));
             }
 
             // This is the page for the list viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+                final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+
                     @Override
-                    public Viewer createViewer(Composite composite) {
+                    public Viewer createViewer(final Composite composite) {
                         return new ListViewer(composite);
                     }
 
@@ -977,21 +997,22 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                     }
                 };
                 viewerPane.createControl(getContainer());
-                listViewer = (ListViewer) viewerPane.getViewer();
-                listViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                listViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.listViewer = (ListViewer) viewerPane.getViewer();
+                this.listViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.listViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(listViewer);
-                int pageIndex = addPage(viewerPane.getControl());
+                createContextMenuFor(this.listViewer);
+                final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_ListPage_label"));
             }
 
             // This is the page for the tree viewer
             //
             {
-                ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+                final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+
                     @Override
-                    public Viewer createViewer(Composite composite) {
+                    public Viewer createViewer(final Composite composite) {
                         return new TreeViewer(composite);
                     }
 
@@ -1002,23 +1023,24 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                     }
                 };
                 viewerPane.createControl(getContainer());
-                treeViewer = (TreeViewer) viewerPane.getViewer();
-                treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.treeViewer = (TreeViewer) viewerPane.getViewer();
+                this.treeViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                new AdapterFactoryTreeEditor(treeViewer.getTree(), adapterFactory);
+                new AdapterFactoryTreeEditor(this.treeViewer.getTree(), this.adapterFactory);
 
-                createContextMenuFor(treeViewer);
-                int pageIndex = addPage(viewerPane.getControl());
+                createContextMenuFor(this.treeViewer);
+                final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_TreePage_label"));
             }
 
             // This is the page for the table viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+                final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+
                     @Override
-                    public Viewer createViewer(Composite composite) {
+                    public Viewer createViewer(final Composite composite) {
                         return new TableViewer(composite);
                     }
 
@@ -1029,39 +1051,40 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                     }
                 };
                 viewerPane.createControl(getContainer());
-                tableViewer = (TableViewer) viewerPane.getViewer();
+                this.tableViewer = (TableViewer) viewerPane.getViewer();
 
-                Table table = tableViewer.getTable();
-                TableLayout layout = new TableLayout();
+                final Table table = this.tableViewer.getTable();
+                final TableLayout layout = new TableLayout();
                 table.setLayout(layout);
                 table.setHeaderVisible(true);
                 table.setLinesVisible(true);
 
-                TableColumn objectColumn = new TableColumn(table, SWT.NONE);
+                final TableColumn objectColumn = new TableColumn(table, SWT.NONE);
                 layout.addColumnData(new ColumnWeightData(3, 100, true));
                 objectColumn.setText(getString("_UI_ObjectColumn_label"));
                 objectColumn.setResizable(true);
 
-                TableColumn selfColumn = new TableColumn(table, SWT.NONE);
+                final TableColumn selfColumn = new TableColumn(table, SWT.NONE);
                 layout.addColumnData(new ColumnWeightData(2, 100, true));
                 selfColumn.setText(getString("_UI_SelfColumn_label"));
                 selfColumn.setResizable(true);
 
-                tableViewer.setColumnProperties(new String[] { "a", "b" });
-                tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.tableViewer.setColumnProperties(new String[] { "a", "b" });
+                this.tableViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(tableViewer);
-                int pageIndex = addPage(viewerPane.getControl());
+                createContextMenuFor(this.tableViewer);
+                final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_TablePage_label"));
             }
 
             // This is the page for the table tree viewer.
             //
             {
-                ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+                final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), ResourceenvironmentEditor.this) {
+
                     @Override
-                    public Viewer createViewer(Composite composite) {
+                    public Viewer createViewer(final Composite composite) {
                         return new TreeViewer(composite);
                     }
 
@@ -1073,33 +1096,34 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
                 };
                 viewerPane.createControl(getContainer());
 
-                treeViewerWithColumns = (TreeViewer) viewerPane.getViewer();
+                this.treeViewerWithColumns = (TreeViewer) viewerPane.getViewer();
 
-                Tree tree = treeViewerWithColumns.getTree();
+                final Tree tree = this.treeViewerWithColumns.getTree();
                 tree.setLayoutData(new FillLayout());
                 tree.setHeaderVisible(true);
                 tree.setLinesVisible(true);
 
-                TreeColumn objectColumn = new TreeColumn(tree, SWT.NONE);
+                final TreeColumn objectColumn = new TreeColumn(tree, SWT.NONE);
                 objectColumn.setText(getString("_UI_ObjectColumn_label"));
                 objectColumn.setResizable(true);
                 objectColumn.setWidth(250);
 
-                TreeColumn selfColumn = new TreeColumn(tree, SWT.NONE);
+                final TreeColumn selfColumn = new TreeColumn(tree, SWT.NONE);
                 selfColumn.setText(getString("_UI_SelfColumn_label"));
                 selfColumn.setResizable(true);
                 selfColumn.setWidth(200);
 
-                treeViewerWithColumns.setColumnProperties(new String[] { "a", "b" });
-                treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.treeViewerWithColumns.setColumnProperties(new String[] { "a", "b" });
+                this.treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(treeViewerWithColumns);
-                int pageIndex = addPage(viewerPane.getControl());
+                createContextMenuFor(this.treeViewerWithColumns);
+                final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
             }
 
             getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                 @Override
                 public void run() {
                     setActivePage(0);
@@ -1111,19 +1135,21 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
         // area if there are more than one page
         //
         getContainer().addControlListener(new ControlAdapter() {
+
             boolean guard = false;
 
             @Override
-            public void controlResized(ControlEvent event) {
-                if (!guard) {
-                    guard = true;
+            public void controlResized(final ControlEvent event) {
+                if (!this.guard) {
+                    this.guard = true;
                     hideTabs();
-                    guard = false;
+                    this.guard = false;
                 }
             }
         });
 
         getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
             @Override
             public void run() {
                 updateProblemIndication();
@@ -1139,7 +1165,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
             setPageText(0, "");
             if (getContainer() instanceof CTabFolder) {
                 ((CTabFolder) getContainer()).setTabHeight(1);
-                Point point = getContainer().getSize();
+                final Point point = getContainer().getSize();
                 getContainer().setSize(point.x, point.y + 6);
             }
         }
@@ -1153,7 +1179,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
             setPageText(0, getString("_UI_SelectionPage_label"));
             if (getContainer() instanceof CTabFolder) {
                 ((CTabFolder) getContainer()).setTabHeight(SWT.DEFAULT);
-                Point point = getContainer().getSize();
+                final Point point = getContainer().getSize();
                 getContainer().setSize(point.x, point.y - 6);
             }
         }
@@ -1163,11 +1189,11 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     @Override
-    protected void pageChange(int pageIndex) {
+    protected void pageChange(final int pageIndex) {
         super.pageChange(pageIndex);
 
-        if (contentOutlinePage != null) {
-            handleContentOutlineSelection(contentOutlinePage.getSelection());
+        if (this.contentOutlinePage != null) {
+            handleContentOutlineSelection(this.contentOutlinePage.getSelection());
         }
     }
 
@@ -1176,7 +1202,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      */
     @SuppressWarnings("unchecked")
     @Override
-    public Object getAdapter(Class key) {
+    public Object getAdapter(final Class key) {
         if (key.equals(IContentOutlinePage.class)) {
             return showOutlineView() ? getContentOutlinePage() : null;
         } else if (key.equals(IPropertySheetPage.class)) {
@@ -1192,63 +1218,71 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     public IContentOutlinePage getContentOutlinePage() {
-        if (contentOutlinePage == null) {
+        if (this.contentOutlinePage == null) {
             // The content outline is just a tree.
             //
             class MyContentOutlinePage extends ContentOutlinePage {
+
                 @Override
-                public void createControl(Composite parent) {
+                public void createControl(final Composite parent) {
                     super.createControl(parent);
-                    contentOutlineViewer = getTreeViewer();
-                    contentOutlineViewer.addSelectionChangedListener(this);
+                    ResourceenvironmentEditor.this.contentOutlineViewer = getTreeViewer();
+                    ResourceenvironmentEditor.this.contentOutlineViewer.addSelectionChangedListener(this);
 
                     // Set up the tree viewer.
                     //
-                    contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                    contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-                    contentOutlineViewer.setInput(editingDomain.getResourceSet());
+                    ResourceenvironmentEditor.this.contentOutlineViewer
+                            .setContentProvider(new AdapterFactoryContentProvider(
+                                    ResourceenvironmentEditor.this.adapterFactory));
+                    ResourceenvironmentEditor.this.contentOutlineViewer
+                            .setLabelProvider(new AdapterFactoryLabelProvider(
+                                    ResourceenvironmentEditor.this.adapterFactory));
+                    ResourceenvironmentEditor.this.contentOutlineViewer
+                            .setInput(ResourceenvironmentEditor.this.editingDomain.getResourceSet());
 
                     // Make sure our popups work.
                     //
-                    createContextMenuFor(contentOutlineViewer);
+                    createContextMenuFor(ResourceenvironmentEditor.this.contentOutlineViewer);
 
-                    if (!editingDomain.getResourceSet().getResources().isEmpty()) {
+                    if (!ResourceenvironmentEditor.this.editingDomain.getResourceSet().getResources().isEmpty()) {
                         // Select the root object in the view.
                         //
-                        contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet()
-                                .getResources().get(0)), true);
+                        ResourceenvironmentEditor.this.contentOutlineViewer.setSelection(new StructuredSelection(
+                                ResourceenvironmentEditor.this.editingDomain.getResourceSet().getResources().get(0)),
+                                true);
                     }
                 }
 
                 @Override
-                public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager,
-                        IStatusLineManager statusLineManager) {
+                public void makeContributions(final IMenuManager menuManager, final IToolBarManager toolBarManager,
+                        final IStatusLineManager statusLineManager) {
                     super.makeContributions(menuManager, toolBarManager, statusLineManager);
-                    contentOutlineStatusLineManager = statusLineManager;
+                    ResourceenvironmentEditor.this.contentOutlineStatusLineManager = statusLineManager;
                 }
 
                 @Override
-                public void setActionBars(IActionBars actionBars) {
+                public void setActionBars(final IActionBars actionBars) {
                     super.setActionBars(actionBars);
                     getActionBarContributor().shareGlobalActions(this, actionBars);
                 }
             }
 
-            contentOutlinePage = new MyContentOutlinePage();
+            this.contentOutlinePage = new MyContentOutlinePage();
 
             // Listen to selection so that we can handle it is a special way.
             //
-            contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+            this.contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+
                 // This ensures that we handle selections correctly.
                 //
                 @Override
-                public void selectionChanged(SelectionChangedEvent event) {
+                public void selectionChanged(final SelectionChangedEvent event) {
                     handleContentOutlineSelection(event.getSelection());
                 }
             });
         }
 
-        return contentOutlinePage;
+        return this.contentOutlinePage;
     }
 
     /**
@@ -1261,6 +1295,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     public IPropertySheetPage getPropertySheetPage() {
         if (this.propertySheetPages.isEmpty()) {
             final ExtendedPropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(this.editingDomain) {
+
                 @Override
                 public void setSelectionToViewer(final List<?> selection) {
                     ResourceenvironmentEditor.this.setSelectionToViewer(selection);
@@ -1283,19 +1318,19 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     /**
      * @generated
      */
-    public void handleContentOutlineSelection(ISelection selection) {
-        if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
-            Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
+    public void handleContentOutlineSelection(final ISelection selection) {
+        if (this.currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
+            final Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
             if (selectedElements.hasNext()) {
                 // Get the first selected element.
                 //
-                Object selectedElement = selectedElements.next();
+                final Object selectedElement = selectedElements.next();
 
                 // If it's the selection viewer, then we want it to select the same selection as
                 // this selection.
                 //
-                if (currentViewerPane.getViewer() == selectionViewer) {
-                    ArrayList<Object> selectionList = new ArrayList<Object>();
+                if (this.currentViewerPane.getViewer() == this.selectionViewer) {
+                    final ArrayList<Object> selectionList = new ArrayList<Object>();
                     selectionList.add(selectedElement);
                     while (selectedElements.hasNext()) {
                         selectionList.add(selectedElements.next());
@@ -1303,13 +1338,13 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
 
                     // Set the selection to the widget.
                     //
-                    selectionViewer.setSelection(new StructuredSelection(selectionList));
+                    this.selectionViewer.setSelection(new StructuredSelection(selectionList));
                 } else {
                     // Set the input to the widget.
                     //
-                    if (currentViewerPane.getViewer().getInput() != selectedElement) {
-                        currentViewerPane.getViewer().setInput(selectedElement);
-                        currentViewerPane.setTitle(selectedElement);
+                    if (this.currentViewerPane.getViewer().getInput() != selectedElement) {
+                        this.currentViewerPane.getViewer().setInput(selectedElement);
+                        this.currentViewerPane.setTitle(selectedElement);
                     }
                 }
             }
@@ -1321,14 +1356,14 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      */
     @Override
     public boolean isDirty() {
-        return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
+        return ((BasicCommandStack) this.editingDomain.getCommandStack()).isSaveNeeded();
     }
 
     /**
      * @generated
      */
     @Override
-    public void doSave(IProgressMonitor progressMonitor) {
+    public void doSave(final IProgressMonitor progressMonitor) {
         // Save only resources that have actually changed.
         //
         final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
@@ -1337,25 +1372,28 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
         // Do the work within an operation because this is a long running activity that modifies the
         // workbench.
         //
-        WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+        final WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+
             // This is the method that gets invoked when the operation runs.
             //
             @Override
-            public void execute(IProgressMonitor monitor) {
+            public void execute(final IProgressMonitor monitor) {
                 // Save the resources to the file system.
                 //
                 boolean first = true;
-                for (Resource resource : editingDomain.getResourceSet().getResources()) {
+                for (final Resource resource : ResourceenvironmentEditor.this.editingDomain.getResourceSet()
+                        .getResources()) {
                     if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
-                            && !editingDomain.isReadOnly(resource)) {
+                            && !ResourceenvironmentEditor.this.editingDomain.isReadOnly(resource)) {
                         try {
-                            long timeStamp = resource.getTimeStamp();
+                            final long timeStamp = resource.getTimeStamp();
                             resource.save(saveOptions);
                             if (resource.getTimeStamp() != timeStamp) {
-                                savedResources.add(resource);
+                                ResourceenvironmentEditor.this.savedResources.add(resource);
                             }
-                        } catch (Exception exception) {
-                            resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+                        } catch (final Exception exception) {
+                            ResourceenvironmentEditor.this.resourceToDiagnosticMap.put(resource,
+                                    analyzeResourceProblems(resource, exception));
                         }
                         first = false;
                     }
@@ -1363,7 +1401,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
             }
         };
 
-        updateProblemIndication = false;
+        this.updateProblemIndication = false;
         try {
             // This runs the options, and shows progress.
             //
@@ -1371,29 +1409,30 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
 
             // Refresh the necessary state.
             //
-            ((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
+            ((BasicCommandStack) this.editingDomain.getCommandStack()).saveIsDone();
             firePropertyChange(IEditorPart.PROP_DIRTY);
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             // Something went wrong that shouldn't.
             //
             PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
         }
-        updateProblemIndication = true;
+        this.updateProblemIndication = true;
         updateProblemIndication();
     }
 
     /**
      * @generated
      */
-    protected boolean isPersisted(Resource resource) {
+    protected boolean isPersisted(final Resource resource) {
         boolean result = false;
         try {
-            InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+            final InputStream stream = this.editingDomain.getResourceSet().getURIConverter()
+                    .createInputStream(resource.getURI());
             if (stream != null) {
                 result = true;
                 stream.close();
             }
-        } catch (IOException e) {
+        } catch (final IOException e) {
             // Ignore
         }
         return result;
@@ -1412,11 +1451,11 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      */
     @Override
     public void doSaveAs() {
-        SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
+        final SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
         saveAsDialog.open();
-        IPath path = saveAsDialog.getResult();
+        final IPath path = saveAsDialog.getResult();
         if (path != null) {
-            IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
+            final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
             if (file != null) {
                 doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
             }
@@ -1426,11 +1465,11 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     /**
      * @generated
      */
-    protected void doSaveAs(URI uri, IEditorInput editorInput) {
-        (editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
+    protected void doSaveAs(final URI uri, final IEditorInput editorInput) {
+        (this.editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
         setInputWithNotify(editorInput);
         setPartName(editorInput.getName());
-        IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null ? getActionBars()
+        final IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null ? getActionBars()
                 .getStatusLineManager().getProgressMonitor() : new NullProgressMonitor();
         doSave(progressMonitor);
     }
@@ -1439,8 +1478,8 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     @Override
-    public void gotoMarker(IMarker marker) {
-        List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
+    public void gotoMarker(final IMarker marker) {
+        final List<?> targetObjects = this.markerHelper.getTargetObjects(this.editingDomain, marker);
         if (!targetObjects.isEmpty()) {
             setSelectionToViewer(targetObjects);
         }
@@ -1450,13 +1489,13 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     @Override
-    public void init(IEditorSite site, IEditorInput editorInput) {
+    public void init(final IEditorSite site, final IEditorInput editorInput) {
         setSite(site);
         setInputWithNotify(editorInput);
         setPartName(editorInput.getName());
         site.setSelectionProvider(this);
-        site.getPage().addPartListener(partListener);
-        ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener,
+        site.getPage().addPartListener(this.partListener);
+        ResourcesPlugin.getWorkspace().addResourceChangeListener(this.resourceChangeListener,
                 IResourceChangeEvent.POST_CHANGE);
     }
 
@@ -1465,8 +1504,8 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      */
     @Override
     public void setFocus() {
-        if (currentViewerPane != null) {
-            currentViewerPane.setFocus();
+        if (this.currentViewerPane != null) {
+            this.currentViewerPane.setFocus();
         } else {
             getControl(getActivePage()).setFocus();
         }
@@ -1476,16 +1515,16 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     @Override
-    public void addSelectionChangedListener(ISelectionChangedListener listener) {
-        selectionChangedListeners.add(listener);
+    public void addSelectionChangedListener(final ISelectionChangedListener listener) {
+        this.selectionChangedListeners.add(listener);
     }
 
     /**
      * @generated
      */
     @Override
-    public void removeSelectionChangedListener(ISelectionChangedListener listener) {
-        selectionChangedListeners.remove(listener);
+    public void removeSelectionChangedListener(final ISelectionChangedListener listener) {
+        this.selectionChangedListeners.remove(listener);
     }
 
     /**
@@ -1493,17 +1532,17 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      */
     @Override
     public ISelection getSelection() {
-        return editorSelection;
+        return this.editorSelection;
     }
 
     /**
      * @generated
      */
     @Override
-    public void setSelection(ISelection selection) {
-        editorSelection = selection;
+    public void setSelection(final ISelection selection) {
+        this.editorSelection = selection;
 
-        for (ISelectionChangedListener listener : selectionChangedListeners) {
+        for (final ISelectionChangedListener listener : this.selectionChangedListeners) {
             listener.selectionChanged(new SelectionChangedEvent(this, selection));
         }
         setStatusLineManager(selection);
@@ -1512,20 +1551,22 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     /**
      * @generated
      */
-    public void setStatusLineManager(ISelection selection) {
-        IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ? contentOutlineStatusLineManager
+    public void setStatusLineManager(final ISelection selection) {
+        final IStatusLineManager statusLineManager = this.currentViewer != null
+                && this.currentViewer == this.contentOutlineViewer ? this.contentOutlineStatusLineManager
                 : getActionBars().getStatusLineManager();
 
         if (statusLineManager != null) {
             if (selection instanceof IStructuredSelection) {
-                Collection<?> collection = ((IStructuredSelection) selection).toList();
+                final Collection<?> collection = ((IStructuredSelection) selection).toList();
                 switch (collection.size()) {
                 case 0: {
                     statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
                     break;
                 }
                 case 1: {
-                    String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+                    final String text = new AdapterFactoryItemDelegator(this.adapterFactory).getText(collection
+                            .iterator().next());
                     statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
                     break;
                 }
@@ -1544,14 +1585,14 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
     /**
      * @generated
      */
-    private static String getString(String key) {
+    private static String getString(final String key) {
         return PalladioComponentModelEditorPlugin.INSTANCE.getString(key);
     }
 
     /**
      * @generated
      */
-    private static String getString(String key, Object s1) {
+    private static String getString(final String key, final Object s1) {
         return PalladioComponentModelEditorPlugin.INSTANCE.getString(key, new Object[] { s1 });
     }
 
@@ -1559,7 +1600,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     @Override
-    public void menuAboutToShow(IMenuManager menuManager) {
+    public void menuAboutToShow(final IMenuManager menuManager) {
         ((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
     }
 
@@ -1581,7 +1622,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
      * @generated
      */
     public AdapterFactory getAdapterFactory() {
-        return adapterFactory;
+        return this.adapterFactory;
     }
 
     /**
@@ -1597,7 +1638,7 @@ public class ResourceenvironmentEditor extends MultiPageEditorPart implements IE
 
         this.getSite().getPage().removePartListener(this.partListener);
 
-        ((PalladioItemProviderAdapterFactory) this.adapterFactory).dispose();
+        ((IDisposable) this.adapterFactory).dispose();
 
         if (this.getActionBarContributor().getActiveEditor() == this) {
             this.getActionBarContributor().setActiveEditor(null);

@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
@@ -96,11 +97,11 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
      * @generated
      */
     @Override
-    public void start(BundleContext context) throws Exception {
+    public void start(final BundleContext context) throws Exception {
         super.start(context);
         instance = this;
         PreferencesHint.registerPreferenceStore(DIAGRAM_PREFERENCES_HINT, getPreferenceStore());
-        adapterFactory = createAdapterFactory();
+        this.adapterFactory = createAdapterFactory();
     }
 
     /**
@@ -113,9 +114,9 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
      * @generated not
      */
     @Override
-    public void stop(BundleContext context) throws Exception {
-        ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
-        adapterFactory = null;
+    public void stop(final BundleContext context) throws Exception {
+        ((IDisposable) this.adapterFactory).dispose();
+        this.adapterFactory = null;
         instance = null;
         super.stop(context);
     }
@@ -134,13 +135,13 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
      * @generated not
      */
     protected AdapterFactory createAdapterFactory() {
-        List factories = new ArrayList();
+        final List factories = new ArrayList();
         fillItemProviderFactories(factories);
-        ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
+        final ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
 
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
-                return (ComposeableAdapterFactory) adapterFactory;
+                return (ComposeableAdapterFactory) PalladioComponentModelUsageDiagramEditorPlugin.this.adapterFactory;
             }
 
         };
@@ -150,7 +151,7 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
     /**
      * @generated
      */
-    protected void fillItemProviderFactories(List<AdapterFactory> factories) {
+    protected void fillItemProviderFactories(final List<AdapterFactory> factories) {
         factories.add(new PcmItemProviderAdapterFactory());
         factories.add(new CoreItemProviderAdapterFactory());
         factories.add(new EntityItemProviderAdapterFactory());
@@ -187,14 +188,15 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
      * @generated
      */
     public AdapterFactory getItemProvidersAdapterFactory() {
-        return adapterFactory;
+        return this.adapterFactory;
     }
 
     /**
      * @generated
      */
-    public ImageDescriptor getItemImageDescriptor(Object item) {
-        IItemLabelProvider labelProvider = (IItemLabelProvider) adapterFactory.adapt(item, IItemLabelProvider.class);
+    public ImageDescriptor getItemImageDescriptor(final Object item) {
+        final IItemLabelProvider labelProvider = (IItemLabelProvider) this.adapterFactory.adapt(item,
+                IItemLabelProvider.class);
         if (labelProvider != null) {
             return ExtendedImageRegistry.getInstance().getImageDescriptor(labelProvider.getImage(item));
         }
@@ -204,14 +206,14 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
     /**
      * @generated
      */
-    public static ImageDescriptor getBundledImageDescriptor(String path) {
+    public static ImageDescriptor getBundledImageDescriptor(final String path) {
         return AbstractUIPlugin.imageDescriptorFromPlugin(ID, path);
     }
 
     /**
      * @generated
      */
-    public static ImageDescriptor findImageDescriptor(String path) {
+    public static ImageDescriptor findImageDescriptor(final String path) {
         final IPath p = new Path(path);
         if (p.isAbsolute() && p.segmentCount() > 1) {
             return AbstractUIPlugin.imageDescriptorFromPlugin(p.segment(0), p.removeFirstSegments(1).makeAbsolute()
@@ -224,14 +226,14 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
     /**
      * @generated
      */
-    public static String getString(String key) {
+    public static String getString(final String key) {
         return Platform.getResourceString(getInstance().getBundle(), "%" + key); //$NON-NLS-1$
     }
 
     /**
      * @generated
      */
-    public Image getBundledImage(String path) {
+    public Image getBundledImage(final String path) {
         Image image = getImageRegistry().get(path);
         if (image == null) {
             getImageRegistry().put(path, getBundledImageDescriptor(path));
@@ -244,23 +246,23 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
      * @generated
      */
     public PalladioComponentModelDocumentProvider getDocumentProvider() {
-        if (documentProvider == null) {
-            documentProvider = new PalladioComponentModelDocumentProvider();
+        if (this.documentProvider == null) {
+            this.documentProvider = new PalladioComponentModelDocumentProvider();
         }
-        return documentProvider;
+        return this.documentProvider;
     }
 
     /**
      * @generated
      */
     public PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
-        return linkConstraints;
+        return this.linkConstraints;
     }
 
     /**
      * @generated
      */
-    public void setLinkConstraints(PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints lc) {
+    public void setLinkConstraints(final PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints lc) {
         this.linkConstraints = lc;
     }
 
@@ -268,27 +270,27 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
      * @generated
      */
     public ElementInitializers getElementInitializers() {
-        return initializers;
+        return this.initializers;
     }
 
     /**
      * @generated
      */
-    public void setElementInitializers(ElementInitializers i) {
+    public void setElementInitializers(final ElementInitializers i) {
         this.initializers = i;
     }
 
     /**
      * @generated
      */
-    public void logError(String error) {
+    public void logError(final String error) {
         logError(error, null);
     }
 
     /**
      * @generated
      */
-    public void logError(String error, Throwable throwable) {
+    public void logError(String error, final Throwable throwable) {
         if (error == null && throwable != null) {
             error = throwable.getMessage();
         }
@@ -301,14 +303,14 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
     /**
      * @generated
      */
-    public void logInfo(String message) {
+    public void logInfo(final String message) {
         logInfo(message, null);
     }
 
     /**
      * @generated
      */
-    public void logInfo(String message, Throwable throwable) {
+    public void logInfo(String message, final Throwable throwable) {
         if (message == null && throwable != null) {
             message = throwable.getMessage();
         }
@@ -321,7 +323,7 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends AbstractUIPl
     /**
      * @generated
      */
-    private void debug(String message, Throwable throwable) {
+    private void debug(final String message, final Throwable throwable) {
         if (!isDebugging()) {
             return;
         }

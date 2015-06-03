@@ -52,6 +52,7 @@ import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -150,6 +151,7 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
  */
 public class SystemEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
         IMenuListener, IViewerProvider, IGotoMarker {
+
     /**
      * @generated
      */
@@ -254,16 +256,17 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     protected IPartListener partListener = new IPartListener() {
+
         @Override
         public void partActivated(final IWorkbenchPart p) {
             if (p instanceof ContentOutline) {
-                if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
+                if (((ContentOutline) p).getCurrentPage() == SystemEditor.this.contentOutlinePage) {
                     getActionBarContributor().setActiveEditor(SystemEditor.this);
 
-                    setCurrentViewer(contentOutlineViewer);
+                    setCurrentViewer(SystemEditor.this.contentOutlineViewer);
                 }
             } else if (p instanceof PropertySheet) {
-                if (propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
+                if (SystemEditor.this.propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
                     getActionBarContributor().setActiveEditor(SystemEditor.this);
                     handleActivate();
                 }
@@ -322,6 +325,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
+
         @Override
         public void notifyChanged(final Notification notification) {
             if (notification.getNotifier() instanceof Resource) {
@@ -332,13 +336,14 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                     final Resource resource = (Resource) notification.getNotifier();
                     final Diagnostic diagnostic = analyzeResourceProblems(resource, null);
                     if (diagnostic.getSeverity() != Diagnostic.OK) {
-                        resourceToDiagnosticMap.put(resource, diagnostic);
+                        SystemEditor.this.resourceToDiagnosticMap.put(resource, diagnostic);
                     } else {
-                        resourceToDiagnosticMap.remove(resource);
+                        SystemEditor.this.resourceToDiagnosticMap.remove(resource);
                     }
 
-                    if (updateProblemIndication) {
+                    if (SystemEditor.this.updateProblemIndication) {
                         getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                             @Override
                             public void run() {
                                 updateProblemIndication();
@@ -361,9 +366,10 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         @Override
         protected void unsetTarget(final Resource target) {
             basicUnsetTarget(target);
-            resourceToDiagnosticMap.remove(target);
-            if (updateProblemIndication) {
+            SystemEditor.this.resourceToDiagnosticMap.remove(target);
+            if (SystemEditor.this.updateProblemIndication) {
                 getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                     @Override
                     public void run() {
                         updateProblemIndication();
@@ -377,12 +383,14 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
+
         @Override
         public void resourceChanged(final IResourceChangeEvent event) {
             final IResourceDelta delta = event.getDelta();
             try {
                 class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-                    protected ResourceSet resourceSet = editingDomain.getResourceSet();
+
+                    protected ResourceSet resourceSet = SystemEditor.this.editingDomain.getResourceSet();
                     protected Collection<Resource> changedResources = new ArrayList<Resource>();
                     protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
@@ -391,13 +399,13 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                         if (delta.getResource().getType() == IResource.FILE) {
                             if (delta.getKind() == IResourceDelta.REMOVED || delta.getKind() == IResourceDelta.CHANGED
                                     && delta.getFlags() != IResourceDelta.MARKERS) {
-                                final Resource resource = resourceSet.getResource(
+                                final Resource resource = this.resourceSet.getResource(
                                         URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
                                 if (resource != null) {
                                     if (delta.getKind() == IResourceDelta.REMOVED) {
-                                        removedResources.add(resource);
-                                    } else if (!savedResources.remove(resource)) {
-                                        changedResources.add(resource);
+                                        this.removedResources.add(resource);
+                                    } else if (!SystemEditor.this.savedResources.remove(resource)) {
+                                        this.changedResources.add(resource);
                                     }
                                 }
                             }
@@ -408,11 +416,11 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                     }
 
                     public Collection<Resource> getChangedResources() {
-                        return changedResources;
+                        return this.changedResources;
                     }
 
                     public Collection<Resource> getRemovedResources() {
-                        return removedResources;
+                        return this.removedResources;
                     }
                 }
 
@@ -421,9 +429,10 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 if (!visitor.getRemovedResources().isEmpty()) {
                     getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                         @Override
                         public void run() {
-                            removedResources.addAll(visitor.getRemovedResources());
+                            SystemEditor.this.removedResources.addAll(visitor.getRemovedResources());
                             if (!isDirty()) {
                                 getSite().getPage().closeEditor(SystemEditor.this, false);
                             }
@@ -433,9 +442,10 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
 
                 if (!visitor.getChangedResources().isEmpty()) {
                     getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                         @Override
                         public void run() {
-                            changedResources.addAll(visitor.getChangedResources());
+                            SystemEditor.this.changedResources.addAll(visitor.getChangedResources());
                             if (getSite().getPage().getActiveEditor() == SystemEditor.this) {
                                 handleActivate();
                             }
@@ -454,27 +464,27 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
     protected void handleActivate() {
         // Recompute the read only state.
         //
-        if (editingDomain.getResourceToReadOnlyMap() != null) {
-            editingDomain.getResourceToReadOnlyMap().clear();
+        if (this.editingDomain.getResourceToReadOnlyMap() != null) {
+            this.editingDomain.getResourceToReadOnlyMap().clear();
 
             // Refresh any actions that may become enabled or disabled.
             //
             setSelection(getSelection());
         }
 
-        if (!removedResources.isEmpty()) {
+        if (!this.removedResources.isEmpty()) {
             if (handleDirtyConflict()) {
                 getSite().getPage().closeEditor(SystemEditor.this, false);
             } else {
-                removedResources.clear();
-                changedResources.clear();
-                savedResources.clear();
+                this.removedResources.clear();
+                this.changedResources.clear();
+                this.savedResources.clear();
             }
-        } else if (!changedResources.isEmpty()) {
-            changedResources.removeAll(savedResources);
+        } else if (!this.changedResources.isEmpty()) {
+            this.changedResources.removeAll(this.savedResources);
             handleChangedResources();
-            changedResources.clear();
-            savedResources.clear();
+            this.changedResources.clear();
+            this.savedResources.clear();
         }
     }
 
@@ -482,31 +492,31 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     protected void handleChangedResources() {
-        if (!changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
+        if (!this.changedResources.isEmpty() && (!isDirty() || handleDirtyConflict())) {
             if (isDirty()) {
-                changedResources.addAll(editingDomain.getResourceSet().getResources());
+                this.changedResources.addAll(this.editingDomain.getResourceSet().getResources());
             }
-            editingDomain.getCommandStack().flush();
+            this.editingDomain.getCommandStack().flush();
 
-            updateProblemIndication = false;
-            for (final Resource resource : changedResources) {
+            this.updateProblemIndication = false;
+            for (final Resource resource : this.changedResources) {
                 if (resource.isLoaded()) {
                     resource.unload();
                     try {
                         resource.load(Collections.EMPTY_MAP);
                     } catch (final IOException exception) {
-                        if (!resourceToDiagnosticMap.containsKey(resource)) {
-                            resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+                        if (!this.resourceToDiagnosticMap.containsKey(resource)) {
+                            this.resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
                         }
                     }
                 }
             }
 
-            if (AdapterFactoryEditingDomain.isStale(editorSelection)) {
+            if (AdapterFactoryEditingDomain.isStale(this.editorSelection)) {
                 setSelection(StructuredSelection.EMPTY);
             }
 
-            updateProblemIndication = true;
+            this.updateProblemIndication = true;
             updateProblemIndication();
         }
     }
@@ -515,10 +525,10 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     protected void updateProblemIndication() {
-        if (updateProblemIndication) {
+        if (this.updateProblemIndication) {
             final BasicDiagnostic diagnostic = new BasicDiagnostic(Diagnostic.OK, "de.uka.ipd.sdq.pcm.editor", 0, null,
-                    new Object[] { editingDomain.getResourceSet() });
-            for (final Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
+                    new Object[] { this.editingDomain.getResourceSet() });
+            for (final Diagnostic childDiagnostic : this.resourceToDiagnosticMap.values()) {
                 if (childDiagnostic.getSeverity() != Diagnostic.OK) {
                     diagnostic.add(childDiagnostic);
                 }
@@ -533,7 +543,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             } else if (diagnostic.getSeverity() != Diagnostic.OK) {
                 final ProblemEditorPart problemEditorPart = new ProblemEditorPart();
                 problemEditorPart.setDiagnostic(diagnostic);
-                problemEditorPart.setMarkerHelper(markerHelper);
+                problemEditorPart.setMarkerHelper(this.markerHelper);
                 try {
                     addPage(++lastEditorPage, problemEditorPart, getEditorInput());
                     setPageText(lastEditorPage, problemEditorPart.getPartName());
@@ -544,11 +554,11 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 }
             }
 
-            if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
-                markerHelper.deleteMarkers(editingDomain.getResourceSet());
+            if (this.markerHelper.hasMarkers(this.editingDomain.getResourceSet())) {
+                this.markerHelper.deleteMarkers(this.editingDomain.getResourceSet());
                 if (diagnostic.getSeverity() != Diagnostic.OK) {
                     try {
-                        markerHelper.createMarkers(diagnostic);
+                        this.markerHelper.createMarkers(diagnostic);
                     } catch (final CoreException exception) {
                         PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
                     }
@@ -584,6 +594,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         //
         final ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
                 ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
+
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
                 return (ComposeableAdapterFactory) SystemEditor.this.adapterFactory;
@@ -626,9 +637,11 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         // the viewer with focus.
         //
         commandStack.addCommandStackListener(new CommandStackListener() {
+
             @Override
             public void commandStackChanged(final EventObject event) {
                 SystemEditor.this.getContainer().getDisplay().asyncExec(new Runnable() {
+
                     @Override
                     public void run() {
                         SystemEditor.this.firePropertyChange(IEditorPart.PROP_DIRTY);
@@ -673,12 +686,14 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         //
         if (theSelection != null && !theSelection.isEmpty()) {
             final Runnable runnable = new Runnable() {
+
                 @Override
                 public void run() {
                     // Try to select the items in the current content viewer of the editor.
                     //
-                    if (currentViewer != null) {
-                        currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
+                    if (SystemEditor.this.currentViewer != null) {
+                        SystemEditor.this.currentViewer.setSelection(new StructuredSelection(theSelection.toArray()),
+                                true);
                     }
                 }
             };
@@ -691,13 +706,14 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public EditingDomain getEditingDomain() {
-        return editingDomain;
+        return this.editingDomain;
     }
 
     /**
      * @generated
      */
     public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+
         /**
          * @generated
          */
@@ -745,13 +761,13 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     public void setCurrentViewerPane(final ViewerPane viewerPane) {
-        if (currentViewerPane != viewerPane) {
-            if (currentViewerPane != null) {
-                currentViewerPane.showFocus(false);
+        if (this.currentViewerPane != viewerPane) {
+            if (this.currentViewerPane != null) {
+                this.currentViewerPane.showFocus(false);
             }
-            currentViewerPane = viewerPane;
+            this.currentViewerPane = viewerPane;
         }
-        setCurrentViewer(currentViewerPane.getViewer());
+        setCurrentViewer(this.currentViewerPane.getViewer());
     }
 
     /**
@@ -760,11 +776,12 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
     public void setCurrentViewer(final Viewer viewer) {
         // If it is changing...
         //
-        if (currentViewer != viewer) {
-            if (selectionChangedListener == null) {
+        if (this.currentViewer != viewer) {
+            if (this.selectionChangedListener == null) {
                 // Create the listener on demand.
                 //
-                selectionChangedListener = new ISelectionChangedListener() {
+                this.selectionChangedListener = new ISelectionChangedListener() {
+
                     // This just notifies those things that are affected by the section.
                     //
                     @Override
@@ -776,23 +793,23 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
 
             // Stop listening to the old one.
             //
-            if (currentViewer != null) {
-                currentViewer.removeSelectionChangedListener(selectionChangedListener);
+            if (this.currentViewer != null) {
+                this.currentViewer.removeSelectionChangedListener(this.selectionChangedListener);
             }
 
             // Start listening to the new one.
             //
             if (viewer != null) {
-                viewer.addSelectionChangedListener(selectionChangedListener);
+                viewer.addSelectionChangedListener(this.selectionChangedListener);
             }
 
             // Remember it.
             //
-            currentViewer = viewer;
+            this.currentViewer = viewer;
 
             // Set the editors selection based on the current viewer's selection.
             //
-            setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
+            setSelection(this.currentViewer == null ? StructuredSelection.EMPTY : this.currentViewer.getSelection());
         }
     }
 
@@ -801,7 +818,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public Viewer getViewer() {
-        return currentViewer;
+        return this.currentViewer;
     }
 
     /**
@@ -819,7 +836,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         final int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
         final Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
         viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-        viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+        viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(this.editingDomain, viewer));
     }
 
     /**
@@ -899,6 +916,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             //
             {
                 final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SystemEditor.this) {
+
                     @Override
                     public Viewer createViewer(final Composite composite) {
                         final Tree tree = new Tree(composite, SWT.MULTI);
@@ -914,18 +932,18 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 };
                 viewerPane.createControl(getContainer());
 
-                selectionViewer = (TreeViewer) viewerPane.getViewer();
-                selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
+                this.selectionViewer = (TreeViewer) viewerPane.getViewer();
+                this.selectionViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
 
-                selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-                selectionViewer.setInput(editingDomain.getResourceSet());
-                selectionViewer.setSelection(
-                        new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
-                viewerPane.setTitle(editingDomain.getResourceSet());
+                this.selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
+                this.selectionViewer.setInput(this.editingDomain.getResourceSet());
+                this.selectionViewer.setSelection(new StructuredSelection(this.editingDomain.getResourceSet()
+                        .getResources().get(0)), true);
+                viewerPane.setTitle(this.editingDomain.getResourceSet());
 
-                new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
+                new AdapterFactoryTreeEditor(this.selectionViewer.getTree(), this.adapterFactory);
 
-                createContextMenuFor(selectionViewer);
+                createContextMenuFor(this.selectionViewer);
                 final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_SelectionPage_label"));
             }
@@ -934,6 +952,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             //
             {
                 final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SystemEditor.this) {
+
                     @Override
                     public Viewer createViewer(final Composite composite) {
                         final Tree tree = new Tree(composite, SWT.MULTI);
@@ -949,12 +968,12 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 };
                 viewerPane.createControl(getContainer());
 
-                parentViewer = (TreeViewer) viewerPane.getViewer();
-                parentViewer.setAutoExpandLevel(30);
-                parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(adapterFactory));
-                parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.parentViewer = (TreeViewer) viewerPane.getViewer();
+                this.parentViewer.setAutoExpandLevel(30);
+                this.parentViewer.setContentProvider(new ReverseAdapterFactoryContentProvider(this.adapterFactory));
+                this.parentViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(parentViewer);
+                createContextMenuFor(this.parentViewer);
                 final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_ParentPage_label"));
             }
@@ -963,6 +982,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             //
             {
                 final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SystemEditor.this) {
+
                     @Override
                     public Viewer createViewer(final Composite composite) {
                         return new ListViewer(composite);
@@ -975,11 +995,11 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                     }
                 };
                 viewerPane.createControl(getContainer());
-                listViewer = (ListViewer) viewerPane.getViewer();
-                listViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                listViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.listViewer = (ListViewer) viewerPane.getViewer();
+                this.listViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.listViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(listViewer);
+                createContextMenuFor(this.listViewer);
                 final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_ListPage_label"));
             }
@@ -988,6 +1008,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             //
             {
                 final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SystemEditor.this) {
+
                     @Override
                     public Viewer createViewer(final Composite composite) {
                         return new TreeViewer(composite);
@@ -1000,13 +1021,13 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                     }
                 };
                 viewerPane.createControl(getContainer());
-                treeViewer = (TreeViewer) viewerPane.getViewer();
-                treeViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.treeViewer = (TreeViewer) viewerPane.getViewer();
+                this.treeViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                new AdapterFactoryTreeEditor(treeViewer.getTree(), adapterFactory);
+                new AdapterFactoryTreeEditor(this.treeViewer.getTree(), this.adapterFactory);
 
-                createContextMenuFor(treeViewer);
+                createContextMenuFor(this.treeViewer);
                 final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_TreePage_label"));
             }
@@ -1015,6 +1036,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             //
             {
                 final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SystemEditor.this) {
+
                     @Override
                     public Viewer createViewer(final Composite composite) {
                         return new TableViewer(composite);
@@ -1027,9 +1049,9 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                     }
                 };
                 viewerPane.createControl(getContainer());
-                tableViewer = (TableViewer) viewerPane.getViewer();
+                this.tableViewer = (TableViewer) viewerPane.getViewer();
 
-                final Table table = tableViewer.getTable();
+                final Table table = this.tableViewer.getTable();
                 final TableLayout layout = new TableLayout();
                 table.setLayout(layout);
                 table.setHeaderVisible(true);
@@ -1045,11 +1067,11 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 selfColumn.setText(getString("_UI_SelfColumn_label"));
                 selfColumn.setResizable(true);
 
-                tableViewer.setColumnProperties(new String[] { "a", "b" });
-                tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.tableViewer.setColumnProperties(new String[] { "a", "b" });
+                this.tableViewer.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(tableViewer);
+                createContextMenuFor(this.tableViewer);
                 final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_TablePage_label"));
             }
@@ -1058,6 +1080,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             //
             {
                 final ViewerPane viewerPane = new ViewerPane(getSite().getPage(), SystemEditor.this) {
+
                     @Override
                     public Viewer createViewer(final Composite composite) {
                         return new TreeViewer(composite);
@@ -1071,9 +1094,9 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 };
                 viewerPane.createControl(getContainer());
 
-                treeViewerWithColumns = (TreeViewer) viewerPane.getViewer();
+                this.treeViewerWithColumns = (TreeViewer) viewerPane.getViewer();
 
-                final Tree tree = treeViewerWithColumns.getTree();
+                final Tree tree = this.treeViewerWithColumns.getTree();
                 tree.setLayoutData(new FillLayout());
                 tree.setHeaderVisible(true);
                 tree.setLinesVisible(true);
@@ -1088,16 +1111,17 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 selfColumn.setResizable(true);
                 selfColumn.setWidth(200);
 
-                treeViewerWithColumns.setColumnProperties(new String[] { "a", "b" });
-                treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+                this.treeViewerWithColumns.setColumnProperties(new String[] { "a", "b" });
+                this.treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(this.adapterFactory));
+                this.treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(this.adapterFactory));
 
-                createContextMenuFor(treeViewerWithColumns);
+                createContextMenuFor(this.treeViewerWithColumns);
                 final int pageIndex = addPage(viewerPane.getControl());
                 setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
             }
 
             getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
                 @Override
                 public void run() {
                     setActivePage(0);
@@ -1109,19 +1133,21 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         // area if there are more than one page
         //
         getContainer().addControlListener(new ControlAdapter() {
+
             boolean guard = false;
 
             @Override
             public void controlResized(final ControlEvent event) {
-                if (!guard) {
-                    guard = true;
+                if (!this.guard) {
+                    this.guard = true;
                     hideTabs();
-                    guard = false;
+                    this.guard = false;
                 }
             }
         });
 
         getSite().getShell().getDisplay().asyncExec(new Runnable() {
+
             @Override
             public void run() {
                 updateProblemIndication();
@@ -1164,8 +1190,8 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
     protected void pageChange(final int pageIndex) {
         super.pageChange(pageIndex);
 
-        if (contentOutlinePage != null) {
-            handleContentOutlineSelection(contentOutlinePage.getSelection());
+        if (this.contentOutlinePage != null) {
+            handleContentOutlineSelection(this.contentOutlinePage.getSelection());
         }
     }
 
@@ -1190,31 +1216,34 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     public IContentOutlinePage getContentOutlinePage() {
-        if (contentOutlinePage == null) {
+        if (this.contentOutlinePage == null) {
             // The content outline is just a tree.
             //
             class MyContentOutlinePage extends ContentOutlinePage {
+
                 @Override
                 public void createControl(final Composite parent) {
                     super.createControl(parent);
-                    contentOutlineViewer = getTreeViewer();
-                    contentOutlineViewer.addSelectionChangedListener(this);
+                    SystemEditor.this.contentOutlineViewer = getTreeViewer();
+                    SystemEditor.this.contentOutlineViewer.addSelectionChangedListener(this);
 
                     // Set up the tree viewer.
                     //
-                    contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-                    contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-                    contentOutlineViewer.setInput(editingDomain.getResourceSet());
+                    SystemEditor.this.contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(
+                            SystemEditor.this.adapterFactory));
+                    SystemEditor.this.contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(
+                            SystemEditor.this.adapterFactory));
+                    SystemEditor.this.contentOutlineViewer.setInput(SystemEditor.this.editingDomain.getResourceSet());
 
                     // Make sure our popups work.
                     //
-                    createContextMenuFor(contentOutlineViewer);
+                    createContextMenuFor(SystemEditor.this.contentOutlineViewer);
 
-                    if (!editingDomain.getResourceSet().getResources().isEmpty()) {
+                    if (!SystemEditor.this.editingDomain.getResourceSet().getResources().isEmpty()) {
                         // Select the root object in the view.
                         //
-                        contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet()
-                                .getResources().get(0)), true);
+                        SystemEditor.this.contentOutlineViewer.setSelection(new StructuredSelection(
+                                SystemEditor.this.editingDomain.getResourceSet().getResources().get(0)), true);
                     }
                 }
 
@@ -1222,7 +1251,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 public void makeContributions(final IMenuManager menuManager, final IToolBarManager toolBarManager,
                         final IStatusLineManager statusLineManager) {
                     super.makeContributions(menuManager, toolBarManager, statusLineManager);
-                    contentOutlineStatusLineManager = statusLineManager;
+                    SystemEditor.this.contentOutlineStatusLineManager = statusLineManager;
                 }
 
                 @Override
@@ -1232,11 +1261,12 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 }
             }
 
-            contentOutlinePage = new MyContentOutlinePage();
+            this.contentOutlinePage = new MyContentOutlinePage();
 
             // Listen to selection so that we can handle it is a special way.
             //
-            contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+            this.contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+
                 // This ensures that we handle selections correctly.
                 //
                 @Override
@@ -1246,7 +1276,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             });
         }
 
-        return contentOutlinePage;
+        return this.contentOutlinePage;
     }
 
     /**
@@ -1259,6 +1289,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
     public IPropertySheetPage getPropertySheetPage() {
         if (this.propertySheetPages.isEmpty()) {
             final PropertySheetPage propertySheetPage = new ExtendedPropertySheetPage(this.editingDomain) {
+
                 @Override
                 public void setSelectionToViewer(final List<?> selection) {
                     SystemEditor.this.setSelectionToViewer(selection);
@@ -1282,7 +1313,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     public void handleContentOutlineSelection(final ISelection selection) {
-        if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
+        if (this.currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
             final Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
             if (selectedElements.hasNext()) {
                 // Get the first selected element.
@@ -1292,7 +1323,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 // If it's the selection viewer, then we want it to select the same selection as
                 // this selection.
                 //
-                if (currentViewerPane.getViewer() == selectionViewer) {
+                if (this.currentViewerPane.getViewer() == this.selectionViewer) {
                     final ArrayList<Object> selectionList = new ArrayList<Object>();
                     selectionList.add(selectedElement);
                     while (selectedElements.hasNext()) {
@@ -1301,13 +1332,13 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
 
                     // Set the selection to the widget.
                     //
-                    selectionViewer.setSelection(new StructuredSelection(selectionList));
+                    this.selectionViewer.setSelection(new StructuredSelection(selectionList));
                 } else {
                     // Set the input to the widget.
                     //
-                    if (currentViewerPane.getViewer().getInput() != selectedElement) {
-                        currentViewerPane.getViewer().setInput(selectedElement);
-                        currentViewerPane.setTitle(selectedElement);
+                    if (this.currentViewerPane.getViewer().getInput() != selectedElement) {
+                        this.currentViewerPane.getViewer().setInput(selectedElement);
+                        this.currentViewerPane.setTitle(selectedElement);
                     }
                 }
             }
@@ -1319,7 +1350,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public boolean isDirty() {
-        return ((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded();
+        return ((BasicCommandStack) this.editingDomain.getCommandStack()).isSaveNeeded();
     }
 
     /**
@@ -1336,6 +1367,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         // workbench.
         //
         final WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+
             // This is the method that gets invoked when the operation runs.
             //
             @Override
@@ -1343,17 +1375,18 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                 // Save the resources to the file system.
                 //
                 boolean first = true;
-                for (final Resource resource : editingDomain.getResourceSet().getResources()) {
+                for (final Resource resource : SystemEditor.this.editingDomain.getResourceSet().getResources()) {
                     if ((first || !resource.getContents().isEmpty() || isPersisted(resource))
-                            && !editingDomain.isReadOnly(resource)) {
+                            && !SystemEditor.this.editingDomain.isReadOnly(resource)) {
                         try {
                             final long timeStamp = resource.getTimeStamp();
                             resource.save(saveOptions);
                             if (resource.getTimeStamp() != timeStamp) {
-                                savedResources.add(resource);
+                                SystemEditor.this.savedResources.add(resource);
                             }
                         } catch (final Exception exception) {
-                            resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+                            SystemEditor.this.resourceToDiagnosticMap.put(resource,
+                                    analyzeResourceProblems(resource, exception));
                         }
                         first = false;
                     }
@@ -1361,7 +1394,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
             }
         };
 
-        updateProblemIndication = false;
+        this.updateProblemIndication = false;
         try {
             // This runs the options, and shows progress.
             //
@@ -1369,14 +1402,14 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
 
             // Refresh the necessary state.
             //
-            ((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
+            ((BasicCommandStack) this.editingDomain.getCommandStack()).saveIsDone();
             firePropertyChange(IEditorPart.PROP_DIRTY);
         } catch (final Exception exception) {
             // Something went wrong that shouldn't.
             //
             PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
         }
-        updateProblemIndication = true;
+        this.updateProblemIndication = true;
         updateProblemIndication();
     }
 
@@ -1386,7 +1419,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
     protected boolean isPersisted(final Resource resource) {
         boolean result = false;
         try {
-            final InputStream stream = editingDomain.getResourceSet().getURIConverter()
+            final InputStream stream = this.editingDomain.getResourceSet().getURIConverter()
                     .createInputStream(resource.getURI());
             if (stream != null) {
                 result = true;
@@ -1426,7 +1459,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     protected void doSaveAs(final URI uri, final IEditorInput editorInput) {
-        (editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
+        (this.editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
         setInputWithNotify(editorInput);
         setPartName(editorInput.getName());
         final IProgressMonitor progressMonitor = getActionBars().getStatusLineManager() != null ? getActionBars()
@@ -1439,7 +1472,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public void gotoMarker(final IMarker marker) {
-        final List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
+        final List<?> targetObjects = this.markerHelper.getTargetObjects(this.editingDomain, marker);
         if (!targetObjects.isEmpty()) {
             setSelectionToViewer(targetObjects);
         }
@@ -1454,8 +1487,8 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
         setInputWithNotify(editorInput);
         setPartName(editorInput.getName());
         site.setSelectionProvider(this);
-        site.getPage().addPartListener(partListener);
-        ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener,
+        site.getPage().addPartListener(this.partListener);
+        ResourcesPlugin.getWorkspace().addResourceChangeListener(this.resourceChangeListener,
                 IResourceChangeEvent.POST_CHANGE);
     }
 
@@ -1464,8 +1497,8 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public void setFocus() {
-        if (currentViewerPane != null) {
-            currentViewerPane.setFocus();
+        if (this.currentViewerPane != null) {
+            this.currentViewerPane.setFocus();
         } else {
             getControl(getActivePage()).setFocus();
         }
@@ -1476,7 +1509,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public void addSelectionChangedListener(final ISelectionChangedListener listener) {
-        selectionChangedListeners.add(listener);
+        this.selectionChangedListeners.add(listener);
     }
 
     /**
@@ -1484,7 +1517,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public void removeSelectionChangedListener(final ISelectionChangedListener listener) {
-        selectionChangedListeners.remove(listener);
+        this.selectionChangedListeners.remove(listener);
     }
 
     /**
@@ -1492,7 +1525,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public ISelection getSelection() {
-        return editorSelection;
+        return this.editorSelection;
     }
 
     /**
@@ -1500,9 +1533,9 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      */
     @Override
     public void setSelection(final ISelection selection) {
-        editorSelection = selection;
+        this.editorSelection = selection;
 
-        for (final ISelectionChangedListener listener : selectionChangedListeners) {
+        for (final ISelectionChangedListener listener : this.selectionChangedListeners) {
             listener.selectionChanged(new SelectionChangedEvent(this, selection));
         }
         setStatusLineManager(selection);
@@ -1512,7 +1545,8 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     public void setStatusLineManager(final ISelection selection) {
-        final IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ? contentOutlineStatusLineManager
+        final IStatusLineManager statusLineManager = this.currentViewer != null
+                && this.currentViewer == this.contentOutlineViewer ? this.contentOutlineStatusLineManager
                 : getActionBars().getStatusLineManager();
 
         if (statusLineManager != null) {
@@ -1524,8 +1558,8 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
                     break;
                 }
                 case 1: {
-                    final String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator()
-                            .next());
+                    final String text = new AdapterFactoryItemDelegator(this.adapterFactory).getText(collection
+                            .iterator().next());
                     statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
                     break;
                 }
@@ -1581,7 +1615,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
      * @generated
      */
     public AdapterFactory getAdapterFactory() {
-        return adapterFactory;
+        return this.adapterFactory;
     }
 
     /**
@@ -1597,7 +1631,7 @@ public class SystemEditor extends MultiPageEditorPart implements IEditingDomainP
 
         this.getSite().getPage().removePartListener(this.partListener);
 
-        ((PalladioItemProviderAdapterFactory) this.adapterFactory).dispose();
+        ((IDisposable) this.adapterFactory).dispose();
 
         if (this.getActionBarContributor().getActiveEditor() == this) {
             this.getActionBarContributor().setActiveEditor(null);
