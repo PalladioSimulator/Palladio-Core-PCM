@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.allocation.util;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.mdsdprofiles.ProfileableElement;
 import org.palladiosimulator.mdsdprofiles.StereotypableElement;
@@ -26,28 +25,29 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage
  * @generated
  */
 public class AllocationSwitch<T> {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static AllocationPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AllocationSwitch() {
@@ -59,7 +59,7 @@ public class AllocationSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -70,7 +70,7 @@ public class AllocationSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -86,7 +86,7 @@ public class AllocationSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -106,9 +106,6 @@ public class AllocationSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(allocationContext);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(allocationContext);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -132,9 +129,6 @@ public class AllocationSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(allocation);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(allocation);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -177,25 +171,10 @@ public class AllocationSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseEModelElement(final EModelElement object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '
      * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -226,7 +205,7 @@ public class AllocationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
@@ -256,7 +235,7 @@ public class AllocationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Profileable Element</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Profileable Element</em>

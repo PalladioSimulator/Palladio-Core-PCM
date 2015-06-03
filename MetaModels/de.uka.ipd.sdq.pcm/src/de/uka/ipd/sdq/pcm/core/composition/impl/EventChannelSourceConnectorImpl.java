@@ -38,9 +38,10 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * @generated
  */
 public class EventChannelSourceConnectorImpl extends ConnectorImpl implements EventChannelSourceConnector {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +50,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      * The cached value of the '{@link #getSourceRole__EventChannelSourceRole()
      * <em>Source Role Event Channel Source Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getSourceRole__EventChannelSourceRole()
      * @generated
      * @ordered
@@ -59,7 +60,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      * The cached value of the '{@link #getAssemblyContext__EventChannelSourceConnector()
      * <em>Assembly Context Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getAssemblyContext__EventChannelSourceConnector()
      * @generated
      * @ordered
@@ -69,7 +70,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      * The cached value of the '{@link #getEventChannel__EventChannelSourceConnector()
      * <em>Event Channel Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getEventChannel__EventChannelSourceConnector()
      * @generated
      * @ordered
@@ -78,7 +79,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventChannelSourceConnectorImpl() {
@@ -87,7 +88,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -97,7 +98,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +120,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SourceRole basicGetSourceRole__EventChannelSourceRole() {
@@ -128,7 +129,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +145,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -170,7 +171,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__EventChannelSourceConnector() {
@@ -179,7 +180,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -196,7 +197,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -222,7 +223,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EventChannel basicGetEventChannel__EventChannelSourceConnector() {
@@ -231,7 +232,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetEventChannel__EventChannelSourceConnector(
@@ -253,7 +254,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -285,7 +286,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -304,7 +305,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -319,7 +320,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -346,7 +347,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -367,7 +368,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -388,7 +389,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

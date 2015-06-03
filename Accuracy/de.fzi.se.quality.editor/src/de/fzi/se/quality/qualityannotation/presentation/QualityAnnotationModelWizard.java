@@ -6,7 +6,6 @@
  */
 package de.fzi.se.quality.qualityannotation.presentation;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -65,544 +64,547 @@ import de.fzi.se.quality.provider.QualityEditPlugin;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationFactory;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 
-
 /**
- * This is a simple wizard for creating a new model file.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc
+ * -->
+ * 
  * @generated
  */
 public class QualityAnnotationModelWizard extends Wizard implements INewWizard {
-	/**
-	 * The supported extensions for created files.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationEditorFilenameExtensions").split("\\s*,\\s*")));
 
-	/**
-	 * A formatted list of supported file extensions, suitable for display.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String FORMATTED_FILE_EXTENSIONS =
-		QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+    /**
+     * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays
+            .asList(QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationEditorFilenameExtensions").split(
+                    "\\s*,\\s*")));
 
-	/**
-	 * This caches an instance of the model package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected QualityAnnotationPackage qualityAnnotationPackage = QualityAnnotationPackage.eINSTANCE;
+    /**
+     * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public static final String FORMATTED_FILE_EXTENSIONS = QualityEditorPlugin.INSTANCE.getString(
+            "_UI_QualityAnnotationEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
-	/**
-	 * This caches an instance of the model factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected QualityAnnotationFactory qualityAnnotationFactory = qualityAnnotationPackage.getQualityAnnotationFactory();
+    /**
+     * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected QualityAnnotationPackage qualityAnnotationPackage = QualityAnnotationPackage.eINSTANCE;
 
-	/**
-	 * This is the file creation page.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected QualityAnnotationModelWizardNewFileCreationPage newFileCreationPage;
+    /**
+     * This caches an instance of the model factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected QualityAnnotationFactory qualityAnnotationFactory = this.qualityAnnotationPackage
+            .getQualityAnnotationFactory();
 
-	/**
-	 * This is the initial object creation page.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected QualityAnnotationModelWizardInitialObjectCreationPage initialObjectCreationPage;
+    /**
+     * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected QualityAnnotationModelWizardNewFileCreationPage newFileCreationPage;
 
-	/**
-	 * Remember the selection during initialization for populating the default container.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IStructuredSelection selection;
+    /**
+     * This is the initial object creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected QualityAnnotationModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
-	/**
-	 * Remember the workbench during initialization.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IWorkbench workbench;
+    /**
+     * Remember the selection during initialization for populating the default container. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected IStructuredSelection selection;
 
-	/**
-	 * Caches the names of the types that can be created as the root object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected List<String> initialObjectNames;
+    /**
+     * Remember the workbench during initialization. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected IWorkbench workbench;
 
-	/**
-	 * This just records the information.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		this.workbench = workbench;
-		this.selection = selection;
-		setWindowTitle(QualityEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(QualityEditorPlugin.INSTANCE.getImage("full/wizban/NewQualityAnnotation")));
-	}
+    /**
+     * Caches the names of the types that can be created as the root object. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected List<String> initialObjectNames;
 
-	/**
-	 * Returns the names of the types that can be created as the root object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Collection<String> getInitialObjectNames() {
-		if (initialObjectNames == null) {
-			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : qualityAnnotationPackage.getEClassifiers()) {
-				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
-						initialObjectNames.add(eClass.getName());
-					}
-				}
-			}
-			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
-		}
-		return initialObjectNames;
-	}
+    /**
+     * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void init(final IWorkbench workbench, final IStructuredSelection selection) {
+        this.workbench = workbench;
+        this.selection = selection;
+        this.setWindowTitle(QualityEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+        this.setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
+                .getImageDescriptor(QualityEditorPlugin.INSTANCE.getImage("full/wizban/NewQualityAnnotation")));
+    }
 
-	/**
-	 * Create a new model.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EObject createInitialModel() {
-		EClass eClass = (EClass)qualityAnnotationPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = qualityAnnotationFactory.create(eClass);
-		return rootObject;
-	}
+    /**
+     * Returns the names of the types that can be created as the root object. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected Collection<String> getInitialObjectNames() {
+        if (this.initialObjectNames == null) {
+            this.initialObjectNames = new ArrayList<String>();
+            for (final EClassifier eClassifier : this.qualityAnnotationPackage.getEClassifiers()) {
+                if (eClassifier instanceof EClass) {
+                    final EClass eClass = (EClass) eClassifier;
+                    if (!eClass.isAbstract()) {
+                        this.initialObjectNames.add(eClass.getName());
+                    }
+                }
+            }
+            Collections.sort(this.initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+        }
+        return this.initialObjectNames;
+    }
 
-	/**
-	 * Do the work after everything is specified.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean performFinish() {
-		try {
-			// Remember the file.
-			//
-			final IFile modelFile = getModelFile();
+    /**
+     * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected EObject createInitialModel() {
+        final EClass eClass = (EClass) this.qualityAnnotationPackage.getEClassifier(this.initialObjectCreationPage
+                .getInitialObjectName());
+        final EObject rootObject = this.qualityAnnotationFactory.create(eClass);
+        return rootObject;
+    }
 
-			// Do the work within an operation.
-			//
-			WorkspaceModifyOperation operation =
-				new WorkspaceModifyOperation() {
-					@Override
-					protected void execute(IProgressMonitor progressMonitor) {
-						try {
-							// Create a resource set
-							//
-							ResourceSet resourceSet = new ResourceSetImpl();
+    /**
+     * Do the work after everything is specified. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public boolean performFinish() {
+        try {
+            // Remember the file.
+            //
+            final IFile modelFile = this.getModelFile();
 
-							// Get the URI of the model file.
-							//
-							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+            // Do the work within an operation.
+            //
+            final WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 
-							// Create a resource for this file.
-							//
-							Resource resource = resourceSet.createResource(fileURI);
+                @Override
+                protected void execute(final IProgressMonitor progressMonitor) {
+                    try {
+                        // Create a resource set
+                        //
+                        final ResourceSet resourceSet = new ResourceSetImpl();
 
-							// Add the initial model object to the contents.
-							//
-							EObject rootObject = createInitialModel();
-							if (rootObject != null) {
-								resource.getContents().add(rootObject);
-							}
+                        // Get the URI of the model file.
+                        //
+                        final URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
-							// Save the contents of the resource to the file system.
-							//
-							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
-							resource.save(options);
-						}
-						catch (Exception exception) {
-							QualityEditorPlugin.INSTANCE.log(exception);
-						}
-						finally {
-							progressMonitor.done();
-						}
-					}
-				};
+                        // Create a resource for this file.
+                        //
+                        final Resource resource = resourceSet.createResource(fileURI);
 
-			getContainer().run(false, false, operation);
+                        // Add the initial model object to the contents.
+                        //
+                        final EObject rootObject = QualityAnnotationModelWizard.this.createInitialModel();
+                        if (rootObject != null) {
+                            resource.getContents().add(rootObject);
+                        }
 
-			// Select the new file resource in the current view.
-			//
-			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
-			IWorkbenchPage page = workbenchWindow.getActivePage();
-			final IWorkbenchPart activePart = page.getActivePart();
-			if (activePart instanceof ISetSelectionTarget) {
-				final ISelection targetSelection = new StructuredSelection(modelFile);
-				getShell().getDisplay().asyncExec
-					(new Runnable() {
-						 public void run() {
-							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
-						 }
-					 });
-			}
+                        // Save the contents of the resource to the file system.
+                        //
+                        final Map<Object, Object> options = new HashMap<Object, Object>();
+                        options.put(XMLResource.OPTION_ENCODING,
+                                QualityAnnotationModelWizard.this.initialObjectCreationPage.getEncoding());
+                        resource.save(options);
+                    } catch (final Exception exception) {
+                        QualityEditorPlugin.INSTANCE.log(exception);
+                    } finally {
+                        progressMonitor.done();
+                    }
+                }
+            };
 
-			// Open an editor on the new file.
-			//
-			try {
-				page.openEditor
-					(new FileEditorInput(modelFile),
-					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
-			}
-			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), QualityEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
-				return false;
-			}
+            this.getContainer().run(false, false, operation);
 
-			return true;
-		}
-		catch (Exception exception) {
-			QualityEditorPlugin.INSTANCE.log(exception);
-			return false;
-		}
-	}
+            // Select the new file resource in the current view.
+            //
+            final IWorkbenchWindow workbenchWindow = this.workbench.getActiveWorkbenchWindow();
+            final IWorkbenchPage page = workbenchWindow.getActivePage();
+            final IWorkbenchPart activePart = page.getActivePart();
+            if (activePart instanceof ISetSelectionTarget) {
+                final ISelection targetSelection = new StructuredSelection(modelFile);
+                this.getShell().getDisplay().asyncExec(new Runnable() {
 
-	/**
-	 * This is the one page of the wizard.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public class QualityAnnotationModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
-		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public QualityAnnotationModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
-			super(pageId, selection);
-		}
+                    @Override
+                    public void run() {
+                        ((ISetSelectionTarget) activePart).selectReveal(targetSelection);
+                    }
+                });
+            }
 
-		/**
-		 * The framework calls this to see if the file is correct.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		protected boolean validatePage() {
-			if (super.validatePage()) {
-				String extension = new Path(getFileName()).getFileExtension();
-				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(QualityEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
-					return false;
-				}
-				return true;
-			}
-			return false;
-		}
+            // Open an editor on the new file.
+            //
+            try {
+                page.openEditor(new FileEditorInput(modelFile),
+                        this.workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
+            } catch (final PartInitException exception) {
+                MessageDialog.openError(workbenchWindow.getShell(),
+                        QualityEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+                return false;
+            }
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public IFile getModelFile() {
-			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
-		}
-	}
+            return true;
+        } catch (final Exception exception) {
+            QualityEditorPlugin.INSTANCE.log(exception);
+            return false;
+        }
+    }
 
-	/**
-	 * This is the page where the type of object to create is selected.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public class QualityAnnotationModelWizardInitialObjectCreationPage extends WizardPage {
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected Combo initialObjectField;
+    /**
+     * This is the one page of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public class QualityAnnotationModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 
-		/**
-		 * @generated
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 */
-		protected List<String> encodings;
+        /**
+         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        public QualityAnnotationModelWizardNewFileCreationPage(final String pageId, final IStructuredSelection selection) {
+            super(pageId, selection);
+        }
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected Combo encodingField;
+        /**
+         * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         * 
+         * @generated
+         */
+        @Override
+        protected boolean validatePage() {
+            if (super.validatePage()) {
+                final String extension = new Path(this.getFileName()).getFileExtension();
+                if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+                    final String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
+                            : "_WARN_FilenameExtension";
+                    this.setErrorMessage(QualityEditorPlugin.INSTANCE.getString(key,
+                            new Object[] { FORMATTED_FILE_EXTENSIONS }));
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        }
 
-		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public QualityAnnotationModelWizardInitialObjectCreationPage(String pageId) {
-			super(pageId);
-		}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        public IFile getModelFile() {
+            return ResourcesPlugin.getWorkspace().getRoot()
+                    .getFile(this.getContainerFullPath().append(this.getFileName()));
+        }
+    }
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE); {
-				GridLayout layout = new GridLayout();
-				layout.numColumns = 1;
-				layout.verticalSpacing = 12;
-				composite.setLayout(layout);
+    /**
+     * This is the page where the type of object to create is selected. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    public class QualityAnnotationModelWizardInitialObjectCreationPage extends WizardPage {
 
-				GridData data = new GridData();
-				data.verticalAlignment = GridData.FILL;
-				data.grabExcessVerticalSpace = true;
-				data.horizontalAlignment = GridData.FILL;
-				composite.setLayoutData(data);
-			}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        protected Combo initialObjectField;
 
-			Label containerLabel = new Label(composite, SWT.LEFT);
-			{
-				containerLabel.setText(QualityEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+        /**
+         * @generated <!-- begin-user-doc --> <!-- end-user-doc -->
+         */
+        protected List<String> encodings;
 
-				GridData data = new GridData();
-				data.horizontalAlignment = GridData.FILL;
-				containerLabel.setLayoutData(data);
-			}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        protected Combo encodingField;
 
-			initialObjectField = new Combo(composite, SWT.BORDER);
-			{
-				GridData data = new GridData();
-				data.horizontalAlignment = GridData.FILL;
-				data.grabExcessHorizontalSpace = true;
-				initialObjectField.setLayoutData(data);
-			}
+        /**
+         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        public QualityAnnotationModelWizardInitialObjectCreationPage(final String pageId) {
+            super(pageId);
+        }
 
-			for (String objectName : getInitialObjectNames()) {
-				initialObjectField.add(getLabel(objectName));
-			}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        @Override
+        public void createControl(final Composite parent) {
+            final Composite composite = new Composite(parent, SWT.NONE);
+            {
+                final GridLayout layout = new GridLayout();
+                layout.numColumns = 1;
+                layout.verticalSpacing = 12;
+                composite.setLayout(layout);
 
-			if (initialObjectField.getItemCount() == 1) {
-				initialObjectField.select(0);
-			}
-			initialObjectField.addModifyListener(validator);
+                final GridData data = new GridData();
+                data.verticalAlignment = GridData.FILL;
+                data.grabExcessVerticalSpace = true;
+                data.horizontalAlignment = GridData.FILL;
+                composite.setLayoutData(data);
+            }
 
-			Label encodingLabel = new Label(composite, SWT.LEFT);
-			{
-				encodingLabel.setText(QualityEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+            final Label containerLabel = new Label(composite, SWT.LEFT);
+            {
+                containerLabel.setText(QualityEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
-				GridData data = new GridData();
-				data.horizontalAlignment = GridData.FILL;
-				encodingLabel.setLayoutData(data);
-			}
-			encodingField = new Combo(composite, SWT.BORDER);
-			{
-				GridData data = new GridData();
-				data.horizontalAlignment = GridData.FILL;
-				data.grabExcessHorizontalSpace = true;
-				encodingField.setLayoutData(data);
-			}
+                final GridData data = new GridData();
+                data.horizontalAlignment = GridData.FILL;
+                containerLabel.setLayoutData(data);
+            }
 
-			for (String encoding : getEncodings()) {
-				encodingField.add(encoding);
-			}
+            this.initialObjectField = new Combo(composite, SWT.BORDER);
+            {
+                final GridData data = new GridData();
+                data.horizontalAlignment = GridData.FILL;
+                data.grabExcessHorizontalSpace = true;
+                this.initialObjectField.setLayoutData(data);
+            }
 
-			encodingField.select(0);
-			encodingField.addModifyListener(validator);
+            for (final String objectName : QualityAnnotationModelWizard.this.getInitialObjectNames()) {
+                this.initialObjectField.add(this.getLabel(objectName));
+            }
 
-			setPageComplete(validatePage());
-			setControl(composite);
-		}
+            if (this.initialObjectField.getItemCount() == 1) {
+                this.initialObjectField.select(0);
+            }
+            this.initialObjectField.addModifyListener(this.validator);
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected ModifyListener validator =
-			new ModifyListener() {
-				public void modifyText(ModifyEvent e) {
-					setPageComplete(validatePage());
-				}
-			};
+            final Label encodingLabel = new Label(composite, SWT.LEFT);
+            {
+                encodingLabel.setText(QualityEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected boolean validatePage() {
-			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
-		}
+                final GridData data = new GridData();
+                data.horizontalAlignment = GridData.FILL;
+                encodingLabel.setLayoutData(data);
+            }
+            this.encodingField = new Combo(composite, SWT.BORDER);
+            {
+                final GridData data = new GridData();
+                data.horizontalAlignment = GridData.FILL;
+                data.grabExcessHorizontalSpace = true;
+                this.encodingField.setLayoutData(data);
+            }
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		public void setVisible(boolean visible) {
-			super.setVisible(visible);
-			if (visible) {
-				if (initialObjectField.getItemCount() == 1) {
-					initialObjectField.clearSelection();
-					encodingField.setFocus();
-				}
-				else {
-					encodingField.clearSelection();
-					initialObjectField.setFocus();
-				}
-			}
-		}
+            for (final String encoding : this.getEncodings()) {
+                this.encodingField.add(encoding);
+            }
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public String getInitialObjectName() {
-			String label = initialObjectField.getText();
+            this.encodingField.select(0);
+            this.encodingField.addModifyListener(this.validator);
 
-			for (String name : getInitialObjectNames()) {
-				if (getLabel(name).equals(label)) {
-					return name;
-				}
-			}
-			return null;
-		}
+            this.setPageComplete(this.validatePage());
+            this.setControl(composite);
+        }
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public String getEncoding() {
-			return encodingField.getText();
-		}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        protected ModifyListener validator = new ModifyListener() {
 
-		/**
-		 * Returns the label for the specified type name.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected String getLabel(String typeName) {
-			try {
-				return QualityEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-			}
-			catch(MissingResourceException mre) {
-				QualityEditorPlugin.INSTANCE.log(mre);
-			}
-			return typeName;
-		}
+            @Override
+            public void modifyText(final ModifyEvent e) {
+                QualityAnnotationModelWizardInitialObjectCreationPage.this
+                        .setPageComplete(QualityAnnotationModelWizardInitialObjectCreationPage.this.validatePage());
+            }
+        };
 
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		protected Collection<String> getEncodings() {
-			if (encodings == null) {
-				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(QualityEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
-					encodings.add(stringTokenizer.nextToken());
-				}
-			}
-			return encodings;
-		}
-	}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        protected boolean validatePage() {
+            return this.getInitialObjectName() != null && this.getEncodings().contains(this.encodingField.getText());
+        }
 
-	/**
-	 * The framework calls this to create the contents of the wizard.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-		@Override
-	public void addPages() {
-		// Create a page, set the title, and the initial model file name.
-		//
-		newFileCreationPage = new QualityAnnotationModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationModelWizard_label"));
-		newFileCreationPage.setDescription(QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationModelWizard_description"));
-		newFileCreationPage.setFileName(QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
-		addPage(newFileCreationPage);
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        @Override
+        public void setVisible(final boolean visible) {
+            super.setVisible(visible);
+            if (visible) {
+                if (this.initialObjectField.getItemCount() == 1) {
+                    this.initialObjectField.clearSelection();
+                    this.encodingField.setFocus();
+                } else {
+                    this.encodingField.clearSelection();
+                    this.initialObjectField.setFocus();
+                }
+            }
+        }
 
-		// Try and get the resource selection to determine a current directory for the file dialog.
-		//
-		if (selection != null && !selection.isEmpty()) {
-			// Get the resource...
-			//
-			Object selectedElement = selection.iterator().next();
-			if (selectedElement instanceof IResource) {
-				// Get the resource parent, if its a file.
-				//
-				IResource selectedResource = (IResource)selectedElement;
-				if (selectedResource.getType() == IResource.FILE) {
-					selectedResource = selectedResource.getParent();
-				}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        public String getInitialObjectName() {
+            final String label = this.initialObjectField.getText();
 
-				// This gives us a directory...
-				//
-				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
-					// Set this for the container.
-					//
-					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
+            for (final String name : QualityAnnotationModelWizard.this.getInitialObjectNames()) {
+                if (this.getLabel(name).equals(label)) {
+                    return name;
+                }
+            }
+            return null;
+        }
 
-					// Make up a unique new name here.
-					//
-					String defaultModelBaseFilename = QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
-					}
-					newFileCreationPage.setFileName(modelFilename);
-				}
-			}
-		}
-		initialObjectCreationPage = new QualityAnnotationModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(QualityEditorPlugin.INSTANCE.getString("_UI_QualityAnnotationModelWizard_label"));
-		initialObjectCreationPage.setDescription(QualityEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-		addPage(initialObjectCreationPage);
-	}
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        public String getEncoding() {
+            return this.encodingField.getText();
+        }
 
-	/**
-	 * Get the file from the page.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IFile getModelFile() {
-		return newFileCreationPage.getModelFile();
-	}
+        /**
+         * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
+         * 
+         * @generated
+         */
+        protected String getLabel(final String typeName) {
+            try {
+                return QualityEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+            } catch (final MissingResourceException mre) {
+                QualityEditorPlugin.INSTANCE.log(mre);
+            }
+            return typeName;
+        }
+
+        /**
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
+         * @generated
+         */
+        protected Collection<String> getEncodings() {
+            if (this.encodings == null) {
+                this.encodings = new ArrayList<String>();
+                for (final StringTokenizer stringTokenizer = new StringTokenizer(
+                        QualityEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
+                        .hasMoreTokens();) {
+                    this.encodings.add(stringTokenizer.nextToken());
+                }
+            }
+            return this.encodings;
+        }
+    }
+
+    /**
+     * The framework calls this to create the contents of the wizard. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void addPages() {
+        // Create a page, set the title, and the initial model file name.
+        //
+        this.newFileCreationPage = new QualityAnnotationModelWizardNewFileCreationPage("Whatever", this.selection);
+        this.newFileCreationPage.setTitle(QualityEditorPlugin.INSTANCE
+                .getString("_UI_QualityAnnotationModelWizard_label"));
+        this.newFileCreationPage.setDescription(QualityEditorPlugin.INSTANCE
+                .getString("_UI_QualityAnnotationModelWizard_description"));
+        this.newFileCreationPage.setFileName(QualityEditorPlugin.INSTANCE
+                .getString("_UI_QualityAnnotationEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+        this.addPage(this.newFileCreationPage);
+
+        // Try and get the resource selection to determine a current directory for the file dialog.
+        //
+        if (this.selection != null && !this.selection.isEmpty()) {
+            // Get the resource...
+            //
+            final Object selectedElement = this.selection.iterator().next();
+            if (selectedElement instanceof IResource) {
+                // Get the resource parent, if its a file.
+                //
+                IResource selectedResource = (IResource) selectedElement;
+                if (selectedResource.getType() == IResource.FILE) {
+                    selectedResource = selectedResource.getParent();
+                }
+
+                // This gives us a directory...
+                //
+                if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
+                    // Set this for the container.
+                    //
+                    this.newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
+
+                    // Make up a unique new name here.
+                    //
+                    final String defaultModelBaseFilename = QualityEditorPlugin.INSTANCE
+                            .getString("_UI_QualityAnnotationEditorFilenameDefaultBase");
+                    final String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+                    String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+                    for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+                        modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+                    }
+                    this.newFileCreationPage.setFileName(modelFilename);
+                }
+            }
+        }
+        this.initialObjectCreationPage = new QualityAnnotationModelWizardInitialObjectCreationPage("Whatever2");
+        this.initialObjectCreationPage.setTitle(QualityEditorPlugin.INSTANCE
+                .getString("_UI_QualityAnnotationModelWizard_label"));
+        this.initialObjectCreationPage.setDescription(QualityEditorPlugin.INSTANCE
+                .getString("_UI_Wizard_initial_object_description"));
+        this.addPage(this.initialObjectCreationPage);
+    }
+
+    /**
+     * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public IFile getModelFile() {
+        return this.newFileCreationPage.getModelFile();
+    }
 
 }

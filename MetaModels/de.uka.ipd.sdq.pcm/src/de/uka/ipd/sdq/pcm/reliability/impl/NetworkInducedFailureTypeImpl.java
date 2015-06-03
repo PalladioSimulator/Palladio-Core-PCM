@@ -42,9 +42,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  * @generated
  */
 public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements NetworkInducedFailureType {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -63,7 +64,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected NetworkInducedFailureTypeImpl() {
@@ -72,7 +73,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -82,7 +83,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +109,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CommunicationLinkResourceType basicGetCommunicationLinkResourceType__NetworkInducedFailureType() {
@@ -117,7 +118,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
@@ -143,7 +144,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -198,7 +199,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * {@link #NetworkInducedFailureTypeHasCommunicationLinkResourceType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Network Induced Failure Type Has Communication Link Resource Type</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NetworkInducedFailureTypeHasCommunicationLinkResourceType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -208,7 +209,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -245,7 +246,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -267,7 +268,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -282,7 +283,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -299,7 +300,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -314,7 +315,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -329,7 +330,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -344,7 +345,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

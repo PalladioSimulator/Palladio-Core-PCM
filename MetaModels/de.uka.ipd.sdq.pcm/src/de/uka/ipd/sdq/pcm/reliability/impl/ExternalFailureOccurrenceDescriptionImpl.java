@@ -48,9 +48,10 @@ import de.uka.ipd.sdq.pcm.reliability.util.ReliabilityValidator;
  */
 public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceDescriptionImpl implements
 ExternalFailureOccurrenceDescription {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExternalFailureOccurrenceDescriptionImpl() {
@@ -77,7 +78,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +88,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +101,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
@@ -116,7 +117,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +156,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,7 +182,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public FailureType basicGetFailureType__ExternalFailureOccurrenceDescription() {
@@ -190,7 +191,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -213,7 +214,7 @@ ExternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For External Failure Occurrence Description</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -226,7 +227,7 @@ ExternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For External Failure Occurrence Description</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -236,7 +237,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -273,7 +274,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -291,7 +292,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -306,7 +307,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -325,7 +326,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -344,7 +345,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -362,7 +363,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -380,7 +381,7 @@ ExternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -19,13 +19,14 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.SourceRole} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SourceRoleItemProvider extends RequiredRoleItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -33,7 +34,7 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SourceRoleItemProvider(final AdapterFactory adapterFactory) {
@@ -43,7 +44,7 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -59,7 +60,7 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This adds a property descriptor for the Event Group Source Role feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addEventGroup__SourceRolePropertyDescriptor(final Object object) {
@@ -68,12 +69,12 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
                 this.getString("_UI_SourceRole_eventGroup__SourceRole_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_SourceRole_eventGroup__SourceRole_feature",
                         "_UI_SourceRole_type"), RepositoryPackage.Literals.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, true,
-                        false, true, null, null, null));
+                false, true, null, null, null));
     }
 
     /**
      * This returns SourceRole.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -98,7 +99,7 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -110,7 +111,7 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

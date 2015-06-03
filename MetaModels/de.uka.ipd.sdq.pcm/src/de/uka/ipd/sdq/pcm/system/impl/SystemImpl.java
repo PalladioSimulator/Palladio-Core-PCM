@@ -85,9 +85,10 @@ import de.uka.ipd.sdq.pcm.system.util.SystemValidator;
  * @generated
  */
 public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq.pcm.system.System {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -95,7 +96,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -105,7 +106,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     /**
      * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -115,7 +116,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     /**
      * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -125,7 +126,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     /**
      * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -147,7 +148,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure()
      * <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceRequiredDelegationConnectors_ComposedStructure()
      * @generated
      * @ordered
@@ -158,7 +159,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * The cached value of the '{@link #getEventChannel__ComposedStructure()
      * <em>Event Channel Composed Structure</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEventChannel__ComposedStructure()
      * @generated
      * @ordered
@@ -169,7 +170,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * The cached value of the '{@link #getConnectors__ComposedStructure()
      * <em>Connectors Composed Structure</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getConnectors__ComposedStructure()
      * @generated
      * @ordered
@@ -192,7 +193,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * <em>Resource Required Roles Resource Interface Requiring Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * @generated
      * @ordered
@@ -213,7 +214,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     /**
      * The cached value of the '{@link #getQosAnnotations_System() <em>Qos Annotations System</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getQosAnnotations_System()
      * @generated
      * @ordered
@@ -222,7 +223,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SystemImpl() {
@@ -231,7 +232,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -241,7 +242,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -251,7 +252,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -265,7 +266,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -275,7 +276,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -290,7 +291,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -306,7 +307,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -324,7 +325,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -340,7 +341,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -356,7 +357,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -372,7 +373,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -389,7 +390,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -405,7 +406,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -424,7 +425,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -438,7 +439,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -448,7 +449,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -507,7 +508,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -559,7 +560,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #ProvidedRolesMustBeBound(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provided Roles Must Be Bound</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #ProvidedRolesMustBeBound(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -568,7 +569,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -601,7 +602,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #SystemMustHaveAtLeastOneProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>System Must Have At Least One Provided Role</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #SystemMustHaveAtLeastOneProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -624,7 +625,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -658,7 +659,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -696,7 +697,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -727,7 +728,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -759,7 +760,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -812,7 +813,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -854,7 +855,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -893,7 +894,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -975,7 +976,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1057,7 +1058,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1078,7 +1079,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

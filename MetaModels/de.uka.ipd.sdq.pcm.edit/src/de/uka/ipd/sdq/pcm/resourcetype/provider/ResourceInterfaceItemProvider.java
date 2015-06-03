@@ -22,13 +22,14 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ResourceInterfaceItemProvider extends EntityItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -36,7 +37,7 @@ public class ResourceInterfaceItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceInterfaceItemProvider(final AdapterFactory adapterFactory) {
@@ -46,7 +47,7 @@ public class ResourceInterfaceItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,14 +73,14 @@ public class ResourceInterfaceItemProvider extends EntityItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-            .add(ResourcetypePackage.Literals.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE);
+                    .add(ResourcetypePackage.Literals.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -92,7 +93,7 @@ public class ResourceInterfaceItemProvider extends EntityItemProvider {
 
     /**
      * This returns ResourceInterface.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +118,7 @@ public class ResourceInterfaceItemProvider extends EntityItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -135,7 +136,7 @@ public class ResourceInterfaceItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

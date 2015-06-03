@@ -19,92 +19,102 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.fzi.se.quality.qualityannotation.util.QualityAnnotationValidator;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>PCMPE</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>PCMPE</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
 public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMPE {
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	protected PCMPEImpl() {
+    protected PCMPEImpl() {
         super();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return QualityAnnotationPackage.Literals.PCMPE;
     }
 
-	/**
-     * The cached OCL expression body for the '{@link #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Topmost Level Must Be PCMPE All Decisions</em>}' operation.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+    /**
+     * The cached OCL expression body for the '
+     * {@link #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Topmost Level Must Be PCMPE All Decisions</em>}' operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
      * @generated
      * @ordered
      */
-	protected static final String TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parentPE.oclIsUndefined() implies self.oclIsKindOf(PCMPEAllDecisions)";
+    protected static final String TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parentPE.oclIsUndefined() implies self.oclIsKindOf(PCMPEAllDecisions)";
 
-	/**
-     * The cached OCL invariant for the '{@link #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Topmost Level Must Be PCMPE All Decisions</em>}' invariant operation.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @see #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+    /**
+     * The cached OCL invariant for the '
+     * {@link #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Topmost Level Must Be PCMPE All Decisions</em>}' invariant operation. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @see #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
      * @generated
      * @ordered
      */
-	protected static Constraint TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+    protected static Constraint TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public boolean TopmostLevelMustBePCMPEAllDecisions(DiagnosticChain diagnostics, Map<Object, Object> context) {
+    @Override
+    public boolean TopmostLevelMustBePCMPEAllDecisions(final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(QualityAnnotationPackage.Literals.PCMPE);
             try {
-                TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+        if (!EOCL_ENV.createQuery(TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                         QualityAnnotationValidator.PCMPE__TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "TopmostLevelMustBePCMPEAllDecisions", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics
+                .add(new BasicDiagnostic(Diagnostic.ERROR, QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMPE__TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "TopmostLevelMustBePCMPEAllDecisions",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
         return true;
     }
 
-	/**
-     * The cached environment for evaluating OCL expressions.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      * @ordered
      */
-	protected static final OCL EOCL_ENV = OCL.newInstance();
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
-} //PCMPEImpl
+} // PCMPEImpl

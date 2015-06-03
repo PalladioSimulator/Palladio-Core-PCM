@@ -31,16 +31,17 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceVali
  */
 public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl implements
 SystemSpecifiedExecutionTime {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SystemSpecifiedExecutionTimeImpl() {
@@ -49,7 +50,7 @@ SystemSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +63,7 @@ SystemSpecifiedExecutionTime {
      * {@link #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -76,7 +77,7 @@ SystemSpecifiedExecutionTime {
      * {@link #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -86,7 +87,7 @@ SystemSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +125,7 @@ SystemSpecifiedExecutionTime {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

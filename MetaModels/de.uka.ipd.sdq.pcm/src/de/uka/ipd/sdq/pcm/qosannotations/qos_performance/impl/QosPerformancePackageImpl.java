@@ -60,34 +60,35 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class QosPerformancePackageImpl extends EPackageImpl implements QosPerformancePackage {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass systemSpecifiedExecutionTimeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass specifiedExecutionTimeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass componentSpecifiedExecutionTimeEClass = null;
@@ -100,7 +101,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#eNS_URI
      * @see #init()
@@ -112,7 +113,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static boolean isInited = false;
@@ -125,7 +126,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
      * This method is used to initialize {@link QosPerformancePackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -252,6 +253,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theQosPerformancePackage, new EValidator.Descriptor() {
+
             @Override
             public EValidator getEValidator() {
                 return QosPerformanceValidator.INSTANCE;
@@ -268,7 +270,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -278,7 +280,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -288,7 +290,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -298,7 +300,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -308,7 +310,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -318,7 +320,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -328,7 +330,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isCreated = false;
@@ -336,7 +338,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void createPackageContents() {
@@ -359,7 +361,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isInitialized = false;
@@ -367,7 +369,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void initializePackageContents() {

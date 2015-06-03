@@ -34,9 +34,10 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * @generated
  */
 public interface EmitEventAction extends AbstractAction, CallAction {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

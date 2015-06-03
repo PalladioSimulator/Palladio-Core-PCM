@@ -31,20 +31,21 @@ import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CompositionFactoryImpl extends EFactoryImpl implements CompositionFactory {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static CompositionFactory init() {
@@ -62,7 +63,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CompositionFactoryImpl() {
@@ -71,7 +72,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -114,7 +115,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +126,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,7 +137,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +148,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -158,7 +159,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -169,7 +170,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -180,7 +181,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -191,7 +192,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -202,7 +203,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -213,7 +214,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -224,7 +225,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -235,7 +236,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -246,7 +247,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -257,7 +258,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -268,7 +269,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -279,7 +280,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -289,7 +290,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

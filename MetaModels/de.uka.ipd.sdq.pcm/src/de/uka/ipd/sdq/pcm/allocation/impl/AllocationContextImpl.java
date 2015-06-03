@@ -55,9 +55,10 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
  * @generated
  */
 public class AllocationContextImpl extends EntityImpl implements AllocationContext {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -66,7 +67,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * The cached value of the '{@link #getResourceContainer_AllocationContext()
      * <em>Resource Container Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getResourceContainer_AllocationContext()
      * @generated
      * @ordered
@@ -77,7 +78,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * The cached value of the '{@link #getAssemblyContext_AllocationContext()
      * <em>Assembly Context Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getAssemblyContext_AllocationContext()
      * @generated
      * @ordered
@@ -88,7 +89,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * The cached value of the '{@link #getEventChannel__AllocationContext()
      * <em>Event Channel Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getEventChannel__AllocationContext()
      * @generated
      * @ordered
@@ -97,7 +98,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AllocationContextImpl() {
@@ -106,7 +107,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +117,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +139,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceContainer basicGetResourceContainer_AllocationContext() {
@@ -147,7 +148,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +164,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -185,7 +186,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_AllocationContext() {
@@ -194,7 +195,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -210,7 +211,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -223,7 +224,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAllocation_AllocationContext(final Allocation newAllocation_AllocationContext,
@@ -235,7 +236,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -266,7 +267,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -288,7 +289,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EventChannel basicGetEventChannel__AllocationContext() {
@@ -297,7 +298,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -329,7 +330,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * {@link #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>One Assembly Context Or One Event Channel Should Be Referred</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -339,7 +340,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -376,7 +377,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -393,7 +394,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -408,7 +409,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -423,7 +424,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -452,7 +453,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -476,7 +477,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -500,7 +501,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -521,7 +522,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

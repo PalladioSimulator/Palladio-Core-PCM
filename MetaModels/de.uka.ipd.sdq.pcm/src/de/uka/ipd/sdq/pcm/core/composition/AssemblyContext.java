@@ -38,9 +38,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
  * @generated
  */
 public interface AssemblyContext extends Entity {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -55,7 +56,7 @@ public interface AssemblyContext extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parent Structure Assembly Context</em>' container reference.
      * @see #setParentStructure__AssemblyContext(ComposedStructure)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ParentStructure__AssemblyContext()
@@ -71,7 +72,7 @@ public interface AssemblyContext extends Entity {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
      * <em>Parent Structure Assembly Context</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Parent Structure Assembly Context</em>' container
      *            reference.
@@ -88,7 +89,7 @@ public interface AssemblyContext extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Encapsulated Component Assembly Context</em>' reference.
      * @see #setEncapsulatedComponent__AssemblyContext(RepositoryComponent)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_EncapsulatedComponent__AssemblyContext()
@@ -102,7 +103,7 @@ public interface AssemblyContext extends Entity {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getEncapsulatedComponent__AssemblyContext
      * <em>Encapsulated Component Assembly Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Encapsulated Component Assembly Context</em>' reference.
      * @see #getEncapsulatedComponent__AssemblyContext()
@@ -121,7 +122,7 @@ public interface AssemblyContext extends Entity {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Config Parameter Usages Assembly Context</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ConfigParameterUsages__AssemblyContext()

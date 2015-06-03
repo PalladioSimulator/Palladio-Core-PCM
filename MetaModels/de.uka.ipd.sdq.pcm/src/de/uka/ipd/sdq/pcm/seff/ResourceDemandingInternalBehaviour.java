@@ -28,9 +28,10 @@ package de.uka.ipd.sdq.pcm.seff;
  * @generated
  */
 public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBehaviour {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +48,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container
      *         reference.
@@ -65,7 +66,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
      * <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container

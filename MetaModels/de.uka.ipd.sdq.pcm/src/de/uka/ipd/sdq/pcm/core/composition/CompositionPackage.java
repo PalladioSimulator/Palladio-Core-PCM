@@ -28,37 +28,38 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  * @generated
  */
 public interface CompositionPackage extends EPackage {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNAME = "composition";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_PREFIX = "composition";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     CompositionPackage eINSTANCE = de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl.init();
@@ -66,7 +67,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.ConnectorImpl
      * <em>Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.ConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getConnector()
      * @generated
@@ -74,18 +75,9 @@ public interface CompositionPackage extends EPackage {
     int CONNECTOR = 1;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int CONNECTOR__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -94,7 +86,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -103,7 +95,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -121,7 +113,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Connector</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -131,7 +123,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl
      * <em>Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getDelegationConnector()
      * @generated
@@ -139,18 +131,9 @@ public interface CompositionPackage extends EPackage {
     int DELEGATION_CONNECTOR = 0;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int DELEGATION_CONNECTOR__EANNOTATIONS = CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -159,7 +142,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -168,7 +151,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -196,7 +179,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl
      * <em>Provided Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getProvidedDelegationConnector()
      * @generated
@@ -207,7 +190,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl
      * <em>Assembly Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyContext()
      * @generated
@@ -218,7 +201,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredDelegationConnectorImpl
      * <em>Required Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredDelegationConnector()
      * @generated
@@ -229,7 +212,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl
      * <em>Assembly Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyConnector()
      * @generated
@@ -241,7 +224,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
      * <em>Resource Required Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getResourceRequiredDelegationConnector()
      * @generated
@@ -252,7 +235,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyEventConnectorImpl
      * <em>Assembly Event Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyEventConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyEventConnector()
      * @generated
@@ -263,7 +246,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.SourceDelegationConnectorImpl
      * <em>Source Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.SourceDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getSourceDelegationConnector()
      * @generated
@@ -274,7 +257,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.SinkDelegationConnectorImpl
      * <em>Sink Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.SinkDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getSinkDelegationConnector()
      * @generated
@@ -285,7 +268,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl
      * <em>Composed Structure</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getComposedStructure()
      * @generated
@@ -293,18 +276,9 @@ public interface CompositionPackage extends EPackage {
     int COMPOSED_STRUCTURE = 2;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int COMPOSED_STRUCTURE__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -313,7 +287,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -322,7 +296,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -331,7 +305,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -341,7 +315,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -350,7 +324,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Event Channel Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -359,7 +333,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Connectors Composed Structure</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -378,7 +352,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Inner Resource Required Role Resource Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -388,7 +362,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Outer Resource Required Role Resource Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -398,7 +372,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -407,7 +381,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Resource Required Delegation Connector</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -416,7 +390,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelImpl
      * <em>Event Channel</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannel()
      * @generated
@@ -424,18 +398,9 @@ public interface CompositionPackage extends EPackage {
     int EVENT_CHANNEL = 4;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int EVENT_CHANNEL__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -444,7 +409,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -453,7 +418,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -471,7 +436,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Event Channel Source Connector Event Channel</b></em>'
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -480,7 +445,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Event Channel Sink Connector Event Channel</b></em>' reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -489,7 +454,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Parent Structure Event Channel</b></em>' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -498,7 +463,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Event Channel</em>' class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -521,7 +486,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
      * <em>Required Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredInfrastructureDelegationConnector()
      * @generated
@@ -533,7 +498,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
      * <em>Provided Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getProvidedInfrastructureDelegationConnector()
      * @generated
@@ -545,7 +510,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
      * <em>Required Resource Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredResourceDelegationConnector()
      * @generated
@@ -556,7 +521,7 @@ public interface CompositionPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl
      * <em>Event Channel Sink Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSinkConnectorImpl
      * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannelSinkConnector()
      * @generated
@@ -576,18 +541,9 @@ public interface CompositionPackage extends EPackage {
     int EVENT_CHANNEL_SOURCE_CONNECTOR = 5;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int EVENT_CHANNEL_SOURCE_CONNECTOR__EANNOTATIONS = CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -596,7 +552,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -605,7 +561,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -623,7 +579,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Source Role Event Channel Source Role</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -632,7 +588,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Context Event Channel Source Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -641,7 +597,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Event Channel Event Channel Source Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -650,25 +606,16 @@ public interface CompositionPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Event Channel Source Connector</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
     int EVENT_CHANNEL_SOURCE_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int EVENT_CHANNEL_SINK_CONNECTOR__EANNOTATIONS = CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -677,7 +624,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -686,7 +633,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -704,7 +651,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Sink Role Event Channel Sink Connector</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -713,7 +660,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Filter Condition Event Channel Sink Connector</b></em>'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -722,7 +669,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Context Event Channel Sink Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -731,7 +678,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Event Channel Event Channel Sink Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -747,18 +694,9 @@ public interface CompositionPackage extends EPackage {
     int EVENT_CHANNEL_SINK_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PROVIDED_DELEGATION_CONNECTOR__EANNOTATIONS = DELEGATION_CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -767,7 +705,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -776,7 +714,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -794,7 +732,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Inner Provided Role Provided Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -803,7 +741,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -812,7 +750,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Context Provided Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -828,18 +766,9 @@ public interface CompositionPackage extends EPackage {
     int PROVIDED_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int REQUIRED_DELEGATION_CONNECTOR__EANNOTATIONS = DELEGATION_CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -848,7 +777,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -857,7 +786,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -875,7 +804,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Inner Required Role Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -884,7 +813,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Outer Required Role Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -893,7 +822,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Context Required Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -909,18 +838,9 @@ public interface CompositionPackage extends EPackage {
     int REQUIRED_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_CONNECTOR__EANNOTATIONS = CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -929,7 +849,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -938,7 +858,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -956,7 +876,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Requiring Assembly Context Assembly Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -965,7 +885,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Providing Assembly Context Assembly Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -999,18 +919,9 @@ public interface CompositionPackage extends EPackage {
     int ASSEMBLY_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_EVENT_CONNECTOR__EANNOTATIONS = CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1019,7 +930,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1028,7 +939,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1064,7 +975,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Sink Assembly Context Assembly Event Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1073,7 +984,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Source Assembly Context Assembly Event Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1082,7 +993,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Filter Condition Assembly Event Connector</b></em>'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1098,18 +1009,9 @@ public interface CompositionPackage extends EPackage {
     int ASSEMBLY_EVENT_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 5;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int SOURCE_DELEGATION_CONNECTOR__EANNOTATIONS = DELEGATION_CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1118,7 +1020,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1127,7 +1029,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1163,7 +1065,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Context Source Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1179,18 +1081,9 @@ public interface CompositionPackage extends EPackage {
     int SOURCE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int SINK_DELEGATION_CONNECTOR__EANNOTATIONS = DELEGATION_CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1199,7 +1092,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1208,7 +1101,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1226,7 +1119,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Context Sink Delegation Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1260,18 +1153,9 @@ public interface CompositionPackage extends EPackage {
     int SINK_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__EANNOTATIONS = CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1280,7 +1164,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1289,7 +1173,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1307,7 +1191,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Provided Role Assembly Infrastructure Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1316,7 +1200,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Required Role Assembly Infrastructure Connector</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1345,25 +1229,16 @@ public interface CompositionPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Assembly Infrastructure Connector</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
     int ASSEMBLY_INFRASTRUCTURE_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__EANNOTATIONS = DELEGATION_CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1372,7 +1247,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1381,7 +1256,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1400,7 +1275,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1410,7 +1285,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1420,7 +1295,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1430,25 +1305,16 @@ public interface CompositionPackage extends EPackage {
      * The number of structural features of the '
      * <em>Provided Infrastructure Delegation Connector</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
     int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__EANNOTATIONS = DELEGATION_CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1457,7 +1323,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1466,7 +1332,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1485,7 +1351,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Inner Required Role Required Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1495,7 +1361,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Outer Required Role Required Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1505,7 +1371,7 @@ public interface CompositionPackage extends EPackage {
      * The feature id for the '
      * <em><b>Assembly Context Required Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1515,25 +1381,16 @@ public interface CompositionPackage extends EPackage {
      * The number of structural features of the '
      * <em>Required Infrastructure Delegation Connector</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
     int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__EANNOTATIONS = DELEGATION_CONNECTOR__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1542,7 +1399,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1551,7 +1408,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1599,25 +1456,16 @@ public interface CompositionPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Required Resource Delegation Connector</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
     int REQUIRED_RESOURCE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_CONTEXT__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1626,7 +1474,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1635,7 +1483,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1644,7 +1492,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Parent Structure Assembly Context</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1653,7 +1501,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Encapsulated Component Assembly Context</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1662,7 +1510,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Config Parameter Usages Assembly Context</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -1681,7 +1529,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.DelegationConnector <em>Delegation Connector</em>}
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.DelegationConnector
      * @generated
@@ -1691,7 +1539,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.composition.Connector
      * <em>Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.Connector
      * @generated
@@ -1702,7 +1550,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector
      * <em>Parent Structure Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the container reference '<em>Parent Structure Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector()
      * @see #getConnector()
@@ -1714,7 +1562,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector
      * <em>Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Provided Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector
      * @generated
@@ -1726,7 +1574,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
      * <em>Inner Provided Role Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Inner Provided Role Provided Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector()
@@ -1740,7 +1588,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
      * <em>Outer Provided Role Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Outer Provided Role Provided Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector()
@@ -1754,7 +1602,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
      * <em>Assembly Context Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Provided Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector()
@@ -1778,7 +1626,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
      * <em>Parent Structure Assembly Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the container reference '
      *         <em>Parent Structure Assembly Context</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext()
@@ -1806,7 +1654,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext
      * <em>Config Parameter Usages Assembly Context</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '
      *         <em>Config Parameter Usages Assembly Context</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext()
@@ -1819,7 +1667,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector
      * <em>Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Required Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector
      * @generated
@@ -1831,7 +1679,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector
      * <em>Inner Required Role Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Inner Required Role Required Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector()
@@ -1845,7 +1693,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector
      * <em>Outer Required Role Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Outer Required Role Required Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector()
@@ -1859,7 +1707,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector
      * <em>Assembly Context Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Required Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector()
@@ -1872,7 +1720,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector <em>Assembly Connector</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Assembly Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
      * @generated
@@ -1884,7 +1732,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
      * <em>Requiring Assembly Context Assembly Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Requiring Assembly Context Assembly Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector()
@@ -1898,7 +1746,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
      * <em>Providing Assembly Context Assembly Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Providing Assembly Context Assembly Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector()
@@ -1911,7 +1759,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
      * <em>Provided Role Assembly Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Provided Role Assembly Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector()
      * @see #getAssemblyConnector()
@@ -1923,7 +1771,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
      * <em>Required Role Assembly Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Required Role Assembly Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector()
      * @see #getAssemblyConnector()
@@ -1948,7 +1796,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * <em>Parent Structure Resource Required Delegation Connector</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the container reference '
      *         <em>Parent Structure Resource Required Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector()
@@ -1960,7 +1808,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel
      * <em>Event Channel</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Event Channel</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel
      * @generated
@@ -1971,7 +1819,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventGroup__EventChannel
      * <em>Event Group Event Channel</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Event Group Event Channel</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventGroup__EventChannel()
      * @see #getEventChannel()
@@ -1984,7 +1832,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
      * <em>Event Channel Source Connector Event Channel</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference list '
      *         <em>Event Channel Source Connector Event Channel</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel()
@@ -1998,7 +1846,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
      * <em>Event Channel Sink Connector Event Channel</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference list '
      *         <em>Event Channel Sink Connector Event Channel</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel()
@@ -2011,7 +1859,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel
      * <em>Parent Structure Event Channel</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the container reference '<em>Parent Structure Event Channel</em>
      *         '.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel()
@@ -2052,7 +1900,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector
      * <em>Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Assembly Event Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector
      * @generated
@@ -2063,7 +1911,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
      * <em>Sink Role Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Sink Role Assembly Event Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector()
      * @see #getAssemblyEventConnector()
@@ -2089,7 +1937,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector
      * <em>Sink Assembly Context Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Sink Assembly Context Assembly Event Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector()
@@ -2103,7 +1951,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector
      * <em>Source Assembly Context Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Source Assembly Context Assembly Event Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector()
@@ -2117,7 +1965,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
      * <em>Filter Condition Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference '
      *         <em>Filter Condition Assembly Event Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector()
@@ -2130,7 +1978,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector
      * <em>Source Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Source Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector
      * @generated
@@ -2141,7 +1989,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole
      * <em>Inner Source Role Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Inner Source Role Source Role</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole()
      * @see #getSourceDelegationConnector()
@@ -2153,7 +2001,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getOuterSourceRole__SourceRole
      * <em>Outer Source Role Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Outer Source Role Source Role</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getOuterSourceRole__SourceRole()
      * @see #getSourceDelegationConnector()
@@ -2166,7 +2014,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
      * <em>Assembly Context Source Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Source Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector()
@@ -2179,7 +2027,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector
      * <em>Sink Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Sink Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector
      * @generated
@@ -2191,7 +2039,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
      * <em>Assembly Context Sink Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Sink Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector()
@@ -2204,7 +2052,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
      * <em>Inner Sink Role Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Inner Sink Role Sink Role</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole()
      * @see #getSinkDelegationConnector()
@@ -2216,7 +2064,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
      * <em>Outer Sink Role Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Outer Sink Role Sink Role</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole()
      * @see #getSinkDelegationConnector()
@@ -2228,7 +2076,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector
      * <em>Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Assembly Infrastructure Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector
      * @generated
@@ -2240,7 +2088,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
      * <em>Provided Role Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Provided Role Assembly Infrastructure Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector()
@@ -2254,7 +2102,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector
      * <em>Required Role Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Required Role Assembly Infrastructure Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector()
@@ -2268,7 +2116,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getProvidingAssemblyContext__AssemblyInfrastructureConnector
      * <em>Providing Assembly Context Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Providing Assembly Context Assembly Infrastructure Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getProvidingAssemblyContext__AssemblyInfrastructureConnector()
@@ -2282,7 +2130,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector
      * <em>Requiring Assembly Context Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Requiring Assembly Context Assembly Infrastructure Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector()
@@ -2296,7 +2144,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector
      * <em>Required Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Required Infrastructure Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector
      * @generated
@@ -2336,7 +2184,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector#getAssemblyContext__RequiredInfrastructureDelegationConnector
      * <em>Assembly Context Required Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Required Infrastructure Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector#getAssemblyContext__RequiredInfrastructureDelegationConnector()
@@ -2350,7 +2198,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector
      * <em>Provided Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Provided Infrastructure Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector
      * @generated
@@ -2390,7 +2238,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
      * <em>Assembly Context Provided Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Provided Infrastructure Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector()
@@ -2416,7 +2264,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
      * <em>Assembly Context Required Resource Delegation Connector</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Required Resource Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector()
@@ -2430,7 +2278,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector
      * <em>Inner Required Role Required Resource Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Inner Required Role Required Resource Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector()
@@ -2444,7 +2292,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
      * <em>Outer Required Role Required Resource Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Outer Required Role Required Resource Delegation Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector()
@@ -2457,7 +2305,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector
      * <em>Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Event Channel Sink Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector
      * @generated
@@ -2482,7 +2330,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector
      * <em>Filter Condition Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference '
      *         <em>Filter Condition Event Channel Sink Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector()
@@ -2496,7 +2344,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
      * <em>Assembly Context Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Event Channel Sink Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector()
@@ -2510,7 +2358,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
      * <em>Event Channel Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Event Channel Event Channel Sink Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector()
@@ -2523,7 +2371,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector
      * <em>Event Channel Source Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Event Channel Source Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector
      * @generated
@@ -2548,7 +2396,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
      * <em>Assembly Context Event Channel Source Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Assembly Context Event Channel Source Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector()
@@ -2562,7 +2410,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
      * <em>Event Channel Event Channel Source Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Event Channel Event Channel Source Connector</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector()
@@ -2575,7 +2423,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Composed Structure</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
      * @generated
@@ -2601,7 +2449,7 @@ public interface CompositionPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
      * <em>Resource Required Delegation Connectors Composed Structure</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '
      *         <em>Resource Required Delegation Connectors Composed Structure</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure()
@@ -2614,7 +2462,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure
      * <em>Event Channel Composed Structure</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '
      *         <em>Event Channel Composed Structure</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure()
@@ -2627,7 +2475,7 @@ public interface CompositionPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure
      * <em>Connectors Composed Structure</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '
      *         <em>Connectors Composed Structure</em>'.
      * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure()
@@ -2639,7 +2487,7 @@ public interface CompositionPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -2654,15 +2502,16 @@ public interface CompositionPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     interface Literals {
+
         /**
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl
          * <em>Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getDelegationConnector()
          * @generated
@@ -2673,7 +2522,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ConnectorImpl <em>Connector</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.ConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getConnector()
          * @generated
@@ -2683,7 +2532,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parent Structure Connector</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference CONNECTOR__PARENT_STRUCTURE_CONNECTOR = eINSTANCE.getConnector_ParentStructure__Connector();
@@ -2704,7 +2553,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Inner Provided Role Provided Delegation Connector</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE
@@ -2714,7 +2563,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Outer Provided Role Provided Delegation Connector</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE
@@ -2734,7 +2583,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl
          * <em>Assembly Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyContext()
          * @generated
@@ -2744,7 +2593,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Encapsulated Component Assembly Context</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT = eINSTANCE
@@ -2753,7 +2602,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parent Structure Assembly Context</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT = eINSTANCE
@@ -2762,7 +2611,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Config Parameter Usages Assembly Context</b></em>
          * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT = eINSTANCE
@@ -2784,7 +2633,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Inner Required Role Required Delegation Connector</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE
@@ -2794,7 +2643,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Outer Required Role Required Delegation Connector</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE
@@ -2814,7 +2663,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl
          * <em>Assembly Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyConnector()
          * @generated
@@ -2844,7 +2693,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Provided Role Assembly Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_CONNECTOR = eINSTANCE
@@ -2853,7 +2702,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Required Role Assembly Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_CONNECTOR = eINSTANCE
@@ -2864,7 +2713,7 @@ public interface CompositionPackage extends EPackage {
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
          * <em>Resource Required Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getResourceRequiredDelegationConnector()
          * @generated
@@ -2875,7 +2724,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Parent Structure Resource Required Delegation Connector</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE
@@ -2885,7 +2734,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelImpl <em>Event Channel</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannel()
          * @generated
@@ -2895,7 +2744,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Event Group Event Channel</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL = eINSTANCE.getEventChannel_EventGroup__EventChannel();
@@ -2904,7 +2753,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Event Channel Source Connector Event Channel</b></em>' reference list feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL = eINSTANCE
@@ -2923,7 +2772,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parent Structure Event Channel</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL = eINSTANCE
@@ -2933,7 +2782,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Inner Resource Required Role Resource Required Delegation Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE
@@ -2943,7 +2792,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Outer Resource Required Role Resource Required Delegation Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE
@@ -2953,7 +2802,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyEventConnectorImpl
          * <em>Assembly Event Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyEventConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyEventConnector()
          * @generated
@@ -2963,7 +2812,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Sink Role Assembly Event Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR = eINSTANCE
@@ -2972,7 +2821,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Source Role Assembly Event Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR = eINSTANCE
@@ -3002,7 +2851,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Filter Condition Assembly Event Connector</b></em>' containment reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR = eINSTANCE
@@ -3023,7 +2872,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Inner Source Role Source Role</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE = eINSTANCE
@@ -3032,7 +2881,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Outer Source Role Source Role</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE = eINSTANCE
@@ -3052,7 +2901,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.SinkDelegationConnectorImpl
          * <em>Sink Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.SinkDelegationConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getSinkDelegationConnector()
          * @generated
@@ -3072,7 +2921,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Inner Sink Role Sink Role</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE = eINSTANCE
@@ -3081,7 +2930,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Outer Sink Role Sink Role</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE = eINSTANCE
@@ -3092,7 +2941,7 @@ public interface CompositionPackage extends EPackage {
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl
          * <em>Assembly Infrastructure Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyInfrastructureConnector()
          * @generated
@@ -3123,7 +2972,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Providing Assembly Context Assembly Infrastructure Connector</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = eINSTANCE
@@ -3133,7 +2982,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Requiring Assembly Context Assembly Infrastructure Connector</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = eINSTANCE
@@ -3144,7 +2993,7 @@ public interface CompositionPackage extends EPackage {
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
          * <em>Required Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredInfrastructureDelegationConnector()
          * @generated
@@ -3155,7 +3004,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Inner Required Role Required Infrastructure Delegation Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3165,7 +3014,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Outer Required Role Required Infrastructure Delegation Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3175,7 +3024,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Assembly Context Required Infrastructure Delegation Connector</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3186,7 +3035,7 @@ public interface CompositionPackage extends EPackage {
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
          * <em>Provided Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getProvidedInfrastructureDelegationConnector()
          * @generated
@@ -3197,7 +3046,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3207,7 +3056,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3217,7 +3066,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3228,7 +3077,7 @@ public interface CompositionPackage extends EPackage {
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
          * <em>Required Resource Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getRequiredResourceDelegationConnector()
          * @generated
@@ -3239,7 +3088,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Assembly Context Required Resource Delegation Connector</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3249,7 +3098,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Inner Required Role Required Resource Delegation Connector</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3259,7 +3108,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Outer Required Role Required Resource Delegation Connector</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = eINSTANCE
@@ -3280,7 +3129,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Sink Role Event Channel Sink Connector</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR = eINSTANCE
@@ -3290,7 +3139,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Filter Condition Event Channel Sink Connector</b></em>' containment reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR = eINSTANCE
@@ -3321,7 +3170,7 @@ public interface CompositionPackage extends EPackage {
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl
          * <em>Event Channel Source Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.EventChannelSourceConnectorImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getEventChannelSourceConnector()
          * @generated
@@ -3331,7 +3180,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Source Role Event Channel Source Role</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE = eINSTANCE
@@ -3361,7 +3210,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl
          * <em>Composed Structure</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl
          * @see de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl#getComposedStructure()
          * @generated
@@ -3371,7 +3220,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Assembly Contexts Composed Structure</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = eINSTANCE
@@ -3381,7 +3230,7 @@ public interface CompositionPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = eINSTANCE
@@ -3390,7 +3239,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Event Channel Composed Structure</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE = eINSTANCE
@@ -3399,7 +3248,7 @@ public interface CompositionPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Connectors Composed Structure</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE = eINSTANCE

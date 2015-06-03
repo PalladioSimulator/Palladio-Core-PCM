@@ -67,6 +67,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class ResourceenvironmentModelWizard extends Wizard implements INewWizard {
+
     /**
      * @generated
      */
@@ -93,7 +94,7 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     /**
      * @generated
      */
-    protected ResourceenvironmentFactory resourceenvironmentFactory = resourceenvironmentPackage
+    protected ResourceenvironmentFactory resourceenvironmentFactory = this.resourceenvironmentPackage
             .getResourceenvironmentFactory();
 
     /**
@@ -124,11 +125,12 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     /**
      * @generated
      */
-    public void init(IWorkbench workbench, IStructuredSelection selection) {
+    @Override
+    public void init(final IWorkbench workbench, final IStructuredSelection selection) {
         this.workbench = workbench;
         this.selection = selection;
-        setWindowTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-        setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
+        this.setWindowTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+        this.setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
                 .getImageDescriptor(PalladioComponentModelEditorPlugin.INSTANCE
                         .getImage("full/wizban/NewResourceenvironment")));
     }
@@ -137,28 +139,28 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
      * @generated
      */
     protected Collection<String> getInitialObjectNames() {
-        if (initialObjectNames == null) {
-            initialObjectNames = new ArrayList<String>();
-            for (EClassifier eClassifier : resourceenvironmentPackage.getEClassifiers()) {
+        if (this.initialObjectNames == null) {
+            this.initialObjectNames = new ArrayList<String>();
+            for (final EClassifier eClassifier : this.resourceenvironmentPackage.getEClassifiers()) {
                 if (eClassifier instanceof EClass) {
-                    EClass eClass = (EClass) eClassifier;
+                    final EClass eClass = (EClass) eClassifier;
                     if (!eClass.isAbstract()) {
-                        initialObjectNames.add(eClass.getName());
+                        this.initialObjectNames.add(eClass.getName());
                     }
                 }
             }
-            Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+            Collections.sort(this.initialObjectNames, CommonPlugin.INSTANCE.getComparator());
         }
-        return initialObjectNames;
+        return this.initialObjectNames;
     }
 
     /**
      * @generated
      */
     protected EObject createInitialModel() {
-        EClass eClass = (EClass) resourceenvironmentPackage.getEClassifier(initialObjectCreationPage
+        final EClass eClass = (EClass) this.resourceenvironmentPackage.getEClassifier(this.initialObjectCreationPage
                 .getInitialObjectName());
-        EObject rootObject = resourceenvironmentFactory.create(eClass);
+        final EObject rootObject = this.resourceenvironmentFactory.create(eClass);
         return rootObject;
     }
 
@@ -170,39 +172,41 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         try {
             // Remember the file.
             //
-            final IFile modelFile = getModelFile();
+            final IFile modelFile = this.getModelFile();
 
             // Do the work within an operation.
             //
-            WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+            final WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
+
                 @Override
-                protected void execute(IProgressMonitor progressMonitor) {
+                protected void execute(final IProgressMonitor progressMonitor) {
                     try {
                         // Create a resource set
                         //
-                        ResourceSet resourceSet = new ResourceSetImpl();
+                        final ResourceSet resourceSet = new ResourceSetImpl();
 
                         // Get the URI of the model file.
                         //
-                        URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+                        final URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
                         // Create a resource for this file.
                         //
-                        Resource resource = resourceSet.createResource(fileURI);
+                        final Resource resource = resourceSet.createResource(fileURI);
 
                         // Add the initial model object to the contents.
                         //
-                        EObject rootObject = createInitialModel();
+                        final EObject rootObject = ResourceenvironmentModelWizard.this.createInitialModel();
                         if (rootObject != null) {
                             resource.getContents().add(rootObject);
                         }
 
                         // Save the contents of the resource to the file system.
                         //
-                        Map<Object, Object> options = new HashMap<Object, Object>();
-                        options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
+                        final Map<Object, Object> options = new HashMap<Object, Object>();
+                        options.put(XMLResource.OPTION_ENCODING,
+                                ResourceenvironmentModelWizard.this.initialObjectCreationPage.getEncoding());
                         resource.save(options);
-                    } catch (Exception exception) {
+                    } catch (final Exception exception) {
                         PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
                     } finally {
                         progressMonitor.done();
@@ -210,16 +214,18 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
                 }
             };
 
-            getContainer().run(false, false, operation);
+            this.getContainer().run(false, false, operation);
 
             // Select the new file resource in the current view.
             //
-            IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
-            IWorkbenchPage page = workbenchWindow.getActivePage();
+            final IWorkbenchWindow workbenchWindow = this.workbench.getActiveWorkbenchWindow();
+            final IWorkbenchPage page = workbenchWindow.getActivePage();
             final IWorkbenchPart activePart = page.getActivePart();
             if (activePart instanceof ISetSelectionTarget) {
                 final ISelection targetSelection = new StructuredSelection(modelFile);
-                getShell().getDisplay().asyncExec(new Runnable() {
+                this.getShell().getDisplay().asyncExec(new Runnable() {
+
+                    @Override
                     public void run() {
                         ((ISetSelectionTarget) activePart).selectReveal(targetSelection);
                     }
@@ -230,8 +236,8 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
             //
             try {
                 page.openEditor(new FileEditorInput(modelFile),
-                        workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
-            } catch (PartInitException exception) {
+                        this.workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
+            } catch (final PartInitException exception) {
                 MessageDialog.openError(workbenchWindow.getShell(),
                         PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
                         exception.getMessage());
@@ -239,7 +245,7 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
             }
 
             return true;
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
             return false;
         }
@@ -249,10 +255,12 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
      * @generated
      */
     public class ResourceenvironmentModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+
         /**
          * @generated
          */
-        public ResourceenvironmentModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+        public ResourceenvironmentModelWizardNewFileCreationPage(final String pageId,
+                final IStructuredSelection selection) {
             super(pageId, selection);
         }
 
@@ -262,10 +270,11 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         @Override
         protected boolean validatePage() {
             if (super.validatePage()) {
-                String extension = new Path(getFileName()).getFileExtension();
+                final String extension = new Path(this.getFileName()).getFileExtension();
                 if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-                    String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-                    setErrorMessage(PalladioComponentModelEditorPlugin.INSTANCE.getString(key,
+                    final String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
+                            : "_WARN_FilenameExtension";
+                    this.setErrorMessage(PalladioComponentModelEditorPlugin.INSTANCE.getString(key,
                             new Object[] { FORMATTED_FILE_EXTENSIONS }));
                     return false;
                 }
@@ -278,7 +287,8 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
          * @generated
          */
         public IFile getModelFile() {
-            return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
+            return ResourcesPlugin.getWorkspace().getRoot()
+                    .getFile(this.getContainerFullPath().append(this.getFileName()));
         }
     }
 
@@ -286,6 +296,7 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
      * @generated
      */
     public class ResourceenvironmentModelWizardInitialObjectCreationPage extends WizardPage {
+
         /**
          * @generated
          */
@@ -304,87 +315,91 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         /**
          * @generated
          */
-        public ResourceenvironmentModelWizardInitialObjectCreationPage(String pageId) {
+        public ResourceenvironmentModelWizardInitialObjectCreationPage(final String pageId) {
             super(pageId);
         }
 
         /**
          * @generated
          */
-        public void createControl(Composite parent) {
-            Composite composite = new Composite(parent, SWT.NONE);
+        @Override
+        public void createControl(final Composite parent) {
+            final Composite composite = new Composite(parent, SWT.NONE);
             {
-                GridLayout layout = new GridLayout();
+                final GridLayout layout = new GridLayout();
                 layout.numColumns = 1;
                 layout.verticalSpacing = 12;
                 composite.setLayout(layout);
 
-                GridData data = new GridData();
+                final GridData data = new GridData();
                 data.verticalAlignment = GridData.FILL;
                 data.grabExcessVerticalSpace = true;
                 data.horizontalAlignment = GridData.FILL;
                 composite.setLayoutData(data);
             }
 
-            Label containerLabel = new Label(composite, SWT.LEFT);
+            final Label containerLabel = new Label(composite, SWT.LEFT);
             {
                 containerLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
-                GridData data = new GridData();
+                final GridData data = new GridData();
                 data.horizontalAlignment = GridData.FILL;
                 containerLabel.setLayoutData(data);
             }
 
-            initialObjectField = new Combo(composite, SWT.BORDER);
+            this.initialObjectField = new Combo(composite, SWT.BORDER);
             {
-                GridData data = new GridData();
+                final GridData data = new GridData();
                 data.horizontalAlignment = GridData.FILL;
                 data.grabExcessHorizontalSpace = true;
-                initialObjectField.setLayoutData(data);
+                this.initialObjectField.setLayoutData(data);
             }
 
-            for (String objectName : getInitialObjectNames()) {
-                initialObjectField.add(getLabel(objectName));
+            for (final String objectName : ResourceenvironmentModelWizard.this.getInitialObjectNames()) {
+                this.initialObjectField.add(this.getLabel(objectName));
             }
 
-            if (initialObjectField.getItemCount() == 1) {
-                initialObjectField.select(0);
+            if (this.initialObjectField.getItemCount() == 1) {
+                this.initialObjectField.select(0);
             }
-            initialObjectField.addModifyListener(validator);
+            this.initialObjectField.addModifyListener(this.validator);
 
-            Label encodingLabel = new Label(composite, SWT.LEFT);
+            final Label encodingLabel = new Label(composite, SWT.LEFT);
             {
                 encodingLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
-                GridData data = new GridData();
+                final GridData data = new GridData();
                 data.horizontalAlignment = GridData.FILL;
                 encodingLabel.setLayoutData(data);
             }
-            encodingField = new Combo(composite, SWT.BORDER);
+            this.encodingField = new Combo(composite, SWT.BORDER);
             {
-                GridData data = new GridData();
+                final GridData data = new GridData();
                 data.horizontalAlignment = GridData.FILL;
                 data.grabExcessHorizontalSpace = true;
-                encodingField.setLayoutData(data);
+                this.encodingField.setLayoutData(data);
             }
 
-            for (String encoding : getEncodings()) {
-                encodingField.add(encoding);
+            for (final String encoding : this.getEncodings()) {
+                this.encodingField.add(encoding);
             }
 
-            encodingField.select(0);
-            encodingField.addModifyListener(validator);
+            this.encodingField.select(0);
+            this.encodingField.addModifyListener(this.validator);
 
-            setPageComplete(validatePage());
-            setControl(composite);
+            this.setPageComplete(this.validatePage());
+            this.setControl(composite);
         }
 
         /**
          * @generated
          */
         protected ModifyListener validator = new ModifyListener() {
-            public void modifyText(ModifyEvent e) {
-                setPageComplete(validatePage());
+
+            @Override
+            public void modifyText(final ModifyEvent e) {
+                ResourceenvironmentModelWizardInitialObjectCreationPage.this
+                        .setPageComplete(ResourceenvironmentModelWizardInitialObjectCreationPage.this.validatePage());
             }
         };
 
@@ -392,22 +407,22 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
          * @generated
          */
         protected boolean validatePage() {
-            return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
+            return this.getInitialObjectName() != null && this.getEncodings().contains(this.encodingField.getText());
         }
 
         /**
          * @generated
          */
         @Override
-        public void setVisible(boolean visible) {
+        public void setVisible(final boolean visible) {
             super.setVisible(visible);
             if (visible) {
-                if (initialObjectField.getItemCount() == 1) {
-                    initialObjectField.clearSelection();
-                    encodingField.setFocus();
+                if (this.initialObjectField.getItemCount() == 1) {
+                    this.initialObjectField.clearSelection();
+                    this.encodingField.setFocus();
                 } else {
-                    encodingField.clearSelection();
-                    initialObjectField.setFocus();
+                    this.encodingField.clearSelection();
+                    this.initialObjectField.setFocus();
                 }
             }
         }
@@ -416,10 +431,10 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
          * @generated
          */
         public String getInitialObjectName() {
-            String label = initialObjectField.getText();
+            final String label = this.initialObjectField.getText();
 
-            for (String name : getInitialObjectNames()) {
-                if (getLabel(name).equals(label)) {
+            for (final String name : ResourceenvironmentModelWizard.this.getInitialObjectNames()) {
+                if (this.getLabel(name).equals(label)) {
                     return name;
                 }
             }
@@ -430,16 +445,16 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
          * @generated
          */
         public String getEncoding() {
-            return encodingField.getText();
+            return this.encodingField.getText();
         }
 
         /**
          * @generated
          */
-        protected String getLabel(String typeName) {
+        protected String getLabel(final String typeName) {
             try {
                 return PalladioComponentModelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-            } catch (MissingResourceException mre) {
+            } catch (final MissingResourceException mre) {
                 PalladioComponentModelEditorPlugin.INSTANCE.log(mre);
             }
             return typeName;
@@ -449,15 +464,15 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
          * @generated
          */
         protected Collection<String> getEncodings() {
-            if (encodings == null) {
-                encodings = new ArrayList<String>();
-                for (StringTokenizer stringTokenizer = new StringTokenizer(
+            if (this.encodings == null) {
+                this.encodings = new ArrayList<String>();
+                for (final StringTokenizer stringTokenizer = new StringTokenizer(
                         PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
                         .hasMoreTokens();) {
-                    encodings.add(stringTokenizer.nextToken());
+                    this.encodings.add(stringTokenizer.nextToken());
                 }
             }
-            return encodings;
+            return this.encodings;
         }
     }
 
@@ -468,21 +483,21 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     public void addPages() {
         // Create a page, set the title, and the initial model file name.
         //
-        newFileCreationPage = new ResourceenvironmentModelWizardNewFileCreationPage("Whatever", selection);
-        newFileCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE
+        this.newFileCreationPage = new ResourceenvironmentModelWizardNewFileCreationPage("Whatever", this.selection);
+        this.newFileCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE
                 .getString("_UI_ResourceenvironmentModelWizard_label"));
-        newFileCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE
+        this.newFileCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE
                 .getString("_UI_ResourceenvironmentModelWizard_description"));
-        newFileCreationPage.setFileName(PalladioComponentModelEditorPlugin.INSTANCE
+        this.newFileCreationPage.setFileName(PalladioComponentModelEditorPlugin.INSTANCE
                 .getString("_UI_ResourceenvironmentEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
-        addPage(newFileCreationPage);
+        this.addPage(this.newFileCreationPage);
 
         // Try and get the resource selection to determine a current directory for the file dialog.
         //
-        if (selection != null && !selection.isEmpty()) {
+        if (this.selection != null && !this.selection.isEmpty()) {
             // Get the resource...
             //
-            Object selectedElement = selection.iterator().next();
+            final Object selectedElement = this.selection.iterator().next();
             if (selectedElement instanceof IResource) {
                 // Get the resource parent, if its a file.
                 //
@@ -496,34 +511,34 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
                 if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
                     // Set this for the container.
                     //
-                    newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
+                    this.newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
 
                     // Make up a unique new name here.
                     //
-                    String defaultModelBaseFilename = PalladioComponentModelEditorPlugin.INSTANCE
+                    final String defaultModelBaseFilename = PalladioComponentModelEditorPlugin.INSTANCE
                             .getString("_UI_ResourceenvironmentEditorFilenameDefaultBase");
-                    String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+                    final String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
                     String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
                     for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
                         modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
                     }
-                    newFileCreationPage.setFileName(modelFilename);
+                    this.newFileCreationPage.setFileName(modelFilename);
                 }
             }
         }
-        initialObjectCreationPage = new ResourceenvironmentModelWizardInitialObjectCreationPage("Whatever2");
-        initialObjectCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE
+        this.initialObjectCreationPage = new ResourceenvironmentModelWizardInitialObjectCreationPage("Whatever2");
+        this.initialObjectCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE
                 .getString("_UI_ResourceenvironmentModelWizard_label"));
-        initialObjectCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE
+        this.initialObjectCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE
                 .getString("_UI_Wizard_initial_object_description"));
-        addPage(initialObjectCreationPage);
+        this.addPage(this.initialObjectCreationPage);
     }
 
     /**
      * @generated
      */
     public IFile getModelFile() {
-        return newFileCreationPage.getModelFile();
+        return this.newFileCreationPage.getModelFile();
     }
 
 }

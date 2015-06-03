@@ -28,13 +28,14 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.allocation.Allocation} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AllocationItemProvider extends ProfileableElementItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +43,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AllocationItemProvider(final AdapterFactory adapterFactory) {
@@ -52,7 +53,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +72,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
     /**
      * This adds a property descriptor for the Id feature. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected void addIdPropertyDescriptor(final Object object) {
@@ -79,13 +80,13 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_Identifier_id_feature"), this.getString("_UI_PropertyDescriptor_description",
                         "_UI_Identifier_id_feature", "_UI_Identifier_type"), IdentifierPackage.Literals.IDENTIFIER__ID,
-                true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                        true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Entity Name feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addEntityNamePropertyDescriptor(final Object object) {
@@ -94,7 +95,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
                 this.getString("_UI_NamedElement_entityName_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature",
                         "_UI_NamedElement_type"), EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME, true, false,
-                        false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -109,14 +110,14 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
                 this.getString("_UI_Allocation_targetResourceEnvironment_Allocation_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_Allocation_targetResourceEnvironment_Allocation_feature", "_UI_Allocation_type"),
-                        AllocationPackage.Literals.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION, true, false, true, null,
-                        null, null));
+                AllocationPackage.Literals.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION, true, false, true, null,
+                null, null));
     }
 
     /**
      * This adds a property descriptor for the System Allocation feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSystem_AllocationPropertyDescriptor(final Object object) {
@@ -125,7 +126,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
                 this.getString("_UI_Allocation_system_Allocation_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_Allocation_system_Allocation_feature",
                         "_UI_Allocation_type"), AllocationPackage.Literals.ALLOCATION__SYSTEM_ALLOCATION, true, false,
-                        true, null, null, null));
+                true, null, null, null));
     }
 
     /**
@@ -148,7 +149,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -161,7 +162,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
 
     /**
      * This returns Allocation.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -186,7 +187,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -208,7 +209,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -223,7 +224,7 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

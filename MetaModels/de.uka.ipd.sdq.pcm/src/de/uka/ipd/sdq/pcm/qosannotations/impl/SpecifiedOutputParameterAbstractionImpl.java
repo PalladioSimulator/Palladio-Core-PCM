@@ -51,9 +51,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  */
 public abstract class SpecifiedOutputParameterAbstractionImpl extends MinimalEObjectImpl.Container implements
 SpecifiedOutputParameterAbstraction {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -62,7 +63,7 @@ SpecifiedOutputParameterAbstraction {
      * The cached value of the '{@link #getSignature_SpecifiedOutputParameterAbstraction()
      * <em>Signature Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSignature_SpecifiedOutputParameterAbstraction()
      * @generated
      * @ordered
@@ -73,7 +74,7 @@ SpecifiedOutputParameterAbstraction {
      * The cached value of the '{@link #getRole_SpecifiedOutputParameterAbstraction()
      * <em>Role Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getRole_SpecifiedOutputParameterAbstraction()
      * @generated
      * @ordered
@@ -85,7 +86,7 @@ SpecifiedOutputParameterAbstraction {
      * {@link #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
      * <em>Expected External Outputs Specified Output Parameter Abstraction</em>}' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
      * @generated
      * @ordered
@@ -94,7 +95,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SpecifiedOutputParameterAbstractionImpl() {
@@ -103,7 +104,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +114,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -126,7 +127,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetQosAnnotations_SpecifiedOutputParameterAbstraction(
@@ -141,7 +142,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -178,7 +179,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -204,7 +205,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Signature basicGetSignature_SpecifiedOutputParameterAbstraction() {
@@ -213,7 +214,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -233,7 +234,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -258,7 +259,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Role basicGetRole_SpecifiedOutputParameterAbstraction() {
@@ -267,7 +268,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -285,7 +286,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -303,7 +304,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -324,7 +325,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -342,7 +343,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -358,7 +359,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -384,7 +385,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -411,7 +412,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -435,7 +436,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

@@ -20,13 +20,14 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class InfrastructureRequiredRoleItemProvider extends RequiredRoleItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +35,7 @@ public class InfrastructureRequiredRoleItemProvider extends RequiredRoleItemProv
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureRequiredRoleItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +45,7 @@ public class InfrastructureRequiredRoleItemProvider extends RequiredRoleItemProv
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -60,25 +61,25 @@ public class InfrastructureRequiredRoleItemProvider extends RequiredRoleItemProv
     /**
      * This adds a property descriptor for the Required Interface Infrastructure Required Role
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addRequiredInterface__InfrastructureRequiredRolePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_InfrastructureRequiredRole_requiredInterface__InfrastructureRequiredRole_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_InfrastructureRequiredRole_requiredInterface__InfrastructureRequiredRole_feature",
-                        "_UI_InfrastructureRequiredRole_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_InfrastructureRequiredRole_requiredInterface__InfrastructureRequiredRole_feature"),
+                        this.getString("_UI_PropertyDescriptor_description",
+                                "_UI_InfrastructureRequiredRole_requiredInterface__InfrastructureRequiredRole_feature",
+                                "_UI_InfrastructureRequiredRole_type"),
                         RepositoryPackage.Literals.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
                         true, false, true, null, null, null));
     }
 
     /**
      * This returns InfrastructureRequiredRole.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -103,7 +104,7 @@ public class InfrastructureRequiredRoleItemProvider extends RequiredRoleItemProv
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -115,7 +116,7 @@ public class InfrastructureRequiredRoleItemProvider extends RequiredRoleItemProv
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

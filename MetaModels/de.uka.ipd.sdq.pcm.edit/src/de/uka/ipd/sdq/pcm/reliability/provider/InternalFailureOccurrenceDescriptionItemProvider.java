@@ -24,9 +24,10 @@ import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
  * @generated
  */
 public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOccurrenceDescriptionItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +35,7 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InternalFailureOccurrenceDescriptionItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +45,7 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -60,20 +61,20 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
     /**
      * This adds a property descriptor for the Software Induced Failure Type Internal Failure
      * Occurrence Description feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSoftwareInducedFailureType__InternalFailureOccurrenceDescriptionPropertyDescriptor(
             final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_InternalFailureOccurrenceDescription_softwareInducedFailureType__InternalFailureOccurrenceDescription_feature"),
-                this.getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_InternalFailureOccurrenceDescription_softwareInducedFailureType__InternalFailureOccurrenceDescription_feature",
-                        "_UI_InternalFailureOccurrenceDescription_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_InternalFailureOccurrenceDescription_softwareInducedFailureType__InternalFailureOccurrenceDescription_feature"),
+                        this.getString(
+                                "_UI_PropertyDescriptor_description",
+                                "_UI_InternalFailureOccurrenceDescription_softwareInducedFailureType__InternalFailureOccurrenceDescription_feature",
+                                "_UI_InternalFailureOccurrenceDescription_type"),
                         ReliabilityPackage.Literals.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
                         true, false, true, null, null, null));
     }
@@ -81,7 +82,7 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
     /**
      * This returns InternalFailureOccurrenceDescription.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,14 +101,14 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
     public String getText(final Object object) {
         final InternalFailureOccurrenceDescription internalFailureOccurrenceDescription = (InternalFailureOccurrenceDescription) object;
         return this.getString("_UI_InternalFailureOccurrenceDescription_type") + " "
-        + internalFailureOccurrenceDescription.getFailureProbability();
+                + internalFailureOccurrenceDescription.getFailureProbability();
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +120,7 @@ public class InternalFailureOccurrenceDescriptionItemProvider extends FailureOcc
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

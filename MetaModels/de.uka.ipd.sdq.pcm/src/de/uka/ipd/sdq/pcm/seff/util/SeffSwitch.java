@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.seff.util;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.mdsdprofiles.StereotypableElement;
 
@@ -51,28 +50,29 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage
  * @generated
  */
 public class SeffSwitch<T> {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static SeffPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffSwitch() {
@@ -84,7 +84,7 @@ public class SeffSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -95,7 +95,7 @@ public class SeffSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -111,7 +111,7 @@ public class SeffSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -139,9 +139,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(stopAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(stopAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -165,9 +162,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(abstractInternalControlFlowAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(abstractInternalControlFlowAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -188,9 +182,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(abstractAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(abstractAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -203,9 +194,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(resourceDemandingBehaviour);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(resourceDemandingBehaviour);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -234,9 +222,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(abstractLoopAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(abstractLoopAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -255,9 +240,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(abstractBranchTransition);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(abstractBranchTransition);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -286,9 +268,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(branchAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(branchAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -307,9 +286,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(callAction);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(callAction);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -338,9 +314,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(startAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(startAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -350,9 +323,6 @@ public class SeffSwitch<T> {
             T result = this.caseServiceEffectSpecification(serviceEffectSpecification);
             if (result == null) {
                 result = this.caseStereotypableElement(serviceEffectSpecification);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(serviceEffectSpecification);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -375,9 +345,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(resourceDemandingSEFF);
             }
             if (result == null) {
-                result = this.caseEModelElement(resourceDemandingSEFF);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -393,9 +360,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(resourceDemandingInternalBehaviour);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(resourceDemandingInternalBehaviour);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -422,9 +386,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(releaseAction);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(releaseAction);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -456,9 +417,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(loopAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(loopAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -485,9 +443,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(forkAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(forkAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -503,9 +458,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(forkedBehaviour);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(forkedBehaviour);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -526,9 +478,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(synchronisationPoint);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(synchronisationPoint);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -563,9 +512,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(externalCallAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(externalCallAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -589,9 +535,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(callReturnAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(callReturnAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -613,9 +556,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(probabilisticBranchTransition);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(probabilisticBranchTransition);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -642,9 +582,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(acquireAction);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(acquireAction);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -676,9 +613,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(collectionIteratorAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(collectionIteratorAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -700,9 +634,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(guardedBranchTransition);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(guardedBranchTransition);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -729,9 +660,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(setVariableAction);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(setVariableAction);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -763,9 +691,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(internalCallAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(internalCallAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -792,9 +717,6 @@ public class SeffSwitch<T> {
                 result = this.caseStereotypableElement(emitEventAction);
             }
             if (result == null) {
-                result = this.caseEModelElement(emitEventAction);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -819,9 +741,6 @@ public class SeffSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(internalAction);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(internalAction);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -852,7 +771,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Abstract Internal Control Flow Action</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -868,7 +787,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Abstract Action</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Abstract Action</em>'.
@@ -883,7 +802,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Resource Demanding Behaviour</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -899,7 +818,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Abstract Loop Action</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -915,7 +834,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Abstract Branch Transition</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -931,7 +850,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Branch Action</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Branch Action</em>'.
@@ -961,7 +880,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Resource Demanding SEFF</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -977,7 +896,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Resource Demanding Internal Behaviour</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -993,7 +912,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Release Action</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Release Action</em>'.
@@ -1023,7 +942,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Internal Action</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Internal Action</em>'.
@@ -1035,25 +954,10 @@ public class SeffSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseEModelElement(final EModelElement object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '
      * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1084,7 +988,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Forked Behaviour</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Forked Behaviour</em>'.
@@ -1099,7 +1003,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Synchronisation Point</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1115,7 +1019,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>External Call Action</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1131,7 +1035,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Call Return Action</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Call Return Action</em>
@@ -1162,7 +1066,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Failure Handling Entity</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1178,7 +1082,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Probabilistic Branch Transition</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1194,7 +1098,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Acquire Action</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Acquire Action</em>'.
@@ -1209,7 +1113,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Collection Iterator Action</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1225,7 +1129,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Guarded Branch Transition</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1241,7 +1145,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Set Variable Action</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Set Variable Action</em>
@@ -1257,7 +1161,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Internal Call Action</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1273,7 +1177,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Emit Event Action</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Emit Event Action</em>'.
@@ -1288,7 +1192,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Service Effect Specification</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1319,7 +1223,7 @@ public class SeffSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.

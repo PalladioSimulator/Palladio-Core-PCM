@@ -24,13 +24,14 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class InfrastructureCallItemProvider extends CallActionItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +39,7 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureCallItemProvider(final AdapterFactory adapterFactory) {
@@ -48,7 +49,7 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,8 +75,8 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
                 this.getString("_UI_InfrastructureCall_signature__InfrastructureCall_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_InfrastructureCall_signature__InfrastructureCall_feature", "_UI_InfrastructureCall_type"),
-                        SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL, true, false, true,
-                        null, null, null));
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL, true, false, true,
+                null, null, null));
     }
 
     /**
@@ -91,8 +92,8 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
                         "_UI_PropertyDescriptor_description",
                         "_UI_InfrastructureCall_requiredRole__InfrastructureCall_feature",
                         "_UI_InfrastructureCall_type"),
-                        SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL, true, false,
-                        true, null, null, null));
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL, true, false,
+                true, null, null, null));
     }
 
     /**
@@ -109,14 +110,14 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-            .add(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL);
+                    .add(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +130,7 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
 
     /**
      * This returns InfrastructureCall.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -154,7 +155,7 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +173,7 @@ public class InfrastructureCallItemProvider extends CallActionItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

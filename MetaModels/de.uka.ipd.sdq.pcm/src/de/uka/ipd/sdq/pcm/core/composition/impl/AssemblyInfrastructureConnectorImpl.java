@@ -40,9 +40,10 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
  * @generated
  */
 public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implements AssemblyInfrastructureConnector {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +52,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * The cached value of the '{@link #getProvidedRole__AssemblyInfrastructureConnector()
      * <em>Provided Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getProvidedRole__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
@@ -61,7 +62,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * The cached value of the '{@link #getRequiredRole__AssemblyInfrastructureConnector()
      * <em>Required Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getRequiredRole__AssemblyInfrastructureConnector()
      * @generated
      * @ordered
@@ -92,7 +93,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyInfrastructureConnectorImpl() {
@@ -101,7 +102,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +112,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +138,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureProvidedRole basicGetProvidedRole__AssemblyInfrastructureConnector() {
@@ -146,7 +147,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -166,7 +167,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -192,7 +193,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__AssemblyInfrastructureConnector() {
@@ -201,7 +202,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -221,7 +222,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -247,7 +248,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext__AssemblyInfrastructureConnector() {
@@ -256,7 +257,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -276,7 +277,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -302,7 +303,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext__AssemblyInfrastructureConnector() {
@@ -311,7 +312,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -331,7 +332,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -363,7 +364,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -387,7 +388,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -411,7 +412,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

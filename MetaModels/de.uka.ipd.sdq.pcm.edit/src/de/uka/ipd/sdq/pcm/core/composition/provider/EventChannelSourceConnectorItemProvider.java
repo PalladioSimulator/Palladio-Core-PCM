@@ -24,9 +24,10 @@ import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
  * @generated
  */
 public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +35,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EventChannelSourceConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +45,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,28 +70,28 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature"), this
-                        .getString("_UI_PropertyDescriptor_description",
-                                "_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature",
-                                "_UI_EventChannelSourceConnector_type"),
-                        CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE,
-                        true, false, true, null, null, null));
+                .getString("_UI_PropertyDescriptor_description",
+                        "_UI_EventChannelSourceConnector_sourceRole__EventChannelSourceRole_feature",
+                        "_UI_EventChannelSourceConnector_type"),
+                CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__SOURCE_ROLE_EVENT_CHANNEL_SOURCE_ROLE,
+                true, false, true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Assembly Context Event Channel Source Connector
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addAssemblyContext__EventChannelSourceConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature",
-                        "_UI_EventChannelSourceConnector_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature"),
+                        this.getString("_UI_PropertyDescriptor_description",
+                                "_UI_EventChannelSourceConnector_assemblyContext__EventChannelSourceConnector_feature",
+                                "_UI_EventChannelSourceConnector_type"),
                         CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SOURCE_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -98,25 +99,25 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This adds a property descriptor for the Event Channel Event Channel Source Connector feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addEventChannel__EventChannelSourceConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature",
-                        "_UI_EventChannelSourceConnector_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature"),
+                        this.getString("_UI_PropertyDescriptor_description",
+                                "_UI_EventChannelSourceConnector_eventChannel__EventChannelSourceConnector_feature",
+                                "_UI_EventChannelSourceConnector_type"),
                         CompositionPackage.Literals.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR,
                         true, false, true, null, null, null));
     }
 
     /**
      * This returns EventChannelSourceConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +142,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +154,7 @@ public class EventChannelSourceConnectorItemProvider extends ConnectorItemProvid
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

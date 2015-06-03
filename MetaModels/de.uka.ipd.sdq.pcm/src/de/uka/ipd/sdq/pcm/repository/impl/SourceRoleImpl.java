@@ -28,9 +28,10 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * @generated
  */
 public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -38,7 +39,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
     /**
      * The cached value of the '{@link #getEventGroup__SourceRole()
      * <em>Event Group Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEventGroup__SourceRole()
      * @generated
      * @ordered
@@ -47,7 +48,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SourceRoleImpl() {
@@ -56,7 +57,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -66,7 +67,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +88,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EventGroup basicGetEventGroup__SourceRole() {
@@ -96,7 +97,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -112,7 +113,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +130,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +145,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +160,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

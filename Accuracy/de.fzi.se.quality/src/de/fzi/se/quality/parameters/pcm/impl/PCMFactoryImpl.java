@@ -23,149 +23,161 @@ import de.fzi.se.quality.parameters.pcm.PCMParameterValue;
 import de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ *
  * @generated
  */
 public class PCMFactoryImpl extends EFactoryImpl implements PCMFactory {
-	/**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public static PCMFactory init() {
+    public static PCMFactory init() {
         try {
-            PCMFactory thePCMFactory = (PCMFactory)EPackage.Registry.INSTANCE.getEFactory(PCMPackage.eNS_URI);
+            final PCMFactory thePCMFactory = (PCMFactory) EPackage.Registry.INSTANCE.getEFactory(PCMPackage.eNS_URI);
             if (thePCMFactory != null) {
                 return thePCMFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new PCMFactoryImpl();
     }
 
-	/**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMFactoryImpl() {
+    public PCMFactoryImpl() {
         super();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public EObject create(EClass eClass) {
+    @Override
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case PCMPackage.PCM_PARAMETER_VALUE: return createPCMParameterValue();
-            case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE: return createPCMInfrastructureOperationReference();
-            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE: return createPCMBusinessOperationReference();
-            case PCMPackage.PCM_COMPONENT_REFERENCE: return createPCMComponentReference();
-            case PCMPackage.PCM_COMPONENT_PARAMETER_REFERENCE: return createPCMComponentParameterReference();
-            case PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE: return createPCMOperationParameterReference();
-            case PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE: return createPCMRequiredBusinessOperationReturnParameterReference();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case PCMPackage.PCM_PARAMETER_VALUE:
+            return this.createPCMParameterValue();
+        case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE:
+            return this.createPCMInfrastructureOperationReference();
+        case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE:
+            return this.createPCMBusinessOperationReference();
+        case PCMPackage.PCM_COMPONENT_REFERENCE:
+            return this.createPCMComponentReference();
+        case PCMPackage.PCM_COMPONENT_PARAMETER_REFERENCE:
+            return this.createPCMComponentParameterReference();
+        case PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE:
+            return this.createPCMOperationParameterReference();
+        case PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE:
+            return this.createPCMRequiredBusinessOperationReturnParameterReference();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMParameterValue createPCMParameterValue() {
-        PCMParameterValueImpl pcmParameterValue = new PCMParameterValueImpl();
+    @Override
+    public PCMParameterValue createPCMParameterValue() {
+        final PCMParameterValueImpl pcmParameterValue = new PCMParameterValueImpl();
         return pcmParameterValue;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMInfrastructureOperationReference createPCMInfrastructureOperationReference() {
-        PCMInfrastructureOperationReferenceImpl pcmInfrastructureOperationReference = new PCMInfrastructureOperationReferenceImpl();
+    @Override
+    public PCMInfrastructureOperationReference createPCMInfrastructureOperationReference() {
+        final PCMInfrastructureOperationReferenceImpl pcmInfrastructureOperationReference = new PCMInfrastructureOperationReferenceImpl();
         return pcmInfrastructureOperationReference;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMBusinessOperationReference createPCMBusinessOperationReference() {
-        PCMBusinessOperationReferenceImpl pcmBusinessOperationReference = new PCMBusinessOperationReferenceImpl();
+    @Override
+    public PCMBusinessOperationReference createPCMBusinessOperationReference() {
+        final PCMBusinessOperationReferenceImpl pcmBusinessOperationReference = new PCMBusinessOperationReferenceImpl();
         return pcmBusinessOperationReference;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMComponentReference createPCMComponentReference() {
-        PCMComponentReferenceImpl pcmComponentReference = new PCMComponentReferenceImpl();
+    @Override
+    public PCMComponentReference createPCMComponentReference() {
+        final PCMComponentReferenceImpl pcmComponentReference = new PCMComponentReferenceImpl();
         return pcmComponentReference;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMComponentParameterReference createPCMComponentParameterReference() {
-        PCMComponentParameterReferenceImpl pcmComponentParameterReference = new PCMComponentParameterReferenceImpl();
+    @Override
+    public PCMComponentParameterReference createPCMComponentParameterReference() {
+        final PCMComponentParameterReferenceImpl pcmComponentParameterReference = new PCMComponentParameterReferenceImpl();
         return pcmComponentParameterReference;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMOperationParameterReference createPCMOperationParameterReference() {
-        PCMOperationParameterReferenceImpl pcmOperationParameterReference = new PCMOperationParameterReferenceImpl();
+    @Override
+    public PCMOperationParameterReference createPCMOperationParameterReference() {
+        final PCMOperationParameterReferenceImpl pcmOperationParameterReference = new PCMOperationParameterReferenceImpl();
         return pcmOperationParameterReference;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMRequiredBusinessOperationReturnParameterReference createPCMRequiredBusinessOperationReturnParameterReference() {
-        PCMRequiredBusinessOperationReturnParameterReferenceImpl pcmRequiredBusinessOperationReturnParameterReference = new PCMRequiredBusinessOperationReturnParameterReferenceImpl();
+    @Override
+    public PCMRequiredBusinessOperationReturnParameterReference createPCMRequiredBusinessOperationReturnParameterReference() {
+        final PCMRequiredBusinessOperationReturnParameterReferenceImpl pcmRequiredBusinessOperationReturnParameterReference = new PCMRequiredBusinessOperationReturnParameterReferenceImpl();
         return pcmRequiredBusinessOperationReturnParameterReference;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMPackage getPCMPackage() {
-        return (PCMPackage)getEPackage();
+    @Override
+    public PCMPackage getPCMPackage() {
+        return (PCMPackage) this.getEPackage();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @deprecated
      * @generated
      */
-	@Deprecated
-	public static PCMPackage getPackage() {
+    @Deprecated
+    public static PCMPackage getPackage() {
         return PCMPackage.eINSTANCE;
     }
 
-} //PCMFactoryImpl
+} // PCMFactoryImpl

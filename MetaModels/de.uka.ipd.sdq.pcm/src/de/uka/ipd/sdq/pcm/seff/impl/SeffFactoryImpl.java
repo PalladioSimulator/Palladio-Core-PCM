@@ -37,20 +37,21 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static SeffFactory init() {
@@ -68,7 +69,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffFactoryImpl() {
@@ -77,7 +78,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -132,7 +133,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -143,7 +144,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -154,7 +155,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -165,7 +166,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -176,7 +177,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -187,7 +188,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -198,7 +199,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +210,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -220,7 +221,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -231,7 +232,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,7 +243,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -253,7 +254,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -264,7 +265,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -275,7 +276,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -286,7 +287,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -297,7 +298,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -308,7 +309,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -319,7 +320,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -330,7 +331,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -341,7 +342,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -352,7 +353,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -363,7 +364,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -373,7 +374,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

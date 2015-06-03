@@ -31,9 +31,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  * @generated
  */
 public interface RequiredResourceDelegationConnector extends DelegationConnector {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

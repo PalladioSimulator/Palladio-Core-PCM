@@ -27,8 +27,8 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * nbsp;if&nbsp;the&nbsp;guard&nbsp;evaluates&nbsp;to&nbsp;false&nbsp;another&nbsp;branch
  * &nbsp;transition&nbsp;must&nbsp;be&nbsp;chosen.<br />
  * The&nbsp;guard&nbsp;may&nbsp;contain&nbsp;references&nbsp;to&nbsp;the&nbsp;service
- * 's&nbsp;input&nbsp;parameters&nbsp;or&nbsp;component&nbsp;parameters.&nbsp;A&nbsp;component&nbsp;developer&nbsp;can&nbsp;specify&nbsp;complex&nbsp;boolean&nbsp;expressions&nbsp;by&nbsp;using&nbsp;the&nbsp;AND,&nbsp;OR,&nbsp;and&nbsp;NOT&nbsp;operations&nbsp;provided&nbsp;by&nbsp;the&nbsp;StoEx&nbsp;framework.&nbsp;As&nbsp;the&nbsp;domain&nbsp;expert&nbsp;may&nbsp;have&nbsp;characterised&nbsp;the&nbsp;parameters&nbsp;used&nbsp;in&nbsp;a&nbsp;guard&nbsp;with&nbsp;probability&nbsp;distributions,&nbsp;it&nbsp;might&nbsp;happen&nbsp;that&nbsp;a&nbsp;guard&nbsp;does&nbsp;not&nbsp;evaluate&nbsp;to&nbsp;true&nbsp;or&nbsp;false&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;1.0.&nbsp;For&nbsp;example,&nbsp;the&nbsp;specification&nbsp;can&nbsp;express&nbsp;that&nbsp;a&nbsp;guard&nbsp;evaluates&nbsp;to&nbsp;true&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;0.3,&nbsp;and&nbsp;to&nbsp;false&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;0.7.&nbsp;In&nbsp;any&nbsp;case,&nbsp;the&nbsp;probabilities&nbsp;of&nbsp;the&nbsp;individual&nbsp;guards&nbsp;attached&nbsp;to&nbsp;all&nbsp;GuardedBranchTransitions&nbsp;contained&nbsp;in&nbsp;a&nbsp;BranchAction&nbsp;must&nbsp;sum&nbsp;up&nbsp;to&nbsp;1.0
- * .<br />
+ * 's&nbsp;input&nbsp;parameters&nbsp;or&nbsp;component&nbsp;parameters.&nbsp;A&nbsp;component&nbsp;developer&nbsp;can&nbsp;specify&nbsp;complex&nbsp;boolean&nbsp;expressions&nbsp;by&nbsp;using&nbsp;the&nbsp;AND,&nbsp;OR,&nbsp;and&nbsp;NOT&nbsp;operations&nbsp;provided&nbsp;by&nbsp;the&nbsp;StoEx&nbsp;framework.&nbsp;As&nbsp;the&nbsp;domain&nbsp;expert&nbsp;may&nbsp;have&nbsp;characterised&nbsp;the&nbsp;parameters&nbsp;used&nbsp;in&nbsp;a&nbsp;guard&nbsp;with&nbsp;probability&nbsp;distributions,&nbsp;it&nbsp;might&nbsp;happen&nbsp;that&nbsp;a&nbsp;guard&nbsp;does&nbsp;not&nbsp;evaluate&nbsp;to&nbsp;true&nbsp;or&nbsp;false&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;1.0.&nbsp;For&nbsp;example,&nbsp;the&nbsp;specification&nbsp;can&nbsp;express&nbsp;that&nbsp;a&nbsp;guard&nbsp;evaluates&nbsp;to&nbsp;true&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;0.3,&nbsp;and&nbsp;to&nbsp;false&nbsp;with&nbsp;a&nbsp;probability&nbsp;of&nbsp;0.7.&nbsp;In&nbsp;any&nbsp;case,&nbsp;the&nbsp;probabilities&nbsp;of&nbsp;the&nbsp;individual&nbsp;guards&nbsp;attached&nbsp;to&nbsp;all&nbsp;GuardedBranchTransitions&nbsp;contained&nbsp;in&nbsp;a&nbsp;BranchAction&nbsp;must&nbsp;sum&nbsp;up&nbsp;to&nbsp;1
+ * . 0 .<br />
  * There&nbsp;is&nbsp;no&nbsp;predefined&nbsp;order&nbsp;in&nbsp;evaluating&nbsp;the&nbsp;guards&
  * nbsp
  * ;attached&nbsp;to&nbsp;a&nbsp;BranchAction.&nbsp;This&nbsp;differs&nbsp;from&nbsp;programming&
@@ -91,9 +91,10 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * @generated
  */
 public interface GuardedBranchTransition extends AbstractBranchTransition {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -108,7 +109,7 @@ public interface GuardedBranchTransition extends AbstractBranchTransition {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Condition Guarded Branch Transition</em>' containment
      *         reference.
      * @see #setBranchCondition_GuardedBranchTransition(PCMRandomVariable)

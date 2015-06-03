@@ -33,14 +33,15 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class VariableCharacterisationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +49,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public VariableCharacterisationItemProvider(final AdapterFactory adapterFactory) {
@@ -58,7 +59,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +75,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This adds a property descriptor for the Type feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addTypePropertyDescriptor(final Object object) {
@@ -83,8 +84,8 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
                 this.getString("_UI_VariableCharacterisation_type_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_VariableCharacterisation_type_feature",
                         "_UI_VariableCharacterisation_type"),
-                        ParameterPackage.Literals.VARIABLE_CHARACTERISATION__TYPE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                ParameterPackage.Literals.VARIABLE_CHARACTERISATION__TYPE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -101,14 +102,14 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-            .add(ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION);
+                    .add(ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +122,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
 
     /**
      * This returns VariableCharacterisation.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +148,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +169,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -183,7 +184,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

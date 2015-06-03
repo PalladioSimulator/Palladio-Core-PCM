@@ -29,9 +29,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
  * @generated
  */
 public interface CompositeComponent extends ComposedProvidingRequiringEntity, ImplementationComponentType {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

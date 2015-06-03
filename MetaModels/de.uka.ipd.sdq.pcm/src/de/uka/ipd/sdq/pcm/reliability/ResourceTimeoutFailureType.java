@@ -33,9 +33,10 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * @generated
  */
 public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
      * {@link de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
      * <em>Passive Resource Resource Timeout Failure Type</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Passive Resource Resource Timeout Failure Type</em>'
      *            reference.

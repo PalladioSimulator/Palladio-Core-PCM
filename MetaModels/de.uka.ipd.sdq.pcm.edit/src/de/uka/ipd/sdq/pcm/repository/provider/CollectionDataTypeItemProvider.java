@@ -20,13 +20,14 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CollectionDataTypeItemProvider extends EntityItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +35,7 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CollectionDataTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +45,7 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,13 +70,13 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
                 this.getString("_UI_CollectionDataType_innerType_CollectionDataType_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_CollectionDataType_innerType_CollectionDataType_feature", "_UI_CollectionDataType_type"),
-                        RepositoryPackage.Literals.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE, true, false, true,
-                        null, null, null));
+                RepositoryPackage.Literals.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE, true, false, true,
+                null, null, null));
     }
 
     /**
      * This returns CollectionDataType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +101,7 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -112,7 +113,7 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

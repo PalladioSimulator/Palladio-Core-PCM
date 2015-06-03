@@ -17,28 +17,29 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutio
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage
  * @generated
  */
 public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static QosPerformancePackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QosPerformanceAdapterFactory() {
@@ -51,7 +52,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     * 
+     *
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
@@ -69,10 +70,11 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected QosPerformanceSwitch<Adapter> modelSwitch = new QosPerformanceSwitch<Adapter>() {
+
         @Override
         public Adapter caseSystemSpecifiedExecutionTime(final SystemSpecifiedExecutionTime object) {
             return QosPerformanceAdapterFactory.this.createSystemSpecifiedExecutionTimeAdapter();
@@ -101,7 +103,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
@@ -118,7 +120,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * <em>System Specified Execution Time</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
      * @generated
@@ -133,7 +135,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * <em>Specified Execution Time</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
      * @generated
@@ -148,7 +150,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * <em>Component Specified Execution Time</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
      * @generated
@@ -163,7 +165,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * <em>Specified Qo SAnnotation</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation
      * @generated
@@ -175,7 +177,7 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @generated
      */

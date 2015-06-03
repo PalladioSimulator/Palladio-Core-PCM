@@ -32,9 +32,10 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime;
  * @generated
  */
 public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationImpl implements SpecifiedExecutionTime {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -43,7 +44,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      * The cached value of the '{@link #getSpecification_SpecifiedExecutionTime()
      * <em>Specification Specified Execution Time</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSpecification_SpecifiedExecutionTime()
      * @generated
      * @ordered
@@ -52,7 +53,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SpecifiedExecutionTimeImpl() {
@@ -61,7 +62,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +72,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -81,7 +82,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSpecification_SpecifiedExecutionTime(
@@ -103,7 +104,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +134,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +156,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -170,7 +171,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -184,7 +185,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -199,7 +200,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -214,7 +215,7 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

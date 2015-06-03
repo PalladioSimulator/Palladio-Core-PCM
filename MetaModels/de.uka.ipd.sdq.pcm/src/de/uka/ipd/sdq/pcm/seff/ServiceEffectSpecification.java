@@ -54,9 +54,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * @generated
  */
 public interface ServiceEffectSpecification extends StereotypableElement {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,7 +70,7 @@ public interface ServiceEffectSpecification extends StereotypableElement {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Seff Type ID</em>' attribute.
      * @see #setSeffTypeID(String)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_SeffTypeID()
@@ -82,7 +83,7 @@ public interface ServiceEffectSpecification extends StereotypableElement {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID
      * <em>Seff Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Seff Type ID</em>' attribute.
      * @see #getSeffTypeID()
@@ -111,7 +112,7 @@ public interface ServiceEffectSpecification extends StereotypableElement {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
      * <em>Described Service SEFF</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Described Service SEFF</em>' reference.
      * @see #getDescribedService__SEFF()
@@ -129,7 +130,7 @@ public interface ServiceEffectSpecification extends StereotypableElement {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Basic Component Service Effect Specification</em>' container
      *         reference.
      * @see #setBasicComponent_ServiceEffectSpecification(BasicComponent)

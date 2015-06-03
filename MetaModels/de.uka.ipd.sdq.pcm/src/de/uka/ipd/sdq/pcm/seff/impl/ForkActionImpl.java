@@ -38,9 +38,10 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
  * @generated
  */
 public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implements ForkAction {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +60,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
      * The cached value of the '{@link #getSynchronisingBehaviours_ForkAction()
      * <em>Synchronising Behaviours Fork Action</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSynchronisingBehaviours_ForkAction()
      * @generated
      * @ordered
@@ -68,7 +69,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ForkActionImpl() {
@@ -77,7 +78,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +88,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -103,7 +104,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +114,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSynchronisingBehaviours_ForkAction(
@@ -135,7 +136,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -165,7 +166,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -188,7 +189,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -205,7 +206,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -221,7 +222,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -241,7 +242,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -259,7 +260,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

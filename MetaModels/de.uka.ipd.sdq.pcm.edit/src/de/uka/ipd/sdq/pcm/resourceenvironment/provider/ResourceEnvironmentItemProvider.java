@@ -28,13 +28,14 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +43,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceEnvironmentItemProvider(final AdapterFactory adapterFactory) {
@@ -52,7 +53,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +69,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
     /**
      * This adds a property descriptor for the Entity Name feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addEntityNamePropertyDescriptor(final Object object) {
@@ -77,7 +78,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
                 this.getString("_UI_NamedElement_entityName_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature",
                         "_UI_NamedElement_type"), EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME, true, false,
-                        false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -94,16 +95,16 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-            .add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT);
+                    .add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT);
             this.childrenFeatures
-            .add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT);
+                    .add(ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +117,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
 
     /**
      * This returns ResourceEnvironment.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +142,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +164,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -182,7 +183,7 @@ public class ResourceEnvironmentItemProvider extends ProfileableElementItemProvi
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

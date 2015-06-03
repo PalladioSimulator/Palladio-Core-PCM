@@ -56,9 +56,10 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * @generated
  */
 public abstract class InterfaceImpl extends EntityImpl implements Interface {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -67,7 +68,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * The cached value of the '{@link #getParentInterfaces__Interface()
      * <em>Parent Interfaces Interface</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getParentInterfaces__Interface()
      * @generated
      * @ordered
@@ -77,7 +78,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     /**
      * The cached value of the '{@link #getProtocols__Interface() <em>Protocols Interface</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getProtocols__Interface()
      * @generated
      * @ordered
@@ -88,7 +89,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * The cached value of the '{@link #getRequiredCharacterisations()
      * <em>Required Characterisations</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getRequiredCharacterisations()
      * @generated
      * @ordered
@@ -97,7 +98,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InterfaceImpl() {
@@ -106,7 +107,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +117,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -131,7 +132,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -146,7 +147,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -162,7 +163,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -175,7 +176,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRepository__Interface(final Repository newRepository__Interface,
@@ -187,7 +188,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -221,7 +222,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Protocol Type ID Used Twice</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -234,7 +235,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Protocol Type ID Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -243,7 +244,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -272,7 +273,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -293,7 +294,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -312,7 +313,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -327,7 +328,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -347,7 +348,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -375,7 +376,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -399,7 +400,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -421,7 +422,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

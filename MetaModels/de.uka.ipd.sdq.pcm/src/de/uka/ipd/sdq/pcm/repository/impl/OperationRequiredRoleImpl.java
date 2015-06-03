@@ -29,9 +29,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class OperationRequiredRoleImpl extends RequiredRoleImpl implements OperationRequiredRole {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +41,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      * The cached value of the '{@link #getRequiredInterface__OperationRequiredRole()
      * <em>Required Interface Operation Required Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getRequiredInterface__OperationRequiredRole()
      * @generated
      * @ordered
@@ -49,7 +50,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationRequiredRoleImpl() {
@@ -58,7 +59,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +69,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +92,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationInterface basicGetRequiredInterface__OperationRequiredRole() {
@@ -100,7 +101,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +118,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +135,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -149,7 +150,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -164,7 +165,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

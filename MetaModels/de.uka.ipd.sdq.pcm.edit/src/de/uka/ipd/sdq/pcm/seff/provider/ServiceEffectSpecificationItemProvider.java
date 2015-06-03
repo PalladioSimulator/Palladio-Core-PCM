@@ -25,13 +25,14 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ServiceEffectSpecificationItemProvider extends StereotypableElementItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -39,7 +40,7 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ServiceEffectSpecificationItemProvider(final AdapterFactory adapterFactory) {
@@ -49,7 +50,7 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -66,7 +67,7 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
     /**
      * This adds a property descriptor for the Seff Type ID feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addSeffTypeIDPropertyDescriptor(final Object object) {
@@ -75,14 +76,14 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
                 this.getString("_UI_ServiceEffectSpecification_seffTypeID_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_seffTypeID_feature",
                         "_UI_ServiceEffectSpecification_type"),
-                        SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Described Service SEFF feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addDescribedService__SEFFPropertyDescriptor(final Object object) {
@@ -92,8 +93,8 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
                         "_UI_PropertyDescriptor_description",
                         "_UI_ServiceEffectSpecification_describedService__SEFF_feature",
                         "_UI_ServiceEffectSpecification_type"),
-                        SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, true, false, true, null,
-                        null, null));
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, true, false, true, null,
+                null, null));
     }
 
     /**
@@ -113,7 +114,7 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -131,7 +132,7 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -142,7 +143,7 @@ public class ServiceEffectSpecificationItemProvider extends StereotypableElement
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

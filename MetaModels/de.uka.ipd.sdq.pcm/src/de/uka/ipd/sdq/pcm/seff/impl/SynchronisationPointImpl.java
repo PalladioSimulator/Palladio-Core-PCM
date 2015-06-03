@@ -46,9 +46,10 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
  * @generated
  */
 public class SynchronisationPointImpl extends EntityImpl implements SynchronisationPoint {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -67,7 +68,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
      * The cached value of the '{@link #getSynchronousForkedBehaviours_SynchronisationPoint()
      * <em>Synchronous Forked Behaviours Synchronisation Point</em>}' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSynchronousForkedBehaviours_SynchronisationPoint()
      * @generated
      * @ordered
@@ -76,7 +77,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SynchronisationPointImpl() {
@@ -85,7 +86,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -95,7 +96,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -112,7 +113,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +126,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetForkAction_SynchronisationPoint(
@@ -137,7 +138,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +169,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -185,7 +186,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -209,7 +210,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -229,7 +230,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -244,7 +245,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -262,7 +263,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -287,7 +288,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -308,7 +309,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

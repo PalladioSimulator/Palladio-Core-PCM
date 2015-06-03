@@ -33,9 +33,10 @@ import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
  * @generated
  */
 public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements SoftwareInducedFailureType {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +46,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
      * {@link #getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType()
      * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}' reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType()
      * @generated
      * @ordered
@@ -54,7 +55,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SoftwareInducedFailureTypeImpl() {
@@ -63,7 +64,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +74,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -91,7 +92,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -108,7 +109,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +125,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +139,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -156,7 +157,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +172,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

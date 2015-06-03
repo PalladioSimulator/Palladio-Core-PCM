@@ -21,13 +21,14 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.AcquireAction} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AcquireActionItemProvider extends AbstractInternalControlFlowActionItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -35,7 +36,7 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AcquireActionItemProvider(final AdapterFactory adapterFactory) {
@@ -45,7 +46,7 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,14 +73,14 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
                 this.getString("_UI_AcquireAction_passiveresource_AcquireAction_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_AcquireAction_passiveresource_AcquireAction_feature", "_UI_AcquireAction_type"),
-                        SeffPackage.Literals.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION, true, false, true, null, null,
-                        null));
+                SeffPackage.Literals.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION, true, false, true, null, null,
+                null));
     }
 
     /**
      * This adds a property descriptor for the Timeout feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addTimeoutPropertyDescriptor(final Object object) {
@@ -88,13 +89,13 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
                 this.getString("_UI_AcquireAction_timeout_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_AcquireAction_timeout_feature",
                         "_UI_AcquireAction_type"), SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT, true, false, false,
-                        ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+                ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Timeout Value feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addTimeoutValuePropertyDescriptor(final Object object) {
@@ -103,12 +104,12 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
                 this.getString("_UI_AcquireAction_timeoutValue_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_AcquireAction_timeoutValue_feature",
                         "_UI_AcquireAction_type"), SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT_VALUE, true, false,
-                        false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+                false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
     }
 
     /**
      * This returns AcquireAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +134,7 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -152,7 +153,7 @@ public class AcquireActionItemProvider extends AbstractInternalControlFlowAction
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -54,9 +54,10 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  */
 public abstract class ImplementationComponentTypeImpl extends RepositoryComponentImpl implements
 ImplementationComponentType {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -65,7 +66,7 @@ ImplementationComponentType {
      * The cached value of the '{@link #getParentCompleteComponentTypes()
      * <em>Parent Complete Component Types</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getParentCompleteComponentTypes()
      * @generated
      * @ordered
@@ -76,7 +77,7 @@ ImplementationComponentType {
      * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType()
      * <em>Component Parameter Usage Implementation Component Type</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getComponentParameterUsage_ImplementationComponentType()
      * @generated
      * @ordered
@@ -86,7 +87,7 @@ ImplementationComponentType {
     /**
      * The default value of the '{@link #getComponentType() <em>Component Type</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getComponentType()
      * @generated
      * @ordered
@@ -105,7 +106,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ImplementationComponentTypeImpl() {
@@ -114,7 +115,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +125,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -140,7 +141,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -157,7 +158,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -167,7 +168,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -237,7 +238,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -324,7 +325,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -391,7 +392,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -463,7 +464,7 @@ ImplementationComponentType {
      * {@link #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provide Same Or More Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -473,7 +474,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -542,7 +543,7 @@ ImplementationComponentType {
      * {@link #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Require Same Or Fewer Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -552,7 +553,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -589,7 +590,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -605,7 +606,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -623,7 +624,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -648,7 +649,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -669,7 +670,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -689,7 +690,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -708,7 +709,7 @@ ImplementationComponentType {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

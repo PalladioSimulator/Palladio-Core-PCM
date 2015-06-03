@@ -17,20 +17,21 @@ import de.uka.ipd.sdq.pcm.PcmPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static PcmFactory init() {
@@ -47,7 +48,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public PcmFactoryImpl() {
@@ -56,7 +57,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +72,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -82,7 +83,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -92,7 +93,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

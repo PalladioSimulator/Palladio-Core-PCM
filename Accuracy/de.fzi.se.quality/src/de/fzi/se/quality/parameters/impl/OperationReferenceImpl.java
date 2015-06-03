@@ -19,179 +19,196 @@ import de.fzi.se.quality.parameters.ParametersPackage;
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Operation Reference</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Operation Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.impl.OperationReferenceImpl#getCallInstance <em>Call Instance</em>}</li>
+ * <li>{@link de.fzi.se.quality.parameters.impl.OperationReferenceImpl#getCallInstance <em>Call
+ * Instance</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class OperationReferenceImpl extends IdentifierImpl implements OperationReference {
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	protected OperationReferenceImpl() {
+    protected OperationReferenceImpl() {
         super();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return ParametersPackage.Literals.OPERATION_REFERENCE;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public CallInstance getCallInstance() {
-        if (eContainerFeatureID() != ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE) return null;
-        return (CallInstance)eInternalContainer();
+    @Override
+    public CallInstance getCallInstance() {
+        if (this.eContainerFeatureID() != ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE) {
+            return null;
+        }
+        return (CallInstance) this.eInternalContainer();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public NotificationChain basicSetCallInstance(CallInstance newCallInstance, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newCallInstance, ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, msgs);
+    public NotificationChain basicSetCallInstance(final CallInstance newCallInstance, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newCallInstance,
+                ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, msgs);
         return msgs;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public void setCallInstance(CallInstance newCallInstance) {
-        if (newCallInstance != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE && newCallInstance != null)) {
-            if (EcoreUtil.isAncestor(this, newCallInstance))
-                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+    @Override
+    public void setCallInstance(final CallInstance newCallInstance) {
+        if (newCallInstance != this.eInternalContainer()
+                || (this.eContainerFeatureID() != ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE && newCallInstance != null)) {
+            if (EcoreUtil.isAncestor(this, newCallInstance)) {
+                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
+            }
             NotificationChain msgs = null;
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            if (newCallInstance != null)
-                msgs = ((InternalEObject)newCallInstance).eInverseAdd(this, ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, CallInstance.class, msgs);
-            msgs = basicSetCallInstance(newCallInstance, msgs);
-            if (msgs != null) msgs.dispatch();
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            if (newCallInstance != null) {
+                msgs = ((InternalEObject) newCallInstance).eInverseAdd(this,
+                        ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, CallInstance.class, msgs);
+            }
+            msgs = this.basicSetCallInstance(newCallInstance, msgs);
+            if (msgs != null) {
+                msgs.dispatch();
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, newCallInstance, newCallInstance));
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, newCallInstance, newCallInstance));
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetCallInstance((CallInstance)otherEnd, msgs);
+        case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetCallInstance((CallInstance) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
-            case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
-                return basicSetCallInstance(null, msgs);
+        case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
+            return this.basicSetCallInstance(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
-            case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
-                return eInternalContainer().eInverseRemove(this, ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, CallInstance.class, msgs);
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
+        case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
+            return this.eInternalContainer().eInverseRemove(this, ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE,
+                    CallInstance.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-            case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
-                return getCallInstance();
+        case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
+            return this.getCallInstance();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @Override
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-            case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
-                setCallInstance((CallInstance)newValue);
-                return;
+        case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
+            this.setCallInstance((CallInstance) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(final int featureID) {
         switch (featureID) {
-            case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
-                setCallInstance((CallInstance)null);
-                return;
+        case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
+            this.setCallInstance((CallInstance) null);
+            return;
         }
         super.eUnset(featureID);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
-            case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
-                return getCallInstance() != null;
+        case ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE:
+            return this.getCallInstance() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //OperationReferenceImpl
+} // OperationReferenceImpl

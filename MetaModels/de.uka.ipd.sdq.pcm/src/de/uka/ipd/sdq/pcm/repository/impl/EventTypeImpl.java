@@ -33,9 +33,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class EventTypeImpl extends SignatureImpl implements EventType {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -43,7 +44,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
     /**
      * The cached value of the '{@link #getParameter__EventType() <em>Parameter Event Type</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getParameter__EventType()
      * @generated
      * @ordered
@@ -52,7 +53,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventTypeImpl() {
@@ -61,7 +62,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +72,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +85,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetEventGroup__EventType(final EventGroup newEventGroup__EventType,
@@ -96,7 +97,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -127,7 +128,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +138,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParameter__EventType(final Parameter newParameter__EventType,
@@ -159,7 +160,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -187,7 +188,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -210,7 +211,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -227,7 +228,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,7 +243,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -258,7 +259,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -276,7 +277,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -294,7 +295,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

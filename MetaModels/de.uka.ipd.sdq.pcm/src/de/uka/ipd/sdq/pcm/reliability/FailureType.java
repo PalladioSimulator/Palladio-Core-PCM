@@ -32,9 +32,10 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
  * @generated
  */
 public interface FailureType extends Entity {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +50,7 @@ public interface FailureType extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Repository Failure Type</em>' container reference.
      * @see #setRepository__FailureType(Repository)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureType_Repository__FailureType()
@@ -64,7 +65,7 @@ public interface FailureType extends Entity {
      * {@link de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType
      * <em>Repository Failure Type</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Repository Failure Type</em>' container reference.
      * @see #getRepository__FailureType()

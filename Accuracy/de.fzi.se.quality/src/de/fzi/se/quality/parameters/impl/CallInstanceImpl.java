@@ -24,323 +24,361 @@ import de.fzi.se.quality.parameters.ParametersPackage;
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Call Instance</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Call Instance</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getOperationReference <em>Operation Reference</em>}</li>
- *   <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getOutputParameterInstances <em>Output Parameter Instances</em>}</li>
- *   <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getNumberOfCalls <em>Number Of Calls</em>}</li>
- *   <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getInputParameterInstances <em>Input Parameter Instances</em>}</li>
+ * <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getOperationReference <em>Operation
+ * Reference</em>}</li>
+ * <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getOutputParameterInstances <em>
+ * Output Parameter Instances</em>}</li>
+ * <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getNumberOfCalls <em>Number Of
+ * Calls</em>}</li>
+ * <li>{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl#getInputParameterInstances <em>
+ * Input Parameter Instances</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
-	/**
-     * The cached value of the '{@link #getOperationReference() <em>Operation Reference</em>}' containment reference.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * The cached value of the '{@link #getOperationReference() <em>Operation Reference</em>}'
+     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #getOperationReference()
      * @generated
      * @ordered
      */
-	protected OperationReference operationReference;
+    protected OperationReference operationReference;
 
-	/**
-     * The cached value of the '{@link #getOutputParameterInstances() <em>Output Parameter Instances</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * The cached value of the '{@link #getOutputParameterInstances()
+     * <em>Output Parameter Instances</em>}' containment reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
      * @see #getOutputParameterInstances()
      * @generated
      * @ordered
      */
-	protected EList<ParameterInstance> outputParameterInstances;
+    protected EList<ParameterInstance> outputParameterInstances;
 
-	/**
+    /**
      * The default value of the '{@link #getNumberOfCalls() <em>Number Of Calls</em>}' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #getNumberOfCalls()
      * @generated
      * @ordered
      */
-	protected static final long NUMBER_OF_CALLS_EDEFAULT = 1L;
+    protected static final long NUMBER_OF_CALLS_EDEFAULT = 1L;
 
-	/**
+    /**
      * The cached value of the '{@link #getNumberOfCalls() <em>Number Of Calls</em>}' attribute.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #getNumberOfCalls()
      * @generated
      * @ordered
      */
-	protected long numberOfCalls = NUMBER_OF_CALLS_EDEFAULT;
+    protected long numberOfCalls = NUMBER_OF_CALLS_EDEFAULT;
 
-	/**
-     * The cached value of the '{@link #getInputParameterInstances() <em>Input Parameter Instances</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * The cached value of the '{@link #getInputParameterInstances()
+     * <em>Input Parameter Instances</em>}' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @see #getInputParameterInstances()
      * @generated
      * @ordered
      */
-	protected EList<ParameterInstance> inputParameterInstances;
+    protected EList<ParameterInstance> inputParameterInstances;
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	protected CallInstanceImpl() {
+    protected CallInstanceImpl() {
         super();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return ParametersPackage.Literals.CALL_INSTANCE;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public OperationReference getOperationReference() {
-        return operationReference;
+    @Override
+    public OperationReference getOperationReference() {
+        return this.operationReference;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public NotificationChain basicSetOperationReference(OperationReference newOperationReference, NotificationChain msgs) {
-        OperationReference oldOperationReference = operationReference;
-        operationReference = newOperationReference;
-        if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, oldOperationReference, newOperationReference);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+    public NotificationChain basicSetOperationReference(final OperationReference newOperationReference,
+            NotificationChain msgs) {
+        final OperationReference oldOperationReference = this.operationReference;
+        this.operationReference = newOperationReference;
+        if (this.eNotificationRequired()) {
+            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, oldOperationReference, newOperationReference);
+            if (msgs == null) {
+                msgs = notification;
+            } else {
+                msgs.add(notification);
+            }
         }
         return msgs;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public void setOperationReference(OperationReference newOperationReference) {
-        if (newOperationReference != operationReference) {
+    @Override
+    public void setOperationReference(final OperationReference newOperationReference) {
+        if (newOperationReference != this.operationReference) {
             NotificationChain msgs = null;
-            if (operationReference != null)
-                msgs = ((InternalEObject)operationReference).eInverseRemove(this, ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, OperationReference.class, msgs);
-            if (newOperationReference != null)
-                msgs = ((InternalEObject)newOperationReference).eInverseAdd(this, ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, OperationReference.class, msgs);
-            msgs = basicSetOperationReference(newOperationReference, msgs);
-            if (msgs != null) msgs.dispatch();
+            if (this.operationReference != null) {
+                msgs = ((InternalEObject) this.operationReference).eInverseRemove(this,
+                        ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, OperationReference.class, msgs);
+            }
+            if (newOperationReference != null) {
+                msgs = ((InternalEObject) newOperationReference).eInverseAdd(this,
+                        ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, OperationReference.class, msgs);
+            }
+            msgs = this.basicSetOperationReference(newOperationReference, msgs);
+            if (msgs != null) {
+                msgs.dispatch();
+            }
+        } else if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, newOperationReference, newOperationReference));
         }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, newOperationReference, newOperationReference));
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public EList<ParameterInstance> getOutputParameterInstances() {
-        if (outputParameterInstances == null) {
-            outputParameterInstances = new EObjectContainmentWithInverseEList<ParameterInstance>(ParameterInstance.class, this, ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES, ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE);
+    @Override
+    public EList<ParameterInstance> getOutputParameterInstances() {
+        if (this.outputParameterInstances == null) {
+            this.outputParameterInstances = new EObjectContainmentWithInverseEList<ParameterInstance>(
+                    ParameterInstance.class, this, ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES,
+                    ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE);
         }
-        return outputParameterInstances;
+        return this.outputParameterInstances;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public long getNumberOfCalls() {
-        return numberOfCalls;
+    @Override
+    public long getNumberOfCalls() {
+        return this.numberOfCalls;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public void setNumberOfCalls(long newNumberOfCalls) {
-        long oldNumberOfCalls = numberOfCalls;
-        numberOfCalls = newNumberOfCalls;
-        if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS, oldNumberOfCalls, numberOfCalls));
-    }
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated
-     */
-	public EList<ParameterInstance> getInputParameterInstances() {
-        if (inputParameterInstances == null) {
-            inputParameterInstances = new EObjectContainmentWithInverseEList<ParameterInstance>(ParameterInstance.class, this, ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES, ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE);
+    @Override
+    public void setNumberOfCalls(final long newNumberOfCalls) {
+        final long oldNumberOfCalls = this.numberOfCalls;
+        this.numberOfCalls = newNumberOfCalls;
+        if (this.eNotificationRequired()) {
+            this.eNotify(new ENotificationImpl(this, Notification.SET,
+                    ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS, oldNumberOfCalls, this.numberOfCalls));
         }
-        return inputParameterInstances;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public EList<ParameterInstance> getInputParameterInstances() {
+        if (this.inputParameterInstances == null) {
+            this.inputParameterInstances = new EObjectContainmentWithInverseEList<ParameterInstance>(
+                    ParameterInstance.class, this, ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES,
+                    ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE);
+        }
+        return this.inputParameterInstances;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
-                if (operationReference != null)
-                    msgs = ((InternalEObject)operationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, null, msgs);
-                return basicSetOperationReference((OperationReference)otherEnd, msgs);
-            case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getOutputParameterInstances()).basicAdd(otherEnd, msgs);
-            case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getInputParameterInstances()).basicAdd(otherEnd, msgs);
+        case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
+            if (this.operationReference != null) {
+                msgs = ((InternalEObject) this.operationReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+                        - ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, null, msgs);
+            }
+            return this.basicSetOperationReference((OperationReference) otherEnd, msgs);
+        case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getOutputParameterInstances()).basicAdd(
+                    otherEnd, msgs);
+        case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInputParameterInstances()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
-            case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
-                return basicSetOperationReference(null, msgs);
-            case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
-                return ((InternalEList<?>)getOutputParameterInstances()).basicRemove(otherEnd, msgs);
-            case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
-                return ((InternalEList<?>)getInputParameterInstances()).basicRemove(otherEnd, msgs);
+        case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
+            return this.basicSetOperationReference(null, msgs);
+        case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
+            return ((InternalEList<?>) this.getOutputParameterInstances()).basicRemove(otherEnd, msgs);
+        case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
+            return ((InternalEList<?>) this.getInputParameterInstances()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-            case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
-                return getOperationReference();
-            case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
-                return getOutputParameterInstances();
-            case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
-                return getNumberOfCalls();
-            case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
-                return getInputParameterInstances();
+        case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
+            return this.getOperationReference();
+        case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
+            return this.getOutputParameterInstances();
+        case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
+            return this.getNumberOfCalls();
+        case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
+            return this.getInputParameterInstances();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-            case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
-                setOperationReference((OperationReference)newValue);
-                return;
-            case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
-                getOutputParameterInstances().clear();
-                getOutputParameterInstances().addAll((Collection<? extends ParameterInstance>)newValue);
-                return;
-            case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
-                setNumberOfCalls((Long)newValue);
-                return;
-            case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
-                getInputParameterInstances().clear();
-                getInputParameterInstances().addAll((Collection<? extends ParameterInstance>)newValue);
-                return;
+        case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
+            this.setOperationReference((OperationReference) newValue);
+            return;
+        case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
+            this.getOutputParameterInstances().clear();
+            this.getOutputParameterInstances().addAll((Collection<? extends ParameterInstance>) newValue);
+            return;
+        case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
+            this.setNumberOfCalls((Long) newValue);
+            return;
+        case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
+            this.getInputParameterInstances().clear();
+            this.getInputParameterInstances().addAll((Collection<? extends ParameterInstance>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(final int featureID) {
         switch (featureID) {
-            case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
-                setOperationReference((OperationReference)null);
-                return;
-            case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
-                getOutputParameterInstances().clear();
-                return;
-            case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
-                setNumberOfCalls(NUMBER_OF_CALLS_EDEFAULT);
-                return;
-            case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
-                getInputParameterInstances().clear();
-                return;
+        case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
+            this.setOperationReference((OperationReference) null);
+            return;
+        case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
+            this.getOutputParameterInstances().clear();
+            return;
+        case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
+            this.setNumberOfCalls(NUMBER_OF_CALLS_EDEFAULT);
+            return;
+        case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
+            this.getInputParameterInstances().clear();
+            return;
         }
         super.eUnset(featureID);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
-            case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
-                return operationReference != null;
-            case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
-                return outputParameterInstances != null && !outputParameterInstances.isEmpty();
-            case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
-                return numberOfCalls != NUMBER_OF_CALLS_EDEFAULT;
-            case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
-                return inputParameterInstances != null && !inputParameterInstances.isEmpty();
+        case ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE:
+            return this.operationReference != null;
+        case ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES:
+            return this.outputParameterInstances != null && !this.outputParameterInstances.isEmpty();
+        case ParametersPackage.CALL_INSTANCE__NUMBER_OF_CALLS:
+            return this.numberOfCalls != NUMBER_OF_CALLS_EDEFAULT;
+        case ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES:
+            return this.inputParameterInstances != null && !this.inputParameterInstances.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public String toString() {
-        if (eIsProxy()) return super.toString();
+    @Override
+    public String toString() {
+        if (this.eIsProxy()) {
+            return super.toString();
+        }
 
-        StringBuffer result = new StringBuffer(super.toString());
+        final StringBuffer result = new StringBuffer(super.toString());
         result.append(" (numberOfCalls: ");
-        result.append(numberOfCalls);
+        result.append(this.numberOfCalls);
         result.append(')');
         return result.toString();
     }
 
-} //CallInstanceImpl
+} // CallInstanceImpl

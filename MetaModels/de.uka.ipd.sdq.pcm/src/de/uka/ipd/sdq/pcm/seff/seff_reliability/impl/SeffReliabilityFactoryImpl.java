@@ -16,20 +16,21 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReliabilityFactory {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static SeffReliabilityFactory init() {
@@ -47,7 +48,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffReliabilityFactoryImpl() {
@@ -56,7 +57,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +74,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +85,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -95,7 +96,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -105,7 +106,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

@@ -25,13 +25,14 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.UserData} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class UserDataItemProvider extends StereotypableElementItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -39,7 +40,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public UserDataItemProvider(final AdapterFactory adapterFactory) {
@@ -49,7 +50,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +75,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
                 this.getString("_UI_UserData_assemblyContext_userData_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_UserData_assemblyContext_userData_feature",
                         "_UI_UserData_type"), UsagemodelPackage.Literals.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA, true,
-                        false, true, null, null, null));
+                false, true, null, null, null));
     }
 
     /**
@@ -97,7 +98,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -110,7 +111,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
 
     /**
      * This returns UserData.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +134,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -151,7 +152,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -166,7 +167,7 @@ public class UserDataItemProvider extends StereotypableElementItemProvider {
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

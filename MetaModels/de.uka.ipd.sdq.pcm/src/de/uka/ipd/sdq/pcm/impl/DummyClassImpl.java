@@ -20,16 +20,17 @@ import de.uka.ipd.sdq.pcm.PcmPackage;
  * @generated
  */
 public class DummyClassImpl extends MinimalEObjectImpl.Container implements DummyClass {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected DummyClassImpl() {
@@ -38,7 +39,7 @@ public class DummyClassImpl extends MinimalEObjectImpl.Container implements Dumm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

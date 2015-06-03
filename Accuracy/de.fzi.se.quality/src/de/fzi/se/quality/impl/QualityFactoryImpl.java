@@ -17,83 +17,84 @@ import de.fzi.se.quality.QualityPackage;
 import de.fzi.se.quality.QualityRepository;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ *
  * @generated
  */
 public class QualityFactoryImpl extends EFactoryImpl implements QualityFactory {
-	/**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public static QualityFactory init() {
+    public static QualityFactory init() {
         try {
-            QualityFactory theQualityFactory = (QualityFactory)EPackage.Registry.INSTANCE.getEFactory(QualityPackage.eNS_URI);
+            final QualityFactory theQualityFactory = (QualityFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(QualityPackage.eNS_URI);
             if (theQualityFactory != null) {
                 return theQualityFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QualityFactoryImpl();
     }
 
-	/**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public QualityFactoryImpl() {
+    public QualityFactoryImpl() {
         super();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public EObject create(EClass eClass) {
+    @Override
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case QualityPackage.QUALITY_REPOSITORY: return createQualityRepository();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case QualityPackage.QUALITY_REPOSITORY:
+            return this.createQualityRepository();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public QualityRepository createQualityRepository() {
-        QualityRepositoryImpl qualityRepository = new QualityRepositoryImpl();
+    @Override
+    public QualityRepository createQualityRepository() {
+        final QualityRepositoryImpl qualityRepository = new QualityRepositoryImpl();
         return qualityRepository;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public QualityPackage getQualityPackage() {
-        return (QualityPackage)getEPackage();
+    @Override
+    public QualityPackage getQualityPackage() {
+        return (QualityPackage) this.getEPackage();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @deprecated
      * @generated
      */
-	@Deprecated
-	public static QualityPackage getPackage() {
+    @Deprecated
+    public static QualityPackage getPackage() {
         return QualityPackage.eINSTANCE;
     }
 
-} //QualityFactoryImpl
+} // QualityFactoryImpl

@@ -50,9 +50,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  * @generated
  */
 public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -60,7 +61,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     /**
      * The cached value of the '{@link #getDataType__Parameter() <em>Data Type Parameter</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getDataType__Parameter()
      * @generated
      * @ordered
@@ -70,7 +71,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     /**
      * The default value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getParameterName()
      * @generated
      * @ordered
@@ -90,7 +91,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     /**
      * The default value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getModifier__Parameter()
      * @generated
      * @ordered
@@ -100,7 +101,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
     /**
      * The cached value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getModifier__Parameter()
      * @generated
      * @ordered
@@ -109,7 +110,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ParameterImpl() {
@@ -118,7 +119,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -128,7 +129,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +139,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +154,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +164,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -179,7 +180,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -192,7 +193,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetOperationSignature__Parameter(
@@ -204,7 +205,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -236,7 +237,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -257,7 +258,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public DataType basicGetDataType__Parameter() {
@@ -266,7 +267,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -281,7 +282,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -294,7 +295,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetResourceSignature__Parameter(
@@ -306,7 +307,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -338,7 +339,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -351,7 +352,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetInfrastructureSignature__Parameter(
@@ -363,7 +364,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -396,7 +397,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -409,7 +410,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetEventType__Parameter(final EventType newEventType__Parameter,
@@ -421,7 +422,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -451,7 +452,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -483,7 +484,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -504,7 +505,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -531,7 +532,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -560,7 +561,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -593,7 +594,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -626,7 +627,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -653,7 +654,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

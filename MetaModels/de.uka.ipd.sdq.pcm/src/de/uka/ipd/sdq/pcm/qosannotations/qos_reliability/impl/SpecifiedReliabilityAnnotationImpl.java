@@ -46,9 +46,10 @@ import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
  */
 public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationImpl implements
 SpecifiedReliabilityAnnotation {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -58,7 +59,7 @@ SpecifiedReliabilityAnnotation {
      * {@link #getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
      * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
      * @generated
      * @ordered
@@ -67,7 +68,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SpecifiedReliabilityAnnotationImpl() {
@@ -76,7 +77,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -86,7 +87,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -107,7 +108,7 @@ SpecifiedReliabilityAnnotation {
      * {@link #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -121,7 +122,7 @@ SpecifiedReliabilityAnnotation {
      * {@link #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -131,7 +132,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +172,7 @@ SpecifiedReliabilityAnnotation {
      * {@link #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -184,7 +185,7 @@ SpecifiedReliabilityAnnotation {
      * {@link #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -194,7 +195,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -233,7 +234,7 @@ SpecifiedReliabilityAnnotation {
      * {@link #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -246,7 +247,7 @@ SpecifiedReliabilityAnnotation {
      * {@link #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -256,7 +257,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -292,7 +293,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -310,7 +311,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -326,7 +327,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -340,7 +341,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -358,7 +359,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -373,7 +374,7 @@ SpecifiedReliabilityAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -390,7 +391,7 @@ SpecifiedReliabilityAnnotation {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

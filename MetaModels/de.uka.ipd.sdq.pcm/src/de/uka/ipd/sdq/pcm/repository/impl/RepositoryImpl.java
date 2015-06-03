@@ -54,9 +54,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class RepositoryImpl extends ProfileableElementImpl implements Repository {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,7 +65,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -74,7 +75,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -84,7 +85,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -94,7 +95,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -104,7 +105,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The default value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}
      * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getRepositoryDescription()
      * @generated
      * @ordered
@@ -114,7 +115,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The cached value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getRepositoryDescription()
      * @generated
      * @ordered
@@ -124,7 +125,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The cached value of the '{@link #getComponents__Repository() <em>Components Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getComponents__Repository()
      * @generated
      * @ordered
@@ -134,7 +135,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInterfaces__Repository()
      * @generated
      * @ordered
@@ -145,7 +146,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
      * The cached value of the '{@link #getFailureTypes__Repository()
      * <em>Failure Types Repository</em>}' containment reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getFailureTypes__Repository()
      * @generated
      * @ordered
@@ -155,7 +156,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
     /**
      * The cached value of the '{@link #getDataTypes__Repository() <em>Data Types Repository</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getDataTypes__Repository()
      * @generated
      * @ordered
@@ -164,7 +165,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RepositoryImpl() {
@@ -173,7 +174,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -183,7 +184,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -193,7 +194,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -207,7 +208,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -217,7 +218,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -232,7 +233,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,7 +243,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -258,7 +259,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -274,7 +275,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -290,7 +291,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -306,7 +307,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -322,7 +323,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -348,7 +349,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -369,7 +370,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -395,7 +396,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -433,7 +434,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -466,7 +467,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -495,7 +496,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -527,7 +528,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -559,7 +560,7 @@ public class RepositoryImpl extends ProfileableElementImpl implements Repository
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

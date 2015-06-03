@@ -24,9 +24,10 @@ import de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector;
  * @generated
  */
 public class RequiredResourceDelegationConnectorItemProvider extends DelegationConnectorItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +35,7 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public RequiredResourceDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +45,7 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,19 +63,19 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
     /**
      * This adds a property descriptor for the Assembly Context Required Resource Delegation
      * Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addAssemblyContext__RequiredResourceDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_RequiredResourceDelegationConnector_assemblyContext__RequiredResourceDelegationConnector_feature"),
-                this.getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_RequiredResourceDelegationConnector_assemblyContext__RequiredResourceDelegationConnector_feature",
-                        "_UI_RequiredResourceDelegationConnector_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredResourceDelegationConnector_assemblyContext__RequiredResourceDelegationConnector_feature"),
+                        this.getString(
+                                "_UI_PropertyDescriptor_description",
+                                "_UI_RequiredResourceDelegationConnector_assemblyContext__RequiredResourceDelegationConnector_feature",
+                                "_UI_RequiredResourceDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -82,19 +83,19 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
     /**
      * This adds a property descriptor for the Inner Required Role Required Resource Delegation
      * Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addInnerRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_RequiredResourceDelegationConnector_innerRequiredRole__RequiredResourceDelegationConnector_feature"),
-                this.getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_RequiredResourceDelegationConnector_innerRequiredRole__RequiredResourceDelegationConnector_feature",
-                        "_UI_RequiredResourceDelegationConnector_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredResourceDelegationConnector_innerRequiredRole__RequiredResourceDelegationConnector_feature"),
+                        this.getString(
+                                "_UI_PropertyDescriptor_description",
+                                "_UI_RequiredResourceDelegationConnector_innerRequiredRole__RequiredResourceDelegationConnector_feature",
+                                "_UI_RequiredResourceDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -102,19 +103,19 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
     /**
      * This adds a property descriptor for the Outer Required Role Required Resource Delegation
      * Connector feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOuterRequiredRole__RequiredResourceDelegationConnectorPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_RequiredResourceDelegationConnector_outerRequiredRole__RequiredResourceDelegationConnector_feature"),
-                this.getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_RequiredResourceDelegationConnector_outerRequiredRole__RequiredResourceDelegationConnector_feature",
-                        "_UI_RequiredResourceDelegationConnector_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_RequiredResourceDelegationConnector_outerRequiredRole__RequiredResourceDelegationConnector_feature"),
+                        this.getString(
+                                "_UI_PropertyDescriptor_description",
+                                "_UI_RequiredResourceDelegationConnector_outerRequiredRole__RequiredResourceDelegationConnector_feature",
+                                "_UI_RequiredResourceDelegationConnector_type"),
                         CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
                         true, false, true, null, null, null));
     }
@@ -122,7 +123,7 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
     /**
      * This returns RequiredResourceDelegationConnector.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +149,7 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -160,7 +161,7 @@ public class RequiredResourceDelegationConnectorItemProvider extends DelegationC
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

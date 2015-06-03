@@ -26,13 +26,14 @@ import de.uka.ipd.sdq.stoex.provider.VariableItemProvider;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CharacterisedVariableItemProvider extends VariableItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +41,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CharacterisedVariableItemProvider(final AdapterFactory adapterFactory) {
@@ -50,7 +51,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -66,7 +67,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider {
     /**
      * This adds a property descriptor for the Characterisation Type feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addCharacterisationTypePropertyDescriptor(final Object object) {
@@ -75,13 +76,13 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider {
                 this.getString("_UI_CharacterisedVariable_characterisationType_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_CharacterisedVariable_characterisationType_feature",
                         "_UI_CharacterisedVariable_type"),
-                        ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This returns CharacterisedVariable.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -107,7 +108,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +126,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,7 +137,7 @@ public class CharacterisedVariableItemProvider extends VariableItemProvider {
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -35,9 +35,10 @@ import org.palladiosimulator.mdsdprofiles.StereotypableElement;
  * @generated
  */
 public interface BranchTransition extends StereotypableElement {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,7 +51,7 @@ public interface BranchTransition extends StereotypableElement {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Probability</em>' attribute.
      * @see #setBranchProbability(double)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_BranchProbability()
@@ -63,7 +64,7 @@ public interface BranchTransition extends StereotypableElement {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability
      * <em>Branch Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Probability</em>' attribute.
      * @see #getBranchProbability()
@@ -81,7 +82,7 @@ public interface BranchTransition extends StereotypableElement {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Branch Transition</em>' container reference.
      * @see #setBranch_BranchTransition(Branch)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_Branch_BranchTransition()
@@ -96,7 +97,7 @@ public interface BranchTransition extends StereotypableElement {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
      * <em>Branch Branch Transition</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Branch Transition</em>' container reference.
      * @see #getBranch_BranchTransition()
@@ -114,7 +115,7 @@ public interface BranchTransition extends StereotypableElement {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branched Behaviour Branch Transition</em>' containment
      *         reference.
      * @see #setBranchedBehaviour_BranchTransition(ScenarioBehaviour)
@@ -131,7 +132,7 @@ public interface BranchTransition extends StereotypableElement {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
      * <em>Branched Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branched Behaviour Branch Transition</em>' containment
      *            reference.

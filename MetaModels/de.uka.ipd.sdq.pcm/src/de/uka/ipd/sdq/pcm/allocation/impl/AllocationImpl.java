@@ -58,9 +58,10 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  * @generated
  */
 public class AllocationImpl extends ProfileableElementImpl implements Allocation {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     /**
      * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -78,7 +79,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     /**
      * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getId()
      * @generated
      * @ordered
@@ -88,7 +89,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     /**
      * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -98,7 +99,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     /**
      * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEntityName()
      * @generated
      * @ordered
@@ -109,7 +110,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * The cached value of the '{@link #getTargetResourceEnvironment_Allocation()
      * <em>Target Resource Environment Allocation</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getTargetResourceEnvironment_Allocation()
      * @generated
      * @ordered
@@ -119,7 +120,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     /**
      * The cached value of the '{@link #getSystem_Allocation() <em>System Allocation</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSystem_Allocation()
      * @generated
      * @ordered
@@ -130,7 +131,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * The cached value of the '{@link #getAllocationContexts_Allocation()
      * <em>Allocation Contexts Allocation</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getAllocationContexts_Allocation()
      * @generated
      * @ordered
@@ -139,7 +140,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AllocationImpl() {
@@ -148,7 +149,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -158,7 +159,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +169,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -182,7 +183,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -192,7 +193,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -207,7 +208,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -229,7 +230,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceEnvironment basicGetTargetResourceEnvironment_Allocation() {
@@ -238,7 +239,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -255,7 +256,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -276,7 +277,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public de.uka.ipd.sdq.pcm.system.System basicGetSystem_Allocation() {
@@ -285,7 +286,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -300,7 +301,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -319,7 +320,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -347,7 +348,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -357,7 +358,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -432,7 +433,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * {@link #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Communicating Servers Have To Be Connected By Linking Resource</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -442,7 +443,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -475,7 +476,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -492,7 +493,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -507,7 +508,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -535,7 +536,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -564,7 +565,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -591,7 +592,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -615,7 +616,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -647,7 +648,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -679,7 +680,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -700,7 +701,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

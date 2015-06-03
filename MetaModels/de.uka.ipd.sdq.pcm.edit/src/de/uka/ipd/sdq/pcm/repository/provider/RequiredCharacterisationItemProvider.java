@@ -31,14 +31,15 @@ import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RequiredCharacterisationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -46,7 +47,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public RequiredCharacterisationItemProvider(final AdapterFactory adapterFactory) {
@@ -56,7 +57,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +74,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This adds a property descriptor for the Type feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addTypePropertyDescriptor(final Object object) {
@@ -82,14 +83,14 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
                 this.getString("_UI_RequiredCharacterisation_type_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_RequiredCharacterisation_type_feature",
                         "_UI_RequiredCharacterisation_type"),
-                        RepositoryPackage.Literals.REQUIRED_CHARACTERISATION__TYPE, true, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                RepositoryPackage.Literals.REQUIRED_CHARACTERISATION__TYPE, true, false, false,
+                ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Parameter feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addParameterPropertyDescriptor(final Object object) {
@@ -98,12 +99,12 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
                 this.getString("_UI_RequiredCharacterisation_parameter_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_RequiredCharacterisation_parameter_feature",
                         "_UI_RequiredCharacterisation_type"),
-                        RepositoryPackage.Literals.REQUIRED_CHARACTERISATION__PARAMETER, true, false, true, null, null, null));
+                RepositoryPackage.Literals.REQUIRED_CHARACTERISATION__PARAMETER, true, false, true, null, null, null));
     }
 
     /**
      * This returns RequiredCharacterisation.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +130,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +148,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -158,7 +159,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

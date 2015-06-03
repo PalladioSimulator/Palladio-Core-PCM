@@ -31,16 +31,17 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  * @generated
  */
 public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredRoleImpl() {
@@ -49,7 +50,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -59,7 +60,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +73,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRequiringEntity_RequiredRole(
@@ -84,7 +85,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +117,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +134,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +149,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -164,7 +165,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -178,7 +179,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -193,7 +194,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -208,7 +209,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

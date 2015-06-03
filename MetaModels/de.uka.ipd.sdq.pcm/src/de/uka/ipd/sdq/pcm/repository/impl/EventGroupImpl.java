@@ -32,9 +32,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class EventGroupImpl extends InterfaceImpl implements EventGroup {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -43,7 +44,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
      * The cached value of the '{@link #getEventTypes__EventGroup()
      * <em>Event Types Event Group</em>}' containment reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getEventTypes__EventGroup()
      * @generated
      * @ordered
@@ -52,7 +53,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventGroupImpl() {
@@ -61,7 +62,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +72,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -87,7 +88,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -104,7 +105,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +120,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +134,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -150,7 +151,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -165,7 +166,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

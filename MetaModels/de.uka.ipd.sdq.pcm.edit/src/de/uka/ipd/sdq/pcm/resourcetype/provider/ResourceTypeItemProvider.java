@@ -25,13 +25,14 @@ import de.uka.ipd.sdq.units.UnitsPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ResourceTypeItemProvider extends EntityItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -39,7 +40,7 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -49,7 +50,7 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -65,7 +66,7 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
     /**
      * This adds a property descriptor for the Unit feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addUnitPropertyDescriptor(final Object object) {
@@ -74,7 +75,7 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
                 this.getString("_UI_UnitCarryingElement_unit_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_UnitCarryingElement_unit_feature",
                         "_UI_UnitCarryingElement_type"), UnitsPackage.Literals.UNIT_CARRYING_ELEMENT__UNIT, true,
-                        false, true, null, null, null));
+                false, true, null, null, null));
     }
 
     /**
@@ -91,14 +92,14 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-            .add(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
+                    .add(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -126,7 +127,7 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +145,7 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -152,10 +153,10 @@ public class ResourceTypeItemProvider extends EntityItemProvider {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
         newChildDescriptors
-        .add(this
-                        .createChildParameter(
-                                EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                                EntityFactory.eINSTANCE.createResourceProvidedRole()));
+                .add(this
+                .createChildParameter(
+                        EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                        EntityFactory.eINSTANCE.createResourceProvidedRole()));
     }
 
 }

@@ -20,13 +20,14 @@ import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
  * This is the item provider adapter for a
  * {@link de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SoftwareInducedFailureTypeItemProvider extends FailureTypeItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +35,7 @@ public class SoftwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SoftwareInducedFailureTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +45,7 @@ public class SoftwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -60,27 +61,27 @@ public class SoftwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This adds a property descriptor for the Internal Failure Occurrence Descriptions Software
      * Induced Failure Type feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addInternalFailureOccurrenceDescriptions__SoftwareInducedFailureTypePropertyDescriptor(
             final Object object) {
         this.itemPropertyDescriptors
-        .add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                this.getResourceLocator(),
-                this.getString("_UI_SoftwareInducedFailureType_internalFailureOccurrenceDescriptions__SoftwareInducedFailureType_feature"),
-                this.getString(
-                        "_UI_PropertyDescriptor_description",
-                        "_UI_SoftwareInducedFailureType_internalFailureOccurrenceDescriptions__SoftwareInducedFailureType_feature",
-                        "_UI_SoftwareInducedFailureType_type"),
+                .add(this.createItemPropertyDescriptor(
+                        ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                        this.getResourceLocator(),
+                        this.getString("_UI_SoftwareInducedFailureType_internalFailureOccurrenceDescriptions__SoftwareInducedFailureType_feature"),
+                        this.getString(
+                                "_UI_PropertyDescriptor_description",
+                                "_UI_SoftwareInducedFailureType_internalFailureOccurrenceDescriptions__SoftwareInducedFailureType_feature",
+                                "_UI_SoftwareInducedFailureType_type"),
                         ReliabilityPackage.Literals.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
                         true, false, true, null, null, null));
     }
 
     /**
      * This returns SoftwareInducedFailureType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +109,7 @@ public class SoftwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -120,7 +121,7 @@ public class SoftwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -29,37 +29,38 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  * @generated
  */
 public interface ResourcetypePackage extends EPackage {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNAME = "resourcetype";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_PREFIX = "resourcetype";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     ResourcetypePackage eINSTANCE = de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl.init();
@@ -68,7 +69,7 @@ public interface ResourcetypePackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceSignatureImpl
      * <em>Resource Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceSignatureImpl
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceSignature()
      * @generated
@@ -76,18 +77,9 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_SIGNATURE = 0;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_SIGNATURE__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -96,7 +88,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -105,7 +97,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -114,7 +106,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Parameter Resource Signature</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -123,7 +115,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Service Id</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -132,7 +124,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Interface Resource Signature</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -150,7 +142,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl
      * <em>Resource Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceType()
      * @generated
@@ -158,18 +150,9 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_TYPE = 2;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_TYPE__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -178,7 +161,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -187,7 +170,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -196,7 +179,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Unit</b></em>' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -206,7 +189,7 @@ public interface ResourcetypePackage extends EPackage {
      * The feature id for the '
      * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -215,7 +198,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -224,7 +207,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The number of structural features of the '<em>Resource Type</em>' class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -234,7 +217,7 @@ public interface ResourcetypePackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl
      * <em>Resource Repository</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceRepository()
      * @generated
@@ -245,7 +228,7 @@ public interface ResourcetypePackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl
      * <em>Processing Resource Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getProcessingResourceType()
      * @generated
@@ -253,18 +236,9 @@ public interface ResourcetypePackage extends EPackage {
     int PROCESSING_RESOURCE_TYPE = 1;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PROCESSING_RESOURCE_TYPE__EANNOTATIONS = RESOURCE_TYPE__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -273,7 +247,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -282,7 +256,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -291,7 +265,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Unit</b></em>' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -301,7 +275,7 @@ public interface ResourcetypePackage extends EPackage {
      * The feature id for the '
      * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -310,7 +284,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -338,7 +312,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Interfaces Resource Repository</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -347,7 +321,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Scheduling Policies Resource Repository</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -356,7 +330,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Available Resource Types Resource Repository</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -374,7 +348,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
      * <em>Scheduling Policy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getSchedulingPolicy()
      * @generated
@@ -382,18 +356,9 @@ public interface ResourcetypePackage extends EPackage {
     int SCHEDULING_POLICY = 4;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int SCHEDULING_POLICY__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -402,7 +367,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -411,7 +376,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -420,7 +385,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Repository Scheduling Policy</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -448,18 +413,9 @@ public interface ResourcetypePackage extends EPackage {
     int COMMUNICATION_LINK_RESOURCE_TYPE = 5;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int COMMUNICATION_LINK_RESOURCE_TYPE__EANNOTATIONS = RESOURCE_TYPE__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -468,7 +424,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -477,7 +433,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -486,7 +442,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Unit</b></em>' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -496,7 +452,7 @@ public interface ResourcetypePackage extends EPackage {
      * The feature id for the '
      * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -505,7 +461,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -515,7 +471,7 @@ public interface ResourcetypePackage extends EPackage {
      * The feature id for the '
      * <em><b>Network Induced Failure Type Communication Link Resource Type</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -524,7 +480,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The number of structural features of the '<em>Communication Link Resource Type</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -534,7 +490,7 @@ public interface ResourcetypePackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl
      * <em>Resource Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl
      * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceInterface()
      * @generated
@@ -542,18 +498,9 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_INTERFACE = 6;
 
     /**
-     * The feature id for the '<em><b>EAnnotations</b></em>' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_INTERFACE__EANNOTATIONS = EntityPackage.ENTITY__EANNOTATIONS;
-
-    /**
      * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -562,7 +509,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -571,7 +518,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -580,7 +527,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Repository Resource Interface</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -589,7 +536,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Signatures Resource Interface</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -607,7 +554,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature
      * <em>Resource Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Resource Signature</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature
      * @generated
@@ -618,7 +565,7 @@ public interface ResourcetypePackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature
      * <em>Parameter Resource Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '
      *         <em>Parameter Resource Signature</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature()
@@ -631,7 +578,7 @@ public interface ResourcetypePackage extends EPackage {
      * Returns the meta object for the attribute '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getResourceServiceId
      * <em>Resource Service Id</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the attribute '<em>Resource Service Id</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getResourceServiceId()
      * @see #getResourceSignature()
@@ -656,7 +603,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType
      * <em>Resource Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceType
      * @generated
@@ -667,7 +614,7 @@ public interface ResourcetypePackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
      * <em>Resource Repository Resource Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the container reference '
      *         <em>Resource Repository Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType()
@@ -679,7 +626,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository
      * <em>Resource Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Resource Repository</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository
      * @generated
@@ -719,7 +666,7 @@ public interface ResourcetypePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository
      * <em>Available Resource Types Resource Repository</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '
      *         <em>Available Resource Types Resource Repository</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository()
@@ -731,7 +678,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy
      * <em>Scheduling Policy</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Scheduling Policy</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy
      * @generated
@@ -756,7 +703,7 @@ public interface ResourcetypePackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType
      * <em>Communication Link Resource Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Communication Link Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType
      * @generated
@@ -768,7 +715,7 @@ public interface ResourcetypePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType
      * <em>Network Induced Failure Type Communication Link Resource Type</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Network Induced Failure Type Communication Link Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType()
@@ -780,7 +727,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface
      * <em>Resource Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Resource Interface</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface
      * @generated
@@ -819,7 +766,7 @@ public interface ResourcetypePackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType
      * <em>Processing Resource Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Processing Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType
      * @generated
@@ -831,7 +778,7 @@ public interface ResourcetypePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
      * <em>Hardware Induced Failure Type Processing Resource Type</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '
      *         <em>Hardware Induced Failure Type Processing Resource Type</em>'.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType()
@@ -843,7 +790,7 @@ public interface ResourcetypePackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -858,15 +805,16 @@ public interface ResourcetypePackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     interface Literals {
+
         /**
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceSignatureImpl
          * <em>Resource Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceSignatureImpl
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceSignature()
          * @generated
@@ -876,7 +824,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Resource Signature</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE = eINSTANCE
@@ -885,7 +833,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Service Id</b></em>' attribute feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EAttribute RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID = eINSTANCE.getResourceSignature_ResourceServiceId();
@@ -893,7 +841,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Interface Resource Signature</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE = eINSTANCE
@@ -903,7 +851,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl <em>Resource Type</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceTypeImpl
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceType()
          * @generated
@@ -913,7 +861,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Repository Resource Type</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE = eINSTANCE
@@ -923,7 +871,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl
          * <em>Resource Repository</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceRepository()
          * @generated
@@ -933,7 +881,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Interfaces Resource Repository</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY = eINSTANCE
@@ -942,7 +890,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Scheduling Policies Resource Repository</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY = eINSTANCE
@@ -952,7 +900,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Available Resource Types Resource Repository</b></em>' containment reference list
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY = eINSTANCE
@@ -962,7 +910,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
          * <em>Scheduling Policy</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.SchedulingPolicyImpl
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getSchedulingPolicy()
          * @generated
@@ -972,7 +920,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Repository Scheduling Policy</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY = eINSTANCE
@@ -983,7 +931,7 @@ public interface ResourcetypePackage extends EPackage {
          * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl
          * <em>Communication Link Resource Type</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getCommunicationLinkResourceType()
          * @generated
@@ -994,7 +942,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Network Induced Failure Type Communication Link Resource Type</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE = eINSTANCE
@@ -1004,7 +952,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl
          * <em>Resource Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceInterfaceImpl
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getResourceInterface()
          * @generated
@@ -1014,7 +962,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Repository Resource Interface</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE = eINSTANCE
@@ -1023,7 +971,7 @@ public interface ResourcetypePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Signatures Resource Interface</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE = eINSTANCE
@@ -1033,7 +981,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl
          * <em>Processing Resource Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl
          * @see de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl#getProcessingResourceType()
          * @generated
@@ -1044,7 +992,7 @@ public interface ResourcetypePackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Hardware Induced Failure Type Processing Resource Type</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE = eINSTANCE

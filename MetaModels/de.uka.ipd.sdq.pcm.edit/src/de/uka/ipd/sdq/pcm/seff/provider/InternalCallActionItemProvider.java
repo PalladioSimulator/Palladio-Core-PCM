@@ -22,13 +22,14 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.InternalCallAction}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class InternalCallActionItemProvider extends CallActionItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -36,7 +37,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InternalCallActionItemProvider(final AdapterFactory adapterFactory) {
@@ -46,7 +47,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +74,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
                 this.getString("_UI_AbstractAction_predecessor_AbstractAction_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_AbstractAction_predecessor_AbstractAction_feature",
                         "_UI_AbstractAction_type"), SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
-                true, false, true, null, null, null));
+                        true, false, true, null, null, null));
     }
 
     /**
@@ -88,24 +89,24 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
                 this.getString("_UI_AbstractAction_successor_AbstractAction_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_AbstractAction_successor_AbstractAction_feature",
                         "_UI_AbstractAction_type"), SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
-                        true, false, true, null, null, null));
+                true, false, true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Called Resource Demanding Internal Behaviour feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addCalledResourceDemandingInternalBehaviourPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
                 this.getString("_UI_InternalCallAction_calledResourceDemandingInternalBehaviour_feature"), this
-                        .getString("_UI_PropertyDescriptor_description",
-                                "_UI_InternalCallAction_calledResourceDemandingInternalBehaviour_feature",
-                                "_UI_InternalCallAction_type"),
-                        SeffPackage.Literals.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR, true, false,
-                        true, null, null, null));
+                .getString("_UI_PropertyDescriptor_description",
+                        "_UI_InternalCallAction_calledResourceDemandingInternalBehaviour_feature",
+                        "_UI_InternalCallAction_type"),
+                SeffPackage.Literals.INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR, true, false,
+                true, null, null, null));
     }
 
     /**
@@ -122,9 +123,9 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION);
+            .add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION);
             this.childrenFeatures
-            .add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION);
+                    .add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION);
             this.childrenFeatures.add(SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION);
         }
         return this.childrenFeatures;
@@ -132,7 +133,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +146,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
 
     /**
      * This returns InternalCallAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -170,7 +171,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -190,7 +191,7 @@ public class InternalCallActionItemProvider extends CallActionItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

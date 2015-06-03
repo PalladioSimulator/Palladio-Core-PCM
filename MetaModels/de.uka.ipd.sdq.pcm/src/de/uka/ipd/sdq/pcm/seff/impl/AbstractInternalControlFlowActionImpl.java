@@ -43,9 +43,10 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
  */
 public abstract class AbstractInternalControlFlowActionImpl extends AbstractActionImpl implements
 AbstractInternalControlFlowAction {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +54,7 @@ AbstractInternalControlFlowAction {
     /**
      * The cached value of the '{@link #getResourceDemand_Action() <em>Resource Demand Action</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceDemand_Action()
      * @generated
      * @ordered
@@ -63,7 +64,7 @@ AbstractInternalControlFlowAction {
      * The cached value of the '{@link #getInfrastructureCall__Action()
      * <em>Infrastructure Call Action</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getInfrastructureCall__Action()
      * @generated
      * @ordered
@@ -72,7 +73,7 @@ AbstractInternalControlFlowAction {
     /**
      * The cached value of the '{@link #getResourceCall__Action() <em>Resource Call Action</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceCall__Action()
      * @generated
      * @ordered
@@ -81,7 +82,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AbstractInternalControlFlowActionImpl() {
@@ -90,7 +91,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +101,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -117,7 +118,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -134,7 +135,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -150,7 +151,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -173,7 +174,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -192,7 +193,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -210,7 +211,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -235,7 +236,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -256,7 +257,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

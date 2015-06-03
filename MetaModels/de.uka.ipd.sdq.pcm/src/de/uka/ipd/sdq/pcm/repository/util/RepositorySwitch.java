@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.repository.util;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.mdsdprofiles.ProfileableElement;
 import org.palladiosimulator.mdsdprofiles.StereotypableElement;
@@ -63,28 +62,29 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage
  * @generated
  */
 public class RepositorySwitch<T> {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static RepositoryPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public RepositorySwitch() {
@@ -96,7 +96,7 @@ public class RepositorySwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -107,7 +107,7 @@ public class RepositorySwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -123,7 +123,7 @@ public class RepositorySwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -143,9 +143,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(passiveResource);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(passiveResource);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -186,9 +183,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(basicComponent);
             }
             if (result == null) {
-                result = this.caseEModelElement(basicComponent);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -224,9 +218,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(implementationComponentType);
             }
             if (result == null) {
-                result = this.caseEModelElement(implementationComponentType);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -259,9 +250,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(repositoryComponent);
             }
             if (result == null) {
-                result = this.caseEModelElement(repositoryComponent);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -283,9 +271,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(providedRole);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(providedRole);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -327,9 +312,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(repository);
             }
             if (result == null) {
-                result = this.caseEModelElement(repository);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -348,9 +330,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(interface_);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(interface_);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -384,9 +363,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(eventGroup);
             }
             if (result == null) {
-                result = this.caseEModelElement(eventGroup);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -410,9 +386,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(eventType);
             }
             if (result == null) {
-                result = this.caseEModelElement(eventType);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -431,9 +404,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(signature);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(signature);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -467,9 +437,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(infrastructureSignature);
             }
             if (result == null) {
-                result = this.caseEModelElement(infrastructureSignature);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -491,9 +458,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(infrastructureInterface);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(infrastructureInterface);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -522,9 +486,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(infrastructureRequiredRole);
             }
             if (result == null) {
-                result = this.caseEModelElement(infrastructureRequiredRole);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -546,9 +507,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(requiredRole);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(requiredRole);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -574,9 +532,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(operationSignature);
             }
             if (result == null) {
-                result = this.caseEModelElement(operationSignature);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -598,9 +553,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(operationInterface);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(operationInterface);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -629,9 +581,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(operationRequiredRole);
             }
             if (result == null) {
-                result = this.caseEModelElement(operationRequiredRole);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -656,9 +605,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(sourceRole);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(sourceRole);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -687,9 +633,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(sinkRole);
             }
             if (result == null) {
-                result = this.caseEModelElement(sinkRole);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -716,9 +659,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(operationProvidedRole);
             }
             if (result == null) {
-                result = this.caseEModelElement(operationProvidedRole);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -743,9 +683,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(infrastructureProvidedRole);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(infrastructureProvidedRole);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -783,9 +720,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(completeComponentType);
             }
             if (result == null) {
-                result = this.caseEModelElement(completeComponentType);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -819,9 +753,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(providesComponentType);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(providesComponentType);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -868,9 +799,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(compositeComponent);
             }
             if (result == null) {
-                result = this.caseEModelElement(compositeComponent);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -905,9 +833,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(collectionDataType);
             }
             if (result == null) {
-                result = this.caseEModelElement(collectionDataType);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -929,9 +854,6 @@ public class RepositorySwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(compositeDataType);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(compositeDataType);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -965,9 +887,6 @@ public class RepositorySwitch<T> {
                 result = this.caseStereotypableElement(role);
             }
             if (result == null) {
-                result = this.caseEModelElement(role);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -981,7 +900,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Passive Resource</em>'.
@@ -996,7 +915,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Basic Component</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Basic Component</em>'.
@@ -1011,7 +930,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1042,7 +961,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Required Role</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Required Role</em>'.
@@ -1069,25 +988,10 @@ public class RepositorySwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseEModelElement(final EModelElement object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '
      * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1148,7 +1052,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Required Characterisation</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1179,7 +1083,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Operation Signature</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Operation Signature</em>
@@ -1210,7 +1114,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Exception Type</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Exception Type</em>'.
@@ -1225,7 +1129,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Operation Interface</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Operation Interface</em>
@@ -1241,7 +1145,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Infrastructure Signature</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1257,7 +1161,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Infrastructure Required Role</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1303,7 +1207,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Complete Component Type</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1319,7 +1223,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Provides Component Type</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1335,7 +1239,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Operation Required Role</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1366,7 +1270,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Infrastructure Provided Role</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1382,7 +1286,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Operation Provided Role</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1398,7 +1302,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Composite Component</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Composite Component</em>
@@ -1429,7 +1333,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Primitive Data Type</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Primitive Data Type</em>
@@ -1445,7 +1349,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Collection Data Type</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1461,7 +1365,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Composite Data Type</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Composite Data Type</em>
@@ -1477,7 +1381,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
@@ -1492,7 +1396,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Infrastructure Interface</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1508,7 +1412,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Provided Role</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Provided Role</em>'.
@@ -1538,7 +1442,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
@@ -1568,7 +1472,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Interface Providing Entity</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1584,7 +1488,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Interface Requiring Entity</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1600,7 +1504,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Resource Interface Requiring Entity</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1616,7 +1520,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Interface Providing Requiring Entity</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1632,7 +1536,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Profileable Element</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Profileable Element</em>
@@ -1648,7 +1552,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>
@@ -1664,7 +1568,7 @@ public class RepositorySwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Composed Providing Requiring Entity</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '

@@ -38,14 +38,15 @@ import de.uka.ipd.sdq.pcm.parameter.util.ParameterAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory implements ComposeableAdapterFactory,
-IChangeNotifier, IDisposable, IChildCreationExtender {
+        IChangeNotifier, IDisposable, IChildCreationExtender {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +78,14 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ParameterItemProviderAdapterFactory() {
@@ -99,7 +100,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected VariableCharacterisationItemProvider variableCharacterisationItemProvider;
@@ -107,7 +108,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +124,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CharacterisedVariableItemProvider characterisedVariableItemProvider;
@@ -131,7 +132,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +148,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected VariableUsageItemProvider variableUsageItemProvider;
@@ -170,7 +171,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,7 +182,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -191,7 +192,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -212,7 +213,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -229,7 +230,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -238,7 +239,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -248,7 +249,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -258,7 +259,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -268,7 +269,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -294,7 +295,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

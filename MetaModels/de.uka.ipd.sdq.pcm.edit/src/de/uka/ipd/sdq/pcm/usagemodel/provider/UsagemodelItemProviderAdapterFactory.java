@@ -38,14 +38,15 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFactory implements
-ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+        ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +78,14 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public UsagemodelItemProviderAdapterFactory() {
@@ -99,7 +100,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UsageScenarioItemProvider usageScenarioItemProvider;
@@ -123,7 +124,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UserData} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UserDataItemProvider userDataItemProvider;
@@ -147,7 +148,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UsageModelItemProvider usageModelItemProvider;
@@ -171,7 +172,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EntryLevelSystemCallItemProvider entryLevelSystemCallItemProvider;
@@ -179,7 +180,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -195,7 +196,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ScenarioBehaviourItemProvider scenarioBehaviourItemProvider;
@@ -219,7 +220,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BranchTransitionItemProvider branchTransitionItemProvider;
@@ -242,7 +243,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Branch}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BranchItemProvider branchItemProvider;
@@ -265,7 +266,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Loop}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected LoopItemProvider loopItemProvider;
@@ -273,7 +274,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Loop}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -288,7 +289,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Stop}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StopItemProvider stopItemProvider;
@@ -296,7 +297,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Stop}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -311,7 +312,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Start}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StartItemProvider startItemProvider;
@@ -335,7 +336,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OpenWorkloadItemProvider openWorkloadItemProvider;
@@ -358,7 +359,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Delay}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected DelayItemProvider delayItemProvider;
@@ -382,7 +383,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ClosedWorkloadItemProvider closedWorkloadItemProvider;
@@ -405,7 +406,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -416,7 +417,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -426,7 +427,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -447,7 +448,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -464,7 +465,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -473,7 +474,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -483,7 +484,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -493,7 +494,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -503,7 +504,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -529,7 +530,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

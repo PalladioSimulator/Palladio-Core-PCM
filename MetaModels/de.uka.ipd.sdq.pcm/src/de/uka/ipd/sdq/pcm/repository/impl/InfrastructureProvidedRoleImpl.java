@@ -29,9 +29,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements InfrastructureProvidedRole {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +41,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      * The cached value of the '{@link #getProvidedInterface__InfrastructureProvidedRole()
      * <em>Provided Interface Infrastructure Provided Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getProvidedInterface__InfrastructureProvidedRole()
      * @generated
      * @ordered
@@ -49,7 +50,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureProvidedRoleImpl() {
@@ -58,7 +59,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +69,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -94,7 +95,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureInterface basicGetProvidedInterface__InfrastructureProvidedRole() {
@@ -103,7 +104,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +122,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +139,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +154,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +169,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

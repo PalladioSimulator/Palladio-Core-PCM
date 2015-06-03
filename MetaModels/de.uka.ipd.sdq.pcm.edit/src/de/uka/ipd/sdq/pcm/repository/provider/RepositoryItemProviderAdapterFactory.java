@@ -38,14 +38,15 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFactory implements
-ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+        ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +78,14 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public RepositoryItemProviderAdapterFactory() {
@@ -99,7 +100,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.Repository} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RepositoryItemProvider repositoryItemProvider;
@@ -123,7 +124,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredCharacterisationItemProvider requiredCharacterisationItemProvider;
@@ -131,7 +132,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +148,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.Parameter} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ParameterItemProvider parameterItemProvider;
@@ -171,7 +172,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationInterface} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationInterfaceItemProvider operationInterfaceItemProvider;
@@ -195,7 +196,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationSignatureItemProvider operationSignatureItemProvider;
@@ -219,7 +220,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.ExceptionType} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExceptionTypeItemProvider exceptionTypeItemProvider;
@@ -243,7 +244,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationRequiredRoleItemProvider operationRequiredRoleItemProvider;
@@ -251,7 +252,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationRequiredRole}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -267,7 +268,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.SinkRole} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SinkRoleItemProvider sinkRoleItemProvider;
@@ -291,7 +292,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.EventGroup} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventGroupItemProvider eventGroupItemProvider;
@@ -315,7 +316,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.EventType} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventTypeItemProvider eventTypeItemProvider;
@@ -339,7 +340,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.SourceRole} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SourceRoleItemProvider sourceRoleItemProvider;
@@ -372,7 +373,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -388,7 +389,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.BasicComponent} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BasicComponentItemProvider basicComponentItemProvider;
@@ -412,7 +413,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompleteComponentTypeItemProvider completeComponentTypeItemProvider;
@@ -420,7 +421,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -436,7 +437,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProvidesComponentTypeItemProvider providesComponentTypeItemProvider;
@@ -444,7 +445,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -460,7 +461,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationProvidedRoleItemProvider operationProvidedRoleItemProvider;
@@ -468,7 +469,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.OperationProvidedRole}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -484,7 +485,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.PassiveResource} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PassiveResourceItemProvider passiveResourceItemProvider;
@@ -508,7 +509,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompositeDataTypeItemProvider compositeDataTypeItemProvider;
@@ -532,7 +533,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InnerDeclarationItemProvider innerDeclarationItemProvider;
@@ -556,7 +557,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureSignatureItemProvider infrastructureSignatureItemProvider;
@@ -564,7 +565,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -589,7 +590,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -605,7 +606,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureInterfaceItemProvider infrastructureInterfaceItemProvider;
@@ -613,7 +614,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InfrastructureInterface}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -629,7 +630,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CompositeComponent} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompositeComponentItemProvider compositeComponentItemProvider;
@@ -653,7 +654,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PrimitiveDataTypeItemProvider primitiveDataTypeItemProvider;
@@ -677,7 +678,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CollectionDataTypeItemProvider collectionDataTypeItemProvider;
@@ -700,7 +701,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -711,7 +712,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -721,7 +722,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -742,7 +743,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -759,7 +760,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -768,7 +769,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -778,7 +779,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -788,7 +789,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -798,7 +799,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -824,7 +825,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

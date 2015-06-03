@@ -40,9 +40,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  */
 public class ResourceRequiredDelegationConnectorImpl extends MinimalEObjectImpl.Container implements
 ResourceRequiredDelegationConnector {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,7 +53,7 @@ ResourceRequiredDelegationConnector {
      * {@link #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
      * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @generated
      * @ordered
@@ -64,7 +65,7 @@ ResourceRequiredDelegationConnector {
      * {@link #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
      * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @generated
      * @ordered
@@ -73,7 +74,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceRequiredDelegationConnectorImpl() {
@@ -82,7 +83,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -92,7 +93,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -105,7 +106,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParentStructure_ResourceRequiredDelegationConnector(
@@ -120,7 +121,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +160,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -185,7 +186,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceRequiredRole basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
@@ -194,7 +195,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -214,7 +215,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +241,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceRequiredRole basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
@@ -249,7 +250,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -269,7 +270,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -286,7 +287,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -301,7 +302,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -317,7 +318,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -341,7 +342,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -362,7 +363,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -383,7 +384,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

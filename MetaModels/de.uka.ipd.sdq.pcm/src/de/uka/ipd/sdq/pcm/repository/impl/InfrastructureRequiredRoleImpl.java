@@ -29,9 +29,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements InfrastructureRequiredRole {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +41,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * The cached value of the '{@link #getRequiredInterface__InfrastructureRequiredRole()
      * <em>Required Interface Infrastructure Required Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getRequiredInterface__InfrastructureRequiredRole()
      * @generated
      * @ordered
@@ -49,7 +50,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureRequiredRoleImpl() {
@@ -58,7 +59,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +69,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -94,7 +95,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureInterface basicGetRequiredInterface__InfrastructureRequiredRole() {
@@ -103,7 +104,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +122,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +139,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +154,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +169,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

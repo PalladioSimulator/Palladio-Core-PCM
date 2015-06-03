@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
  * @generated
  */
 public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
+
     /**
      * @generated
      */
@@ -66,6 +67,7 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
      * @generated
      */
     public static class Implementation extends EclipseUIPlugin {
+
         /**
          * @generated
          */

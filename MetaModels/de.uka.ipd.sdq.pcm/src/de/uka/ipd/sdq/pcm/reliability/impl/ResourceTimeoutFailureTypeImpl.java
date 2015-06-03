@@ -32,9 +32,10 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  */
 public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeImpl implements
 ResourceTimeoutFailureType {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -43,7 +44,7 @@ ResourceTimeoutFailureType {
      * The cached value of the '{@link #getPassiveResource__ResourceTimeoutFailureType()
      * <em>Passive Resource Resource Timeout Failure Type</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getPassiveResource__ResourceTimeoutFailureType()
      * @generated
      * @ordered
@@ -52,7 +53,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceTimeoutFailureTypeImpl() {
@@ -61,7 +62,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +72,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -97,7 +98,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public PassiveResource basicGetPassiveResource__ResourceTimeoutFailureType() {
@@ -106,7 +107,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetPassiveResource__ResourceTimeoutFailureType(
@@ -128,7 +129,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -160,7 +161,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -179,7 +180,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -194,7 +195,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -211,7 +212,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -226,7 +227,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -241,7 +242,7 @@ ResourceTimeoutFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -42,9 +42,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  * @generated
  */
 public interface UserData extends StereotypableElement {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +60,7 @@ public interface UserData extends StereotypableElement {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Usage Model User Data</em>' container reference.
      * @see #setUsageModel_UserData(UsageModel)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData_UsageModel_UserData()
@@ -73,7 +74,7 @@ public interface UserData extends StereotypableElement {
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
      * <em>Usage Model User Data</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Usage Model User Data</em>' container reference.
      * @see #getUsageModel_UserData()
@@ -122,7 +123,7 @@ public interface UserData extends StereotypableElement {
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>User Data Parameter Usages User Data</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData_UserDataParameterUsages_UserData()

@@ -35,9 +35,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  * @generated
  */
 public interface ResourceRequiredDelegationConnector extends EObject {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +55,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parent Structure Resource Required Delegation Connector</em>'
      *         container reference.
      * @see #setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure)
@@ -91,7 +92,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Inner Resource Required Role Resource Required Delegation Connector</em>'
      *         reference.
@@ -107,7 +108,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
      * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Inner Resource Required Role Resource Required Delegation Connector</em>'
@@ -127,7 +128,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Outer Resource Required Role Resource Required Delegation Connector</em>'
      *         reference.
@@ -143,7 +144,7 @@ public interface ResourceRequiredDelegationConnector extends EObject {
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
      * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Outer Resource Required Role Resource Required Delegation Connector</em>'

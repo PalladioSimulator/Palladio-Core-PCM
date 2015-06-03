@@ -10,21 +10,22 @@ import org.eclipse.emf.ecore.EFactory;
 /**
  * <!-- begin-user-doc --> The <b>Factory</b> for the model. It provides a create method for each
  * non-abstract class of the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage
  * @generated
  */
 public interface RepositoryFactory extends EFactory {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The singleton instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     RepositoryFactory eINSTANCE = de.uka.ipd.sdq.pcm.repository.impl.RepositoryFactoryImpl.init();
@@ -32,7 +33,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Passive Resource</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Passive Resource</em>'.
      * @generated
      */
@@ -41,7 +42,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Basic Component</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Basic Component</em>'.
      * @generated
      */
@@ -50,7 +51,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Repository</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Repository</em>'.
      * @generated
      */
@@ -59,7 +60,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Required Characterisation</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Required Characterisation</em>'.
      * @generated
      */
@@ -77,7 +78,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Operation Signature</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Operation Signature</em>'.
      * @generated
      */
@@ -86,7 +87,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Exception Type</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Exception Type</em>'.
      * @generated
      */
@@ -95,7 +96,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Operation Interface</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Operation Interface</em>'.
      * @generated
      */
@@ -104,7 +105,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Infrastructure Signature</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Infrastructure Signature</em>'.
      * @generated
      */
@@ -113,7 +114,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Infrastructure Required Role</em>'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Infrastructure Required Role</em>'.
      * @generated
      */
@@ -122,7 +123,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Event Type</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Event Type</em>'.
      * @generated
      */
@@ -131,7 +132,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Event Group</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Event Group</em>'.
      * @generated
      */
@@ -140,7 +141,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Complete Component Type</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Complete Component Type</em>'.
      * @generated
      */
@@ -149,7 +150,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Provides Component Type</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Provides Component Type</em>'.
      * @generated
      */
@@ -158,7 +159,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Operation Required Role</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Operation Required Role</em>'.
      * @generated
      */
@@ -167,7 +168,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Source Role</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Source Role</em>'.
      * @generated
      */
@@ -176,7 +177,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Infrastructure Provided Role</em>'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Infrastructure Provided Role</em>'.
      * @generated
      */
@@ -185,7 +186,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Operation Provided Role</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Operation Provided Role</em>'.
      * @generated
      */
@@ -194,7 +195,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Composite Component</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Composite Component</em>'.
      * @generated
      */
@@ -212,7 +213,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Primitive Data Type</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Primitive Data Type</em>'.
      * @generated
      */
@@ -221,7 +222,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Collection Data Type</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Collection Data Type</em>'.
      * @generated
      */
@@ -230,7 +231,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Composite Data Type</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Composite Data Type</em>'.
      * @generated
      */
@@ -239,7 +240,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Inner Declaration</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Inner Declaration</em>'.
      * @generated
      */
@@ -248,7 +249,7 @@ public interface RepositoryFactory extends EFactory {
     /**
      * Returns a new object of class '<em>Infrastructure Interface</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @return a new object of class '<em>Infrastructure Interface</em>'.
      * @generated
      */
@@ -256,7 +257,7 @@ public interface RepositoryFactory extends EFactory {
 
     /**
      * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the package supported by this factory.
      * @generated
      */

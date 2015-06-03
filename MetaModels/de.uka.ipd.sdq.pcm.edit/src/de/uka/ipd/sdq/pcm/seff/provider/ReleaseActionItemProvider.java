@@ -19,13 +19,14 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.ReleaseAction} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ReleaseActionItemProvider extends AbstractInternalControlFlowActionItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -33,7 +34,7 @@ public class ReleaseActionItemProvider extends AbstractInternalControlFlowAction
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ReleaseActionItemProvider(final AdapterFactory adapterFactory) {
@@ -43,7 +44,7 @@ public class ReleaseActionItemProvider extends AbstractInternalControlFlowAction
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,13 +69,13 @@ public class ReleaseActionItemProvider extends AbstractInternalControlFlowAction
                 this.getString("_UI_ReleaseAction_passiveResource_ReleaseAction_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_ReleaseAction_passiveResource_ReleaseAction_feature", "_UI_ReleaseAction_type"),
-                        SeffPackage.Literals.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION, true, false, true, null, null,
-                        null));
+                SeffPackage.Literals.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION, true, false, true, null, null,
+                null));
     }
 
     /**
      * This returns ReleaseAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -99,7 +100,7 @@ public class ReleaseActionItemProvider extends AbstractInternalControlFlowAction
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +112,7 @@ public class ReleaseActionItemProvider extends AbstractInternalControlFlowAction
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

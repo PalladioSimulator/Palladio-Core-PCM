@@ -2,7 +2,6 @@
  */
 package de.fzi.se.quality.qualityannotation.provider;
 
-
 import java.util.Collection;
 import java.util.List;
 
@@ -26,225 +25,203 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
 
 /**
- * This is the item provider adapter for a {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation} object.
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This is the item provider adapter for a
+ * {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation} object. <!-- begin-user-doc
+ * --> <!-- end-user-doc -->
+ *
  * @generated
  */
-public class RequiredElementDeviationItemProvider
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
-	/**
-     * This constructs an instance from a factory and a notifier.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+public class RequiredElementDeviationItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+
+    /**
+     * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
-	public RequiredElementDeviationItemProvider(AdapterFactory adapterFactory) {
+    public RequiredElementDeviationItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
-	/**
-     * This returns the property descriptors for the adapted class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-        if (itemPropertyDescriptors == null) {
+    @Override
+    public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            addMaximumDeviationNumberOfCallsPropertyDescriptor(object);
+            this.addMaximumDeviationNumberOfCallsPropertyDescriptor(object);
         }
-        return itemPropertyDescriptors;
+        return this.itemPropertyDescriptors;
     }
 
-	/**
-     * This adds a property descriptor for the Maximum Deviation Number Of Calls feature.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * This adds a property descriptor for the Maximum Deviation Number Of Calls feature. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	protected void addMaximumDeviationNumberOfCallsPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_RequiredElementDeviation_maximumDeviationNumberOfCalls_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_RequiredElementDeviation_maximumDeviationNumberOfCalls_feature", "_UI_RequiredElementDeviation_type"),
-                 QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS,
-                 true,
-                 false,
-                 true,
-                 null,
-                 null,
-                 null));
+    protected void addMaximumDeviationNumberOfCallsPropertyDescriptor(final Object object) {
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_RequiredElementDeviation_maximumDeviationNumberOfCalls_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_RequiredElementDeviation_maximumDeviationNumberOfCalls_feature",
+                        "_UI_RequiredElementDeviation_type"),
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS, true,
+                false, true, null, null, null));
     }
 
-	/**
-     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-     * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate
+     * feature for an {@link org.eclipse.emf.edit.command.AddCommand},
+     * {@link org.eclipse.emf.edit.command.RemoveCommand} or
+     * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-        if (childrenFeatures == null) {
+    @Override
+    public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
+        if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
-            childrenFeatures.add(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES);
-            childrenFeatures.add(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT);
+            this.childrenFeatures
+                    .add(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES);
+            this.childrenFeatures.add(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT);
         }
-        return childrenFeatures;
+        return this.childrenFeatures;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
+    @Override
+    protected EStructuralFeature getChildFeature(final Object object, final Object child) {
         // Check the type of the specified child object and return the proper feature to use for
         // adding (see {@link AddCommand}) it as a child.
 
         return super.getChildFeature(object, child);
     }
 
-	/**
-     * This returns RequiredElementDeviation.gif.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * This returns RequiredElementDeviation.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public Object getImage(Object object) {
-        return overlayImage(object, getResourceLocator().getImage("full/obj16/RequiredElementDeviation"));
+    @Override
+    public Object getImage(final Object object) {
+        return this.overlayImage(object, this.getResourceLocator().getImage("full/obj16/RequiredElementDeviation"));
     }
 
-	/**
-     * This returns the label text for the adapted class.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
      * @generated
      */
-	@Override
-	public String getText(Object object) {
-        return getString("_UI_RequiredElementDeviation_type");
+    @Override
+    public String getText(final Object object) {
+        return this.getString("_UI_RequiredElementDeviation_type");
     }
 
-	/**
+    /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
-     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
+     * . <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public void notifyChanged(Notification notification) {
-        updateChildren(notification);
+    @Override
+    public void notifyChanged(final Notification notification) {
+        this.updateChildren(notification);
 
         switch (notification.getFeatureID(RequiredElementDeviation.class)) {
-            case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES:
-            case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT:
-                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-                return;
+        case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES:
+        case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT:
+            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+            return;
         }
         super.notifyChanged(notification);
     }
 
-	/**
-     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-     * that can be created under this object.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
+     * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
+    @Override
+    protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES,
-                 QualityAnnotationFactory.eINSTANCE.createParameterValueDeviation()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES,
+                QualityAnnotationFactory.eINSTANCE.createParameterValueDeviation()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMRECategory()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMRECategory()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREInterface()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREInterface()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMRERole()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMRERole()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMRESignature()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMRESignature()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREResourceInterface()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREResourceInterface()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREResourceSignature()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREResourceSignature()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREResource()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREResource()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREResourceRole()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREResourceRole()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMRECIBehavior()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMRECIBehavior()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureInterface()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureInterface()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureRole()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureRole()));
 
-        newChildDescriptors.add
-            (createChildParameter
-                (QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                 QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureSignature()));
+        newChildDescriptors.add(this.createChildParameter(
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureSignature()));
     }
 
-	/**
-     * Return the resource locator for this item provider's resources.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public ResourceLocator getResourceLocator() {
+    @Override
+    public ResourceLocator getResourceLocator() {
         return QualityEditPlugin.INSTANCE;
     }
 

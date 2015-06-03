@@ -31,9 +31,10 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
  * @generated
  */
 public interface RequiredInfrastructureDelegationConnector extends DelegationConnector {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +49,7 @@ public interface RequiredInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Inner Required Role Required Infrastructure Delegation Connector</em>' reference.
      * @see #setInnerRequiredRole__RequiredInfrastructureDelegationConnector(InfrastructureRequiredRole)
@@ -83,7 +84,7 @@ public interface RequiredInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Outer Required Role Required Infrastructure Delegation Connector</em>' reference.
      * @see #setOuterRequiredRole__RequiredInfrastructureDelegationConnector(InfrastructureRequiredRole)
@@ -118,7 +119,7 @@ public interface RequiredInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Assembly Context Required Infrastructure Delegation Connector</em>' reference.
      * @see #setAssemblyContext__RequiredInfrastructureDelegationConnector(AssemblyContext)

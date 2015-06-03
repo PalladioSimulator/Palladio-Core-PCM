@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.util;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EModelElement;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.mdsdprofiles.ProfileableElement;
 import org.palladiosimulator.mdsdprofiles.StereotypableElement;
@@ -29,28 +28,29 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage
  * @generated
  */
 public class ResourceenvironmentSwitch<T> {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static ResourceenvironmentPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceenvironmentSwitch() {
@@ -62,7 +62,7 @@ public class ResourceenvironmentSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -73,7 +73,7 @@ public class ResourceenvironmentSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -89,7 +89,7 @@ public class ResourceenvironmentSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -106,9 +106,6 @@ public class ResourceenvironmentSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(resourceEnvironment);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(resourceEnvironment);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -131,9 +128,6 @@ public class ResourceenvironmentSwitch<T> {
                 result = this.caseStereotypableElement(linkingResource);
             }
             if (result == null) {
-                result = this.caseEModelElement(linkingResource);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -154,9 +148,6 @@ public class ResourceenvironmentSwitch<T> {
                 result = this.caseStereotypableElement(resourceContainer);
             }
             if (result == null) {
-                result = this.caseEModelElement(resourceContainer);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -169,9 +160,6 @@ public class ResourceenvironmentSwitch<T> {
             }
             if (result == null) {
                 result = this.caseStereotypableElement(processingResourceSpecification);
-            }
-            if (result == null) {
-                result = this.caseEModelElement(processingResourceSpecification);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -188,9 +176,6 @@ public class ResourceenvironmentSwitch<T> {
                 result = this.caseStereotypableElement(communicationLinkResourceSpecification);
             }
             if (result == null) {
-                result = this.caseEModelElement(communicationLinkResourceSpecification);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -204,7 +189,7 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Resource Environment</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -220,7 +205,7 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Linking Resource</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Linking Resource</em>'.
@@ -235,7 +220,7 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Resource Container</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Resource Container</em>
@@ -251,7 +236,7 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Processing Resource Specification</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -268,7 +253,7 @@ public class ResourceenvironmentSwitch<T> {
      * <em>Communication Link Resource Specification</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -284,7 +269,7 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
@@ -296,25 +281,10 @@ public class ResourceenvironmentSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>EModel Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseEModelElement(final EModelElement object) {
-        return null;
-    }
-
-    /**
      * Returns the result of interpreting the object as an instance of '<em>Profileable Element</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Profileable Element</em>
@@ -330,7 +300,7 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '

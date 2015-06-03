@@ -38,14 +38,15 @@ import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CompositionItemProviderAdapterFactory extends CompositionAdapterFactory implements
-ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+        ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +78,14 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CompositionItemProviderAdapterFactory() {
@@ -108,7 +109,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +125,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyConnectorItemProvider assemblyConnectorItemProvider;
@@ -132,7 +133,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -157,7 +158,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -173,7 +174,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceRequiredDelegationConnectorItemProvider resourceRequiredDelegationConnectorItemProvider;
@@ -199,7 +200,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EventChannelItemProvider eventChannelItemProvider;
@@ -232,7 +233,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -257,7 +258,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -298,7 +299,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredInfrastructureDelegationConnector}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredInfrastructureDelegationConnectorItemProvider requiredInfrastructureDelegationConnectorItemProvider;
@@ -324,7 +325,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProvidedInfrastructureDelegationConnectorItemProvider providedInfrastructureDelegationConnectorItemProvider;
@@ -350,7 +351,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredResourceDelegationConnectorItemProvider requiredResourceDelegationConnectorItemProvider;
@@ -385,7 +386,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -410,7 +411,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -435,7 +436,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -451,7 +452,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyContextItemProvider assemblyContextItemProvider;
@@ -459,7 +460,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -474,7 +475,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -485,7 +486,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -495,7 +496,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -516,7 +517,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -533,7 +534,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -542,7 +543,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -552,7 +553,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -562,7 +563,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -572,7 +573,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -598,7 +599,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -48,9 +48,10 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  */
 public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceDescriptionImpl implements
 InternalFailureOccurrenceDescription {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -60,7 +61,7 @@ InternalFailureOccurrenceDescription {
      * {@link #getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
      * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
      * @generated
      * @ordered
@@ -69,7 +70,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InternalFailureOccurrenceDescriptionImpl() {
@@ -78,7 +79,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +89,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -114,7 +115,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SoftwareInducedFailureType basicGetSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
@@ -123,7 +124,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSoftwareInducedFailureType__InternalFailureOccurrenceDescription(
@@ -149,7 +150,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -191,7 +192,7 @@ InternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -204,7 +205,7 @@ InternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -214,7 +215,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -251,7 +252,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -264,7 +265,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetInternalAction__InternalFailureOccurrenceDescription(
@@ -279,7 +280,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -316,7 +317,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -343,7 +344,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -360,7 +361,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -376,7 +377,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -395,7 +396,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -413,7 +414,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -431,7 +432,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

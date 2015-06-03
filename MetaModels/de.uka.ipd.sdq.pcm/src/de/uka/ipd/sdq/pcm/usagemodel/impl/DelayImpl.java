@@ -30,9 +30,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * @generated
  */
 public class DelayImpl extends AbstractUserActionImpl implements Delay {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +42,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      * The cached value of the '{@link #getTimeSpecification_Delay()
      * <em>Time Specification Delay</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getTimeSpecification_Delay()
      * @generated
      * @ordered
@@ -50,7 +51,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected DelayImpl() {
@@ -59,7 +60,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,7 +70,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -79,7 +80,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetTimeSpecification_Delay(final PCMRandomVariable newTimeSpecification_Delay,
@@ -101,7 +102,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +130,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +148,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -162,7 +163,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -176,7 +177,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -191,7 +192,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -206,7 +207,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

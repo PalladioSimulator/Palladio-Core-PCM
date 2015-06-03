@@ -37,9 +37,10 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  * @generated
  */
 public interface ResourceEnvironment extends ProfileableElement, NamedElement {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +57,7 @@ public interface ResourceEnvironment extends ProfileableElement, NamedElement {
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Linking Resources Resource Environment</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_LinkingResources__ResourceEnvironment()
@@ -78,7 +79,7 @@ public interface ResourceEnvironment extends ProfileableElement, NamedElement {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Container Resource Environment</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_ResourceContainer_ResourceEnvironment()

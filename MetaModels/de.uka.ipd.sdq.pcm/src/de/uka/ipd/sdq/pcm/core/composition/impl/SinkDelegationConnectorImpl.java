@@ -36,9 +36,10 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
  * @generated
  */
 public class SinkDelegationConnectorImpl extends DelegationConnectorImpl implements SinkDelegationConnector {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +48,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      * The cached value of the '{@link #getAssemblyContext__SinkDelegationConnector()
      * <em>Assembly Context Sink Delegation Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getAssemblyContext__SinkDelegationConnector()
      * @generated
      * @ordered
@@ -56,7 +57,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
     /**
      * The cached value of the '{@link #getInnerSinkRole__SinkRole()
      * <em>Inner Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInnerSinkRole__SinkRole()
      * @generated
      * @ordered
@@ -65,7 +66,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
     /**
      * The cached value of the '{@link #getOuterSinkRole__SinkRole()
      * <em>Outer Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getOuterSinkRole__SinkRole()
      * @generated
      * @ordered
@@ -74,7 +75,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SinkDelegationConnectorImpl() {
@@ -83,7 +84,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -93,7 +94,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +117,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__SinkDelegationConnector() {
@@ -125,7 +126,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -142,7 +143,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +164,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SinkRole basicGetInnerSinkRole__SinkRole() {
@@ -172,7 +173,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -188,7 +189,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +210,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SinkRole basicGetOuterSinkRole__SinkRole() {
@@ -218,7 +219,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -234,7 +235,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -261,7 +262,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -282,7 +283,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -303,7 +304,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

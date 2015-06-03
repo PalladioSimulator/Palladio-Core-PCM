@@ -57,9 +57,10 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
  * @generated
  */
 public class InfrastructureCallImpl extends CallActionImpl implements InfrastructureCall {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -79,7 +80,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * The cached value of the '{@link #getNumberOfCalls__InfrastructureCall()
      * <em>Number Of Calls Infrastructure Call</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getNumberOfCalls__InfrastructureCall()
      * @generated
      * @ordered
@@ -90,7 +91,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * The cached value of the '{@link #getRequiredRole__InfrastructureCall()
      * <em>Required Role Infrastructure Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getRequiredRole__InfrastructureCall()
      * @generated
      * @ordered
@@ -99,7 +100,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureCallImpl() {
@@ -108,7 +109,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -118,7 +119,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -140,7 +141,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureSignature basicGetSignature__InfrastructureCall() {
@@ -149,7 +150,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -165,7 +166,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -175,7 +176,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__InfrastructureCall(
@@ -197,7 +198,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -227,7 +228,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +241,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAction__InfrastructureCall(
@@ -252,7 +253,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -284,7 +285,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -306,7 +307,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__InfrastructureCall() {
@@ -315,7 +316,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -334,7 +335,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * {@link #SignatureMustBelongToUsedRequiredRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Must Belong To Used Required Role</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #SignatureMustBelongToUsedRequiredRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -357,7 +358,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -416,7 +417,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -455,7 +456,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -468,7 +469,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -478,7 +479,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -515,7 +516,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -540,7 +541,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -557,7 +558,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -573,7 +574,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -599,7 +600,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -623,7 +624,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -647,7 +648,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -668,7 +669,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

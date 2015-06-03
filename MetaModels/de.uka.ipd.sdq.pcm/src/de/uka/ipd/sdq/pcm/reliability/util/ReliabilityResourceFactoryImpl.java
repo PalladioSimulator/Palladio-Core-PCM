@@ -13,21 +13,22 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 /**
  * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the package. <!--
  * end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.util.ReliabilityResourceImpl
  * @generated
  */
 public class ReliabilityResourceFactoryImpl extends ResourceFactoryImpl {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates an instance of the resource factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ReliabilityResourceFactoryImpl() {
@@ -36,7 +37,7 @@ public class ReliabilityResourceFactoryImpl extends ResourceFactoryImpl {
 
     /**
      * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -31,9 +31,10 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
  * @generated
  */
 public abstract class FailureHandlingEntityImpl extends EntityImpl implements FailureHandlingEntity {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +43,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      * The cached value of the '{@link #getFailureTypes_FailureHandlingEntity()
      * <em>Failure Types Failure Handling Entity</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getFailureTypes_FailureHandlingEntity()
      * @generated
      * @ordered
@@ -51,7 +52,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected FailureHandlingEntityImpl() {
@@ -60,7 +61,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -70,7 +71,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -85,7 +86,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -99,7 +100,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -116,7 +117,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -131,7 +132,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

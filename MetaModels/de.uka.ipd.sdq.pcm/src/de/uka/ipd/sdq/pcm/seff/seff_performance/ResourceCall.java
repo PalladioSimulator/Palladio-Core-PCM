@@ -39,9 +39,10 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
  * @generated
  */
 public interface ResourceCall extends CallAction {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +57,7 @@ public interface ResourceCall extends CallAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Action Resource Call</em>' container reference.
      * @see #setAction__ResourceCall(AbstractInternalControlFlowAction)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_Action__ResourceCall()
@@ -71,7 +72,7 @@ public interface ResourceCall extends CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
      * <em>Action Resource Call</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Action Resource Call</em>' container reference.
      * @see #getAction__ResourceCall()
@@ -87,7 +88,7 @@ public interface ResourceCall extends CallAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Required Role Resource Call</em>' reference.
      * @see #setResourceRequiredRole__ResourceCall(ResourceRequiredRole)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_ResourceRequiredRole__ResourceCall()
@@ -101,7 +102,7 @@ public interface ResourceCall extends CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getResourceRequiredRole__ResourceCall
      * <em>Resource Required Role Resource Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Required Role Resource Call</em>' reference.
      * @see #getResourceRequiredRole__ResourceCall()
@@ -130,7 +131,7 @@ public interface ResourceCall extends CallAction {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
      * <em>Signature Resource Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Signature Resource Call</em>' reference.
      * @see #getSignature__ResourceCall()
@@ -148,7 +149,7 @@ public interface ResourceCall extends CallAction {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Number Of Calls Resource Call</em>' containment reference.
      * @see #setNumberOfCalls__ResourceCall(PCMRandomVariable)
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_NumberOfCalls__ResourceCall()
@@ -164,7 +165,7 @@ public interface ResourceCall extends CallAction {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
      * <em>Number Of Calls Resource Call</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Number Of Calls Resource Call</em>' containment
      *            reference.

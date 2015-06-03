@@ -42,9 +42,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
  * @generated
  */
 public interface CommunicationLinkResourceSpecification extends Identifier {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +62,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Linking Resource Communication Link Resource Specification</em>
      *         ' container reference.
      * @see #setLinkingResource_CommunicationLinkResourceSpecification(LinkingResource)
@@ -78,7 +79,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification
      * <em>Linking Resource Communication Link Resource Specification</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Linking Resource Communication Link Resource Specification</em>' container
@@ -106,7 +107,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability
      * <em>Failure Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Failure Probability</em>' attribute.
      * @see #getFailureProbability()
@@ -124,7 +125,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Communication Link Resource Type Communication Link Resource Specification</em>'
      *         reference.
@@ -140,7 +141,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * {@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification
      * <em>Communication Link Resource Type Communication Link Resource Specification</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Communication Link Resource Type Communication Link Resource Specification</em>

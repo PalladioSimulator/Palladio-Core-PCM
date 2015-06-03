@@ -36,14 +36,15 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.util.QosReliabilityAdap
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdapterFactory implements
-ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+        ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -66,7 +67,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +76,14 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QosReliabilityItemProviderAdapterFactory() {
@@ -97,7 +98,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SpecifiedReliabilityAnnotationItemProvider specifiedReliabilityAnnotationItemProvider;
@@ -106,7 +107,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +122,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -132,7 +133,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -142,7 +143,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +164,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -180,7 +181,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -189,7 +190,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -199,7 +200,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +210,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -219,7 +220,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -245,7 +246,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender 
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -44,9 +44,10 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class ResourceEnvironmentImpl extends ProfileableElementImpl implements ResourceEnvironment {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -95,7 +96,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceEnvironmentImpl() {
@@ -104,7 +105,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -114,7 +115,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +125,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -139,7 +140,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -156,7 +157,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -173,7 +174,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -193,7 +194,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -210,7 +211,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -228,7 +229,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -252,7 +253,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -273,7 +274,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -295,7 +296,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -313,7 +314,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -331,7 +332,7 @@ public class ResourceEnvironmentImpl extends ProfileableElementImpl implements R
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

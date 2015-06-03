@@ -35,9 +35,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceProvidedRole;
  */
 public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInterfaceRequiringEntityImpl implements
 ResourceInterfaceProvidingRequiringEntity {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +48,7 @@ ResourceInterfaceProvidingRequiringEntity {
      * {@link #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * <em>Resource Provided Roles Resource Interface Providing Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @generated
      * @ordered
@@ -56,7 +57,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceInterfaceProvidingRequiringEntityImpl() {
@@ -65,7 +66,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -75,7 +76,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -93,7 +94,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -110,7 +111,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -126,7 +127,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -140,7 +141,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -158,7 +159,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -173,7 +174,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -189,7 +190,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -207,7 +208,7 @@ ResourceInterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

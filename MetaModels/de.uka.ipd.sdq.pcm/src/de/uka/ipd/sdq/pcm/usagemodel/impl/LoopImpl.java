@@ -33,9 +33,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * @generated
  */
 public class LoopImpl extends AbstractUserActionImpl implements Loop {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -43,7 +44,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
     /**
      * The cached value of the '{@link #getLoopIteration_Loop() <em>Loop Iteration Loop</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getLoopIteration_Loop()
      * @generated
      * @ordered
@@ -52,7 +53,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
     /**
      * The cached value of the '{@link #getBodyBehaviour_Loop() <em>Body Behaviour Loop</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getBodyBehaviour_Loop()
      * @generated
      * @ordered
@@ -61,7 +62,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected LoopImpl() {
@@ -70,7 +71,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -80,7 +81,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -90,7 +91,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetLoopIteration_Loop(final PCMRandomVariable newLoopIteration_Loop,
@@ -111,7 +112,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +139,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +149,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetBodyBehaviour_Loop(final ScenarioBehaviour newBodyBehaviour_Loop,
@@ -169,7 +170,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -196,7 +197,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -220,7 +221,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -237,7 +238,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -253,7 +254,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -271,7 +272,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -289,7 +290,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

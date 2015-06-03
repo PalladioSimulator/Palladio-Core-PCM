@@ -38,14 +38,15 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implements ComposeableAdapterFactory,
-IChangeNotifier, IDisposable, IChildCreationExtender {
+        IChangeNotifier, IDisposable, IChildCreationExtender {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +69,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -77,14 +78,14 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffItemProviderAdapterFactory() {
@@ -98,7 +99,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.StopAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StopActionItemProvider stopActionItemProvider;
@@ -106,7 +107,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.StopAction}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +123,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingBehaviourItemProvider resourceDemandingBehaviourItemProvider;
@@ -130,7 +131,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +146,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BranchActionItemProvider branchActionItemProvider;
@@ -168,7 +169,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.StartAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StartActionItemProvider startActionItemProvider;
@@ -192,7 +193,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingSEFFItemProvider resourceDemandingSEFFItemProvider;
@@ -225,7 +226,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This creates an adapter for a
      * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,7 +243,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ReleaseAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ReleaseActionItemProvider releaseActionItemProvider;
@@ -265,7 +266,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.LoopAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected LoopActionItemProvider loopActionItemProvider;
@@ -273,7 +274,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.LoopAction}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -289,7 +290,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.InternalAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InternalActionItemProvider internalActionItemProvider;
@@ -312,7 +313,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ForkAction}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ForkActionItemProvider forkActionItemProvider;
@@ -320,7 +321,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ForkAction}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -336,7 +337,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ForkedBehaviourItemProvider forkedBehaviourItemProvider;
@@ -360,7 +361,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SynchronisationPointItemProvider synchronisationPointItemProvider;
@@ -384,7 +385,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExternalCallActionItemProvider externalCallActionItemProvider;
@@ -408,7 +409,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.CallReturnAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CallReturnActionItemProvider callReturnActionItemProvider;
@@ -432,7 +433,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProbabilisticBranchTransitionItemProvider probabilisticBranchTransitionItemProvider;
@@ -440,7 +441,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -456,7 +457,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.AcquireAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AcquireActionItemProvider acquireActionItemProvider;
@@ -480,7 +481,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CollectionIteratorActionItemProvider collectionIteratorActionItemProvider;
@@ -504,7 +505,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected GuardedBranchTransitionItemProvider guardedBranchTransitionItemProvider;
@@ -528,7 +529,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SetVariableActionItemProvider setVariableActionItemProvider;
@@ -552,7 +553,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.InternalCallAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InternalCallActionItemProvider internalCallActionItemProvider;
@@ -576,7 +577,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
      * This keeps track of the one adapter used for all
      * {@link de.uka.ipd.sdq.pcm.seff.EmitEventAction} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EmitEventActionItemProvider emitEventActionItemProvider;
@@ -599,7 +600,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -610,7 +611,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -620,7 +621,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -641,7 +642,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -658,7 +659,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -667,7 +668,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -677,7 +678,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -687,7 +688,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -697,7 +698,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -723,7 +724,7 @@ IChangeNotifier, IDisposable, IChildCreationExtender {
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

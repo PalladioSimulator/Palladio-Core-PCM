@@ -23,13 +23,14 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CompositeDataTypeItemProvider extends EntityItemProvider {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -37,7 +38,7 @@ public class CompositeDataTypeItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CompositeDataTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -47,7 +48,7 @@ public class CompositeDataTypeItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,8 +73,8 @@ public class CompositeDataTypeItemProvider extends EntityItemProvider {
                 this.getString("_UI_CompositeDataType_parentType_CompositeDataType_feature"), this.getString(
                         "_UI_PropertyDescriptor_description",
                         "_UI_CompositeDataType_parentType_CompositeDataType_feature", "_UI_CompositeDataType_type"),
-                        RepositoryPackage.Literals.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE, true, false, true,
-                        null, null, null));
+                RepositoryPackage.Literals.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE, true, false, true,
+                null, null, null));
     }
 
     /**
@@ -90,14 +91,14 @@ public class CompositeDataTypeItemProvider extends EntityItemProvider {
         if (this.childrenFeatures == null) {
             super.getChildrenFeatures(object);
             this.childrenFeatures
-                    .add(RepositoryPackage.Literals.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE);
+            .add(RepositoryPackage.Literals.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -110,7 +111,7 @@ public class CompositeDataTypeItemProvider extends EntityItemProvider {
 
     /**
      * This returns CompositeDataType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -135,7 +136,7 @@ public class CompositeDataTypeItemProvider extends EntityItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +154,7 @@ public class CompositeDataTypeItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -21,131 +21,138 @@ import de.fzi.se.quality.parameters.pcm.PCMParameterValue;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parameter Value</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Parameter Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl#getVariableCharacterisations <em>Variable Characterisations</em>}</li>
+ * <li>
+ * {@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl#getVariableCharacterisations
+ * <em>Variable Characterisations</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class PCMParameterValueImpl extends ParameterValueImpl implements PCMParameterValue {
-	/**
-     * The cached value of the '{@link #getVariableCharacterisations() <em>Variable Characterisations</em>}' containment reference list.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * The cached value of the '{@link #getVariableCharacterisations()
+     * <em>Variable Characterisations</em>}' containment reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
      * @see #getVariableCharacterisations()
      * @generated
      * @ordered
      */
-	protected EList<VariableUsage> variableCharacterisations;
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    protected EList<VariableUsage> variableCharacterisations;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	protected PCMParameterValueImpl() {
+    protected PCMParameterValueImpl() {
         super();
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	protected EClass eStaticClass() {
+    @Override
+    protected EClass eStaticClass() {
         return PCMPackage.Literals.PCM_PARAMETER_VALUE;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public EList<VariableUsage> getVariableCharacterisations() {
-        if (variableCharacterisations == null) {
-            variableCharacterisations = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS);
+    @Override
+    public EList<VariableUsage> getVariableCharacterisations() {
+        if (this.variableCharacterisations == null) {
+            this.variableCharacterisations = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this,
+                    PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS);
         }
-        return variableCharacterisations;
+        return this.variableCharacterisations;
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    @Override
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
-            case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
-                return ((InternalEList<?>)getVariableCharacterisations()).basicRemove(otherEnd, msgs);
+        case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+            return ((InternalEList<?>) this.getVariableCharacterisations()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-            case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
-                return getVariableCharacterisations();
+        case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+            return this.getVariableCharacterisations();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-            case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
-                getVariableCharacterisations().clear();
-                getVariableCharacterisations().addAll((Collection<? extends VariableUsage>)newValue);
-                return;
+        case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+            this.getVariableCharacterisations().clear();
+            this.getVariableCharacterisations().addAll((Collection<? extends VariableUsage>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public void eUnset(int featureID) {
+    @Override
+    public void eUnset(final int featureID) {
         switch (featureID) {
-            case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
-                getVariableCharacterisations().clear();
-                return;
+        case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+            this.getVariableCharacterisations().clear();
+            return;
         }
         super.eUnset(featureID);
     }
 
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	public boolean eIsSet(int featureID) {
+    @Override
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
-            case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
-                return variableCharacterisations != null && !variableCharacterisations.isEmpty();
+        case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+            return this.variableCharacterisations != null && !this.variableCharacterisations.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
-} //PCMParameterValueImpl
+} // PCMParameterValueImpl

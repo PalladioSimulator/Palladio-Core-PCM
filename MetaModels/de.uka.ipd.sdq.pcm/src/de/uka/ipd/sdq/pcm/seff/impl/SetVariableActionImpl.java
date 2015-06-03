@@ -34,9 +34,10 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
  * @generated
  */
 public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl implements SetVariableAction {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +55,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SetVariableActionImpl() {
@@ -63,7 +64,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +74,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -90,7 +91,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -107,7 +108,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +123,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,7 +137,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -153,7 +154,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +169,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

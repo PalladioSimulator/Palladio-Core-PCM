@@ -32,9 +32,10 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  * @generated
  */
 public interface ReleaseAction extends AbstractInternalControlFlowAction {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +62,7 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
      * {@link de.uka.ipd.sdq.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
      * <em>Passive Resource Release Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Passive Resource Release Action</em>' reference.
      * @see #getPassiveResource_ReleaseAction()

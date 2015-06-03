@@ -88,202 +88,203 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass stopActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass abstractInternalControlFlowActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass abstractActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceDemandingBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass abstractLoopActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass abstractBranchTransitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass branchActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass callActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass startActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass serviceEffectSpecificationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceDemandingSEFFEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceDemandingInternalBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass releaseActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass loopActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass forkActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass forkedBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass synchronisationPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass externalCallActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass callReturnActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass probabilisticBranchTransitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass acquireActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass collectionIteratorActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass guardedBranchTransitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass setVariableActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass internalCallActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass emitEventActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass internalActionEClass = null;
@@ -296,7 +297,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#eNS_URI
      * @see #init()
@@ -308,7 +309,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static boolean isInited = false;
@@ -321,7 +322,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
      * This method is used to initialize {@link SeffPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to
      * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -447,6 +448,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
         // Register package validator
         EValidator.Registry.INSTANCE.put(theSeffPackage, new EValidator.Descriptor() {
+
             @Override
             public EValidator getEValidator() {
                 return SeffValidator.INSTANCE;
@@ -463,7 +465,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -473,7 +475,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -483,7 +485,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -493,7 +495,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -503,7 +505,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -513,7 +515,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -523,7 +525,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -533,7 +535,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -543,7 +545,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -553,7 +555,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -563,7 +565,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -573,7 +575,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -583,7 +585,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -593,7 +595,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -603,7 +605,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -613,7 +615,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -623,7 +625,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -633,7 +635,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -643,7 +645,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -653,7 +655,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -663,7 +665,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -673,7 +675,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -683,7 +685,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -693,7 +695,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -703,7 +705,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -713,7 +715,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -723,7 +725,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -733,7 +735,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -743,7 +745,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -753,7 +755,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -763,7 +765,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -773,7 +775,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -783,7 +785,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -793,7 +795,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -803,7 +805,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -813,7 +815,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -823,7 +825,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -833,7 +835,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -843,7 +845,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -853,7 +855,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -863,7 +865,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -873,7 +875,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -883,7 +885,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -893,7 +895,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -903,7 +905,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -913,7 +915,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -923,7 +925,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -933,7 +935,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -943,7 +945,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -953,7 +955,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -963,7 +965,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -973,7 +975,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -983,7 +985,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -993,7 +995,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1003,7 +1005,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1013,7 +1015,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1023,7 +1025,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1033,7 +1035,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1043,7 +1045,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1053,7 +1055,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1063,7 +1065,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1073,7 +1075,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1083,7 +1085,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1093,7 +1095,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1103,7 +1105,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1113,7 +1115,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1123,7 +1125,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1133,7 +1135,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1143,7 +1145,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1153,7 +1155,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1163,7 +1165,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1173,7 +1175,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isCreated = false;
@@ -1181,7 +1183,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void createPackageContents() {
@@ -1310,7 +1312,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isInitialized = false;
@@ -1318,7 +1320,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void initializePackageContents() {

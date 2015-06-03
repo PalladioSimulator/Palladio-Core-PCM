@@ -47,9 +47,10 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * @generated
  */
 public class ResourceContainerImpl extends EntityImpl implements ResourceContainer {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -77,7 +78,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceContainerImpl() {
@@ -86,7 +87,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -96,7 +97,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -114,7 +115,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -127,7 +128,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetResourceEnvironment_ResourceContainer(
@@ -139,7 +140,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +173,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -189,7 +190,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -202,7 +203,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParentResourceContainer__ResourceContainer(
@@ -214,7 +215,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -248,7 +249,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -277,7 +278,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -300,7 +301,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -320,7 +321,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -340,7 +341,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -369,7 +370,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -393,7 +394,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

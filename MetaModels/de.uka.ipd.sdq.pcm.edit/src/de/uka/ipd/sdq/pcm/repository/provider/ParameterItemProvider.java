@@ -29,14 +29,15 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.repository.Parameter} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ParameterItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -44,7 +45,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ParameterItemProvider(final AdapterFactory adapterFactory) {
@@ -54,7 +55,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +73,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This adds a property descriptor for the Data Type Parameter feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addDataType__ParameterPropertyDescriptor(final Object object) {
@@ -81,13 +82,13 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
                 this.getString("_UI_Parameter_dataType__Parameter_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_Parameter_dataType__Parameter_feature",
                         "_UI_Parameter_type"), RepositoryPackage.Literals.PARAMETER__DATA_TYPE_PARAMETER, true, false,
-                        true, null, null, null));
+                true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Parameter Name feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addParameterNamePropertyDescriptor(final Object object) {
@@ -96,13 +97,13 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
                 this.getString("_UI_Parameter_parameterName_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_Parameter_parameterName_feature",
                         "_UI_Parameter_type"), RepositoryPackage.Literals.PARAMETER__PARAMETER_NAME, true, false,
-                        false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This adds a property descriptor for the Modifier Parameter feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addModifier__ParameterPropertyDescriptor(final Object object) {
@@ -111,12 +112,12 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
                 this.getString("_UI_Parameter_modifier__Parameter_feature"), this.getString(
                         "_UI_PropertyDescriptor_description", "_UI_Parameter_modifier__Parameter_feature",
                         "_UI_Parameter_type"), RepositoryPackage.Literals.PARAMETER__MODIFIER_PARAMETER, true, false,
-                        false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
      * This returns Parameter.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +142,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -160,7 +161,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +172,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

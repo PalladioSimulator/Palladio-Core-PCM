@@ -15,38 +15,37 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
 /**
- * This class contains helper methods to serialize and deserialize XML documents
- * <!-- begin-user-doc -->
- * <!-- end-user-doc -->
+ * This class contains helper methods to serialize and deserialize XML documents <!-- begin-user-doc
+ * --> <!-- end-user-doc -->
+ *
  * @generated
  */
 public class PCMXMLProcessor extends XMLProcessor {
 
-	/**
-     * Public constructor to instantiate the helper.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    /**
+     * Public constructor to instantiate the helper. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	public PCMXMLProcessor() {
+    public PCMXMLProcessor() {
         super((EPackage.Registry.INSTANCE));
         PCMPackage.eINSTANCE.eClass();
     }
-	
-	/**
-     * Register for "*" and "xml" file extensions the PCMResourceFactoryImpl factory.
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+
+    /**
+     * Register for "*" and "xml" file extensions the PCMResourceFactoryImpl factory. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-	@Override
-	protected Map<String, Resource.Factory> getRegistrations() {
-        if (registrations == null) {
+    @Override
+    protected Map<String, Resource.Factory> getRegistrations() {
+        if (this.registrations == null) {
             super.getRegistrations();
-            registrations.put(XML_EXTENSION, new PCMResourceFactoryImpl());
-            registrations.put(STAR_EXTENSION, new PCMResourceFactoryImpl());
+            this.registrations.put(XML_EXTENSION, new PCMResourceFactoryImpl());
+            this.registrations.put(STAR_EXTENSION, new PCMResourceFactoryImpl());
         }
-        return registrations;
+        return this.registrations;
     }
 
-} //PCMXMLProcessor
+} // PCMXMLProcessor
