@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
+import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 
 /**
  * Tests profile methods by applying these to the repository of the parent class.
@@ -17,17 +18,17 @@ public class ProfileTest extends AbstractTest {
 
     @Test
     public void applyProfile() {
-        assertFalse(repository.hasProfileApplication());
+        assertFalse(ProfileAPI.hasProfileApplication(this.repositoryResource));
 
-        repository.applyProfile(getProfile(PROFILE_NAME));
+        ProfileAPI.applyProfile(this.repositoryResource, getProfile(PROFILE_NAME));
 
-        assertTrue(repository.hasProfileApplication());
+        assertTrue(ProfileAPI.hasProfileApplication(this.repositoryResource));
     }
 
     private void unapplyProfile() {
-        repository.unapplyProfile(getProfile(PROFILE_NAME));
+        ProfileAPI.unapplyProfile(this.repositoryResource, getProfile(PROFILE_NAME));
 
-        assertFalse(repository.hasProfileApplication());
+        assertFalse(ProfileAPI.hasProfileApplication(this.repositoryResource));
     }
 
     @Test
@@ -44,30 +45,30 @@ public class ProfileTest extends AbstractTest {
     }
 
     private void getProfileApplication() {
-        final ProfileApplication profileApplication = repository.getProfileApplication();
+        final ProfileApplication profileApplication = ProfileAPI.getProfileApplication(this.repositoryResource);
         assertTrue(profileApplication.getImportedProfiles().get(0).getProfile().getName().equals(PROFILE_NAME));
     }
 
     @Test(expected = RuntimeException.class)
     public void getProfileApplicationWithoutBeingApplied() {
-        repository.getProfileApplication();
+        getProfileApplication();
     }
 
     @Test
     public void storeLoadProfiledResource() {
-        assertFalse(repository.hasProfileApplication());
+        assertFalse(ProfileAPI.hasProfileApplication(this.repositoryResource));
         applyProfile();
-        assertTrue(repository.hasProfileApplication());
+        assertTrue(ProfileAPI.hasProfileApplication(this.repositoryResource));
         getProfileApplication();
         save();
         load();
-        assertTrue(repository.hasProfileApplication());
+        assertTrue(ProfileAPI.hasProfileApplication(this.repositoryResource));
         getProfileApplication();
         unapplyProfile();
-        assertFalse(repository.hasProfileApplication());
+        assertFalse(ProfileAPI.hasProfileApplication(this.repositoryResource));
         save();
         load();
-        assertFalse(repository.hasProfileApplication());
+        assertFalse(ProfileAPI.hasProfileApplication(this.repositoryResource));
         reset();
     }
 

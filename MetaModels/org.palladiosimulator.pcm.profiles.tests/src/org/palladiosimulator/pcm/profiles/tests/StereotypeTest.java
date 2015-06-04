@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
+import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
@@ -30,12 +32,13 @@ public class StereotypeTest extends AbstractTest {
     @Override
     protected void load() {
         super.load();
-        if (!this.repository.hasProfileApplication()) {
-            this.repository.applyProfile(getProfile(PROFILE_NAME));
+        if (!ProfileAPI.hasProfileApplication(this.repositoryResource)) {
+            ProfileAPI.applyProfile(this.repositoryResource, getProfile(PROFILE_NAME));
         }
-        assertTrue(this.repository.hasProfileApplication());
+        assertTrue(ProfileAPI.hasProfileApplication(this.repositoryResource));
 
-        this.profile = this.repository.getProfileApplication().getImportedProfiles().get(0).getProfile();
+        this.profile = ProfileAPI.getProfileApplication(this.repositoryResource).getImportedProfiles().get(0)
+                .getProfile();
         this.stereotype = this.profile.getStereotypes().get(0);
 
         this.component = (BasicComponent) this.repository.getComponents__Repository().get(0);
@@ -45,57 +48,58 @@ public class StereotypeTest extends AbstractTest {
 
     @Test
     public void getApplicableStereotypes() {
-        assertTrue(this.component.getApplicableStereotypes().get(0).getName().equals(this.stereotype.getName()));
-        assertTrue(this.component.getApplicableStereotypes(this.profile).get(0).getName()
+        assertTrue(StereotypeAPI.getApplicableStereotypes(this.component).get(0).getName()
                 .equals(this.stereotype.getName()));
-        assertTrue(this.component.getApplicableStereotypes(this.stereotype.getName()).get(0).getName()
+        assertTrue(StereotypeAPI.getApplicableStereotypes(this.component, this.profile).get(0).getName()
+                .equals(this.stereotype.getName()));
+        assertTrue(StereotypeAPI.getApplicableStereotypes(this.component, this.stereotype.getName()).get(0).getName()
                 .equals(this.stereotype.getName()));
     }
 
     @Test
     public void applyStereotype() {
-        assertFalse(this.component.hasStereotypeApplications());
-        assertTrue(this.component.isStereotypeApplicable(this.stereotype));
-        assertFalse(this.component.isStereotypeApplied(this.stereotype));
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.component));
+        assertTrue(StereotypeAPI.isStereotypeApplicable(this.component, this.stereotype));
+        assertFalse(StereotypeAPI.isStereotypeApplied(this.component, this.stereotype));
 
-        this.component.applyStereotype(this.stereotype);
+        StereotypeAPI.applyStereotype(this.component, this.stereotype);
 
-        assertTrue(this.component.hasStereotypeApplications());
-        assertTrue(this.component.isStereotypeApplied(this.stereotype));
+        assertTrue(StereotypeAPI.hasStereotypeApplications(this.component));
+        assertTrue(StereotypeAPI.isStereotypeApplied(this.component, this.stereotype));
     }
 
     @Test
     public void applyStereotypeString() {
-        assertFalse(this.component.hasStereotypeApplications());
-        assertTrue(this.component.isStereotypeApplicable(this.stereotype.getName()));
-        assertFalse(this.component.isStereotypeApplied(this.stereotype.getName()));
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.component));
+        assertTrue(StereotypeAPI.isStereotypeApplicable(this.component, this.stereotype.getName()));
+        assertFalse(StereotypeAPI.isStereotypeApplied(this.component, this.stereotype.getName()));
 
-        this.component.applyStereotype(this.stereotype.getName());
+        StereotypeAPI.applyStereotype(this.component, this.stereotype.getName());
 
-        assertTrue(this.component.hasStereotypeApplications());
-        assertTrue(this.component.isStereotypeApplied(this.stereotype.getName()));
+        assertTrue(StereotypeAPI.hasStereotypeApplications(this.component));
+        assertTrue(StereotypeAPI.isStereotypeApplied(this.component, this.stereotype.getName()));
     }
 
     @Test(expected = RuntimeException.class)
     public void stereotypeNotApplicable() {
-        assertFalse(this.componentInterface.hasStereotypeApplications());
-        assertFalse(this.componentInterface.isStereotypeApplicable(this.stereotype));
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.componentInterface));
+        assertFalse(StereotypeAPI.isStereotypeApplicable(this.componentInterface, this.stereotype));
 
-        this.componentInterface.applyStereotype(this.stereotype.getName());
+        StereotypeAPI.applyStereotype(this.componentInterface, this.stereotype.getName());
     }
 
     private void unapplyStereotype() {
-        this.component.unapplyStereotype(this.stereotype);
+        StereotypeAPI.unapplyStereotype(this.component, this.stereotype);
 
-        assertFalse(this.component.hasStereotypeApplications());
-        assertFalse(this.component.isStereotypeApplied(this.stereotype));
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.component));
+        assertFalse(StereotypeAPI.isStereotypeApplied(this.component, this.stereotype));
     }
 
     private void unapplyStereotypeString() {
-        this.component.unapplyStereotype(this.stereotype.getName());
+        StereotypeAPI.unapplyStereotype(this.component, this.stereotype.getName());
 
-        assertFalse(this.component.hasStereotypeApplications());
-        assertFalse(this.component.isStereotypeApplied(this.stereotype.getName()));
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.component));
+        assertFalse(StereotypeAPI.isStereotypeApplied(this.component, this.stereotype.getName()));
     }
 
     @Test
@@ -118,36 +122,37 @@ public class StereotypeTest extends AbstractTest {
     }
 
     private void getStereotypeApplication() {
-        final StereotypeApplication stereotypeApplication = this.component.getStereotypeApplication(this.stereotype);
+        final StereotypeApplication stereotypeApplication = StereotypeAPI.getStereotypeApplication(this.component,
+                this.stereotype);
 
         assertTrue(stereotypeApplication.getAppliedTo().equals(this.component));
         assertTrue(stereotypeApplication.getExtension().getSource().getTaggedValue(TEST_TAGGED_VALUE) != null);
 
-        assertTrue(this.component.getStereotypeApplications().size() == 1);
-        assertTrue(this.component.getStereotypeApplications(this.profile).size() == 1);
-        assertTrue(this.component.getStereotypeApplications(this.stereotype.getName()).size() == 1);
+        assertTrue(StereotypeAPI.getStereotypeApplications(this.component).size() == 1);
+        assertTrue(StereotypeAPI.getStereotypeApplications(this.component, this.profile).size() == 1);
+        assertTrue(StereotypeAPI.getStereotypeApplications(this.component, this.stereotype.getName()).size() == 1);
     }
 
     @Test(expected = RuntimeException.class)
     public void getStereotypeApplicationWithoutBeingApplied() {
-        this.component.getStereotypeApplication(this.stereotype);
+        StereotypeAPI.getStereotypeApplication(this.component, this.stereotype);
     }
 
     @Test
     public void storeLoadStereotypedResource() {
-        assertFalse(this.component.hasStereotypeApplications());
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.component));
         applyStereotype();
-        assertTrue(this.component.hasStereotypeApplications());
+        assertTrue(StereotypeAPI.hasStereotypeApplications(this.component));
         getStereotypeApplication();
         save();
         load();
-        assertTrue(this.component.hasStereotypeApplications());
+        assertTrue(StereotypeAPI.hasStereotypeApplications(this.component));
         getStereotypeApplication();
         unapplyStereotype();
-        assertFalse(this.component.hasStereotypeApplications());
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.component));
         save();
         load();
-        assertFalse(this.component.hasStereotypeApplications());
+        assertFalse(StereotypeAPI.hasStereotypeApplications(this.component));
         reset();
     }
 

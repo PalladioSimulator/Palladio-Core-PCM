@@ -40,7 +40,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
     /**
      * The cached value of the '{@link #getProcessingResourceType()
      * <em>Processing Resource Type</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getProcessingResourceType()
      * @generated
      * @ordered
@@ -49,7 +49,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMREResourceImpl() {
@@ -58,7 +58,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ProcessingResourceType basicGetProcessingResourceType() {
@@ -98,7 +98,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
      * {@link #ThisIsTheLowestResourceDemandHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Resource Demand Hierarchy Level</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ThisIsTheLowestResourceDemandHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -140,7 +140,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -176,7 +176,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -199,7 +199,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -232,7 +232,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -249,7 +249,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -264,7 +264,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -279,7 +279,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

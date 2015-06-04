@@ -34,7 +34,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
     /**
      * The cached value of the '{@link #getBasicComponent() <em>Basic Component</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getBasicComponent()
      * @generated
      * @ordered
@@ -43,7 +43,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMComponentReferenceImpl() {
@@ -52,7 +52,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -82,7 +82,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public BasicComponent basicGetBasicComponent() {
@@ -91,7 +91,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +138,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.mdsdprofiles.StereotypableElement;
 
 import de.fzi.se.quality.parameters.ComponentReference;
 import de.fzi.se.quality.parameters.OperationReference;
@@ -33,7 +32,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see de.fzi.se.quality.parameters.pcm.PCMPackage
  * @generated
  */
@@ -41,14 +40,14 @@ public class PCMSwitch<T> {
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static PCMPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public PCMSwitch() {
@@ -60,7 +59,7 @@ public class PCMSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -71,7 +70,7 @@ public class PCMSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -87,7 +86,7 @@ public class PCMSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -101,9 +100,6 @@ public class PCMSwitch<T> {
             }
             if (result == null) {
                 result = this.caseIdentifier(pcmParameterReference);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(pcmParameterReference);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -120,9 +116,6 @@ public class PCMSwitch<T> {
                 result = this.caseIdentifier(pcmParameterValue);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(pcmParameterValue);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -135,9 +128,6 @@ public class PCMSwitch<T> {
             }
             if (result == null) {
                 result = this.caseIdentifier(pcmInfrastructureOperationReference);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(pcmInfrastructureOperationReference);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -154,9 +144,6 @@ public class PCMSwitch<T> {
                 result = this.caseIdentifier(pcmBusinessOperationReference);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(pcmBusinessOperationReference);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -169,9 +156,6 @@ public class PCMSwitch<T> {
             }
             if (result == null) {
                 result = this.caseIdentifier(pcmComponentReference);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(pcmComponentReference);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -191,9 +175,6 @@ public class PCMSwitch<T> {
                 result = this.caseIdentifier(pcmComponentParameterReference);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(pcmComponentParameterReference);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -209,9 +190,6 @@ public class PCMSwitch<T> {
             }
             if (result == null) {
                 result = this.caseIdentifier(pcmOperationParameterReference);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(pcmOperationParameterReference);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -232,9 +210,6 @@ public class PCMSwitch<T> {
                 result = this.caseIdentifier(pcmRequiredBusinessOperationReturnParameterReference);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(pcmRequiredBusinessOperationReturnParameterReference);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -248,7 +223,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>
@@ -264,7 +239,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
@@ -279,7 +254,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Infrastructure Operation Reference</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -295,7 +270,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Business Operation Reference</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -311,7 +286,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Component Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Component Reference</em>
@@ -327,7 +302,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Component Parameter Reference</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -343,7 +318,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Operation Parameter Reference</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -360,7 +335,7 @@ public class PCMSwitch<T> {
      * <em>Required Business Operation Return Parameter Reference</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -370,22 +345,6 @@ public class PCMSwitch<T> {
      */
     public T casePCMRequiredBusinessOperationReturnParameterReference(
             final PCMRequiredBusinessOperationReturnParameterReference object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Stereotypable Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseStereotypableElement(final StereotypableElement object) {
         return null;
     }
 
@@ -408,7 +367,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>
@@ -424,7 +383,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
@@ -439,7 +398,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Operation Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Operation Reference</em>
@@ -455,7 +414,7 @@ public class PCMSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Component Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Component Reference</em>

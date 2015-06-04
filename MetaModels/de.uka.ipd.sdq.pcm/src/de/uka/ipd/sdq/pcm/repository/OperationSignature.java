@@ -37,7 +37,7 @@ public interface OperationSignature extends Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -65,7 +65,7 @@ public interface OperationSignature extends Signature {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getInterface__OperationSignature
      * <em>Interface Operation Signature</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Interface Operation Signature</em>' container reference.
      * @see #getInterface__OperationSignature()
@@ -104,7 +104,7 @@ public interface OperationSignature extends Signature {
      * {@link de.uka.ipd.sdq.pcm.repository.OperationSignature#getReturnType__OperationSignature
      * <em>Return Type Operation Signature</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Return Type Operation Signature</em>' reference.
      * @see #getReturnType__OperationSignature()

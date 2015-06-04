@@ -10,7 +10,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.mdsdprofiles.StereotypableElement;
 
 import de.fzi.se.quality.QualityStatement;
 import de.fzi.se.quality.parameters.ParameterPartition;
@@ -53,7 +52,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage
  * @generated
  */
@@ -61,14 +60,14 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static QualityAnnotationPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QualityAnnotationAdapterFactory() {
@@ -81,7 +80,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     * 
+     *
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
@@ -99,7 +98,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected QualityAnnotationSwitch<Adapter> modelSwitch = new QualityAnnotationSwitch<Adapter>() {
@@ -272,11 +271,6 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseStereotypableElement(final StereotypableElement object) {
-            return QualityAnnotationAdapterFactory.this.createStereotypableElementAdapter();
-        }
-
-        @Override
         public Adapter caseIdentifier(final Identifier object) {
             return QualityAnnotationAdapterFactory.this.createIdentifierAdapter();
         }
@@ -299,7 +293,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
@@ -316,7 +310,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Parameter Value Deviation</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation
      * @generated
@@ -331,7 +325,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotation
      * @generated
@@ -346,7 +340,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Service Specification</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.ServiceSpecification
      * @generated
@@ -376,7 +370,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Required Element Deviation</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation
      * @generated
@@ -391,7 +385,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Internal State Influence Analysis Aggregation</em>}'. <!-- begin-user-doc --> This
      * default implementation returns null so that we can easily ignore cases; it's useful to ignore
      * a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation
      * @generated
@@ -421,7 +415,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Probabilistic Element</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement
      * @generated
@@ -451,7 +445,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>PCM Parameter Partition</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMParameterPartition
      * @generated
@@ -466,7 +460,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Characterised PCM Parameter Partition</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition
      * @generated
@@ -481,7 +475,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Characterised PCM Parameter Partition Interval</em>}'. <!-- begin-user-doc --> This
      * default implementation returns null so that we can easily ignore cases; it's useful to ignore
      * a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval
      * @generated
@@ -496,7 +490,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Characterised PCM Parameter Partition Range</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange
      * @generated
@@ -511,7 +505,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Exactly As Specified Precision</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision
      * @generated
@@ -526,7 +520,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Limited Deviation Precision</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision
      * @generated
@@ -570,7 +564,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * {@link de.fzi.se.quality.qualityannotation.PCMRE <em>PCMRE</em>}'. <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases; it's useful to
      * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMRE
      * @generated
@@ -630,7 +624,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>PCM Service Specification</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMServiceSpecification
      * @generated
@@ -645,7 +639,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>PCMRE Resource Interface</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMREResourceInterface
      * @generated
@@ -660,7 +654,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>PCMRE Resource Signature</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMREResourceSignature
      * @generated
@@ -690,7 +684,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole
      * @generated
@@ -720,7 +714,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>PCMRE Infrastructure Interface</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface
      * @generated
@@ -735,7 +729,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>PCMRE Infrastructure Role</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole
      * @generated
@@ -750,7 +744,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>PCMRE Infrastructure Signature</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature
      * @generated
@@ -764,7 +758,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * {@link de.fzi.se.quality.qualityannotation.PCMPE <em>PCMPE</em>}'. <!-- begin-user-doc -->
      * This default implementation returns null so that we can easily ignore cases; it's useful to
      * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMPE
      * @generated
@@ -779,7 +773,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.qualityannotation.PCMPEAllDecisions
      * @generated
@@ -804,26 +798,11 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.mdsdprofiles.StereotypableElement
-     * <em>Stereotypable Element</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-     * catch all the cases anyway. <!-- end-user-doc -->
-     * 
-     * @return the new adapter.
-     * @see org.palladiosimulator.mdsdprofiles.StereotypableElement
-     * @generated
-     */
-    public Adapter createStereotypableElementAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -837,7 +816,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
      * <em>Statement</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.fzi.se.quality.QualityStatement
      * @generated
@@ -864,7 +843,7 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @generated
      */

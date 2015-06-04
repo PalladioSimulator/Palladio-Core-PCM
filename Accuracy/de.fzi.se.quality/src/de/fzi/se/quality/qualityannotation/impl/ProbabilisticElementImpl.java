@@ -45,7 +45,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
     /**
      * The cached value of the '{@link #getPrecision() <em>Precision</em>}' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getPrecision()
      * @generated
      * @ordered
@@ -55,7 +55,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
     /**
      * The cached value of the '{@link #getChildPEs() <em>Child PEs</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getChildPEs()
      * @generated
      * @ordered
@@ -64,7 +64,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProbabilisticElementImpl() {
@@ -73,7 +73,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -93,7 +93,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetPrecision(final Precision newPrecision, NotificationChain msgs) {
@@ -113,7 +113,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParentPE(final ProbabilisticElement newParentPE, NotificationChain msgs) {
@@ -179,7 +179,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -222,7 +222,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetQualityAnnotation(final QualityAnnotation newQualityAnnotation,
@@ -234,7 +234,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -266,7 +266,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -291,7 +291,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -312,7 +312,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -330,7 +330,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -350,7 +350,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -376,7 +376,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -400,7 +400,7 @@ public abstract class ProbabilisticElementImpl extends EObjectImpl implements Pr
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

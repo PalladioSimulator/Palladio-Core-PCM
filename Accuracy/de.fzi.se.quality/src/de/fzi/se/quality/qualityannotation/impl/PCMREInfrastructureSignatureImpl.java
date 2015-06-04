@@ -50,7 +50,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMREInfrastructureSignatureImpl() {
@@ -59,7 +59,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,7 +69,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -90,7 +90,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureSignature basicGetSignature() {
@@ -99,7 +99,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
      * {@link #ThisIsTheLowestInfrastructureHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Infrastructure Hierarchy Level</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #ThisIsTheLowestInfrastructureHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -140,7 +140,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -180,7 +180,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -203,7 +203,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -257,7 +257,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -272,7 +272,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -287,7 +287,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

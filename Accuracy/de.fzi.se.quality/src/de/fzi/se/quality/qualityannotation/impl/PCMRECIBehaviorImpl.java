@@ -40,7 +40,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
     /**
      * The cached value of the '{@link #getInternalBehaviour() <em>Internal Behaviour</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInternalBehaviour()
      * @generated
      * @ordered
@@ -49,7 +49,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMRECIBehaviorImpl() {
@@ -58,7 +58,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceDemandingInternalBehaviour basicGetInternalBehaviour() {
@@ -98,7 +98,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -180,7 +180,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -203,7 +203,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -257,7 +257,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -272,7 +272,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -287,7 +287,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

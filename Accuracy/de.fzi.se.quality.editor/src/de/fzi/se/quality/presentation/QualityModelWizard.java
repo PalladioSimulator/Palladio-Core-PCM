@@ -66,7 +66,7 @@ import de.fzi.se.quality.provider.QualityEditPlugin;
 /**
  * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc
  * -->
- * 
+ *
  * @generated
  */
 public class QualityModelWizard extends Wizard implements INewWizard {
@@ -119,7 +119,7 @@ public class QualityModelWizard extends Wizard implements INewWizard {
     /**
      * Remember the selection during initialization for populating the default container. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IStructuredSelection selection;
@@ -504,7 +504,7 @@ public class QualityModelWizard extends Wizard implements INewWizard {
         /**
          * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
          * -->
-         * 
+         *
          * @generated
          */
         protected String getLabel(final String typeName) {

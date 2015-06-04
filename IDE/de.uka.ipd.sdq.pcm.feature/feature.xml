@@ -124,7 +124,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
-      <import plugin="org.modelversioning.emfprofile" version="1.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm"/>
       <import plugin="org.eclipse.emf.edit" version="2.10.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.1.0" match="greaterOrEqual"/>
@@ -132,8 +131,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="de.uka.ipd.sdq.stoex.edit" version="2.2.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.units.edit" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="org.palladiosimulator.mdsdprofiles.edit"/>
-      <import plugin="org.modelversioning.emfprofile.edit"/>
       <import plugin="org.eclipse.uml2.common.edit" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources" version="3.9.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.edit"/>
@@ -165,9 +162,10 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.completions.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.modelversioning.emfprofile" version="1.1.0" match="greaterOrEqual"/>
       <import feature="de.uka.ipd.sdq.sensorframework.visualisation.feature" version="3.3.1.201209131537"/>
       <import feature="de.uka.ipd.sdq.identifier.feature" version="1.1.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.mdsdprofiles" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.mdsdprofiles.api"/>
    </requires>
 
    <plugin

@@ -51,7 +51,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
      * The cached value of the '{@link #getMaximumDeviationNumberOfCalls()
      * <em>Maximum Deviation Number Of Calls</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getMaximumDeviationNumberOfCalls()
      * @generated
      * @ordered
@@ -72,7 +72,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
     /**
      * The cached value of the '{@link #getRequiredElement() <em>Required Element</em>}' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getRequiredElement()
      * @generated
      * @ordered
@@ -81,7 +81,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredElementDeviationImpl() {
@@ -90,7 +90,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetInternalStateInfluenceAnalysisAggregation(
@@ -127,7 +127,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Precision basicGetMaximumDeviationNumberOfCalls() {
@@ -193,7 +193,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -225,7 +225,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -235,7 +235,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRequiredElement(final RequiredElement newRequiredElement, NotificationChain msgs) {
@@ -256,7 +256,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -286,7 +286,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -314,7 +314,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -333,7 +333,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -352,7 +352,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -375,7 +375,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -402,7 +402,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -426,7 +426,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

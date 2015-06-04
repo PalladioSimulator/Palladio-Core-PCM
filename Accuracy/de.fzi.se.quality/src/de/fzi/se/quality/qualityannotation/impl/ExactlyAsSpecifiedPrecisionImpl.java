@@ -23,7 +23,7 @@ public class ExactlyAsSpecifiedPrecisionImpl extends PrecisionImpl implements Ex
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExactlyAsSpecifiedPrecisionImpl() {
@@ -32,7 +32,7 @@ public class ExactlyAsSpecifiedPrecisionImpl extends PrecisionImpl implements Ex
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

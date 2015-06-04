@@ -56,7 +56,7 @@ public interface Interface extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -97,7 +97,7 @@ public interface Interface extends Entity {
      * <em>Interface Required Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> documentation of required variable characterisations <!--
      * end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Characterisations</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
      * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
@@ -128,7 +128,7 @@ public interface Interface extends Entity {
      * {@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface
      * <em>Repository Interface</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Repository Interface</em>' container reference.
      * @see #getRepository__Interface()

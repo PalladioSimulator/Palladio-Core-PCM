@@ -62,7 +62,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
     /**
      * The cached value of the '{@link #getChildREs() <em>Child REs</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getChildREs()
      * @generated
      * @ordered
@@ -72,7 +72,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
     /**
      * The cached value of the '{@link #getPrecision() <em>Precision</em>}' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getPrecision()
      * @generated
      * @ordered
@@ -81,7 +81,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RequiredElementImpl() {
@@ -90,7 +90,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRequiredElementDeviation(
@@ -125,7 +125,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -185,7 +185,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParentRE(final RequiredElement newParentRE, NotificationChain msgs) {
@@ -196,7 +196,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -226,7 +226,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -236,7 +236,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetPrecision(final REPrecision newPrecision, NotificationChain msgs) {
@@ -256,7 +256,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -283,7 +283,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -296,7 +296,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetQualityAnnotation(final QualityAnnotation newQualityAnnotation,
@@ -308,7 +308,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -366,7 +366,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -402,7 +402,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -438,7 +438,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -461,7 +461,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -484,7 +484,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -506,7 +506,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -535,7 +535,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -562,7 +562,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -585,7 +585,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

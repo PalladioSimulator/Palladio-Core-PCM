@@ -70,7 +70,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
     /**
      * The cached value of the '{@link #isValid() <em>Is Valid</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #isValid()
      * @generated
      * @ordered
@@ -81,7 +81,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
      * The cached value of the '{@link #getForServiceSpecification()
      * <em>For Service Specification</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getForServiceSpecification()
      * @generated
      * @ordered
@@ -92,7 +92,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
      * The cached value of the '{@link #getStipulatedREPrecisions()
      * <em>Stipulated RE Precisions</em>}' containment reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getStipulatedREPrecisions()
      * @generated
      * @ordered
@@ -113,7 +113,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
     /**
      * The cached value of the '{@link #getProbabilisticElements() <em>Probabilistic Elements</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getProbabilisticElements()
      * @generated
      * @ordered
@@ -124,7 +124,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
      * The cached value of the '{@link #getValidForParameterPartitions()
      * <em>Valid For Parameter Partitions</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getValidForParameterPartitions()
      * @generated
      * @ordered
@@ -133,7 +133,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected QualityAnnotationImpl() {
@@ -142,7 +142,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -152,7 +152,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -162,7 +162,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -177,7 +177,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -187,7 +187,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetForServiceSpecification(final ServiceSpecification newForServiceSpecification,
@@ -209,7 +209,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -239,7 +239,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -254,7 +254,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -286,7 +286,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -302,7 +302,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -333,7 +333,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -356,7 +356,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -380,7 +380,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -416,7 +416,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -446,7 +446,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -471,7 +471,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -45,7 +45,7 @@ public interface InternalStateInfluenceAnalysisAggregation extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Quality Annotation</em>' container reference.
      * @see #setQualityAnnotation(QualityAnnotation)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_QualityAnnotation()
@@ -81,7 +81,7 @@ public interface InternalStateInfluenceAnalysisAggregation extends Identifier {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Value Deviations</em>' containment reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations()
      * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getInternalStateInfluenceAnalysisAggregation
@@ -102,7 +102,7 @@ public interface InternalStateInfluenceAnalysisAggregation extends Identifier {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Element Deviations</em>' containment reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations()
      * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getInternalStateInfluenceAnalysisAggregation

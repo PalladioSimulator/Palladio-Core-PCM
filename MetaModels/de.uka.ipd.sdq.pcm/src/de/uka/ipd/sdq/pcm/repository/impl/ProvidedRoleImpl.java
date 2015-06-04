@@ -34,14 +34,14 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProvidedRoleImpl() {
@@ -50,7 +50,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -60,7 +60,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetProvidingEntity_ProvidedRole(
@@ -85,7 +85,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -149,7 +149,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -165,7 +165,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -179,7 +179,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

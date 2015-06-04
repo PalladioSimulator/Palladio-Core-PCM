@@ -38,7 +38,7 @@ public interface PCMREResourceSignature extends PCMRE {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Signature</em>' reference.
      * @see #setResourceSignature(ResourceSignature)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMREResourceSignature_ResourceSignature()
@@ -51,7 +51,7 @@ public interface PCMREResourceSignature extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMREResourceSignature#getResourceSignature
      * <em>Resource Signature</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Signature</em>' reference.
      * @see #getResourceSignature()

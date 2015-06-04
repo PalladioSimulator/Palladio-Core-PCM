@@ -43,7 +43,7 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage
  * @generated
  */
@@ -51,14 +51,14 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final SeffValidator INSTANCE = new SeffValidator();
@@ -67,7 +67,7 @@ public class SeffValidator extends EObjectValidator {
      * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
      * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -86,7 +86,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Exactly One
      * Stop Action' of 'Resource Demanding Behaviour'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION = 2;
@@ -104,7 +104,7 @@ public class SeffValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each Action
      * Except Start Actionand Stop Action Must Hhave APredecessor And Successor' of 'Resource
      * Demanding Behaviour'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR = 4;
@@ -122,7 +122,7 @@ public class SeffValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All
      * Probabilistic Branch Probabilities Must Sum Up To1' of 'Branch Action'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int BRANCH_ACTION__ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1 = 6;
@@ -131,7 +131,7 @@ public class SeffValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Start
      * Action Predecessor Must Not Be Defined' of 'Start Action'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int START_ACTION__START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED = 7;
@@ -140,7 +140,7 @@ public class SeffValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Referenced
      * Signature Must Belong To Interface Referenced By Provided Role' of 'Service Effect
      * Specification'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int SERVICE_EFFECT_SPECIFICATION__REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE = 8;
@@ -166,7 +166,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Signature
      * Belongs To Role' of 'External Call Action'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int EXTERNAL_CALL_ACTION__SIGNATURE_BELONGS_TO_ROLE = 9;
@@ -175,7 +175,7 @@ public class SeffValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Operation
      * Required Role Must Be Referenced By Container' of 'External Call Action'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int EXTERNAL_CALL_ACTION__OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER = 10;
@@ -184,7 +184,7 @@ public class SeffValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Timeout
      * Value Of Acquire Action Must Not Be Negative' of 'Acquire Action'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int ACQUIRE_ACTION__TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE = 11;
@@ -192,7 +192,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 13;
@@ -200,14 +200,14 @@ public class SeffValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SeffValidator() {
@@ -216,7 +216,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -298,7 +298,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateStopAction(final StopAction stopAction, final DiagnosticChain diagnostics,
@@ -344,7 +344,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateAbstractInternalControlFlowAction(
@@ -355,7 +355,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateAbstractAction(final AbstractAction abstractAction, final DiagnosticChain diagnostics,
@@ -365,7 +365,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateResourceDemandingBehaviour(final ResourceDemandingBehaviour resourceDemandingBehaviour,
@@ -411,7 +411,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the ExactlyOneStopAction constraint of '<em>Resource Demanding Behaviour</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateResourceDemandingBehaviour_ExactlyOneStopAction(
@@ -423,7 +423,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the ExactlyOneStartAction constraint of '<em>Resource Demanding Behaviour</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateResourceDemandingBehaviour_ExactlyOneStartAction(
@@ -436,7 +436,7 @@ public class SeffValidator extends EObjectValidator {
      * Validates the EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor
      * constraint of '<em>Resource Demanding Behaviour</em>'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
@@ -448,7 +448,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateAbstractLoopAction(final AbstractLoopAction abstractLoopAction,
@@ -458,7 +458,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateAbstractBranchTransition(final AbstractBranchTransition abstractBranchTransition,
@@ -468,7 +468,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateBranchAction(final BranchAction branchAction, final DiagnosticChain diagnostics,
@@ -509,7 +509,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the EitherGuardedBranchesOrProbabilisiticBranchTransitions constraint of '
      * <em>Branch Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateBranchAction_EitherGuardedBranchesOrProbabilisiticBranchTransitions(
@@ -520,7 +520,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the AllProbabilisticBranchProbabilitiesMustSumUpTo1 constraint of '
      * <em>Branch Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateBranchAction_AllProbabilisticBranchProbabilitiesMustSumUpTo1(
@@ -530,7 +530,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateStartAction(final StartAction startAction, final DiagnosticChain diagnostics,
@@ -567,7 +567,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the StartActionPredecessorMustNotBeDefined constraint of '<em>Start Action</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateStartAction_StartActionPredecessorMustNotBeDefined(final StartAction startAction,
@@ -577,7 +577,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateResourceDemandingSEFF(final ResourceDemandingSEFF resourceDemandingSEFF,
@@ -627,7 +627,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateResourceDemandingInternalBehaviour(
@@ -674,7 +674,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateReleaseAction(final ReleaseAction releaseAction, final DiagnosticChain diagnostics,
@@ -684,7 +684,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateLoopAction(final LoopAction loopAction, final DiagnosticChain diagnostics,
@@ -694,7 +694,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateInternalAction(final InternalAction internalAction, final DiagnosticChain diagnostics,
@@ -735,7 +735,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed constraint of '
      * <em>Internal Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateInternalAction_MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
@@ -746,7 +746,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the SumOfInternalActionFailureProbabilitiesMustNotExceed1 constraint of '
      * <em>Internal Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateInternalAction_SumOfInternalActionFailureProbabilitiesMustNotExceed1(
@@ -757,7 +757,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Returns the resource locator that will be used to fetch messages for this validator's
      * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -770,7 +770,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateForkAction(final ForkAction forkAction, final DiagnosticChain diagnostics,
@@ -780,7 +780,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateForkedBehaviour(final ForkedBehaviour forkedBehaviour, final DiagnosticChain diagnostics,
@@ -825,7 +825,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateSynchronisationPoint(final SynchronisationPoint synchronisationPoint,
@@ -835,7 +835,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateExternalCallAction(final ExternalCallAction externalCallAction,
@@ -886,7 +886,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the OperationRequiredRoleMustBeReferencedByContainer constraint of '
      * <em>External Call Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateExternalCallAction_OperationRequiredRoleMustBeReferencedByContainer(
@@ -897,7 +897,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateCallReturnAction(final CallReturnAction callReturnAction, final DiagnosticChain diagnostics,
@@ -907,7 +907,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateCallAction(final CallAction callAction, final DiagnosticChain diagnostics,
@@ -917,7 +917,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateProbabilisticBranchTransition(
@@ -928,7 +928,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateAcquireAction(final AcquireAction acquireAction, final DiagnosticChain diagnostics,
@@ -965,7 +965,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the TimeoutValueOfAcquireActionMustNotBeNegative constraint of '
      * <em>Acquire Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateAcquireAction_TimeoutValueOfAcquireActionMustNotBeNegative(
@@ -975,7 +975,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateCollectionIteratorAction(final CollectionIteratorAction collectionIteratorAction,
@@ -985,7 +985,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateGuardedBranchTransition(final GuardedBranchTransition guardedBranchTransition,
@@ -995,7 +995,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateSetVariableAction(final SetVariableAction setVariableAction,
@@ -1005,7 +1005,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateInternalCallAction(final InternalCallAction internalCallAction,
@@ -1015,7 +1015,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateEmitEventAction(final EmitEventAction emitEventAction, final DiagnosticChain diagnostics,
@@ -1025,7 +1025,7 @@ public class SeffValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateServiceEffectSpecification(final ServiceEffectSpecification serviceEffectSpecification,
@@ -1063,7 +1063,7 @@ public class SeffValidator extends EObjectValidator {
     /**
      * Validates the ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole constraint of
      * '<em>Service Effect Specification</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateServiceEffectSpecification_ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(

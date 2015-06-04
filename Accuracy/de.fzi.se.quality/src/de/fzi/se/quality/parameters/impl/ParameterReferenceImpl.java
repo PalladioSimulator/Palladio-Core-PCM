@@ -42,7 +42,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ParameterReferenceImpl() {
@@ -51,7 +51,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +74,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParameterPartition(final ParameterPartition newParameterPartition,
@@ -86,7 +86,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParameterInstance(final ParameterInstance newParameterInstance,
@@ -142,7 +142,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -173,7 +173,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParameterValueDeviation(final ParameterValueDeviation newParameterValueDeviation,
@@ -198,7 +198,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -230,7 +230,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -257,7 +257,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -276,7 +276,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -298,7 +298,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -316,7 +316,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -337,7 +337,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -358,7 +358,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

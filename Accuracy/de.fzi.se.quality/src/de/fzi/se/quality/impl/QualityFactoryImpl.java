@@ -18,14 +18,14 @@ import de.fzi.se.quality.QualityRepository;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class QualityFactoryImpl extends EFactoryImpl implements QualityFactory {
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static QualityFactory init() {
@@ -43,7 +43,7 @@ public class QualityFactoryImpl extends EFactoryImpl implements QualityFactory {
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QualityFactoryImpl() {
@@ -52,7 +52,7 @@ public class QualityFactoryImpl extends EFactoryImpl implements QualityFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public class QualityFactoryImpl extends EFactoryImpl implements QualityFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -78,7 +78,7 @@ public class QualityFactoryImpl extends EFactoryImpl implements QualityFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class QualityFactoryImpl extends EFactoryImpl implements QualityFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

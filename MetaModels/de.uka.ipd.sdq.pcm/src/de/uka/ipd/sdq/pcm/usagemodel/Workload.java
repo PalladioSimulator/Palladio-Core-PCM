@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import org.palladiosimulator.mdsdprofiles.StereotypableElement;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Workload</b></em>'. <!--
@@ -38,11 +38,11 @@ import org.palladiosimulator.mdsdprofiles.StereotypableElement;
  * @model abstract="true"
  * @generated
  */
-public interface Workload extends StereotypableElement {
+public interface Workload extends EObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public interface Workload extends StereotypableElement {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Usage Scenario Workload</em>' container reference.
      * @see #setUsageScenario_Workload(UsageScenario)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getWorkload_UsageScenario_Workload()
@@ -72,7 +72,7 @@ public interface Workload extends StereotypableElement {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload
      * <em>Usage Scenario Workload</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Usage Scenario Workload</em>' container reference.
      * @see #getUsageScenario_Workload()

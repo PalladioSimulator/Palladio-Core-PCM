@@ -9,8 +9,6 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.mdsdprofiles.ProfileableElement;
-import org.palladiosimulator.mdsdprofiles.StereotypableElement;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -35,7 +33,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Workload;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage
  * @generated
  */
@@ -43,21 +41,21 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static UsagemodelPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public UsagemodelAdapterFactory() {
@@ -70,7 +68,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     * 
+     *
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
@@ -88,7 +86,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UsagemodelSwitch<Adapter> modelSwitch = new UsagemodelSwitch<Adapter>() {
@@ -169,11 +167,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseStereotypableElement(final StereotypableElement object) {
-            return UsagemodelAdapterFactory.this.createStereotypableElementAdapter();
-        }
-
-        @Override
         public Adapter caseIdentifier(final Identifier object) {
             return UsagemodelAdapterFactory.this.createIdentifierAdapter();
         }
@@ -189,11 +182,6 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseProfileableElement(final ProfileableElement object) {
-            return UsagemodelAdapterFactory.this.createProfileableElementAdapter();
-        }
-
-        @Override
         public Adapter defaultCase(final EObject object) {
             return UsagemodelAdapterFactory.this.createEObjectAdapter();
         }
@@ -201,7 +189,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
@@ -217,7 +205,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>Workload</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Workload
      * @generated
@@ -291,7 +279,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>Branch</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Branch
      * @generated
@@ -305,7 +293,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>Loop</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Loop
      * @generated
@@ -319,7 +307,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel <em>Usage Model</em>}'. <!-- begin-user-doc
      * --> This default implementation returns null so that we can easily ignore cases; it's useful
      * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsageModel
      * @generated
@@ -333,7 +321,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>Stop</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Stop
      * @generated
@@ -347,7 +335,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>Start</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Start
      * @generated
@@ -377,7 +365,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
      * @generated
@@ -402,26 +390,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.mdsdprofiles.StereotypableElement
-     * <em>Stereotypable Element</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-     * catch all the cases anyway. <!-- end-user-doc -->
-     * 
-     * @return the new adapter.
-     * @see org.palladiosimulator.mdsdprofiles.StereotypableElement
-     * @generated
-     */
-    public Adapter createStereotypableElementAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay
      * <em>Delay</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.Delay
      * @generated
@@ -435,7 +408,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>User Data</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UserData
      * @generated
@@ -449,7 +422,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -478,7 +451,7 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.Entity
      * @generated
@@ -488,24 +461,9 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.mdsdprofiles.ProfileableElement <em>Profileable Element</em>}'.
-     * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
-     * 
-     * @return the new adapter.
-     * @see org.palladiosimulator.mdsdprofiles.ProfileableElement
-     * @generated
-     */
-    public Adapter createProfileableElementAdapter() {
-        return null;
-    }
-
-    /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     * 
+     *
      * @return the new adapter.
      * @generated
      */

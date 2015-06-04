@@ -11,6 +11,7 @@ import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPClass
 import org.palladiosimulator.protocom.tech.iiop.util.PcmIIOPProtoAction
+import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI
 
 class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponent> {
 
@@ -124,7 +125,7 @@ class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponent> {
 	
 	override jeeClassStatelessAnnotation() {
 		var Object isStateless = true
-		var basicComponentAppliedStereotypes = pcmEntity.getStereotypeApplications("Stateless")
+		var basicComponentAppliedStereotypes = StereotypeAPI.getStereotypeApplications(pcmEntity, "Stateless")
 		if(basicComponentAppliedStereotypes != null){
 			for(appliedStatelessStereotype : basicComponentAppliedStereotypes){
 				isStateless = appliedStatelessStereotype.eGet(appliedStatelessStereotype.extension.source.getTaggedValue("isStateless"))

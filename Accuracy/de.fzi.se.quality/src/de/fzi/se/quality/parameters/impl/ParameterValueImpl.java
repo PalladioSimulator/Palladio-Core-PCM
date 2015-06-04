@@ -39,7 +39,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ParameterValueImpl() {
@@ -48,7 +48,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -58,7 +58,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParameterInstance(final ParameterInstance newParameterInstance,
@@ -83,7 +83,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -126,7 +126,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetParameterValueDeviation(final ParameterValueDeviation newParameterValueDeviation,
@@ -138,7 +138,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -170,7 +170,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -192,7 +192,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -228,7 +228,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -244,7 +244,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -262,7 +262,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -280,7 +280,7 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

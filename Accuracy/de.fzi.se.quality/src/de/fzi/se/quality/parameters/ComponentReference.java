@@ -36,7 +36,7 @@ public interface ComponentReference extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Component Instance</em>' container reference.
      * @see #setComponentInstance(ComponentInstance)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getComponentReference_ComponentInstance()

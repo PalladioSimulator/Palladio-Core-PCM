@@ -37,7 +37,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
     /**
      * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getRole()
      * @generated
      * @ordered
@@ -56,7 +56,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMBusinessOperationReferenceImpl() {
@@ -65,7 +65,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationRequiredRole basicGetRole() {
@@ -104,7 +104,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +119,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -139,7 +139,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationSignature basicGetSignature() {
@@ -148,7 +148,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -185,7 +185,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -203,7 +203,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -221,7 +221,7 @@ public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

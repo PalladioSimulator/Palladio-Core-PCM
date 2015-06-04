@@ -34,7 +34,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
     /**
      * The cached value of the '{@link #getResourceDemandingSEFF() <em>Resource Demanding SEFF</em>}
      * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceDemandingSEFF()
      * @generated
      * @ordered
@@ -43,7 +43,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMServiceSpecificationImpl() {
@@ -52,7 +52,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceDemandingSEFF basicGetResourceDemandingSEFF() {
@@ -92,7 +92,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

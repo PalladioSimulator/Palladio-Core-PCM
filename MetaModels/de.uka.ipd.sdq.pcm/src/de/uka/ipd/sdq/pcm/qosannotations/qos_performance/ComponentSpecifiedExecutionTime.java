@@ -46,7 +46,7 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedExecutionTime 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -75,7 +75,7 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedExecutionTime 
      * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime#getAssemblyContext_ComponentSpecifiedExecutionTime
      * <em>Assembly Context Component Specified Execution Time</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Assembly Context Component Specified Execution Time</em>
      *            ' reference.

@@ -39,7 +39,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,7 +68,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      * The cached value of the '{@link #getAssemblyContext__SourceDelegationConnector()
      * <em>Assembly Context Source Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getAssemblyContext__SourceDelegationConnector()
      * @generated
      * @ordered
@@ -77,7 +77,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SourceDelegationConnectorImpl() {
@@ -86,7 +86,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SourceRole basicGetInnerSourceRole__SourceRole() {
@@ -126,7 +126,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -142,7 +142,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SourceRole basicGetOuterSourceRole__SourceRole() {
@@ -172,7 +172,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -188,7 +188,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -214,7 +214,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__SourceDelegationConnector() {
@@ -223,7 +223,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -267,7 +267,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -288,7 +288,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -309,7 +309,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

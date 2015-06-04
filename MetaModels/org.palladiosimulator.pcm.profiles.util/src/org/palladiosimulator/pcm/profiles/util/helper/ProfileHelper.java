@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.EcoreUtil.UsageCrossReferencer;
 import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
+import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
@@ -51,7 +52,7 @@ public final class ProfileHelper {
      */
     public static boolean hasAppliedStereotype(final Set<Entity> pcmEntitySet, final String stereotypeName) {
         for (final Entity entity : pcmEntitySet) {
-            if (!entity.isStereotypeApplied(stereotypeName)) {
+            if (!StereotypeAPI.isStereotypeApplied(entity, stereotypeName)) {
                 return false;
             }
         }
@@ -78,7 +79,7 @@ public final class ProfileHelper {
         int appliedStereotypes = 0;
 
         for (final Entity entity : pcmEntitySet) {
-            if (entity.isStereotypeApplied(stereotypeName)) {
+            if (StereotypeAPI.isStereotypeApplied(entity, stereotypeName)) {
                 appliedStereotypes++;
             }
         }
@@ -107,8 +108,9 @@ public final class ProfileHelper {
      */
     public static void setTaggedValue(final Entity pcmEntity, final int value, final String stereotypeName,
             final String taggedValueName) {
-        List<StereotypeApplication> stereotypeApplications = pcmEntity.getStereotypeApplications(stereotypeName);
-        StereotypeApplication stereotypeApplication = stereotypeApplications.get(0);
+        final List<StereotypeApplication> stereotypeApplications = StereotypeAPI.getStereotypeApplications(pcmEntity,
+                stereotypeName);
+        final StereotypeApplication stereotypeApplication = stereotypeApplications.get(0);
         setValueOfEStructuralFeature(stereotypeApplication, taggedValueName, value);
         // pcmEntity.saveContainingProfileApplication();
 
@@ -149,13 +151,13 @@ public final class ProfileHelper {
     }
 
     public static void delete(final List<NamedElement> rootEObjects, final Entity eObject) {
-        Set<EObject> eObjects = new HashSet<EObject>();
-        Set<EObject> crossResourceEObjects = new HashSet<EObject>();
+        final Set<EObject> eObjects = new HashSet<EObject>();
+        final Set<EObject> crossResourceEObjects = new HashSet<EObject>();
         eObjects.add(eObject);
         for (@SuppressWarnings("unchecked")
-        TreeIterator<InternalEObject> j = (TreeIterator<InternalEObject>) (TreeIterator<?>) eObject.eAllContents(); j
-                .hasNext();) {
-            InternalEObject childEObject = j.next();
+        final TreeIterator<InternalEObject> j = (TreeIterator<InternalEObject>) (TreeIterator<?>) eObject
+                .eAllContents(); j.hasNext();) {
+            final InternalEObject childEObject = j.next();
             if (childEObject.eDirectResource() != null) {
                 crossResourceEObjects.add(childEObject);
             } else {
@@ -166,10 +168,10 @@ public final class ProfileHelper {
         Map<EObject, Collection<EStructuralFeature.Setting>> usages;
         usages = UsageCrossReferencer.findAll(eObjects, rootEObjects);
 
-        for (Map.Entry<EObject, Collection<EStructuralFeature.Setting>> entry : usages.entrySet()) {
-            EObject deletedEObject = entry.getKey();
-            Collection<EStructuralFeature.Setting> settings = entry.getValue();
-            for (EStructuralFeature.Setting setting : settings) {
+        for (final Map.Entry<EObject, Collection<EStructuralFeature.Setting>> entry : usages.entrySet()) {
+            final EObject deletedEObject = entry.getKey();
+            final Collection<EStructuralFeature.Setting> settings = entry.getValue();
+            for (final EStructuralFeature.Setting setting : settings) {
                 if (!eObjects.contains(setting.getEObject()) && setting.getEStructuralFeature().isChangeable()) {
                     EcoreUtil.remove(setting, deletedEObject);
                 }
@@ -178,7 +180,7 @@ public final class ProfileHelper {
 
         EcoreUtil.remove(eObject);
 
-        for (EObject crossResourceEObject : crossResourceEObjects) {
+        for (final EObject crossResourceEObject : crossResourceEObjects) {
             EcoreUtil.remove(crossResourceEObject.eContainer(), crossResourceEObject.eContainmentFeature(),
                     crossResourceEObject);
         }
@@ -199,7 +201,7 @@ public final class ProfileHelper {
 
         final Stereotype stereotype = stereotypeApplication.getExtension().getSource();
         if (stereotype != null) {
-            EStructuralFeature taggedValue = stereotype.getTaggedValue(taggedValueName);
+            final EStructuralFeature taggedValue = stereotype.getTaggedValue(taggedValueName);
             stereotypeApplication.eSet(taggedValue, newValue);
         }
     }
@@ -219,13 +221,13 @@ public final class ProfileHelper {
     @SuppressWarnings("unchecked")
     private static <DATA_TYPE> DATA_TYPE getTaggedValue(final Entity pcmEntity, final String taggedValueName,
             final String stereotypeName) {
-        EList<StereotypeApplication> pcmEntityStereotypeApplications = pcmEntity
-                .getStereotypeApplications(stereotypeName);
-        StereotypeApplication stereotypeApplication = pcmEntityStereotypeApplications.get(0);
+        final EList<StereotypeApplication> pcmEntityStereotypeApplications = StereotypeAPI.getStereotypeApplications(
+                pcmEntity, stereotypeName);
+        final StereotypeApplication stereotypeApplication = pcmEntityStereotypeApplications.get(0);
 
-        Stereotype stereotype = stereotypeApplication.getExtension().getSource();
+        final Stereotype stereotype = stereotypeApplication.getExtension().getSource();
 
-        EStructuralFeature taggedValue = stereotype.getTaggedValue(taggedValueName);
+        final EStructuralFeature taggedValue = stereotype.getTaggedValue(taggedValueName);
 
         return (DATA_TYPE) stereotypeApplication.eGet(taggedValue);
 

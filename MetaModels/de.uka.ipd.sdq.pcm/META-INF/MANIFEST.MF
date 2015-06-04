@@ -78,8 +78,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  org.eclipse.uml2.types;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
- org.palladiosimulator.mdsdprofiles;bundle-version="1.0.0";visibility:=reexport,
  de.uka.ipd.sdq.errorhandling,
- org.eclipse.ocl.ecore;bundle-version="1.2.1",
- org.modelversioning.emfprofile;bundle-version="1.1.0";visibility:=reexport
+ org.eclipse.ocl.ecore;bundle-version="1.2.1"
 Bundle-ActivationPolicy: lazy

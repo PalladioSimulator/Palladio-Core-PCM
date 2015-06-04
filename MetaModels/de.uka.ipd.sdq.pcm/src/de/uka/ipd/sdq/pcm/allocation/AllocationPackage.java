@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.allocation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.palladiosimulator.mdsdprofiles.MdsdprofilesPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
@@ -32,35 +31,35 @@ public interface AllocationPackage extends EPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNAME = "allocation";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_PREFIX = "allocation";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     AllocationPackage eINSTANCE = de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl.init();
@@ -68,7 +67,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl
      * <em>Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl
      * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getAllocationContext()
      * @generated
@@ -78,7 +77,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -87,7 +86,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -96,7 +95,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Container Allocation Context</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -114,7 +113,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Allocation Allocation Context</b></em>' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -132,7 +131,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Context</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -141,7 +140,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl
      * <em>Allocation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl
      * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getAllocation()
      * @generated
@@ -151,61 +150,61 @@ public interface AllocationPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ALLOCATION__ID = MdsdprofilesPackage.PROFILEABLE_ELEMENT_FEATURE_COUNT + 0;
+    int ALLOCATION__ID = EntityPackage.ENTITY__ID;
 
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ALLOCATION__ENTITY_NAME = MdsdprofilesPackage.PROFILEABLE_ELEMENT_FEATURE_COUNT + 1;
+    int ALLOCATION__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
      * The feature id for the '<em><b>Target Resource Environment Allocation</b></em>' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION = MdsdprofilesPackage.PROFILEABLE_ELEMENT_FEATURE_COUNT + 2;
+    int ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>System Allocation</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ALLOCATION__SYSTEM_ALLOCATION = MdsdprofilesPackage.PROFILEABLE_ELEMENT_FEATURE_COUNT + 3;
+    int ALLOCATION__SYSTEM_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Allocation Contexts Allocation</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION = MdsdprofilesPackage.PROFILEABLE_ELEMENT_FEATURE_COUNT + 4;
+    int ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Allocation</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ALLOCATION_FEATURE_COUNT = MdsdprofilesPackage.PROFILEABLE_ELEMENT_FEATURE_COUNT + 5;
+    int ALLOCATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext
      * <em>Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext
      * @generated
@@ -229,7 +228,7 @@ public interface AllocationPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
      * <em>Assembly Context Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Assembly Context Allocation Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext()
      * @see #getAllocationContext()
@@ -241,7 +240,7 @@ public interface AllocationPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
      * <em>Allocation Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the container reference '<em>Allocation Allocation Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext()
      * @see #getAllocationContext()
@@ -253,7 +252,7 @@ public interface AllocationPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
      * <em>Event Channel Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Event Channel Allocation Context</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext()
      * @see #getAllocationContext()
@@ -264,7 +263,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.allocation.Allocation
      * <em>Allocation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Allocation</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.Allocation
      * @generated
@@ -288,7 +287,7 @@ public interface AllocationPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation
      * <em>System Allocation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>System Allocation</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation()
      * @see #getAllocation()
@@ -300,7 +299,7 @@ public interface AllocationPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation
      * <em>Allocation Contexts Allocation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '
      *         <em>Allocation Contexts Allocation</em>'.
      * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation()
@@ -312,7 +311,7 @@ public interface AllocationPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -327,7 +326,7 @@ public interface AllocationPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     interface Literals {
@@ -336,7 +335,7 @@ public interface AllocationPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl <em>Context</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl
          * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getAllocationContext()
          * @generated
@@ -346,7 +345,7 @@ public interface AllocationPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Container Allocation Context</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT = eINSTANCE
@@ -355,7 +354,7 @@ public interface AllocationPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Assembly Context Allocation Context</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT = eINSTANCE
@@ -364,7 +363,7 @@ public interface AllocationPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Allocation Allocation Context</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT = eINSTANCE
@@ -373,7 +372,7 @@ public interface AllocationPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Event Channel Allocation Context</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT = eINSTANCE
@@ -383,7 +382,7 @@ public interface AllocationPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl <em>Allocation</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl
          * @see de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl#getAllocation()
          * @generated
@@ -393,7 +392,7 @@ public interface AllocationPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Target Resource Environment Allocation</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION = eINSTANCE
@@ -402,7 +401,7 @@ public interface AllocationPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>System Allocation</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ALLOCATION__SYSTEM_ALLOCATION = eINSTANCE.getAllocation_System_Allocation();
@@ -410,7 +409,7 @@ public interface AllocationPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Allocation Contexts Allocation</b></em>'
          * containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION = eINSTANCE.getAllocation_AllocationContexts_Allocation();

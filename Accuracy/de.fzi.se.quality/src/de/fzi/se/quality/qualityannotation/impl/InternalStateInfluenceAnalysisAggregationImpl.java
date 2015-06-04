@@ -52,7 +52,7 @@ InternalStateInfluenceAnalysisAggregation {
      * The cached value of the '{@link #getParameterValueDeviations()
      * <em>Parameter Value Deviations</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getParameterValueDeviations()
      * @generated
      * @ordered
@@ -63,7 +63,7 @@ InternalStateInfluenceAnalysisAggregation {
      * The cached value of the '{@link #getRequiredElementDeviations()
      * <em>Required Element Deviations</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getRequiredElementDeviations()
      * @generated
      * @ordered
@@ -72,7 +72,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InternalStateInfluenceAnalysisAggregationImpl() {
@@ -81,7 +81,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetQualityAnnotation(final QualityAnnotation newQualityAnnotation,
@@ -116,7 +116,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -205,7 +205,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -224,7 +224,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -258,7 +258,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -282,7 +282,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -303,7 +303,7 @@ InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -20,14 +20,14 @@ import de.fzi.se.quality.parameters.ParametersPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFactory {
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static ParametersFactory init() {
@@ -45,7 +45,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ParametersFactoryImpl() {
@@ -54,7 +54,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +84,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class ParametersFactoryImpl extends EFactoryImpl implements ParametersFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

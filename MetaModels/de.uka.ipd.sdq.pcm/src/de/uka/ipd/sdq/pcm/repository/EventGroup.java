@@ -31,7 +31,7 @@ public interface EventGroup extends Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -47,7 +47,7 @@ public interface EventGroup extends Interface {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Event Types Event Group</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getEventGroup_EventTypes__EventGroup()
      * @see de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType

@@ -33,7 +33,7 @@ public interface CallAction extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,7 +49,7 @@ public interface CallAction extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Input Variable Usages Call Action</em>' containment reference
      *         list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getCallAction_InputVariableUsages__CallAction()

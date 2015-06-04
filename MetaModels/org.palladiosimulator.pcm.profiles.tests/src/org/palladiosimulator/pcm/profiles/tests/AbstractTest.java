@@ -31,6 +31,7 @@ public abstract class AbstractTest {
     }
 
     protected Repository repository;
+    protected Resource repositoryResource;
 
     @BeforeClass
     public static void setUpStatic() {
@@ -62,6 +63,7 @@ public abstract class AbstractTest {
 
     protected void load() {
         this.repository = (Repository) EMFLoadHelper.loadAndResolveEObject(STORAGE_REPOSITORY_URI);
+        this.repositoryResource = this.repository.eResource();
     }
 
     protected static void reset() {

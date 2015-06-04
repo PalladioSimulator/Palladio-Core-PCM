@@ -49,7 +49,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMPEDecisionImpl() {
@@ -58,7 +58,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public BranchAction basicGetBranchAction() {
@@ -97,7 +97,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -115,7 +115,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
      * {@link #ThisIsTheLowestDecisionHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Decision Hierarchy Level</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #ThisIsTheLowestDecisionHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -138,7 +138,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -188,7 +188,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -203,7 +203,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -218,7 +218,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

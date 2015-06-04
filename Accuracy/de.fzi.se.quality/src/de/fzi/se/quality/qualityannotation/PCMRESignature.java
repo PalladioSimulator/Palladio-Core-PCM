@@ -36,7 +36,7 @@ public interface PCMRESignature extends PCMRE {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Signature</em>' reference.
      * @see #setSignature(OperationSignature)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMRESignature_Signature()
@@ -49,7 +49,7 @@ public interface PCMRESignature extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMRESignature#getSignature <em>Signature</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Signature</em>' reference.
      * @see #getSignature()

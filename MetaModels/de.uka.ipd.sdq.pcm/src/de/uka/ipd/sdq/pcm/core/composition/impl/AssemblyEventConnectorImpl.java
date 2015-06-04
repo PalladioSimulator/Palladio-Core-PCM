@@ -49,7 +49,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -58,7 +58,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * The cached value of the '{@link #getSinkRole__AssemblyEventConnector()
      * <em>Sink Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getSinkRole__AssemblyEventConnector()
      * @generated
      * @ordered
@@ -68,7 +68,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * The cached value of the '{@link #getSourceRole__AssemblyEventConnector()
      * <em>Source Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getSourceRole__AssemblyEventConnector()
      * @generated
      * @ordered
@@ -78,7 +78,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * The cached value of the '{@link #getSinkAssemblyContext__AssemblyEventConnector()
      * <em>Sink Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getSinkAssemblyContext__AssemblyEventConnector()
      * @generated
      * @ordered
@@ -88,7 +88,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * The cached value of the '{@link #getSourceAssemblyContext__AssemblyEventConnector()
      * <em>Source Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSourceAssemblyContext__AssemblyEventConnector()
      * @generated
      * @ordered
@@ -107,7 +107,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyEventConnectorImpl() {
@@ -116,7 +116,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -126,7 +126,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SinkRole basicGetSinkRole__AssemblyEventConnector() {
@@ -156,7 +156,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SourceRole basicGetSourceRole__AssemblyEventConnector() {
@@ -203,7 +203,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -219,7 +219,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -245,7 +245,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetSinkAssemblyContext__AssemblyEventConnector() {
@@ -254,7 +254,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -271,7 +271,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -297,7 +297,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetSourceAssemblyContext__AssemblyEventConnector() {
@@ -306,7 +306,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -324,7 +324,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -334,7 +334,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetFilterCondition__AssemblyEventConnector(
@@ -356,7 +356,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -388,7 +388,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -410,7 +410,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -425,7 +425,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -459,7 +459,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -486,7 +486,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -513,7 +513,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

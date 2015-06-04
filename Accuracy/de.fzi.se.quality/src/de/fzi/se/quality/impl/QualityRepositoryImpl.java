@@ -38,7 +38,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
     /**
      * The cached value of the '{@link #getQualityStatements() <em>Quality Statements</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getQualityStatements()
      * @generated
      * @ordered
@@ -47,7 +47,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected QualityRepositoryImpl() {
@@ -56,7 +56,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -66,7 +66,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -98,7 +98,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -144,7 +144,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

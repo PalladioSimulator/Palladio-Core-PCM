@@ -36,7 +36,7 @@ public interface PCMBusinessOperationReference extends OperationReference {
      * description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Role</em>' reference.
      * @see #setRole(OperationRequiredRole)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMBusinessOperationReference_Role()
@@ -49,7 +49,7 @@ public interface PCMBusinessOperationReference extends OperationReference {
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRole <em>Role</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Role</em>' reference.
      * @see #getRole()
@@ -64,7 +64,7 @@ public interface PCMBusinessOperationReference extends OperationReference {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Signature</em>' reference.
      * @see #setSignature(OperationSignature)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMBusinessOperationReference_Signature()
@@ -77,7 +77,7 @@ public interface PCMBusinessOperationReference extends OperationReference {
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getSignature
      * <em>Signature</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Signature</em>' reference.
      * @see #getSignature()

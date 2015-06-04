@@ -69,7 +69,7 @@ public interface VariableUsage extends EObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -106,7 +106,7 @@ public interface VariableUsage extends EObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>User Data Variable Usage</em>' container reference.
      * @see #setUserData_VariableUsage(UserData)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_UserData_VariableUsage()
@@ -121,7 +121,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage
      * <em>User Data Variable Usage</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>User Data Variable Usage</em>' container reference.
      * @see #getUserData_VariableUsage()
@@ -139,7 +139,7 @@ public interface VariableUsage extends EObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Synchronisation Point Variable Usage</em>' container reference.
      * @see #setSynchronisationPoint_VariableUsage(SynchronisationPoint)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_SynchronisationPoint_VariableUsage()
@@ -154,7 +154,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage
      * <em>Synchronisation Point Variable Usage</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Synchronisation Point Variable Usage</em>' container
      *            reference.
@@ -173,7 +173,7 @@ public interface VariableUsage extends EObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Call Action Variable Usage</em>' container reference.
      * @see #setCallAction__VariableUsage(CallAction)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_CallAction__VariableUsage()
@@ -188,7 +188,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallAction__VariableUsage
      * <em>Call Action Variable Usage</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Call Action Variable Usage</em>' container reference.
      * @see #getCallAction__VariableUsage()
@@ -206,7 +206,7 @@ public interface VariableUsage extends EObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Call Return Action Variable Usage</em>' container reference.
      * @see #setCallReturnAction__VariableUsage(CallReturnAction)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_CallReturnAction__VariableUsage()
@@ -221,7 +221,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage
      * <em>Call Return Action Variable Usage</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Call Return Action Variable Usage</em>' container
      *            reference.
@@ -240,7 +240,7 @@ public interface VariableUsage extends EObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Set Variable Action Variable Usage</em>' container reference.
      * @see #setSetVariableAction_VariableUsage(SetVariableAction)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_SetVariableAction_VariableUsage()
@@ -255,7 +255,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
      * <em>Set Variable Action Variable Usage</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Set Variable Action Variable Usage</em>' container
      *            reference.
@@ -274,7 +274,7 @@ public interface VariableUsage extends EObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Context Variable Usage</em>' container reference.
      * @see #setAssemblyContext__VariableUsage(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_AssemblyContext__VariableUsage()
@@ -289,7 +289,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
      * <em>Assembly Context Variable Usage</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Assembly Context Variable Usage</em>' container
      *            reference.
@@ -308,7 +308,7 @@ public interface VariableUsage extends EObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Entry Level System Call Input Parameter Usage</em>' container
      *         reference.
      * @see #setEntryLevelSystemCall_InputParameterUsage(EntryLevelSystemCall)
@@ -343,7 +343,7 @@ public interface VariableUsage extends EObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Entry Level System Call Output Parameter Usage</em>' container
      *         reference.
      * @see #setEntryLevelSystemCall_OutputParameterUsage(EntryLevelSystemCall)
@@ -400,7 +400,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
      * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>
@@ -419,7 +419,7 @@ public interface VariableUsage extends EObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Named Reference Variable Usage</em>' containment reference.
      * @see #setNamedReference__VariableUsage(AbstractNamedReference)
      * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_NamedReference__VariableUsage()
@@ -433,7 +433,7 @@ public interface VariableUsage extends EObject {
      * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference__VariableUsage
      * <em>Named Reference Variable Usage</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Named Reference Variable Usage</em>' containment
      *            reference.

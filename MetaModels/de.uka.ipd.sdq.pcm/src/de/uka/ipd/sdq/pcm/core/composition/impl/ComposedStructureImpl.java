@@ -59,7 +59,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -79,7 +79,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
      * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure()
      * <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceRequiredDelegationConnectors_ComposedStructure()
      * @generated
      * @ordered
@@ -90,7 +90,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
      * The cached value of the '{@link #getEventChannel__ComposedStructure()
      * <em>Event Channel Composed Structure</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEventChannel__ComposedStructure()
      * @generated
      * @ordered
@@ -101,7 +101,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
      * The cached value of the '{@link #getConnectors__ComposedStructure()
      * <em>Connectors Composed Structure</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getConnectors__ComposedStructure()
      * @generated
      * @ordered
@@ -110,7 +110,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComposedStructureImpl() {
@@ -119,7 +119,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +129,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -146,7 +146,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -164,7 +164,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -180,7 +180,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -199,7 +199,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -213,7 +213,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -223,7 +223,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -282,7 +282,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -318,7 +318,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -344,7 +344,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -366,7 +366,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -386,7 +386,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -416,7 +416,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -440,7 +440,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -464,7 +464,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

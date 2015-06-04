@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.system.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -16,7 +15,6 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
@@ -24,10 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
-import org.palladiosimulator.mdsdprofiles.impl.ProfileableElementImpl;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
@@ -36,14 +31,13 @@ import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
@@ -59,8 +53,6 @@ import de.uka.ipd.sdq.pcm.system.util.SystemValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getId <em>Id</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getEntityName <em>Entity Name</em>}</li>
  * <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAssemblyContexts__ComposedStructure <em>
  * Assembly Contexts Composed Structure</em>}</li>
  * <li>
@@ -84,54 +76,14 @@ import de.uka.ipd.sdq.pcm.system.util.SystemValidator;
  *
  * @generated
  */
-public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq.pcm.system.System {
+public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.System {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
-
-    /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEntityName()
-     * @generated
-     * @ordered
-     */
-    protected static final String ENTITY_NAME_EDEFAULT = "aName";
-
-    /**
-     * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEntityName()
-     * @generated
-     * @ordered
-     */
-    protected String entityName = ENTITY_NAME_EDEFAULT;
 
     /**
      * The cached value of the '{@link #getAssemblyContexts__ComposedStructure()
@@ -148,7 +100,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure()
      * <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceRequiredDelegationConnectors_ComposedStructure()
      * @generated
      * @ordered
@@ -159,7 +111,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * The cached value of the '{@link #getEventChannel__ComposedStructure()
      * <em>Event Channel Composed Structure</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getEventChannel__ComposedStructure()
      * @generated
      * @ordered
@@ -170,7 +122,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * The cached value of the '{@link #getConnectors__ComposedStructure()
      * <em>Connectors Composed Structure</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getConnectors__ComposedStructure()
      * @generated
      * @ordered
@@ -193,7 +145,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * <em>Resource Required Roles Resource Interface Requiring Entity</em>}' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * @generated
      * @ordered
@@ -214,7 +166,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     /**
      * The cached value of the '{@link #getQosAnnotations_System() <em>Qos Annotations System</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getQosAnnotations_System()
      * @generated
      * @ordered
@@ -223,7 +175,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SystemImpl() {
@@ -232,7 +184,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,56 +194,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public String getId() {
-        return this.id;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void setId(final String newId) {
-        final String oldId = this.id;
-        this.id = newId;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.SYSTEM__ID, oldId, this.id));
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public String getEntityName() {
-        return this.entityName;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void setEntityName(final String newEntityName) {
-        final String oldEntityName = this.entityName;
-        this.entityName = newEntityName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.SYSTEM__ENTITY_NAME,
-                    oldEntityName, this.entityName));
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -307,7 +210,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -325,7 +228,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -341,7 +244,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -357,7 +260,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -373,7 +276,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -390,7 +293,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -406,7 +309,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -425,7 +328,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -439,7 +342,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -449,7 +352,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -508,7 +411,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -560,7 +463,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #ProvidedRolesMustBeBound(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provided Roles Must Be Bound</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #ProvidedRolesMustBeBound(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -569,7 +472,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -602,7 +505,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
      * {@link #SystemMustHaveAtLeastOneProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>System Must Have At Least One Provided Role</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #SystemMustHaveAtLeastOneProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -625,7 +528,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -659,7 +562,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -697,7 +600,7 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -728,16 +631,12 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case SystemPackage.SYSTEM__ID:
-            return this.getId();
-        case SystemPackage.SYSTEM__ENTITY_NAME:
-            return this.getEntityName();
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
             return this.getAssemblyContexts__ComposedStructure();
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
@@ -760,19 +659,13 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case SystemPackage.SYSTEM__ID:
-            this.setId((String) newValue);
-            return;
-        case SystemPackage.SYSTEM__ENTITY_NAME:
-            this.setEntityName((String) newValue);
-            return;
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
             this.getAssemblyContexts__ComposedStructure().clear();
             this.getAssemblyContexts__ComposedStructure().addAll((Collection<? extends AssemblyContext>) newValue);
@@ -813,18 +706,12 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case SystemPackage.SYSTEM__ID:
-            this.setId(ID_EDEFAULT);
-            return;
-        case SystemPackage.SYSTEM__ENTITY_NAME:
-            this.setEntityName(ENTITY_NAME_EDEFAULT);
-            return;
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
             this.getAssemblyContexts__ComposedStructure().clear();
             return;
@@ -855,18 +742,13 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case SystemPackage.SYSTEM__ID:
-            return ID_EDEFAULT == null ? this.id != null : !ID_EDEFAULT.equals(this.id);
-        case SystemPackage.SYSTEM__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
-                    .equals(this.entityName);
         case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
             return this.assemblyContexts__ComposedStructure != null
                     && !this.assemblyContexts__ComposedStructure.isEmpty();
@@ -894,33 +776,11 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == Identifier.class) {
-            switch (derivedFeatureID) {
-            case SystemPackage.SYSTEM__ID:
-                return IdentifierPackage.IDENTIFIER__ID;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == NamedElement.class) {
-            switch (derivedFeatureID) {
-            case SystemPackage.SYSTEM__ENTITY_NAME:
-                return EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == Entity.class) {
-            switch (derivedFeatureID) {
-            default:
-                return -1;
-            }
-        }
         if (baseClass == ComposedStructure.class) {
             switch (derivedFeatureID) {
             case SystemPackage.SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
@@ -976,33 +836,11 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == Identifier.class) {
-            switch (baseFeatureID) {
-            case IdentifierPackage.IDENTIFIER__ID:
-                return SystemPackage.SYSTEM__ID;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == NamedElement.class) {
-            switch (baseFeatureID) {
-            case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-                return SystemPackage.SYSTEM__ENTITY_NAME;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == Entity.class) {
-            switch (baseFeatureID) {
-            default:
-                return -1;
-            }
-        }
         if (baseClass == ComposedStructure.class) {
             switch (baseFeatureID) {
             case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
@@ -1057,29 +895,9 @@ public class SystemImpl extends ProfileableElementImpl implements de.uka.ipd.sdq
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (id: ");
-        result.append(this.id);
-        result.append(", entityName: ");
-        result.append(this.entityName);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

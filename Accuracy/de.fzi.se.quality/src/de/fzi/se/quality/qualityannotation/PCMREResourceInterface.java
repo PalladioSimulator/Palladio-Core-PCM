@@ -38,7 +38,7 @@ public interface PCMREResourceInterface extends PCMRE {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Interface</em>' reference.
      * @see #setResourceInterface(ResourceInterface)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMREResourceInterface_ResourceInterface()
@@ -51,7 +51,7 @@ public interface PCMREResourceInterface extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMREResourceInterface#getResourceInterface
      * <em>Resource Interface</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Interface</em>' reference.
      * @see #getResourceInterface()

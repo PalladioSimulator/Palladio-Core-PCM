@@ -33,7 +33,7 @@ public interface LimitedDeviationPrecision extends Precision {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Absolute</em>' attribute.
      * @see #setAbsolute(double)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getLimitedDeviationPrecision_Absolute()
@@ -46,7 +46,7 @@ public interface LimitedDeviationPrecision extends Precision {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision#getAbsolute
      * <em>Absolute</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Absolute</em>' attribute.
      * @see #getAbsolute()
@@ -61,7 +61,7 @@ public interface LimitedDeviationPrecision extends Precision {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Relative</em>' attribute.
      * @see #setRelative(double)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getLimitedDeviationPrecision_Relative()
@@ -74,7 +74,7 @@ public interface LimitedDeviationPrecision extends Precision {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision#getRelative
      * <em>Relative</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Relative</em>' attribute.
      * @see #getRelative()

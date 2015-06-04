@@ -36,7 +36,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
      * The cached value of the '{@link #getInfrastructureSignatures__InfrastructureInterface()
      * <em>Infrastructure Signatures Infrastructure Interface</em>}' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getInfrastructureSignatures__InfrastructureInterface()
      * @generated
      * @ordered
@@ -54,7 +54,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureInterfaceImpl() {
@@ -63,7 +63,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -90,7 +90,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -107,7 +107,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -155,7 +155,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -170,7 +170,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

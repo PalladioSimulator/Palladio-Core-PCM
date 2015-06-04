@@ -34,7 +34,7 @@ public interface PCMComponentReference extends ComponentReference {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Basic Component</em>' reference.
      * @see #setBasicComponent(BasicComponent)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMComponentReference_BasicComponent()
@@ -47,7 +47,7 @@ public interface PCMComponentReference extends ComponentReference {
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMComponentReference#getBasicComponent
      * <em>Basic Component</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Basic Component</em>' reference.
      * @see #getBasicComponent()

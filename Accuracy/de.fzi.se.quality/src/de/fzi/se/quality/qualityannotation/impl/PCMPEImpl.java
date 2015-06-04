@@ -30,7 +30,7 @@ public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMPEImpl() {
@@ -39,7 +39,7 @@ public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -52,7 +52,7 @@ public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMP
      * {@link #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Topmost Level Must Be PCMPE All Decisions</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -65,7 +65,7 @@ public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMP
      * {@link #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Topmost Level Must Be PCMPE All Decisions</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #TopmostLevelMustBePCMPEAllDecisions(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -75,7 +75,7 @@ public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMP
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

@@ -46,7 +46,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -55,7 +55,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * The cached value of the '{@link #getSignatures__OperationInterface()
      * <em>Signatures Operation Interface</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getSignatures__OperationInterface()
      * @generated
      * @ordered
@@ -64,7 +64,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationInterfaceImpl() {
@@ -73,7 +73,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -103,7 +103,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * {@link #SignaturesHaveToBeUniqueForAnInterface(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signatures Have To Be Unique For An Interface</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #SignaturesHaveToBeUniqueForAnInterface(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -139,7 +139,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -189,7 +189,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -204,7 +204,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -218,7 +218,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -235,7 +235,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -250,7 +250,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")

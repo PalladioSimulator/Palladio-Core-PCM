@@ -39,7 +39,6 @@ import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.provider.EcoreItemProviderAdapterFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -115,9 +114,6 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-import org.modelversioning.emfprofile.provider.EMFProfileItemProviderAdapterFactory;
-import org.modelversioning.emfprofileapplication.provider.EMFProfileApplicationItemProviderAdapterFactory;
-import org.palladiosimulator.mdsdprofiles.provider.MdsdprofilesItemProviderAdapterFactory;
 
 import de.fzi.se.quality.parameters.pcm.provider.PCMItemProviderAdapterFactory;
 import de.fzi.se.quality.parameters.provider.ParametersItemProviderAdapterFactory;
@@ -152,7 +148,7 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 /**
  * This is an example of a QualityAnnotation model editor. <!-- begin-user-doc --> <!-- end-user-doc
  * -->
- * 
+ *
  * @generated
  */
 public class QualityAnnotationEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
@@ -161,7 +157,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * This keeps track of the editing domain that is used to track all changes to the model. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AdapterFactoryEditingDomain editingDomain;
@@ -236,7 +232,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * This shows how a table view works. A table can be used as a list with icons. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected TableViewer tableViewer;
@@ -298,7 +294,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected IPartListener partListener = new IPartListener() {
@@ -386,7 +382,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * Adapter used to update the problem indication when resources are demanded loaded. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
@@ -702,10 +698,6 @@ IMenuListener, IViewerProvider, IGotoMarker {
         this.adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
         this.adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
         this.adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new MdsdprofilesItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new EMFProfileItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new EMFProfileApplicationItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new EcoreItemProviderAdapterFactory());
         this.adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
         // Create the command stack that will notify this editor as commands are executed.
@@ -927,7 +919,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * This returns the viewer as required by the {@link IViewerProvider} interface. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1433,7 +1425,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * This deals with how we want selection in the outliner to affect the other views. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void handleContentOutlineSelection(final ISelection selection) {
@@ -1472,7 +1464,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * This is for implementing {@link IEditorPart} and simply tests the command stack. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1483,7 +1475,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     /**
      * This is for implementing {@link IEditorPart} and simply saves the model file. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

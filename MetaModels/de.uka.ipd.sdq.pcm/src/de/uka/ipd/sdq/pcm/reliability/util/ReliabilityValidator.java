@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage
  * @generated
  */
@@ -32,14 +32,14 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final ReliabilityValidator INSTANCE = new ReliabilityValidator();
@@ -48,7 +48,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
      * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -59,7 +59,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Ensure
      * Valid Failure Probability Range' of 'Failure Occurrence Description'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int FAILURE_OCCURRENCE_DESCRIPTION__ENSURE_VALID_FAILURE_PROBABILITY_RANGE = 1;
@@ -77,7 +77,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Resource
      * Timeout Failure Allowed For Internal Failure Occurrence Description' of 'Internal Failure
      * Occurrence Description'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = 3;
@@ -86,7 +86,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Network
      * Induced Failure Type Has Communication Link Resource Type' of 'Network Induced Failure Type'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int NETWORK_INDUCED_FAILURE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_HAS_COMMUNICATION_LINK_RESOURCE_TYPE = 4;
@@ -95,7 +95,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Resource
      * Timeout Failure Allowed For External Failure Occurrence Description' of 'External Failure
      * Occurrence Description'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = 5;
@@ -103,7 +103,7 @@ public class ReliabilityValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 5;
@@ -111,14 +111,14 @@ public class ReliabilityValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ReliabilityValidator() {
@@ -127,7 +127,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateFailureOccurrenceDescription(
@@ -209,7 +209,7 @@ public class ReliabilityValidator extends EObjectValidator {
     /**
      * Validates the EnsureValidFailureProbabilityRange constraint of '
      * <em>Failure Occurrence Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateFailureOccurrenceDescription_EnsureValidFailureProbabilityRange(
@@ -220,7 +220,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateHardwareInducedFailureType(final HardwareInducedFailureType hardwareInducedFailureType,
@@ -257,7 +257,7 @@ public class ReliabilityValidator extends EObjectValidator {
     /**
      * Validates the HardwareInducedFailureTypeHasProcessingResourceType constraint of '
      * <em>Hardware Induced Failure Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateHardwareInducedFailureType_HardwareInducedFailureTypeHasProcessingResourceType(
@@ -268,7 +268,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateExternalFailureOccurrenceDescription(
@@ -314,7 +314,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * Validates the NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription
      * constraint of '<em>External Failure Occurrence Description</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateExternalFailureOccurrenceDescription_NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(
@@ -326,7 +326,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateResourceTimeoutFailureType(final ResourceTimeoutFailureType resourceTimeoutFailureType,
@@ -336,7 +336,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateNetworkInducedFailureType(final NetworkInducedFailureType networkInducedFailureType,
@@ -373,7 +373,7 @@ public class ReliabilityValidator extends EObjectValidator {
     /**
      * Validates the NetworkInducedFailureTypeHasCommunicationLinkResourceType constraint of '
      * <em>Network Induced Failure Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateNetworkInducedFailureType_NetworkInducedFailureTypeHasCommunicationLinkResourceType(
@@ -385,7 +385,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateInternalFailureOccurrenceDescription(
@@ -431,7 +431,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * Validates the NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription
      * constraint of '<em>Internal Failure Occurrence Description</em>'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateInternalFailureOccurrenceDescription_NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(
@@ -443,7 +443,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateSoftwareInducedFailureType(final SoftwareInducedFailureType softwareInducedFailureType,
@@ -453,7 +453,7 @@ public class ReliabilityValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateFailureType(final FailureType failureType, final DiagnosticChain diagnostics,
@@ -464,7 +464,7 @@ public class ReliabilityValidator extends EObjectValidator {
     /**
      * Returns the resource locator that will be used to fetch messages for this validator's
      * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

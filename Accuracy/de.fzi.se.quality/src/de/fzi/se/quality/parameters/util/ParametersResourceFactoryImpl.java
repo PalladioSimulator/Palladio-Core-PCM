@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
 /**
  * <!-- begin-user-doc --> The <b>Resource Factory</b> associated with the package. <!--
  * end-user-doc -->
- * 
+ *
  * @see de.fzi.se.quality.parameters.util.ParametersResourceImpl
  * @generated
  */
@@ -22,7 +22,7 @@ public class ParametersResourceFactoryImpl extends ResourceFactoryImpl {
 
     /**
      * Creates an instance of the resource factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ParametersResourceFactoryImpl() {
@@ -31,7 +31,7 @@ public class ParametersResourceFactoryImpl extends ResourceFactoryImpl {
 
     /**
      * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

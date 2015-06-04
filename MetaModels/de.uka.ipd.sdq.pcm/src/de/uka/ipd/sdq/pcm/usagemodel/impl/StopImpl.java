@@ -33,14 +33,14 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StopImpl() {
@@ -49,7 +49,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
      * The cached OCL expression body for the '
      * {@link #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Stop Has No Successor</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -72,7 +72,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
      * {@link #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Stop Has No Successor</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -81,7 +81,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

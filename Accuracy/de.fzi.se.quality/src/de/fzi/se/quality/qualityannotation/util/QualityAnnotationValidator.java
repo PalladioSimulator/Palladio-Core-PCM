@@ -50,7 +50,7 @@ import de.fzi.se.quality.qualityannotation.ServiceSpecification;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
- * 
+ *
  * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage
  * @generated
  */
@@ -58,7 +58,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final QualityAnnotationValidator INSTANCE = new QualityAnnotationValidator();
@@ -67,7 +67,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
      * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -78,7 +78,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Stipulated
      * Precision Must Be Set In Stipulation Context' of 'Required Element'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int REQUIRED_ELEMENT__STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT = 1;
@@ -87,7 +87,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'APCM
      * Parameter Partition Must Reference APCM Parameter Reference' of 'PCM Parameter Partition'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCM_PARAMETER_PARTITION__APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE = 2;
@@ -96,7 +96,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower
      * Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure' of 'PCMRE
      * Category'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE = 3;
@@ -105,7 +105,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Existing RE
      * Precision Call Parameter Must Be No Precision Due To The Non Existence Of Parameters For
      * Category Resource Demand' of 'PCMRE Category'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND = 4;
@@ -141,7 +141,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower
      * Hierarchy Level Is PCMRECI Behavior For Category Component Internal' of 'PCMRE Category'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL = 8;
@@ -150,7 +150,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each
      * Category Exactly Once If Specified' of 'PCMRE Category'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_CATEGORY__EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED = 9;
@@ -168,7 +168,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower
      * Level Must Consist Of Type PCMRE Role' of 'PCMRE Interface'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_ROLE = 11;
@@ -177,7 +177,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE
      * Target Must Be Referenced Only From One RE' of 'PCMRE Interface'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 12;
@@ -186,7 +186,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower
      * Level Must Consist Of Type PCMRE Signature' of 'PCMRE Role'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_ROLE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_SIGNATURE = 13;
@@ -195,7 +195,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE
      * Target Must Be Referenced Only From One RE' of 'PCMRE Role'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_ROLE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 14;
@@ -204,7 +204,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The
      * Lowest Component Hierarchy Level' of 'PCMRE Signature'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_SIGNATURE__THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL = 15;
@@ -213,7 +213,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE
      * Target Must Be Referenced Only From One RE' of 'PCMRE Signature'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 16;
@@ -240,7 +240,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The
      * Lowest Resource Hierarchy Level' of 'PCMRE Resource Signature'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_RESOURCE_SIGNATURE__THIS_IS_THE_LOWEST_RESOURCE_HIERARCHY_LEVEL = 19;
@@ -258,7 +258,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The
      * Lowest Resource Demand Hierarchy Level' of 'PCMRE Resource'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_RESOURCE__THIS_IS_THE_LOWEST_RESOURCE_DEMAND_HIERARCHY_LEVEL = 21;
@@ -267,7 +267,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE
      * Target Must Be Referenced Only From One RE' of 'PCMRE Resource'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_RESOURCE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 22;
@@ -285,7 +285,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE
      * Target Must Be Referenced Only From One RE' of 'PCMRE Resource Role'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_RESOURCE_ROLE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 24;
@@ -294,7 +294,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The
      * Lowest Component Internal Hierarchy Level' of 'PCMRECI Behavior'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRECI_BEHAVIOR__THIS_IS_THE_LOWEST_COMPONENT_INTERNAL_HIERARCHY_LEVEL = 25;
@@ -303,7 +303,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE
      * Target Must Be Referenced Only From One RE' of 'PCMRECI Behavior'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRECI_BEHAVIOR__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 26;
@@ -312,7 +312,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower
      * Level Must Consist Of Type PCMRE Infrastructure Role' of 'PCMRE Infrastructure Interface'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_INFRASTRUCTURE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE = 27;
@@ -330,7 +330,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower
      * Level Must Consist Of Type PCMRE Infrastructure Signature' of 'PCMRE Infrastructure Role'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMRE_INFRASTRUCTURE_ROLE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_SIGNATURE = 29;
@@ -365,7 +365,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Topmost
      * Level Must Be PCMPE All Decisions' of 'PCMPE'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMPE__TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS = 33;
@@ -374,7 +374,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower
      * Hierarchy Level Must Be Decision' of 'PCMPE All Decisions'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMPE_ALL_DECISIONS__NEXT_LOWER_HIERARCHY_LEVEL_MUST_BE_DECISION = 34;
@@ -383,7 +383,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The
      * Lowest Decision Hierarchy Level' of 'PCMPE Decision'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final int PCMPE_DECISION__THIS_IS_THE_LOWEST_DECISION_HIERARCHY_LEVEL = 35;
@@ -391,7 +391,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 35;
@@ -399,14 +399,14 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * A constant with a fixed name that can be used as the base value for additional hand written
      * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QualityAnnotationValidator() {
@@ -415,7 +415,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -514,7 +514,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateParameterValueDeviation(final ParameterValueDeviation parameterValueDeviation,
@@ -524,7 +524,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateQualityAnnotation(final QualityAnnotation qualityAnnotation,
@@ -534,7 +534,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateServiceSpecification(final ServiceSpecification serviceSpecification,
@@ -544,7 +544,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateRequiredElement(final RequiredElement requiredElement, final DiagnosticChain diagnostics,
@@ -578,7 +578,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the StipulatedPrecisionMustBeSetInStipulationContext constraint of '
      * <em>Required Element</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(
@@ -588,7 +588,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateRequiredElementDeviation(final RequiredElementDeviation requiredElementDeviation,
@@ -598,7 +598,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateInternalStateInfluenceAnalysisAggregation(
@@ -609,7 +609,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateREPrecision(final REPrecision rePrecision, final DiagnosticChain diagnostics,
@@ -619,7 +619,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateProbabilisticElement(final ProbabilisticElement probabilisticElement,
@@ -629,7 +629,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePrecision(final Precision precision, final DiagnosticChain diagnostics,
@@ -639,7 +639,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMParameterPartition(final PCMParameterPartition pcmParameterPartition,
@@ -673,7 +673,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the APCMParameterPartitionMustReferenceAPCMParameterReference constraint of '
      * <em>PCM Parameter Partition</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMParameterPartition_APCMParameterPartitionMustReferenceAPCMParameterReference(
@@ -684,7 +684,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateCharacterisedPCMParameterPartition(
@@ -695,7 +695,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateCharacterisedPCMParameterPartitionInterval(
@@ -706,7 +706,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateCharacterisedPCMParameterPartitionRange(
@@ -717,7 +717,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateExactlyAsSpecifiedPrecision(final ExactlyAsSpecifiedPrecision exactlyAsSpecifiedPrecision,
@@ -727,7 +727,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateLimitedDeviationPrecision(final LimitedDeviationPrecision limitedDeviationPrecision,
@@ -737,7 +737,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validateNoPrecision(final NoPrecision noPrecision, final DiagnosticChain diagnostics,
@@ -747,7 +747,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory(final PCMRECategory pcmreCategory, final DiagnosticChain diagnostics,
@@ -814,7 +814,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure
      * constraint of '<em>PCMRE Category</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(
@@ -827,7 +827,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
      * Validates the
      * ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand
      * constraint of '<em>PCMRE Category</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory_ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(
@@ -840,7 +840,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource constraint
      * of '<em>PCMRE Category</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(
@@ -851,7 +851,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent constraint of '
      * <em>PCMRE Category</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(
@@ -862,7 +862,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand constraint of '
      * <em>PCMRE Category</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(
@@ -873,7 +873,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal constraint
      * of '<em>PCMRE Category</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(
@@ -884,7 +884,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachCategoryExactlyOnceIfSpecified constraint of '<em>PCMRE Category</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECategory_EachCategoryExactlyOnceIfSpecified(final PCMRECategory pcmreCategory,
@@ -894,7 +894,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRE(final PCMRE pcmre, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
@@ -940,7 +940,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInterface(final PCMREInterface pcmreInterface, final DiagnosticChain diagnostics,
@@ -985,7 +985,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerLevelMustConsistOfTypePCMRERole constraint of '
      * <em>PCMRE Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInterface_NextLowerLevelMustConsistOfTypePCMRERole(final PCMREInterface pcmreInterface,
@@ -996,7 +996,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInterface_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1006,7 +1006,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRERole(final PCMRERole pcmreRole, final DiagnosticChain diagnostics,
@@ -1050,7 +1050,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerLevelMustConsistOfTypePCMRESignature constraint of '
      * <em>PCMRE Role</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRERole_NextLowerLevelMustConsistOfTypePCMRESignature(final PCMRERole pcmreRole,
@@ -1061,7 +1061,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Role</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRERole_EachRETargetMustBeReferencedOnlyFromOneRE(final PCMRERole pcmreRole,
@@ -1071,7 +1071,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRESignature(final PCMRESignature pcmreSignature, final DiagnosticChain diagnostics,
@@ -1116,7 +1116,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the ThisIsTheLowestComponentHierarchyLevel constraint of '<em>PCMRE Signature</em>
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRESignature_ThisIsTheLowestComponentHierarchyLevel(final PCMRESignature pcmreSignature,
@@ -1127,7 +1127,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRESignature_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1137,7 +1137,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMServiceSpecification(final PCMServiceSpecification pcmServiceSpecification,
@@ -1147,7 +1147,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceInterface(final PCMREResourceInterface pcmreResourceInterface,
@@ -1193,7 +1193,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerLevelMustConsistOfTypePCMREResourceRole constraint of '
      * <em>PCMRE Resource Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceInterface_NextLowerLevelMustConsistOfTypePCMREResourceRole(
@@ -1205,7 +1205,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Resource Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceInterface_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1216,7 +1216,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceSignature(final PCMREResourceSignature pcmreResourceSignature,
@@ -1262,7 +1262,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the ThisIsTheLowestResourceHierarchyLevel constraint of '
      * <em>PCMRE Resource Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceSignature_ThisIsTheLowestResourceHierarchyLevel(
@@ -1274,7 +1274,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Resource Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceSignature_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1285,7 +1285,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResource(final PCMREResource pcmreResource, final DiagnosticChain diagnostics,
@@ -1330,7 +1330,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the ThisIsTheLowestResourceDemandHierarchyLevel constraint of '
      * <em>PCMRE Resource</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResource_ThisIsTheLowestResourceDemandHierarchyLevel(final PCMREResource pcmreResource,
@@ -1341,7 +1341,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Resource</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResource_EachRETargetMustBeReferencedOnlyFromOneRE(final PCMREResource pcmreResource,
@@ -1351,7 +1351,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceRole(final PCMREResourceRole pcmreResourceRole,
@@ -1396,7 +1396,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerLevelMustConsistOfTypePCMREResourceSignature constraint of '
      * <em>PCMRE Resource Role</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceRole_NextLowerLevelMustConsistOfTypePCMREResourceSignature(
@@ -1408,7 +1408,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Resource Role</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREResourceRole_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1419,7 +1419,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECIBehavior(final PCMRECIBehavior pcmreciBehavior, final DiagnosticChain diagnostics,
@@ -1464,7 +1464,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the ThisIsTheLowestComponentInternalHierarchyLevel constraint of '
      * <em>PCMRECI Behavior</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECIBehavior_ThisIsTheLowestComponentInternalHierarchyLevel(
@@ -1475,7 +1475,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRECI Behavior</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRECIBehavior_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1485,7 +1485,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureInterface(
@@ -1532,7 +1532,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerLevelMustConsistOfTypePCMREInfrastructureRole constraint of '
      * <em>PCMRE Infrastructure Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureInterface_NextLowerLevelMustConsistOfTypePCMREInfrastructureRole(
@@ -1545,7 +1545,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Infrastructure Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureInterface_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1556,7 +1556,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureRole(final PCMREInfrastructureRole pcmreInfrastructureRole,
@@ -1602,7 +1602,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature constraint of '
      * <em>PCMRE Infrastructure Role</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureRole_NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(
@@ -1615,7 +1615,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Infrastructure Role</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureRole_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1626,7 +1626,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureSignature(
@@ -1673,7 +1673,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the ThisIsTheLowestInfrastructureHierarchyLevel constraint of '
      * <em>PCMRE Infrastructure Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureSignature_ThisIsTheLowestInfrastructureHierarchyLevel(
@@ -1685,7 +1685,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '
      * <em>PCMRE Infrastructure Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMREInfrastructureSignature_EachRETargetMustBeReferencedOnlyFromOneRE(
@@ -1696,7 +1696,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMPE(final PCMPE pcmpe, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
@@ -1738,7 +1738,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMPEAllDecisions(final PCMPEAllDecisions pcmpeAllDecisions,
@@ -1775,7 +1775,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the NextLowerHierarchyLevelMustBeDecision constraint of '
      * <em>PCMPE All Decisions</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMPEAllDecisions_NextLowerHierarchyLevelMustBeDecision(
@@ -1786,7 +1786,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMPEDecision(final PCMPEDecision pcmpeDecision, final DiagnosticChain diagnostics,
@@ -1823,7 +1823,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
     /**
      * Validates the ThisIsTheLowestDecisionHierarchyLevel constraint of '<em>PCMPE Decision</em>'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMPEDecision_ThisIsTheLowestDecisionHierarchyLevel(final PCMPEDecision pcmpeDecision,
@@ -1833,7 +1833,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public boolean validatePCMRERequestCategory(final PCMRERequestCategory pcmreRequestCategory,

@@ -155,12 +155,12 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
  * @generated
  */
 public class QualityEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
-        IMenuListener, IViewerProvider, IGotoMarker {
+IMenuListener, IViewerProvider, IGotoMarker {
 
     /**
      * This keeps track of the editing domain that is used to track all changes to the model. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AdapterFactoryEditingDomain editingDomain;
@@ -235,7 +235,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * This shows how a table view works. A table can be used as a list with icons. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected TableViewer tableViewer;
@@ -297,7 +297,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected IPartListener partListener = new IPartListener() {
@@ -383,7 +383,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * Adapter used to update the problem indication when resources are demanded loaded. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
@@ -661,7 +661,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * This sets up the editing domain for the model editor. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated not
      */
     protected void initializeEditingDomain() {
@@ -919,7 +919,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * This returns the viewer as required by the {@link IViewerProvider} interface. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1421,7 +1421,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * This deals with how we want selection in the outliner to affect the other views. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void handleContentOutlineSelection(final ISelection selection) {
@@ -1460,7 +1460,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * This is for implementing {@link IEditorPart} and simply tests the command stack. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1471,7 +1471,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
     /**
      * This is for implementing {@link IEditorPart} and simply saves the model file. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1591,7 +1591,7 @@ public class QualityEditor extends MultiPageEditorPart implements IEditingDomain
         this.setPartName(editorInput.getName());
         final IProgressMonitor progressMonitor = this.getActionBars().getStatusLineManager() != null ? this
                 .getActionBars().getStatusLineManager().getProgressMonitor() : new NullProgressMonitor();
-        this.doSave(progressMonitor);
+                this.doSave(progressMonitor);
     }
 
     /**

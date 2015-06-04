@@ -36,7 +36,7 @@ public interface PCMRERole extends PCMRE {
      * description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Role</em>' reference.
      * @see #setRole(OperationRequiredRole)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMRERole_Role()
@@ -48,7 +48,7 @@ public interface PCMRERole extends PCMRE {
     /**
      * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.PCMRERole#getRole
      * <em>Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Role</em>' reference.
      * @see #getRole()

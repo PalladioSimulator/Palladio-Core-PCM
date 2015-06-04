@@ -5,5 +5,6 @@ Bundle-SymbolicName: org.palladiosimulator.pcm.profiles.util
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: de.uka.ipd.sdq.pcm,
- org.modelversioning.emfprofile
+ org.modelversioning.emfprofile,
+ org.palladiosimulator.mdsdprofiles.api
 Export-Package: org.palladiosimulator.pcm.profiles.util.helper

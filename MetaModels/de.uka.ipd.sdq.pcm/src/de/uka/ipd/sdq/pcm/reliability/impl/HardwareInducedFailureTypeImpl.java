@@ -45,7 +45,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -63,7 +63,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected HardwareInducedFailureTypeImpl() {
@@ -72,7 +72,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -82,7 +82,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ProcessingResourceType basicGetProcessingResourceType__HardwareInducedFailureType() {
@@ -117,7 +117,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetProcessingResourceType__HardwareInducedFailureType(
@@ -142,7 +142,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      * {@link #HardwareInducedFailureTypeHasProcessingResourceType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Hardware Induced Failure Type Has Processing Resource Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #HardwareInducedFailureTypeHasProcessingResourceType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -207,7 +207,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -243,7 +243,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -265,7 +265,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -280,7 +280,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -297,7 +297,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -312,7 +312,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -327,7 +327,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -342,7 +342,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

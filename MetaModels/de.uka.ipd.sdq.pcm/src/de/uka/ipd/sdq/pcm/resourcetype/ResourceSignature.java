@@ -38,7 +38,7 @@ public interface ResourceSignature extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public interface ResourceSignature extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Resource Signature</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceSignature_Parameter__ResourceSignature()
      * @see de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter
@@ -71,7 +71,7 @@ public interface ResourceSignature extends Entity {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Service Id</em>' attribute.
      * @see #setResourceServiceId(int)
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceSignature_ResourceServiceId()
@@ -84,7 +84,7 @@ public interface ResourceSignature extends Entity {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getResourceServiceId
      * <em>Resource Service Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Service Id</em>' attribute.
      * @see #getResourceServiceId()
@@ -102,7 +102,7 @@ public interface ResourceSignature extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Interface Resource Signature</em>' container
      *         reference.
      * @see #setResourceInterface__ResourceSignature(ResourceInterface)
@@ -119,7 +119,7 @@ public interface ResourceSignature extends Entity {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
      * <em>Resource Interface Resource Signature</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Interface Resource Signature</em>' container
      *            reference.

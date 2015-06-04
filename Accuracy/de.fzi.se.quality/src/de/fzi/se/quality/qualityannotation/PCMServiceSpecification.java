@@ -47,7 +47,7 @@ public interface PCMServiceSpecification extends ServiceSpecification {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification#getResourceDemandingSEFF
      * <em>Resource Demanding SEFF</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Demanding SEFF</em>' reference.
      * @see #getResourceDemandingSEFF()

@@ -33,7 +33,7 @@ public interface PCMOperationParameterReference extends PCMParameterReference {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter</em>' reference.
      * @see #setParameter(Parameter)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMOperationParameterReference_Parameter()
@@ -46,7 +46,7 @@ public interface PCMOperationParameterReference extends PCMParameterReference {
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference#getParameter
      * <em>Parameter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Parameter</em>' reference.
      * @see #getParameter()

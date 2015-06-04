@@ -9,7 +9,6 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-import org.palladiosimulator.mdsdprofiles.ProfileableElement;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -55,11 +54,11 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
  * @model
  * @generated
  */
-public interface System extends ProfileableElement, Entity, ComposedProvidingRequiringEntity {
+public interface System extends Entity, ComposedProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

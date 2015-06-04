@@ -149,7 +149,7 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
  * @generated
  */
 public class AllocationEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
-IMenuListener, IViewerProvider, IGotoMarker {
+        IMenuListener, IViewerProvider, IGotoMarker {
 
     /**
      * @generated
@@ -1442,7 +1442,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
         this.setPartName(editorInput.getName());
         final IProgressMonitor progressMonitor = this.getActionBars().getStatusLineManager() != null ? this
                 .getActionBars().getStatusLineManager().getProgressMonitor() : new NullProgressMonitor();
-                this.doSave(progressMonitor);
+        this.doSave(progressMonitor);
     }
 
     /**

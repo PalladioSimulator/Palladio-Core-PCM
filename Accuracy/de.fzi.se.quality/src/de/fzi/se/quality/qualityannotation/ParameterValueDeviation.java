@@ -43,7 +43,7 @@ public interface ParameterValueDeviation extends EObject {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Reference</em>' containment reference.
      * @see #setParameterReference(ParameterReference)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getParameterValueDeviation_ParameterReference()
@@ -58,7 +58,7 @@ public interface ParameterValueDeviation extends EObject {
      * {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getParameterReference
      * <em>Parameter Reference</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Parameter Reference</em>' containment reference.
      * @see #getParameterReference()
@@ -76,7 +76,7 @@ public interface ParameterValueDeviation extends EObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Internal State Influence Analysis Aggregation</em>' container
      *         reference.
      * @see #setInternalStateInfluenceAnalysisAggregation(InternalStateInfluenceAnalysisAggregation)
@@ -111,7 +111,7 @@ public interface ParameterValueDeviation extends EObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Element Deviation</em>' container reference.
      * @see #setRequiredElementDeviation(RequiredElementDeviation)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getParameterValueDeviation_RequiredElementDeviation()
@@ -126,7 +126,7 @@ public interface ParameterValueDeviation extends EObject {
      * {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getRequiredElementDeviation
      * <em>Required Element Deviation</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Required Element Deviation</em>' container reference.
      * @see #getRequiredElementDeviation()
@@ -144,7 +144,7 @@ public interface ParameterValueDeviation extends EObject {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Value</em>' containment reference.
      * @see #setParameterValue(ParameterValue)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getParameterValueDeviation_ParameterValue()

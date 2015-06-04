@@ -54,7 +54,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -63,7 +63,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getRequiringAssemblyContext_AssemblyConnector()
      * <em>Requiring Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getRequiringAssemblyContext_AssemblyConnector()
      * @generated
      * @ordered
@@ -74,7 +74,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getProvidingAssemblyContext_AssemblyConnector()
      * <em>Providing Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getProvidingAssemblyContext_AssemblyConnector()
      * @generated
      * @ordered
@@ -85,7 +85,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getProvidedRole_AssemblyConnector()
      * <em>Provided Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getProvidedRole_AssemblyConnector()
      * @generated
      * @ordered
@@ -96,7 +96,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * The cached value of the '{@link #getRequiredRole_AssemblyConnector()
      * <em>Required Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getRequiredRole_AssemblyConnector()
      * @generated
      * @ordered
@@ -105,7 +105,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyConnectorImpl() {
@@ -114,7 +114,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +124,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext_AssemblyConnector() {
@@ -157,7 +157,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -174,7 +174,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -198,7 +198,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext_AssemblyConnector() {
@@ -207,7 +207,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -224,7 +224,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -246,7 +246,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationProvidedRole basicGetProvidedRole_AssemblyConnector() {
@@ -255,7 +255,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -271,7 +271,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -293,7 +293,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationRequiredRole basicGetRequiredRole_AssemblyConnector() {
@@ -302,7 +302,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -321,7 +321,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -335,7 +335,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -345,7 +345,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -385,7 +385,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -399,7 +399,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -409,7 +409,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -472,7 +472,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -505,7 +505,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -537,7 +537,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -561,7 +561,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -585,7 +585,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -606,7 +606,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

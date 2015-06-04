@@ -34,7 +34,7 @@ public abstract class PCMREImpl extends RequiredElementImpl implements PCMRE {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMREImpl() {
@@ -43,7 +43,7 @@ public abstract class PCMREImpl extends RequiredElementImpl implements PCMRE {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -56,7 +56,7 @@ public abstract class PCMREImpl extends RequiredElementImpl implements PCMRE {
      * {@link #TopmostLevelForPCMMustBePCMRECategory(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Topmost Level For PCM Must Be PCMRE Category</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #TopmostLevelForPCMMustBePCMRECategory(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -78,7 +78,7 @@ public abstract class PCMREImpl extends RequiredElementImpl implements PCMRE {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

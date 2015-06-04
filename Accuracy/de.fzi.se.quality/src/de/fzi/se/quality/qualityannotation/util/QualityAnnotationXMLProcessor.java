@@ -17,14 +17,14 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 /**
  * This class contains helper methods to serialize and deserialize XML documents <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class QualityAnnotationXMLProcessor extends XMLProcessor {
 
     /**
      * Public constructor to instantiate the helper. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QualityAnnotationXMLProcessor() {
@@ -35,7 +35,7 @@ public class QualityAnnotationXMLProcessor extends XMLProcessor {
     /**
      * Register for "*" and "xml" file extensions the QualityAnnotationResourceFactoryImpl factory.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

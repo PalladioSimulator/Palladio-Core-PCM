@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.palladiosimulator.mdsdprofiles.StereotypableElement;
 
 import de.fzi.se.quality.parameters.CallInstance;
 import de.fzi.se.quality.parameters.ComponentInstance;
@@ -29,7 +28,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see de.fzi.se.quality.parameters.ParametersPackage
  * @generated
  */
@@ -37,14 +36,14 @@ public class ParametersSwitch<T> {
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static ParametersPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ParametersSwitch() {
@@ -56,7 +55,7 @@ public class ParametersSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -67,7 +66,7 @@ public class ParametersSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -83,7 +82,7 @@ public class ParametersSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -94,9 +93,6 @@ public class ParametersSwitch<T> {
             T result = this.caseParameterPartition(parameterPartition);
             if (result == null) {
                 result = this.caseIdentifier(parameterPartition);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(parameterPartition);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -110,9 +106,6 @@ public class ParametersSwitch<T> {
                 result = this.caseIdentifier(parameterValue);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(parameterValue);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -122,9 +115,6 @@ public class ParametersSwitch<T> {
             T result = this.caseParameterInstance(parameterInstance);
             if (result == null) {
                 result = this.caseIdentifier(parameterInstance);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(parameterInstance);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -138,9 +128,6 @@ public class ParametersSwitch<T> {
                 result = this.caseIdentifier(callInstance);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(callInstance);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -150,9 +137,6 @@ public class ParametersSwitch<T> {
             T result = this.caseOperationReference(operationReference);
             if (result == null) {
                 result = this.caseIdentifier(operationReference);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(operationReference);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -166,9 +150,6 @@ public class ParametersSwitch<T> {
                 result = this.caseIdentifier(componentInstance);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(componentInstance);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -180,9 +161,6 @@ public class ParametersSwitch<T> {
                 result = this.caseIdentifier(componentReference);
             }
             if (result == null) {
-                result = this.caseStereotypableElement(componentReference);
-            }
-            if (result == null) {
                 result = this.defaultCase(theEObject);
             }
             return result;
@@ -192,9 +170,6 @@ public class ParametersSwitch<T> {
             T result = this.caseParameterReference(parameterReference);
             if (result == null) {
                 result = this.caseIdentifier(parameterReference);
-            }
-            if (result == null) {
-                result = this.caseStereotypableElement(parameterReference);
             }
             if (result == null) {
                 result = this.defaultCase(theEObject);
@@ -210,7 +185,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Partition</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Partition</em>
@@ -226,7 +201,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Value</em>'.
@@ -241,7 +216,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Instance</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Instance</em>
@@ -257,7 +232,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Call Instance</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Call Instance</em>'.
@@ -272,7 +247,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Operation Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Operation Reference</em>
@@ -288,7 +263,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Component Instance</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Component Instance</em>
@@ -304,7 +279,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Component Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Component Reference</em>
@@ -320,7 +295,7 @@ public class ParametersSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>
@@ -329,22 +304,6 @@ public class ParametersSwitch<T> {
      * @generated
      */
     public T caseParameterReference(final ParameterReference object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Stereotypable Element</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Stereotypable Element</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseStereotypableElement(final StereotypableElement object) {
         return null;
     }
 

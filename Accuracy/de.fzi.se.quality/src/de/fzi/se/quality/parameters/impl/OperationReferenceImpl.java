@@ -35,7 +35,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationReferenceImpl() {
@@ -44,7 +44,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -54,7 +54,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetCallInstance(final CallInstance newCallInstance, NotificationChain msgs) {
@@ -78,7 +78,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -169,7 +169,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -199,7 +199,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

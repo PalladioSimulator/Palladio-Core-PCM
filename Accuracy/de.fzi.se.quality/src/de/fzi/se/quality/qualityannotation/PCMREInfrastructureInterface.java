@@ -33,7 +33,7 @@ public interface PCMREInfrastructureInterface extends PCMRE {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Interface</em>' reference.
      * @see #setInterface(InfrastructureInterface)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMREInfrastructureInterface_Interface()
@@ -46,7 +46,7 @@ public interface PCMREInfrastructureInterface extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface#getInterface
      * <em>Interface</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Interface</em>' reference.
      * @see #getInterface()

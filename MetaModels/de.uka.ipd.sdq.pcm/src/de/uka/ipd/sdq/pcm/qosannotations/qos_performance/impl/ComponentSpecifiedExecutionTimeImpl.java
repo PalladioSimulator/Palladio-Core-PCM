@@ -33,7 +33,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +42,7 @@ ComponentSpecifiedExecutionTime {
      * The cached value of the '{@link #getAssemblyContext_ComponentSpecifiedExecutionTime()
      * <em>Assembly Context Component Specified Execution Time</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getAssemblyContext_ComponentSpecifiedExecutionTime()
      * @generated
      * @ordered
@@ -51,7 +51,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComponentSpecifiedExecutionTimeImpl() {
@@ -60,7 +60,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ComponentSpecifiedExecutionTime() {
@@ -105,7 +105,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -142,7 +142,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ ComponentSpecifiedExecutionTime {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

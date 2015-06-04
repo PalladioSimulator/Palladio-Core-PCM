@@ -43,7 +43,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
     /**
      * The cached value of the '{@link #getComponentReference() <em>Component Reference</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getComponentReference()
      * @generated
      * @ordered
@@ -53,7 +53,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
     /**
      * The cached value of the '{@link #getParameterInstances() <em>Parameter Instances</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getParameterInstances()
      * @generated
      * @ordered
@@ -62,7 +62,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComponentInstanceImpl() {
@@ -71,7 +71,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetComponentReference(final ComponentReference newComponentReference,
@@ -113,7 +113,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +141,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -156,7 +156,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -178,7 +178,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -195,7 +195,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -211,7 +211,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -231,7 +231,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -249,7 +249,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

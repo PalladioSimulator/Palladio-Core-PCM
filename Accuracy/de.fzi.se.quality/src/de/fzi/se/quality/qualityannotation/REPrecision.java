@@ -41,7 +41,7 @@ public interface REPrecision extends Identifier {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Default Precision Number Of Calls</em>' containment reference.
      * @see #setDefaultPrecisionNumberOfCalls(Precision)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getREPrecision_DefaultPrecisionNumberOfCalls()
@@ -55,7 +55,7 @@ public interface REPrecision extends Identifier {
      * {@link de.fzi.se.quality.qualityannotation.REPrecision#getDefaultPrecisionNumberOfCalls
      * <em>Default Precision Number Of Calls</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Default Precision Number Of Calls</em>' containment
      *            reference.
@@ -72,7 +72,7 @@ public interface REPrecision extends Identifier {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Default Precision Call Parameter</em>' containment reference.
      * @see #setDefaultPrecisionCallParameter(Precision)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getREPrecision_DefaultPrecisionCallParameter()
@@ -86,7 +86,7 @@ public interface REPrecision extends Identifier {
      * {@link de.fzi.se.quality.qualityannotation.REPrecision#getDefaultPrecisionCallParameter
      * <em>Default Precision Call Parameter</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Default Precision Call Parameter</em>' containment
      *            reference.
@@ -105,7 +105,7 @@ public interface REPrecision extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Required Element</em>' container reference.
      * @see #setRequiredElement(RequiredElement)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getREPrecision_RequiredElement()

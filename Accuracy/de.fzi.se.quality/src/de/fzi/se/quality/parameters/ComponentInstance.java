@@ -40,7 +40,7 @@ public interface ComponentInstance extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Component Reference</em>' containment reference.
      * @see #setComponentReference(ComponentReference)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getComponentInstance_ComponentReference()
@@ -55,7 +55,7 @@ public interface ComponentInstance extends Identifier {
      * {@link de.fzi.se.quality.parameters.ComponentInstance#getComponentReference
      * <em>Component Reference</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Component Reference</em>' containment reference.
      * @see #getComponentReference()
@@ -74,7 +74,7 @@ public interface ComponentInstance extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Instances</em>' containment reference list.
      * @see de.fzi.se.quality.parameters.ParametersPackage#getComponentInstance_ParameterInstances()
      * @see de.fzi.se.quality.parameters.ParameterInstance#getComponentInstance

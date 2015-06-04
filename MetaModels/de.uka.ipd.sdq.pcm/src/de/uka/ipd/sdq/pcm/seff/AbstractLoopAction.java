@@ -31,7 +31,7 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -46,7 +46,7 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Body Behaviour Loop</em>' containment reference.
      * @see #setBodyBehaviour_Loop(ResourceDemandingBehaviour)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractLoopAction_BodyBehaviour_Loop()
@@ -62,7 +62,7 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
      * {@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Body Behaviour Loop</em>' containment reference.
      * @see #getBodyBehaviour_Loop()

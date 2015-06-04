@@ -45,14 +45,14 @@ import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class QualityAnnotationFactoryImpl extends EFactoryImpl implements QualityAnnotationFactory {
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static QualityAnnotationFactory init() {
@@ -70,7 +70,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public QualityAnnotationFactoryImpl() {
@@ -79,7 +79,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -174,7 +174,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -185,7 +185,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -196,7 +196,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -207,7 +207,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -218,7 +218,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -229,7 +229,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -251,7 +251,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -262,7 +262,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -273,7 +273,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -284,7 +284,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -295,7 +295,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -306,7 +306,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -317,7 +317,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -328,7 +328,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -339,7 +339,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -350,7 +350,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -361,7 +361,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -372,7 +372,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -383,7 +383,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -394,7 +394,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -405,7 +405,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -416,7 +416,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -427,7 +427,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -438,7 +438,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -449,7 +449,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -460,7 +460,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public PCMRERequestCategory createPCMRERequestCategoryFromString(final EDataType eDataType,
@@ -475,7 +475,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public String convertPCMRERequestCategoryToString(final EDataType eDataType, final Object instanceValue) {
@@ -484,7 +484,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -494,7 +494,7 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

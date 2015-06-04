@@ -10,20 +10,15 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.mdsdprofiles.provider.ProfileableElementItemProvider;
 
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.allocation.Allocation} object.
@@ -31,7 +26,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  *
  * @generated
  */
-public class AllocationItemProvider extends ProfileableElementItemProvider {
+public class AllocationItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -61,41 +56,10 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addIdPropertyDescriptor(object);
-            this.addEntityNamePropertyDescriptor(object);
             this.addTargetResourceEnvironment_AllocationPropertyDescriptor(object);
             this.addSystem_AllocationPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
-    }
-
-    /**
-     * This adds a property descriptor for the Id feature. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @generated
-     */
-    protected void addIdPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_Identifier_id_feature"), this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_Identifier_id_feature", "_UI_Identifier_type"), IdentifierPackage.Literals.IDENTIFIER__ID,
-                        true, false, false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-    }
-
-    /**
-     * This adds a property descriptor for the Entity Name feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addEntityNamePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_NamedElement_entityName_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature",
-                        "_UI_NamedElement_type"), EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME, true, false,
-                false, ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
     }
 
     /**
@@ -195,10 +159,6 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
         this.updateChildren(notification);
 
         switch (notification.getFeatureID(Allocation.class)) {
-        case AllocationPackage.ALLOCATION__ID:
-        case AllocationPackage.ALLOCATION__ENTITY_NAME:
-            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -219,17 +179,6 @@ public class AllocationItemProvider extends ProfileableElementItemProvider {
         newChildDescriptors.add(this.createChildParameter(
                 AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION,
                 AllocationFactory.eINSTANCE.createAllocationContext()));
-    }
-
-    /**
-     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public ResourceLocator getResourceLocator() {
-        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

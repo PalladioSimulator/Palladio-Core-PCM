@@ -29,7 +29,7 @@ public interface SinkRole extends ProvidedRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public interface SinkRole extends ProvidedRole {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.SinkRole#getEventGroup__SinkRole
      * <em>Event Group Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Event Group Sink Role</em>' reference.
      * @see #getEventGroup__SinkRole()

@@ -56,7 +56,7 @@ public interface ParameterInstance extends Identifier {
      * {@link de.fzi.se.quality.parameters.ParameterInstance#getParameterReference
      * <em>Parameter Reference</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Parameter Reference</em>' containment reference.
      * @see #getParameterReference()
@@ -74,7 +74,7 @@ public interface ParameterInstance extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Input Call Instance</em>' container reference.
      * @see #setInputCallInstance(CallInstance)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterInstance_InputCallInstance()
@@ -107,7 +107,7 @@ public interface ParameterInstance extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Output Call Instance</em>' container reference.
      * @see #setOutputCallInstance(CallInstance)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterInstance_OutputCallInstance()
@@ -122,7 +122,7 @@ public interface ParameterInstance extends Identifier {
      * {@link de.fzi.se.quality.parameters.ParameterInstance#getOutputCallInstance
      * <em>Output Call Instance</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Output Call Instance</em>' container reference.
      * @see #getOutputCallInstance()
@@ -140,7 +140,7 @@ public interface ParameterInstance extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Component Instance</em>' container reference.
      * @see #setComponentInstance(ComponentInstance)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterInstance_ComponentInstance()
@@ -173,7 +173,7 @@ public interface ParameterInstance extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Value</em>' containment reference.
      * @see #setParameterValue(ParameterValue)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterInstance_ParameterValue()

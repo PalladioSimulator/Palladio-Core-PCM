@@ -53,7 +53,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PCMREInterfaceImpl() {
@@ -62,7 +62,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -92,7 +92,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationInterface basicGetInterface() {
@@ -101,7 +101,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +119,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
      * {@link #NextLowerLevelMustConsistOfTypePCMRERole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Role</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #NextLowerLevelMustConsistOfTypePCMRERole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -141,7 +141,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -177,7 +177,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -199,7 +199,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -232,7 +232,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -249,7 +249,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -264,7 +264,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -279,7 +279,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

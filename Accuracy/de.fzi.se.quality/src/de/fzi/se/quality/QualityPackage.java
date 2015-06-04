@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
+ *
  * @see de.fzi.se.quality.QualityFactory
  * @model kind="package"
  * @generated
@@ -31,28 +31,28 @@ public interface QualityPackage extends EPackage {
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNAME = "quality";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_URI = "http://fzi.de/PalladioComponentModel/Quality/0.2";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_PREFIX = "quality";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     QualityPackage eINSTANCE = de.fzi.se.quality.impl.QualityPackageImpl.init();
@@ -60,7 +60,7 @@ public interface QualityPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.impl.QualityRepositoryImpl
      * <em>Repository</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.fzi.se.quality.impl.QualityRepositoryImpl
      * @see de.fzi.se.quality.impl.QualityPackageImpl#getQualityRepository()
      * @generated
@@ -70,7 +70,7 @@ public interface QualityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -88,7 +88,7 @@ public interface QualityPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Repository</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -97,7 +97,7 @@ public interface QualityPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.impl.QualityStatementImpl
      * <em>Statement</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see de.fzi.se.quality.impl.QualityStatementImpl
      * @see de.fzi.se.quality.impl.QualityPackageImpl#getQualityStatement()
      * @generated
@@ -107,7 +107,7 @@ public interface QualityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -125,7 +125,7 @@ public interface QualityPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Statement</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -134,7 +134,7 @@ public interface QualityPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.QualityRepository
      * <em>Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Repository</em>'.
      * @see de.fzi.se.quality.QualityRepository
      * @generated
@@ -145,7 +145,7 @@ public interface QualityPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.fzi.se.quality.QualityRepository#getQualityStatements <em>Quality Statements</em>}
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the containment reference list '<em>Quality Statements</em>'.
      * @see de.fzi.se.quality.QualityRepository#getQualityStatements()
      * @see #getQualityRepository()
@@ -156,7 +156,7 @@ public interface QualityPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.QualityStatement
      * <em>Statement</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Statement</em>'.
      * @see de.fzi.se.quality.QualityStatement
      * @generated
@@ -167,7 +167,7 @@ public interface QualityPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.QualityStatement#getQualityRepository <em>Quality Repository</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the container reference '<em>Quality Repository</em>'.
      * @see de.fzi.se.quality.QualityStatement#getQualityRepository()
      * @see #getQualityStatement()
@@ -178,7 +178,7 @@ public interface QualityPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -193,7 +193,7 @@ public interface QualityPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     interface Literals {
@@ -201,7 +201,7 @@ public interface QualityPackage extends EPackage {
         /**
          * The meta object literal for the '{@link de.fzi.se.quality.impl.QualityRepositoryImpl
          * <em>Repository</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.fzi.se.quality.impl.QualityRepositoryImpl
          * @see de.fzi.se.quality.impl.QualityPackageImpl#getQualityRepository()
          * @generated
@@ -211,7 +211,7 @@ public interface QualityPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Quality Statements</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference QUALITY_REPOSITORY__QUALITY_STATEMENTS = eINSTANCE.getQualityRepository_QualityStatements();
@@ -219,7 +219,7 @@ public interface QualityPackage extends EPackage {
         /**
          * The meta object literal for the '{@link de.fzi.se.quality.impl.QualityStatementImpl
          * <em>Statement</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see de.fzi.se.quality.impl.QualityStatementImpl
          * @see de.fzi.se.quality.impl.QualityPackageImpl#getQualityStatement()
          * @generated
@@ -229,7 +229,7 @@ public interface QualityPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Quality Repository</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference QUALITY_STATEMENT__QUALITY_REPOSITORY = eINSTANCE.getQualityStatement_QualityRepository();

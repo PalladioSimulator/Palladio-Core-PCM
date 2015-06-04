@@ -56,7 +56,7 @@ public interface QualityAnnotation extends QualityStatement {
     /**
      * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#isValid
      * <em>Is Valid</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Is Valid</em>' attribute.
      * @see #isValid()
@@ -74,7 +74,7 @@ public interface QualityAnnotation extends QualityStatement {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>For Service Specification</em>' containment reference.
      * @see #setForServiceSpecification(ServiceSpecification)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_ForServiceSpecification()
@@ -89,7 +89,7 @@ public interface QualityAnnotation extends QualityStatement {
      * {@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getForServiceSpecification
      * <em>For Service Specification</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>For Service Specification</em>' containment reference.
      * @see #getForServiceSpecification()
@@ -108,7 +108,7 @@ public interface QualityAnnotation extends QualityStatement {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Stipulated RE Precisions</em>' containment reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_StipulatedREPrecisions()
      * @see de.fzi.se.quality.qualityannotation.RequiredElement#getQualityAnnotation
@@ -129,7 +129,7 @@ public interface QualityAnnotation extends QualityStatement {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Internal State Influence Analysis Results</em>' containment
      *         reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_InternalStateInfluenceAnalysisResults()
@@ -151,7 +151,7 @@ public interface QualityAnnotation extends QualityStatement {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Probabilistic Elements</em>' containment reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_ProbabilisticElements()
      * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement#getQualityAnnotation
@@ -171,7 +171,7 @@ public interface QualityAnnotation extends QualityStatement {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Valid For Parameter Partitions</em>' containment reference
      *         list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_ValidForParameterPartitions()

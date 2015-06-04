@@ -24,17 +24,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
-import org.palladiosimulator.mdsdprofiles.impl.ProfileableElementImpl;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.allocation.util.AllocationValidator;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
@@ -43,8 +38,6 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getId <em>Id</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getEntityName <em>Entity Name</em>}</li>
  * <li>
  * {@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getTargetResourceEnvironment_Allocation
  * <em>Target Resource Environment Allocation</em>}</li>
@@ -57,60 +50,20 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  *
  * @generated
  */
-public class AllocationImpl extends ProfileableElementImpl implements Allocation {
+public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The default value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected static final String ID_EDEFAULT = null;
-
-    /**
-     * The cached value of the '{@link #getId() <em>Id</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @see #getId()
-     * @generated
-     * @ordered
-     */
-    protected String id = ID_EDEFAULT;
-
-    /**
-     * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEntityName()
-     * @generated
-     * @ordered
-     */
-    protected static final String ENTITY_NAME_EDEFAULT = "aName";
-
-    /**
-     * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEntityName()
-     * @generated
-     * @ordered
-     */
-    protected String entityName = ENTITY_NAME_EDEFAULT;
-
-    /**
      * The cached value of the '{@link #getTargetResourceEnvironment_Allocation()
      * <em>Target Resource Environment Allocation</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see #getTargetResourceEnvironment_Allocation()
      * @generated
      * @ordered
@@ -120,7 +73,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     /**
      * The cached value of the '{@link #getSystem_Allocation() <em>System Allocation</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getSystem_Allocation()
      * @generated
      * @ordered
@@ -131,7 +84,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * The cached value of the '{@link #getAllocationContexts_Allocation()
      * <em>Allocation Contexts Allocation</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @see #getAllocationContexts_Allocation()
      * @generated
      * @ordered
@@ -140,7 +93,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AllocationImpl() {
@@ -149,7 +102,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,56 +112,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public String getId() {
-        return this.id;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void setId(final String newId) {
-        final String oldId = this.id;
-        this.id = newId;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION__ID, oldId, this.id));
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public String getEntityName() {
-        return this.entityName;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void setEntityName(final String newEntityName) {
-        final String oldEntityName = this.entityName;
-        this.entityName = newEntityName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION__ENTITY_NAME,
-                    oldEntityName, this.entityName));
-        }
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -230,7 +134,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceEnvironment basicGetTargetResourceEnvironment_Allocation() {
@@ -239,7 +143,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -256,7 +160,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -277,7 +181,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public de.uka.ipd.sdq.pcm.system.System basicGetSystem_Allocation() {
@@ -286,7 +190,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -301,7 +205,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -320,7 +224,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -348,7 +252,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -358,7 +262,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -433,7 +337,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
      * {@link #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Communicating Servers Have To Be Connected By Linking Resource</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -443,7 +347,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -476,7 +380,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -493,7 +397,7 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -508,16 +412,12 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case AllocationPackage.ALLOCATION__ID:
-            return this.getId();
-        case AllocationPackage.ALLOCATION__ENTITY_NAME:
-            return this.getEntityName();
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             if (resolve) {
                 return this.getTargetResourceEnvironment_Allocation();
@@ -536,19 +436,13 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case AllocationPackage.ALLOCATION__ID:
-            this.setId((String) newValue);
-            return;
-        case AllocationPackage.ALLOCATION__ENTITY_NAME:
-            this.setEntityName((String) newValue);
-            return;
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             this.setTargetResourceEnvironment_Allocation((ResourceEnvironment) newValue);
             return;
@@ -565,18 +459,12 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case AllocationPackage.ALLOCATION__ID:
-            this.setId(ID_EDEFAULT);
-            return;
-        case AllocationPackage.ALLOCATION__ENTITY_NAME:
-            this.setEntityName(ENTITY_NAME_EDEFAULT);
-            return;
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             this.setTargetResourceEnvironment_Allocation((ResourceEnvironment) null);
             return;
@@ -592,18 +480,13 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case AllocationPackage.ALLOCATION__ID:
-            return ID_EDEFAULT == null ? this.id != null : !ID_EDEFAULT.equals(this.id);
-        case AllocationPackage.ALLOCATION__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
-                    .equals(this.entityName);
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             return this.targetResourceEnvironment_Allocation != null;
         case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
@@ -615,93 +498,9 @@ public class AllocationImpl extends ProfileableElementImpl implements Allocation
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == Identifier.class) {
-            switch (derivedFeatureID) {
-            case AllocationPackage.ALLOCATION__ID:
-                return IdentifierPackage.IDENTIFIER__ID;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == NamedElement.class) {
-            switch (derivedFeatureID) {
-            case AllocationPackage.ALLOCATION__ENTITY_NAME:
-                return EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == Entity.class) {
-            switch (derivedFeatureID) {
-            default:
-                return -1;
-            }
-        }
-        return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == Identifier.class) {
-            switch (baseFeatureID) {
-            case IdentifierPackage.IDENTIFIER__ID:
-                return AllocationPackage.ALLOCATION__ID;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == NamedElement.class) {
-            switch (baseFeatureID) {
-            case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-                return AllocationPackage.ALLOCATION__ENTITY_NAME;
-            default:
-                return -1;
-            }
-        }
-        if (baseClass == Entity.class) {
-            switch (baseFeatureID) {
-            default:
-                return -1;
-            }
-        }
-        return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (id: ");
-        result.append(this.id);
-        result.append(", entityName: ");
-        result.append(this.entityName);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

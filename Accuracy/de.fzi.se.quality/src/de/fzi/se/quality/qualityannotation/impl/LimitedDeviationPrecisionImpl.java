@@ -72,7 +72,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected LimitedDeviationPrecisionImpl() {
@@ -81,7 +81,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -101,7 +101,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -126,7 +126,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +141,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -193,7 +193,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements Limi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

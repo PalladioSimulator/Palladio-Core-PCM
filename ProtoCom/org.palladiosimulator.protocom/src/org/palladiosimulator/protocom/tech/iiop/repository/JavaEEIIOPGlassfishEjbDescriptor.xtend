@@ -3,9 +3,9 @@ package org.palladiosimulator.protocom.tech.iiop.repository
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
 import java.util.HashMap
-import org.eclipse.emf.ecore.EObject
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPDescriptor
+import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI
 
 class JavaEEIIOPGlassfishEjbDescriptor extends JavaEEIIOPDescriptor<AllocationContext> {
 	private val allocation = pcmEntity.allocation_AllocationContext
@@ -46,8 +46,9 @@ class JavaEEIIOPGlassfishEjbDescriptor extends JavaEEIIOPDescriptor<AllocationCo
 				it.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext.equals(
 					connector.providedRole_AssemblyConnector.providingEntity_ProvidedRole)]
 			for (allocationContext : requiredEntityAllocationContext) {
-				var resourceContainerAppliedStereotypes = allocationContext.resourceContainer_AllocationContext.
-					getStereotypeApplications("IIOP")
+				var resourceContainer = allocationContext.resourceContainer_AllocationContext
+				var resourceContainerAppliedStereotypes = StereotypeAPI.getStereotypeApplications(resourceContainer, "IIOP")
+				
 				if(resourceContainerAppliedStereotypes != null){
 					for (stereotypeApplication : resourceContainerAppliedStereotypes) {
 						var ipValue = stereotypeApplication.eGet(stereotypeApplication.extension.source.getTaggedValue("IpAddress")).toString
