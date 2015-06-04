@@ -40,7 +40,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
     /**
      * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRole()
      * @generated
      * @ordered
@@ -49,7 +49,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREInfrastructureRoleImpl() {
@@ -58,7 +58,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetRole() {
@@ -97,7 +97,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -115,7 +115,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
      * {@link #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Infrastructure Signature</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -128,7 +128,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
      * {@link #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Infrastructure Signature</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -138,7 +138,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +178,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -201,7 +201,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -238,7 +238,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,7 +255,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -285,7 +285,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

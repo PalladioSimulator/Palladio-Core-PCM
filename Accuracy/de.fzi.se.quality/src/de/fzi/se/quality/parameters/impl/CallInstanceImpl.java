@@ -47,7 +47,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
     /**
      * The cached value of the '{@link #getOperationReference() <em>Operation Reference</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getOperationReference()
      * @generated
      * @ordered
@@ -58,7 +58,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
      * The cached value of the '{@link #getOutputParameterInstances()
      * <em>Output Parameter Instances</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getOutputParameterInstances()
      * @generated
      * @ordered
@@ -68,7 +68,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
     /**
      * The default value of the '{@link #getNumberOfCalls() <em>Number Of Calls</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getNumberOfCalls()
      * @generated
      * @ordered
@@ -78,7 +78,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
     /**
      * The cached value of the '{@link #getNumberOfCalls() <em>Number Of Calls</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getNumberOfCalls()
      * @generated
      * @ordered
@@ -89,7 +89,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
      * The cached value of the '{@link #getInputParameterInstances()
      * <em>Input Parameter Instances</em>}' containment reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getInputParameterInstances()
      * @generated
      * @ordered
@@ -98,7 +98,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CallInstanceImpl() {
@@ -107,7 +107,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetOperationReference(final OperationReference newOperationReference,
@@ -148,7 +148,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -215,7 +215,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -230,7 +230,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -255,7 +255,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -274,7 +274,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -294,7 +294,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -321,7 +321,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -345,7 +345,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -365,7 +365,7 @@ public class CallInstanceImpl extends IdentifierImpl implements CallInstance {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

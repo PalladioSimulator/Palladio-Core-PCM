@@ -40,7 +40,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
     /**
      * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -58,7 +58,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
     /**
      * The cached value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -69,7 +69,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
      * The cached value of the '{@link #getBranchedBehaviour_BranchTransition()
      * <em>Branched Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchedBehaviour_BranchTransition()
      * @generated
      * @ordered
@@ -78,7 +78,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BranchTransitionImpl() {
@@ -87,7 +87,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -136,7 +136,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranch_BranchTransition(final Branch newBranch_BranchTransition,
@@ -148,7 +148,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +179,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +189,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchedBehaviour_BranchTransition(
@@ -211,7 +211,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -265,7 +265,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -282,7 +282,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +297,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -315,7 +315,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -336,7 +336,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -357,7 +357,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -375,7 +375,7 @@ public class BranchTransitionImpl extends StereotypableElementImpl implements Br
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

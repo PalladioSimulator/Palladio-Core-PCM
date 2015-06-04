@@ -45,7 +45,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
     /**
      * The cached value of the '{@link #getResourceInterface() <em>Resource Interface</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceInterface()
      * @generated
      * @ordered
@@ -54,7 +54,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREResourceInterfaceImpl() {
@@ -63,7 +63,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,7 +94,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterface basicGetResourceInterface() {
@@ -103,7 +103,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
      * {@link #NextLowerLevelMustConsistOfTypePCMREResourceRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Resource Role</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMREResourceRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -144,7 +144,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -183,7 +183,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -205,7 +205,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -259,7 +259,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -274,7 +274,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -289,7 +289,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

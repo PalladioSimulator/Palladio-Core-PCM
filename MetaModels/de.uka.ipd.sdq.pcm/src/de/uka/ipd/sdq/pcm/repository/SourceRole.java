@@ -25,7 +25,7 @@ public interface SourceRole extends RequiredRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface SourceRole extends RequiredRole {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.repository.SourceRole#getEventGroup__SourceRole
      * <em>Event Group Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Event Group Source Role</em>' reference.
      * @see #getEventGroup__SourceRole()

@@ -47,7 +47,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
      * The cached value of the '{@link #getParameter__ResourceSignature()
      * <em>Parameter Resource Signature</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameter__ResourceSignature()
      * @generated
      * @ordered
@@ -66,7 +66,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     /**
      * The default value of the '{@link #getResourceServiceId() <em>Resource Service Id</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceServiceId()
      * @generated
      * @ordered
@@ -76,7 +76,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     /**
      * The cached value of the '{@link #getResourceServiceId() <em>Resource Service Id</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceServiceId()
      * @generated
      * @ordered
@@ -85,7 +85,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceSignatureImpl() {
@@ -94,7 +94,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -120,7 +120,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -146,7 +146,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceInterface__ResourceSignature(
@@ -171,7 +171,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +203,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -224,7 +224,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +257,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -275,7 +275,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -298,7 +298,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -319,7 +319,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -338,7 +338,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

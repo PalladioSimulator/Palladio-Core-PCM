@@ -61,35 +61,35 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerformancePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass infrastructureCallEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceCallEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass parametricResourceDemandEClass = null;
@@ -102,7 +102,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#eNS_URI
      * @see #init()
@@ -114,7 +114,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -127,7 +127,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
      * This method is used to initialize {@link SeffPerformancePackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -271,7 +271,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -281,7 +281,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -291,7 +291,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -301,7 +301,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,7 +311,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -321,7 +321,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -331,7 +331,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +341,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -351,7 +351,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -361,7 +361,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -371,7 +371,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -381,7 +381,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -391,7 +391,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -401,7 +401,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -411,7 +411,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -421,7 +421,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -429,7 +429,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -462,7 +462,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -470,7 +470,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {

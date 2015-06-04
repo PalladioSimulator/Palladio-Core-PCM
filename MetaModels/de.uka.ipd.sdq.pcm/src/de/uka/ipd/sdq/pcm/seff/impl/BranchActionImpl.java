@@ -45,7 +45,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +53,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
     /**
      * The cached value of the '{@link #getBranches_Branch() <em>Branches Branch</em>}' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranches_Branch()
      * @generated
      * @ordered
@@ -62,7 +62,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BranchActionImpl() {
@@ -71,7 +71,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -114,7 +114,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
      * {@link #EitherGuardedBranchesOrProbabilisiticBranchTransitions(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Either Guarded Branches Or Probabilisitic Branch Transitions</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EitherGuardedBranchesOrProbabilisiticBranchTransitions(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -124,7 +124,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,7 +219,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -236,7 +236,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -251,7 +251,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -265,7 +265,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -282,7 +282,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +297,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -313,7 +313,7 @@ public class BranchActionImpl extends AbstractInternalControlFlowActionImpl impl
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

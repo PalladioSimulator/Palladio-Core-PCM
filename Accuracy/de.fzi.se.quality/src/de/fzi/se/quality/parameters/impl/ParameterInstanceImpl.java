@@ -47,7 +47,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
     /**
      * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameterReference()
      * @generated
      * @ordered
@@ -57,7 +57,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
     /**
      * The cached value of the '{@link #getParameterValue() <em>Parameter Value</em>}' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameterValue()
      * @generated
      * @ordered
@@ -66,7 +66,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterInstanceImpl() {
@@ -75,7 +75,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +85,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterReference(final ParameterReference newParameterReference,
@@ -117,7 +117,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -158,7 +158,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInputCallInstance(final CallInstance newInputCallInstance, NotificationChain msgs) {
@@ -169,7 +169,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,7 +213,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetOutputCallInstance(final CallInstance newOutputCallInstance, NotificationChain msgs) {
@@ -224,7 +224,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,7 +255,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +268,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetComponentInstance(final ComponentInstance newComponentInstance,
@@ -280,7 +280,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,7 +311,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -321,7 +321,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterValue(final ParameterValue newParameterValue, NotificationChain msgs) {
@@ -341,7 +341,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -368,7 +368,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -407,7 +407,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -430,7 +430,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -451,7 +451,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -473,7 +473,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -500,7 +500,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -527,7 +527,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

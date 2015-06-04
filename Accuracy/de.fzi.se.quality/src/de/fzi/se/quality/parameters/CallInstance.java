@@ -43,7 +43,7 @@ public interface CallInstance extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Operation Reference</em>' containment reference.
      * @see #setOperationReference(OperationReference)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getCallInstance_OperationReference()
@@ -58,7 +58,7 @@ public interface CallInstance extends Identifier {
      * {@link de.fzi.se.quality.parameters.CallInstance#getOperationReference
      * <em>Operation Reference</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Operation Reference</em>' containment reference.
      * @see #getOperationReference()
@@ -77,7 +77,7 @@ public interface CallInstance extends Identifier {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Output Parameter Instances</em>' containment reference list.
      * @see de.fzi.se.quality.parameters.ParametersPackage#getCallInstance_OutputParameterInstances()
      * @see de.fzi.se.quality.parameters.ParameterInstance#getOutputCallInstance
@@ -94,7 +94,7 @@ public interface CallInstance extends Identifier {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Number Of Calls</em>' attribute.
      * @see #setNumberOfCalls(long)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getCallInstance_NumberOfCalls()
@@ -106,7 +106,7 @@ public interface CallInstance extends Identifier {
     /**
      * Sets the value of the '{@link de.fzi.se.quality.parameters.CallInstance#getNumberOfCalls
      * <em>Number Of Calls</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Number Of Calls</em>' attribute.
      * @see #getNumberOfCalls()
@@ -125,7 +125,7 @@ public interface CallInstance extends Identifier {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Input Parameter Instances</em>' containment reference list.
      * @see de.fzi.se.quality.parameters.ParametersPackage#getCallInstance_InputParameterInstances()
      * @see de.fzi.se.quality.parameters.ParameterInstance#getInputCallInstance

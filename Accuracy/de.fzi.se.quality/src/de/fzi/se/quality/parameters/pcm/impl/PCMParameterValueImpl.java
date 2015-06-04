@@ -40,7 +40,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
      * The cached value of the '{@link #getVariableCharacterisations()
      * <em>Variable Characterisations</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getVariableCharacterisations()
      * @generated
      * @ordered
@@ -49,7 +49,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMParameterValueImpl() {
@@ -58,7 +58,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,7 +82,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -128,7 +128,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -143,7 +143,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

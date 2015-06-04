@@ -40,7 +40,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
     /**
      * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameterReference()
      * @generated
      * @ordered
@@ -49,7 +49,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterPartitionImpl() {
@@ -58,7 +58,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQualityAnnotation(final QualityAnnotation newQualityAnnotation,
@@ -93,7 +93,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterReference(final ParameterReference newParameterReference,
@@ -157,7 +157,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -185,7 +185,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,7 +225,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +257,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -275,7 +275,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -293,7 +293,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

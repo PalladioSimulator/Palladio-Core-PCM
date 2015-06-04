@@ -56,7 +56,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRECategoryImpl() {
@@ -65,7 +65,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +85,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -103,7 +103,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -116,7 +116,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -126,7 +126,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -170,7 +170,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Existing RE Precision Call Parameter Must Be No Precision Due To The Non Existence Of Parameters For Category Resource Demand</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -183,7 +183,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Existing RE Precision Call Parameter Must Be No Precision Due To The Non Existence Of Parameters For Category Resource Demand</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -193,7 +193,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -237,7 +237,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource Interface For Category Resource</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -250,7 +250,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource Interface For Category Resource</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -260,7 +260,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -300,7 +300,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Interface For Category Component</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -313,7 +313,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Interface For Category Component</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -323,7 +323,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -363,7 +363,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource For Category Resource Demand</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -376,7 +376,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource For Category Resource Demand</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -386,7 +386,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -426,7 +426,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRECI Behavior For Category Component Internal</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -439,7 +439,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRECI Behavior For Category Component Internal</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -449,7 +449,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -489,7 +489,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Category Exactly Once If Specified</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -502,7 +502,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Category Exactly Once If Specified</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -512,7 +512,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -546,7 +546,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -560,7 +560,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -575,7 +575,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -590,7 +590,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -604,7 +604,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

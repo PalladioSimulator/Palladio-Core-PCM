@@ -30,7 +30,7 @@ public class PCMPEAllDecisionsImpl extends PCMPEImpl implements PCMPEAllDecision
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMPEAllDecisionsImpl() {
@@ -39,7 +39,7 @@ public class PCMPEAllDecisionsImpl extends PCMPEImpl implements PCMPEAllDecision
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -52,7 +52,7 @@ public class PCMPEAllDecisionsImpl extends PCMPEImpl implements PCMPEAllDecision
      * {@link #NextLowerHierarchyLevelMustBeDecision(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Must Be Decision</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelMustBeDecision(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -75,7 +75,7 @@ public class PCMPEAllDecisionsImpl extends PCMPEImpl implements PCMPEAllDecision
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

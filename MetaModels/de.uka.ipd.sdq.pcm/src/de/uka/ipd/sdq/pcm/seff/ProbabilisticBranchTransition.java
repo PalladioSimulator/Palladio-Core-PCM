@@ -41,7 +41,7 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Branch Probability</em>' attribute.
      * @see #setBranchProbability(double)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getProbabilisticBranchTransition_BranchProbability()
@@ -67,7 +67,7 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
      * <em>Branch Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Branch Probability</em>' attribute.
      * @see #getBranchProbability()

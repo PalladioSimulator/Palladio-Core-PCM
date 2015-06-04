@@ -48,7 +48,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      * The cached value of the '{@link #getParentType_CompositeDataType()
      * <em>Parent Type Composite Data Type</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getParentType_CompositeDataType()
      * @generated
      * @ordered
@@ -76,7 +76,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompositeDataTypeImpl() {
@@ -85,7 +85,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
@@ -120,7 +120,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -151,7 +151,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -166,7 +166,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -183,7 +183,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -204,7 +204,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +221,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -236,7 +236,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -254,7 +254,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -278,7 +278,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -299,7 +299,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -319,7 +319,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -337,7 +337,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

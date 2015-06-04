@@ -39,7 +39,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      * The cached value of the '{@link #getBranchBehaviour_BranchTransition()
      * <em>Branch Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchBehaviour_BranchTransition()
      * @generated
      * @ordered
@@ -57,7 +57,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AbstractBranchTransitionImpl() {
@@ -66,7 +66,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchAction_AbstractBranchTransition(
@@ -101,7 +101,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +132,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +142,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchBehaviour_BranchTransition(
@@ -164,7 +164,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -198,7 +198,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +223,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,7 +255,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -271,7 +271,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -289,7 +289,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -307,7 +307,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

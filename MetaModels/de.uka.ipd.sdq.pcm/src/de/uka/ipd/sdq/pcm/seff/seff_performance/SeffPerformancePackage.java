@@ -30,35 +30,35 @@ public interface SeffPerformancePackage extends EPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNAME = "seff_performance";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_PREFIX = "seff_performance";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     SeffPerformancePackage eINSTANCE = de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl.init();
@@ -67,7 +67,7 @@ public interface SeffPerformancePackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.impl.InfrastructureCallImpl
      * <em>Infrastructure Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.InfrastructureCallImpl
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl#getInfrastructureCall()
      * @generated
@@ -75,18 +75,9 @@ public interface SeffPerformancePackage extends EPackage {
     int INFRASTRUCTURE_CALL = 0;
 
     /**
-     * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int INFRASTRUCTURE_CALL__PROFILEABLE_ELEMENT = SeffPackage.CALL_ACTION__PROFILEABLE_ELEMENT;
-
-    /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -95,7 +86,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -104,7 +95,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -122,7 +113,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Number Of Calls Infrastructure Call</b></em>' containment
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -159,7 +150,7 @@ public interface SeffPerformancePackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ResourceCallImpl <em>Resource Call</em>}
      * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ResourceCallImpl
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl#getResourceCall()
      * @generated
@@ -167,18 +158,9 @@ public interface SeffPerformancePackage extends EPackage {
     int RESOURCE_CALL = 1;
 
     /**
-     * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_CALL__PROFILEABLE_ELEMENT = SeffPackage.CALL_ACTION__PROFILEABLE_ELEMENT;
-
-    /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -187,7 +169,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -196,7 +178,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -232,7 +214,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Number Of Calls Resource Call</b></em>' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -241,7 +223,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The number of structural features of the '<em>Resource Call</em>' class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -251,7 +233,7 @@ public interface SeffPerformancePackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl
      * <em>Parametric Resource Demand</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl#getParametricResourceDemand()
      * @generated
@@ -259,18 +241,9 @@ public interface SeffPerformancePackage extends EPackage {
     int PARAMETRIC_RESOURCE_DEMAND = 2;
 
     /**
-     * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int PARAMETRIC_RESOURCE_DEMAND__PROFILEABLE_ELEMENT = MdsdprofilesPackage.STEREOTYPABLE_ELEMENT__PROFILEABLE_ELEMENT;
-
-    /**
      * The feature id for the '<em><b>Specification Parameteric Resource Demand</b></em>'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -279,7 +252,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Required Resource Parametric Resource Demand</b></em>'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -288,7 +261,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -307,7 +280,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall
      * <em>Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Infrastructure Call</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall
      * @generated
@@ -318,7 +291,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getSignature__InfrastructureCall
      * <em>Signature Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Signature Infrastructure Call</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getSignature__InfrastructureCall()
      * @see #getInfrastructureCall()
@@ -330,7 +303,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the containment reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall
      * <em>Number Of Calls Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '
      *         <em>Number Of Calls Infrastructure Call</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall()
@@ -343,7 +316,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall
      * <em>Action Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Action Infrastructure Call</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall()
      * @see #getInfrastructureCall()
@@ -355,7 +328,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall
      * <em>Required Role Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Required Role Infrastructure Call</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall()
      * @see #getInfrastructureCall()
@@ -378,7 +351,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
      * <em>Action Resource Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Action Resource Call</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall()
      * @see #getResourceCall()
@@ -403,7 +376,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
      * <em>Signature Resource Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Signature Resource Call</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall()
      * @see #getResourceCall()
@@ -415,7 +388,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the containment reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
      * <em>Number Of Calls Resource Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '<em>Number Of Calls Resource Call</em>
      *         '.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall()
@@ -428,7 +401,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
      * <em>Parametric Resource Demand</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Parametric Resource Demand</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
      * @generated
@@ -440,7 +413,7 @@ public interface SeffPerformancePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand
      * <em>Specification Parameteric Resource Demand</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '
      *         <em>Specification Parameteric Resource Demand</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand()
@@ -454,7 +427,7 @@ public interface SeffPerformancePackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand
      * <em>Required Resource Parametric Resource Demand</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '
      *         <em>Required Resource Parametric Resource Demand</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand()
@@ -467,7 +440,7 @@ public interface SeffPerformancePackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
      * <em>Action Parametric Resource Demand</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '
      *         <em>Action Parametric Resource Demand</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand()
@@ -479,7 +452,7 @@ public interface SeffPerformancePackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -494,7 +467,7 @@ public interface SeffPerformancePackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     interface Literals {
@@ -503,7 +476,7 @@ public interface SeffPerformancePackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.impl.InfrastructureCallImpl
          * <em>Infrastructure Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.InfrastructureCallImpl
          * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl#getInfrastructureCall()
          * @generated
@@ -513,7 +486,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Signature Infrastructure Call</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL = eINSTANCE
@@ -522,7 +495,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Number Of Calls Infrastructure Call</b></em>'
          * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL = eINSTANCE
@@ -531,7 +504,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Action Infrastructure Call</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL = eINSTANCE
@@ -540,7 +513,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Required Role Infrastructure Call</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL = eINSTANCE
@@ -550,7 +523,7 @@ public interface SeffPerformancePackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ResourceCallImpl
          * <em>Resource Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ResourceCallImpl
          * @see de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl#getResourceCall()
          * @generated
@@ -560,7 +533,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Action Resource Call</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RESOURCE_CALL__ACTION_RESOURCE_CALL = eINSTANCE.getResourceCall_Action__ResourceCall();
@@ -568,7 +541,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Required Role Resource Call</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL = eINSTANCE
@@ -577,7 +550,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Signature Resource Call</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RESOURCE_CALL__SIGNATURE_RESOURCE_CALL = eINSTANCE.getResourceCall_Signature__ResourceCall();
@@ -585,7 +558,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Number Of Calls Resource Call</b></em>'
          * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL = eINSTANCE
@@ -607,7 +580,7 @@ public interface SeffPerformancePackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Specification Parameteric Resource Demand</b></em>' containment reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = eINSTANCE
@@ -626,7 +599,7 @@ public interface SeffPerformancePackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Action Parametric Resource Demand</b></em>'
          * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = eINSTANCE

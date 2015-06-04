@@ -35,7 +35,7 @@ public interface QualityStatement extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Quality Repository</em>' container reference.
      * @see #setQualityRepository(QualityRepository)
      * @see de.fzi.se.quality.QualityPackage#getQualityStatement_QualityRepository()

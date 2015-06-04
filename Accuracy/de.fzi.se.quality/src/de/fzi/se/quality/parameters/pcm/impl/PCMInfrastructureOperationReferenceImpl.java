@@ -39,7 +39,7 @@ PCMInfrastructureOperationReference {
     /**
      * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRole()
      * @generated
      * @ordered
@@ -58,7 +58,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMInfrastructureOperationReferenceImpl() {
@@ -67,7 +67,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,7 +77,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetRole() {
@@ -106,7 +106,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,7 +141,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureSignature basicGetSignature() {
@@ -150,7 +150,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,7 +165,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -187,7 +187,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -205,7 +205,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +223,7 @@ PCMInfrastructureOperationReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

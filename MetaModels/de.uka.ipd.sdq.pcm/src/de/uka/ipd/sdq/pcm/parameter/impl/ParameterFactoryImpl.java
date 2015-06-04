@@ -21,21 +21,21 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static ParameterFactory init() {
@@ -53,7 +53,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ParameterFactoryImpl() {
@@ -62,7 +62,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public VariableCharacterisationType createVariableCharacterisationTypeFromString(final EDataType eDataType,
@@ -159,7 +159,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public String convertVariableCharacterisationTypeToString(final EDataType eDataType, final Object instanceValue) {
@@ -168,7 +168,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +178,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

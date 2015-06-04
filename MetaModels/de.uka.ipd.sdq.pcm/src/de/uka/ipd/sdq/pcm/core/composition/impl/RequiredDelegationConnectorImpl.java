@@ -50,7 +50,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * The cached value of the '{@link #getInnerRequiredRole_RequiredDelegationConnector()
      * <em>Inner Required Role Required Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInnerRequiredRole_RequiredDelegationConnector()
      * @generated
      * @ordered
@@ -70,7 +70,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * The cached value of the '{@link #getOuterRequiredRole_RequiredDelegationConnector()
      * <em>Outer Required Role Required Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getOuterRequiredRole_RequiredDelegationConnector()
      * @generated
      * @ordered
@@ -81,7 +81,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * The cached value of the '{@link #getAssemblyContext_RequiredDelegationConnector()
      * <em>Assembly Context Required Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getAssemblyContext_RequiredDelegationConnector()
      * @generated
      * @ordered
@@ -90,7 +90,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RequiredDelegationConnectorImpl() {
@@ -99,7 +99,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetInnerRequiredRole_RequiredDelegationConnector() {
@@ -144,7 +144,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetOuterRequiredRole_RequiredDelegationConnector() {
@@ -199,7 +199,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,7 +219,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,7 +245,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_RequiredDelegationConnector() {
@@ -254,7 +254,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -274,7 +274,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Required Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -287,7 +287,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Required Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -297,7 +297,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +341,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Component Of Assembly Context And Inner Role Requiring Component Need To Be The Same</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -354,7 +354,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Component Of Assembly Context And Inner Role Requiring Component Need To Be The Same</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -364,7 +364,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -404,7 +404,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Requiring Entity Of Outer Required Role Must Be The Same As The Parent Of The Required Delegation Connector</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -417,7 +417,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
      * {@link #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Requiring Entity Of Outer Required Role Must Be The Same As The Parent Of The Required Delegation Connector</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -427,7 +427,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -468,7 +468,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -495,7 +495,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -516,7 +516,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -537,7 +537,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -556,7 +556,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

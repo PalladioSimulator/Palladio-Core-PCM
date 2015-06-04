@@ -45,7 +45,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
     /**
      * The cached value of the '{@link #getResourceSignature() <em>Resource Signature</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getResourceSignature()
      * @generated
      * @ordered
@@ -54,7 +54,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREResourceSignatureImpl() {
@@ -63,7 +63,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,7 +94,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceSignature basicGetResourceSignature() {
@@ -103,7 +103,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
      * {@link #ThisIsTheLowestResourceHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Resource Hierarchy Level</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #ThisIsTheLowestResourceHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -144,7 +144,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -206,7 +206,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +243,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -260,7 +260,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -275,7 +275,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -290,7 +290,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

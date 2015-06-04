@@ -39,7 +39,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
     /**
      * The cached value of the '{@link #getSuccessor_AbstractAction()
      * <em>Successor Abstract Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getSuccessor_AbstractAction()
      * @generated
      * @ordered
@@ -66,7 +66,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AbstractActionImpl() {
@@ -75,7 +75,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +85,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractAction basicGetPredecessor_AbstractAction() {
@@ -115,7 +115,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPredecessor_AbstractAction(final AbstractAction newPredecessor_AbstractAction,
@@ -137,7 +137,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,7 +165,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractAction basicGetSuccessor_AbstractAction() {
@@ -195,7 +195,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSuccessor_AbstractAction(final AbstractAction newSuccessor_AbstractAction,
@@ -217,7 +217,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,7 +245,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +258,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceDemandingBehaviour_AbstractAction(
@@ -270,7 +270,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -304,7 +304,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,7 +333,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -352,7 +352,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -367,7 +367,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -391,7 +391,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -412,7 +412,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -433,7 +433,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

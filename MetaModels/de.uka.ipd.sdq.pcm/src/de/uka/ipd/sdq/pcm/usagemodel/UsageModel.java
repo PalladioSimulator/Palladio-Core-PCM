@@ -35,7 +35,7 @@ public interface UsageModel extends ProfileableElement {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface UsageModel extends ProfileableElement {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>User Data Usage Model</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UserData_UsageModel()
      * @see de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
@@ -71,7 +71,7 @@ public interface UsageModel extends ProfileableElement {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Usage Scenario Usage Model</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UsageScenario_UsageModel()
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario

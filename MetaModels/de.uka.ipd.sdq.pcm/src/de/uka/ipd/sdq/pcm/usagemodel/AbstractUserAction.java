@@ -36,7 +36,7 @@ public interface AbstractUserAction extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,7 +50,7 @@ public interface AbstractUserAction extends Entity {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Successor</em>' reference.
      * @see #setSuccessor(AbstractUserAction)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Successor()
@@ -63,7 +63,7 @@ public interface AbstractUserAction extends Entity {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor
      * <em>Successor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Successor</em>' reference.
      * @see #getSuccessor()
@@ -80,7 +80,7 @@ public interface AbstractUserAction extends Entity {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Predecessor</em>' reference.
      * @see #setPredecessor(AbstractUserAction)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Predecessor()
@@ -94,7 +94,7 @@ public interface AbstractUserAction extends Entity {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Predecessor</em>' reference.
      * @see #getPredecessor()
@@ -112,7 +112,7 @@ public interface AbstractUserAction extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Scenario Behaviour Abstract User Action</em>' container
      *         reference.
      * @see #setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour)
@@ -128,7 +128,7 @@ public interface AbstractUserAction extends Entity {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
      * <em>Scenario Behaviour Abstract User Action</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Scenario Behaviour Abstract User Action</em>' container
      *            reference.

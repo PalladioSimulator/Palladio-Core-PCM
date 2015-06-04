@@ -58,7 +58,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CharacterisedPCMParameterPartitionIntervalImpl() {
@@ -67,7 +67,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,7 +77,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -87,7 +87,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetFrom(final PCMRandomVariable newFrom, NotificationChain msgs) {
@@ -107,7 +107,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetTo(final PCMRandomVariable newTo, NotificationChain msgs) {
@@ -164,7 +164,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,7 +191,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,7 +224,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -260,7 +260,7 @@ CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

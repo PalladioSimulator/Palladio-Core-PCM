@@ -51,7 +51,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
     /**
      * The cached value of the '{@link #getEventGroup__EventChannel()
      * <em>Event Group Event Channel</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getEventGroup__EventChannel()
      * @generated
      * @ordered
@@ -69,7 +69,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      * The cached value of the '{@link #getEventChannelSourceConnector__EventChannel()
      * <em>Event Channel Source Connector Event Channel</em>}' reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getEventChannelSourceConnector__EventChannel()
      * @generated
      * @ordered
@@ -79,7 +79,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      * The cached value of the '{@link #getEventChannelSinkConnector__EventChannel()
      * <em>Event Channel Sink Connector Event Channel</em>}' reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getEventChannelSinkConnector__EventChannel()
      * @generated
      * @ordered
@@ -88,7 +88,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventChannelImpl() {
@@ -97,7 +97,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -128,7 +128,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventGroup basicGetEventGroup__EventChannel() {
@@ -137,7 +137,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -170,7 +170,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -187,7 +187,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentStructure__EventChannel(
@@ -212,7 +212,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -244,7 +244,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -268,7 +268,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,7 +287,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +303,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -326,7 +326,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -355,7 +355,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -379,7 +379,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")

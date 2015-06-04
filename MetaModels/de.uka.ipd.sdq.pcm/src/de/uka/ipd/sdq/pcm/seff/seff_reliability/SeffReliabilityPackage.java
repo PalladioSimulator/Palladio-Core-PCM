@@ -20,7 +20,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory
  * @model kind="package"
  * @generated
@@ -29,35 +29,35 @@ public interface SeffReliabilityPackage extends EPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNAME = "seff_reliability";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_PREFIX = "seff_reliability";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     SeffReliabilityPackage eINSTANCE = de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl.init();
@@ -66,7 +66,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
      * <em>Failure Handling Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl#getFailureHandlingEntity()
      * @generated
@@ -74,18 +74,9 @@ public interface SeffReliabilityPackage extends EPackage {
     int FAILURE_HANDLING_ENTITY = 2;
 
     /**
-     * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int FAILURE_HANDLING_ENTITY__PROFILEABLE_ELEMENT = EntityPackage.ENTITY__PROFILEABLE_ELEMENT;
-
-    /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -94,7 +85,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -103,7 +94,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Failure Types Failure Handling Entity</b></em>' reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -122,7 +113,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
      * <em>Recovery Action Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl#getRecoveryActionBehaviour()
      * @generated
@@ -130,18 +121,9 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_BEHAVIOUR = 0;
 
     /**
-     * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECOVERY_ACTION_BEHAVIOUR__PROFILEABLE_ELEMENT = FAILURE_HANDLING_ENTITY__PROFILEABLE_ELEMENT;
-
-    /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -150,7 +132,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -159,7 +141,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Failure Types Failure Handling Entity</b></em>' reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -168,7 +150,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -178,7 +160,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * The feature id for the '
      * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -206,7 +188,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -225,7 +207,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * The meta object id for the '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl
      * <em>Recovery Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl#getRecoveryAction()
      * @generated
@@ -233,18 +215,9 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION = 1;
 
     /**
-     * The feature id for the '<em><b>Profileable Element</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECOVERY_ACTION__PROFILEABLE_ELEMENT = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__PROFILEABLE_ELEMENT;
-
-    /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -253,7 +226,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -280,7 +253,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -289,7 +262,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -298,7 +271,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Infrastructure Call Action</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -307,7 +280,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Resource Call Action</b></em>' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -325,7 +298,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -344,7 +317,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
      * <em>Recovery Action Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Recovery Action Behaviour</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour
      * @generated
@@ -356,7 +329,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour
      * <em>Failure Handling Alternatives Recovery Action Behaviour</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference list '
      *         <em>Failure Handling Alternatives Recovery Action Behaviour</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour()
@@ -370,7 +343,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
      * <em>Recovery Action Recovery Action Behaviour</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '
      *         <em>Recovery Action Recovery Action Behaviour</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour()
@@ -383,7 +356,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction <em>Recovery Action</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Recovery Action</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction
      * @generated
@@ -394,7 +367,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
      * <em>Primary Behaviour Recovery Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Primary Behaviour Recovery Action</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction()
      * @see #getRecoveryAction()
@@ -407,7 +380,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
      * <em>Recovery Action Behaviours Recovery Action</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference list '
      *         <em>Recovery Action Behaviours Recovery Action</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction()
@@ -420,7 +393,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
      * <em>Failure Handling Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Failure Handling Entity</em>'.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
      * @generated
@@ -444,7 +417,7 @@ public interface SeffReliabilityPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -459,7 +432,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     interface Literals {
@@ -468,7 +441,7 @@ public interface SeffReliabilityPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
          * <em>Recovery Action Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
          * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl#getRecoveryActionBehaviour()
          * @generated
@@ -479,7 +452,7 @@ public interface SeffReliabilityPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = eINSTANCE
@@ -489,7 +462,7 @@ public interface SeffReliabilityPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Recovery Action Recovery Action Behaviour</b></em>' container reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = eINSTANCE
@@ -499,7 +472,7 @@ public interface SeffReliabilityPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl
          * <em>Recovery Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.RecoveryActionImpl
          * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl#getRecoveryAction()
          * @generated
@@ -509,7 +482,7 @@ public interface SeffReliabilityPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Primary Behaviour Recovery Action</b></em>'
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = eINSTANCE
@@ -519,7 +492,7 @@ public interface SeffReliabilityPackage extends EPackage {
          * The meta object literal for the '
          * <em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = eINSTANCE
@@ -529,7 +502,7 @@ public interface SeffReliabilityPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
          * <em>Failure Handling Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
          * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl#getFailureHandlingEntity()
          * @generated
@@ -539,7 +512,7 @@ public interface SeffReliabilityPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Failure Types Failure Handling Entity</b></em>'
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY = eINSTANCE

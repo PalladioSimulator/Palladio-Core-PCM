@@ -56,7 +56,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -76,7 +76,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
      * The cached value of the '{@link #getRequiredResource_ParametricResourceDemand()
      * <em>Required Resource Parametric Resource Demand</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRequiredResource_ParametricResourceDemand()
      * @generated
      * @ordered
@@ -85,7 +85,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParametricResourceDemandImpl() {
@@ -94,7 +94,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +114,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecification_ParametericResourceDemand(
@@ -136,7 +136,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceType basicGetRequiredResource_ParametricResourceDemand() {
@@ -203,7 +203,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -220,7 +220,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +233,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAction_ParametricResourceDemand(
@@ -245,7 +245,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -281,7 +281,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
      * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -294,7 +294,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
      * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -304,7 +304,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -345,7 +345,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -372,7 +372,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -389,7 +389,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -405,7 +405,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -426,7 +426,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -447,7 +447,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -468,7 +468,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -487,7 +487,7 @@ public class ParametricResourceDemandImpl extends StereotypableElementImpl imple
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

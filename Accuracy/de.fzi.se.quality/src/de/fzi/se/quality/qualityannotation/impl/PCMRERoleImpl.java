@@ -43,7 +43,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
     /**
      * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getRole()
      * @generated
      * @ordered
@@ -52,7 +52,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRERoleImpl() {
@@ -61,7 +61,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRole() {
@@ -100,7 +100,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,7 +177,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -199,7 +199,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -232,7 +232,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -249,7 +249,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +264,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +279,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

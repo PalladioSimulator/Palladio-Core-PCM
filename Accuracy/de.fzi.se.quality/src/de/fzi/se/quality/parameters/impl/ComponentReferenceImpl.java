@@ -35,7 +35,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ComponentReferenceImpl() {
@@ -44,7 +44,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -54,7 +54,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetComponentInstance(final ComponentInstance newComponentInstance,
@@ -79,7 +79,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +142,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -201,7 +201,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

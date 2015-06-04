@@ -47,7 +47,7 @@ public interface PCMREResource extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMREResource#getProcessingResourceType
      * <em>Processing Resource Type</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Processing Resource Type</em>' reference.
      * @see #getProcessingResourceType()
@@ -62,7 +62,7 @@ public interface PCMREResource extends PCMRE {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model 
+     * @model
      *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.childREs->isEmpty()'"
      * @generated
      */

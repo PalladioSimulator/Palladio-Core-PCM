@@ -39,7 +39,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
      * The cached value of the '{@link #getProvidedResourceInterface__ResourceProvidedRole()
      * <em>Provided Resource Interface Resource Provided Role</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getProvidedResourceInterface__ResourceProvidedRole()
      * @generated
      * @ordered
@@ -57,7 +57,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceProvidedRoleImpl() {
@@ -66,7 +66,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceInterfaceProvidingEntity__ResourceProvidedRole(
@@ -102,7 +102,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +139,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterface basicGetProvidedResourceInterface__ResourceProvidedRole() {
@@ -172,7 +172,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +223,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,7 +261,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +279,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +297,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

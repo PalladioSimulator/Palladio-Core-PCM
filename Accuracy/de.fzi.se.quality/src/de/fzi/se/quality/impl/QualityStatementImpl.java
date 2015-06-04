@@ -35,7 +35,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected QualityStatementImpl() {
@@ -44,7 +44,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -54,7 +54,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQualityRepository(final QualityRepository newQualityRepository,
@@ -79,7 +79,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,7 +126,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,7 +141,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -156,7 +156,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -170,7 +170,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -185,7 +185,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

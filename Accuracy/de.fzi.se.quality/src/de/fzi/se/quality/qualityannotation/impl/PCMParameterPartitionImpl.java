@@ -50,7 +50,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
      * The cached value of the '{@link #getCharacerisedParameterPartitions()
      * <em>Characerised Parameter Partitions</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getCharacerisedParameterPartitions()
      * @generated
      * @ordered
@@ -59,7 +59,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMParameterPartitionImpl() {
@@ -68,7 +68,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -78,7 +78,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
      * {@link #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>APCM Parameter Partition Must Reference APCM Parameter Reference</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -120,7 +120,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -174,7 +174,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +189,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +203,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -221,7 +221,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -236,7 +236,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -251,7 +251,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

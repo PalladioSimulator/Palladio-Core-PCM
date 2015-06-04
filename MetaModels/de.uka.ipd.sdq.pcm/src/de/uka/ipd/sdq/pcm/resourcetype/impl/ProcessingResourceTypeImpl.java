@@ -34,7 +34,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,7 +52,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProcessingResourceTypeImpl() {
@@ -61,7 +61,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public HardwareInducedFailureType basicGetHardwareInducedFailureType__ProcessingResourceType() {
@@ -106,7 +106,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetHardwareInducedFailureType__ProcessingResourceType(
@@ -132,7 +132,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +193,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,7 +225,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,7 +255,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -39,7 +39,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,7 +48,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
      * The cached value of the '{@link #getUsageScenario_UsageModel()
      * <em>Usage Scenario Usage Model</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getUsageScenario_UsageModel()
      * @generated
      * @ordered
@@ -58,7 +58,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
     /**
      * The cached value of the '{@link #getUserData_UsageModel() <em>User Data Usage Model</em>}'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getUserData_UsageModel()
      * @generated
      * @ordered
@@ -67,7 +67,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected UsageModelImpl() {
@@ -76,7 +76,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -86,7 +86,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -102,7 +102,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -118,7 +118,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -138,7 +138,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -192,7 +192,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +210,7 @@ public class UsageModelImpl extends ProfileableElementImpl implements UsageModel
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")

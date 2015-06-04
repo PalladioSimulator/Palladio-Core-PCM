@@ -37,7 +37,7 @@ public interface ServiceSpecification extends Identifier {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Checksum</em>' attribute.
      * @see #setChecksum(long)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getServiceSpecification_Checksum()
@@ -50,7 +50,7 @@ public interface ServiceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getChecksum
      * <em>Checksum</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Checksum</em>' attribute.
      * @see #getChecksum()
@@ -65,7 +65,7 @@ public interface ServiceSpecification extends Identifier {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Checksum Alg</em>' attribute.
      * @see #setChecksumAlg(String)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getServiceSpecification_ChecksumAlg()
@@ -78,7 +78,7 @@ public interface ServiceSpecification extends Identifier {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getChecksumAlg
      * <em>Checksum Alg</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Checksum Alg</em>' attribute.
      * @see #getChecksumAlg()
@@ -96,7 +96,7 @@ public interface ServiceSpecification extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Quality Annotation</em>' container reference.
      * @see #setQualityAnnotation(QualityAnnotation)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getServiceSpecification_QualityAnnotation()

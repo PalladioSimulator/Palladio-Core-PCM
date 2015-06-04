@@ -32,7 +32,7 @@ public interface PCMREInfrastructureRole extends PCMRE {
      * description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Role</em>' reference.
      * @see #setRole(InfrastructureRequiredRole)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMREInfrastructureRole_Role()
@@ -45,7 +45,7 @@ public interface PCMREInfrastructureRole extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole#getRole <em>Role</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Role</em>' reference.
      * @see #getRole()

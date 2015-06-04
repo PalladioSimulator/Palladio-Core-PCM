@@ -47,7 +47,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      * The cached value of the '{@link #getConnectedResourceContainers_LinkingResource()
      * <em>Connected Resource Containers Linking Resource</em>}' reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getConnectedResourceContainers_LinkingResource()
      * @generated
      * @ordered
@@ -67,7 +67,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      * {@link #getCommunicationLinkResourceSpecifications_LinkingResource()
      * <em>Communication Link Resource Specifications Linking Resource</em>}' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getCommunicationLinkResourceSpecifications_LinkingResource()
      * @generated
      * @ordered
@@ -76,7 +76,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected LinkingResourceImpl() {
@@ -85,7 +85,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -111,7 +111,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceSpecifications_LinkingResource(
@@ -147,7 +147,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +199,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceEnvironment_LinkingResource(
@@ -211,7 +211,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +243,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -271,7 +271,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,7 +288,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -304,7 +304,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -322,7 +322,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -346,7 +346,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -367,7 +367,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")

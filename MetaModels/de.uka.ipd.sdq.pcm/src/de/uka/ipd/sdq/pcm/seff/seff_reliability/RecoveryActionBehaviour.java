@@ -48,7 +48,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,7 +64,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Failure Handling Alternatives Recovery Action Behaviour</em>'
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()
@@ -83,7 +83,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Recovery Action Recovery Action Behaviour</em>' container
      *         reference.
      * @see #setRecoveryAction__RecoveryActionBehaviour(RecoveryAction)
@@ -100,7 +100,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
      * <em>Recovery Action Recovery Action Behaviour</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Recovery Action Recovery Action Behaviour</em>'
      *            container reference.

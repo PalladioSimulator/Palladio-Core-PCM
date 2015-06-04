@@ -32,7 +32,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -41,7 +41,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
      * The cached value of the '{@link #getParameter_CollectionIteratorAction()
      * <em>Parameter Collection Iterator Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getParameter_CollectionIteratorAction()
      * @generated
      * @ordered
@@ -50,7 +50,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CollectionIteratorActionImpl() {
@@ -59,7 +59,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,7 +69,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Parameter basicGetParameter_CollectionIteratorAction() {
@@ -100,7 +100,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

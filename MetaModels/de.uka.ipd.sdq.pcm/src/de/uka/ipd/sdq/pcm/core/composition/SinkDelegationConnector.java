@@ -32,7 +32,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Assembly Context Sink Delegation Connector</em>' reference.
      * @see #setAssemblyContext__SinkDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector()
@@ -59,7 +59,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
      * <em>Assembly Context Sink Delegation Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Assembly Context Sink Delegation Connector</em>'
      *            reference.
@@ -89,7 +89,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
      * <em>Inner Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Inner Sink Role Sink Role</em>' reference.
      * @see #getInnerSinkRole__SinkRole()
@@ -118,7 +118,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
      * <em>Outer Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Outer Sink Role Sink Role</em>' reference.
      * @see #getOuterSinkRole__SinkRole()

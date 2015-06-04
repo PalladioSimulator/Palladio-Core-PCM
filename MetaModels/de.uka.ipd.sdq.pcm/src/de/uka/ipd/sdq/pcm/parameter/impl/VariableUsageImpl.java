@@ -79,7 +79,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -99,7 +99,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
      * The cached value of the '{@link #getNamedReference__VariableUsage()
      * <em>Named Reference Variable Usage</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getNamedReference__VariableUsage()
      * @generated
      * @ordered
@@ -108,7 +108,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected VariableUsageImpl() {
@@ -117,7 +117,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -144,7 +144,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUserData_VariableUsage(final UserData newUserData_VariableUsage,
@@ -169,7 +169,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,7 +213,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSynchronisationPoint_VariableUsage(
@@ -225,7 +225,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +257,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCallAction__VariableUsage(final CallAction newCallAction__VariableUsage,
@@ -282,7 +282,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +313,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -326,7 +326,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCallReturnAction__VariableUsage(
@@ -338,7 +338,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -370,7 +370,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -383,7 +383,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSetVariableAction_VariableUsage(
@@ -395,7 +395,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -427,7 +427,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -440,7 +440,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAssemblyContext__VariableUsage(
@@ -452,7 +452,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -484,7 +484,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -497,7 +497,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEntryLevelSystemCall_InputParameterUsage(
@@ -509,7 +509,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -543,7 +543,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -556,7 +556,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEntryLevelSystemCall_OutputParameterUsage(
@@ -568,7 +568,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -602,7 +602,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -615,7 +615,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
@@ -631,7 +631,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -671,7 +671,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -681,7 +681,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetNamedReference__VariableUsage(
@@ -703,7 +703,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -732,7 +732,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -794,7 +794,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -829,7 +829,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -878,7 +878,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -912,7 +912,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -960,7 +960,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1005,7 +1005,7 @@ public class VariableUsageImpl extends MinimalEObjectImpl.Container implements V
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")

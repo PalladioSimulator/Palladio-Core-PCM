@@ -30,7 +30,7 @@ public interface ExceptionType extends EObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -52,7 +52,7 @@ public interface ExceptionType extends EObject {
     /**
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName
      * <em>Exception Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Exception Name</em>' attribute.
      * @see #getExceptionName()
@@ -77,7 +77,7 @@ public interface ExceptionType extends EObject {
      * Sets the value of the '
      * {@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage
      * <em>Exception Message</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Exception Message</em>' attribute.
      * @see #getExceptionMessage()

@@ -44,7 +44,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
      * The cached value of the '{@link #getDefaultPrecisionNumberOfCalls()
      * <em>Default Precision Number Of Calls</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getDefaultPrecisionNumberOfCalls()
      * @generated
      * @ordered
@@ -55,7 +55,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
      * The cached value of the '{@link #getDefaultPrecisionCallParameter()
      * <em>Default Precision Call Parameter</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #getDefaultPrecisionCallParameter()
      * @generated
      * @ordered
@@ -64,7 +64,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected REPrecisionImpl() {
@@ -73,7 +73,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,7 +93,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetDefaultPrecisionNumberOfCalls(final Precision newDefaultPrecisionNumberOfCalls,
@@ -115,7 +115,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,7 +154,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetDefaultPrecisionCallParameter(final Precision newDefaultPrecisionCallParameter,
@@ -176,7 +176,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -205,7 +205,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -218,7 +218,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRequiredElement(final RequiredElement newRequiredElement, NotificationChain msgs) {
@@ -229,7 +229,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -259,7 +259,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -276,7 +276,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -295,7 +295,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -310,7 +310,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -328,7 +328,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -349,7 +349,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -370,7 +370,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

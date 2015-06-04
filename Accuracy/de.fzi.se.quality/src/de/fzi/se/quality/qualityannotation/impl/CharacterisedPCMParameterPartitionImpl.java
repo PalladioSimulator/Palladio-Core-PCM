@@ -45,7 +45,7 @@ CharacterisedPCMParameterPartition {
     /**
      * The default value of the '{@link #getForCharacterisation() <em>For Characterisation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getForCharacterisation()
      * @generated
      * @ordered
@@ -55,7 +55,7 @@ CharacterisedPCMParameterPartition {
     /**
      * The cached value of the '{@link #getForCharacterisation() <em>For Characterisation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getForCharacterisation()
      * @generated
      * @ordered
@@ -65,7 +65,7 @@ CharacterisedPCMParameterPartition {
     /**
      * The default value of the '{@link #getQualifiedElementName() <em>Qualified Element Name</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getQualifiedElementName()
      * @generated
      * @ordered
@@ -75,7 +75,7 @@ CharacterisedPCMParameterPartition {
     /**
      * The cached value of the '{@link #getQualifiedElementName() <em>Qualified Element Name</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getQualifiedElementName()
      * @generated
      * @ordered
@@ -84,7 +84,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CharacterisedPCMParameterPartitionImpl() {
@@ -93,7 +93,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -103,7 +103,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -143,7 +143,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPcmParameterPartition(final PCMParameterPartition newPcmParameterPartition,
@@ -155,7 +155,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -187,7 +187,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,7 +213,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -230,7 +230,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,7 +245,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,7 +261,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +279,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -300,7 +300,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -321,7 +321,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -340,7 +340,7 @@ CharacterisedPCMParameterPartition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -38,7 +38,7 @@ public interface PCMRequiredBusinessOperationReturnParameterReference extends PC
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Role</em>' reference.
      * @see #setRequiredRole(OperationRequiredRole)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMRequiredBusinessOperationReturnParameterReference_RequiredRole()
@@ -51,7 +51,7 @@ public interface PCMRequiredBusinessOperationReturnParameterReference extends PC
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference#getRequiredRole
      * <em>Required Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Required Role</em>' reference.
      * @see #getRequiredRole()
@@ -66,7 +66,7 @@ public interface PCMRequiredBusinessOperationReturnParameterReference extends PC
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Signature</em>' reference.
      * @see #setSignature(OperationSignature)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMRequiredBusinessOperationReturnParameterReference_Signature()
@@ -79,7 +79,7 @@ public interface PCMRequiredBusinessOperationReturnParameterReference extends PC
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference#getSignature
      * <em>Signature</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Signature</em>' reference.
      * @see #getSignature()

@@ -39,7 +39,7 @@ public interface ParameterPartition extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Quality Annotation</em>' container reference.
      * @see #setQualityAnnotation(QualityAnnotation)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterPartition_QualityAnnotation()
@@ -73,7 +73,7 @@ public interface ParameterPartition extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parameter Reference</em>' containment reference.
      * @see #setParameterReference(ParameterReference)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterPartition_ParameterReference()
@@ -88,7 +88,7 @@ public interface ParameterPartition extends Identifier {
      * {@link de.fzi.se.quality.parameters.ParameterPartition#getParameterReference
      * <em>Parameter Reference</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Parameter Reference</em>' containment reference.
      * @see #getParameterReference()

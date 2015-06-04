@@ -37,7 +37,7 @@ public interface CharacterisedPCMParameterPartitionRange extends CharacterisedPC
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Values</em>' containment reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartitionRange_Values()
      * @model containment="true" ordered="false"

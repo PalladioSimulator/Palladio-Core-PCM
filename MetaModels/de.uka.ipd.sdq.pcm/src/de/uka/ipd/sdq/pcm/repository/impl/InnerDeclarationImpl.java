@@ -38,7 +38,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InnerDeclarationImpl() {
@@ -65,7 +65,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetDatatype_InnerDeclaration() {
@@ -105,7 +105,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCompositeDataType_InnerDeclaration(
@@ -146,7 +146,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +178,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -195,7 +195,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +210,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +226,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,7 +245,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -263,7 +263,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -281,7 +281,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

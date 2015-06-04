@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '
  * <em><b>PCMRE Request Category</b></em>', and utility methods for working with them. <!--
  * end-user-doc -->
- *
+ * 
  * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMRERequestCategory()
  * @model
  * @generated
@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum PCMRERequestCategory implements Enumerator {
     /**
      * The '<em><b>Resource</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RESOURCE_VALUE
      * @generated
      * @ordered
@@ -34,7 +34,7 @@ public enum PCMRERequestCategory implements Enumerator {
     /**
      * The '<em><b>Infrastructure</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #INFRASTRUCTURE_VALUE
      * @generated
      * @ordered
@@ -43,7 +43,7 @@ public enum PCMRERequestCategory implements Enumerator {
 
     /**
      * The '<em><b>Component</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #COMPONENT_VALUE
      * @generated
      * @ordered
@@ -53,7 +53,7 @@ public enum PCMRERequestCategory implements Enumerator {
     /**
      * The '<em><b>Resource Demand</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #RESOURCE_DEMAND_VALUE
      * @generated
      * @ordered
@@ -63,7 +63,7 @@ public enum PCMRERequestCategory implements Enumerator {
     /**
      * The '<em><b>Component Internal</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #COMPONENT_INTERNAL_VALUE
      * @generated
      * @ordered
@@ -77,7 +77,7 @@ public enum PCMRERequestCategory implements Enumerator {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #RESOURCE
      * @model name="Resource"
      * @generated
@@ -92,7 +92,7 @@ public enum PCMRERequestCategory implements Enumerator {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #INFRASTRUCTURE
      * @model name="Infrastructure"
      * @generated
@@ -107,7 +107,7 @@ public enum PCMRERequestCategory implements Enumerator {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #COMPONENT
      * @model name="Component"
      * @generated
@@ -122,7 +122,7 @@ public enum PCMRERequestCategory implements Enumerator {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #RESOURCE_DEMAND
      * @model name="ResourceDemand"
      * @generated
@@ -137,7 +137,7 @@ public enum PCMRERequestCategory implements Enumerator {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #COMPONENT_INTERNAL
      * @model name="ComponentInternal"
      * @generated
@@ -148,7 +148,7 @@ public enum PCMRERequestCategory implements Enumerator {
     /**
      * An array of all the '<em><b>PCMRE Request Category</b></em>' enumerators. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static final PCMRERequestCategory[] VALUES_ARRAY = new PCMRERequestCategory[] { RESOURCE, INFRASTRUCTURE,
@@ -165,7 +165,7 @@ public enum PCMRERequestCategory implements Enumerator {
     /**
      * Returns the '<em><b>PCMRE Request Category</b></em>' literal with the specified literal
      * value. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static PCMRERequestCategory get(final String literal) {
@@ -195,7 +195,7 @@ public enum PCMRERequestCategory implements Enumerator {
     /**
      * Returns the '<em><b>PCMRE Request Category</b></em>' literal with the specified integer
      * value. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static PCMRERequestCategory get(final int value) {
@@ -216,28 +216,28 @@ public enum PCMRERequestCategory implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final int value;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final String name;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final String literal;
 
     /**
      * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private PCMRERequestCategory(final int value, final String name, final String literal) {
@@ -248,7 +248,7 @@ public enum PCMRERequestCategory implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +258,7 @@ public enum PCMRERequestCategory implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +268,7 @@ public enum PCMRERequestCategory implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

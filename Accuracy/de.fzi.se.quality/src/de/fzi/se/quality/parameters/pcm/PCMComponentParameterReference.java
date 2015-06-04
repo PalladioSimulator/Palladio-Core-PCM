@@ -67,7 +67,7 @@ public interface PCMComponentParameterReference extends PCMParameterReference {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Variable Usage</em>' reference.
      * @see #setVariableUsage(VariableUsage)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMComponentParameterReference_VariableUsage()
@@ -80,7 +80,7 @@ public interface PCMComponentParameterReference extends PCMParameterReference {
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference#getVariableUsage
      * <em>Variable Usage</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Variable Usage</em>' reference.
      * @see #getVariableUsage()

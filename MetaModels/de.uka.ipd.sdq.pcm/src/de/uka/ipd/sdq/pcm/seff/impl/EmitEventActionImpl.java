@@ -45,7 +45,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * The cached value of the '{@link #getInputVariableUsages__CallAction()
      * <em>Input Variable Usages Call Action</em>}' containment reference list. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getInputVariableUsages__CallAction()
      * @generated
      * @ordered
@@ -83,7 +83,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EmitEventActionImpl() {
@@ -92,7 +92,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -118,7 +118,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +139,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventType basicGetEventType__EmitEventAction() {
@@ -148,7 +148,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -185,7 +185,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__EmitEventAction() {
@@ -194,7 +194,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +210,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -227,7 +227,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -266,7 +266,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -289,7 +289,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -310,7 +310,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -329,7 +329,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -347,7 +347,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

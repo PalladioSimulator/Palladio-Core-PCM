@@ -33,7 +33,7 @@ public interface PCMREInfrastructureSignature extends PCMRE {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Signature</em>' reference.
      * @see #setSignature(InfrastructureSignature)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMREInfrastructureSignature_Signature()
@@ -46,7 +46,7 @@ public interface PCMREInfrastructureSignature extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature#getSignature
      * <em>Signature</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Signature</em>' reference.
      * @see #getSignature()
@@ -61,7 +61,7 @@ public interface PCMREInfrastructureSignature extends PCMRE {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model 
+     * @model
      *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.childREs->isEmpty()'"
      * @generated
      */

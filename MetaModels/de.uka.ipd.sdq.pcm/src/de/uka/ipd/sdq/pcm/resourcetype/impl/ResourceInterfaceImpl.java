@@ -44,7 +44,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -62,7 +62,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceImpl() {
@@ -71,7 +71,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,7 +94,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceRepository__ResourceInterface(
@@ -106,7 +106,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +139,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -156,7 +156,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -177,7 +177,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +210,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +226,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -246,7 +246,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +264,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")

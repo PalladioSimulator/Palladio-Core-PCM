@@ -32,7 +32,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +40,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
     /**
      * The default value of the '{@link #getExceptionName() <em>Exception Name</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionName()
      * @generated
      * @ordered
@@ -60,7 +60,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
     /**
      * The default value of the '{@link #getExceptionMessage() <em>Exception Message</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionMessage()
      * @generated
      * @ordered
@@ -70,7 +70,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
     /**
      * The cached value of the '{@link #getExceptionMessage() <em>Exception Message</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionMessage()
      * @generated
      * @ordered
@@ -79,7 +79,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExceptionTypeImpl() {
@@ -88,7 +88,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,7 +98,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -182,7 +182,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -218,7 +218,7 @@ public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements E
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

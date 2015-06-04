@@ -58,7 +58,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRequiredBusinessOperationReturnParameterReferenceImpl() {
@@ -67,7 +67,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,7 +77,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,7 +98,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRequiredRole() {
@@ -107,7 +107,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetSignature() {
@@ -153,7 +153,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -169,7 +169,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,7 +191,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -227,7 +227,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

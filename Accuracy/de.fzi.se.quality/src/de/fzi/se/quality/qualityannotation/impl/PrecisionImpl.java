@@ -24,7 +24,7 @@ public abstract class PrecisionImpl extends IdentifierImpl implements Precision 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PrecisionImpl() {
@@ -33,7 +33,7 @@ public abstract class PrecisionImpl extends IdentifierImpl implements Precision 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

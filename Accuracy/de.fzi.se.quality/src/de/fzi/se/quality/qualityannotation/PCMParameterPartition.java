@@ -44,7 +44,7 @@ public interface PCMParameterPartition extends ParameterPartition {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Characerised Parameter Partitions</em>' containment reference
      *         list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMParameterPartition_CharacerisedParameterPartitions()

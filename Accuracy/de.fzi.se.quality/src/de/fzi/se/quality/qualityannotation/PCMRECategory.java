@@ -49,7 +49,7 @@ public interface PCMRECategory extends PCMRE {
     /**
      * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.PCMRECategory#getCategory
      * <em>Category</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Category</em>' attribute.
      * @see de.fzi.se.quality.qualityannotation.PCMRERequestCategory
