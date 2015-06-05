@@ -40,7 +40,7 @@ public final class ProfileHelper {
     }
 
     /**
-     * Checks whether every {@link Entity} in the given set has a stereotype with the given name
+     * Checks whether any {@link Entity} in the given set has a stereotype with the given name
      * applied.
      * 
      * @param pcmEntitySet
@@ -52,12 +52,12 @@ public final class ProfileHelper {
      */
     public static boolean hasAppliedStereotype(final Set<Entity> pcmEntitySet, final String stereotypeName) {
         for (final Entity entity : pcmEntitySet) {
-            if (!StereotypeAPI.isStereotypeApplied(entity, stereotypeName)) {
-                return false;
+            if (StereotypeAPI.isStereotypeApplied(entity, stereotypeName)) {
+                return true;
             }
         }
 
-        return true;
+        return false;
 
         // Java 8:
         // return pcmEntitySet.stream().allMatch(
