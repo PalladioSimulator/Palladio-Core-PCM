@@ -2,7 +2,7 @@
 <rm:rmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:maven="http://www.eclipse.org/buckminster/MavenProvider-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
   <rm:locator pattern="^org\.palladiosimulator\.product.*" searchPathRef="productsvn" failOnError="false"/>
   <rm:locator pattern="^org\.apache\.log4j*" searchPathRef="mwe"/>
-  <rm:locator pattern="^org\.antlr\.runtime.*" searchPathRef="nwe"/>
+  <rm:locator pattern="^org\.antlr\.runtime.*" searchPathRef="mwe"/>
   <rm:locator pattern="^org\.apache\.commons*" searchPathRef="mwe"/>
   <rm:locator searchPathRef="MDSDProfiles" failOnError="false"/>
   <rm:locator searchPathRef="pcm"/>
