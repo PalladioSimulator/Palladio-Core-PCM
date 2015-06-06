@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+<rm:rmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:maven="http://www.eclipse.org/buckminster/MavenProvider-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
   <rm:locator pattern="^org\.palladiosimulator\.product.*" searchPathRef="productsvn" failOnError="false"/>
-  <rm:locator pattern="^org\.apache\.log4j*" searchPathRef="mwe"/> 
+  <rm:locator pattern="^org\.apache\.log4j*" searchPathRef="mwe"/>
+  <rm:locator pattern="^org\.antlr\.runtime.*" searchPathRef="Maven"/>
   <rm:locator pattern="^org\.apache\.commons*" searchPathRef="mwe"/>
-    <rm:locator searchPathRef="MDSDProfiles" failOnError="false"/>
+  <rm:locator searchPathRef="MDSDProfiles" failOnError="false"/>
   <rm:locator searchPathRef="pcm"/>
   <rm:searchPath name="pcm">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
@@ -19,18 +20,28 @@
       </rm:uri>
     </rm:provider>
   </rm:searchPath>
-    <rm:searchPath name="mwe">
+  <rm:searchPath name="mwe">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/"/>
     </rm:provider>
   </rm:searchPath>
-    <rm:searchPath name="MDSDProfiles">
+  <rm:searchPath name="MDSDProfiles">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly/"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="Maven">
+    <rm:provider xsi:type="maven:MavenProvider" componentTypes="osgi.bundle" readerType="maven2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="http://repo1.maven.org/maven2/"/>
+      <maven:mappings>
+        <maven:entry artifactId="antlr" groupId="org.antlr" name="org.antlr.runtime"/>
+      </maven:mappings>
     </rm:provider>
   </rm:searchPath>
 </rm:rmap>
