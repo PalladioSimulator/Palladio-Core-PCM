@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Palladio Bench" uid="org.palladiosimulator.product" id="org.eclipse.sdk.ide" application="org.eclipse.ui.ide.workbench" version="4.0" useFeatures="false" includeLaunchers="true">
+<product name="Palladio Bench" uid="org.palladiosimulator.product" id="org.eclipse.sdk.ide" application="org.eclipse.ui.ide.workbench" version="4.0" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -120,9 +120,6 @@ Everyone is permitted to copy and distribute copies of this Agreement, but in or
 This Agreement is governed by the laws of the State of New York and the intellectual property laws of the United States of America. No party to this Agreement will bring a legal action under this Agreement more than one year after the cause of action arose. Each party waives its rights to a jury trial in any resulting litigation.
          </text>
    </license>
-
-   <plugins>
-   </plugins>
 
    <features>
       <feature id="org.palladiosimulator.product.feature" version="1.0.0.qualifier"/>
