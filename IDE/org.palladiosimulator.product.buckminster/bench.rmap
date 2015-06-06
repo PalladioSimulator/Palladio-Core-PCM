@@ -10,8 +10,8 @@
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="productsvn">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="svn">
-      <rm:uri format="http://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/IDE/{0}">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn">
+      <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/IDE/{0}">
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
