@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><cq:componentQuery xmlns:cq="http://www.eclipse.org/buckminster/CQuery-1.0" properties="bench.rmap">
     <cq:rootRequest name="org.palladiosimulator.product.buckminster" componentType="eclipse.feature"/>
+	<cq:property key="pass" value="anonymous"/>
+    <cq:property key="user" value="anonymous"/>
+    <cq:advisorNode namePattern="^org\.palladiosimulator\.product.*" useWorkspace="false"/>
 </cq:componentQuery>
