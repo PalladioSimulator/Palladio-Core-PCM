@@ -40,7 +40,7 @@
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="http://repo1.maven.org/maven2/"/>
       <maven:mappings>
-        <maven:entry artifactId="org.antlr.runtime" groupId="org.antlr" name="org.antlr.runtime"/>
+        <maven:entry artifactId="org.antlr.runtime" groupId="org.antlr" name="antlr-runtime"/>
       </maven:mappings>
     </rm:provider>
   </rm:searchPath>
