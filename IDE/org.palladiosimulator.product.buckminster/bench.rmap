@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rm:rmap xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+<rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
+  
+  <rm:locator pattern="org\.palladiosimulator\.product.*" searchPathRef="productsvn" failOnError="false"/>
   <rm:locator searchPathRef="pcm" failOnError="false"/>
+  <rm:searchPath name="productsvn">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle,buckminster" readerType="svn">
+      <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/IDE/#{0}">
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+  
   <rm:searchPath name="pcm">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/palladio/nightly/"/>
