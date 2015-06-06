@@ -1,0 +1,4 @@
+nstructions.configure=org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//sdqweb.ipd.kit.edu/eclipse/palladio/nightly/,type:0,name:Palladio Core Update Site,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//sdqweb.ipd.kit.edu/eclipse/palladio/nightly/,type:1,name:Palladio Core Update Site,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/luna/,type:0,name:Luna,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/luna/,type:1,name:Luna,enabled:true);
