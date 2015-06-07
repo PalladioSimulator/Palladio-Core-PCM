@@ -126,7 +126,7 @@ public class StereotypeTest extends AbstractTest {
                 this.stereotype);
 
         assertTrue(stereotypeApplication.getAppliedTo().equals(this.component));
-        assertTrue(stereotypeApplication.getExtension().getSource().getTaggedValue(TEST_TAGGED_VALUE) != null);
+        assertTrue(stereotypeApplication.getStereotype().getTaggedValue(TEST_TAGGED_VALUE) != null);
 
         assertTrue(StereotypeAPI.getStereotypeApplications(this.component).size() == 1);
         assertTrue(StereotypeAPI.getStereotypeApplications(this.component, this.profile).size() == 1);
