@@ -48,6 +48,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * @generated
  */
 public class PcmmeasuringpointPackageImpl extends EPackageImpl implements PcmmeasuringpointPackage {
+
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *

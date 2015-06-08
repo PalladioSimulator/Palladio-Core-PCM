@@ -2,7 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 
@@ -21,9 +21,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getEntryLevelSystemCallReference()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface EntryLevelSystemCallReference extends EObject {
+public interface EntryLevelSystemCallReference extends CDOObject {
+
     /**
      * Returns the value of the '<em><b>Entry Level System Call</b></em>' reference. <!--
      * begin-user-doc -->

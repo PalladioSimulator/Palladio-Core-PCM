@@ -25,6 +25,7 @@ import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
  * @generated
  */
 public interface PcmmeasuringpointPackage extends EPackage {
+
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1451,6 +1452,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      */
     interface Literals {
+
         /**
          * The meta object literal for the '
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl

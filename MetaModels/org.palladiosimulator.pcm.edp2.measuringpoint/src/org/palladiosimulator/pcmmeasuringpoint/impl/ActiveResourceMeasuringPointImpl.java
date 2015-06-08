@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
  * @generated
  */
 public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl implements ActiveResourceMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getActiveResource() <em>Active Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

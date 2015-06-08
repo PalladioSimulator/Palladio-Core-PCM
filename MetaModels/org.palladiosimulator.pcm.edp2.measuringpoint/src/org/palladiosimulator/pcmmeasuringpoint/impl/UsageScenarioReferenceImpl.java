@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
 
@@ -27,7 +27,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
  *
  * @generated
  */
-public abstract class UsageScenarioReferenceImpl extends MinimalEObjectImpl.Container implements UsageScenarioReference {
+public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implements UsageScenarioReference {
+
     /**
      * The cached value of the '{@link #getUsageScenario() <em>Usage Scenario</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

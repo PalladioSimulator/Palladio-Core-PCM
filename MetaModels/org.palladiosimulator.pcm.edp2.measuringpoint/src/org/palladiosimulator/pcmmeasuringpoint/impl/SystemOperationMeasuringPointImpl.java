@@ -41,6 +41,7 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * @generated
  */
 public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl implements SystemOperationMeasuringPoint {
+
     /**
      * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -37,6 +37,7 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
  */
 public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentReferenceImpl implements
         ResourceEnvironmentMeasuringPoint {
+
     /**
      * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
 
@@ -24,7 +24,8 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  *
  * @generated
  */
-public abstract class SystemReferenceImpl extends MinimalEObjectImpl.Container implements SystemReference {
+public abstract class SystemReferenceImpl extends CDOObjectImpl implements SystemReference {
+
     /**
      * The cached value of the '{@link #getSystem() <em>System</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->

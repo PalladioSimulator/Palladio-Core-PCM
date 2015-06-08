@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
  * @generated
  */
 public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implements LinkingResourceMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getLinkingResource() <em>Linking Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

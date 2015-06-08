@@ -41,6 +41,7 @@ import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
  */
 public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl implements
         SubSystemOperationMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getSubsystem() <em>Subsystem</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

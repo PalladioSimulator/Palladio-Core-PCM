@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
@@ -27,8 +27,8 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
  *
  * @generated
  */
-public abstract class ExternalCallActionReferenceImpl extends MinimalEObjectImpl.Container implements
-        ExternalCallActionReference {
+public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl implements ExternalCallActionReference {
+
     /**
      * The cached value of the '{@link #getExternalCall() <em>External Call</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

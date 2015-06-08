@@ -26,6 +26,7 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
  * @generated
  */
 public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements PcmmeasuringpointFactory {
+
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *

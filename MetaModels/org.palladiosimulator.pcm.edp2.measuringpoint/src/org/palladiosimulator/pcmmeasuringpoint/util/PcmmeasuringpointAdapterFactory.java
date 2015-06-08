@@ -38,6 +38,7 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
  * @generated
  */
 public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
+
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -82,6 +83,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     protected PcmmeasuringpointSwitch<Adapter> modelSwitch = new PcmmeasuringpointSwitch<Adapter>() {
+
         @Override
         public Adapter caseAssemblyOperationMeasuringPoint(final AssemblyOperationMeasuringPoint object) {
             return PcmmeasuringpointAdapterFactory.this.createAssemblyOperationMeasuringPointAdapter();

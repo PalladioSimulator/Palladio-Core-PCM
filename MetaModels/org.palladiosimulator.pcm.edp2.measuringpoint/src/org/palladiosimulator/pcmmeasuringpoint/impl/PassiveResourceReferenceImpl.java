@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
@@ -27,8 +27,8 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  *
  * @generated
  */
-public abstract class PassiveResourceReferenceImpl extends MinimalEObjectImpl.Container implements
-        PassiveResourceReference {
+public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl implements PassiveResourceReference {
+
     /**
      * The cached value of the '{@link #getPassiveResource() <em>Passive Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

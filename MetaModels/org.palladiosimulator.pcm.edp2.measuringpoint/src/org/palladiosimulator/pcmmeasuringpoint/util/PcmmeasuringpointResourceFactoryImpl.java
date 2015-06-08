@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceFactoryImpl;
  * @generated
  */
 public class PcmmeasuringpointResourceFactoryImpl extends ResourceFactoryImpl {
+
     /**
      * Creates an instance of the resource factory. <!-- begin-user-doc --> <!-- end-user-doc -->
      *

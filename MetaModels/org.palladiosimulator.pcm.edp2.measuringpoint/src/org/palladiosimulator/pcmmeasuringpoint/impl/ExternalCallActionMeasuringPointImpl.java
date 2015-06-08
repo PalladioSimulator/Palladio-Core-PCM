@@ -32,6 +32,7 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
  */
 public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl implements
         ExternalCallActionMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getExternalCall() <em>External Call</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

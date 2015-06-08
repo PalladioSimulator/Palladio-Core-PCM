@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
@@ -26,7 +26,8 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
  *
  * @generated
  */
-public abstract class AssemblyReferenceImpl extends MinimalEObjectImpl.Container implements AssemblyReference {
+public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements AssemblyReference {
+
     /**
      * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

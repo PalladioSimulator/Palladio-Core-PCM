@@ -2,7 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
@@ -21,9 +21,11 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getResourceEnvironmentReference()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface ResourceEnvironmentReference extends EObject {
+public interface ResourceEnvironmentReference extends CDOObject {
+
     /**
      * Returns the value of the '<em><b>Resource Environment</b></em>' reference. <!--
      * begin-user-doc -->

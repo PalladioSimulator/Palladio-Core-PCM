@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
@@ -29,8 +29,8 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
  *
  * @generated
  */
-public abstract class ActiveResourceReferenceImpl extends MinimalEObjectImpl.Container implements
-        ActiveResourceReference {
+public abstract class ActiveResourceReferenceImpl extends CDOObjectImpl implements ActiveResourceReference {
+
     /**
      * The cached value of the '{@link #getActiveResource() <em>Active Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

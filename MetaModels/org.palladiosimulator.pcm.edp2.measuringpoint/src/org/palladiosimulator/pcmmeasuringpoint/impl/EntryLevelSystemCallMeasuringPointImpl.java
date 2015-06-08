@@ -32,6 +32,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
  */
 public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl implements
         EntryLevelSystemCallMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getEntryLevelSystemCall() <em>Entry Level System Call</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->

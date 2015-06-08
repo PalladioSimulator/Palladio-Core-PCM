@@ -7,7 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
@@ -27,8 +27,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
  *
  * @generated
  */
-public abstract class EntryLevelSystemCallReferenceImpl extends MinimalEObjectImpl.Container implements
-        EntryLevelSystemCallReference {
+public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl implements EntryLevelSystemCallReference {
+
     /**
      * The cached value of the '{@link #getEntryLevelSystemCall() <em>Entry Level System Call</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->

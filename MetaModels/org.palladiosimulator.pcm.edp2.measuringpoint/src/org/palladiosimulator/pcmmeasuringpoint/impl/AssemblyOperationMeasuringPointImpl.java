@@ -44,6 +44,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
  */
 public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl implements
         AssemblyOperationMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

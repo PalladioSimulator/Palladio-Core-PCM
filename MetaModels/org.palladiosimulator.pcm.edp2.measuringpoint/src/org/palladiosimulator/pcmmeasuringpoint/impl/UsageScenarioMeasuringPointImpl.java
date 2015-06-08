@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
  * @generated
  */
 public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implements UsageScenarioMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getUsageScenario() <em>Usage Scenario</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->

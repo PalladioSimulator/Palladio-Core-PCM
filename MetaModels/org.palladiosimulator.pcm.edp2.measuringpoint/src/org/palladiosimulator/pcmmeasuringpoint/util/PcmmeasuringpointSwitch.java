@@ -40,6 +40,7 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
  * @generated
  */
 public class PcmmeasuringpointSwitch<T> extends Switch<T> {
+
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
      *

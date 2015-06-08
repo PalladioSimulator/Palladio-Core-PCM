@@ -44,6 +44,7 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  */
 public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReferenceImpl implements
         AssemblyPassiveResourceMeasuringPoint {
+
     /**
      * The cached value of the '{@link #getPassiveResource() <em>Passive Resource</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->

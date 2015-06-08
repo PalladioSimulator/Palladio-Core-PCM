@@ -2,7 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 
@@ -20,9 +20,11 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getExternalCallActionReference()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface ExternalCallActionReference extends EObject {
+public interface ExternalCallActionReference extends CDOObject {
+
     /**
      * Returns the value of the '<em><b>External Call</b></em>' reference. <!-- begin-user-doc -->
      * <p>
