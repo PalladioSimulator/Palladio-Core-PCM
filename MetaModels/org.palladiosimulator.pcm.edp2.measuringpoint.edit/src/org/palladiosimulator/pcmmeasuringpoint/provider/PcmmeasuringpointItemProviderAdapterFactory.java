@@ -42,6 +42,7 @@ import org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointAdapterFact
  */
 public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory implements
 ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
      * begin-user-doc --> <!-- end-user-doc -->
@@ -473,6 +474,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      * @generated
      */
     public static class MeasuringpointChildCreationExtender implements IChildCreationExtender {
+
         /**
          * The switch for creating child descriptors specific to each extended class. <!--
          * begin-user-doc --> <!-- end-user-doc -->
@@ -480,6 +482,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
          * @generated
          */
         protected static class CreationSwitch extends MeasuringpointSwitch<Object> {
+
             /**
              * The child descriptors being populated. <!-- begin-user-doc --> <!-- end-user-doc -->
              * 

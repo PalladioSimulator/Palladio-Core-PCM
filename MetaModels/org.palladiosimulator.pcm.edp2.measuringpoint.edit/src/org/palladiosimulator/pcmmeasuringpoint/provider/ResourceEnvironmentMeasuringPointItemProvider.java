@@ -23,6 +23,7 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
  * @generated
  */
 public class ResourceEnvironmentMeasuringPointItemProvider extends ResourceEnvironmentReferenceItemProvider {
+
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->

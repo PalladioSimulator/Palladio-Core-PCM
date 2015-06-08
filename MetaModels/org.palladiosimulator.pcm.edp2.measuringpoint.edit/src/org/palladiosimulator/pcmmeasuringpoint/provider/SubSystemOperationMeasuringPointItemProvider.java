@@ -22,6 +22,7 @@ import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
  * @generated
  */
 public class SubSystemOperationMeasuringPointItemProvider extends MeasuringPointItemProvider {
+
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->

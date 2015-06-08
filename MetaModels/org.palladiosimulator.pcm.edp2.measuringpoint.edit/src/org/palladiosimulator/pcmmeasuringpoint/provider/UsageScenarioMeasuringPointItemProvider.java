@@ -22,6 +22,7 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
  * @generated
  */
 public class UsageScenarioMeasuringPointItemProvider extends MeasuringPointItemProvider {
+
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->

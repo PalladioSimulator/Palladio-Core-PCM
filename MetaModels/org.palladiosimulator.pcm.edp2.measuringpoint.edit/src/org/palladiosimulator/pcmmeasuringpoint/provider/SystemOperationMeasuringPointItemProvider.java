@@ -23,6 +23,7 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
  * @generated
  */
 public class SystemOperationMeasuringPointItemProvider extends OperationReferenceItemProvider {
+
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
