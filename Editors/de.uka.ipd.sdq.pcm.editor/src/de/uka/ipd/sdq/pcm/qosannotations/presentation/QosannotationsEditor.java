@@ -150,7 +150,7 @@ import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
  * @generated
  */
 public class QosannotationsEditor extends MultiPageEditorPart implements IEditingDomainProvider, ISelectionProvider,
-        IMenuListener, IViewerProvider, IGotoMarker {
+IMenuListener, IViewerProvider, IGotoMarker {
 
     /**
      * @generated
@@ -1450,7 +1450,7 @@ public class QosannotationsEditor extends MultiPageEditorPart implements IEditin
         this.setPartName(editorInput.getName());
         final IProgressMonitor progressMonitor = this.getActionBars().getStatusLineManager() != null ? this
                 .getActionBars().getStatusLineManager().getProgressMonitor() : new NullProgressMonitor();
-        this.doSave(progressMonitor);
+                this.doSave(progressMonitor);
     }
 
     /**
