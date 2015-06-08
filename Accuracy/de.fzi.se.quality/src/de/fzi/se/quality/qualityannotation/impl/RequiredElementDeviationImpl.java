@@ -8,12 +8,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
 import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
@@ -45,7 +46,7 @@ import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
  *
  * @generated
  */
-public class RequiredElementDeviationImpl extends EObjectImpl implements RequiredElementDeviation {
+public class RequiredElementDeviationImpl extends CDOObjectImpl implements RequiredElementDeviation {
 
     /**
      * The cached value of the '{@link #getMaximumDeviationNumberOfCalls()
@@ -168,7 +169,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
      */
     @Override
     public Precision getMaximumDeviationNumberOfCalls() {
-        if (this.maximumDeviationNumberOfCalls != null && this.maximumDeviationNumberOfCalls.eIsProxy()) {
+        if (this.maximumDeviationNumberOfCalls != null && ((EObject) this.maximumDeviationNumberOfCalls).eIsProxy()) {
             final InternalEObject oldMaximumDeviationNumberOfCalls = (InternalEObject) this.maximumDeviationNumberOfCalls;
             this.maximumDeviationNumberOfCalls = (Precision) this.eResolveProxy(oldMaximumDeviationNumberOfCalls);
             if (this.maximumDeviationNumberOfCalls != oldMaximumDeviationNumberOfCalls) {
@@ -438,7 +439,7 @@ public class RequiredElementDeviationImpl extends EObjectImpl implements Require
             return this.maximumDeviationNumberOfCalls != null;
         case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES:
             return this.maximumDeviationCallParameterValues != null
-                    && !this.maximumDeviationCallParameterValues.isEmpty();
+            && !this.maximumDeviationCallParameterValues.isEmpty();
         case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT:
             return this.requiredElement != null;
         }

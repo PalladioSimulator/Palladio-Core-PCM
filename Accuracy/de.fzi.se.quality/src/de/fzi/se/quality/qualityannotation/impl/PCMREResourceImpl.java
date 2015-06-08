@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -73,7 +74,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
      */
     @Override
     public ProcessingResourceType getProcessingResourceType() {
-        if (this.processingResourceType != null && this.processingResourceType.eIsProxy()) {
+        if (this.processingResourceType != null && ((EObject) this.processingResourceType).eIsProxy()) {
             final InternalEObject oldProcessingResourceType = (InternalEObject) this.processingResourceType;
             this.processingResourceType = (ProcessingResourceType) this.eResolveProxy(oldProcessingResourceType);
             if (this.processingResourceType != oldProcessingResourceType) {

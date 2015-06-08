@@ -145,20 +145,20 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                        .check(this)) {
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE,
-                        EcorePlugin.INSTANCE
-                        .getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE,
+                                EcorePlugin.INSTANCE
+                                        .getString(
+                                                "_UI_GenericInvariant_diagnostic",
+                                                new Object[] {
+                                                        "NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure",
+                                                        EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -212,20 +212,20 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                        .check(this)) {
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND,
-                        EcorePlugin.INSTANCE
-                        .getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND,
+                                EcorePlugin.INSTANCE
+                                        .getString(
+                                                "_UI_GenericInvariant_diagnostic",
+                                                new Object[] {
+                                                        "ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand",
+                                                        EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -279,16 +279,16 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                        .check(this)) {
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource",
-                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -344,13 +344,13 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent",
-                                EObjectValidator.getObjectLabel(this, context) }),
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent",
+                                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -405,16 +405,16 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                        .check(this)) {
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand",
-                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -468,16 +468,16 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                        .check(this)) {
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal",
-                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -531,13 +531,13 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV.createQuery(EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(Diagnostic.ERROR, QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_CATEGORY__EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] { "EachCategoryExactlyOnceIfSpecified",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_CATEGORY__EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED,
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "EachCategoryExactlyOnceIfSpecified",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

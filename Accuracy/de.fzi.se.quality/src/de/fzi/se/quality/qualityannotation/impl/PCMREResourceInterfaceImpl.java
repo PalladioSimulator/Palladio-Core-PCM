@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -78,7 +79,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
      */
     @Override
     public ResourceInterface getResourceInterface() {
-        if (this.resourceInterface != null && this.resourceInterface.eIsProxy()) {
+        if (this.resourceInterface != null && ((EObject) this.resourceInterface).eIsProxy()) {
             final InternalEObject oldResourceInterface = (InternalEObject) this.resourceInterface;
             this.resourceInterface = (ResourceInterface) this.eResolveProxy(oldResourceInterface);
             if (this.resourceInterface != oldResourceInterface) {
@@ -164,13 +165,13 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
                 NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_ROLE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "NextLowerLevelMustConsistOfTypePCMREResourceRole",
-                                EObjectValidator.getObjectLabel(this, context) }),
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_ROLE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "NextLowerLevelMustConsistOfTypePCMREResourceRole",
+                                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -225,15 +226,15 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

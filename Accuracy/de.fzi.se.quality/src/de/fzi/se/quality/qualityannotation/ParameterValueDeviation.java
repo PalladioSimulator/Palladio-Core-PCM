@@ -2,7 +2,7 @@
  */
 package de.fzi.se.quality.qualityannotation;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.fzi.se.quality.parameters.ParameterReference;
 import de.fzi.se.quality.parameters.ParameterValue;
@@ -29,9 +29,10 @@ import de.fzi.se.quality.parameters.ParameterValue;
  *
  * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getParameterValueDeviation()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface ParameterValueDeviation extends EObject {
+public interface ParameterValueDeviation extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Parameter Reference</b></em>' containment reference. It is

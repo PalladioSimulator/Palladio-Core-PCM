@@ -95,13 +95,13 @@ public abstract class PCMPEImpl extends ProbabilisticElementImpl implements PCMP
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(Diagnostic.ERROR, QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMPE__TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] { "TopmostLevelMustBePCMPEAllDecisions",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMPE__TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS,
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "TopmostLevelMustBePCMPEAllDecisions",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

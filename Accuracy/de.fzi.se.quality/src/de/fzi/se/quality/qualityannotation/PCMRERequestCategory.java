@@ -152,7 +152,7 @@ public enum PCMRERequestCategory implements Enumerator {
      * @generated
      */
     private static final PCMRERequestCategory[] VALUES_ARRAY = new PCMRERequestCategory[] { RESOURCE, INFRASTRUCTURE,
-        COMPONENT, RESOURCE_DEMAND, COMPONENT_INTERNAL, };
+            COMPONENT, RESOURCE_DEMAND, COMPONENT_INTERNAL, };
 
     /**
      * A public read-only list of all the '<em><b>PCMRE Request Category</b></em>' enumerators. <!--

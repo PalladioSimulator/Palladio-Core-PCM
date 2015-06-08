@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -78,7 +79,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
      */
     @Override
     public ResourceSignature getResourceSignature() {
-        if (this.resourceSignature != null && this.resourceSignature.eIsProxy()) {
+        if (this.resourceSignature != null && ((EObject) this.resourceSignature).eIsProxy()) {
             final InternalEObject oldResourceSignature = (InternalEObject) this.resourceSignature;
             this.resourceSignature = (ResourceSignature) this.eResolveProxy(oldResourceSignature);
             if (this.resourceSignature != oldResourceSignature) {
@@ -164,15 +165,15 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
                 this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__THIS_IS_THE_LOWEST_RESOURCE_HIERARCHY_LEVEL,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] { "ThisIsTheLowestResourceHierarchyLevel",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__THIS_IS_THE_LOWEST_RESOURCE_HIERARCHY_LEVEL,
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "ThisIsTheLowestResourceHierarchyLevel",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -226,15 +227,15 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

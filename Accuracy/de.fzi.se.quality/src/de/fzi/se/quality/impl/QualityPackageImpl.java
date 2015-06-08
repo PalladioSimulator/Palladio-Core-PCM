@@ -101,13 +101,13 @@ public class QualityPackageImpl extends EPackageImpl implements QualityPackage {
         // Obtain or create and register interdependencies
         final QualityAnnotationPackageImpl theQualityAnnotationPackage = (QualityAnnotationPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QualityAnnotationPackage.eNS_URI) instanceof QualityAnnotationPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(QualityAnnotationPackage.eNS_URI) : QualityAnnotationPackage.eINSTANCE);
+                .getEPackage(QualityAnnotationPackage.eNS_URI) : QualityAnnotationPackage.eINSTANCE);
         final ParametersPackageImpl theParametersPackage = (ParametersPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
+                .getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
         final PCMPackageImpl thePCMPackage = (PCMPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(PCMPackage.eNS_URI) instanceof PCMPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
+                        .getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
 
         // Create package meta-data objects
         theQualityPackage.createPackageContents();

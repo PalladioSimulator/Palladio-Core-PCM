@@ -8,6 +8,7 @@ package de.fzi.se.quality.parameters.pcm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -34,7 +35,7 @@ import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
  * @generated
  */
 public class PCMComponentParameterReferenceImpl extends PCMParameterReferenceImpl implements
-PCMComponentParameterReference {
+        PCMComponentParameterReference {
 
     /**
      * The cached value of the '{@link #getImplementationComponentType()
@@ -83,7 +84,7 @@ PCMComponentParameterReference {
      */
     @Override
     public ImplementationComponentType getImplementationComponentType() {
-        if (this.implementationComponentType != null && this.implementationComponentType.eIsProxy()) {
+        if (this.implementationComponentType != null && ((EObject) this.implementationComponentType).eIsProxy()) {
             final InternalEObject oldImplementationComponentType = (InternalEObject) this.implementationComponentType;
             this.implementationComponentType = (ImplementationComponentType) this
                     .eResolveProxy(oldImplementationComponentType);
@@ -130,7 +131,7 @@ PCMComponentParameterReference {
      */
     @Override
     public VariableUsage getVariableUsage() {
-        if (this.variableUsage != null && this.variableUsage.eIsProxy()) {
+        if (this.variableUsage != null && ((EObject) this.variableUsage).eIsProxy()) {
             final InternalEObject oldVariableUsage = (InternalEObject) this.variableUsage;
             this.variableUsage = (VariableUsage) this.eResolveProxy(oldVariableUsage);
             if (this.variableUsage != oldVariableUsage) {

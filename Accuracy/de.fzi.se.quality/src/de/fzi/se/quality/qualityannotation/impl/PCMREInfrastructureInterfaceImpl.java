@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -74,7 +75,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
      */
     @Override
     public InfrastructureInterface getInterface() {
-        if (this.interface_ != null && this.interface_.eIsProxy()) {
+        if (this.interface_ != null && ((EObject) this.interface_).eIsProxy()) {
             final InternalEObject oldInterface = (InternalEObject) this.interface_;
             this.interface_ = (InfrastructureInterface) this.eResolveProxy(oldInterface);
             if (this.interface_ != oldInterface) {
@@ -158,16 +159,16 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
         }
         if (!EOCL_ENV.createQuery(
                 NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
-                        this)) {
+                this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "NextLowerLevelMustConsistOfTypePCMREInfrastructureRole",
-                                EObjectValidator.getObjectLabel(this, context) }),
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "NextLowerLevelMustConsistOfTypePCMREInfrastructureRole",
+                                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -223,15 +224,15 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                        EcorePlugin.INSTANCE.getString(
-                                "_UI_GenericInvariant_diagnostic",
-                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                                        new Object[] { this }));
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

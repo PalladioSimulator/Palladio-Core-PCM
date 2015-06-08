@@ -46,7 +46,7 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * @generated
  */
 public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImpl implements
-InternalStateInfluenceAnalysisAggregation {
+        InternalStateInfluenceAnalysisAggregation {
 
     /**
      * The cached value of the '{@link #getParameterValueDeviations()

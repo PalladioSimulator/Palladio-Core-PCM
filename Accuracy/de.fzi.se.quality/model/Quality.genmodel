@@ -3,6 +3,7 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
     modelDirectory="/de.fzi.se.quality/src" modelPluginID="de.fzi.se.quality"
     templateDirectory="/de.fzi.se.quality/templates" dynamicTemplates="true" modelName="Quality"
+    rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
     copyrightFields="false" runtimeVersion="2.3" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction"
     cleanup="true">
@@ -29,6 +30,7 @@
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
+  <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Quality" basePackage="de.fzi.se"
       resource="XML" disposableProviderFactory="true" ecorePackage="quality.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//QualityRepository">

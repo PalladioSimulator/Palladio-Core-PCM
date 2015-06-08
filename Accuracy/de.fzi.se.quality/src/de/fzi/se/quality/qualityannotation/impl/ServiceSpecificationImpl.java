@@ -324,7 +324,7 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
             return this.checksum != CHECKSUM_EDEFAULT;
         case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM_ALG:
             return CHECKSUM_ALG_EDEFAULT == null ? this.checksumAlg != null : !CHECKSUM_ALG_EDEFAULT
-                    .equals(this.checksumAlg);
+            .equals(this.checksumAlg);
         case QualityAnnotationPackage.SERVICE_SPECIFICATION__QUALITY_ANNOTATION:
             return this.getQualityAnnotation() != null;
         }

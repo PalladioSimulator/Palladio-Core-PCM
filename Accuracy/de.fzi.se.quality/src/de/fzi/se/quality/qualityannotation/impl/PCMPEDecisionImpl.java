@@ -9,6 +9,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -73,7 +74,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
      */
     @Override
     public BranchAction getBranchAction() {
-        if (this.branchAction != null && this.branchAction.eIsProxy()) {
+        if (this.branchAction != null && ((EObject) this.branchAction).eIsProxy()) {
             final InternalEObject oldBranchAction = (InternalEObject) this.branchAction;
             this.branchAction = (BranchAction) this.eResolveProxy(oldBranchAction);
             if (this.branchAction != oldBranchAction) {

@@ -386,13 +386,13 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
                 STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.REQUIRED_ELEMENT__STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "StipulatedPrecisionMustBeSetInStipulationContext",
-                                EObjectValidator.getObjectLabel(this, context) }),
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.REQUIRED_ELEMENT__STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "StipulatedPrecisionMustBeSetInStipulationContext",
+                                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;

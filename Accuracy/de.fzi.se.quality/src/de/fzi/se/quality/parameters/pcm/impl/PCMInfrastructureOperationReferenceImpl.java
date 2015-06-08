@@ -8,6 +8,7 @@ package de.fzi.se.quality.parameters.pcm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -34,7 +35,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
  * @generated
  */
 public class PCMInfrastructureOperationReferenceImpl extends OperationReferenceImpl implements
-PCMInfrastructureOperationReference {
+        PCMInfrastructureOperationReference {
 
     /**
      * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
@@ -82,7 +83,7 @@ PCMInfrastructureOperationReference {
      */
     @Override
     public InfrastructureRequiredRole getRole() {
-        if (this.role != null && this.role.eIsProxy()) {
+        if (this.role != null && ((EObject) this.role).eIsProxy()) {
             final InternalEObject oldRole = (InternalEObject) this.role;
             this.role = (InfrastructureRequiredRole) this.eResolveProxy(oldRole);
             if (this.role != oldRole) {
@@ -126,7 +127,7 @@ PCMInfrastructureOperationReference {
      */
     @Override
     public InfrastructureSignature getSignature() {
-        if (this.signature != null && this.signature.eIsProxy()) {
+        if (this.signature != null && ((EObject) this.signature).eIsProxy()) {
             final InternalEObject oldSignature = (InternalEObject) this.signature;
             this.signature = (InfrastructureSignature) this.eResolveProxy(oldSignature);
             if (this.signature != oldSignature) {

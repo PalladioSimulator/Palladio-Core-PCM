@@ -141,13 +141,13 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                .add(new BasicDiagnostic(
-                        Diagnostic.ERROR,
-                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                        QualityAnnotationValidator.PCM_PARAMETER_PARTITION__APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "APCMParameterPartitionMustReferenceAPCMParameterReference",
-                                EObjectValidator.getObjectLabel(this, context) }),
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                                QualityAnnotationValidator.PCM_PARAMETER_PARTITION__APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "APCMParameterPartitionMustReferenceAPCMParameterReference",
+                                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;

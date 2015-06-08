@@ -358,7 +358,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
         // Obtain or create and register package
         final QualityAnnotationPackageImpl theQualityAnnotationPackage = (QualityAnnotationPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof QualityAnnotationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new QualityAnnotationPackageImpl());
+                : new QualityAnnotationPackageImpl());
 
         isInited = true;
 
@@ -368,13 +368,13 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
         // Obtain or create and register interdependencies
         final QualityPackageImpl theQualityPackage = (QualityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
+                .getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
         final ParametersPackageImpl theParametersPackage = (ParametersPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
+                .getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
         final PCMPackageImpl thePCMPackage = (PCMPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(PCMPackage.eNS_URI) instanceof PCMPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
+                        .getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
 
         // Create package meta-data objects
         theQualityAnnotationPackage.createPackageContents();

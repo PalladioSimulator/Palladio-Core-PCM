@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -77,7 +78,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
      */
     @Override
     public OperationInterface getInterface() {
-        if (this.interface_ != null && this.interface_.eIsProxy()) {
+        if (this.interface_ != null && ((EObject) this.interface_).eIsProxy()) {
             final InternalEObject oldInterface = (InternalEObject) this.interface_;
             this.interface_ = (OperationInterface) this.eResolveProxy(oldInterface);
             if (this.interface_ != oldInterface) {

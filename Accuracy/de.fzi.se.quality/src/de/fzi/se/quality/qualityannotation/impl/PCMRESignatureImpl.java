@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -77,7 +78,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
      */
     @Override
     public OperationSignature getSignature() {
-        if (this.signature != null && this.signature.eIsProxy()) {
+        if (this.signature != null && ((EObject) this.signature).eIsProxy()) {
             final InternalEObject oldSignature = (InternalEObject) this.signature;
             this.signature = (OperationSignature) this.eResolveProxy(oldSignature);
             if (this.signature != oldSignature) {

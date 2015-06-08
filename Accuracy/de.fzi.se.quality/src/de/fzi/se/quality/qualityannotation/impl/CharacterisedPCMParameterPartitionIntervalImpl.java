@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * @generated
  */
 public class CharacterisedPCMParameterPartitionIntervalImpl extends CharacterisedPCMParameterPartitionImpl implements
-CharacterisedPCMParameterPartitionInterval {
+        CharacterisedPCMParameterPartitionInterval {
 
     /**
      * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference. <!--

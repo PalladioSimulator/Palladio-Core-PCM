@@ -125,7 +125,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
             if (this.defaultPrecisionNumberOfCalls != null) {
                 msgs = ((InternalEObject) this.defaultPrecisionNumberOfCalls).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
-                                - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS, null, msgs);
+                        - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS, null, msgs);
             }
             if (newDefaultPrecisionNumberOfCalls != null) {
                 msgs = ((InternalEObject) newDefaultPrecisionNumberOfCalls).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
@@ -186,7 +186,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
             if (this.defaultPrecisionCallParameter != null) {
                 msgs = ((InternalEObject) this.defaultPrecisionCallParameter).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
-                                - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER, null, msgs);
+                        - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER, null, msgs);
             }
             if (newDefaultPrecisionCallParameter != null) {
                 msgs = ((InternalEObject) newDefaultPrecisionCallParameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE

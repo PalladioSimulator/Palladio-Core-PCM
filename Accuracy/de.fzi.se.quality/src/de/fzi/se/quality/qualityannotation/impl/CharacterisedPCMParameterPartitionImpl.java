@@ -40,7 +40,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
  * @generated
  */
 public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierImpl implements
-CharacterisedPCMParameterPartition {
+        CharacterisedPCMParameterPartition {
 
     /**
      * The default value of the '{@link #getForCharacterisation() <em>For Characterisation</em>}'
@@ -333,7 +333,7 @@ CharacterisedPCMParameterPartition {
             return this.getPcmParameterPartition() != null;
         case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME:
             return QUALIFIED_ELEMENT_NAME_EDEFAULT == null ? this.qualifiedElementName != null
-            : !QUALIFIED_ELEMENT_NAME_EDEFAULT.equals(this.qualifiedElementName);
+                    : !QUALIFIED_ELEMENT_NAME_EDEFAULT.equals(this.qualifiedElementName);
         }
         return super.eIsSet(featureID);
     }

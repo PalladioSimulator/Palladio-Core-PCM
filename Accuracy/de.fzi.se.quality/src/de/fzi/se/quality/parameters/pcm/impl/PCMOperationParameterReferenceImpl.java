@@ -8,6 +8,7 @@ package de.fzi.se.quality.parameters.pcm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -29,7 +30,7 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * @generated
  */
 public class PCMOperationParameterReferenceImpl extends PCMParameterReferenceImpl implements
-PCMOperationParameterReference {
+        PCMOperationParameterReference {
 
     /**
      * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference. <!--
@@ -67,7 +68,7 @@ PCMOperationParameterReference {
      */
     @Override
     public Parameter getParameter() {
-        if (this.parameter != null && this.parameter.eIsProxy()) {
+        if (this.parameter != null && ((EObject) this.parameter).eIsProxy()) {
             final InternalEObject oldParameter = (InternalEObject) this.parameter;
             this.parameter = (Parameter) this.eResolveProxy(oldParameter);
             if (this.parameter != oldParameter) {

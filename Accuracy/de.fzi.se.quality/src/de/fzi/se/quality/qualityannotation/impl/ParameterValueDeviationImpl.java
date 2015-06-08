@@ -7,8 +7,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.fzi.se.quality.parameters.ParameterReference;
 import de.fzi.se.quality.parameters.ParameterValue;
@@ -41,7 +41,7 @@ import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
  *
  * @generated
  */
-public class ParameterValueDeviationImpl extends EObjectImpl implements ParameterValueDeviation {
+public class ParameterValueDeviationImpl extends CDOObjectImpl implements ParameterValueDeviation {
 
     /**
      * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}'

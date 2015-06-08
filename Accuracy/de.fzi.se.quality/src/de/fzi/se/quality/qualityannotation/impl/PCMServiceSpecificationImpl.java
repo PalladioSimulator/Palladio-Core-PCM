@@ -8,6 +8,7 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -67,7 +68,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
      */
     @Override
     public ResourceDemandingSEFF getResourceDemandingSEFF() {
-        if (this.resourceDemandingSEFF != null && this.resourceDemandingSEFF.eIsProxy()) {
+        if (this.resourceDemandingSEFF != null && ((EObject) this.resourceDemandingSEFF).eIsProxy()) {
             final InternalEObject oldResourceDemandingSEFF = (InternalEObject) this.resourceDemandingSEFF;
             this.resourceDemandingSEFF = (ResourceDemandingSEFF) this.eResolveProxy(oldResourceDemandingSEFF);
             if (this.resourceDemandingSEFF != oldResourceDemandingSEFF) {

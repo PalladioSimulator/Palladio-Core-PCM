@@ -460,7 +460,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
             return this.stipulatedREPrecisions != null && !this.stipulatedREPrecisions.isEmpty();
         case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
             return this.internalStateInfluenceAnalysisResults != null
-                    && !this.internalStateInfluenceAnalysisResults.isEmpty();
+            && !this.internalStateInfluenceAnalysisResults.isEmpty();
         case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
             return this.probabilisticElements != null && !this.probabilisticElements.isEmpty();
         case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:

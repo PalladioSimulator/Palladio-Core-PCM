@@ -10,10 +10,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.fzi.se.quality.qualityannotation.Precision;
 import de.fzi.se.quality.qualityannotation.ProbabilisticElement;
@@ -40,7 +40,7 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
  *
  * @generated
  */
-public abstract class ProbabilisticElementImpl extends EObjectImpl implements ProbabilisticElement {
+public abstract class ProbabilisticElementImpl extends CDOObjectImpl implements ProbabilisticElement {
 
     /**
      * The cached value of the '{@link #getPrecision() <em>Precision</em>}' containment reference.

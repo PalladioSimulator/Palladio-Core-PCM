@@ -8,6 +8,7 @@ package de.fzi.se.quality.parameters.pcm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -67,7 +68,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
      */
     @Override
     public BasicComponent getBasicComponent() {
-        if (this.basicComponent != null && this.basicComponent.eIsProxy()) {
+        if (this.basicComponent != null && ((EObject) this.basicComponent).eIsProxy()) {
             final InternalEObject oldBasicComponent = (InternalEObject) this.basicComponent;
             this.basicComponent = (BasicComponent) this.eResolveProxy(oldBasicComponent);
             if (this.basicComponent != oldBasicComponent) {

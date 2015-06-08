@@ -8,6 +8,7 @@ package de.fzi.se.quality.parameters.pcm.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -34,7 +35,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
  * @generated
  */
 public class PCMRequiredBusinessOperationReturnParameterReferenceImpl extends PCMParameterReferenceImpl implements
-PCMRequiredBusinessOperationReturnParameterReference {
+        PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * The cached value of the '{@link #getRequiredRole() <em>Required Role</em>}' reference. <!--
@@ -82,7 +83,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
      */
     @Override
     public OperationRequiredRole getRequiredRole() {
-        if (this.requiredRole != null && this.requiredRole.eIsProxy()) {
+        if (this.requiredRole != null && ((EObject) this.requiredRole).eIsProxy()) {
             final InternalEObject oldRequiredRole = (InternalEObject) this.requiredRole;
             this.requiredRole = (OperationRequiredRole) this.eResolveProxy(oldRequiredRole);
             if (this.requiredRole != oldRequiredRole) {
@@ -128,7 +129,7 @@ PCMRequiredBusinessOperationReturnParameterReference {
      */
     @Override
     public OperationSignature getSignature() {
-        if (this.signature != null && this.signature.eIsProxy()) {
+        if (this.signature != null && ((EObject) this.signature).eIsProxy()) {
             final InternalEObject oldSignature = (InternalEObject) this.signature;
             this.signature = (OperationSignature) this.eResolveProxy(oldSignature);
             if (this.signature != oldSignature) {

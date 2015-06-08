@@ -2,8 +2,8 @@
  */
 package de.fzi.se.quality.qualityannotation;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -25,9 +25,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getProbabilisticElement()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface ProbabilisticElement extends EObject {
+public interface ProbabilisticElement extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Precision</b></em>' containment reference. <!--
