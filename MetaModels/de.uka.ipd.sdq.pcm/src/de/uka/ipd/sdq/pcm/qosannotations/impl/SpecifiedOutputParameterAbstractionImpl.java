@@ -11,12 +11,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
@@ -49,7 +50,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @generated
  */
-public abstract class SpecifiedOutputParameterAbstractionImpl extends MinimalEObjectImpl.Container implements
+public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectImpl implements
 SpecifiedOutputParameterAbstraction {
 
     /**
@@ -185,7 +186,7 @@ SpecifiedOutputParameterAbstraction {
     @Override
     public Signature getSignature_SpecifiedOutputParameterAbstraction() {
         if (this.signature_SpecifiedOutputParameterAbstraction != null
-                && this.signature_SpecifiedOutputParameterAbstraction.eIsProxy()) {
+                && ((EObject) this.signature_SpecifiedOutputParameterAbstraction).eIsProxy()) {
             final InternalEObject oldSignature_SpecifiedOutputParameterAbstraction = (InternalEObject) this.signature_SpecifiedOutputParameterAbstraction;
             this.signature_SpecifiedOutputParameterAbstraction = (Signature) this
                     .eResolveProxy(oldSignature_SpecifiedOutputParameterAbstraction);
@@ -240,7 +241,7 @@ SpecifiedOutputParameterAbstraction {
     @Override
     public Role getRole_SpecifiedOutputParameterAbstraction() {
         if (this.role_SpecifiedOutputParameterAbstraction != null
-                && this.role_SpecifiedOutputParameterAbstraction.eIsProxy()) {
+                && ((EObject) this.role_SpecifiedOutputParameterAbstraction).eIsProxy()) {
             final InternalEObject oldRole_SpecifiedOutputParameterAbstraction = (InternalEObject) this.role_SpecifiedOutputParameterAbstraction;
             this.role_SpecifiedOutputParameterAbstraction = (Role) this
                     .eResolveProxy(oldRole_SpecifiedOutputParameterAbstraction);

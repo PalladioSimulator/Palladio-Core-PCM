@@ -10,8 +10,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Workload;
  *
  * @generated
  */
-public abstract class WorkloadImpl extends MinimalEObjectImpl.Container implements Workload {
+public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -5,8 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.Role;
@@ -47,9 +47,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface SpecifiedOutputParameterAbstraction extends EObject {
+public interface SpecifiedOutputParameterAbstraction extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

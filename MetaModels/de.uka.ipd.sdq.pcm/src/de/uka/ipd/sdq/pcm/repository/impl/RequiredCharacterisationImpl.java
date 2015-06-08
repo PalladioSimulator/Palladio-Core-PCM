@@ -8,10 +8,11 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
@@ -37,7 +38,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
  *
  * @generated
  */
-public class RequiredCharacterisationImpl extends MinimalEObjectImpl.Container implements RequiredCharacterisation {
+public class RequiredCharacterisationImpl extends CDOObjectImpl implements RequiredCharacterisation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -127,7 +128,7 @@ public class RequiredCharacterisationImpl extends MinimalEObjectImpl.Container i
      */
     @Override
     public Parameter getParameter() {
-        if (this.parameter != null && this.parameter.eIsProxy()) {
+        if (this.parameter != null && ((EObject) this.parameter).eIsProxy()) {
             final InternalEObject oldParameter = (InternalEObject) this.parameter;
             this.parameter = (Parameter) this.eResolveProxy(oldParameter);
             if (this.parameter != oldParameter) {

@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -75,7 +76,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
     @Override
     public InfrastructureInterface getRequiredInterface__InfrastructureRequiredRole() {
         if (this.requiredInterface__InfrastructureRequiredRole != null
-                && this.requiredInterface__InfrastructureRequiredRole.eIsProxy()) {
+                && ((EObject) this.requiredInterface__InfrastructureRequiredRole).eIsProxy()) {
             final InternalEObject oldRequiredInterface__InfrastructureRequiredRole = (InternalEObject) this.requiredInterface__InfrastructureRequiredRole;
             this.requiredInterface__InfrastructureRequiredRole = (InfrastructureInterface) this
                     .eResolveProxy(oldRequiredInterface__InfrastructureRequiredRole);

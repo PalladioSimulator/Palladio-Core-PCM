@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -103,7 +104,8 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      */
     @Override
     public SourceRole getSourceRole__EventChannelSourceRole() {
-        if (this.sourceRole__EventChannelSourceRole != null && this.sourceRole__EventChannelSourceRole.eIsProxy()) {
+        if (this.sourceRole__EventChannelSourceRole != null
+                && ((EObject) this.sourceRole__EventChannelSourceRole).eIsProxy()) {
             final InternalEObject oldSourceRole__EventChannelSourceRole = (InternalEObject) this.sourceRole__EventChannelSourceRole;
             this.sourceRole__EventChannelSourceRole = (SourceRole) this
                     .eResolveProxy(oldSourceRole__EventChannelSourceRole);
@@ -151,7 +153,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
     @Override
     public AssemblyContext getAssemblyContext__EventChannelSourceConnector() {
         if (this.assemblyContext__EventChannelSourceConnector != null
-                && this.assemblyContext__EventChannelSourceConnector.eIsProxy()) {
+                && ((EObject) this.assemblyContext__EventChannelSourceConnector).eIsProxy()) {
             final InternalEObject oldAssemblyContext__EventChannelSourceConnector = (InternalEObject) this.assemblyContext__EventChannelSourceConnector;
             this.assemblyContext__EventChannelSourceConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__EventChannelSourceConnector);
@@ -203,7 +205,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
     @Override
     public EventChannel getEventChannel__EventChannelSourceConnector() {
         if (this.eventChannel__EventChannelSourceConnector != null
-                && this.eventChannel__EventChannelSourceConnector.eIsProxy()) {
+                && ((EObject) this.eventChannel__EventChannelSourceConnector).eIsProxy()) {
             final InternalEObject oldEventChannel__EventChannelSourceConnector = (InternalEObject) this.eventChannel__EventChannelSourceConnector;
             this.eventChannel__EventChannelSourceConnector = (EventChannel) this
                     .eResolveProxy(oldEventChannel__EventChannelSourceConnector);

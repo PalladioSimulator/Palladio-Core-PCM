@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -100,7 +101,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
     @Override
     public AssemblyContext getAssemblyContext__SinkDelegationConnector() {
         if (this.assemblyContext__SinkDelegationConnector != null
-                && this.assemblyContext__SinkDelegationConnector.eIsProxy()) {
+                && ((EObject) this.assemblyContext__SinkDelegationConnector).eIsProxy()) {
             final InternalEObject oldAssemblyContext__SinkDelegationConnector = (InternalEObject) this.assemblyContext__SinkDelegationConnector;
             this.assemblyContext__SinkDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__SinkDelegationConnector);
@@ -148,7 +149,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      */
     @Override
     public SinkRole getInnerSinkRole__SinkRole() {
-        if (this.innerSinkRole__SinkRole != null && this.innerSinkRole__SinkRole.eIsProxy()) {
+        if (this.innerSinkRole__SinkRole != null && ((EObject) this.innerSinkRole__SinkRole).eIsProxy()) {
             final InternalEObject oldInnerSinkRole__SinkRole = (InternalEObject) this.innerSinkRole__SinkRole;
             this.innerSinkRole__SinkRole = (SinkRole) this.eResolveProxy(oldInnerSinkRole__SinkRole);
             if (this.innerSinkRole__SinkRole != oldInnerSinkRole__SinkRole) {
@@ -194,7 +195,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      */
     @Override
     public SinkRole getOuterSinkRole__SinkRole() {
-        if (this.outerSinkRole__SinkRole != null && this.outerSinkRole__SinkRole.eIsProxy()) {
+        if (this.outerSinkRole__SinkRole != null && ((EObject) this.outerSinkRole__SinkRole).eIsProxy()) {
             final InternalEObject oldOuterSinkRole__SinkRole = (InternalEObject) this.outerSinkRole__SinkRole;
             this.outerSinkRole__SinkRole = (SinkRole) this.eResolveProxy(oldOuterSinkRole__SinkRole);
             if (this.outerSinkRole__SinkRole != oldOuterSinkRole__SinkRole) {

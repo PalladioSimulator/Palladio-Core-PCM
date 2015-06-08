@@ -8,10 +8,11 @@ package de.uka.ipd.sdq.pcm.qosannotations.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
@@ -39,7 +40,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @generated
  */
-public abstract class SpecifiedQoSAnnotationImpl extends MinimalEObjectImpl.Container implements SpecifiedQoSAnnotation {
+public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implements SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -96,7 +97,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends MinimalEObjectImpl.Cont
      */
     @Override
     public Signature getSignature_SpecifiedQoSAnnation() {
-        if (this.signature_SpecifiedQoSAnnation != null && this.signature_SpecifiedQoSAnnation.eIsProxy()) {
+        if (this.signature_SpecifiedQoSAnnation != null && ((EObject) this.signature_SpecifiedQoSAnnation).eIsProxy()) {
             final InternalEObject oldSignature_SpecifiedQoSAnnation = (InternalEObject) this.signature_SpecifiedQoSAnnation;
             this.signature_SpecifiedQoSAnnation = (Signature) this.eResolveProxy(oldSignature_SpecifiedQoSAnnation);
             if (this.signature_SpecifiedQoSAnnation != oldSignature_SpecifiedQoSAnnation) {
@@ -142,7 +143,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends MinimalEObjectImpl.Cont
      */
     @Override
     public Role getRole_SpecifiedQoSAnnotation() {
-        if (this.role_SpecifiedQoSAnnotation != null && this.role_SpecifiedQoSAnnotation.eIsProxy()) {
+        if (this.role_SpecifiedQoSAnnotation != null && ((EObject) this.role_SpecifiedQoSAnnotation).eIsProxy()) {
             final InternalEObject oldRole_SpecifiedQoSAnnotation = (InternalEObject) this.role_SpecifiedQoSAnnotation;
             this.role_SpecifiedQoSAnnotation = (Role) this.eResolveProxy(oldRole_SpecifiedQoSAnnotation);
             if (this.role_SpecifiedQoSAnnotation != oldRole_SpecifiedQoSAnnotation) {

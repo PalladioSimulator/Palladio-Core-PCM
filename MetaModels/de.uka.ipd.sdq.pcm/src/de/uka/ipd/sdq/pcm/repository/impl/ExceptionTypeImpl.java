@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  *
  * @generated
  */
-public class ExceptionTypeImpl extends MinimalEObjectImpl.Container implements ExceptionType {
+public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

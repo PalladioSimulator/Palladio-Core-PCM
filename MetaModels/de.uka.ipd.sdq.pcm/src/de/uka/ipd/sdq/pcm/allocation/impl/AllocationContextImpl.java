@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -122,7 +123,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public ResourceContainer getResourceContainer_AllocationContext() {
-        if (this.resourceContainer_AllocationContext != null && this.resourceContainer_AllocationContext.eIsProxy()) {
+        if (this.resourceContainer_AllocationContext != null
+                && ((EObject) this.resourceContainer_AllocationContext).eIsProxy()) {
             final InternalEObject oldResourceContainer_AllocationContext = (InternalEObject) this.resourceContainer_AllocationContext;
             this.resourceContainer_AllocationContext = (ResourceContainer) this
                     .eResolveProxy(oldResourceContainer_AllocationContext);
@@ -169,7 +171,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public AssemblyContext getAssemblyContext_AllocationContext() {
-        if (this.assemblyContext_AllocationContext != null && this.assemblyContext_AllocationContext.eIsProxy()) {
+        if (this.assemblyContext_AllocationContext != null
+                && ((EObject) this.assemblyContext_AllocationContext).eIsProxy()) {
             final InternalEObject oldAssemblyContext_AllocationContext = (InternalEObject) this.assemblyContext_AllocationContext;
             this.assemblyContext_AllocationContext = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext_AllocationContext);
@@ -272,7 +275,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public EventChannel getEventChannel__AllocationContext() {
-        if (this.eventChannel__AllocationContext != null && this.eventChannel__AllocationContext.eIsProxy()) {
+        if (this.eventChannel__AllocationContext != null && ((EObject) this.eventChannel__AllocationContext).eIsProxy()) {
             final InternalEObject oldEventChannel__AllocationContext = (InternalEObject) this.eventChannel__AllocationContext;
             this.eventChannel__AllocationContext = (EventChannel) this
                     .eResolveProxy(oldEventChannel__AllocationContext);

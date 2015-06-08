@@ -8,10 +8,11 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
@@ -38,7 +39,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  *
  * @generated
  */
-public class ResourceRequiredDelegationConnectorImpl extends MinimalEObjectImpl.Container implements
+public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl implements
 ResourceRequiredDelegationConnector {
 
     /**
@@ -166,7 +167,7 @@ ResourceRequiredDelegationConnector {
     @Override
     public ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
         if (this.innerResourceRequiredRole_ResourceRequiredDelegationConnector != null
-                && this.innerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
+                && ((EObject) this.innerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
             final InternalEObject oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject) this.innerResourceRequiredRole_ResourceRequiredDelegationConnector;
             this.innerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole) this
                     .eResolveProxy(oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector);
@@ -221,7 +222,7 @@ ResourceRequiredDelegationConnector {
     @Override
     public ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
         if (this.outerResourceRequiredRole_ResourceRequiredDelegationConnector != null
-                && this.outerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
+                && ((EObject) this.outerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
             final InternalEObject oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject) this.outerResourceRequiredRole_ResourceRequiredDelegationConnector;
             this.outerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole) this
                     .eResolveProxy(oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector);

@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -88,7 +89,7 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
     @Override
     public ProcessingResourceType getProcessingResourceType__HardwareInducedFailureType() {
         if (this.processingResourceType__HardwareInducedFailureType != null
-                && this.processingResourceType__HardwareInducedFailureType.eIsProxy()) {
+                && ((EObject) this.processingResourceType__HardwareInducedFailureType).eIsProxy()) {
             final InternalEObject oldProcessingResourceType__HardwareInducedFailureType = (InternalEObject) this.processingResourceType__HardwareInducedFailureType;
             this.processingResourceType__HardwareInducedFailureType = (ProcessingResourceType) this
                     .eResolveProxy(oldProcessingResourceType__HardwareInducedFailureType);

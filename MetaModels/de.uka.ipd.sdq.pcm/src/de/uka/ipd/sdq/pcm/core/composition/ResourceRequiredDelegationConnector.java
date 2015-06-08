@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 
@@ -32,9 +32,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface ResourceRequiredDelegationConnector extends EObject {
+public interface ResourceRequiredDelegationConnector extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

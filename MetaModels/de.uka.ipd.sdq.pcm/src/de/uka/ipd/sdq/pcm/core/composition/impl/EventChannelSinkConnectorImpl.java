@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -118,7 +119,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public SinkRole getSinkRole__EventChannelSinkConnector() {
-        if (this.sinkRole__EventChannelSinkConnector != null && this.sinkRole__EventChannelSinkConnector.eIsProxy()) {
+        if (this.sinkRole__EventChannelSinkConnector != null
+                && ((EObject) this.sinkRole__EventChannelSinkConnector).eIsProxy()) {
             final InternalEObject oldSinkRole__EventChannelSinkConnector = (InternalEObject) this.sinkRole__EventChannelSinkConnector;
             this.sinkRole__EventChannelSinkConnector = (SinkRole) this
                     .eResolveProxy(oldSinkRole__EventChannelSinkConnector);
@@ -230,7 +232,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
     @Override
     public AssemblyContext getAssemblyContext__EventChannelSinkConnector() {
         if (this.assemblyContext__EventChannelSinkConnector != null
-                && this.assemblyContext__EventChannelSinkConnector.eIsProxy()) {
+                && ((EObject) this.assemblyContext__EventChannelSinkConnector).eIsProxy()) {
             final InternalEObject oldAssemblyContext__EventChannelSinkConnector = (InternalEObject) this.assemblyContext__EventChannelSinkConnector;
             this.assemblyContext__EventChannelSinkConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__EventChannelSinkConnector);
@@ -282,7 +284,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
     @Override
     public EventChannel getEventChannel__EventChannelSinkConnector() {
         if (this.eventChannel__EventChannelSinkConnector != null
-                && this.eventChannel__EventChannelSinkConnector.eIsProxy()) {
+                && ((EObject) this.eventChannel__EventChannelSinkConnector).eIsProxy()) {
             final InternalEObject oldEventChannel__EventChannelSinkConnector = (InternalEObject) this.eventChannel__EventChannelSinkConnector;
             this.eventChannel__EventChannelSinkConnector = (EventChannel) this
                     .eResolveProxy(oldEventChannel__EventChannelSinkConnector);

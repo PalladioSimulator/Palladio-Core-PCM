@@ -13,12 +13,13 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
@@ -48,8 +49,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  *
  * @generated
  */
-public abstract class ServiceEffectSpecificationImpl extends MinimalEObjectImpl.Container implements
-ServiceEffectSpecification {
+public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl implements ServiceEffectSpecification {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -139,7 +139,7 @@ ServiceEffectSpecification {
      */
     @Override
     public Signature getDescribedService__SEFF() {
-        if (this.describedService__SEFF != null && this.describedService__SEFF.eIsProxy()) {
+        if (this.describedService__SEFF != null && ((EObject) this.describedService__SEFF).eIsProxy()) {
             final InternalEObject oldDescribedService__SEFF = (InternalEObject) this.describedService__SEFF;
             this.describedService__SEFF = (Signature) this.eResolveProxy(oldDescribedService__SEFF);
             if (this.describedService__SEFF != oldDescribedService__SEFF) {

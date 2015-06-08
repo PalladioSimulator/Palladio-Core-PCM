@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -145,7 +146,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
     @Override
     public ResourceInterface getProvidedResourceInterface__ResourceProvidedRole() {
         if (this.providedResourceInterface__ResourceProvidedRole != null
-                && this.providedResourceInterface__ResourceProvidedRole.eIsProxy()) {
+                && ((EObject) this.providedResourceInterface__ResourceProvidedRole).eIsProxy()) {
             final InternalEObject oldProvidedResourceInterface__ResourceProvidedRole = (InternalEObject) this.providedResourceInterface__ResourceProvidedRole;
             this.providedResourceInterface__ResourceProvidedRole = (ResourceInterface) this
                     .eResolveProxy(oldProvidedResourceInterface__ResourceProvidedRole);

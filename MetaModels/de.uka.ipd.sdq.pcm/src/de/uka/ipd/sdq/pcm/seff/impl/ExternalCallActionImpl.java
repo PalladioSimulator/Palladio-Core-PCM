@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -222,7 +223,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public OperationSignature getCalledService_ExternalService() {
-        if (this.calledService_ExternalService != null && this.calledService_ExternalService.eIsProxy()) {
+        if (this.calledService_ExternalService != null && ((EObject) this.calledService_ExternalService).eIsProxy()) {
             final InternalEObject oldCalledService_ExternalService = (InternalEObject) this.calledService_ExternalService;
             this.calledService_ExternalService = (OperationSignature) this
                     .eResolveProxy(oldCalledService_ExternalService);
@@ -269,7 +270,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public OperationRequiredRole getRole_ExternalService() {
-        if (this.role_ExternalService != null && this.role_ExternalService.eIsProxy()) {
+        if (this.role_ExternalService != null && ((EObject) this.role_ExternalService).eIsProxy()) {
             final InternalEObject oldRole_ExternalService = (InternalEObject) this.role_ExternalService;
             this.role_ExternalService = (OperationRequiredRole) this.eResolveProxy(oldRole_ExternalService);
             if (this.role_ExternalService != oldRole_ExternalService) {

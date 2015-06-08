@@ -7,8 +7,8 @@ package de.uka.ipd.sdq.pcm.seff;
 
 import java.util.Map;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -51,9 +51,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface ServiceEffectSpecification extends EObject {
+public interface ServiceEffectSpecification extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

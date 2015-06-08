@@ -13,12 +13,13 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
@@ -52,7 +53,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
  *
  * @generated
  */
-public class ParametricResourceDemandImpl extends MinimalEObjectImpl.Container implements ParametricResourceDemand {
+public class ParametricResourceDemandImpl extends CDOObjectImpl implements ParametricResourceDemand {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -174,7 +175,7 @@ public class ParametricResourceDemandImpl extends MinimalEObjectImpl.Container i
     @Override
     public ProcessingResourceType getRequiredResource_ParametricResourceDemand() {
         if (this.requiredResource_ParametricResourceDemand != null
-                && this.requiredResource_ParametricResourceDemand.eIsProxy()) {
+                && ((EObject) this.requiredResource_ParametricResourceDemand).eIsProxy()) {
             final InternalEObject oldRequiredResource_ParametricResourceDemand = (InternalEObject) this.requiredResource_ParametricResourceDemand;
             this.requiredResource_ParametricResourceDemand = (ProcessingResourceType) this
                     .eResolveProxy(oldRequiredResource_ParametricResourceDemand);

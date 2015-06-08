@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -124,7 +125,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public InfrastructureSignature getSignature__InfrastructureCall() {
-        if (this.signature__InfrastructureCall != null && this.signature__InfrastructureCall.eIsProxy()) {
+        if (this.signature__InfrastructureCall != null && ((EObject) this.signature__InfrastructureCall).eIsProxy()) {
             final InternalEObject oldSignature__InfrastructureCall = (InternalEObject) this.signature__InfrastructureCall;
             this.signature__InfrastructureCall = (InfrastructureSignature) this
                     .eResolveProxy(oldSignature__InfrastructureCall);
@@ -290,7 +291,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public InfrastructureRequiredRole getRequiredRole__InfrastructureCall() {
-        if (this.requiredRole__InfrastructureCall != null && this.requiredRole__InfrastructureCall.eIsProxy()) {
+        if (this.requiredRole__InfrastructureCall != null
+                && ((EObject) this.requiredRole__InfrastructureCall).eIsProxy()) {
             final InternalEObject oldRequiredRole__InfrastructureCall = (InternalEObject) this.requiredRole__InfrastructureCall;
             this.requiredRole__InfrastructureCall = (InfrastructureRequiredRole) this
                     .eResolveProxy(oldRequiredRole__InfrastructureCall);

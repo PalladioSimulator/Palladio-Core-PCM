@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -82,7 +83,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
     @Override
     public ResourceInterface getRequiredResourceInterface__ResourceRequiredRole() {
         if (this.requiredResourceInterface__ResourceRequiredRole != null
-                && this.requiredResourceInterface__ResourceRequiredRole.eIsProxy()) {
+                && ((EObject) this.requiredResourceInterface__ResourceRequiredRole).eIsProxy()) {
             final InternalEObject oldRequiredResourceInterface__ResourceRequiredRole = (InternalEObject) this.requiredResourceInterface__ResourceRequiredRole;
             this.requiredResourceInterface__ResourceRequiredRole = (ResourceInterface) this
                     .eResolveProxy(oldRequiredResourceInterface__ResourceRequiredRole);

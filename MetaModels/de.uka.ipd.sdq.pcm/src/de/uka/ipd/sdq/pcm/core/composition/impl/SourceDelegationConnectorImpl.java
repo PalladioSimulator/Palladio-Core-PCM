@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -101,7 +102,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public SourceRole getInnerSourceRole__SourceRole() {
-        if (this.innerSourceRole__SourceRole != null && this.innerSourceRole__SourceRole.eIsProxy()) {
+        if (this.innerSourceRole__SourceRole != null && ((EObject) this.innerSourceRole__SourceRole).eIsProxy()) {
             final InternalEObject oldInnerSourceRole__SourceRole = (InternalEObject) this.innerSourceRole__SourceRole;
             this.innerSourceRole__SourceRole = (SourceRole) this.eResolveProxy(oldInnerSourceRole__SourceRole);
             if (this.innerSourceRole__SourceRole != oldInnerSourceRole__SourceRole) {
@@ -147,7 +148,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public SourceRole getOuterSourceRole__SourceRole() {
-        if (this.outerSourceRole__SourceRole != null && this.outerSourceRole__SourceRole.eIsProxy()) {
+        if (this.outerSourceRole__SourceRole != null && ((EObject) this.outerSourceRole__SourceRole).eIsProxy()) {
             final InternalEObject oldOuterSourceRole__SourceRole = (InternalEObject) this.outerSourceRole__SourceRole;
             this.outerSourceRole__SourceRole = (SourceRole) this.eResolveProxy(oldOuterSourceRole__SourceRole);
             if (this.outerSourceRole__SourceRole != oldOuterSourceRole__SourceRole) {
@@ -194,7 +195,7 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
     @Override
     public AssemblyContext getAssemblyContext__SourceDelegationConnector() {
         if (this.assemblyContext__SourceDelegationConnector != null
-                && this.assemblyContext__SourceDelegationConnector.eIsProxy()) {
+                && ((EObject) this.assemblyContext__SourceDelegationConnector).eIsProxy()) {
             final InternalEObject oldAssemblyContext__SourceDelegationConnector = (InternalEObject) this.assemblyContext__SourceDelegationConnector;
             this.assemblyContext__SourceDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__SourceDelegationConnector);

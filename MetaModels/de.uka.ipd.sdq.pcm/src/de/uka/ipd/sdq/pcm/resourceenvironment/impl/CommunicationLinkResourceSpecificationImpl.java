@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -230,7 +231,7 @@ CommunicationLinkResourceSpecification {
     @Override
     public CommunicationLinkResourceType getCommunicationLinkResourceType_CommunicationLinkResourceSpecification() {
         if (this.communicationLinkResourceType_CommunicationLinkResourceSpecification != null
-                && this.communicationLinkResourceType_CommunicationLinkResourceSpecification.eIsProxy()) {
+                && ((EObject) this.communicationLinkResourceType_CommunicationLinkResourceSpecification).eIsProxy()) {
             final InternalEObject oldCommunicationLinkResourceType_CommunicationLinkResourceSpecification = (InternalEObject) this.communicationLinkResourceType_CommunicationLinkResourceSpecification;
             this.communicationLinkResourceType_CommunicationLinkResourceSpecification = (CommunicationLinkResourceType) this
                     .eResolveProxy(oldCommunicationLinkResourceType_CommunicationLinkResourceSpecification);

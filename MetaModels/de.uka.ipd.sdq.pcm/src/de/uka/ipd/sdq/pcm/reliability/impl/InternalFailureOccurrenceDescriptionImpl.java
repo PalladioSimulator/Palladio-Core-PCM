@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -95,7 +96,7 @@ InternalFailureOccurrenceDescription {
     @Override
     public SoftwareInducedFailureType getSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
         if (this.softwareInducedFailureType__InternalFailureOccurrenceDescription != null
-                && this.softwareInducedFailureType__InternalFailureOccurrenceDescription.eIsProxy()) {
+                && ((EObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription).eIsProxy()) {
             final InternalEObject oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription = (InternalEObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription;
             this.softwareInducedFailureType__InternalFailureOccurrenceDescription = (SoftwareInducedFailureType) this
                     .eResolveProxy(oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription);

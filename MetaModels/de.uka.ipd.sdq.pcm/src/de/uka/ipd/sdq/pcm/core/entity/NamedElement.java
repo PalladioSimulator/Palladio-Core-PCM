@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Named Element</b></em>'.
@@ -24,9 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface NamedElement extends EObject {
+public interface NamedElement extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

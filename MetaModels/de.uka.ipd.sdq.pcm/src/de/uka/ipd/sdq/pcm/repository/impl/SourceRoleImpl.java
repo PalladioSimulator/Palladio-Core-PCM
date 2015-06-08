@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -72,7 +73,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      */
     @Override
     public EventGroup getEventGroup__SourceRole() {
-        if (this.eventGroup__SourceRole != null && this.eventGroup__SourceRole.eIsProxy()) {
+        if (this.eventGroup__SourceRole != null && ((EObject) this.eventGroup__SourceRole).eIsProxy()) {
             final InternalEObject oldEventGroup__SourceRole = (InternalEObject) this.eventGroup__SourceRole;
             this.eventGroup__SourceRole = (EventGroup) this.eResolveProxy(oldEventGroup__SourceRole);
             if (this.eventGroup__SourceRole != oldEventGroup__SourceRole) {

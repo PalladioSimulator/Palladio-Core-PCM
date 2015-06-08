@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 
@@ -40,9 +40,10 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface VariableCharacterisation extends EObject {
+public interface VariableCharacterisation extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

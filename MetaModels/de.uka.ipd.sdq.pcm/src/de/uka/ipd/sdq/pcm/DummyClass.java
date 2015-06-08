@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Dummy Class</b></em>'. <!--
@@ -14,9 +14,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.PcmPackage#getDummyClass()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface DummyClass extends EObject {
+public interface DummyClass extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

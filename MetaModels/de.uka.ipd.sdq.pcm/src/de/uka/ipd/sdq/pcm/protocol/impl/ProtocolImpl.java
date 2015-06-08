@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
  *
  * @generated
  */
-public abstract class ProtocolImpl extends MinimalEObjectImpl.Container implements Protocol {
+public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

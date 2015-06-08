@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -80,7 +81,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      */
     @Override
     public DataType getDatatype_InnerDeclaration() {
-        if (this.datatype_InnerDeclaration != null && this.datatype_InnerDeclaration.eIsProxy()) {
+        if (this.datatype_InnerDeclaration != null && ((EObject) this.datatype_InnerDeclaration).eIsProxy()) {
             final InternalEObject oldDatatype_InnerDeclaration = (InternalEObject) this.datatype_InnerDeclaration;
             this.datatype_InnerDeclaration = (DataType) this.eResolveProxy(oldDatatype_InnerDeclaration);
             if (this.datatype_InnerDeclaration != oldDatatype_InnerDeclaration) {

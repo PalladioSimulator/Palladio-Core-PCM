@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -112,7 +113,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      */
     @Override
     public EventGroup getEventGroup__EventChannel() {
-        if (this.eventGroup__EventChannel != null && this.eventGroup__EventChannel.eIsProxy()) {
+        if (this.eventGroup__EventChannel != null && ((EObject) this.eventGroup__EventChannel).eIsProxy()) {
             final InternalEObject oldEventGroup__EventChannel = (InternalEObject) this.eventGroup__EventChannel;
             this.eventGroup__EventChannel = (EventGroup) this.eResolveProxy(oldEventGroup__EventChannel);
             if (this.eventGroup__EventChannel != oldEventGroup__EventChannel) {

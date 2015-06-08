@@ -750,7 +750,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '
-     *         <em>Communication Link Resource Type Communication Link Resource Specification</em> 
+     *         <em>Communication Link Resource Type Communication Link Resource Specification</em>
      *         '.
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()
      * @see #getCommunicationLinkResourceSpecification()

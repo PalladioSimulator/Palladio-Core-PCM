@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -117,7 +118,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public ResourceEnvironment getTargetResourceEnvironment_Allocation() {
-        if (this.targetResourceEnvironment_Allocation != null && this.targetResourceEnvironment_Allocation.eIsProxy()) {
+        if (this.targetResourceEnvironment_Allocation != null
+                && ((EObject) this.targetResourceEnvironment_Allocation).eIsProxy()) {
             final InternalEObject oldTargetResourceEnvironment_Allocation = (InternalEObject) this.targetResourceEnvironment_Allocation;
             this.targetResourceEnvironment_Allocation = (ResourceEnvironment) this
                     .eResolveProxy(oldTargetResourceEnvironment_Allocation);
@@ -165,7 +167,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public de.uka.ipd.sdq.pcm.system.System getSystem_Allocation() {
-        if (this.system_Allocation != null && this.system_Allocation.eIsProxy()) {
+        if (this.system_Allocation != null && ((EObject) this.system_Allocation).eIsProxy()) {
             final InternalEObject oldSystem_Allocation = (InternalEObject) this.system_Allocation;
             this.system_Allocation = (de.uka.ipd.sdq.pcm.system.System) this.eResolveProxy(oldSystem_Allocation);
             if (this.system_Allocation != oldSystem_Allocation) {

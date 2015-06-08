@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.protocol;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Protocol</b></em>'. <!--
@@ -40,9 +40,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.protocol.ProtocolPackage#getProtocol()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface Protocol extends EObject {
+public interface Protocol extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

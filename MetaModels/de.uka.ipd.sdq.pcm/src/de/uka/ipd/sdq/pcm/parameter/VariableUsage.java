@@ -5,8 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
@@ -63,9 +63,10 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface VariableUsage extends EObject {
+public interface VariableUsage extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

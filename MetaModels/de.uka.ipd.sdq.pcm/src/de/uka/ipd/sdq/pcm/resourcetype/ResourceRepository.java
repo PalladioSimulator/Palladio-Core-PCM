@@ -5,8 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -33,9 +33,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRepository()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface ResourceRepository extends EObject {
+public interface ResourceRepository extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

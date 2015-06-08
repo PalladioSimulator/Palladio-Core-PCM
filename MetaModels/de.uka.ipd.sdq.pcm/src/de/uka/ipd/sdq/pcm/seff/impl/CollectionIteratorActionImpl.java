@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -74,7 +75,8 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
      */
     @Override
     public Parameter getParameter_CollectionIteratorAction() {
-        if (this.parameter_CollectionIteratorAction != null && this.parameter_CollectionIteratorAction.eIsProxy()) {
+        if (this.parameter_CollectionIteratorAction != null
+                && ((EObject) this.parameter_CollectionIteratorAction).eIsProxy()) {
             final InternalEObject oldParameter_CollectionIteratorAction = (InternalEObject) this.parameter_CollectionIteratorAction;
             this.parameter_CollectionIteratorAction = (Parameter) this
                     .eResolveProxy(oldParameter_CollectionIteratorAction);

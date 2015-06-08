@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -72,7 +73,7 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      */
     @Override
     public EventGroup getEventGroup__SinkRole() {
-        if (this.eventGroup__SinkRole != null && this.eventGroup__SinkRole.eIsProxy()) {
+        if (this.eventGroup__SinkRole != null && ((EObject) this.eventGroup__SinkRole).eIsProxy()) {
             final InternalEObject oldEventGroup__SinkRole = (InternalEObject) this.eventGroup__SinkRole;
             this.eventGroup__SinkRole = (EventGroup) this.eResolveProxy(oldEventGroup__SinkRole);
             if (this.eventGroup__SinkRole != oldEventGroup__SinkRole) {

@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 
@@ -37,9 +37,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface Parameter extends EObject {
+public interface Parameter extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

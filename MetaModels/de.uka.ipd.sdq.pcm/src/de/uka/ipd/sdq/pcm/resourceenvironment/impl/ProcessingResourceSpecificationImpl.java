@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -279,7 +280,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public SchedulingPolicy getSchedulingPolicy() {
-        if (this.schedulingPolicy != null && this.schedulingPolicy.eIsProxy()) {
+        if (this.schedulingPolicy != null && ((EObject) this.schedulingPolicy).eIsProxy()) {
             final InternalEObject oldSchedulingPolicy = (InternalEObject) this.schedulingPolicy;
             this.schedulingPolicy = (SchedulingPolicy) this.eResolveProxy(oldSchedulingPolicy);
             if (this.schedulingPolicy != oldSchedulingPolicy) {
@@ -326,7 +327,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     @Override
     public ProcessingResourceType getActiveResourceType_ActiveResourceSpecification() {
         if (this.activeResourceType_ActiveResourceSpecification != null
-                && this.activeResourceType_ActiveResourceSpecification.eIsProxy()) {
+                && ((EObject) this.activeResourceType_ActiveResourceSpecification).eIsProxy()) {
             final InternalEObject oldActiveResourceType_ActiveResourceSpecification = (InternalEObject) this.activeResourceType_ActiveResourceSpecification;
             this.activeResourceType_ActiveResourceSpecification = (ProcessingResourceType) this
                     .eResolveProxy(oldActiveResourceType_ActiveResourceSpecification);

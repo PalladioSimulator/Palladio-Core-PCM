@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -115,7 +116,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     @Override
     public OperationRequiredRole getInnerRequiredRole_RequiredDelegationConnector() {
         if (this.innerRequiredRole_RequiredDelegationConnector != null
-                && this.innerRequiredRole_RequiredDelegationConnector.eIsProxy()) {
+                && ((EObject) this.innerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
             final InternalEObject oldInnerRequiredRole_RequiredDelegationConnector = (InternalEObject) this.innerRequiredRole_RequiredDelegationConnector;
             this.innerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole) this
                     .eResolveProxy(oldInnerRequiredRole_RequiredDelegationConnector);
@@ -170,7 +171,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     @Override
     public OperationRequiredRole getOuterRequiredRole_RequiredDelegationConnector() {
         if (this.outerRequiredRole_RequiredDelegationConnector != null
-                && this.outerRequiredRole_RequiredDelegationConnector.eIsProxy()) {
+                && ((EObject) this.outerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
             final InternalEObject oldOuterRequiredRole_RequiredDelegationConnector = (InternalEObject) this.outerRequiredRole_RequiredDelegationConnector;
             this.outerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole) this
                     .eResolveProxy(oldOuterRequiredRole_RequiredDelegationConnector);
@@ -225,7 +226,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     @Override
     public AssemblyContext getAssemblyContext_RequiredDelegationConnector() {
         if (this.assemblyContext_RequiredDelegationConnector != null
-                && this.assemblyContext_RequiredDelegationConnector.eIsProxy()) {
+                && ((EObject) this.assemblyContext_RequiredDelegationConnector).eIsProxy()) {
             final InternalEObject oldAssemblyContext_RequiredDelegationConnector = (InternalEObject) this.assemblyContext_RequiredDelegationConnector;
             this.assemblyContext_RequiredDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext_RequiredDelegationConnector);

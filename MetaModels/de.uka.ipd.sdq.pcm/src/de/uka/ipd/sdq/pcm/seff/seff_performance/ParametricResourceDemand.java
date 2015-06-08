@@ -7,8 +7,8 @@ package de.uka.ipd.sdq.pcm.seff.seff_performance;
 
 import java.util.Map;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
@@ -128,9 +128,10 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  *
  * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface ParametricResourceDemand extends EObject {
+public interface ParametricResourceDemand extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

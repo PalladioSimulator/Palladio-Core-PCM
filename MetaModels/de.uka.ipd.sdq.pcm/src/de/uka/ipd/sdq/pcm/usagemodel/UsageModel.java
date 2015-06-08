@@ -5,8 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Usage Model</b></em>'. <!--
@@ -29,9 +29,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface UsageModel extends EObject {
+public interface UsageModel extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

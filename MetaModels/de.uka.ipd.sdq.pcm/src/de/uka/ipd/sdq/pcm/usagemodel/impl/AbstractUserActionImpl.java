@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -89,7 +90,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public AbstractUserAction getSuccessor() {
-        if (this.successor != null && this.successor.eIsProxy()) {
+        if (this.successor != null && ((EObject) this.successor).eIsProxy()) {
             final InternalEObject oldSuccessor = (InternalEObject) this.successor;
             this.successor = (AbstractUserAction) this.eResolveProxy(oldSuccessor);
             if (this.successor != oldSuccessor) {
@@ -165,7 +166,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public AbstractUserAction getPredecessor() {
-        if (this.predecessor != null && this.predecessor.eIsProxy()) {
+        if (this.predecessor != null && ((EObject) this.predecessor).eIsProxy()) {
             final InternalEObject oldPredecessor = (InternalEObject) this.predecessor;
             this.predecessor = (AbstractUserAction) this.eResolveProxy(oldPredecessor);
             if (this.predecessor != oldPredecessor) {

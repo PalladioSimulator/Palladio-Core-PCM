@@ -6,7 +6,7 @@
 package de.uka.ipd.sdq.pcm.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.DummyClass;
 import de.uka.ipd.sdq.pcm.PcmPackage;
@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.pcm.PcmPackage;
  *
  * @generated
  */
-public class DummyClassImpl extends MinimalEObjectImpl.Container implements DummyClass {
+public class DummyClassImpl extends CDOObjectImpl implements DummyClass {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

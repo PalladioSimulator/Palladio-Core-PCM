@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -130,7 +131,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     @Override
     public AssemblyContext getRequiringAssemblyContext_AssemblyConnector() {
         if (this.requiringAssemblyContext_AssemblyConnector != null
-                && this.requiringAssemblyContext_AssemblyConnector.eIsProxy()) {
+                && ((EObject) this.requiringAssemblyContext_AssemblyConnector).eIsProxy()) {
             final InternalEObject oldRequiringAssemblyContext_AssemblyConnector = (InternalEObject) this.requiringAssemblyContext_AssemblyConnector;
             this.requiringAssemblyContext_AssemblyConnector = (AssemblyContext) this
                     .eResolveProxy(oldRequiringAssemblyContext_AssemblyConnector);
@@ -180,7 +181,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     @Override
     public AssemblyContext getProvidingAssemblyContext_AssemblyConnector() {
         if (this.providingAssemblyContext_AssemblyConnector != null
-                && this.providingAssemblyContext_AssemblyConnector.eIsProxy()) {
+                && ((EObject) this.providingAssemblyContext_AssemblyConnector).eIsProxy()) {
             final InternalEObject oldProvidingAssemblyContext_AssemblyConnector = (InternalEObject) this.providingAssemblyContext_AssemblyConnector;
             this.providingAssemblyContext_AssemblyConnector = (AssemblyContext) this
                     .eResolveProxy(oldProvidingAssemblyContext_AssemblyConnector);
@@ -229,7 +230,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      */
     @Override
     public OperationProvidedRole getProvidedRole_AssemblyConnector() {
-        if (this.providedRole_AssemblyConnector != null && this.providedRole_AssemblyConnector.eIsProxy()) {
+        if (this.providedRole_AssemblyConnector != null && ((EObject) this.providedRole_AssemblyConnector).eIsProxy()) {
             final InternalEObject oldProvidedRole_AssemblyConnector = (InternalEObject) this.providedRole_AssemblyConnector;
             this.providedRole_AssemblyConnector = (OperationProvidedRole) this
                     .eResolveProxy(oldProvidedRole_AssemblyConnector);
@@ -276,7 +277,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      */
     @Override
     public OperationRequiredRole getRequiredRole_AssemblyConnector() {
-        if (this.requiredRole_AssemblyConnector != null && this.requiredRole_AssemblyConnector.eIsProxy()) {
+        if (this.requiredRole_AssemblyConnector != null && ((EObject) this.requiredRole_AssemblyConnector).eIsProxy()) {
             final InternalEObject oldRequiredRole_AssemblyConnector = (InternalEObject) this.requiredRole_AssemblyConnector;
             this.requiredRole_AssemblyConnector = (OperationRequiredRole) this
                     .eResolveProxy(oldRequiredRole_AssemblyConnector);

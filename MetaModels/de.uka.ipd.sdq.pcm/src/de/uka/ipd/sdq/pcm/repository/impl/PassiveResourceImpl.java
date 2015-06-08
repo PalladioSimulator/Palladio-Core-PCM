@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -216,7 +217,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
     @Override
     public ResourceTimeoutFailureType getResourceTimeoutFailureType__PassiveResource() {
         if (this.resourceTimeoutFailureType__PassiveResource != null
-                && this.resourceTimeoutFailureType__PassiveResource.eIsProxy()) {
+                && ((EObject) this.resourceTimeoutFailureType__PassiveResource).eIsProxy()) {
             final InternalEObject oldResourceTimeoutFailureType__PassiveResource = (InternalEObject) this.resourceTimeoutFailureType__PassiveResource;
             this.resourceTimeoutFailureType__PassiveResource = (ResourceTimeoutFailureType) this
                     .eResolveProxy(oldResourceTimeoutFailureType__PassiveResource);

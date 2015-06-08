@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -118,7 +119,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
     @Override
     public InfrastructureProvidedRole getProvidedRole__AssemblyInfrastructureConnector() {
         if (this.providedRole__AssemblyInfrastructureConnector != null
-                && this.providedRole__AssemblyInfrastructureConnector.eIsProxy()) {
+                && ((EObject) this.providedRole__AssemblyInfrastructureConnector).eIsProxy()) {
             final InternalEObject oldProvidedRole__AssemblyInfrastructureConnector = (InternalEObject) this.providedRole__AssemblyInfrastructureConnector;
             this.providedRole__AssemblyInfrastructureConnector = (InfrastructureProvidedRole) this
                     .eResolveProxy(oldProvidedRole__AssemblyInfrastructureConnector);
@@ -173,7 +174,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
     @Override
     public InfrastructureRequiredRole getRequiredRole__AssemblyInfrastructureConnector() {
         if (this.requiredRole__AssemblyInfrastructureConnector != null
-                && this.requiredRole__AssemblyInfrastructureConnector.eIsProxy()) {
+                && ((EObject) this.requiredRole__AssemblyInfrastructureConnector).eIsProxy()) {
             final InternalEObject oldRequiredRole__AssemblyInfrastructureConnector = (InternalEObject) this.requiredRole__AssemblyInfrastructureConnector;
             this.requiredRole__AssemblyInfrastructureConnector = (InfrastructureRequiredRole) this
                     .eResolveProxy(oldRequiredRole__AssemblyInfrastructureConnector);
@@ -228,7 +229,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
     @Override
     public AssemblyContext getProvidingAssemblyContext__AssemblyInfrastructureConnector() {
         if (this.providingAssemblyContext__AssemblyInfrastructureConnector != null
-                && this.providingAssemblyContext__AssemblyInfrastructureConnector.eIsProxy()) {
+                && ((EObject) this.providingAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
             final InternalEObject oldProvidingAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) this.providingAssemblyContext__AssemblyInfrastructureConnector;
             this.providingAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) this
                     .eResolveProxy(oldProvidingAssemblyContext__AssemblyInfrastructureConnector);
@@ -283,7 +284,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
     @Override
     public AssemblyContext getRequiringAssemblyContext__AssemblyInfrastructureConnector() {
         if (this.requiringAssemblyContext__AssemblyInfrastructureConnector != null
-                && this.requiringAssemblyContext__AssemblyInfrastructureConnector.eIsProxy()) {
+                && ((EObject) this.requiringAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
             final InternalEObject oldRequiringAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject) this.requiringAssemblyContext__AssemblyInfrastructureConnector;
             this.requiringAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext) this
                     .eResolveProxy(oldRequiringAssemblyContext__AssemblyInfrastructureConnector);

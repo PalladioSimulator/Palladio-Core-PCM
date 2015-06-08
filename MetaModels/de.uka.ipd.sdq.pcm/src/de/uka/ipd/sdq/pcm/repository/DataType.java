@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Data Type</b></em>'. <!--
@@ -24,9 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getDataType()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface DataType extends EObject {
+public interface DataType extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -10,8 +10,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  *
  * @generated
  */
-public class BranchTransitionImpl extends MinimalEObjectImpl.Container implements BranchTransition {
+public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransition {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

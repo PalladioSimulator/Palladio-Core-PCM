@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  *
  * @generated
  */
-public abstract class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement {
+public abstract class NamedElementImpl extends CDOObjectImpl implements NamedElement {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

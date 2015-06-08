@@ -5,8 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
@@ -39,9 +39,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface UserData extends EObject {
+public interface UserData extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

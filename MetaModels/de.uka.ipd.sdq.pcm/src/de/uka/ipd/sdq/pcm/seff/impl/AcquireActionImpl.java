@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -127,7 +128,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public PassiveResource getPassiveresource_AcquireAction() {
-        if (this.passiveresource_AcquireAction != null && this.passiveresource_AcquireAction.eIsProxy()) {
+        if (this.passiveresource_AcquireAction != null && ((EObject) this.passiveresource_AcquireAction).eIsProxy()) {
             final InternalEObject oldPassiveresource_AcquireAction = (InternalEObject) this.passiveresource_AcquireAction;
             this.passiveresource_AcquireAction = (PassiveResource) this.eResolveProxy(oldPassiveresource_AcquireAction);
             if (this.passiveresource_AcquireAction != oldPassiveresource_AcquireAction) {

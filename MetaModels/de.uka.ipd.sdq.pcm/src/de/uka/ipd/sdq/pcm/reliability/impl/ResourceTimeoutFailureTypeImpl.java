@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.reliability.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -78,7 +79,7 @@ ResourceTimeoutFailureType {
     @Override
     public PassiveResource getPassiveResource__ResourceTimeoutFailureType() {
         if (this.passiveResource__ResourceTimeoutFailureType != null
-                && this.passiveResource__ResourceTimeoutFailureType.eIsProxy()) {
+                && ((EObject) this.passiveResource__ResourceTimeoutFailureType).eIsProxy()) {
             final InternalEObject oldPassiveResource__ResourceTimeoutFailureType = (InternalEObject) this.passiveResource__ResourceTimeoutFailureType;
             this.passiveResource__ResourceTimeoutFailureType = (PassiveResource) this
                     .eResolveProxy(oldPassiveResource__ResourceTimeoutFailureType);

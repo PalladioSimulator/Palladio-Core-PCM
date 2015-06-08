@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -180,7 +181,8 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public ResourceRequiredRole getResourceRequiredRole__ResourceCall() {
-        if (this.resourceRequiredRole__ResourceCall != null && this.resourceRequiredRole__ResourceCall.eIsProxy()) {
+        if (this.resourceRequiredRole__ResourceCall != null
+                && ((EObject) this.resourceRequiredRole__ResourceCall).eIsProxy()) {
             final InternalEObject oldResourceRequiredRole__ResourceCall = (InternalEObject) this.resourceRequiredRole__ResourceCall;
             this.resourceRequiredRole__ResourceCall = (ResourceRequiredRole) this
                     .eResolveProxy(oldResourceRequiredRole__ResourceCall);
@@ -227,7 +229,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public ResourceSignature getSignature__ResourceCall() {
-        if (this.signature__ResourceCall != null && this.signature__ResourceCall.eIsProxy()) {
+        if (this.signature__ResourceCall != null && ((EObject) this.signature__ResourceCall).eIsProxy()) {
             final InternalEObject oldSignature__ResourceCall = (InternalEObject) this.signature__ResourceCall;
             this.signature__ResourceCall = (ResourceSignature) this.eResolveProxy(oldSignature__ResourceCall);
             if (this.signature__ResourceCall != oldSignature__ResourceCall) {

@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 
@@ -31,9 +31,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRequiredCharacterisation()
  * @model
+ * @extends CDOObject
  * @generated
  */
-public interface RequiredCharacterisation extends EObject {
+public interface RequiredCharacterisation extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

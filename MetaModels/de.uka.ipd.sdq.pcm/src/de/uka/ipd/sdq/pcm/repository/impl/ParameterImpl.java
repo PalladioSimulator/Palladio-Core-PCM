@@ -8,10 +8,11 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.EventType;
@@ -49,7 +50,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  *
  * @generated
  */
-public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter {
+public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -242,7 +243,7 @@ public class ParameterImpl extends MinimalEObjectImpl.Container implements Param
      */
     @Override
     public DataType getDataType__Parameter() {
-        if (this.dataType__Parameter != null && this.dataType__Parameter.eIsProxy()) {
+        if (this.dataType__Parameter != null && ((EObject) this.dataType__Parameter).eIsProxy()) {
             final InternalEObject oldDataType__Parameter = (InternalEObject) this.dataType__Parameter;
             this.dataType__Parameter = (DataType) this.eResolveProxy(oldDataType__Parameter);
             if (this.dataType__Parameter != oldDataType__Parameter) {

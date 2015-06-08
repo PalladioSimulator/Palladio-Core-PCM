@@ -10,8 +10,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  *
  * @generated
  */
-public class VariableCharacterisationImpl extends MinimalEObjectImpl.Container implements VariableCharacterisation {
+public class VariableCharacterisationImpl extends CDOObjectImpl implements VariableCharacterisation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

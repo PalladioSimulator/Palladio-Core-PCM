@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -227,7 +228,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      */
     @Override
     public DataType getReturnType__OperationSignature() {
-        if (this.returnType__OperationSignature != null && this.returnType__OperationSignature.eIsProxy()) {
+        if (this.returnType__OperationSignature != null && ((EObject) this.returnType__OperationSignature).eIsProxy()) {
             final InternalEObject oldReturnType__OperationSignature = (InternalEObject) this.returnType__OperationSignature;
             this.returnType__OperationSignature = (DataType) this.eResolveProxy(oldReturnType__OperationSignature);
             if (this.returnType__OperationSignature != oldReturnType__OperationSignature) {

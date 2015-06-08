@@ -11,12 +11,13 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -42,7 +43,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
  *
  * @generated
  */
-public class UserDataImpl extends MinimalEObjectImpl.Container implements UserData {
+public class UserDataImpl extends CDOObjectImpl implements UserData {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -153,7 +154,7 @@ public class UserDataImpl extends MinimalEObjectImpl.Container implements UserDa
      */
     @Override
     public AssemblyContext getAssemblyContext_userData() {
-        if (this.assemblyContext_userData != null && this.assemblyContext_userData.eIsProxy()) {
+        if (this.assemblyContext_userData != null && ((EObject) this.assemblyContext_userData).eIsProxy()) {
             final InternalEObject oldAssemblyContext_userData = (InternalEObject) this.assemblyContext_userData;
             this.assemblyContext_userData = (AssemblyContext) this.eResolveProxy(oldAssemblyContext_userData);
             if (this.assemblyContext_userData != oldAssemblyContext_userData) {

@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -180,7 +181,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public Signature getDescribedService__SEFF() {
-        if (this.describedService__SEFF != null && this.describedService__SEFF.eIsProxy()) {
+        if (this.describedService__SEFF != null && ((EObject) this.describedService__SEFF).eIsProxy()) {
             final InternalEObject oldDescribedService__SEFF = (InternalEObject) this.describedService__SEFF;
             this.describedService__SEFF = (Signature) this.eResolveProxy(oldDescribedService__SEFF);
             if (this.describedService__SEFF != oldDescribedService__SEFF) {

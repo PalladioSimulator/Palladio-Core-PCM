@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -106,7 +107,7 @@ ProvidedInfrastructureDelegationConnector {
     @Override
     public InfrastructureProvidedRole getInnerProvidedRole__ProvidedInfrastructureDelegationConnector() {
         if (this.innerProvidedRole__ProvidedInfrastructureDelegationConnector != null
-                && this.innerProvidedRole__ProvidedInfrastructureDelegationConnector.eIsProxy()) {
+                && ((EObject) this.innerProvidedRole__ProvidedInfrastructureDelegationConnector).eIsProxy()) {
             final InternalEObject oldInnerProvidedRole__ProvidedInfrastructureDelegationConnector = (InternalEObject) this.innerProvidedRole__ProvidedInfrastructureDelegationConnector;
             this.innerProvidedRole__ProvidedInfrastructureDelegationConnector = (InfrastructureProvidedRole) this
                     .eResolveProxy(oldInnerProvidedRole__ProvidedInfrastructureDelegationConnector);
@@ -161,7 +162,7 @@ ProvidedInfrastructureDelegationConnector {
     @Override
     public InfrastructureProvidedRole getOuterProvidedRole__ProvidedInfrastructureDelegationConnector() {
         if (this.outerProvidedRole__ProvidedInfrastructureDelegationConnector != null
-                && this.outerProvidedRole__ProvidedInfrastructureDelegationConnector.eIsProxy()) {
+                && ((EObject) this.outerProvidedRole__ProvidedInfrastructureDelegationConnector).eIsProxy()) {
             final InternalEObject oldOuterProvidedRole__ProvidedInfrastructureDelegationConnector = (InternalEObject) this.outerProvidedRole__ProvidedInfrastructureDelegationConnector;
             this.outerProvidedRole__ProvidedInfrastructureDelegationConnector = (InfrastructureProvidedRole) this
                     .eResolveProxy(oldOuterProvidedRole__ProvidedInfrastructureDelegationConnector);
@@ -216,7 +217,7 @@ ProvidedInfrastructureDelegationConnector {
     @Override
     public AssemblyContext getAssemblyContext__ProvidedInfrastructureDelegationConnector() {
         if (this.assemblyContext__ProvidedInfrastructureDelegationConnector != null
-                && this.assemblyContext__ProvidedInfrastructureDelegationConnector.eIsProxy()) {
+                && ((EObject) this.assemblyContext__ProvidedInfrastructureDelegationConnector).eIsProxy()) {
             final InternalEObject oldAssemblyContext__ProvidedInfrastructureDelegationConnector = (InternalEObject) this.assemblyContext__ProvidedInfrastructureDelegationConnector;
             this.assemblyContext__ProvidedInfrastructureDelegationConnector = (AssemblyContext) this
                     .eResolveProxy(oldAssemblyContext__ProvidedInfrastructureDelegationConnector);

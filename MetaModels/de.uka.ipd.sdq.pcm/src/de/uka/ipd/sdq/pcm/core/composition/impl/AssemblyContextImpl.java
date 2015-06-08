@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -159,7 +160,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
     @Override
     public RepositoryComponent getEncapsulatedComponent__AssemblyContext() {
         if (this.encapsulatedComponent__AssemblyContext != null
-                && this.encapsulatedComponent__AssemblyContext.eIsProxy()) {
+                && ((EObject) this.encapsulatedComponent__AssemblyContext).eIsProxy()) {
             final InternalEObject oldEncapsulatedComponent__AssemblyContext = (InternalEObject) this.encapsulatedComponent__AssemblyContext;
             this.encapsulatedComponent__AssemblyContext = (RepositoryComponent) this
                     .eResolveProxy(oldEncapsulatedComponent__AssemblyContext);

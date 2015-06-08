@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.cdo.CDOObject;
 
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -41,9 +41,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedQoSAnnotation()
  * @model abstract="true"
+ * @extends CDOObject
  * @generated
  */
-public interface SpecifiedQoSAnnotation extends EObject {
+public interface SpecifiedQoSAnnotation extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

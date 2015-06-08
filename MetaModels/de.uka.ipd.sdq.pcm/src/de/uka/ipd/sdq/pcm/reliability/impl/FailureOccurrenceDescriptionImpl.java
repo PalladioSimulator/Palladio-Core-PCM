@@ -13,9 +13,9 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
@@ -38,8 +38,7 @@ import de.uka.ipd.sdq.pcm.reliability.util.ReliabilityValidator;
  *
  * @generated
  */
-public abstract class FailureOccurrenceDescriptionImpl extends MinimalEObjectImpl.Container implements
-FailureOccurrenceDescription {
+public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl implements FailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

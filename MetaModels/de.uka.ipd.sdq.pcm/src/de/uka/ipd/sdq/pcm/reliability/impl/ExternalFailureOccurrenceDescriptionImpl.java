@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -162,7 +163,7 @@ ExternalFailureOccurrenceDescription {
     @Override
     public FailureType getFailureType__ExternalFailureOccurrenceDescription() {
         if (this.failureType__ExternalFailureOccurrenceDescription != null
-                && this.failureType__ExternalFailureOccurrenceDescription.eIsProxy()) {
+                && ((EObject) this.failureType__ExternalFailureOccurrenceDescription).eIsProxy()) {
             final InternalEObject oldFailureType__ExternalFailureOccurrenceDescription = (InternalEObject) this.failureType__ExternalFailureOccurrenceDescription;
             this.failureType__ExternalFailureOccurrenceDescription = (FailureType) this
                     .eResolveProxy(oldFailureType__ExternalFailureOccurrenceDescription);
